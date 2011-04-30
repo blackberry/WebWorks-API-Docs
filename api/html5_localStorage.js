@@ -16,6 +16,7 @@
 
 /**
  * @toc {Database} Local Storage
+ * @PB10
  * @namespace This object provides functions to access a list of key/value pairs. 
  * <p/>Each Storage object provides access to a list of key/value pairs, which are sometimes called items. 
  * Keys are strings. Any string (including the empty string) is a valid key. 
@@ -25,6 +26,7 @@
 
 localStorage ={
 		/**
+		 * @PB10
 		 * @desc the number of key/value pairs currently present in the list associated with the object.
 		 * @readOnly
 		 * @type unsigned long
@@ -32,6 +34,7 @@ localStorage ={
 		length :0,
 		
 		/**
+		 * @PB10
 		 * @desc return the name of the nth key in the list. The order of keys is user-agent defined, but must be consistent within an object so long as the number of keys doesn't change.
 		 * @param {unsigned long} index the nth key in the list
 		 * @returns {DOMString} the name of the nth key in the list. If index is greater than or equal to the number of key/value pairs in the object, then this method must return null.
@@ -39,6 +42,7 @@ localStorage ={
 		key : function(index){},
 		
 		/**
+		 * @PB10
 		 * @desc return a structured clone of the current value associated with the given key.
 		 * @param {DOMString} key the key for the key/value pair 
 		 * @returns {any} the value associated with the given key. If the given key does not exist, this method return null.
@@ -46,6 +50,7 @@ localStorage ={
 		getItem : function(key){},
 		
 		/**
+		 * @PB10
 		 * @desc this method first create a structured clone of the given value. 
 		 * If this raises an exception, then the exception must be thrown and the list associated with the object is left unchanged. 
 		 * If constructing the structured clone would involve constructing a new <b>ImageData</b> object, then throw a <b>NOT_SUPPORTED_ERR</b> exception instead.
@@ -60,12 +65,14 @@ localStorage ={
 		setItem : function(key, value){},
 
 		/**
+		 * @PB10
 		 * @desc cause the key/value pair with the given key to be removed from the list associated with the object, if it exists. If no item with that key exists, the method do nothing.
 		 * @param  {DOMString} key the key for the key/value pair
 		 */
 		removeItem : function(key){},
 
 		/**
+		 * @PB10
 		 * @desc atomically cause the list associated with the object to be emptied of all key/value pairs, if there are any. If there are none, then the method do nothing.
 		 */
 		clear : function(){}

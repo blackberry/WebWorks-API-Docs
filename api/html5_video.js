@@ -15,7 +15,8 @@
 */
 
 /**
- * @toc {Video} HTML5 Video 
+ * @toc {Media} HTML5 Video 
+ * @PB10
  *The &#60video&#62 tag specifies video, such as a movie clip or other video streams.<br>
  * Tip: Any text inside the between &#60video&#62 and &#60/video&#62 will be displayed in browsers that do not support the video element.<br>
  * The &#60video&#62 tag also supports the Event Attributes in HTML5.<br>

@@ -15,7 +15,9 @@
 */
 
 /**
- * @toc {User Interface} HTML5 Audio
+ * @toc {Media} HTML5 Audio
+ * @PB10
+ * @BB60+
  * @class audio
  * The audio tag defines sound, such as music or other audio streams.
  * <p/>
@@ -26,6 +28,8 @@
 audio ={
 
 		/**
+		 * @PB10
+		 * @BB60+
 		 * @description The autoplay attribute specifies that the audio will start playing as soon as it is ready.
 		 * <p/>
 		 * If this attribute is present the audio will autoplay.
@@ -50,6 +54,8 @@ audio ={
 		
 		
 		/**
+		 * @PB10
+		 * @BB60+
 		 * @description The controls attribute specifies that the browser should provide playback controls for the audio.
 		 * <p>
 		 * When this attribute is set, it specifies that no scripted controls are set, and the browser should use its default controls.
@@ -76,6 +82,8 @@ audio ={
 		
 		
 		/**
+		 * @PB10
+		 * @BB60+
 		 * @description The loop attribute specifies that the audio will start over again, every time it is finished.
 		 * <p>
 		 * If this attribute is present the audio will loop.
@@ -99,6 +107,8 @@ audio ={
 		loop ,
 		
 		/**
+		 * @PB10
+		 * @BB60+
 		 * @description The preload attribute specifies if the audio should be loaded when the page loads.
 		 * <p/> This attribute is ignored if autoplay is present.
 		 * syntax :
@@ -124,6 +134,8 @@ audio ={
 		preload : ,
 		
 		/**
+		 * @PB10
+		 * @BB60+
 		 * @description The src attribute specifies the URL of the audio to play.
 		 * <p/>The audio can also be set using the <source> tag.
 		 * <p>
