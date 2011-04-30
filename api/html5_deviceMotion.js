@@ -47,6 +47,7 @@ Acceleration={
 
 /**
  * @toc {Accelerometer} RotationRate
+ * @PB10
  *Represents the Angular velocity of the motion.
  *The orientation of the device is given in terms of the transfromation from a coordinate frame fixed on the Earth to a coordinate frame fixed in the device.
  *The Earth coordinate frame is a 'East, North, Up' frame at the user's location. It has the following 3 axes, where the ground plane is tangent to the WGS 84 spheroid at the user's location.

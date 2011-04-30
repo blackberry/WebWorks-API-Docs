@@ -15,7 +15,7 @@
 */
 
 /**
- * @toc {Audio} HTML5 Audio
+ * @toc {Media} HTML5 Audio
  * @PB10
  * @BB60+
  * @class audio
