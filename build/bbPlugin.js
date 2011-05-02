@@ -33,7 +33,7 @@ JSDOC.PluginManager.registerPlugin(
                 var betaTag = symbol.comment.getTag("beta");
                 var paramCallbacks = symbol.comment.tags.filter(function($){return $.isCallback && $.title == "param"});
                 var fieldCBs = symbol.comment.tags.filter(function($){return $.isCallback && $.title == "field"});
-		var learnTag = symbol.comment.getTag("learn");
+		var learnTag = symbol.comment.getTag("learns");
                 
                 //If its a class/namespace
                 if((symbol.is("CONSTRUCTOR") || symbol.isNamespace) && !(symbol.alias == "_global_")){
@@ -55,7 +55,7 @@ JSDOC.PluginManager.registerPlugin(
                     }
 		    
 		    if(learnTag.length) {
-                        symbol.betaTag = learnTag;
+                        symbol.learnTag = learnTag;
                     }
                 }else{ //Its a property or method
                     if(readOnly.length){
@@ -64,11 +64,7 @@ JSDOC.PluginManager.registerPlugin(
                     if( uri.length){
                         symbol.uri = uri;
                     }
-                    
-		    if(learnTag.length) {
-                        symbol.betaTag = learnTag;
-                    }
-		    
+                
                     //Mark all parameters as callback based on their tags
                     if(paramCallbacks.length){
                         for(var i=0;i<paramCallbacks.length;i++){
@@ -130,6 +126,9 @@ JSDOC.PluginManager.registerPlugin(
                     docTag.title = "param";
                     docTag.isCallback = true;
                 }
+		if (docTag.title == "learns"){
+		    docTag.desc = docTag.nibbleName(docTag.desc);
+		}
             }           
         }
     }
