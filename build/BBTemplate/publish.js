@@ -306,7 +306,6 @@ var tableNo =  "<td class=\"apiTd apiNo\">&nbsp;</td>";
 
 function resolveSupport(symbol){
 	if(symbol && symbol.comment){
-		print("Resolving support for "+ symbol.alias);
 		
 		symbol.supportStrings = [];
 		symbol.supportTag = "";
