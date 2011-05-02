@@ -109,12 +109,15 @@ blackberry.push.Data.DECLINE_USERRFS = 5;
 
 /**
 * Returns the value of a header field. 
+* @function
+* @name blackberry.push.Data.prototype.getHeaderField
 * @param {String} field This parameter is the name of the header field.
 * @returns {String}
 * @BB50+
 */
 /**
 * Returns the value of a header field. 
+* @function
 * @name blackberry.push.Data.prototype.getHeaderField^2
 * @param {Number} field This parameter is the integer index of the header to retrieve.
 * @returns {String}
