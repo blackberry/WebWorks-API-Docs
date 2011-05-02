@@ -126,24 +126,21 @@ function publish(symbolSet) {
 	
 	// COPY FILES
 	//CSS files
-	var cssFiles = IO.ls(publish.conf.templatesDir+"/"+publish.conf.cssDir);
-	for(var i = 0;i<cssFiles.length;i++){
-		IO.copyFile(cssFiles[i], publish.conf.outDir+"/"+publish.conf.cssDir);
-	}
+	copyFiles(publish.conf.templatesDir+"/"+publish.conf.cssDir,publish.conf.outDir+"/"+publish.conf.cssDir );
 	//Static files
-	var staticFiles = IO.ls(publish.conf.templatesDir+"/"+publish.conf.staticDir);
-	for(var i = 0;i<staticFiles.length;i++){
-		IO.copyFile(staticFiles[i], publish.conf.outDir);
-	}
+	copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir );
 	//Image Files
-	var imageFiles = IO.ls(publish.conf.templatesDir+"/"+publish.conf.imagesDir);
-	for(var i = 0;i<imageFiles.length;i++){
-		IO.copyFile(imageFiles[i], publish.conf.outDir+"/"+publish.conf.imagesDir);
-	}		
+	copyFiles(publish.conf.templatesDir+"/"+publish.conf.imagesDir,publish.conf.outDir+"/"+publish.conf.imagesDir );		
 	//JS Files
-	var jsFiles = IO.ls(publish.conf.templatesDir+"/"+publish.conf.jsDir);
-	for(var i = 0;i<jsFiles.length;i++){
-		IO.copyFile(jsFiles[i], publish.conf.outDir+"/"+publish.conf.jsDir);
+	copyFiles(publish.conf.templatesDir+"/"+publish.conf.jsDir,publish.conf.outDir+"/"+publish.conf.jsDir );
+}
+
+function copyFiles(srcDir,destDir){
+	if(IO.exists(srcDir)){
+		var files = IO.ls(srcDir);
+		for(var i = 0;i<files.length;i++){
+			IO.copyFile(files[i], destDir);
+		}
 	}
 }
 
