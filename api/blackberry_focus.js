@@ -16,12 +16,6 @@
 
 
 /**
-* @namespace
-*/
-blackberry = { };
-
-
-/**
 * <div><h3>Guidelines</h3><p>
 *       If the BlackBerry device doesn't have a trackball or trackpad, the focus-based navigation mode will not be enabled even if the widget configuration document specifies that focus-based navigation is used.
 *       If the widget is configured for focus-based navigation and it runs on a BlackBerry device that uses a trackpad or trackball, focus-based navigation will be enabled.

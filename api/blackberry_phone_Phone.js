@@ -15,10 +15,6 @@
 */
 
 
-/**
-* @namespace
-*/
-blackberry.phone = { };
 
 
 /**

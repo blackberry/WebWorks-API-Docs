@@ -15,3 +15,9 @@
 */
 
 
+
+/**
+* @namespace
+*/
+blackberry.message = { };
+

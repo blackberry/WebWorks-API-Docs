@@ -15,9 +15,9 @@
 */
 
 
+
 /**
 * @namespace
 */
-blackberry.phone = { };
-
+blackberry.ui = { };
 

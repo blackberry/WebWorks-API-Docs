@@ -16,12 +16,6 @@
 
 
 /**
-* @namespace
-*/
-blackberry.audio = { };
-
-
-/**
 * <div><p>
 *       The audio player is intended to play audio content only.
 *       It is an instance object; if a new instance is desired, it must be created using the new keyword.

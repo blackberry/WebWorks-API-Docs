@@ -16,12 +16,6 @@
 
 
 /**
-* @namespace
-*/
-blackberry.phone.Phone = { };
-
-
-/**
 * @toc {Phone} Phone Call 
 * @BB50+
 * @namespace Represents an active phone call.

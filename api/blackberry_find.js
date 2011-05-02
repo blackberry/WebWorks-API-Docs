@@ -14,4 +14,9 @@
 * limitations under the License.
 */
 
+/**
+* @namespace
+*/
+blackberry.find = { };
+
 

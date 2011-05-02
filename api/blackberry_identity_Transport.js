@@ -16,12 +16,6 @@
 
 
 /**
-* @namespace
-*/
-blackberry.identity = { };
-
-
-/**
 * <div><p>
 *       Transport objects behave like a registry, in that they allow you to keep track of the various configuration settings of your BlackBerry device.  The Transport object is an instance object that cannot be created using the new keyword.
 *     </p></div>

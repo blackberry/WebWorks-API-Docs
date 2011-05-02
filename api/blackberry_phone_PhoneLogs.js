@@ -15,11 +15,6 @@
 */
 
 
-/**
-* @namespace
-*/
-blackberry.phone = { };
-
 
 /**
 * @toc {Phone} PhoneLogs 
