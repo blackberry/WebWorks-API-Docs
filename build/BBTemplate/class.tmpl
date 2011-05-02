@@ -86,6 +86,24 @@
 				vertical-align: top;
 				background-color: #FCD8B9;
 			}
+			
+			table.learnTable {
+				border-width: 1px;
+				border-style: solid;
+				border-color: #ccc;
+				padding: 5px;
+				vertical-align: top;
+				margin: 5px;
+				margin-bottom:15px;
+				width : 90%;
+				background-color: #99FFCC;
+			}
+			
+			td.learnTd {
+				color: #484848;
+				vertical-align: top;
+				background-color: #99FFCC;
+			}
 
 		</style>
 	  
@@ -93,6 +111,14 @@
 		<script src="server.js"></script>
 	</head>
 	
+
+<!-- ============================== description ============================ -->
+	<p>
+		<if test="data.classDesc">
+			{+resolveLinks(data.classDesc)+}
+		</if>
+	</p>
+
 <!-- ============================== Beta Tag ============================ -->
 	<if test="data.betaTag">
 		<table class="betaTable">
@@ -112,12 +138,23 @@
 			 </tr>
 		</table>
 	</if>
-<!-- ============================== description ============================ -->
-	<p>
-		<if test="data.classDesc">
-			{+resolveLinks(data.classDesc)+}
-		</if>
-	</p>
+
+
+<!-- ============================== Learning Resources ============================ -->
+	<if test="data.learnTag">
+		<table class="learnTable">
+			 <tr>
+				<td class="learnTd">
+				   <div class="title">Learning Resources:</div>
+				   <for each="item" in="data.learnTag">
+					{!output+="<a href=" + item.name + ">" + item.type + "</a>";!}
+					{+item.desc+}
+				   </for>
+				</td>
+
+			 </tr>
+		</table>
+	</if>
 	
 <!-- ============================== Support Platforms ============================ -->
 	{!var allChildren =[]!}

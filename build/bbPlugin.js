@@ -33,6 +33,7 @@ JSDOC.PluginManager.registerPlugin(
                 var betaTag = symbol.comment.getTag("beta");
                 var paramCallbacks = symbol.comment.tags.filter(function($){return $.isCallback && $.title == "param"});
                 var fieldCBs = symbol.comment.tags.filter(function($){return $.isCallback && $.title == "field"});
+		var learnTag = symbol.comment.getTag("learn");
                 
                 //If its a class/namespace
                 if((symbol.is("CONSTRUCTOR") || symbol.isNamespace) && !(symbol.alias == "_global_")){
@@ -52,6 +53,10 @@ JSDOC.PluginManager.registerPlugin(
 		    if(betaTag.length) {
                         symbol.betaTag = betaTag;
                     }
+		    
+		    if(learnTag.length) {
+                        symbol.betaTag = learnTag;
+                    }
                 }else{ //Its a property or method
                     if(readOnly.length){
                         symbol.readOnly = readOnly;
@@ -60,6 +65,10 @@ JSDOC.PluginManager.registerPlugin(
                         symbol.uri = uri;
                     }
                     
+		    if(learnTag.length) {
+                        symbol.betaTag = learnTag;
+                    }
+		    
                     //Mark all parameters as callback based on their tags
                     if(paramCallbacks.length){
                         for(var i=0;i<paramCallbacks.length;i++){

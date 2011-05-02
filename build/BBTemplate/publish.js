@@ -284,8 +284,18 @@ function resolveLinks(str, from) {
 			}catch(e){}
 			return "<image src=\""+publish.conf.imagesDir + fileName+"\">";
 		}
-	);	
-	
+	);
+
+	//str = str.replace(/\{@learns ([^} ]+) ?\}/gi,
+	//	function(match, symbolName) {
+	//		
+	//		var linkAddress; //have to retrieve this somehow
+	//		var linkName; //have to retrieve this somehow
+	//		
+	//		return "<a href=\"" + linkAddress + ">" + linkName +"\"</a>";
+	//	}
+	//);
+
 	return str;
 }
 
