@@ -15,7 +15,7 @@
 */
 
 /**
- * @toc {canvas} HTML5 canvas element
+ * @toc {Canvas} HTML5 canvas element
  * @namespace
  * The canvas tag is used to display graphics. <br>
  * The canvas tag is only a container for graphics, you must use a script to actually paint graphics.<br>
