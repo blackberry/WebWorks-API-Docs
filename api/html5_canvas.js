@@ -16,30 +16,11 @@
 
 /**
  * @toc {canvas} HTML5 canvas element
- * @class
+ * @namespace
  * The canvas tag is used to display graphics. <br>
  * The canvas tag is only a container for graphics, you must use a script to actually paint graphics.<br>
  * The canvas tag is new in HTML5.<br>
  * Any text inside the between &#60canvas&#62 and &#60/canvas&#62 will be displayed in browsers that does not support the canvas element.
- * @BB60+
- * @example
- * Add a canvas element to the HTML5 page:
- *   &#60canvas id="myCanvas" width="200" height="100"&#62&#60/canvas&#62
- * @example
- * The canvas element has no drawing abilities of its own. 
- * <br>All drawing must be done inside a JavaScript:
- *   &#60script type="text/javascript"&#62
- *     var c=document.getElementById("myCanvas");
- *     var cxt=c.getContext("2d");
- *     cxt.fillStyle="#FF0000";
- *     cxt.fillRect(0,0,150,75);
- *   &#60/script&#62 
- * @example
- * Draw a red rectangle:
- *   var c=document.getElementById("myCanvas"); 
- *   var cxt=c.getContext("2d"); 
- *   cxt.fillStyle="#FF0000";
- *   cxt.fillRect(0,0,150,75); 
  */
 
 canvas ={
@@ -54,6 +35,10 @@ canvas ={
 		 * Syntax :
 		 * &#60canvas height="value"&#62	
 		 * @type {pixels} The height in pixels (like "100px" or just "100")
+		 * @BB60+
+		 * @PB10+
+		 * @example
+		 * &#60canvas id="myCanvas" width="200" height="100"&#62&#60/canvas&#62
 		 */
 		height :,
 		
@@ -67,28 +52,60 @@ canvas ={
 		 * Syntax :
 		 * &#60canvas width="value"&#62	
 		 * @type {pixels} The width in pixels (like "100px" or just "100")
+		 * @BB60+
+		 * @PB10+
 		 */
 		width :,
-			
-		/**
-		 * @desc Returns a URL for the image in the canvas.
-		 * @param {String} [type] The argument, if provided, controls the type of the image to be returned (e.g. PNG or JPEG). 
-		 * The default is image/png; that type is also used if the given type isn't supported. 
-		 * @returns {String} When called with no arguments, returns a data:URL containing a representation of the image as a PNG file.
-		 * When the method is called with one arguments, it must return a data:URL containing a representation of the image in the format 
-		 * given by type. The possible values are MIME types with no parameters, for example image/png, image/jpeg, 
-		 * or even maybe image/svg+xml if the implementation actually keeps enough information to reliably render an SVG image from the canvas.
-		 */
-		toDataURL: function([type]) {},
 		
 		/**
 		 * @desc Returns an object that exposes an API for drawing on the canvas. 
-		 * @param {String} contextId Specifies the desired API. 
+		 * @param {String} contextId Specifies the desired API.<br>
+		 * List of defined contexts: 2d, webgl. 
 		 * @returns {Object} Returns an object for contextId.
 		 * Returns null if the given context ID is not supported or if the canvas has already been initialised with some other (incompatible) 
 		 * context type (e.g. trying to get a "2d" context after getting a "webgl" context).
+		 * @BB60+
+		 * @PB10+
+		 * @example
+		 * &#60script type="text/javascript"&#62
+		 *   var c=document.getElementById("myCanvas");
+		 *   var cxt=c.getContext("2d");
+		 *   cxt.fillStyle="#FF0000";
+		 *   cxt.fillRect(0,0,150,75);
+		 * &#60/script&#62 
 		 */
-		getContext: function(contextId) {}
+		getContext: function(contextId) {},
+			
+		/**
+		 * @desc Returns a data:URL for the image in the canvas.
+		 * @param {String} [type] The argument, if provided, controls the type of the image to be returned (e.g. PNG or JPEG). 
+		 * The default is image/png; that type is also used if the given type isn't supported. 
+		 * @returns {String} When called with no arguments, returns a data:URL containing a representation of the image as a PNG file.
+		 * If the canvas has no pixels (i.e. either its horizontal dimension or its vertical dimension is zero) then the method must return the string "data:,". 
+		 * When the method is called with one arguments, it must return a data:URL containing a representation of the image in the format 
+		 * given by type. The possible values are MIME types with no parameters, for example image/png, image/jpeg, 
+		 * or even maybe image/svg+xml if the implementation actually keeps enough information to reliably render an SVG image from the canvas.
+		 * @BB60+
+		 * @PB10+
+		 * @example
+		 * &#60script&#62
+		 *   var img1=new Image();
+         *   img1.src="Image1.jpeg";
+		 *   var canvas=document.createElement('canvas');
+		 *   canvas.width=300;
+		 *   canvas.height=300;
+		 *   var canvas2d=canvas.getContext("2d");
+		 *   canvas2d.drawImage(img1,100,100);
+		 *   window.location = canvas.toDataURL("image/png");
+		 * &#60/script&#62
+		 * @example
+		 * &#60canvas id=mycanvas width=200 height=200&#62&#60/canvas&#62
+		 * &#60script&#62
+		 *   var canvas = document.getElementById("mycanvas"); 
+		 *   var context = canvas.getContext("2d"); 
+		 *   var img = canvas.toDataURL(); 
+		 *   document.write('&#60img src="'+img+'"/&#62');
+		 * &#60/script&#62
+		 */
+		toDataURL: function([type]) {}
 };
-
-  
