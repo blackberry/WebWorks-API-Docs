@@ -16,12 +16,6 @@
 
 
 /**
-* @namespace
-*/
-blackberry.invoke = { };
-
-
-/**
 * <div><p>
 *       The SearchArguments object must be created as an instance using the new keyword.
 *     </p></div>

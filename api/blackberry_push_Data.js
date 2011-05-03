@@ -14,13 +14,6 @@
 * limitations under the License.
 */
 
-
-/**
-* @namespace
-*/
-blackberry.push = { };
-
-
 /**
 * <div><p>
 *       This object cannot be created by the new keyword.  It is generated only by the system on receipt of push data.
@@ -116,19 +109,22 @@ blackberry.push.Data.DECLINE_USERRFS = 5;
 
 /**
 * Returns the value of a header field. 
+* @function
+* @name blackberry.push.Data.prototype.getHeaderField
 * @param {String} field This parameter is the name of the header field.
 * @returns {String}
 * @BB50+
 */
-blackberry.push.Data.prototype.getHeaderField = function(field) { };
-
 /**
 * Returns the value of a header field. 
+* @function
+* @name blackberry.push.Data.prototype.getHeaderField^2
 * @param {Number} field This parameter is the integer index of the header to retrieve.
 * @returns {String}
 * @BB50+
 */
 blackberry.push.Data.prototype.getHeaderField = function(field) { };
+
 
 /**
 * Retrieves the source for this push stream.  String form of the source of this push; it could be a UID for a connection, IPv4 address, or SMSC. 

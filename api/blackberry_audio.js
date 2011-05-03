@@ -16,12 +16,6 @@
 
 
 /**
-* @namespace
-*/
-blackberry = { };
-
-
-/**
 * @toc {Audio} Audio 
 * @BB50+
 * @namespace The audio object provides information about supported audio functionality on the device.

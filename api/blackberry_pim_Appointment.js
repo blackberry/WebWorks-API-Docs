@@ -16,12 +16,6 @@
 
 
 /**
-* @namespace
-*/
-blackberry.pim = { };
-
-
-/**
 * <div><p>
 *       This Appointment object can be used for manipulating calendar appointments. The Appointment object is an instance object, where if a new instance is desired, it must be created using the new keyword.
 *     </p></div>

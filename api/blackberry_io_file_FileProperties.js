@@ -14,13 +14,6 @@
 * limitations under the License.
 */
 
-
-/**
-* @namespace
-*/
-blackberry.io.file = { };
-
-
 /**
 * <div><p>
 *       This class can only be created by using the "blackberry.io.file.getFileProperties()" method.

@@ -15,11 +15,6 @@
 */
 
 
-/**
-* @namespace
-*/
-blackberry.pim = { };
-
 
 /**
 * <div><p>
