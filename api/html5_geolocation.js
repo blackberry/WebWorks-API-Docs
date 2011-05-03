@@ -27,7 +27,7 @@ Geolocation = {
 		 * @param {Object} [PositionOptions] return {@link PositionOptions} of a current position.
 		 * @PB10
 		 */
-        getCurrentPosition : function(positionCB, positionErrorCB, positionOptions) {};
+        getCurrentPosition : function(PositionCallback, PositionErrorCallback, positionOptions) {};
         
 		
 		/**
@@ -38,7 +38,7 @@ Geolocation = {
 		 * @returns {Long} Return a watchId so that it can be use in function {@link Geolocation.clearWatch}.
 		 * @PB10
 		 */
-        watchPosition : function(positionCB, positionErrorCB, positionOptions) {};
+        watchPosition : function(PositionCallback, PositionErrorCallback, positionOptions) {};
         
 		
 		/**
