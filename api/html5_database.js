@@ -63,9 +63,17 @@ SQLTransaction = {
 		/**
 		 * @desc This method executes the provided SQL statement
 		 * @param {DOMString} sqlStatement the SQL statement
-		 * @param {ObjectArray} [arguments] the optional arguments 
+		 * @param {ObjectArray} [arguments] the optional arguments used to preprocess a SQL statement by binding each ? placeholder with the value of the argument in the arguments array with the same position.
 		 * @param {function} [callback] Function to be called when statement's result set is ready. Expected signature: function SQLStatementCallback (SQLTransaction transaction, SQLResultSet resultSet).
 		 * @param {function} [errorCallback] Function to be called when SQL error occurs. Expected signature: function SQLStatementErrorCallback (SQLTransaction transaction, SQLError error).
 		 */
 		executeSql : function(sqlStatement, arguments, callback, errorCallback) {}
+};
+
+/**
+ * @toc {Database} SQLResultSet
+ * @namespace
+ */
+SQLResultSet = {
+		
 };
