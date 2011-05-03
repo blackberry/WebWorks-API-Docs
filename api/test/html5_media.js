@@ -1,0 +1,580 @@
+
+/**
+* All media elements have an associated error status, which records 
+* the last error the element encountered since its resource selection 
+* algorithm was last invoked. The error attribute, on getting, must 
+* return the MediaError object created for this last error, or null if 
+* there has not been an error.
+* @class
+* @BB60+
+* @PB10+
+*/
+MediaError = function() { }
+
+/**
+* The fetching process for the media resource was aborted by the user 
+* agent at the user's request.
+* @constant
+* @type NUMBER
+* @BB60+
+* @PB10+
+*/
+MediaError.MEDIA_ERR_ABORTED = 1;
+
+/**
+* A network error of some description caused the user agent to stop 
+* fetching the media resource, after the resource was established to 
+* be usable.
+* @constant
+* @type NUMBER
+* @BB60+
+* @PB10+
+*/
+MediaError.MEDIA_ERR_NETWORK = 2;
+
+/**
+* An error of some description occurred while decoding the media 
+* resource, after the resource was established to be usable.
+* @constant
+* @type Number
+* @BB60+
+* @PB10+
+*/
+MediaError.MEDIA_ERR_DECODE = 3;
+
+/**
+* The media resource indicated by the src attribute was not suitable.
+* @constant
+* @type Number
+* @BB60+
+* @PB10+
+*/
+MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED = 4;
+
+
+/**
+* The code attribute of a MediaError object must return the code for 
+* the error
+* @type Number|MediaError.MEDIA_ERR_ABORTED|MEDIA_ERR_NETWORK|MediaError.MEDIA_ERR_DECODE|MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+MediaError.prototype.code = { }
+
+/**
+* Objects implementing the TimeRanges interface represent a list of 
+* ranges (periods) of time. <br/><br/>
+*
+* When a TimeRanges object is said to be a normalized TimeRanges 
+* object, the ranges it represents must obey the following criteria:
+* The start of a range must be greater than the end of all earlier ranges.
+* The start of a range must be less than the end of that same range.
+* In other words, the ranges in such an object are ordered, don't 
+* overlap, aren't empty, and don't touch (adjacent ranges are folded 
+* into one bigger range).
+* @class
+* @BB60+
+* @PB10+
+*/
+TimeRanges = function() { }
+
+
+/**
+* Returns a MediaError object representing the current error state of the element.
+* Returns null if there is no error.
+* @type Number
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+TimeRanges.prototype.length = { };
+
+/**
+* Returns the time for the start of the range with the given index.
+* @param {Number} index
+* @BB60+
+* @PB10+
+*/
+TimeRanges.prototype.start = function(index) { };
+
+/**
+* Returns the time for the end of the range with the given ind
+* @param {Number} index
+* @BB60+
+* @PB10+
+*/
+TimeRanges.prototype.end = function(index) { };
+
+
+/**
+* Media elements are used to present audio data, or video and 
+* audio data, to the user. This is referred to as media data in 
+* this section, since this section applies equally to media 
+* elements for audio or for video
+* @class
+* @toc {Media} HTMLMediaElement
+*/
+HTMLMediaElement = function() { }
+
+/**
+* Returns a MediaError object representing the current error state of the element.
+* Returns null if there is no error.
+* @type MediaError|null
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.error = { };
+
+/**
+* The src content attribute on media elements gives the address of the 
+* media resource (video, audio) to show. The attribute, if present, 
+* must contain a valid non-empty URL potentially surrounded by spaces.
+*
+* If a src attribute of a media element is set or changed, the user 
+* agent must invoke the media element's media element load algorithm. 
+* (Removing the src attribute does not do this, even if there are 
+* source elements present.)
+* @type String
+*/
+HTMLMediaElement.prototype.src = { };
+
+/**
+* The currentSrc IDL attribute is initially the empty string. If 
+* absolute URL in 'src' was obtained successfully, set the currentSrc 
+* attribute to absolute URL.
+* @readOnly
+* @type String
+*/
+HTMLMediaElement.prototype.currentSRC = { };
+
+/**
+* The element has not yet been initialized. All attributes are in their 
+* initial states.
+* @constant
+* @type Number
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.NETWORK_EMPTY = 0;
+
+/**
+* The element's resource selection algorithm is active and has 
+* selected a resource, but it is not actually using the network at this time.
+* @constant
+* @type Number
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.NETWORK_IDLE = 1;
+
+/**
+* The element's resource selection algorithm is active, but it has not 
+* yet found a resource to use.
+* @constant
+* @type Number
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.NETWORK_LOADING = 2;
+
+/**
+* The user agent is actively trying to download data.
+* @constant
+* @type Number
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.NETWORK_NO_SOURCE = 3;
+
+
+/**
+* As media elements interact with the network, their current network 
+* activity is represented by the networkState attribute. On getting, 
+* it must return the current network state of the element
+* @type Number|HTMLMediaElement.NETWORK_EMPTY|HTMLMediaElement.NETWORK_IDLE|HTMLMediaElement.NETWORK_LOADING|HTMLMediaElement.NETWORK_NO_SOURCE
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.networkState = { };
+
+/**
+* The preload attribute is intended to provide a hint to the user agent 
+* about what the author thinks will lead to the best user experience. The 
+* attribute may be ignored altogether, for example based on explicit user 
+* preferences or based on the available connectivity. <br/><br/>
+*
+* The preload attribute is an enumerated attribute. The following table 
+* lists the keywords and states for the attribute — the keywords in the 
+* left column map to the states in the cell in the second column on the 
+* same row as the keyword. <br/><br/>
+*
+* &lt;table&gt;l
+*     &lt;thead&gt;&lt;tr&gt;
+*         &lt;th&gt;Keyword&lt;/th&gt;
+*         &lt;th&gt;State&lt;/th&gt;
+*         &lt;th&gt;Brief description&lt;/th&gt;
+*     &lt;/tr&gt;&lt;/thead&gt;
+*     &lt;tbody&gt;
+*         &lt;tr&gt;
+*             &lt;td&gt;&lt;code&gt;none&lt;/code&gt;&lt;/td&gt;
+*             &lt;td&gt;None&lt;/td&gt;
+*             &lt;td&gt;Hints to the user agent that either the author does not expect the user to need the media resource, or that the server wants to minimise unnecessary traffic.&lt;/td&gt;
+*         &lt;/tr&gt;
+*         &lt;tr&gt;
+*             &lt;td&gt;&lt;code&gt;metadata&lt;/code&gt;&lt;/td&gt;
+*             &lt;td&gt;Metadata&lt;/td&gt;
+*             &lt;td&gt;Hints to the user agent that the author does not expect the user to need the media resource, but that fetching the resource metadata (dimensions, first frame, track list, duration, etc) is reasonable.&lt;/td&gt;
+*         &lt;/tr&gt;
+*         &lt;tr&gt;
+*             &lt;td&gt;&lt;code&gt;auto&lt;/code&gt;&lt;/td&gt;
+*             &lt;td&gt;Automatic&lt;/td&gt;
+*             &lt;td&gt;Hints to the user agent that the user agent can put the user\&#039;s needs first without risk to the server, up to and including optimistically downloading the entire resource.&lt;/td&gt;
+*         &lt;/tr&gt;
+*     &lt;/tbody&gt;
+* &lt;/table&gt;
+* @type String
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.preload = { };
+
+/**
+* The buffered attribute must return a new static normalized TimeRanges 
+* object that represents the ranges of the media resource, if any, that 
+* the user agent has buffered, at the time the attribute is evaluated.
+* @type TimeRanges
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.buffered;
+
+/**
+* Causes the element to reset and start selecting and loading a 
+* new media resource from scratch.
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.load = function () { };
+
+
+/**
+* Returns the empty string (a negative response), "maybe", or 
+* "probably" based on how confident the user agent is that it can 
+* play media resources of the given type.
+* @param {String} type the media type you are trying to play, for example: "application/octet-stream;codecs=theora" would return an empty string
+*/
+HTMLMediaElement.prototype.canPlayType = function(type) { };
+
+/**
+* No information regarding the media resource is available. No data 
+* for the current playback position is available. Media elements whose 
+* networkState attribute are set to NETWORK_EMPTY are always in the 
+* HAVE_NOTHING state.
+* @constant
+* @type Number
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.HAVE_NOTHING = 0;
+
+/**
+* Enough of the resource has been obtained that the duration of the 
+* resource is available. In the case of a video element, the 
+* dimensions of the video are also available. The API will no longer 
+* raise an exception when seeking. No media data is available for the 
+* immediate current playback position. The text tracks are ready.
+* @constant
+* @type Number
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.HAVE_METADATA = 1;
+
+/**
+* Data for the immediate current playback position is available, but 
+* either not enough data is available that the user agent could 
+* successfully advance the current playback position in the direction 
+* of playback at all without immediately reverting to the HAVE_METADATA 
+* state, or there is no more data to obtain in the direction of 
+* playback. For example, in video this corresponds to the user agent 
+* having data from the current frame, but not the next frame; and to 
+* when playback has ended.
+* @constant
+* @type Number
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.HAVE_CURRENT_DATA = 2;
+
+/**
+* Data for the immediate current playback position is available, 
+* as well as enough data for the user agent to advance the current 
+* playback position in the direction of playback at least a little 
+* without immediately reverting to the HAVE_METADATA state. For 
+* example, in video this corresponds to the user agent having data 
+* for at least the current frame and the next frame. The user agent 
+* cannot be in this state if playback has ended, as the current playback position can never advance in this case.
+* @constant
+* @type Number
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.HAVE_FUTURE_DATA = 3;
+
+/**
+* All the conditions described for the HAVE_FUTURE_DATA state are met, 
+* and, in addition, the user agent estimates that data is being 
+* fetched at a rate where the current playback position, if it were 
+* to advance at the rate given by the defaultPlaybackRate attribute, 
+* would not overtake the available data before playback reaches the 
+* end of the media resource.
+* @constant
+* @type Number
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.HAVE_ENOUGH_DATA = 4;
+
+
+/**
+* on getting, return the value described above that describes the 
+* current ready state of the media element.
+* @type Number|HTMLMediaElement.HAVE_NOTHING|HTMLMediaElement.HAVE_METADATA|HTMLMediaElement.HAVE_CURRENT_DATA|HTMLMediaElement.HAVE_FUTURE_DATA|HTMLMediaElement.HAVE_ENOUGH_DATA
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.readyState = { };
+
+/**
+* Returns true if the user agent is currently seeking. The seeking 
+* attribute must initially have the value false.
+* @type Boolean
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.seeking = { };
+
+/**
+* The currentTime attribute must, on getting, return the current 
+* playback position, expressed in seconds. On setting, the user agent 
+* must seek to the new value (which might raise an exception).
+* @type Number
+* @BB60+
+* @PB10+
+*/
+
+HTMLMediaElement.prototype.currentTime = { };
+
+
+/**
+* return the initial playback position, expressed in seconds.
+* @type Number
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.initialTime = { };
+
+/**
+* The duration attribute must return the time of the end of the media resource, in seconds
+* @type Number
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.duration = {};
+
+/**
+* The startOffsetTime attribute must return a new Date object representing the current timeline offset.
+* @type Date
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.startOffsetTime = { };
+
+/**
+* The paused attribute represents whether the media element is paused or not. The attribute must initially be true.
+* @type Boolean
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.paused = { };
+
+/**
+* The defaultPlaybackRate attribute gives the desired speed at which 
+* the media resource is to play, as a multiple of its intrinsic speed. 
+* The attribute is mutable: on getting it must return the last value 
+* it was set to, or 1.0 if it hasn't yet been set; on setting the 
+* attribute must be set to the new value
+* @type Number
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.defaultPlaybackRate = { };
+
+/**
+* The playbackRate attribute gives the speed at which the media resource 
+* plays, as a multiple of its intrinsic speed. If it is not equal to 
+* the defaultPlaybackRate, then the implication is that the user is 
+* using a feature such as fast forward or slow motion playback. The 
+* attribute is mutable: on getting it must return the last value it 
+* was set to, or 1.0 if it hasn't yet been set; on setting the 
+* attribute must be set to the new value, and the playback must 
+* change speed (if the element is potentially playing).
+* @type Number
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.playbackRate = { };
+
+/**
+* The played attribute must return a new static normalized TimeRanges 
+* object that represents the ranges of the media resource, if any, 
+* that the user agent has so far rendered, at the time the attribute 
+* is evaluated.
+* @type TimeRanges
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.played = { };
+
+/**
+* The seekable attribute must return a new static normalized TimeRanges 
+* object that represents the ranges of the media resource, if any, 
+* that the user agent is able to seek to, at the time the attribute 
+* is evaluated.
+* @type TimeRanges
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.seekable = { };
+
+/**
+* The ended attribute must return true if the media element has ended 
+* playback and the direction of playback is forwards, and false 
+* otherwise.
+* @type Boolean
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.ended = { };
+
+/**
+* If true, the user agent will automatically begin playback of the media 
+* resource as soon as it can do so without stopping.
+* @type Boolean
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.autoplay = { };
+
+/**
+* If set to "true", the loop attribute indicates that the media 
+* element is to seek back to the start of the media resource upon 
+* reaching the end.
+* @type Boolean
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.loop = { };
+
+/**
+* Play the video. If the video has ended, the player will seek to the 
+* beginning and start again. 
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.play = function() { };
+
+/**
+* Pause playback of the video.
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.pause =  function() { };
+
+/**
+* Indicates that the author has not provided a scripted controller and 
+* would like the user agent to provide its own set of controls.
+* @type Boolean
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.controls = { };
+
+/**
+* Return the playback volume of any audio portions of the media 
+* element, in the range 0.0 (silent) to 1.0 (loudest). Initially, 
+* the volume must be 1.0, but user agents may remember the last set 
+* value across sessions, on a per-site basis or otherwise, so the 
+* volume may start at other values. On setting, if the new value is 
+* in the range 0.0 to 1.0 inclusive, the attribute must be set to 
+* the new value.
+* @type Number
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.volume = { };
+
+/**
+* Must return true if the audio channels are muted and false otherwise. 
+* @type Boolean
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.muted = { };
+
+/**
+* TextTrackCue 
+*/
+TextTrackCueList = function() { }
+
+/**
+* TextTrackCueList
+*/
+TextTrackCueList = function() { }
+
+/**
+* TextTrackList
+*/
+TextTrack = function() { }
+
+/**
+* TextTrackList
+* @extends TextTrackList
+*/
+MutableTextTrack = function() { }
+
+
+/**
+* Returns the TextTrack objects of the text tracks in the media 
+* element's list of text tracks, in the same order as in the list 
+* of text tracks.
+* @type TextTrackList
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.textTracks = { };
+
+/**
+* 
+* @param {String} kind kind is not one of the following strings "subtitles", "captions", "descriptions", "chapters", "metadata"
+* @param {String} label text track label
+* @param {String} language language of the text track
+* @returns MutableTextTrack
+* @BB60+
+* @PB10+
+*/
+HTMLMediaElement.prototype.addTrack = function(kind, label, language) { };
+
+
