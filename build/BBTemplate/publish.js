@@ -281,7 +281,7 @@ function resolveLinks(str, from) {
 			}catch(e){}
 			return "<image src=\""+publish.conf.imagesDir + fileName+"\">";
 		}
-	);	
+	);
 	
 	return str;
 }
