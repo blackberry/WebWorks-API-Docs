@@ -107,5 +107,5 @@ canvas ={
 		 *   document.write('&#60img src="'+img+'"/&#62');
 		 * &#60/script&#62
 		 */
-		toDataURL: function([type]) {}
+		toDataURL: function(type) {}
 };
