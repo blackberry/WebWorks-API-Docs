@@ -32,7 +32,7 @@
  * 
  * notifyMeWhenMinimized();
  * &lt;/script&gt;
- * @learns {PlayBook Bezel Menu} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Sample-Code-Swipe-down-menu-for-BlackBerry-WebWorks-SDK-for/ta-p/943521  Sample that demonstrates how to add a swipe-down menu to your PlayBook application using the onSwipeDown function [BlackBerry Developer Resource Center]. 
+ * @learns {Sample - Swipe Down Menu} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Sample-Code-Swipe-down-menu-for-BlackBerry-WebWorks-SDK-for/ta-p/943521  Sample that demonstrates how to add a swipe-down menu to your PlayBook application using the onSwipeDown function [BlackBerry Developer Resource Center]. 
  */
 blackberry.app.event = {
 	
