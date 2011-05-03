@@ -18,7 +18,7 @@
  * @toc {System} Application Event
  * @featureid blackberry.app.event
  * @namespace The Application Event object allows you to access events triggered by the application
- * <p/>
+  * <p/>
  * The Application Event Object is static; all of its functions and properties are used directly from the object.
  * @example
  * &lt;script type="text/javascript"&gt;
@@ -32,6 +32,7 @@
  * 
  * notifyMeWhenMinimized();
  * &lt;/script&gt;
+ * @learns {PlayBook Bezel Menu sample} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Sample-Code-Swipe-down-menu-for-BlackBerry-WebWorks-SDK-for/ta-p/943521  Demonstration on how to add a menu to your application using the onSwipeDown function [BlackBerry Developer Resource Center]. 
  */
 blackberry.app.event = {
 	
