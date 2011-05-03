@@ -143,16 +143,15 @@
 <!-- ============================== Learning Resources ============================ -->
 	<if test="data.learnTag">
 		<table class="learnTable">
-			 <tr>
-				<td class="learnTd">
-				   <div class="title">Learning Resources:</div>
-				   <for each="item" in="data.learnTag">
-					{!output+="<a href=" + item.name + ">" + item.type + "</a>";!}
-					{+item.desc+}
-				   </for>
-				</td>
-
-			 </tr>
+			<div class="title">Learning Resources:</div>
+			<for each="item" in="data.learnTag">
+				<tr>
+					<td class="learnTd">
+						{!output+="<a href=" + item.name + ">" + item.type + "</a>";!}
+						{+item.desc+}
+					</td>
+				</tr>
+			</for>
 		</table>
 	</if>
 	
