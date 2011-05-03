@@ -35,24 +35,6 @@
  */
 blackberry.invoke = {
                 
-		BrowserArguments :
-		{
-			/**
-			* Open Browser application on the BlackBerry Playbook.
-			* @class The BrowserArguments object is an instance object, and is used as a parameter to the invoke() method when invoking the BlackBerry Browser application.  
-			* <p/>
-			* The BrowserArguments object must be created as an instance using the new keyword.   
-			* @toc {Invoke} BrowserArguments
-			* @featureID blackberry.invoke
-			* @featureID blackberry.invoke.BrowserArguments
-			* @BB50+
-			* @PB10
-			* @constructs
-			* @param {String} url  The desired url to bring up in the browser.
-			*/
-			constructor : function(url){}
-		},
-                
 		/**
 		 * @desc Invokes another application on the BlackBerry Playbook.
 		 * @param {Number} appType an integer value representing the type of application to launch. Must be one of the 'APP_*' constants.

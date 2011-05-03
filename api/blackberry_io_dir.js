@@ -14,13 +14,6 @@
 * limitations under the License.
 */
 
-
-/**
-* @namespace
-*/
-blackberry.io = { };
-
-
 /**
 * @toc {IO} Directory 
 * @BB50+

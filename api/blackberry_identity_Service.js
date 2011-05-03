@@ -16,12 +16,6 @@
 
 
 /**
-* @namespace
-*/
-blackberry.identity = { };
-
-
-/**
 * <div><p>
 *       A Service object will describe different settings for different kinds of accounts on the BlackBerry device.  A user might have Hotmail account, a Unite account, and a BES account on the device.
 *       Each service entry will describe the details of that specific service and will also provide a class to be passed into the constructors of PIM objects that could be saved specifically to their intended service.

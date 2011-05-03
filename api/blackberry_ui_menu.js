@@ -16,12 +16,6 @@
 
 
 /**
-* @namespace
-*/
-blackberry.ui = { };
-
-
-/**
 * <div><p>
 *       The functionality in this object allows you to manipulate the dynamically created menu items for the application.  This will not allow you to remove the default menu items for the application.
 *       To create a separator simply pass the appropriate parameters into the MenuItem constructor.

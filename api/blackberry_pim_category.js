@@ -16,12 +16,6 @@
 
 
 /**
-* @namespace
-*/
-blackberry.pim = { };
-
-
-/**
 * <div><p>
 *       The functionality in this namespace allows you to access and manipulate categories defined for the PIM database.
 *     </p></div>

@@ -16,12 +16,6 @@
 
 
 /**
-* @namespace
-*/
-blackberry.widgetcache = { };
-
-
-/**
 * @toc {Cache} CacheInformation 
 * @BB50+
 * @namespace The CacheInformation object provides information about entities saved in the widget cache.

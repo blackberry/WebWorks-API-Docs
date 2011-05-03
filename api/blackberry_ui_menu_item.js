@@ -14,13 +14,6 @@
 * limitations under the License.
 */
 
-
-/**
-* @namespace
-*/
-blackberry.ui.menu = { };
-
-
 /**
 * <div><p>
 *       The MenuItem object is an instance object, where if a new instance is desired, it must be created using the new keyword.

@@ -16,12 +16,6 @@
 
 
 /**
-* @namespace
-*/
-blackberry.message = { };
-
-
-/**
 * <div><p>
 *       The Message object is an instance object, where if a new instance is desired, it must be created using the new keyword.
 *     </p></div>

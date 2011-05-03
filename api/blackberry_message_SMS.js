@@ -16,12 +16,6 @@
 
 
 /**
-* @namespace
-*/
-blackberry.message = { };
-
-
-/**
 * @toc {Message} SMS
 * @BB50+
 * @namespace Provides static functions to send SMS messages

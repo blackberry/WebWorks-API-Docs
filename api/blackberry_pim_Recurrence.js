@@ -16,12 +16,6 @@
 
 
 /**
-* @namespace
-*/
-blackberry.pim = { };
-
-
-/**
 * <div><p>
 *       Examples of this rule could be to setup an appointment on a weekly or monthly basis. The Recurrence object is an instance object, where if a new instance is desired, it must be created using the new keyword.
 *     </p></div>

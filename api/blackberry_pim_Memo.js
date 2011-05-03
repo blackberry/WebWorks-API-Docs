@@ -16,12 +16,6 @@
 
 
 /**
-* @namespace
-*/
-blackberry.pim = { };
-
-
-/**
 * <div><p>
 *       The Memo object is an instance object, where if a new instance is desired, it must be created using the new keyword.
 *     </p></div>

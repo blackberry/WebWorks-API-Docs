@@ -14,13 +14,6 @@
 * limitations under the License.
 */
 
-
-/**
-* @namespace
-*/
-blackberry.invoke = { };
-
-
 /**
 * <div><p>
 *       The CameraArguments object must be created as an instance using the new keyword.

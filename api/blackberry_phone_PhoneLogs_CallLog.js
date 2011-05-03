@@ -16,12 +16,6 @@
 
 
 /**
-* @namespace
-*/
-blackberry.phone.PhoneLogs = { };
-
-
-/**
 * @toc {Phone} CallLog 
 * @BB50+
 * @namespace The CallLog object represents an entry in the call log of the phone application.

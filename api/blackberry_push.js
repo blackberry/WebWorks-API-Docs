@@ -16,12 +16,6 @@
 
 
 /**
-* @namespace
-*/
-blackberry = { };
-
-
-/**
 * @toc {Push} Push 
 * @BB50+
 * @namespace The Push object allows you to leverage the BlackBerry push architecture to receive push data in your application.

@@ -15,11 +15,6 @@
 */
 
 
-/**
-* @namespace
-*/
-blackberry = { };
-
 
 /**
 * @toc {Cache} Widgetcache 

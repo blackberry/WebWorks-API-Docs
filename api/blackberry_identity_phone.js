@@ -16,12 +16,6 @@
 
 
 /**
-* @namespace
-*/
-blackberry.identity = { };
-
-
-/**
 * <div><p>
 *       The Phone Identity object is static; all of its functions and properties are used directly from the object.
 *     </p></div>
