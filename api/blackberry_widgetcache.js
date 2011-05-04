@@ -17,57 +17,60 @@
 
 
 /**
-* @toc {Cache} Widgetcache 
+* @toc {Cache} WidgetCache 
 * @BB50+
-* @namespace The WidgetCache object provides functions and properties to control Widget Caching behavior.
+* @namespace The WidgetCache object provides functions and properties to control application Caching behavior.
 * @featureID blackberry.widgetcache
-* @example
-* &lt;script type=&quot;text&sol;javascript&quot;&gt;
-*   &sol;&sol;Clears the cache if its size is over 9000.
-*   function cleanUp() {
-*     if(blackberry.widgetcache.getCurrentSize()&gt;9000) {
-*       blackberry.widgetcache.clearAll();
-*     }
-*   }
-* &lt;&sol;script&gt;
 */
-blackberry.widgetcache = { };
+blackberry.widgetcache = { 
 
-/**
-* Returns the current total size used by the caches. 
-* @returns {Number}
-* @BB50+
-*/
-blackberry.widgetcache.getCurrentSize = function() { };
+	/**
+	* Requests the current total size used by the caches. 
+	* @returns {Number} Returns the current total size in bytes
+	* @BB50+
+	*/
+	getCurrentSize : function() { },
 
-/**
-* Returns all the cache information of the cached copies. 
-* @returns {CacheInformation[]}
-* @BB50+
-*/
-blackberry.widgetcache.getCacheInformation = function() { };
+	/**
+	* Requests all the cache information of the cached copies. 
+	* @returns {CacheInformation[]} Returns an array of CacheInformation objects
+	* @BB50+
+	*/
+	getCacheInformation : function() { },
 
-/**
-* Removes all items currently in the cache. 
-* @returns {void}
-* @BB50+
-*/
-blackberry.widgetcache.clearAll = function() { };
+	/**
+	* Removes all items currently in the cache. 
+	* @BB50+
+	* @example
+	* &lt;script type=&quot;text/javascript&quot;&gt;
+	*   // Clears the cache if its size is over 9000.
+	*   function cleanUp() {
+	*     if(blackberry.widgetcache.getCurrentSize()&gt;9000) {
+	*       blackberry.widgetcache.clearAll();
+	*     }
+	*   }
+	* &lt;/script&gt;
+	*/
+	clearAll : function() { },
 
-/**
-* Checks whether there is a cached copy for the specified URL, whether expired or not. 
-* @param {String} url The URL for which the cache will be checked.
-* @returns {Boolean}
-* @BB50+
-*/
-blackberry.widgetcache.hasCache = function(url) { };
+	/**
+	* Checks whether there is a cached copy for the specified URL, whether expired or not. 
+	* @param {String} url The URL for which the cache will be checked.
+	* @returns {Boolean} Returns true if there is a cached copy
+	* @BB50+
+	*/
+	hasCache : function(url) { },
 
-/**
-* Clears the cached copy of the specified URL. 
-* @param {String} url The URL for which the cache will be cleared.
-* @returns {void}
-* @BB50+
-*/
-blackberry.widgetcache.clearCache = function(url) { };
+	/**
+	* Clears the cached copy of the specified URL. 
+	* @param {String} url The URL for which the cache will be cleared.
+	* @BB50+
+	*/
+	clearCache : function(url) { }
+
+
+};
+
+
 
 
