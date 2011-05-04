@@ -335,6 +335,8 @@ ctrlKey,altKey,shiftKey,metaKey,touches,targetTouches,changedTouches) {
 *    return false;
 * };
 * window.document.addEventListener('touchmove', preventMove, false);
+ * @learns {Reference - Touch API} http://docs.blackberry.com/en/developers/deliverables/27297/Touch_Objects_1593432_11.jsp BlackBerry browser JavaScript reference guide [BlackBerry Documentation].
+ * @learns {Sample - SketchPad Application} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Sample-Code-SketchPad-Application/ta-p/614077 Example that draws finger sketches on an HTML5 canvas corresponding to touch screen or trackpad movement [BlackBerry Developer Resource Center].
 */
 Element = function() {
 }
