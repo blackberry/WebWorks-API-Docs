@@ -21,7 +21,7 @@
 * <div><p>
 *       The FilterExpression object is an instance object, where if a new instance is desired, it must be created using the new keyword.
 *     </p></div>
-* @toc {Find} FilterExpression 
+* @toc {PIM} FilterExpression 
 * @BB50+
 * @class The FilterExpression object represents the expression that is used to &apos;find&apos; an item that matches its defined condition. A FilterExpression object contains two fields, an operator and optional a boolean flag that indicates whether the condition should be evaluated negatively.
 * @featureID blackberry.find
