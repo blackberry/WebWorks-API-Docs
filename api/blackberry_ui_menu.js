@@ -38,6 +38,8 @@
 *       alert(&quot;user just clicked me&quot;);
 *     }
 * &lt;&sol;script&gt;
+ * @learns {Sample - Menu Items} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Adding-Menu-Items-using-the-BlackBerry-WebWorks-SDK/ta-p/516885 Example that demonstrates how to use the Menu API to create a custom application menu in a BlackBerry WebWorks application [BlackBerry Developer Resource Center].
+
 */
 blackberry.ui.menu = { };
 

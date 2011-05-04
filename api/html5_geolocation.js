@@ -17,6 +17,10 @@
 /**
  * @namespace The Geolocation object is used by scripts to programmatically determine the location information associated with the hosting device. The location information is acquired by applying a user-agent specific algorithm, creating a Position object, and populating that object with appropriate data accordingly.  
  * @toc {GPS} Geolocation 
+ * @learns {Specs - W3C Geolocation} http://dev.w3.org/geo/api/spec-source.html W3C Editor's Draft for the Geolocation API specification [http://dev.w3.org].
+ * @learns {Reference - Geolocation API} http://docs.blackberry.com/en/developers/deliverables/18446/Geolocation_Objects_1228502_11.jsp BlackBerry browser JavaScript reference guide [BlackBerry Documentation].
+ * @learns {Sample - Using HTML5 Geolocation} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Using-HTML5-Geolocation-in-your-Web-or-BlackBerry-WebWorks/ta-p/630406 Sample that demonstrates how to use the HTML5 Geolocation API [BlackBerry Developer Resource Center].
+ * @learns {How To - Enable GPS on PlayBook} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/How-To-Enable-GPS-capability-in-BlackBerry-WebWorks-for-Tablet/ta-p/1035855 How to enable GPS capability when using the BlackBerry WebWorks SDK for Tablet OS [BlackBerry Developer Resource Center].
  */
 Geolocation = {        
         
