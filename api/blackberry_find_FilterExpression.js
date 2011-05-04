@@ -124,38 +124,42 @@
 *   }
 * &lt;&sol;script&gt;
 */
-blackberry.find.FilterExpression = function(leftField,operator,rightField,negate) { };
+blackberry.find.FilterExpression = function(leftField,operator,rightField,negate) { 
 
-/**
-*  
-* @type object
-* @readOnly
-* @BB50+
-*/
-blackberry.find.FilterExpression.prototype.leftField = { };
+	/**
+	*  
+	* @type object
+	* @readOnly
+	* @BB50+
+	*/
+	blackberry.find.FilterExpression.prototype.leftField = { };
 
-/**
-*  
-* @type object
-* @readOnly
-* @BB50+
-*/
-blackberry.find.FilterExpression.prototype.operator = { };
+	/**
+	*  
+	* @type object
+	* @readOnly
+	* @BB50+
+	*/
+	blackberry.find.FilterExpression.prototype.operator = { };
 
-/**
-*  
-* @type object
-* @readOnly
-* @BB50+
-*/
-blackberry.find.FilterExpression.prototype.rightField = { };
+	/**
+	*  
+	* @type object
+	* @readOnly
+	* @BB50+
+	*/
+	blackberry.find.FilterExpression.prototype.rightField = { };
 
-/**
-* The boolean flag that indicates whether the condition of the FilterExpression object should be evaluated negatively.  This should only be used when you have nested expressions.  On regular field&sol;value comparisons, negate isn&apos;t necessary as the != is sufficient. 
-* @type Boolean
-* @readOnly
-* @BB50+
-*/
-blackberry.find.FilterExpression.prototype.negate = { };
+	/**
+	* The boolean flag that indicates whether the condition of the FilterExpression object should be evaluated negatively.  This should only be used when you have nested expressions.  On regular field&sol;value comparisons, negate isn&apos;t necessary as the != is sufficient. 
+	* @type Boolean
+	* @readOnly
+	* @BB50+
+	*/
+	blackberry.find.FilterExpression.prototype.negate = { };
+
+};
+
+
 
 
