@@ -16,57 +16,63 @@
 
 
 /**
-* @toc {Audio} Audio 
+* @toc {Media} Audio 
 * @BB50+
 * @namespace The audio object provides information about supported audio functionality on the device.
 * @featureID blackberry.audio
 * @featureID blackberry.audio.Player
-* @example
-* &lt;script type=&quot;text&sol;javascript&quot;&gt;
-*   &sol;&sol; Display supported content types for specified protocol 
-*   var protocol = &quot;file&quot;;
-*   var contentTypes = blackberry.audio.supportedContentTypes(protocol);
-* 
-*   if (contentTypes) {
-*     var printingContentTypesList = &quot;&quot;;
-*     for (i = 0; i &lt; contentTypes.length; i++) {
-*       printingContentTypesList += contentTypes[i] + &quot;&bsol;n&quot;;
-*     }
-*     
-*     alert(&quot;List of &quot; + contentTypes.length + &quot; supported content-types for &apos;&quot; + protocol + &quot;&apos; :&bsol;n&quot; + printingContentTypesList);
-*   }    
-* &lt;&sol;script&gt;
-* @example
-* &lt;script type=&quot;text&sol;javascript&quot;&gt;
-*   &sol;&sol; Display all supported protocols
-*   var protocols = blackberry.audio.supportedProtocols(null);
-* 
-*   if (protocols) {
-*     var printingProtocolsList = &quot;&quot;;
-*     for (i = 0; i &lt; protocols.length; i++) {
-*       printingProtocolsList += protocols[i] + &quot;&bsol;n&quot;;
-*     }
-*     
-*     alert(&quot;List of &quot; + protocols.length + &quot; supported protocols:&bsol;n&quot; + printingProtocolsList);  
-*   }    
-* &lt;&sol;script&gt;
 */
-blackberry.audio = { };
+blackberry.audio = { 
 
-/**
-* Return the list of supported content types for the given protocol. 
-* @param {String} protocol The input protocol for the supported content types.
-* @returns {String[]}
-* @BB50+
-*/
-blackberry.audio.supportedContentTypes = function(protocol) { };
+	/**
+	* Request the list of supported content types for a specified protocol. 
+	* @param {String} protocol The input protocol for the supported content types.
+	* @returns {String[]} The list of supported content types for the protocol provided
+	* @BB50+
+	* @example
+	* &lt;script type=&quot;text/javascript&quot;&gt;
+	*   // Display supported content types for specified protocol 
+	*   var protocol = &quot;file&quot;;
+	*   var contentTypes = blackberry.audio.supportedContentTypes(protocol);
+	* 
+	*   if (contentTypes) {
+	*     var printingContentTypesList = &quot;&quot;;
+	*     for (i = 0; i &lt; contentTypes.length; i++) {
+	*       printingContentTypesList += contentTypes[i] + &quot;\n&quot;;
+	*     }
+	*     
+	*     alert(&quot;List of &quot; + contentTypes.length + &quot; supported content-types for &apos;&quot; + protocol + &quot;&apos; :\n&quot; + printingContentTypesList);
+	*   }    
+	* &lt;/script&gt;
+	*/
+	supportedContentTypes : function(protocol) { },
+	
+	/**
+	* Request the list of supported protocols for a specified content type. 
+	* @param {String} content_type The content type for the supported protocols.
+	* @returns {String[]} The list of supported protocols for the content type provided
+	* @BB50+
+	* @example
+	* &lt;script type=&quot;text/javascript&quot;&gt;
+	*   // Display all supported protocols
+	*   var protocols = blackberry.audio.supportedProtocols(null);
+	* 
+	*   if (protocols) {
+	*     var printingProtocolsList = &quot;&quot;;
+	*     for (i = 0; i &lt; protocols.length; i++) {
+	*       printingProtocolsList += protocols[i] + &quot;\n&quot;;
+	*     }
+	*     
+	*     alert(&quot;List of &quot; + protocols.length + &quot; supported protocols:\n&quot; + printingProtocolsList);  
+	*   }    
+	* &lt;/script&gt;
+	*/
+	supportedProtocols : function(content_type) { }
 
-/**
-* Return the list of supported protocols given the content type. 
-* @param {String} content_type The content type for the supported protocols.
-* @returns {String[]}
-* @BB50+
-*/
-blackberry.audio.supportedProtocols = function(content_type) { };
+};
+
+
+
+
 
 
