@@ -26,6 +26,8 @@
 * @param {Number} ordinal The ordinal of this MenuItem. Ordinal has to be greater than or equal to zero. Exception will be thrown if it is less than zero.
 * @param {String} [caption] Optional text to display on the menu item.  This must be supplied if isSeparator is false.
 * @param {OnClick} [callback] Optional parameter to specify the function to call when the user clicks the menu item.  If supplied when isSeparator is true, an exception will be thrown.
+* @learns {Sample - Menu Items} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Adding-Menu-Items-using-the-BlackBerry-WebWorks-SDK/ta-p/516885 Example that demonstrates how to use the Menu API to 
+* create a custom application menu in a BlackBerry WebWorks application [BlackBerry Developer Resource Center].
 * @example
 * &lt;script type=&quot;text&sol;javascript&quot;&gt;
 *   var item = new blackberry.ui.menu.MenuItem(false, 1, &quot;Hello World&quot;, clickMe);

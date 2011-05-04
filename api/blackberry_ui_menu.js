@@ -23,25 +23,17 @@
 * @toc {User Interface} Menu 
 * @BB50+
 * @namespace The Menu object contains functionality for manipulating menu items for the application.
-* @example
-* &lt;script type=&quot;text&sol;javascript&quot;&gt;
-*   function loadCustomMenuItemsForPage() {
-*     if (blackberry.ui.menu.getMenuItems().length &gt; 0) {
-*       blackberry.ui.menu.clearMenuItems();
-*     }
-*     
-*     var item = new blackberry.ui.menu.MenuItem(false, 1, &quot;Click Me&quot;, customMenuItemClick);
-*     blackberry.ui.menu.addMenuItem(item);         
-*   }
-* 
-*     function customMenuItemClick() {
-*       alert(&quot;user just clicked me&quot;);
-*     }
-* &lt;&sol;script&gt;
- * @learns {Sample - Menu Items} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Adding-Menu-Items-using-the-BlackBerry-WebWorks-SDK/ta-p/516885 Example that demonstrates how to use the Menu API to create a custom application menu in a BlackBerry WebWorks application [BlackBerry Developer Resource Center].
-
+* @learns {Sample - Menu Items} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Adding-Menu-Items-using-the-BlackBerry-WebWorks-SDK/ta-p/516885 Example that demonstrates how to use the Menu API to 
+* create a custom application menu in a BlackBerry WebWorks application [BlackBerry Developer Resource Center].
 */
-blackberry.ui.menu = { };
+blackberry.ui.menu = { 
+
+
+
+
+
+
+};
 
 /**
 * Sets which item on the menu should be selected by default. 
@@ -85,6 +77,21 @@ blackberry.ui.menu.removeMenuItem = function(item) { };
 * @param {blackberry.ui.menu.MenuItem} item The menu item to add.
 * @returns {void}
 * @BB50+
+* @example
+* &lt;script type=&quot;text/javascript&quot;&gt;
+*   function loadCustomMenuItemsForPage() {
+*     if (blackberry.ui.menu.getMenuItems().length &gt; 0) {
+*       blackberry.ui.menu.clearMenuItems();
+*     }
+*     
+*     var item = new blackberry.ui.menu.MenuItem(false, 1, &quot;Click Me&quot;, customMenuItemClick);
+*     blackberry.ui.menu.addMenuItem(item);         
+*   }
+* 
+*     function customMenuItemClick() {
+*       alert(&quot;user just clicked me&quot;);
+*     }
+* &lt;/script&gt;
 */
 blackberry.ui.menu.addMenuItem = function(item) { };
 
