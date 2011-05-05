@@ -1,3 +1,25 @@
+/*
+* Copyright 2010-2011 Research In Motion Limited.
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
+
+/*
+* Taken from:
+* http://www.w3.org/TR/html5/video.html
+*/
+
 
 /**
 * All media elements have an associated error status, which records 
@@ -113,6 +135,7 @@ TimeRanges.prototype.end = function(index) { };
 * this section, since this section applies equally to media 
 * elements for audio or for video
 * @class
+* @extends HTMLElement
 * @toc {Media} HTMLMediaElement
 */
 HTMLMediaElement = function() { }
@@ -535,31 +558,348 @@ HTMLMediaElement.prototype.muted = { };
 
 /**
 * TextTrackCue 
+* @class
+* @extends EventTarget
+*/
+TextTrackCue = function() { }
+
+/**
+* Returns the TextTrack object to which this text track cue belongs, 
+* if any, or null otherwise.
+* @type TextTrack
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+TextTrackCue.prototype.track = { };
+
+/**
+* Returns the text track cue identifier.
+* @type Number
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+TextTrackCue.prototype.id = { };
+
+/**
+* Returns the text track cue start time, in seconds.
+* @type Number
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+TextTrackCue.prototype.startTime = { };
+
+/**
+* Returns the text track cue end time, in seconds.
+* @type 
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+TextTrackCue.prototype.endTime = { };
+
+/**
+* Returns true if the text track cue pause-on-exit flag is set, false otherwi
+* @type Boolean
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+TextTrackCue.prototype.pauseOnExit = { };
+
+/**
+* fire the onenter event if the current position now includes this
+* text cue 
+* @BB60+
+* @PB10+
+* @event
+* @param {Event} event
+*/
+TextTrack.prototype.onenter = function(event) { };
+
+/**
+* fire the onexit event if the current position no longer includes this
+* text cue 
+* @BB60+
+* @PB10+
+* @event
+* @param {Event} event
+*/
+TextTrack.prototype.onexit = function(event) { };
+
+/**
+* Returns the text track cue text in raw unparsed form.
+* @returns String
+* @BB60+
+* @PB10+
+*/
+TextTrackCue.prototype.getCueAsSource = function() { };
+
+/**
+* Returns the text track cue text as a {DocumentFragment} of 
+* HTML elements and other DOM nodes
+* @returns String
+* @BB60+
+* @PB10+
+*/
+TextTrackCue.prototype.getCueAsHTML = function() { };
+
+
+/**
+* A {TextTrackCueList} object represents a dynamically updating list 
+* of TextTrackCue}s in a given order.
+* @class
+* @BB60+
+* @PB10+
 */
 TextTrackCueList = function() { }
 
-/**
-* TextTrackCueList
-*/
-TextTrackCueList = function() { }
 
 /**
-* TextTrackList
+* Returns the number of cues in the list
+* @type Number
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+TextTrackCueList.prototype.length = { };
+
+/**
+* Returns the number of cues in the list
+* @param {String} id Returns the first text track cue (in text track cue order) with text track cue identifier id. Returns null if none of the cues have the given identifier or if the argument is the empty string.
+* @returns TextTrackCue
+* @BB60+
+* @PB10+
+*/
+TextTrackCueList.prototype.getCueById = function(id) { };
+
+
+
+/**
+* TextTrack is a used to store a collection of text that accompany the 
+* the loaded media
+* @class
+* @extends EventTarget
+* @BB60+
+* @PB10+
 */
 TextTrack = function() { }
 
 /**
-* TextTrackList
-* @extends TextTrackList
+* kind is one of the following strings "subtitles", "captions", 
+* "descriptions", "chapters", "metadata"
+* @type String
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+TextTrack.prototype.kind = { };
+
+/**
+* text track label
+* @type String
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+TextTrack.prototype.label = { };
+
+/**
+* language of the text track
+* @type String
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+TextTrack.prototype.language = { };
+
+/**
+* The text track not loaded state
+* @type Number
+* @constant
+* @BB60+
+* @PB10+
+*/
+TextTrack.NONE = 0;
+
+/**
+* The text track loading state.
+* @type Number
+* @constant
+* @BB60+
+* @PB10+
+*/
+TextTrack.LOADING = 1;
+
+/**
+* The text track loaded state.
+* @type Number
+* @constant
+* @BB60+
+* @PB10+
+*/
+TextTrack.LOADED = 2;
+
+/**
+* The text track failed to load state.
+* @type Number
+* @constant
+* @BB60+
+* @PB10+
+*/
+TextTrack.ERROR = 3;
+
+/**
+* The readyState attribute must return the numeric value corresponding to the text track readiness state of the text track
+* @type Number|TextTrack.NONE|TextTrack.LOADING|TextTrack.LOADED|TextTrack.ERROR
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+TextTrack.prototype.readyState = { };
+
+/**
+* Fire the onload if the {TextTrack} has loaded
+* @BB60+
+* @PB10+
+* @event
+* @param {Event} event
+*/
+TextTrack.prototype.onload = function(event) { };
+
+/**
+* Fire the onerror event if an error has occured with this {TextTrack}.
+* for example loading has failed.
+* @BB60+
+* @PB10+
+* @event
+* @param {Event} event
+*/
+TextTrack.prototype.onerror = function(event) { };
+
+/**
+* The text track disabled mode.
+* @type Number
+* @constant
+* @BB60+
+* @PB10+
+*/
+TextTrack.OFF = 0;
+
+/**
+* The text track hidden mode.
+* @type Number
+* @constant
+* @BB60+
+* @PB10+
+*/
+TextTrack.HIDDEN = 1;
+
+/**
+* The text track showing and showing by default modes.
+* @type Number
+* @constant
+* @BB60+
+* @PB10+
+*/
+TextTrack.SHOWING = 2;
+
+/**
+* The mode attribute, on getting, must return the numeric value 
+* corresponding to the text track mode of the text track that the 
+* TextTrack object represents.
+* @type Number|TextTrack.OFF|TextTrack.HIDDEN|TextTrack.SHOWING
+* @BB60+
+* @PB10+
+*/
+TextTrack.prototype.mode = { };
+
+
+/**
+* If the text track mode of the text track that the TextTrack object 
+* represents is not the text track disabled mode, then the cues 
+* attribute must return a live {TextTrackCueList} object that represents 
+* the subset of the text track list of cues of the text track that 
+* the TextTrack object represents whose start times occur before the 
+* earliest possible position when the script started, in text track 
+* cue order. Otherwise, it must return {null}. When an object is 
+* returned, the same object must be returned each time.
+* @type TextTrackCueList
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+TextTrack.prototype.cues = { };
+
+/**
+* If the text track mode of the text track that the TextTrack object 
+* represents is not the text track disabled mode, then the activeCues 
+* attribute must return a live TextTrackCueList object that represents 
+* the subset of the text track list of cues of the text track that the 
+* TextTrack object represents whose active flag was set when the 
+* script started, in text track cue order. Otherwise, it must 
+* return null. When an object is returned, the same object must be 
+* returned each time.
+* @type TextTrackCueList
+* @readOnly
+* @BB60+
+* @PB10+
+*/
+TextTrack.prototype.activeCues = { };
+
+
+/**
+* When the current playback position of a media element changes fire 
+* an oncuechange event for affected track if the text cue becomes 
+* active.
+* @BB60+
+* @PB10+
+* @event
+* @param {Event} event
+*/
+TextTrack.prototype.oncuechange = function(event) { };
+
+
+/**
+* Text track that can be modified
+* @class
+* @extends TextTrack
 */
 MutableTextTrack = function() { }
 
 
 /**
+* Adds the given cue to mutableTextTrack's text track list of cues.
+*
+* Raises an exception if the argument is null, associated with 
+* another text track, or already in the list of cues.
+* @BB60+
+* @PB10+
+* @event
+* @param {TextTrackCue} cue the cue to add
+*/
+MutableTextTrack.prototype.addCue(cue) { }
+
+/**
+* Removes the given cue from mutableTextTrack's text track 
+* list of cues.
+*
+* Raises an exception if the argument is null, associated with 
+* another text track, or not in the list of cues.
+* @BB60+
+* @PB10+
+* @event
+* @param {TextTrackCue} cue the cue to remove
+*/
+MutableTextTrack.prototype.removeCue(cue) { }
+
+/**
 * Returns the TextTrack objects of the text tracks in the media 
 * element's list of text tracks, in the same order as in the list 
 * of text tracks.
-* @type TextTrackList
+* @type TextTrack[]
 * @readOnly
 * @BB60+
 * @PB10+
@@ -567,8 +907,9 @@ MutableTextTrack = function() { }
 HTMLMediaElement.prototype.textTracks = { };
 
 /**
-* 
-* @param {String} kind kind is not one of the following strings "subtitles", "captions", "descriptions", "chapters", "metadata"
+* Creates and returns a new {MutableTextTrack} object, which is also 
+* added to the media element's list of text tracks.
+* @param {String} kind kind is one of the following strings "subtitles", "captions", "descriptions", "chapters", "metadata"
 * @param {String} label text track label
 * @param {String} language language of the text track
 * @returns MutableTextTrack
