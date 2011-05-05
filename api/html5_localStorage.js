@@ -15,7 +15,7 @@
 */
 
 /**
- * @toc {Database} Local Storage
+ * @toc {Web Storage} Local Storage
  * @PB10
  * @namespace This object provides functions to access a list of key/value pairs. 
  * <p/>Each Storage object provides access to a list of key/value pairs, which are sometimes called items. 
