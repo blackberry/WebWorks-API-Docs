@@ -34,7 +34,7 @@ canvas ={
 		 * <p/>
 		 * Syntax :
 		 * &#60canvas height="value"&#62	
-		 * @type {pixels} The height in pixels (like "100px" or just "100")
+		 * @type pixels 
 		 * @BB60+
 		 * @PB10+
 		 * @example
@@ -51,7 +51,7 @@ canvas ={
 		 * <p/>
 		 * Syntax :
 		 * &#60canvas width="value"&#62	
-		 * @type {pixels} The width in pixels (like "100px" or just "100")
+		 * @type pixels 
 		 * @BB60+
 		 * @PB10+
 		 */
