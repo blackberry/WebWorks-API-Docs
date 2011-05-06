@@ -86,6 +86,24 @@
 				vertical-align: top;
 				background-color: #FCD8B9;
 			}
+			
+			table.learnTable {
+				border-width: 1px;
+				border-style: solid;
+				border-color: #ccc;
+				padding: 5px;
+				vertical-align: top;
+				margin: 5px;
+				margin-bottom:15px;
+				width : 90%;
+				background-color: #99FFCC;
+			}
+			
+			td.learnTd {
+				color: #484848;
+				vertical-align: top;
+				background-color: #99FFCC;
+			}
 
 		</style>
 	  
@@ -93,6 +111,14 @@
 		<script src="server.js"></script>
 	</head>
 	
+
+<!-- ============================== description ============================ -->
+	<p>
+		<if test="data.classDesc">
+			{+resolveLinks(data.classDesc)+}
+		</if>
+	</p>
+
 <!-- ============================== Beta Tag ============================ -->
 	<if test="data.betaTag">
 		<table class="betaTable">
@@ -112,12 +138,22 @@
 			 </tr>
 		</table>
 	</if>
-<!-- ============================== description ============================ -->
-	<p>
-		<if test="data.classDesc">
-			{+resolveLinks(data.classDesc)+}
-		</if>
-	</p>
+
+
+<!-- ============================== Learning Resources ============================ -->
+	<if test="data.learnTag">
+		<table class="learnTable">
+			<div class="title">Learning Resources:</div>
+			<for each="item" in="data.learnTag">
+				<tr>
+					<td class="learnTd">
+						{!output+="<a href=" + item.name + " target='_new'>" + item.type + "</a>";!}
+						{+item.desc+}
+					</td>
+				</tr>
+			</for>
+		</table>
+	</if>
 	
 <!-- ============================== Support Platforms ============================ -->
 	{!var allChildren =[]!}
@@ -364,7 +400,7 @@
 						<td class="confluenceTd"><b>{+item.name+}</b></td>
 						<td class="confluenceTd">
 							<if test="item.isCallback">
-								{+ ((item.type)?(new Link().toSymbol(item.type)) : "")+"(" + subParams.map(function($){return $.name.slice($.name.indexOf(".")+1,$.name.length) +": "+ $.type}).join(", ") + ")" +}
+								{+ ((item.type)?(new Link().toSymbol(item.type)) : "")+ makeCallbackSignature(subParams) +}
 							<else/>
 								{+((item.type)?(new Link().toSymbol(item.type)) : "")+}
 							</if>
@@ -471,7 +507,7 @@
 							<td class="confluenceTd"><b>{+item.name+}</b></td>
 							<td class="confluenceTd">
 								<if test="item.isCallback">
-									{+ ((item.type)?(new Link().toSymbol(item.type)) : "")+"(" + subParams.map(function($){return $.name.slice($.name.indexOf(".")+1,$.name.length) +": "+ $.type}).join(", ") + ")" +}
+									{+ ((item.type)?(new Link().toSymbol(item.type)) : "") + makeCallbackSignature(subParams) +}
 								<else/>
 									{+((item.type)?(new Link().toSymbol(item.type)) : "")+}
 								</if>
@@ -606,7 +642,7 @@
 							<td class="confluenceTd"><b>{+item.name+}</b></td>
 							<td class="confluenceTd">
 								<if test="item.isCallback">
-									{+ ((item.type)?(new Link().toSymbol(item.type)) : "")+"(" + subParams.map(function($){return $.name.slice($.name.indexOf(".")+1,$.name.length) +": "+ $.type}).join(", ") + ")" +}
+									{+ ((item.type)?(new Link().toSymbol(item.type)) : "")+ makeCallbackSignature(subParams) +}
 								<else/>
 									{+((item.type)?(new Link().toSymbol(item.type)) : "")+}
 								</if>
@@ -697,13 +733,18 @@
 			<for each="member" in="ownProperties">
 			<tr x-ww-support="{+member.supportTag+}">
 				<td class="confluenceTd"><a name="{+Link.symbolNameToLinkName(member)+}" class="propertyName">{+member.name+}</a></td>
-				<td class="confluenceTd">{+new Link().toSymbol(member.type)+}
-				<if test="member.defaultValue">
-					{+" = " +resolveLinks(member.defaultValue)+}
-				</if>
-				<if test="member.readOnly">
-					<br>readonly
-				</if>
+				<td class="confluenceTd">
+					<if test="member.isCallback">
+						{+ ((member.type)?(new Link().toSymbol(member.type)) : "") + makeCallbackSignature(member.params) +}
+					<else/>
+						{+((member.type)?(new Link().toSymbol(member.type)) : "")+}
+					</if>
+					<if test="member.defaultValue">
+						{+" = " +resolveLinks(member.defaultValue)+}
+					</if>
+					<if test="member.readOnly">
+						<br/>readonly
+					</if>
 				</td>
 				
 				<td class="confluenceTd">{+resolveLinks(member.desc)+}

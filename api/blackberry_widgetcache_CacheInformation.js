@@ -16,44 +16,41 @@
 
 
 /**
-* @namespace
-*/
-blackberry.widgetcache = { };
-
-
-/**
 * @toc {Cache} CacheInformation 
 * @BB50+
-* @namespace The CacheInformation object provides information about entities saved in the widget cache.
+* @namespace The CacheInformation object provides information about entities saved in the cache.
 * @featureID blackberry.widgetcache.CacheInformation
 */
-blackberry.widgetcache.CacheInformation = { };
+blackberry.widgetcache.CacheInformation = { 
 
-/**
-* Contains the URL string of the mapping request. 
-* @type String
-* @static
-* @readOnly
-* @BB50+
-*/
-blackberry.widgetcache.CacheInformation.url = { };
+	/**
+	* Contains the URL string of the mapping request. 
+	* @type String
+	* @static
+	* @readOnly
+	* @BB50+
+	*/
+	url : undefined,
 
-/**
-* Contains the disk size of the cached copy. 
-* @type Number
-* @static
-* @readOnly
-* @BB50+
-*/
-blackberry.widgetcache.CacheInformation.size = { };
+	/**
+	* Contains the disk size of the cached copy. 
+	* @type Number
+	* @static
+	* @readOnly
+	* @BB50+
+	*/
+	size : undefined,
 
-/**
-* Contains the expiration date of the cached copy. 
-* @type Date
-* @static
-* @readOnly
-* @BB50+
-*/
-blackberry.widgetcache.CacheInformation.expires = { };
+	/**
+	* Contains the expiration date of the cached copy. 
+	* @type Date
+	* @static
+	* @readOnly
+	* @BB50+
+	*/
+	expires : undefined,
+};
+
+
 
 

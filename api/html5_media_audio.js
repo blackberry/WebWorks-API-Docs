@@ -14,4 +14,27 @@
 * limitations under the License.
 */
 
+/*
+* Taken from:
+* http://www.w3.org/TR/html5/video.html
+*/
 
+/**
+* An audio element represents a sound or audio stream.
+* @toc {Media} HTML5 Audio
+* @class 
+* @extends HTMLMediaElement
+* @PB10
+* @BB60+
+* @example
+* var audio = document.createElement('audio');
+* audio.src = 'audio.wav';
+* audio.controls = true;
+* document.body.appendChild(audio);
+* @example
+* var audio = new Audio();
+* audio.src = 'audio.wav';
+* @example
+* var audio = new Audio('audio.wav');
+*/
+HTMLAudioElement = { };

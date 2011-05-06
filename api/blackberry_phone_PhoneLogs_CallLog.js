@@ -14,20 +14,13 @@
 * limitations under the License.
 */
 
-
-/**
-* @namespace
-*/
-blackberry.phone.PhoneLogs = { };
-
-
 /**
 * @toc {Phone} CallLog 
 * @BB50+
 * @namespace The CallLog object represents an entry in the call log of the phone application.
 * @featureID blackberry.phone.PhoneLogs
 * @example
-* &lt;script type=&quot;text&sol;javascript&quot;&gt;
+* &lt;script type=&quot;text/javascript&quot;&gt;
 *   &sol;&sol; Display the details of &apos;missed&apos; call log retreived at index specified
 *   var index = 1;
 *   var res = blackberry.phone.PhoneLogs.callAt(index, blackberry.phone.PhoneLogs.FOLDER_MISSED_CALLS);
@@ -44,7 +37,7 @@ blackberry.phone.PhoneLogs = { };
 *     (&quot;AddressBookNumber: &quot; + callLog.addressBookNumber + &quot;&bsol;n&quot;) +
 *     (&quot;AddressBookType: &quot; + callLog.addressBookType));
 *   }    
-* &lt;&sol;script&gt;
+* &lt;/script&gt;
 */
 blackberry.phone.PhoneLogs.CallLog = { };
 
@@ -52,6 +45,7 @@ blackberry.phone.PhoneLogs.CallLog = { };
 * Normal call status (no errors). 
 * @type Number
 * @constant
+* @default 0
 * @BB50+
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_NORMAL = 0;
@@ -60,6 +54,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_NORMAL = 0;
 * Busy call status. 
 * @type Number
 * @constant
+* @default 1
 * @BB50+
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_BUSY = 1;
@@ -68,6 +63,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_BUSY = 1;
 * Error due to congestion. 
 * @type Number
 * @constant
+* @default 2
 * @BB50+
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_CONGESTION = 2;
@@ -76,6 +72,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_CONGESTION = 2;
 * Error due to path unavailability. 
 * @type Number
 * @constant
+* @default 3
 * @BB50+
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_PATH_UNAVAILABLE = 3;
@@ -84,6 +81,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_PATH_UNAVAILABLE = 3;
 * Error due to number unobtainability. 
 * @type Number
 * @constant
+* @default 4
 * @BB50+
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_NUMBER_UNOBTAINABLE = 4;
@@ -92,6 +90,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_NUMBER_UNOBTAINABLE = 4;
 * Error due to call authorization failure. 
 * @type Number
 * @constant
+* @default 5
 * @BB50+
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_AUTHENTICATION_FAILURE = 5;
@@ -100,6 +99,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_AUTHENTICATION_FAILURE = 5;
 * Emergency calls only. 
 * @type Number
 * @constant
+* @default 6
 * @BB50+
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_EMERGENCY_CALLS_ONLY = 6;
@@ -108,6 +108,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_EMERGENCY_CALLS_ONLY = 6;
 * Call hold error. 
 * @type Number
 * @constant
+* @default 7
 * @BB50+
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_HOLD_ERROR = 7;
@@ -116,6 +117,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_HOLD_ERROR = 7;
 * Outgoing calls barred. 
 * @type Number
 * @constant
+* @default 8
 * @BB50+
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_OUTGOING_CALLS_BARRED = 8;
@@ -124,6 +126,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_OUTGOING_CALLS_BARRED = 8;
 * General error. 
 * @type Number
 * @constant
+* @default 9
 * @BB50+
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_GENERAL_ERROR = 9;
@@ -132,6 +135,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_GENERAL_ERROR = 9;
 * Maintenance required. 
 * @type Number
 * @constant
+* @default 10
 * @BB50+
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_MAINTENANCE_REQUIRED = 10;
@@ -140,6 +144,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_MAINTENANCE_REQUIRED = 10;
 * Service not available. 
 * @type Number
 * @constant
+* @default 11
 * @BB50+
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_SERVICE_NOT_AVAILABLE = 11;
@@ -148,6 +153,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_SERVICE_NOT_AVAILABLE = 11;
 * Call failed due to fading. 
 * @type Number
 * @constant
+* @default 12
 * @BB50+
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_CALL_FAIL_DUE_TO_FADING = 12;
@@ -156,6 +162,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_CALL_FAIL_DUE_TO_FADING = 12;
 * Call lost due to fading. 
 * @type Number
 * @constant
+* @default 13
 * @BB50+
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_CALL_LOST_DUE_TO_FADING = 13;
@@ -164,6 +171,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_CALL_LOST_DUE_TO_FADING = 13;
 * Call failed, try again. 
 * @type Number
 * @constant
+* @default 14
 * @BB50+
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_CALL_FAILED_TRY_AGAIN = 14;
@@ -172,6 +180,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_CALL_FAILED_TRY_AGAIN = 14;
 * An FDN mismatch occured. 
 * @type Number
 * @constant
+* @default 15
 * @BB50+
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_FDN_MISMATCH = 15;
@@ -180,6 +189,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_FDN_MISMATCH = 15;
 * Call connection was denied. 
 * @type Number
 * @constant
+* @default 16
 * @BB50+
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_CONNECTION_DENIED = 16;
@@ -188,6 +198,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_CONNECTION_DENIED = 16;
 * Incoming call barred 
 * @type Number
 * @constant
+* @default 27
 * @BB50+
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_INCOMING_CALL_BARRED = 27;
@@ -196,6 +207,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_INCOMING_CALL_BARRED = 27;
 * Incoming call that was successfully received. 
 * @type Number
 * @constant
+* @default 0
 * @BB50+
 */
 blackberry.phone.PhoneLogs.CallLog.TYPE_RECEIVED_CALL = 0;
@@ -204,6 +216,7 @@ blackberry.phone.PhoneLogs.CallLog.TYPE_RECEIVED_CALL = 0;
 * Successfully connected outgoing call. 
 * @type Number
 * @constant
+* @default 1
 * @BB50+
 */
 blackberry.phone.PhoneLogs.CallLog.TYPE_PLACED_CALL = 1;
@@ -212,6 +225,7 @@ blackberry.phone.PhoneLogs.CallLog.TYPE_PLACED_CALL = 1;
 * Call that was missed and has not been viewed yet. 
 * @type Number
 * @constant
+* @default 2
 * @BB50+
 */
 blackberry.phone.PhoneLogs.CallLog.TYPE_MISSED_CALL_UNOPENED = 2;
@@ -220,6 +234,7 @@ blackberry.phone.PhoneLogs.CallLog.TYPE_MISSED_CALL_UNOPENED = 2;
 * Call that was missed and that has been viewed. 
 * @type Number
 * @constant
+* @default 3
 * @BB50+
 */
 blackberry.phone.PhoneLogs.CallLog.TYPE_MISSED_CALL_OPENED = 3;
@@ -289,11 +304,17 @@ blackberry.phone.PhoneLogs.CallLog.prototype.number = { };
 blackberry.phone.PhoneLogs.CallLog.prototype.addressBookNumber = { };
 
 /**
-* Type of the caller ID as stored in the contact list. 
+* Type of the caller ID as stored in the contact list. <br/><br/>
+* If there is a phone number in the address book that can be matched with the raw phone number from this 
+* PhoneCallLogID, then the type of the number (for example, home or work) is returned. If not, a default type is 
+returned (for example, &quot;Phone&quot;). Otherwise, an empty string is returned.
 * @type String
 * @readOnly
 * @BB50+
 */
 blackberry.phone.PhoneLogs.CallLog.prototype.addressBookType = { };
+
+
+
 
 

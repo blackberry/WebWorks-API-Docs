@@ -14,13 +14,6 @@
 * limitations under the License.
 */
 
-
-/**
-* @namespace
-*/
-blackberry.push = { };
-
-
 /**
 * <div><p>
 *       This object cannot be created by the new keyword.  It is generated only by the system on receipt of push data.
@@ -29,135 +22,146 @@ blackberry.push = { };
 * @BB50+
 * @namespace The Push Data object provides access to the data that has arrived as the result of a push.
 * @featureID blackberry.push
-* @example
-* &lt;script type=&quot;text&sol;javascript&quot;&gt;
-*   var port = 1234; 
-* 
-*   function doMySubscription() {
-*     &sol;&sol;See if they have a BIS transport.. if so use it
-*     var transports = blackberry.system.getTransportList();
-*     found = false;
-*     for (var i = 0; i &lt; transports.length; i++) {
-*       if (transports[i].name == &quot;BIS&quot;) {
-*         found = true;
-*         blackberry.push.openPushListener(handleMyReturnData, port, transport[i]);
-*         break;
-*       }        
-*     }
-*     if (!found)
-*       blackberry.push.openPushListener(handleMyReturnData, port);
-*   }
-* 
-*   function handleMyReturnData(data) {
-*     if (data != null) {
-*       var myRecievedData= blackberry.utils.blobToString(data.payload);   
-*       alert(data1.getHeaderField(0));
-*       alert(&quot;RequestURI=&quot; + data.getRequestURI());
-*       alert(&quot;Source=&quot; + data.getSource());
-*     }       
-*     else
-*       alert(&quot;No data available&quot;);
-*   }
-* 
-*   function cancelSubscription() {
-*     blackberry.push.closePushListener(port);
-*   }
-* &lt;&sol;script&gt;
-*/
-blackberry.push.Data = { };
 
-/**
-* Push message accepted 
-* @type Number
-* @constant
-* @BB50+
 */
-blackberry.push.Data.ACCEPT = 0;
+blackberry.push.Data = { 
 
-/**
-* Push message discarded due to resource shortage 
-* @type Number
-* @constant
-* @BB50+
-*/
-blackberry.push.Data.DECLINE_USERDCR = 1;
+	/**
+	* Requests the value of a specified header field. This method expires and will throw an exception if called 
+	* outside of the push callback function.
+	* @function
+	* @param {Object} field This parameter is either the Integer index or a String name of the header to retrieve.
+	* @returns {String} Returns the value of a header field.
+	* @BB50+
+	* @example
+	* &lt;script type=&quot;text/javascript&quot;&gt;
+	*   var port = 1234; 
+	* 
+	*   function doMySubscription() {
+	*     &sol;&sol;See if they have a BIS transport.. if so use it
+	*     var transports = blackberry.system.getTransportList();
+	*     found = false;
+	*     for (var i = 0; i &lt; transports.length; i++) {
+	*       if (transports[i].name == &quot;BIS&quot;) {
+	*         found = true;
+	*         blackberry.push.openPushListener(handleMyReturnData, port, transport[i]);
+	*         break;
+	*       }        
+	*     }
+	*     if (!found)
+	*       blackberry.push.openPushListener(handleMyReturnData, port);
+	*   }
+	* 
+	*   function handleMyReturnData(data) {
+	*     if (data != null) {
+	*       var myRecievedData= blackberry.utils.blobToString(data.payload);   
+	*       alert(data1.getHeaderField(0));
+	*       alert(&quot;RequestURI=&quot; + data.getRequestURI());
+	*       alert(&quot;Source=&quot; + data.getSource());
+	*     }       
+	*     else
+	*       alert(&quot;No data available&quot;);
+	*   }
+	* 
+	*   function cancelSubscription() {
+	*     blackberry.push.closePushListener(port);
+	*   }
+	* &lt;/script&gt;
+	*/
+	getHeaderField : function(field) { },
 
-/**
-* Content type of Push message cannot be processed 
-* @type Number
-* @constant
-* @BB50+
-*/
-blackberry.push.Data.DECLINE_USERDCU = 2;
 
-/**
-* Push message cannot be delivered to intended destination 
-* @type Number
-* @constant
-* @BB50+
-*/
-blackberry.push.Data.DECLINE_USERPND = 3;
+	/**
+	* Retrieves the source for this push stream.  String form of the source of this push; it could be a UID for a connection, IPv4 address, or SMSC. 
+	* This method expires and will throw an exception if called outside of the push callback function.
+	* @returns {String} Returns the source of the push request
+	* @BB50+
+	*/
+	getSource : function() { },
 
-/**
-* User refused Push message 
-* @type Number
-* @constant
-* @BB50+
-*/
-blackberry.push.Data.DECLINE_USERREQ = 4;
+	/**
+	* Request the URI of the push request. This method expires and will throw an exception if called outside of the push callback function.
+	* @returns {String} Returns the URI of the push request
+	* @BB50+
+	*/
+	getRequestURI : function() { },
 
-/**
-* User refused Push message 
-* @type Number
-* @constant
-* @BB50+
-*/
-blackberry.push.Data.DECLINE_USERRFS = 5;
+	/**
+	* True if this channel is encrypted; otherwise, false. 
+	* @type Boolean
+	* @readOnly
+	* @BB50+
+	*/
+	isChannelEncrypted : ,
 
-/**
-* Returns the value of a header field. 
-* @param {String} field This parameter is the name of the header field.
-* @returns {String}
-* @BB50+
-*/
-blackberry.push.Data.prototype.getHeaderField = function(field) { };
+	/**
+	* The binary data pushed to the device. 
+	* @type Blob
+	* @readOnly
+	* @BB50+
+	*/
+	payload : ,
 
-/**
-* Returns the value of a header field. 
-* @param {Number} field This parameter is the integer index of the header to retrieve.
-* @returns {String}
-* @BB50+
-*/
-blackberry.push.Data.prototype.getHeaderField = function(field) { };
+	/**
+	* Push message accepted 
+	* @type Number
+	* @constant
+	* @default 0
+	* @BB50+
+	*/
+	ACCEPT : 0,
 
-/**
-* Retrieves the source for this push stream.  String form of the source of this push; it could be a UID for a connection, IPv4 address, or SMSC. 
-* @returns {String}
-* @BB50+
-*/
-blackberry.push.Data.prototype.getSource = function() { };
+	/**
+	* Push message discarded due to resource shortage 
+	* @type Number
+	* @constant
+	* @default 1
+	* @BB50+
+	*/
+	DECLINE_USERDCR : 1,
 
-/**
-* Returns the URI of the push request. 
-* @returns {String}
-* @BB50+
-*/
-blackberry.push.Data.prototype.getRequestURI = function() { };
+	/**
+	* Content type of Push message cannot be processed 
+	* @type Number
+	* @constant
+	* @default 2
+	* @BB50+
+	*/
+	DECLINE_USERDCU : 2,
 
-/**
-* True if this channel is encrypted; otherwise, false. 
-* @type Boolean
-* @readOnly
-* @BB50+
-*/
-blackberry.push.Data.prototype.isChannelEncrypted = { };
+	/**
+	* Push message cannot be delivered to intended destination 
+	* @type Number
+	* @constant
+	* @default 3
+	* @BB50+
+	*/
+	DECLINE_USERPND : 3,
 
-/**
-* The binary data pushed to the device. 
-* @type Blob
-* @readOnly
-* @BB50+
-*/
-blackberry.push.Data.prototype.payload = { };
+	/**
+	* User refused Push message 
+	* @type Number
+	* @constant
+	* @default 4
+	* @BB50+
+	*/
+	DECLINE_USERREQ : 4,
+
+	/**
+	* User refused Push message 
+	* @type Number
+	* @constant
+	* @default 5
+	* @BB50+
+	*/
+	DECLINE_USERRFS : 5,
+
+};
+
+
+
+
+
+
 
 

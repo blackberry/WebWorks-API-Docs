@@ -15,17 +15,13 @@
 */
 
 
-/**
-* @namespace
-*/
-blackberry.find = { };
 
 
 /**
 * <div><p>
 *       The FilterExpression object is an instance object, where if a new instance is desired, it must be created using the new keyword.
 *     </p></div>
-* @toc {Find} FilterExpression 
+* @toc {PIM} FilterExpression 
 * @BB50+
 * @class The FilterExpression object represents the expression that is used to &apos;find&apos; an item that matches its defined condition. A FilterExpression object contains two fields, an operator and optional a boolean flag that indicates whether the condition should be evaluated negatively.
 * @featureID blackberry.find
@@ -128,38 +124,42 @@ blackberry.find = { };
 *   }
 * &lt;&sol;script&gt;
 */
-blackberry.find.FilterExpression = function(leftField,operator,rightField,negate) { };
+blackberry.find.FilterExpression = function(leftField,operator,rightField,negate) { 
 
-/**
-*  
-* @type object
-* @readOnly
-* @BB50+
-*/
-blackberry.find.FilterExpression.prototype.leftField = { };
+	/**
+	*  
+	* @type object
+	* @readOnly
+	* @BB50+
+	*/
+	blackberry.find.FilterExpression.prototype.leftField = { };
 
-/**
-*  
-* @type object
-* @readOnly
-* @BB50+
-*/
-blackberry.find.FilterExpression.prototype.operator = { };
+	/**
+	*  
+	* @type object
+	* @readOnly
+	* @BB50+
+	*/
+	blackberry.find.FilterExpression.prototype.operator = { };
 
-/**
-*  
-* @type object
-* @readOnly
-* @BB50+
-*/
-blackberry.find.FilterExpression.prototype.rightField = { };
+	/**
+	*  
+	* @type object
+	* @readOnly
+	* @BB50+
+	*/
+	blackberry.find.FilterExpression.prototype.rightField = { };
 
-/**
-* The boolean flag that indicates whether the condition of the FilterExpression object should be evaluated negatively.  This should only be used when you have nested expressions.  On regular field&sol;value comparisons, negate isn&apos;t necessary as the != is sufficient. 
-* @type Boolean
-* @readOnly
-* @BB50+
-*/
-blackberry.find.FilterExpression.prototype.negate = { };
+	/**
+	* The boolean flag that indicates whether the condition of the FilterExpression object should be evaluated negatively.  This should only be used when you have nested expressions.  On regular field&sol;value comparisons, negate isn&apos;t necessary as the != is sufficient. 
+	* @type Boolean
+	* @readOnly
+	* @BB50+
+	*/
+	blackberry.find.FilterExpression.prototype.negate = { };
+
+};
+
+
 
 

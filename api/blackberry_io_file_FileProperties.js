@@ -14,18 +14,11 @@
 * limitations under the License.
 */
 
-
-/**
-* @namespace
-*/
-blackberry.io.file = { };
-
-
 /**
 * <div><p>
 *       This class can only be created by using the "blackberry.io.file.getFileProperties()" method.
 *     </p></div>
-* @toc {IO} File FileProperties 
+* @toc {IO} FileProperties 
 * @BB50+
 * @namespace The FileProperties object provides functions and attributes for interacting with a file&apos;s properties on the file system.
 * @featureID blackberry.io.file

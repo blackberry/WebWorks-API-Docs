@@ -126,24 +126,21 @@ function publish(symbolSet) {
 	
 	// COPY FILES
 	//CSS files
-	var cssFiles = IO.ls(publish.conf.templatesDir+"/"+publish.conf.cssDir);
-	for(var i = 0;i<cssFiles.length;i++){
-		IO.copyFile(cssFiles[i], publish.conf.outDir+"/"+publish.conf.cssDir);
-	}
+	copyFiles(publish.conf.templatesDir+"/"+publish.conf.cssDir,publish.conf.outDir+"/"+publish.conf.cssDir );
 	//Static files
-	var staticFiles = IO.ls(publish.conf.templatesDir+"/"+publish.conf.staticDir);
-	for(var i = 0;i<staticFiles.length;i++){
-		IO.copyFile(staticFiles[i], publish.conf.outDir);
-	}
+	copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir );
 	//Image Files
-	var imageFiles = IO.ls(publish.conf.templatesDir+"/"+publish.conf.imagesDir);
-	for(var i = 0;i<imageFiles.length;i++){
-		IO.copyFile(imageFiles[i], publish.conf.outDir+"/"+publish.conf.imagesDir);
-	}		
+	copyFiles(publish.conf.templatesDir+"/"+publish.conf.imagesDir,publish.conf.outDir+"/"+publish.conf.imagesDir );		
 	//JS Files
-	var jsFiles = IO.ls(publish.conf.templatesDir+"/"+publish.conf.jsDir);
-	for(var i = 0;i<jsFiles.length;i++){
-		IO.copyFile(jsFiles[i], publish.conf.outDir+"/"+publish.conf.jsDir);
+	copyFiles(publish.conf.templatesDir+"/"+publish.conf.jsDir,publish.conf.outDir+"/"+publish.conf.jsDir );
+}
+
+function copyFiles(srcDir,destDir){
+	if(IO.exists(srcDir)){
+		var files = IO.ls(srcDir);
+		for(var i = 0;i<files.length;i++){
+			IO.copyFile(files[i], destDir);
+		}
 	}
 }
 
@@ -261,6 +258,33 @@ function makeSignature(params) {
 	return signature;
 }
 
+/** Build output for displaying Callback function parameters.
+ *  These differ because
+ *  	callbacks only have subParams (will not be filtered), 
+ *  	the names of the params are sliced
+ *		the type is a link to the actual type  	
+ **/
+function makeCallbackSignature(params) {	
+	if (!params) return "()";
+	var signature = "("
+	+
+	params.map(
+		function($) {
+			var name = ($.name.indexOf(".") != -1) ? ($.name.slice($.name.indexOf('.')+1, $.name.length)) : $.name;
+			var type = (($.type)?(new Link().toSymbol($.type)) : "");
+			if($.isOptional){
+				return "<i>["+name + ": " + type+"]</i>";
+			}else{
+				return name + " : " + type;
+			}
+		}
+	).join(", ")
+	+
+	")";
+	return signature;
+}
+
+
 /** Find symbol {@link ...} strings in text and turn into html links */
 function resolveLinks(str, from) {
 	str = str.replace(/\{@link ([^} ]+) ?\}/gi,
@@ -284,7 +308,7 @@ function resolveLinks(str, from) {
 			}catch(e){}
 			return "<image src=\""+publish.conf.imagesDir + fileName+"\">";
 		}
-	);	
+	);
 	
 	return str;
 }
@@ -309,7 +333,6 @@ var tableNo =  "<td class=\"apiTd apiNo\">&nbsp;</td>";
 
 function resolveSupport(symbol){
 	if(symbol && symbol.comment){
-		print("Resolving support for "+ symbol.alias);
 		
 		symbol.supportStrings = [];
 		symbol.supportTag = "";
