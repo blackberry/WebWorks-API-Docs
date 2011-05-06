@@ -140,10 +140,19 @@ function insertTOC() {
 }
 
 function runFilter() {
+	var search = null;
 	if (document.location.search != '') {	
-		var search = document.location.search.substring(1,document.location.search.length);	
-		
-		loading++;
+		search = document.location.search.substring(1,document.location.search.length);	
+		var exp = new Date();	    //set new date object	
+		exp.setTime(exp.getTime() + (1000 * 60 * 60 * 24 * 30));     //set it 30 days ahead 
+		setCookie('search',search, exp);
+	}
+	else {
+		search = getCookie('search');
+	}
+	
+	if (search != null && search.length > 0) {
+	loading++;
 		// Find our section in the combo box
 		var filter = document.getElementById('filter');
 		for (var i = 0; i < filter.options.length; i++) {
@@ -161,7 +170,6 @@ function runFilter() {
 			if (x_ww_support.indexOf(search) < 0) {
 				target.style.display = 'none';	
 			}
-		
 		}
 	}
 }
@@ -194,6 +202,9 @@ function doFilterChange(select) {
 	
 	var value = select.value;
 	if (value == 'all') {
+		var exp = new Date();	    //set new date object	
+		exp.setTime(exp.getTime() + (1000 * 60 * 60 * 24 * 30));     //set it 30 days ahead 
+		setCookie('search','', exp);
 		document.location.href = getURLMinusSearch();	
 	}
 	else {
