@@ -270,7 +270,7 @@ function makeCallbackSignature(params) {
 	+
 	params.map(
 		function($) {
-			var name = ($.name.indexOf(".") != -1) ? ($.name.slice($.name.indexOf('.'), $.name.length)) : $.name;
+			var name = ($.name.indexOf(".") != -1) ? ($.name.slice($.name.indexOf('.')+1, $.name.length)) : $.name;
 			var type = (($.type)?(new Link().toSymbol($.type)) : "");
 			if($.isOptional){
 				return "<i>["+name + ": " + type+"]</i>";
