@@ -259,7 +259,12 @@
 		<h1>Functions</h1>
 		<ul class="ulNoTopMargin">			
 			<for each="member" in="ownMethods">
-				<li x-ww-support="{+member.supportTag+}">{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
+				<li x-ww-support="{+member.supportTag+}">
+					<if test="member.squareAccessor">
+						{+new Link().toSymbol(member.alias).withText("[]")+}
+					<else />
+						{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
+					</if>
 				<if test="member.deprecated">
 					<span class="depricate">**</span>
 					{!hasDeprecation = true;!}
@@ -440,14 +445,23 @@
 	<if test="defined(ownMethods) && ownMethods.length">
 		<for each="member" in="ownMethods">
 			<div x-ww-support="{+member.supportTag+}">
-				<h2><a name="{+Link.symbolNameToLinkName(member)+}"> </a>{+member.alias+}</h2>
+				<if test="member.squareAccessor">
+					<h2><a name="{+Link.symbolNameToLinkName(member)+}"> </a>{+data.alias+}[]</h2>
+				<else />
+					<h2><a name="{+Link.symbolNameToLinkName(member)+}"> </a>{+member.alias+}</h2>
+				</if>
+				
 				<hr style="margin-bottom:15px;"/>
 				
 				<table class="scriptTable">
 					<tr>
 						<td class="scriptTd">					
 						<if test="member.type">{+new Link().toSymbol(member.type)+}</if>
+						<if test="member.squareAccessor">
+							[{+makeSignature(member.params).slice(1,-1)+}]
+						<else />
 							{+member.name.replace(/\^\d+$/, '')+}{+makeSignature(member.params)+}
+						</if>							
 						</td>
 					</tr>
 				</table>
@@ -748,6 +762,13 @@
 				</td>
 				
 				<td class="confluenceTd">{+resolveLinks(member.desc)+}
+				<if test="member.params">
+					<br/>
+					<for each="subItem" in="member.params">
+						<br/>
+						<b>{+subItem.name+":"+}</b> {+resolveLinks(subItem.desc)+}
+					</for>
+				</if>
 				<if test="member.deprecated">
 					<table class="depricationTable" >
 						<tr>

@@ -34,6 +34,7 @@ JSDOC.PluginManager.registerPlugin(
 				var paramCallbacks = symbol.comment.tags.filter(function($){return $.isCallback && $.title == "param"});
 				var fieldCBs = symbol.comment.tags.filter(function($){return $.isCallback && $.title == "field"});
 				var learnTag = symbol.comment.getTag("learns");
+				var squareAccessor = symbol.comment.getTag("squareAccessor");
 
 				//If its a class/namespace
 				if((symbol.is("CONSTRUCTOR") || symbol.isNamespace) && !(symbol.alias == "_global_")){
@@ -63,7 +64,10 @@ JSDOC.PluginManager.registerPlugin(
 					}
 					if( uri.length){
 						symbol.uri = uri;
-					}                  
+					}
+					if(squareAccessor.length){
+						symbol.squareAccessor = squareAccessor;
+					}
 				}
 
 				//Mark all parameters as callback based on their tags
@@ -114,6 +118,9 @@ JSDOC.PluginManager.registerPlugin(
 						comment.tags.push(new JSDOC.DocTag("type " + currentPropertyCBTag.type));
 						comment.tags.push(new JSDOC.DocTag("desc " + currentPropertyCBTag.desc));
 					}
+				}else if(comment.getTag("squareAccessor").length){
+					//Push a function tag because we only support [] functions
+					comment.tags.push(new JSDOC.DocTag("function"));
 				}
 			}
 		},
