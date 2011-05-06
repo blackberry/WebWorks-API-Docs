@@ -101,7 +101,7 @@
  * <p>The values reported are equal to the acceleration of the device, plus an acceleration equal and opposite to the acceleration due to gravity.
  * This is less useful in many applications but is provided as a means of providing best-effort support. 
  * These values can be stored and manipulated in variables outside the event scope. These values can be used to control the motion of objects defined on the DOM by the device's gyroscope and accelerometer. 
- * <br><br> {@image //images//xyz.png} <br><br>
+ * <br><br> {@image /images/xyz.jpg} <br><br>
  * <p>Data Examples: 
  * A device lying flat on a horizontal surface with the screen upmost has an acceleration of zero and the following value for accelerationIncludingGravity:
  *     <p><i> {x: 0,
