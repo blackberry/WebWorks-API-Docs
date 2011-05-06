@@ -259,22 +259,23 @@ function makeSignature(params) {
 }
 
 /** Build output for displaying Callback function parameters.
- *  These differ by nbeing filtered in reverse, needing the name sliced and linking to the actual type */
-function makeCallbackSignature(params) {
+ *  These differ because
+ *  	callbacks only have subParams (will not be filtered), 
+ *  	the names of the params are sliced
+ *		the type is a link to the actual type  	
+ **/
+function makeCallbackSignature(params) {	
 	if (!params) return "()";
 	var signature = "("
 	+
-	params.filter(
+	params.map(
 		function($) {
-			return $.name.indexOf(".") != -1; // don't show config params in signature
-		}
-	).map(
-		function($) {
+			var name = ($.name.indexOf(".") != -1) ? ($.name.slice($.name.indexOf('.')+1, $.name.length)) : $.name;
 			var type = (($.type)?(new Link().toSymbol($.type)) : "");
 			if($.isOptional){
-				return "<i>["+$.name + ": " + type+"]</i>";
+				return "<i>["+name + ": " + type+"]</i>";
 			}else{
-				return $.name + " : " + type;
+				return name + " : " + type;
 			}
 		}
 	).join(", ")
