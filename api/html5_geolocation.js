@@ -24,12 +24,15 @@ Geolocation = {
         
 		/**
 		 * @desc  Attempt to obtain the current location of the device.
-		 * @callback {function} PositionCallback Function will call if the attempt is successful i.e. the handleEvent operation must be called on the *callback object
-		 * @callback {function} [PositionErrorCallback] Optional function callback if the attempt fails, the errorCallback must be invoked with a new PositionError object, reflecting the reason for the failure.
-		 * @param {Object} [PositionOptions] return {@link PositionOptions} of a current position.
+		 * @callback {function} positionCallback This method is called if the attempt is successful i.e. the handleEvent operation must be called on the {@link Position} object
+         * @callback {Position} positionCallback.position Object that contains the position that was just received 
+		 * @callback {function} [positionErrorCallback] This optional method is called if the attempt fails, the errorCallback must be invoked with a new {@link PositionError} object, reflecting the reason for the failure.
+         * @callback {PositionError} [positionErrorCallback.error] Error call if there is an error.
+		 * @param {PositionOptions} [options] return {@link PositionOptions} of a current position.
 		 * @PB10
          * @example         
          * <b>To get current position</b>
+         *
          *  var startPos;
          *  navigator.geolocation.getCurrentPosition(function(position) {
          *     startPos = position;
@@ -68,9 +71,11 @@ Geolocation = {
 		
 		/**
 		 * @desc  Like {@link getCurrentPosition} continue to monitor the position of the device and invoke the appropriate callback every time this position changes. It continues until the clearWatch method is called with the corresponding identifier.
-		 * @callback {function} PositionCallback Function will call if the attempt is successful i.e. the handleEvent operation must be called on the *callback object
-		 * @callback {function} [PositionErrorCallback] Optional function callback if the attempt fails, the errorCallback must be invoked with a new PositionError object, reflecting the reason for the failure.
-		 * @param {Object} [PositionOptions] return {@link PositionOptions} of a watch position.
+		 * @callback {function} positionCallback This method is called if the attempt is successful i.e. the handleEvent operation must be called on the {@link Position} object
+         * @callback {Position} positionCallback.position Object that contains the position that was just received 
+		 * @callback {function} [positionErrorCallback] This optional method is called if the attempt fails, the errorCallback must be invoked with a new {@link PositionError} object, reflecting the reason for the failure.
+         * @callback {PositionError} [positionErrorCallback.error] Error call if there is an error.
+		 * @param {PositionOptions} [options] return {@link PositionOptions} of a watch position.
 		 * @returns {Long} Return a watchId so that it can be use in function {@link Geolocation.clearWatch}.
 		 * @PB10
 		 */
@@ -137,27 +142,30 @@ PositionError  = {
 	
 	/**
 	 * @description The location acquisition process failed because the document does not have permission to use the Geolocation API. 
+     * @constant
 	 * @BB50+
 	 * @PB10	 
-	 * @type Short
+	 * @type Number
 	 */
-	PERMISSION_DENIED : "",
+	PERMISSION_DENIED = 1;
 	
 	/**
 	 * @description The position of the device could not be determined.
+     * @constant
 	 * @BB50+
 	 * @PB10	 
-	 * @type Short
+	 * @type Number
 	 */
-	POSITION_UNAVAILABLE : "",
+	POSITION_UNAVAILABLE = 2;
 			
 	/**
-	 * @description The length of time specified by the {@link PositionOptions.timeout timeour}  property has elapsed
+	 * @description The length of time specified by the {@link PositionOptions.timeout}  property has elapsed
+     * @constant
 	 * @BB50+
 	 * @PB10	 
-	 * @type Short
+	 * @type Number
 	 */
-	TIMEOUT : "",
+	TIMEOUT = 3;
          
     }
     

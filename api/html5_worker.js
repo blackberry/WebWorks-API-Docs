@@ -29,14 +29,14 @@ WebWorkers = {
         * @example
         * Main script:
         *
-        * &lt;script type=&quot;text&sol;javascript&quot;&gt;
+        * &lt;script type="text/javascript"&gt;
         *   var worker = new Worker('doWork.js');
         *
         *   worker.addEventListener('message', function(e) {
         *        console.log('Worker said: ', e.data);
         *    }, false);
         *
-        * &lt;&sol;script&gt;
+        * &lt;/script&gt;
         *
         *doWork.js (the worker):
         *
