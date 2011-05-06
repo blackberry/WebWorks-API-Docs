@@ -17,6 +17,9 @@
 /**
  * @toc {Database} Database
  * @namespace This object provides functions to manipulate client-side databases using SQL. 
+ * <p/>
+ * The <b>openDatabase()</b> method on the <b>Window</b> and <b>WorkerUtils</b> can be used to get an instance of database. For example:<br/>
+ * <i>Database db=Window.openDatabase('documents', '1.0', 'Offline document storage', 5*1024*1024, null);</i>
  * <br/><br/>
  * <b>Important Note:</b> The HTML5 Database object is marked as supported for OS 5.0.  This support is accomplished by using the <a href="http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Supporting-Gears-using-HTML5-in-BlackBerry-WebWorks-applications/ta-p/557280" target="_blank">HTML5 JavaScript toolkit</a> for BlackBerry OS 5.0.
  * @PB10
@@ -49,6 +52,23 @@ Database ={
 		 * @callback {function} [successCallback] Function to be called when SQL statement is executed successfully. Expected signature: function SQLVoidCallback().
 		 * @PB10
 		 * @BB50+
+		 * @example
+		 * function showDocCount(db, span) {
+  		 *	db.<b>readTransaction</b>(
+  		 *		function (t) {
+    	 *			t.executeSql('SELECT COUNT(*) AS c FROM docids', [], 
+    	 *				function (t, r) {
+      	 *					span.textContent = r.rows[0].c;
+      	 *				}, 
+      	 *				function (t, e) {
+      	 *					// couldn't read database
+      	 *					span.textContent = '(unknown: ' + e.message + ')';
+      	 *				}
+      	 *			);
+      	 *		}
+      	 *	);
+		 *}
+		 * 
 		 */
 		readTransaction : function(callback, errorCallback, successCallback){},
 		
@@ -61,6 +81,8 @@ Database ={
 		 * @callback {function} [successCallback] Function to be called when SQL statement is executed successfully. Expected signature: function SQLVoidCallback().
 		 * @PB10
 		 * @BB50+
+		 * @example
+		 * db.<b>changeVersion</b>('', '1.0', function (t) {...});
 		 * 
 		 */
 		changeVersion : function(oldVersion, newVersion, callback, errorCallback, successCallback){}
@@ -83,6 +105,23 @@ SQLTransaction = {
 		 * @param {function} [errorCallback] Function to be called when SQL error occurs. Expected signature: function SQLStatementErrorCallback (SQLTransaction transaction, SQLError error).
 		 * @PB10
 		 * @BB50+
+		 * @example
+		 * function showDocCount(db, span) {
+  		 *	db.readTransaction(
+  		 *		function (t) {
+    	 *			t.<b>executeSql</b>('SELECT COUNT(*) AS c FROM docids', [], 
+    	 *				function (t, r) {
+      	 *					span.textContent = r.rows[0].c;
+      	 *				}, 
+      	 *				function (t, e) {
+      	 *					// couldn't read database
+      	 *					span.textContent = '(unknown: ' + e.message + ')';
+      	 *				}
+      	 *			);
+      	 *		}
+      	 *	);
+		 *}
+		 * 
 		 */
 		executeSql : function(sqlStatement, arguments, callback, errorCallback) {}
 };
