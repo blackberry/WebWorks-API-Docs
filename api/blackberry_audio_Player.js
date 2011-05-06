@@ -110,7 +110,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	/**
 	* Add a player listener for this player.  All subsequent calls assigning a new onPlayerUpdate callback will override the previous callback assigned. To unsubscribe from the PlayerListener, pass null as an onPlayerUpdate parameter.
 	* @callback {function} [onPlayerUpdate] This callback function is called to deliver an event to a registered listener when a Player event is observed.
-	* @callback {Player} [onPlayerUpdate.player] The player which generated the event.
+	* @callback {blackberry.audio.Player} [onPlayerUpdate.player] The player which generated the event.
 	* @callback {String} [onPlayerUpdate.event] The event generated as defined by the enumerated types.
 	* @callback {Object} [onPlayerUpdate.eventData] The associated event data.
 	* @returns {Boolean} Returns true if the callback is successfully assigned

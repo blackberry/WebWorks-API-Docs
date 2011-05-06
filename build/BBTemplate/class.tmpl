@@ -642,7 +642,7 @@
 							<td class="confluenceTd"><b>{+item.name+}</b></td>
 							<td class="confluenceTd">
 								<if test="item.isCallback">
-									{+ ((item.type)?(new Link().toSymbol(item.type)) : "")+"(" + makeCallbackSignature(subParams) +}
+									{+ ((item.type)?(new Link().toSymbol(item.type)) : "")+ makeCallbackSignature(subParams) +}
 								<else/>
 									{+((item.type)?(new Link().toSymbol(item.type)) : "")+}
 								</if>
@@ -733,13 +733,18 @@
 			<for each="member" in="ownProperties">
 			<tr x-ww-support="{+member.supportTag+}">
 				<td class="confluenceTd"><a name="{+Link.symbolNameToLinkName(member)+}" class="propertyName">{+member.name+}</a></td>
-				<td class="confluenceTd">{+new Link().toSymbol(member.type)+}
-				<if test="member.defaultValue">
-					{+" = " +resolveLinks(member.defaultValue)+}
-				</if>
-				<if test="member.readOnly">
-					<br>readonly
-				</if>
+				<td class="confluenceTd">
+					<if test="member.isCallback">
+						{+ ((member.type)?(new Link().toSymbol(member.type)) : "") + makeCallbackSignature(member.params) +}
+					<else/>
+						{+((member.type)?(new Link().toSymbol(member.type)) : "")+}
+					</if>
+					<if test="member.defaultValue">
+						{+" = " +resolveLinks(member.defaultValue)+}
+					</if>
+					<if test="member.readOnly">
+						<br/>readonly
+					</if>
 				</td>
 				
 				<td class="confluenceTd">{+resolveLinks(member.desc)+}
