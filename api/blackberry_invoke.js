@@ -17,7 +17,9 @@
 /**
  * @namespace The Invoke object contains methods that interact with other applications on a BlackBerry PlayBook. 
  * <p/>
- * The invoke() method on the invoke object allows you to pass arguments to the target application. The types of arguments can be one of: {@link blackberry.invoke.BrowserArguments}, {@link blackberry.invoke.CameraArguments}.   
+ * The invoke() method on the invoke object allows you to pass arguments to the target application. </br>The types of arguments can be one of: {@link blackberry.invoke.AddressBookArguments}, {@link blackberry.invoke.BrowserArguments},
+ {@link blackberry.invoke.CalendarArguments}, {@link blackberry.invoke.CameraArguments}, {@link blackberry.invoke.JavaArguments}, {@link blackberry.invoke.MapsArguments}, {@link blackberry.invoke.MemoArguments}, {@link blackberry.invoke.MessageArguments},
+ {@link blackberry.invoke.PhoneArguments}, {@link blackberry.invoke.SearchArguments}, and {@link blackberry.invoke.TaskArguments}.
  * @toc {Invoke} Invoke
  * @featureID blackberry.invoke
  * @example
