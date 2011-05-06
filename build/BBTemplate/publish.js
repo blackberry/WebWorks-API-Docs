@@ -259,14 +259,18 @@ function makeSignature(params) {
 }
 
 /** Build output for displaying Callback function parameters.
- *  These differ by nbeing filtered in reverse, needing the name sliced and linking to the actual type */
-function makeCallbackSignature(params) {
+ *  These differ because
+ *  	callbacks only have subParams, 
+ *  	the names of the params are sliced
+ *		the type is a link to the actual type  	
+ **/
+function makeCallbackSignature(params) {	
 	if (!params) return "()";
 	var signature = "("
 	+
 	params.filter(
 		function($) {
-			return $.name.indexOf(".") != -1; // don't show config params in signature
+			return $.name.indexOf(".") != -1; // ONLY show subparams in signature
 		}
 	).map(
 		function($) {
