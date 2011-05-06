@@ -28,6 +28,40 @@ Geolocation = {
 		 * @callback {function} [PositionErrorCallback] Optional function callback if the attempt fails, the errorCallback must be invoked with a new PositionError object, reflecting the reason for the failure.
 		 * @param {Object} [PositionOptions] return {@link PositionOptions} of a current position.
 		 * @PB10
+         * @example         
+         * <b>To get current position</b>
+         *  var startPos;
+         *  navigator.geolocation.getCurrentPosition(function(position) {
+         *     startPos = position;
+         *     latitude = startPos.coords.latitude;
+         *     longitude = startPos.coords.longitude;
+         *  });        
+         * 
+         * <b>Handle Errors</b>
+         *  
+         *  var startPos;
+         *  navigator.geolocation.getCurrentPosition(
+         *      function(position) {
+         *         startPos = position;
+         *         latitude = startPos.coords.latitude;
+         *         longitude = startPos.coords.longitude;
+         *      },         
+         *      function(error) {
+         *          switch(error.code) {
+         *               case PositionError.PERMISSION_DENIED :
+         *                 alert("Error. PERMISSION_DENIED");
+         *                 break;
+         *               case PositionError.POSITION_UNAVAILABLE:
+         *                 alert("Error. POSITION_UNAVAILABLE");
+         *                 break;
+         *               case PositionError.TIMEOUT:
+         *                 alert("Error. TIMEOUT"); 
+         *                 break;
+         *               default:
+         *                 alert("unknow error code");
+         *           }
+         *      }
+         * );        
 		 */
         getCurrentPosition : function(PositionCallback, PositionErrorCallback, positionOptions) {};
         
@@ -110,7 +144,7 @@ PositionError  = {
 	PERMISSION_DENIED : "",
 	
 	/**
-	 * @description 
+	 * @description The position of the device could not be determined.
 	 * @BB50+
 	 * @PB10	 
 	 * @type Short
@@ -118,7 +152,7 @@ PositionError  = {
 	POSITION_UNAVAILABLE : "",
 			
 	/**
-	 * @description 
+	 * @description The length of time specified by the {@link PositionOptions.timeout timeour}  property has elapsed
 	 * @BB50+
 	 * @PB10	 
 	 * @type Short
