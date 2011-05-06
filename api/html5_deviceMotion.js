@@ -168,8 +168,7 @@ RotationRate={
  	/**
 	 * @default 90
 	 * @type Number
-	 * @desc Returns the rotation angle around the device frame's Z-axis in degrees.
-	 * {@image //images//a-rotation.png}
+	 * @desc () {@image /images/a-rotation.jpg}</br> Returns the rotation angle around the device frame's Z-axis in degrees.
 	 * @readOnly
 	 * @PB10
 	 */ 
@@ -178,8 +177,7 @@ RotationRate={
 	/**
 	 * @default 0
 	 * @type Number
-	 * @desc Returns the rotation angle around the device frame's X-axis in degrees.
-	 * {@image //images//b-rotation.png}
+	 * @desc () {@image /images/b-rotation.jpg}</br> Returns the rotation angle around the device frame's X-axis in degrees.
 	 * @readOnly
 	 * @PB10
 	 */ 
@@ -188,8 +186,7 @@ RotationRate={
 	/**
 	 * @default 0
 	 * @type Number
-	 * @desc Returns the rotation angle around the device frame's Y-axis in degrees.
-	 * {@image //images//g-rotation.png}
+	 * @desc () {@image /images/g-rotation.jpg}</br> Returns the rotation angle around the device frame's Y-axis in degrees.
 	 * @readOnly
 	 * @PB10
 	 */ 
