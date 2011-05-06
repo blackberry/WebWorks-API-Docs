@@ -14,55 +14,55 @@
 * limitations under the License.
 */
 
-
 /**
-* @toc {Phone} PhoneCall 
+* @toc {Phone} Call 
 * @BB50+
 * @namespace Represents an active phone call.
 * @featureID blackberry.phone.Phone
 */
-blackberry.phone.Phone.Call = {
+blackberry.phone.Phone.Call = { };
 
-	/**
-	* Determines whether or not the current call is being held. 
-	* @returns {Boolean} Returns true if there the call is on hold.
-	* @BB50+
-	* @example
-	* &lt;script type=&quot;text/javascript&quot;&gt;
-	*   // Check if active call at index specified is on hold
-	*   var res = blackberry.phone.Phone.activeCalls();
-	*   if (res) {
-	*     var index = 0;
-	*     alert(&quot;Is active call &quot; + index + &quot; on hold? &quot; + res[index].isOnHold());
-	*   }
-	* &lt;/script&gt;
-	*/
-	isOnHold : function() { },
+/**
+* Determines whether or not the current call is being held. 
+* @returns {Boolean} Returns true if there the call is on hold.
+* @BB50+
+* @example
+* &lt;script type=&quot;text/javascript&quot;&gt;
+*   // Check if active call at index specified is on hold
+*   var res = blackberry.phone.Phone.activeCalls();
+*   if (res) {
+*     var index = 0;
+*     alert(&quot;Is active call &quot; + index + &quot; on hold? &quot; + res[index].isOnHold());
+*   }
+* &lt;/script&gt;
+*/
+blackberry.phone.Phone.Call.prototype.isOnHold = function() { };
 
-	/**
-	* Indicates if the call is outgoing. 
-	* @type Boolean
-	* @readOnly
-	* @BB50+
-	*/
-	outgoing : undefined,
+/**
+* Indicates if the call is outgoing. 
+* @type Boolean
+* @readOnly
+* @BB50+
+*/
+blackberry.phone.Phone.Call.prototype.outgoing = { };
 
-	/**
-	* Number string for display in a UI. If a contact list entry is found with a matching phone number, the &apos;friendly name&apos; (either First/Last or Company name) is returned. 
-	* @type String
-	* @readOnly
-	* @BB50+
-	*/
-	recipientName : undefined,
+/**
+* Number string for display in a UI. If a contact list entry is found with a matching phone number, the &apos;friendly name&apos; (either First/Last or Company name) is returned. 
+* @type String
+* @readOnly
+* @BB50+
+*/
+blackberry.phone.Phone.Call.prototype.recipientName = { };
 
-	/**
-	* Number associated with this phone call. 
-	* @type String
-	* @readOnly
-	* @BB50+
-	*/
-	recipientNumber : undefined,
+/**
+* Number associated with this phone call. 
+* @type String
+* @readOnly
+* @BB50+
+*/
+blackberry.phone.Phone.Call.prototype.recipientNumber = { };
 
 
- };
+
+
 
