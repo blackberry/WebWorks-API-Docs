@@ -274,11 +274,12 @@ function makeCallbackSignature(params) {
 		}
 	).map(
 		function($) {
+			var name = $.name.slice($.name.indexOf('.'), $.name.length);
 			var type = (($.type)?(new Link().toSymbol($.type)) : "");
 			if($.isOptional){
-				return "<i>["+$.name + ": " + type+"]</i>";
+				return "<i>["+name + ": " + type+"]</i>";
 			}else{
-				return $.name + " : " + type;
+				return name + " : " + type;
 			}
 		}
 	).join(", ")
