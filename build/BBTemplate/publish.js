@@ -258,6 +258,32 @@ function makeSignature(params) {
 	return signature;
 }
 
+/** Build output for displaying Callback function parameters.
+ *  These differ by nbeing filtered in reverse, needing the name sliced and linking to the actual type */
+function makeCallbackSignature(params) {
+	if (!params) return "()";
+	var signature = "("
+	+
+	params.filter(
+		function($) {
+			return $.name.indexOf(".") != -1; // don't show config params in signature
+		}
+	).map(
+		function($) {
+			var type = (($.type)?(new Link().toSymbol($.type)) : "");
+			if($.isOptional){
+				return "<i>["+$.name + ": " + type+"]</i>";
+			}else{
+				return $.name + " : " + type;
+			}
+		}
+	).join(", ")
+	+
+	")";
+	return signature;
+}
+
+
 /** Find symbol {@link ...} strings in text and turn into html links */
 function resolveLinks(str, from) {
 	str = str.replace(/\{@link ([^} ]+) ?\}/gi,
