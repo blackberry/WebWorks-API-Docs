@@ -20,18 +20,6 @@
  * on how to document a class with a constructor. 
  * @toc {Samples} Sample Namespace
  * @featureID blackberry.sampleNamespace
- * @example
- * &lt;script type="text/javascript"&gt;
- *
- * function startCameraApp() {
- *              var args = new blackberry.invoke.CameraArguments();
- *              args.view = blackberry.invoke.CameraArguments.VIEW_RECORDER;
- *
- *              blackberry.invoke.invoke(blackberry.invoke.APP_CAMERA, args);
- * }
- *  
- * startCameraApp();
- * &lt;/script&gt;
  */
 blackberry.sampleNamespace = {
 
@@ -51,14 +39,26 @@ blackberry.sampleNamespace = {
 		 * @PB10
 		 * @description This is how you document a readonly property
 		 */
-		 readonly_property: "",	
+		 readonly_property:,	
 
 		/**
 		 * @description This is how you document a static function
 		 * @returns {Boolean = TRUE} Returns true by default, false if a string beginning with a vowel is passed.   
 		 * @BB50+
 		 * @param {String} word String parameter.
+		 * @example
+		 * &lt;script type="text/javascript"&gt;
+		 *
+		 * function sampleCode() {
+		 *        
+		 *		  if (!blackberry.function_example(CONSTANT_EXAMPLE) {      
+		 *		  alert(readonly_property); //will always print 
+		 *		  }
+		 * }
+		 *  
+		 * sampleCode();
+		 * &lt;/script&gt;
 		 */
-		 function_example : function(){}
+		 function_example : function(word){}
 
 }
