@@ -21,7 +21,7 @@
  * <br>   Returns the ApplicationCache object that applies to the active document of that Window.
  * <br>cache = self.applicationCache (In a shared worker.)
  * <br>   Returns the ApplicationCache object that applies to the current shared worker. [WEBWORKERS] 
- * @toc {ApplicationCache} HTML5 ApplicationCache
+ * @toc {Cache} HTML5 ApplicationCache
  */
 
 ApplicationCache ={
