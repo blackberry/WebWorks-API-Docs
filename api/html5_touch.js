@@ -154,16 +154,14 @@ Touch.prototype.force = { };
 
 /**
 * This interface defines a list of individual points of contact for a touch event.
-* @touch {Touch} Touch Point List
-* @class
-* @getter {Number} {Touch} fetch touch event at the given index
+* @class {@link Touch} point list
 * @BB60+
 * @PB10
 */
 TouchList = function() {};
 
 /**
-* returns the number of {Touch}es in the list
+* returns the number of {@link Touch}es in the list
 * @type Number
 * @readOnly
 * @BB60+
@@ -172,11 +170,11 @@ TouchList = function() {};
 TouchList.prototype.length = {};
 
 /**
-* returns the {Touch} with index index from the list, sorted in order from latest to earliest
+* returns the {@link Touch} with index index from the list, sorted in order from latest to earliest
 * @squareAccessor
 * @function
 * @param {Number} index the identifier of the touch event to fetch
-* @returns {Touch} the {Touch} with index index from the list, sorted in order from latest to earliest
+* @returns {Touch} the {@link Touch} with index index from the list, sorted in order from latest to earliest
 * @readOnly
 * @throws {IndexOutOfBoundsException} When the index is invalid
 * @BB60+
@@ -185,12 +183,12 @@ TouchList.prototype.length = {};
 TouchList.prototype.item = function(index) { };
 
 /**
-* returns the first {Touch} with long identifier from the list
+* returns the first {@link Touch} with long identifier from the list
 
 * @BB60+
 * @PB10
 * @param {Number} identifier the identifier of the touch event to fetch
-* @returns {Touch} the first {Touch} with long identifier from the list
+* @returns {Touch} the first {@link Touch} with long identifier from the list
 */
 TouchList.prototype.identifiedTouch = function(identifier) { };
 
@@ -203,7 +201,7 @@ TouchList.prototype.identifiedTouch = function(identifier) { };
 TouchEvent = function() { };
 
 /**
-* a list of {Touch}es for every point of contact currently touching the surface
+* a list of {@link Touch}es for every point of contact currently touching the surface
 * @type TouchList
 * @readOnly
 * @BB60+
@@ -212,7 +210,7 @@ TouchEvent = function() { };
 TouchEvent.prototype.touches = {};
 
 /**
-* a list of {Touch}es for every point of contact currently touching the surface, which started on the same target
+* a list of {@link Touch}es for every point of contact currently touching the surface, which started on the same target
 * @type TouchList
 * @readOnly
 * @BB60+
@@ -222,7 +220,7 @@ TouchEvent.prototype.targetTouches = {};
 
 
 /**
-* a list of {Touch}es for every point of contact which contributed to the event
+* a list of {@link Touch}es for every point of contact which contributed to the event
 * @type TouchList
 * @readOnly
 * @BB60+

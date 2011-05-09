@@ -648,8 +648,8 @@ TextTrackCue.prototype.getCueAsHTML = function() { };
 
 
 /**
-* A {TextTrackCueList} object represents a dynamically updating list 
-* of {TextTrackCue}s in a given order.
+* A {@link TextTrackCueList} object represents a dynamically updating list 
+* of {@link TextTrackCue}s in a given order.
 * @class
 * @BB60+
 * @PB10
@@ -658,11 +658,11 @@ TextTrackCueList = function() { }
 
 
 /**
-* returns the {TextTrackCue} with index index from the list
+* returns the {@link TextTrackCue} with index index from the list
 * @squareAccessor
 * @function
 * @param {Number} index the identifier of the text track cue to fetch
-* @returns {TextTrackCue} the {TextTrackCue} with index index from the list
+* @returns {TextTrackCue} the {@link TextTrackCue} with index index from the list
 * @readOnly
 * @throws {IndexOutOfBoundsException} When the index is invalid
 * @BB60+
@@ -775,7 +775,7 @@ TextTrack.ERROR = 3;
 TextTrack.prototype.readyState = { };
 
 /**
-* Fire the onload if the {TextTrack} has loaded
+* Fire the onload if the {@link TextTrack} has loaded
 * @BB60+
 * @PB10
 * @event
@@ -784,7 +784,7 @@ TextTrack.prototype.readyState = { };
 TextTrack.prototype.onload = function(event) { };
 
 /**
-* Fire the onerror event if an error has occured with this {TextTrack}.
+* Fire the onerror event if an error has occured with this {@link TextTrack}.
 * for example loading has failed.
 * @BB60+
 * @PB10
@@ -834,11 +834,11 @@ TextTrack.prototype.mode = { };
 /**
 * If the text track mode of the text track that the TextTrack object 
 * represents is not the text track disabled mode, then the cues 
-* attribute must return a live {TextTrackCueList} object that represents 
+* attribute must return a live {@link TextTrackCueList} object that represents 
 * the subset of the text track list of cues of the text track that 
 * the TextTrack object represents whose start times occur before the 
 * earliest possible position when the script started, in text track 
-* cue order. Otherwise, it must return {null}. When an object is 
+* cue order. Otherwise, it must return {@link null}. When an object is 
 * returned, the same object must be returned each time.
 * @type TextTrackCueList
 * @readOnly
@@ -921,7 +921,7 @@ MutableTextTrack.prototype.removeCue(cue) { }
 HTMLMediaElement.prototype.textTracks = { };
 
 /**
-* Creates and returns a new {MutableTextTrack} object, which is also 
+* Creates and returns a new {@link MutableTextTrack} object, which is also 
 * added to the media element's list of text tracks.
 * @param {String} kind kind is one of the following strings "subtitles", "captions", "descriptions", "chapters", "metadata"
 * @param {String} label text track label
