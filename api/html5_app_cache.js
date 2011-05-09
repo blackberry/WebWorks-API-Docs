@@ -31,7 +31,7 @@ ApplicationCache ={
 		* @desc The ApplicationCache object's cache host is not associated with an application cache at this time.
 		* @type unsigned short
 		* @BB60+
-		* @PB10+
+		* @PB10
 		*/ 
 		const UNCACHED: 0;
 		
@@ -43,7 +43,7 @@ ApplicationCache ={
 		* and the application cache group is not marked as obsolete.
 		* @type unsigned short
 		* @BB60+
-		* @PB10+
+		* @PB10
 		*/ 
 		const IDLE: 1,
 
@@ -53,7 +53,7 @@ ApplicationCache ={
 		* whose application cache group's update status is checking.
 		* @type unsigned short
 		* @BB60+
-		* @PB10+
+		* @PB10
 		*/ 
 		const CHECKING: 2,
 		
@@ -63,7 +63,7 @@ ApplicationCache ={
 		* whose application cache group's update status is downloading.
 		* @type unsigned short
 		* @BB60+
-		* @PB10+
+		* @PB10
 		*/ 
 		const DOWNLOADING: 3,
 
@@ -74,7 +74,7 @@ ApplicationCache ={
 		* is not marked as obsolete, but that application cache is not the newest cache in its group.
 		* @type unsigned short
 		* @BB60+
-		* @PB10+
+		* @PB10
 		*/ 
 		const UPDATEREADY: 4,
 
@@ -84,7 +84,7 @@ ApplicationCache ={
 		* whose application cache group is marked as obsolete.
 		* @type unsigned short
 		* @BB60+
-		* @PB10+
+		* @PB10
 		*/ 
 		const OBSOLETE: 5,
 
@@ -101,7 +101,7 @@ ApplicationCache ={
 		 * @readonly
 		 * @type unsigned short
 		 * @BB60+
-		 * @PB10+
+		 * @PB10
 		 * @example
 		 * var appCache = window.applicationCache;
 		 * switch (appCache.status) {
@@ -134,7 +134,7 @@ ApplicationCache ={
 		 * @desc  Invokes the application cache download process.
 		 * <br>Throws an INVALID_STATE_ERR exception if there is no application cache to update.<br>
 		 * @BB60+
-		 * @PB10+
+		 * @PB10
 		 * @example
 		 * var appCache = window.applicationCache;
 		 * appCache.update(); // Attempt to update the user's cache.
@@ -152,7 +152,7 @@ ApplicationCache ={
 		 * images do not suddenly get reloaded and style sheets and scripts do not get reparsed or reevaluated.
 		 * The only change is that subsequent requests for cached resources will obtain the newer copies.<br>
 		 * @BB60+
-		 * @PB10+
+		 * @PB10
 		 * @example
 		 * var appCache = window.applicationCache;
 		 * appCache.update(); // Attempt to update the user's cache.
@@ -166,7 +166,7 @@ ApplicationCache ={
 		/**@event
 		 * @desc  Sent when the cache update process begins.<br>
 		 * @BB60+
-		 * @PB10+
+		 * @PB10
 		 * @example 
 		 * function handleCacheEvent(e) {
 		 *     //...
@@ -180,7 +180,7 @@ ApplicationCache ={
 		 * @event
 		 * @desc  Sent when an error occurs.<br>
 		 * @BB60+
-		 * @PB10+
+		 * @PB10
 		 * @example 
 		 * function handleCacheErro(e) {
 		 *     alert('Error: Cache failed to update!');
@@ -195,7 +195,7 @@ ApplicationCache ={
 		 * @event
 		 * @desc  Sent when the update process finishes but the manifest file does not change.<br>
 		 * @BB60+
-		 * @PB10+
+		 * @PB10
 		 * @example 
 		 * function handleCacheEvent(e) {
 		 *     //...
@@ -209,7 +209,7 @@ ApplicationCache ={
 		 * @event
 		 * @desc  Sent when the update process begins downloading resources in the manifest file.<br>
 		 * @BB60+
-		 * @PB10+
+		 * @PB10
 		 * @example 
 		 * function handleCacheEvent(e) {
 		 *     //...
@@ -223,7 +223,7 @@ ApplicationCache ={
 		 * @event
 		 * @desc  Sent when each resource in the manifest file begins to download.<br>
 		 * @BB60+
-		 * @PB10+
+		 * @PB10
 		 * @example 
 		 * function handleCacheEvent(e) {
 		 *     //...
@@ -238,7 +238,7 @@ ApplicationCache ={
 		 * @desc  Sent when there is an existing application cache, the update process finishes,
 		 * and there is a new application cache ready for use.<br>
 		 * @BB60+
-		 * @PB10+
+		 * @PB10
 		 * @example 
 		 * function handleCacheEvent(e) {
 		 *     //...
@@ -253,7 +253,7 @@ ApplicationCache ={
 		 * @desc  Sent when the resources listed in the manifest have been downloaded, 
 		 * and the application is now cached.<br>
 		 * @BB60+
-		 * @PB10+
+		 * @PB10
 		 * @example 
 		 * function handleCacheEvent(e) {
 		 *     //...
@@ -268,7 +268,7 @@ ApplicationCache ={
 		 * @desc  Sent when the manifest was found to have become a 404 or 410 page, 
 		 * so the application cache is being deleted.<br>
 		 * @BB60+
-		 * @PB10+
+		 * @PB10
 		 * @example 
 		 * function handleCacheEvent(e) {
 		 *     //...

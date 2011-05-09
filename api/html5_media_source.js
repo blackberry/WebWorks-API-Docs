@@ -28,7 +28,7 @@
 * @class
 * @extends HTMLElement
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLSourceElement = function() { };
 
@@ -38,7 +38,7 @@ HTMLSourceElement = function() { };
 * attribute must be present.
 * @type String
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLSourceElement.prototype.src = { };
 
@@ -46,7 +46,7 @@ HTMLSourceElement.prototype.src = { };
 * 
 * @type String
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLSourceElement.prototype.type = { };
 
@@ -54,7 +54,7 @@ HTMLSourceElement.prototype.type = { };
 * 
 * @type String
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLSourceElement.prototype.media = { };
 

@@ -29,7 +29,7 @@
 * there has not been an error.
 * @class
 * @BB60+
-* @PB10+
+* @PB10
 */
 MediaError = function() { }
 
@@ -39,7 +39,7 @@ MediaError = function() { }
 * @constant
 * @type NUMBER
 * @BB60+
-* @PB10+
+* @PB10
 */
 MediaError.MEDIA_ERR_ABORTED = 1;
 
@@ -50,7 +50,7 @@ MediaError.MEDIA_ERR_ABORTED = 1;
 * @constant
 * @type NUMBER
 * @BB60+
-* @PB10+
+* @PB10
 */
 MediaError.MEDIA_ERR_NETWORK = 2;
 
@@ -60,7 +60,7 @@ MediaError.MEDIA_ERR_NETWORK = 2;
 * @constant
 * @type Number
 * @BB60+
-* @PB10+
+* @PB10
 */
 MediaError.MEDIA_ERR_DECODE = 3;
 
@@ -69,7 +69,7 @@ MediaError.MEDIA_ERR_DECODE = 3;
 * @constant
 * @type Number
 * @BB60+
-* @PB10+
+* @PB10
 */
 MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED = 4;
 
@@ -80,7 +80,7 @@ MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED = 4;
 * @type Number|MediaError.MEDIA_ERR_ABORTED|MEDIA_ERR_NETWORK|MediaError.MEDIA_ERR_DECODE|MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 MediaError.prototype.code = { }
 
@@ -97,7 +97,7 @@ MediaError.prototype.code = { }
 * into one bigger range).
 * @class
 * @BB60+
-* @PB10+
+* @PB10
 */
 TimeRanges = function() { }
 
@@ -108,7 +108,7 @@ TimeRanges = function() { }
 * @type Number
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 TimeRanges.prototype.length = { };
 
@@ -116,7 +116,7 @@ TimeRanges.prototype.length = { };
 * Returns the time for the start of the range with the given index.
 * @param {Number} index
 * @BB60+
-* @PB10+
+* @PB10
 */
 TimeRanges.prototype.start = function(index) { };
 
@@ -124,7 +124,7 @@ TimeRanges.prototype.start = function(index) { };
 * Returns the time for the end of the range with the given ind
 * @param {Number} index
 * @BB60+
-* @PB10+
+* @PB10
 */
 TimeRanges.prototype.end = function(index) { };
 
@@ -146,7 +146,7 @@ HTMLMediaElement = function() { }
 * @type MediaError|null
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.error = { };
 
@@ -178,7 +178,7 @@ HTMLMediaElement.prototype.currentSRC = { };
 * @constant
 * @type Number
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.NETWORK_EMPTY = 0;
 
@@ -188,7 +188,7 @@ HTMLMediaElement.NETWORK_EMPTY = 0;
 * @constant
 * @type Number
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.NETWORK_IDLE = 1;
 
@@ -198,7 +198,7 @@ HTMLMediaElement.NETWORK_IDLE = 1;
 * @constant
 * @type Number
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.NETWORK_LOADING = 2;
 
@@ -207,7 +207,7 @@ HTMLMediaElement.NETWORK_LOADING = 2;
 * @constant
 * @type Number
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.NETWORK_NO_SOURCE = 3;
 
@@ -219,7 +219,7 @@ HTMLMediaElement.NETWORK_NO_SOURCE = 3;
 * @type Number|HTMLMediaElement.NETWORK_EMPTY|HTMLMediaElement.NETWORK_IDLE|HTMLMediaElement.NETWORK_LOADING|HTMLMediaElement.NETWORK_NO_SOURCE
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.networkState = { };
 
@@ -260,7 +260,7 @@ HTMLMediaElement.prototype.networkState = { };
 * &lt;/table&gt;
 * @type String
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.preload = { };
 
@@ -271,7 +271,7 @@ HTMLMediaElement.prototype.preload = { };
 * @type TimeRanges
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.buffered;
 
@@ -279,7 +279,7 @@ HTMLMediaElement.prototype.buffered;
 * Causes the element to reset and start selecting and loading a 
 * new media resource from scratch.
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.load = function () { };
 
@@ -300,7 +300,7 @@ HTMLMediaElement.prototype.canPlayType = function(type) { };
 * @constant
 * @type Number
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.HAVE_NOTHING = 0;
 
@@ -313,7 +313,7 @@ HTMLMediaElement.HAVE_NOTHING = 0;
 * @constant
 * @type Number
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.HAVE_METADATA = 1;
 
@@ -329,7 +329,7 @@ HTMLMediaElement.HAVE_METADATA = 1;
 * @constant
 * @type Number
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.HAVE_CURRENT_DATA = 2;
 
@@ -344,7 +344,7 @@ HTMLMediaElement.HAVE_CURRENT_DATA = 2;
 * @constant
 * @type Number
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.HAVE_FUTURE_DATA = 3;
 
@@ -358,7 +358,7 @@ HTMLMediaElement.HAVE_FUTURE_DATA = 3;
 * @constant
 * @type Number
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.HAVE_ENOUGH_DATA = 4;
 
@@ -369,7 +369,7 @@ HTMLMediaElement.HAVE_ENOUGH_DATA = 4;
 * @type Number|HTMLMediaElement.HAVE_NOTHING|HTMLMediaElement.HAVE_METADATA|HTMLMediaElement.HAVE_CURRENT_DATA|HTMLMediaElement.HAVE_FUTURE_DATA|HTMLMediaElement.HAVE_ENOUGH_DATA
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.readyState = { };
 
@@ -378,7 +378,7 @@ HTMLMediaElement.prototype.readyState = { };
 * attribute must initially have the value false.
 * @type Boolean
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.seeking = { };
 
@@ -388,7 +388,7 @@ HTMLMediaElement.prototype.seeking = { };
 * must seek to the new value (which might raise an exception).
 * @type Number
 * @BB60+
-* @PB10+
+* @PB10
 */
 
 HTMLMediaElement.prototype.currentTime = { };
@@ -399,7 +399,7 @@ HTMLMediaElement.prototype.currentTime = { };
 * @type Number
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.initialTime = { };
 
@@ -408,7 +408,7 @@ HTMLMediaElement.prototype.initialTime = { };
 * @type Number
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.duration = {};
 
@@ -417,7 +417,7 @@ HTMLMediaElement.prototype.duration = {};
 * @type Date
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.startOffsetTime = { };
 
@@ -426,7 +426,7 @@ HTMLMediaElement.prototype.startOffsetTime = { };
 * @type Boolean
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.paused = { };
 
@@ -438,7 +438,7 @@ HTMLMediaElement.prototype.paused = { };
 * attribute must be set to the new value
 * @type Number
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.defaultPlaybackRate = { };
 
@@ -453,7 +453,7 @@ HTMLMediaElement.prototype.defaultPlaybackRate = { };
 * change speed (if the element is potentially playing).
 * @type Number
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.playbackRate = { };
 
@@ -465,7 +465,7 @@ HTMLMediaElement.prototype.playbackRate = { };
 * @type TimeRanges
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.played = { };
 
@@ -476,7 +476,7 @@ HTMLMediaElement.prototype.played = { };
 * is evaluated.
 * @type TimeRanges
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.seekable = { };
 
@@ -487,7 +487,7 @@ HTMLMediaElement.prototype.seekable = { };
 * @type Boolean
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.ended = { };
 
@@ -496,7 +496,7 @@ HTMLMediaElement.prototype.ended = { };
 * resource as soon as it can do so without stopping.
 * @type Boolean
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.autoplay = { };
 
@@ -506,7 +506,7 @@ HTMLMediaElement.prototype.autoplay = { };
 * reaching the end.
 * @type Boolean
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.loop = { };
 
@@ -514,14 +514,14 @@ HTMLMediaElement.prototype.loop = { };
 * Play the video. If the video has ended, the player will seek to the 
 * beginning and start again. 
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.play = function() { };
 
 /**
 * Pause playback of the video.
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.pause =  function() { };
 
@@ -530,7 +530,7 @@ HTMLMediaElement.prototype.pause =  function() { };
 * would like the user agent to provide its own set of controls.
 * @type Boolean
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.controls = { };
 
@@ -544,7 +544,7 @@ HTMLMediaElement.prototype.controls = { };
 * the new value.
 * @type Number
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.volume = { };
 
@@ -552,7 +552,7 @@ HTMLMediaElement.prototype.volume = { };
 * Must return true if the audio channels are muted and false otherwise. 
 * @type Boolean
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.muted = { };
 
@@ -569,7 +569,7 @@ TextTrackCue = function() { }
 * @type TextTrack
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrackCue.prototype.track = { };
 
@@ -578,7 +578,7 @@ TextTrackCue.prototype.track = { };
 * @type Number
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrackCue.prototype.id = { };
 
@@ -587,7 +587,7 @@ TextTrackCue.prototype.id = { };
 * @type Number
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrackCue.prototype.startTime = { };
 
@@ -596,7 +596,7 @@ TextTrackCue.prototype.startTime = { };
 * @type 
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrackCue.prototype.endTime = { };
 
@@ -605,7 +605,7 @@ TextTrackCue.prototype.endTime = { };
 * @type Boolean
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrackCue.prototype.pauseOnExit = { };
 
@@ -613,7 +613,7 @@ TextTrackCue.prototype.pauseOnExit = { };
 * fire the onenter event if the current position now includes this
 * text cue 
 * @BB60+
-* @PB10+
+* @PB10
 * @event
 * @param {Event} event
 */
@@ -623,7 +623,7 @@ TextTrack.prototype.onenter = function(event) { };
 * fire the onexit event if the current position no longer includes this
 * text cue 
 * @BB60+
-* @PB10+
+* @PB10
 * @event
 * @param {Event} event
 */
@@ -633,7 +633,7 @@ TextTrack.prototype.onexit = function(event) { };
 * Returns the text track cue text in raw unparsed form.
 * @returns String
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrackCue.prototype.getCueAsSource = function() { };
 
@@ -642,7 +642,7 @@ TextTrackCue.prototype.getCueAsSource = function() { };
 * HTML elements and other DOM nodes
 * @returns String
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrackCue.prototype.getCueAsHTML = function() { };
 
@@ -652,7 +652,7 @@ TextTrackCue.prototype.getCueAsHTML = function() { };
 * of {TextTrackCue}s in a given order.
 * @class
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrackCueList = function() { }
 
@@ -666,7 +666,7 @@ TextTrackCueList = function() { }
 * @readOnly
 * @throws {IndexOutOfBoundsException} When the index is invalid
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrackCueList.prototype.item = function(index) { };
 
@@ -676,7 +676,7 @@ TextTrackCueList.prototype.item = function(index) { };
 * @type Number
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrackCueList.prototype.length = { };
 
@@ -685,7 +685,7 @@ TextTrackCueList.prototype.length = { };
 * @param {String} id Returns the first text track cue (in text track cue order) with text track cue identifier id. Returns null if none of the cues have the given identifier or if the argument is the empty string.
 * @returns TextTrackCue
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrackCueList.prototype.getCueById = function(id) { };
 
@@ -697,7 +697,7 @@ TextTrackCueList.prototype.getCueById = function(id) { };
 * @class
 * @extends EventTarget
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrack = function() { }
 
@@ -707,7 +707,7 @@ TextTrack = function() { }
 * @type String
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrack.prototype.kind = { };
 
@@ -716,7 +716,7 @@ TextTrack.prototype.kind = { };
 * @type String
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrack.prototype.label = { };
 
@@ -725,7 +725,7 @@ TextTrack.prototype.label = { };
 * @type String
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrack.prototype.language = { };
 
@@ -734,7 +734,7 @@ TextTrack.prototype.language = { };
 * @type Number
 * @constant
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrack.NONE = 0;
 
@@ -743,7 +743,7 @@ TextTrack.NONE = 0;
 * @type Number
 * @constant
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrack.LOADING = 1;
 
@@ -752,7 +752,7 @@ TextTrack.LOADING = 1;
 * @type Number
 * @constant
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrack.LOADED = 2;
 
@@ -761,7 +761,7 @@ TextTrack.LOADED = 2;
 * @type Number
 * @constant
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrack.ERROR = 3;
 
@@ -770,14 +770,14 @@ TextTrack.ERROR = 3;
 * @type Number|TextTrack.NONE|TextTrack.LOADING|TextTrack.LOADED|TextTrack.ERROR
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrack.prototype.readyState = { };
 
 /**
 * Fire the onload if the {TextTrack} has loaded
 * @BB60+
-* @PB10+
+* @PB10
 * @event
 * @param {Event} event
 */
@@ -787,7 +787,7 @@ TextTrack.prototype.onload = function(event) { };
 * Fire the onerror event if an error has occured with this {TextTrack}.
 * for example loading has failed.
 * @BB60+
-* @PB10+
+* @PB10
 * @event
 * @param {Event} event
 */
@@ -798,7 +798,7 @@ TextTrack.prototype.onerror = function(event) { };
 * @type Number
 * @constant
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrack.OFF = 0;
 
@@ -807,7 +807,7 @@ TextTrack.OFF = 0;
 * @type Number
 * @constant
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrack.HIDDEN = 1;
 
@@ -816,7 +816,7 @@ TextTrack.HIDDEN = 1;
 * @type Number
 * @constant
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrack.SHOWING = 2;
 
@@ -826,7 +826,7 @@ TextTrack.SHOWING = 2;
 * TextTrack object represents.
 * @type Number|TextTrack.OFF|TextTrack.HIDDEN|TextTrack.SHOWING
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrack.prototype.mode = { };
 
@@ -843,7 +843,7 @@ TextTrack.prototype.mode = { };
 * @type TextTrackCueList
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrack.prototype.cues = { };
 
@@ -859,7 +859,7 @@ TextTrack.prototype.cues = { };
 * @type TextTrackCueList
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 TextTrack.prototype.activeCues = { };
 
@@ -869,7 +869,7 @@ TextTrack.prototype.activeCues = { };
 * an oncuechange event for affected track if the text cue becomes 
 * active.
 * @BB60+
-* @PB10+
+* @PB10
 * @event
 * @param {Event} event
 */
@@ -890,7 +890,7 @@ MutableTextTrack = function() { }
 * Raises an exception if the argument is null, associated with 
 * another text track, or already in the list of cues.
 * @BB60+
-* @PB10+
+* @PB10
 * @event
 * @param {TextTrackCue} cue the cue to add
 */
@@ -903,7 +903,7 @@ MutableTextTrack.prototype.addCue(cue) { }
 * Raises an exception if the argument is null, associated with 
 * another text track, or not in the list of cues.
 * @BB60+
-* @PB10+
+* @PB10
 * @event
 * @param {TextTrackCue} cue the cue to remove
 */
@@ -916,7 +916,7 @@ MutableTextTrack.prototype.removeCue(cue) { }
 * @type TextTrack[]
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.textTracks = { };
 
@@ -928,7 +928,7 @@ HTMLMediaElement.prototype.textTracks = { };
 * @param {String} language language of the text track
 * @returns MutableTextTrack
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLMediaElement.prototype.addTrack = function(kind, label, language) { };
 

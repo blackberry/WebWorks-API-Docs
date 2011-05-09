@@ -33,7 +33,7 @@
 * @class
 * @extends HTMLElement
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLTrackElement = function() { };
 
@@ -42,7 +42,7 @@ HTMLTrackElement = function() { };
 * "descriptions", "chapters", "metadata"
 * @type String
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLTrackElement.prototype.kind = { };
 
@@ -53,7 +53,7 @@ HTMLTrackElement.prototype.kind = { };
 * spaces. This attribute must be presen
 * @type String
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLTrackElement.prototype.src = { };
 
@@ -64,7 +64,7 @@ HTMLTrackElement.prototype.src = { };
 * be present if the element's kind attribute is in the subtitles state.
 * @type String
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLTrackElement.prototype.srclang = { };
 
@@ -78,7 +78,7 @@ HTMLTrackElement.prototype.srclang = { };
 * must not be the empty string.
 * @type String
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLTrackElement.prototype.label = { };
 
@@ -91,7 +91,7 @@ HTMLTrackElement.prototype.label = { };
 * attribute specified.
 * @type Boolean
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLTrackElement.prototype.default = { };
 
@@ -101,7 +101,7 @@ HTMLTrackElement.prototype.default = { };
 * @type TextTrack
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLSourceElement.prototype.track = { };
 
