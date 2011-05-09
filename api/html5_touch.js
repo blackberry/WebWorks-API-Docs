@@ -173,13 +173,16 @@ TouchList.prototype.length = {};
 
 /**
 * returns the {Touch} with index index from the list, sorted in order from latest to earliest
-* @BB60+
-* @PB10+
+* @squareAccessor
+* @function
 * @param {Number} index the identifier of the touch event to fetch
 * @returns {Touch} the {Touch} with index index from the list, sorted in order from latest to earliest
+* @readOnly
+* @throws {IndexOutOfBoundsException} When the index is invalid
+* @BB60+
+* @PB10+
 */
 TouchList.prototype.item = function(index) { };
-
 
 /**
 * returns the first {Touch} with long identifier from the list

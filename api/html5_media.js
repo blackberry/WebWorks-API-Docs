@@ -649,12 +649,26 @@ TextTrackCue.prototype.getCueAsHTML = function() { };
 
 /**
 * A {TextTrackCueList} object represents a dynamically updating list 
-* of TextTrackCue}s in a given order.
+* of {TextTrackCue}s in a given order.
 * @class
 * @BB60+
 * @PB10+
 */
 TextTrackCueList = function() { }
+
+
+/**
+* returns the {TextTrackCue} with index index from the list
+* @squareAccessor
+* @function
+* @param {Number} index the identifier of the text track cue to fetch
+* @returns {TextTrackCue} the {TextTrackCue} with index index from the list
+* @readOnly
+* @throws {IndexOutOfBoundsException} When the index is invalid
+* @BB60+
+* @PB10+
+*/
+TextTrackCueList.prototype.item = function(index) { };
 
 
 /**
