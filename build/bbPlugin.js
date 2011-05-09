@@ -20,7 +20,7 @@
  * Put this file in <JSDoc dir>\app\plugins\ and it will be used whenever JSDoc is run.
  */
 
-
+/** Generate Incrementing Numbers for use in templates **/
 var generatedindex = 0;
 
 function ResetIndex()
@@ -34,6 +34,7 @@ function GenerateIndex()
     return generatedindex++;
 }
 
+/** Fetch and remove additional { foo } parameters from a string **/
 function GetType(src)
 {
     var type = null;
@@ -69,7 +70,7 @@ JSDOC.PluginManager.registerPlugin(
                 var learnTag = symbol.comment.getTag("learns");
 				var squareAccessor = symbol.comment.getTag("squareAccessor");
                 var constructorTag = symbol.comment.getTag("constructor");
-                var constructedBy = symbol.comment.tags.filter(function($){return $.title=="constructedBy" && !!$.type}); 
+                var constructedBy = symbol.comment.tags.filter(function($){return $.title=="constructedBy" && $.type}); 
                 
 				//If its a class/namespace
 				if((symbol.is("CONSTRUCTOR") || symbol.isNamespace) && !(symbol.alias == "_global_")){
