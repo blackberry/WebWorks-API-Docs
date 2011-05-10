@@ -21,13 +21,14 @@
  * <br>   Returns the ApplicationCache object that applies to the active document of that Window.
  * <br>cache = self.applicationCache (In a shared worker.)
  * <br>   Returns the ApplicationCache object that applies to the current shared worker. [WEBWORKERS] 
- * @toc {ApplicationCache} HTML5 ApplicationCache
+ * @toc {Cache} HTML5 ApplicationCache
  */
 
 ApplicationCache ={
 
 		/**
 		* @constant
+		* @default 0
 		* @desc The ApplicationCache object's cache host is not associated with an application cache at this time.
 		* @type unsigned short
 		* @BB60+
@@ -37,6 +38,7 @@ ApplicationCache ={
 		
 		/**
 		* @constant
+		* @default 1
 		* @desc The ApplicationCache object's cache host is associated with
 		* an application cache whose application cache group's update status is idle,
 		* and that application cache is the newest cache in its application cache group,
@@ -49,6 +51,7 @@ ApplicationCache ={
 
 		/**
 		* @constant
+		* @default 2
 		* @desc The ApplicationCache object's cache host is associated with an application cache
 		* whose application cache group's update status is checking.
 		* @type unsigned short
@@ -59,6 +62,7 @@ ApplicationCache ={
 		
 		/**
 		* @constant
+		* @default 3
 		* @desc The ApplicationCache object's cache host is associated with an application cache
 		* whose application cache group's update status is downloading.
 		* @type unsigned short
@@ -69,6 +73,7 @@ ApplicationCache ={
 
 		/**
 		* @constant
+		* @default 4
 		* @desc The ApplicationCache object's cache host is associated with an application cache
 		* whose application cache group's update status is idle, and whose application cache group
 		* is not marked as obsolete, but that application cache is not the newest cache in its group.
@@ -80,6 +85,7 @@ ApplicationCache ={
 
 		/**
 		* @constant
+		* @default 5
 		* @desc The ApplicationCache object's cache host is associated with an application cache
 		* whose application cache group is marked as obsolete.
 		* @type unsigned short
