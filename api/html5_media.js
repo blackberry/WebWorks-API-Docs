@@ -230,7 +230,7 @@ HTMLMediaElement.prototype.networkState = { };
 * preferences or based on the available connectivity. <br/><br/>
 *
 * The preload attribute is an enumerated attribute. The following table 
-* lists the keywords and states for the attribute — the keywords in the 
+* lists the keywords and states for the attribute ï¿½ the keywords in the 
 * left column map to the states in the cell in the second column on the 
 * same row as the keyword. <br/><br/>
 *
@@ -926,7 +926,7 @@ HTMLMediaElement.prototype.textTracks = { };
 * @param {String} kind kind is one of the following strings "subtitles", "captions", "descriptions", "chapters", "metadata"
 * @param {String} label text track label
 * @param {String} language language of the text track
-* @returns MutableTextTrack
+* @returns {MutableTextTrack}
 * @BB60+
 * @PB10
 */
