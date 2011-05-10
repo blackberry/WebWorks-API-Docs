@@ -141,10 +141,7 @@ function resolveSupport(symbol){
 			var childSupport = resolveSupport(object);
 			support.populateBySupport(childSupport);
 		}			                           	    	    	    	    
-	    symbol.support = support;
-		symbol.supportStrings = support.getSupportStrings();
-		symbol.supportTag = support.getSupportTag();
-		symbol.supportTable = support.getSupportTable();	    		
+	    symbol.support = support;	    		
 	}
 	return support;
 }

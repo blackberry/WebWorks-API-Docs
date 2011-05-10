@@ -172,12 +172,12 @@
 		{! allChildren = allChildren.concat(ownEvents);!}
 	</if>	
 
-	<if test="data.supportStrings">
+	<if test="data.support.getSupportStrings()">
 		<div class="title">Supported Platform(s)</div>		
 		<table class="scriptTable">			
 			<tr> 
 				<td class="scriptTd">
-					<for each="item" in="data.supportStrings">
+					<for each="item" in="data.support.getSupportStrings()">
 						- {+item+}<br/>
 					</for>
 				</td> 
@@ -205,14 +205,14 @@
 								   
 								</th>
 							</tr>
-							<tr x-ww-support="{+data.supportTag+}">
+							<tr x-ww-support="{+data.support.getSupportTag()+}">
 								<td class="apiTd">{+new Link().toSymbol(data.alias)+}
-								{+data.supportTable+}
+								{+data.support.getSupportTable()+}
 							</tr>
 							<for each="item" in="allChildren">
-							<tr x-ww-support="{+item.supportTag+}">
+							<tr x-ww-support="{+item.support.getSupportTag()+}">
 								<td class="apiTd">{+new Link().toSymbol(item.alias)+}
-								{+item.supportTable+}
+								{+item.support.getSupportTable()+}
 							</tr>								
 							</for>
 						</table>
@@ -259,7 +259,7 @@
 		<h1>Functions</h1>
 		<ul class="ulNoTopMargin">			
 			<for each="member" in="ownMethods">
-				<li x-ww-support="{+member.supportTag+}">
+				<li x-ww-support="{+member.support.getSupportTag()+}">
 					<if test="member.squareAccessor">
 						{+new Link().toSymbol(member.alias).withText("[]")+}
 					<else />
@@ -280,7 +280,7 @@
 		<h1>Events</h1>
 		<ul class="ulNoTopMargin">			
 			<for each="member" in="ownEvents">
-				<li x-ww-support="{+member.supportTag+}">{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
+				<li x-ww-support="{+member.support.getSupportTag()+}">{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
 				<if test="member.deprecated">
 					<span class="depricate">**</span>
 					{!hasDeprecation = true;!}
@@ -295,7 +295,7 @@
 		<h1>Properties</h1>
 		<ul class="ulNoTopMargin">
 			<for each="member" in="ownProperties">
-				<li x-ww-support="{+member.supportTag+}">{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
+				<li x-ww-support="{+member.support.getSupportTag()+}">{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
 				<if test="member.deprecated">
 					<span class="depricate">**</span>
 					{!hasDeprecation = true;!}
@@ -311,7 +311,7 @@
 		<h1>Constants</h1>
 		<ul class="ulNoTopMargin">
 			<for each="member" in="ownConstants">
-				<li x-ww-support="{+member.supportTag+}">{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
+				<li x-ww-support="{+member.support.getSupportTag()+}">{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
 				<if test="member.deprecated">
 					<span class="depricate">**</span>
 					{!hasDeprecation = true;!}
@@ -327,7 +327,7 @@
 		<h1>URI Functions</h1>
 		<ul class="ulNoTopMargin">			
 			<for each="member" in="ownURIMethods">
-				<li x-ww-support="{+member.supportTag+}">{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
+				<li x-ww-support="{+member.support.getSupportTag()+}">{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
 				<if test="member.deprecated">
 					<span class="depricate">**</span>
 					{!hasDeprecation = true;!}
@@ -345,7 +345,7 @@
 <!-- ============================== Constructor Details ========================= -->
 <!-- NEW: BETA -->
 	<if test="!data.isBuiltin() && data.is('CONSTRUCTOR')">
-		<div x-ww-support="{+data.supportTag+}">
+		<div x-ww-support="{+data.support.getSupportTag()+}">
 			<h2><a name="{ +Link.symbolNameToLinkName(data)+}"> </a>{+data.alias+}</h2>
 			<hr style="margin-bottom:15px;"/>
 		
@@ -370,9 +370,9 @@
 				</table>				
 			</if>			
 			
-			<if test="data.supportStrings">				
+			<if test="data.support.getSupportStrings()">				
 				<div class="title">Supported Platform(s)</div>		
-				<for each="item" in="data.supportStrings">
+				<for each="item" in="data.support.getSupportStrings()">
 					&nbsp;- {+item+}<br/>
 				</for>				
 			</if>
@@ -444,7 +444,7 @@
 <!-- ============================== Function details ========================= -->		
 	<if test="defined(ownMethods) && ownMethods.length">
 		<for each="member" in="ownMethods">
-			<div x-ww-support="{+member.supportTag+}">
+			<div x-ww-support="{+member.support.getSupportTag()+}">
 				<if test="member.squareAccessor">
 					<h2><a name="{+Link.symbolNameToLinkName(member)+}"> </a>{+data.alias+}[]</h2>
 				<else />
@@ -478,9 +478,9 @@
 					</table>				
 				</if>			
 				
-				<if test="member.supportStrings">				
+				<if test="member.support.getSupportStrings()">				
 					<div class="title">Supported Platform(s)</div>		
-					<for each="item" in="member.supportStrings">
+					<for each="item" in="member.support.getSupportStrings()">
 						&nbsp;- {+item+}<br/>
 					</for>				
 				</if>
@@ -588,7 +588,7 @@
 <!-- ============================== Event details ========================= -->		
 	<if test="defined(ownEvents) && ownEvents.length">
 		<for each="member" in="ownEvents">
-			<div x-ww-support="{+member.supportTag+}">
+			<div x-ww-support="{+member.support.getSupportTag()+}">
 				<h2><a name="{+Link.symbolNameToLinkName(member)+}"> </a>{+member.name+}</h2>
 				<hr style="margin-bottom:15px;"/>
 				
@@ -613,9 +613,9 @@
 					</table>				
 				</if>			
 				
-				<if test="member.supportStrings">				
+				<if test="member.support.getSupportStrings()">				
 					<div class="title">Supported Platform(s)</div>		
-					<for each="item" in="member.supportStrings">
+					<for each="item" in="member.support.getSupportStrings()">
 						&nbsp;- {+item+}<br/>
 					</for>				
 				</if>
@@ -745,7 +745,7 @@
 			</tr>
 			
 			<for each="member" in="ownProperties">
-			<tr x-ww-support="{+member.supportTag+}">
+			<tr x-ww-support="{+member.support.getSupportTag()+}">
 				<td class="confluenceTd"><a name="{+Link.symbolNameToLinkName(member)+}" class="propertyName">{+member.name+}</a></td>
 				<td class="confluenceTd">
 					<if test="member.isCallback">
@@ -781,8 +781,8 @@
 				</td>
 				
 				<td class="confluenceTd">
-					<if test="member.supportStrings">				
-						<for each="item" in="member.supportStrings">
+					<if test="member.support.getSupportStrings()">				
+						<for each="item" in="member.support.getSupportStrings()">
 							&nbsp;- {+item+}<br/>
 						</for>					
 					</if>
@@ -832,7 +832,7 @@
 			</tr>
 			
 			<for each="member" in="ownConstants">
-			<tr x-ww-support="{+member.supportTag+}">
+			<tr x-ww-support="{+member.support.getSupportTag()+}">
 				<td class="confluenceTd"><a name="{+Link.symbolNameToLinkName(member)+}" class="propertyName">{+member.name+}</a></td>
 				<td class="confluenceTd">{+new Link().toSymbol(member.type)+}
 				<if test="member.defaultValue">
@@ -851,8 +851,8 @@
 				</if>
 				</td>
 				<td class="confluenceTd">
-					<if test="member.supportStrings">				
-						<for each="item" in="member.supportStrings">
+					<if test="member.support.getSupportStrings()">				
+						<for each="item" in="member.support.getSupportStrings()">
 							&nbsp;- {+item+}<br/>
 						</for>					
 					</if>
@@ -866,7 +866,7 @@
 	<if test="data.methods.length">		
 		<if test="ownURIMethods.length">
 			<for each="member" in="ownURIMethods">
-				<div x-ww-support="{+member.supportTag+}">
+				<div x-ww-support="{+member.support.getSupportTag()+}">
 					<h2><a name="{+Link.symbolNameToLinkName(member)+}"> </a>webworks://{+member.alias.replace(/\./g, "/")+}</h2>
 					<hr style="margin-bottom:15px;"/>
 					
@@ -886,10 +886,10 @@
 						</table>
 					</if>				
 					
-					<if test="member.supportStrings">
+					<if test="member.support.getSupportStrings()">
 						<br/>
 						<div class="title">Supported Platform(s)</div>		
-						<for each="item" in="member.supportStrings">
+						<for each="item" in="member.support.getSupportStrings()">
 							&nbsp;- {+item+}<br/>
 						</for>					
 					</if>
