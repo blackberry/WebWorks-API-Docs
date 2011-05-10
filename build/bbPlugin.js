@@ -21,98 +21,109 @@
  */
 
 
-
-
 BBTag = {};
 
-BBTag.Support = function(){
+BBTag.Support = function(symbolArray){
 	this.init();
-}
+	if(symbolArray){
+		this.populateBySymbolArray(symbolArray);
+	}
+};
 
 BBTag.Support.prototype.init = function(){
 	this.bb50 = false;
 	this.bb60 = false;
 	this.pb10 = false;
 	this.common = false;
+	this.clearSupportAttributes();
+};
+
+BBTag.Support.prototype.clearSupportAttributes = function(){
 	this.supportStrings = [];
+	this.supportTag = "";
+	this.supportTable = "";
 }
 
 BBTag.Support.prototype.getSupportStrings = function(){
-	this.supportStrings = [];
-	if(this.bb50 && this.bb60){
-		this.supportStrings.push("BlackBerry OS 5.0+");
-	}else if(this.bb50 && !this.bb60){
-		this.supportStrings.push("BlackBerry OS 5.0");
-	}else if(!this.bb50 && this.bb60){
-		this.supportStrings.push("BlackBerry OS 6.0+");
-	}//This last else has no support
-	
-	if(this.pb10){
-		this.supportStrings.push("BlackBerry PlayBook");
+	if(!this.supportStrings.length){
+		if(this.bb50 && this.bb60){
+			this.supportStrings.push("BlackBerry OS 5.0+");
+		}else if(this.bb50 && !this.bb60){
+			this.supportStrings.push("BlackBerry OS 5.0");
+		}else if(!this.bb50 && this.bb60){
+			this.supportStrings.push("BlackBerry OS 6.0+");
+		}//This last else has no support
+		
+		if(this.pb10){
+			this.supportStrings.push("BlackBerry PlayBook");
+		}
 	}
 	return this.supportStrings;
-}
+};
 
 BBTag.Support.prototype.getSupportTag = function(){
-	this.supportTag = "";
-	if(this.bb50 && this.bb60){
-		this.supportTag = "bb5.0|bb6.0";
-	}else if(this.bb50 && !this.bb60){
-		this.supportTag = "bb5.0";
-	}else if(!this.bb50 && this.bb60){
-		this.supportTag = "bb6.0";
-	}//This last else has no support
-	
-	if(this.pb10){
-		if(this.supportTag.length){
-			this.supportTag += "|";
+	if(!this.supportTag.length){
+		if(this.bb50 && this.bb60){
+			this.supportTag = "bb5.0|bb6.0";
+		}else if(this.bb50 && !this.bb60){
+			this.supportTag = "bb5.0";
+		}else if(!this.bb50 && this.bb60){
+			this.supportTag = "bb6.0";
+		}//This last else has no support
+		
+		if(this.pb10){
+			if(this.supportTag.length){
+				this.supportTag += "|";
+			}
+			this.supportTag += "pb1.0";
 		}
-		this.supportTag += "pb1.0";
+		
+		if(this.common){
+			this.supportTag += "|common";
+		}
 	}
-	
-	if(this.common){
-		this.supportTag += "|common";
-	}
-	
 	return this.supportTag;
-}
+};
 
 
 BBTag.Support.prototype.getSupportTable = function(){
-	var tableYes = "<td class=\"apiTd apiYes\">Y</td>";
-	var tableNo =  "<td class=\"apiTd apiNo\">&nbsp;</td>";
-	
-	this.supportTable = (this.bb50?tableYes:tableNo) + "\n" 
-					+ (this.bb60?tableYes:tableNo) + "\n" 
-					+ (this.pb10?tableYes:tableNo);
-
+	if(!this.supportTable.length){
+		var tableYes = "<td class=\"apiTd apiYes\">Y</td>";
+		var tableNo =  "<td class=\"apiTd apiNo\">&nbsp;</td>";
+		this.supportTable = (this.bb50?tableYes:tableNo) + "\n" 
+						+ (this.bb60?tableYes:tableNo) + "\n" 
+						+ (this.pb10?tableYes:tableNo);
+	}
 	return this.supportTable;
-}
+};
 
 BBTag.Support.prototype.populateByBools = function(bb50,bb60,pb10){
 	this.bb50 |= bb50;
 	this.bb60 |= bb60;
 	this.pb10 |= pb10;
 	this.common |= bb50 && bb60 && pb10;
-}
+	this.clearSupportAttributes();
+};
 
 BBTag.Support.prototype.populateBySymbol = function(symbol){
 	 //BlackBerry Support Tags
-	if(symbol && symbol.comment){
-	    var BB50 = symbol.comment.getTag("BB50").length;
-	    var BB50P = symbol.comment.getTag("BB50+").length;
-	    var BB60 = symbol.comment.getTag("BB60").length;
-	    var BB60P = symbol.comment.getTag("BB60+").length;
-	    var PB10 = symbol.comment.getTag("PB10").length;
-	    var PB10P = symbol.comment.getTag("PB10+").length;
-		
-		
-		this.bb50 |= (BB50 || BB50P);
-		this.bb60 |= (BB50P || BB60P || BB60);
-		this.pb10 |= (PB10 || PB10P);
-		this.common |= (BB50P || (BB50 && (BB60 || BB60P))) && (PB10 || PB10P);
+	if(symbol){
+		if(symbol.support){
+			this.populateBySupport(symbol.support);
+		}else if (symbol.comment){
+		    var BB50 = symbol.comment.getTag("BB50").length;
+		    var BB50P = symbol.comment.getTag("BB50+").length;
+		    var BB60 = symbol.comment.getTag("BB60").length;
+		    var BB60P = symbol.comment.getTag("BB60+").length;
+		    var PB10 = symbol.comment.getTag("PB10").length;
+		    var PB10P = symbol.comment.getTag("PB10+").length;
+			
+		    symbol.support = new BBTag.Support();
+			symbol.support.populateByBools((BB50 || BB50P), (BB50P || BB60P || BB60),(PB10 || PB10P));
+			this.populateBySupport(symbol.support);					
+		}
 	}
-}
+};
 
 BBTag.Support.prototype.populateBySupport = function(support){
 
@@ -120,14 +131,15 @@ BBTag.Support.prototype.populateBySupport = function(support){
 	this.bb60 |= support.bb60;
 	this.pb10 |= support.pb10;
 	this.common |= support.common;
-}
+	this.clearSupportAttributes();
+};
 
 BBTag.Support.prototype.populateBySymbolArray = function(symbolArray){
 	for (var i = 0, l = symbolArray.length; i < l; i++) {
 		var symbol = symbolArray[i];
 		this.populateBySymbol(symbol);
 	}
-}
+};
 
 
 function resolveSupport(symbol){

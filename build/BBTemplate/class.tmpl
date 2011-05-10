@@ -246,122 +246,141 @@
 <!-- ============================== Constructor Summary ========================= -->
 <!-- NEW: BETA -->
 	<if test="!data.isBuiltin() && data.is('CONSTRUCTOR')">
-		<h1>Constructor</h1>
-		<ul class="ulNoTopMargin">
-			<li x-ww-support="{+data.support.getSupportTag()+}">
-				{+new Link().toSymbol(data.alias).withText(data.name.replace(/\^\d+$/, ''))+}
-			</li>
-		</ul>
+		<div x-ww-support="{+data.support.getSupportTag()+}">
+			<h1>Constructor</h1>
+			<ul class="ulNoTopMargin">
+				<li>
+					{+new Link().toSymbol(data.alias).withText(data.name.replace(/\^\d+$/, ''))+}
+				</li>
+			</ul>
+		</div>
 	</if>
 
 <!-- ============================== Function Summary  ==================== -->
-	{! var hasDeprecation = false; !}
+	{! var hasDeprecation = false; var deprecationSupport = new BBTag.Support();!}
 	<if test="defined(ownMethods) && ownMethods.length">
+		{!var ownMethodSupport =new BBTag.Support(ownMethods);!}
 		<br/>
-		<h1>Functions</h1>
-		<ul class="ulNoTopMargin">			
-			<for each="member" in="ownMethods">
-				<li x-ww-support="{+member.support.getSupportTag()+}">
-					<if test="member.squareAccessor">
-						{+new Link().toSymbol(member.alias).withText("[]")+}
-					<else />
-						<if test="member.isStatic">
-							{+new Link().toSymbol(member.alias).withText(member.memberOf+"."+member.name.replace(/\^\d+$/, ''))+}
+		<div x-ww-support="{+ownMethodSupport.getSupportTag()+}">
+			<h1>Functions</h1>
+			<ul class="ulNoTopMargin">			
+				<for each="member" in="ownMethods">
+					<li x-ww-support="{+member.support.getSupportTag()+}">
+						<if test="member.squareAccessor">
+							{+new Link().toSymbol(member.alias).withText("[]")+}
 						<else />
-							{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
-						</if>						
-					</if>
-					<if test="member.deprecated">
-						<span class="depricate">**</span>
-						{!hasDeprecation = true;!}
-					</if>
-				</li>				
-			</for>
-		</ul>	
+							<if test="member.isStatic">
+								{+new Link().toSymbol(member.alias).withText(member.memberOf+"."+member.name.replace(/\^\d+$/, ''))+}
+							<else />
+								{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
+							</if>						
+						</if>
+						<if test="member.deprecated">
+							<span class="depricate">**</span>
+							{!hasDeprecation = true; deprecationSupport.populateBySymbol(member);!}
+						</if>
+					</li>				
+				</for>
+			</ul>
+		</div>	
 	</if>		
 	
 <!-- ============================== events summary ======================== -->
 	<if test="defined(ownEvents) && ownEvents.length">
+		{!var ownEventSupport =new BBTag.Support(ownEvents);!}
 		<br/>
-		<h1>Events</h1>
-		<ul class="ulNoTopMargin">			
-			<for each="member" in="ownEvents">
-				<li x-ww-support="{+member.support.getSupportTag()+}">
-					<if test="member.isStatic">
-						{+new Link().toSymbol(member.alias).withText(member.memberOf+"."+member.name.replace(/\^\d+$/, ''))+}
-					<else />
-						{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
-					</if>
-					<if test="member.deprecated">
-						<span class="depricate">**</span>
-						{!hasDeprecation = true;!}
-					</if>
-				</li>				
-			</for>
-		</ul>	
+		<div x-ww-support="{+ownEventSupport.getSupportTag()+}">
+			<h1>Events</h1>
+			<ul class="ulNoTopMargin">			
+				<for each="member" in="ownEvents">
+					<li x-ww-support="{+member.support.getSupportTag()+}">
+						<if test="member.isStatic">
+							{+new Link().toSymbol(member.alias).withText(member.memberOf+"."+member.name.replace(/\^\d+$/, ''))+}
+						<else />
+							{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
+						</if>
+						<if test="member.deprecated">
+							<span class="depricate">**</span>
+							{!hasDeprecation = true; deprecationSupport.populateBySymbol(member);!}
+						</if>
+					</li>				
+				</for>
+			</ul>
+		</div>
 	</if>
 <!-- ============================== Properties summary ===================== -->	
 	<if test="defined(ownProperties) && ownProperties.length">
+		{!var ownPropertySupport =new BBTag.Support(ownProperties);!}
 		<br/>
-		<h1>Properties</h1>
-		<ul class="ulNoTopMargin">
-			<for each="member" in="ownProperties">
-				<li x-ww-support="{+member.support.getSupportTag()+}">
-					<if test="member.isStatic">
-						{+new Link().toSymbol(member.alias).withText(member.memberOf+"."+member.name.replace(/\^\d+$/, ''))+}
-					<else />
-						{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
-					</if>
-					<if test="member.deprecated">
-						<span class="depricate">**</span>
-						{!hasDeprecation = true;!}
-					</if>
-				</li>				
-			</for>
-		</ul>
+		<div x-ww-support="{+ownPropertySupport.getSupportTag()+}">
+			<h1>Properties</h1>
+			<ul class="ulNoTopMargin">
+				<for each="member" in="ownProperties">
+					<li x-ww-support="{+member.support.getSupportTag()+}">
+						<if test="member.isStatic">
+							{+new Link().toSymbol(member.alias).withText(member.memberOf+"."+member.name.replace(/\^\d+$/, ''))+}
+						<else />
+							{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
+						</if>
+						<if test="member.deprecated">
+							<span class="depricate">**</span>
+							{!hasDeprecation = true; deprecationSupport.populateBySymbol(member);!}
+						</if>
+					</li>				
+				</for>
+			</ul>
+		</div>
 	</if>
 
 <!-- ============================== Constants summary ===================== -->
 	<if test="defined(ownConstants) && ownConstants.length">
+		{!var ownConstantSupport =new BBTag.Support(ownConstants);!}
 		<br/>
-		<h1>Constants</h1>
-		<ul class="ulNoTopMargin">
-			<for each="member" in="ownConstants">
-				<li x-ww-support="{+member.support.getSupportTag()+}">
-					<if test="member.isStatic">
-						{+new Link().toSymbol(member.alias).withText(member.memberOf+"."+member.name.replace(/\^\d+$/, ''))+}
-					<else />
-						{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
-					</if>
-					<if test="member.deprecated">
-						<span class="depricate">**</span>
-						{!hasDeprecation = true;!}
-					</if>
-				</li>				
-			</for>
-		</ul>
+		<div x-ww-support="{+ownConstantSupport.getSupportTag()+}">
+			<h1>Constants</h1>
+			<ul class="ulNoTopMargin">
+				<for each="member" in="ownConstants">
+					<li x-ww-support="{+member.support.getSupportTag()+}">
+						<if test="member.isStatic">
+							{+new Link().toSymbol(member.alias).withText(member.memberOf+"."+member.name.replace(/\^\d+$/, ''))+}
+						<else />
+							{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
+						</if>
+						<if test="member.deprecated">
+							<span class="depricate">**</span>
+							{!hasDeprecation = true; deprecationSupport.populateBySymbol(member);!}
+						</if>
+					</li>				
+				</for>
+			</ul>
+		</div>
 	</if>
 
 <!-- ============================== URI Summary  ==================== -->			
 	<if test="defined(ownURIMethods) && ownURIMethods.length">
-		<br>
-		<h1>URI Functions</h1>
-		<ul class="ulNoTopMargin">			
-			<for each="member" in="ownURIMethods">
-				<li x-ww-support="{+member.support.getSupportTag()+}">
-					{+new Link().toSymbol(member.alias).withText("webworks://"+member.alias.replace(/\./g, "/"))+}
-					<if test="member.deprecated">
-						<span class="depricate">**</span>
-						{!hasDeprecation = true;!}
-					</if>
-				</li>				
-			</for>
-		</ul>	
+		{!var ownURISupport =new BBTag.Support(ownURIMethods);!}
+		<br/>
+		<div x-ww-support="{+ownURISupport.getSupportTag()+}">
+			<h1>URI Functions</h1>
+			<ul class="ulNoTopMargin">			
+				<for each="member" in="ownURIMethods">
+					<li x-ww-support="{+member.support.getSupportTag()+}">
+						{+new Link().toSymbol(member.alias).withText("webworks://"+member.alias.replace(/\./g, "/"))+}
+						<if test="member.deprecated">
+							<span class="depricate">**</span>
+							{!hasDeprecation = true; deprecationSupport.populateBySymbol(member);!}
+						</if>
+					</li>				
+				</for>
+			</ul>
+		</div>	
 	</if>		
 	
 <!-- ============================== Deprecation Notice  ==================== -->
 	<if test="hasDeprecation">
-		<span class="depricate">** Marked for Deprecation</span>
+		<div x-ww-support="{+deprecationSupport.getSupportTag()+}">
+			<span class="depricate">** Marked for Deprecation</span>
+		</div>
 	</if>	
 	
 <!-- ============================== Constructor Details ========================= -->
@@ -752,148 +771,152 @@
 	</if>
 <!-- ============================== properties details ========================== -->		
 	<if test="defined(ownProperties) && ownProperties.length">
-		<h2>Properties:</h2>
-		<hr style="margin-bottom:15px;"/>
-	  
-		<table class="confluenceTable">
-			<tr>
-				<th class="confluenceTh">
-				Property
-		       
-				</th>
-				<th class="confluenceTh">
-				   Type
-				   
-				</th>
-				<th class="confluenceTh">
-				   Description
-				   
-				</th>
-				<th class="confluenceTh">
-				   Supported Platform(s)
-				   
-				</th>
-			</tr>
+		<div x-ww-support="{+ownPropertySupport.getSupportTag()+}">
+			<h2>Properties:</h2>
+			<hr style="margin-bottom:15px;"/>
+		  
+			<table class="confluenceTable">
+				<tr>
+					<th class="confluenceTh">
+					Property
+			       
+					</th>
+					<th class="confluenceTh">
+					   Type
+					   
+					</th>
+					<th class="confluenceTh">
+					   Description
+					   
+					</th>
+					<th class="confluenceTh">
+					   Supported Platform(s)
+					   
+					</th>
+				</tr>
+				
+				<for each="member" in="ownProperties">
+				<tr x-ww-support="{+member.support.getSupportTag()+}">
+					<td class="confluenceTd"><a name="{+Link.symbolNameToLinkName(member)+}" class="propertyName"><if test="member.isStatic">{+member.memberOf+}.</if>{+member.name+}</a></td>
+					<td class="confluenceTd">
+						<if test="member.isStatic">
+							Static<br/>
+						</if>
+						<if test="member.isCallback">
+							{+ ((member.type)?(new Link().toSymbol(member.type)) : "") + makeCallbackSignature(member.params) +}
+						<else/>
+							{+((member.type)?(new Link().toSymbol(member.type)) : "")+}
+						</if>
+						<if test="member.defaultValue">
+							{+" = " +resolveLinks(member.defaultValue)+}
+						</if>
+						<if test="member.readOnly">
+							<br/>readonly
+						</if>
+					</td>
+					
+					<td class="confluenceTd">{+resolveLinks(member.desc)+}
+					<if test="member.params">
+						<br/>
+						<for each="subItem" in="member.params">
+							<br/>
+							<b>{+subItem.name+":"+}</b> {+resolveLinks(subItem.desc)+}
+						</for>
+					</if>
+					<if test="member.deprecated">
+						<table class="depricationTable" >
+							<tr>
+								<td class="depricationTd">
+									<i>{+ resolveLinks(member.deprecated) +}</i></td>
+								</td>
+							</tr>
+						</table>
+					</if>				
+					</td>
+					
+					<td class="confluenceTd">
+						<if test="member.support.getSupportStrings()">				
+							<for each="item" in="member.support.getSupportStrings()">
+								&nbsp;- {+item+}<br/>
+							</for>					
+						</if>
+					</td>
+				</tr>
+				</for>
+			</table>
 			
 			<for each="member" in="ownProperties">
-			<tr x-ww-support="{+member.support.getSupportTag()+}">
-				<td class="confluenceTd"><a name="{+Link.symbolNameToLinkName(member)+}" class="propertyName"><if test="member.isStatic">{+member.memberOf+}.</if>{+member.name+}</a></td>
-				<td class="confluenceTd">
-					<if test="member.isStatic">
-						Static<br/>
-					</if>
-					<if test="member.isCallback">
-						{+ ((member.type)?(new Link().toSymbol(member.type)) : "") + makeCallbackSignature(member.params) +}
-					<else/>
-						{+((member.type)?(new Link().toSymbol(member.type)) : "")+}
-					</if>
-					<if test="member.defaultValue">
-						{+" = " +resolveLinks(member.defaultValue)+}
-					</if>
-					<if test="member.readOnly">
-						<br/>readonly
-					</if>
-				</td>
-				
-				<td class="confluenceTd">{+resolveLinks(member.desc)+}
-				<if test="member.params">
-					<br/>
-					<for each="subItem" in="member.params">
-						<br/>
-						<b>{+subItem.name+":"+}</b> {+resolveLinks(subItem.desc)+}
-					</for>
-				</if>
-				<if test="member.deprecated">
-					<table class="depricationTable" >
-						<tr>
-							<td class="depricationTd">
-								<i>{+ resolveLinks(member.deprecated) +}</i></td>
-							</td>
-						</tr>
+				<if test="member.example.length">
+					<div class="title">Code Example(s)</div>
+					<for each="example" in="member.example">
+					<table class="scriptTable">				
+						<tr><td class="scriptTd">
+						<pre>{+example+}</pre>
+						</td></tr>				
 					</table>
-				</if>				
-				</td>
-				
-				<td class="confluenceTd">
-					<if test="member.support.getSupportStrings()">				
-						<for each="item" in="member.support.getSupportStrings()">
-							&nbsp;- {+item+}<br/>
-						</for>					
-					</if>
-				</td>
-			</tr>
+					</for>
+					</div>
+				</if>
 			</for>
-		</table>
-		
-		<for each="member" in="ownProperties">
-			<if test="member.example.length">
-				<div class="title">Code Example(s)</div>
-				<for each="example" in="member.example">
-				<table class="scriptTable">				
-					<tr><td class="scriptTd">
-					<pre>{+example+}</pre>
-					</td></tr>				
-				</table>
-				</for>
-				</div>
-			</if>
-		</for>
+		</div>
 	</if>
 	
 <!-- ============================== constant details ========================== -->		
 	<if test="defined(ownConstants) && ownConstants.length">
-		<h2>Constants:</h2>
-		<hr style="margin-bottom:15px;"/>
-	  
-		<table class="confluenceTable">
-			<tr>
-				<th class="confluenceTh">
-				Constant
-		       
-				</th>
-				<th class="confluenceTh">
-				   Type
-				   
-				</th>
-				<th class="confluenceTh">
-				   Description
-				   
-				</th>
-				<th class="confluenceTh">
-				   Supported Platform(s)
-				   
-				</th>
-			</tr>
-			
-			<for each="member" in="ownConstants">
-			<tr x-ww-support="{+member.support.getSupportTag()+}">
-				<td class="confluenceTd"><a name="{+Link.symbolNameToLinkName(member)+}" class="propertyName"><if test="member.isStatic">{+member.memberOf+}.</if>{+member.name+}</a></td>
-				<td class="confluenceTd">{+new Link().toSymbol(member.type)+}
-				<if test="member.defaultValue">
-					{+" = " +resolveLinks(member.defaultValue)+}
-				</if>
-				</td>
-				<td class="confluenceTd">{+resolveLinks(member.desc)+}
-				<if test="member.deprecated">
-					<table class="depricationTable" >
-						<tr>
-							<td class="depricationTd">
-								<i>{+ resolveLinks(member.deprecated) +}</i></td>
-							</td>
-						</tr>
-					</table>
-				</if>
-				</td>
-				<td class="confluenceTd">
-					<if test="member.support.getSupportStrings()">				
-						<for each="item" in="member.support.getSupportStrings()">
-							&nbsp;- {+item+}<br/>
-						</for>					
+		<div x-ww-support="{+ownConstantSupport.getSupportTag()+}">
+			<h2>Constants:</h2>
+			<hr style="margin-bottom:15px;"/>
+		  
+			<table class="confluenceTable">
+				<tr>
+					<th class="confluenceTh">
+					Constant
+			       
+					</th>
+					<th class="confluenceTh">
+					   Type
+					   
+					</th>
+					<th class="confluenceTh">
+					   Description
+					   
+					</th>
+					<th class="confluenceTh">
+					   Supported Platform(s)
+					   
+					</th>
+				</tr>
+				
+				<for each="member" in="ownConstants">
+				<tr x-ww-support="{+member.support.getSupportTag()+}">
+					<td class="confluenceTd"><a name="{+Link.symbolNameToLinkName(member)+}" class="propertyName"><if test="member.isStatic">{+member.memberOf+}.</if>{+member.name+}</a></td>
+					<td class="confluenceTd">{+new Link().toSymbol(member.type)+}
+					<if test="member.defaultValue">
+						{+" = " +resolveLinks(member.defaultValue)+}
 					</if>
-				</td>
-			</tr>
-			</for>
-		</table>
+					</td>
+					<td class="confluenceTd">{+resolveLinks(member.desc)+}
+					<if test="member.deprecated">
+						<table class="depricationTable" >
+							<tr>
+								<td class="depricationTd">
+									<i>{+ resolveLinks(member.deprecated) +}</i></td>
+								</td>
+							</tr>
+						</table>
+					</if>
+					</td>
+					<td class="confluenceTd">
+						<if test="member.support.getSupportStrings()">				
+							<for each="item" in="member.support.getSupportStrings()">
+								&nbsp;- {+item+}<br/>
+							</for>					
+						</if>
+					</td>
+				</tr>
+				</for>
+			</table>
+		</div>
 	</if>
 
 <!-- ============================== URI  ==================== -->			

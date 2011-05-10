@@ -40,7 +40,7 @@
 					</div>
 				</if>
 				{!var tocSymbols = data.filter(function($){return $.toc.type == thisClass.toc.type});!}
-				{!var tocSupport = new BBTag.Support(); tocSupport.populateBySymbolArray(tocSymbols)!}
+				{!var tocSupport = new BBTag.Support(tocSymbols);!}
 				<div id="{+thisClass.toc.type+}" class = "section" x-ww-support="{+tocSupport.getSupportTag()+}">
 					<div class="title">{+thisClass.toc.type+}</div>
 					<div class="lineItem" x-ww-support="{+thisClass.support.getSupportTag()+}">- {+new Link().toClass(thisClass.alias).withText(thisClass.toc.desc)+}</div>			
