@@ -24,7 +24,6 @@
 blackberry.ui.dialog ={
 		
 		/**
-		 * @deprecated This API is marked for deprecation in a future release of the BlackBerry WebWorks API. It will eventually be dropped in favor of {@link blackberry.ui.dialog.customAskAsync}
 		 * @param {String} message Message to be displayed in the dialog.
 		 * @param {String[]} choices Array of string choices that will be presented to the user in the form of buttons.
 		 * @param {Number} [defaultChoice = 0] Optional parameter that specifies what choice should be selected by default. This is a number value representing the index of the choice provided in the choices parameter.
@@ -36,10 +35,10 @@ blackberry.ui.dialog ={
 		 * &lt;script type="text/javascript"&gt;
 		 * 
 		 * function globalDialog() {
-		 *     var ss = new Array("Saab", "Volvo", "BMW", "Subaru");
-		 *     var ret = blackberry.ui.dialog.customAsk("Select your favorite car", ss, 2, true);
+		 *   var ss = new Array("Saab", "Volvo", "BMW", "Subaru");
+		 *   var ret = blackberry.ui.dialog.customAsk("Select your favorite car", ss, 2, true);
 		 *     
-		 *     document.getElementById('carSelect').innerHTML = ss[ret]
+		 *   document.getElementById('carSelect').innerHTML = ss[ret]
 		 * }
 		 * 
 		 * &lt;/script&gt;
@@ -47,7 +46,7 @@ blackberry.ui.dialog ={
 		customAsk : function(message, choices,defaultChoice,globalStatus){},
 
 		/**
-                 * @function
+         * @function
 		 * @description Creates an asynchronous custom dialog to ask the user a question.
 		 * <p/>
 		 * Uses the custom dialog. The function is an asynchronous call and will not block execution. It will return the 0-based index of the user's choice.
@@ -64,23 +63,48 @@ blackberry.ui.dialog ={
 		 * &lt;script type="text/javascript"&gt;
 		 * 
 		 * function dialogCallBack(index){
-		 *     alert(index);
+		 *   alert(index);
 		 * }  
 		 * 
 		 * function customDialog() {
-		 * 	try {
-		 * 		var buttons = new Array("Yes", "No", "Sometimes", "NA");
-		 * 		var ops = {title : "Choose the answer that describes you best", size : blackberry.ui.dialog.SIZE_TALL, position : blackberry.ui.dialog.LOC_CENTER};
-		 * 		blackberry.ui.dialog.customAsk("Do you routinely work out?", buttons, dialogCallBack, ops);
-		 * 	} catch (e) {
-		 * 		alert("Exception in customDialog: " + e);
-		 *	}
+		 *   try {
+		 *     var buttons = new Array("Yes", "No", "Sometimes", "NA");
+		 *     var ops = {title : "Choose the answer that describes you best", size : blackberry.ui.dialog.SIZE_TALL, position : blackberry.ui.dialog.LOC_CENTER};
+		 *     blackberry.ui.dialog.customAskAsync("Do you routinely work out?", buttons, dialogCallBack, ops);
+		 *   } catch(e) {
+		 *     alert("Exception in customDialog: " + e);
+		 *   }
 		 * }
 		 * 
 		 * &lt;/script&gt;
 		 */
 		customAskAsync : function(message,buttons,onOptionSelected,settings){},
 		
+		/**
+		 * @param {Number} specifies the type of standard dialog. Constants starting with D_*.
+		 * @param {String} message Message to be displayed in the dialog.
+		 * @param {Number} [defaultChoice = 0] Optional parameter that specifies what choice should be selected by default. For the standard dialogs, these options can be one of the constants starting with C_*.
+		 * @param {Boolean} [globalStatus = false] If set to true it adds a screen to the queue of displayed global status screens. Global status screens appear on top of all other screens on the PlayBook, even if the current application is not in the foreground. If no other status screens are currently displayed, your provided screen appears immediately. <p> NOTE: If the app is in the background and globalStatus is set to true, the app WILL NOT be brought to the foreground.
+		 * @description Creates a standard dialog to ask the user a question.
+		 * @returns {Number} The index of the choice selected by the user.
+		 * @BB50+
+		 * @example
+		 * &lt;script type="text/javascript"&gt;
+		 *
+		 * function launchDialog() {
+		 *   setTimeout(globalDialog, 5000);
+		 *   return;
+		 * }
+		 *
+		 * function globalDialog() {
+		 *   var ss = new Array("Saab", "Volvo", "BMW");
+		 *   var ret = blackberry.ui.dialog.customAsk("Select your favorite car", ss, 2, true);
+		 *   blackberry.ui.dialog.standardAsk(blackberry.ui.dialog.D_OK, "You selected " + ss[ret], 0, true);
+		 * }
+		 *
+		 * &lt;/script"&gt;
+		 */
+		standardAsk : function(type, message, defaultChoice, globalStatus){},
 		
 		/**
 		 * @description Creates an asynchronous standard dialog to ask the user a question.
@@ -98,16 +122,16 @@ blackberry.ui.dialog ={
 		 * &lt;script type="text/javascript"&gt;
 		 * 
 		 * function dialogCallBack(index){
-		 *     alert(index);
+		 *   alert(index);
 		 * }  
 		 * 
-		 * 	function standardDialog() {
-		 * 		try {
-		 * 			blackberry.ui.dialog.standardAsk("Save?", blackberry.ui.dialog.D_SAVE, dialogCallBack, {title : "Save Dialog", size: blackberry.ui.dialog.SIZE_MEDIUM, position : blackberry.ui.dialog.LOC_BOTTOM});
-		 * 		}catch (e) {
-		 * 			alert("Exception in standardDialog: " + e);
-		 * 		}
-		 * 	}
+		 * function standardDialog() {
+		 *   try {
+		 *     blackberry.ui.dialog.standardAskAsync("Save?", blackberry.ui.dialog.D_SAVE, dialogCallBack, {title : "Save Dialog", size: blackberry.ui.dialog.SIZE_MEDIUM, position : blackberry.ui.dialog.LOC_BOTTOM});
+		 *   }catch (e) {
+		 *     alert("Exception in standardDialog: " + e);
+		 *   }
+		 * }
 		 * 
 		 * &lt;/script&gt;
 		 */
@@ -116,18 +140,9 @@ blackberry.ui.dialog ={
 		/**
 		 * @constant
 		 * @type Number
-		 * @description OK choice for use in dialogs
-		 * @deprecated Marked for future deprecation Eh?
-		 * @default 0
-		 * @BB50+
-		 */
-		C_OK : 0,
-		/**
-		 * @constant
-		 * @type Number
 		 * @description Standard OK dialog
 		 * @default 0
-		 * @PB10
+		 * @BB50+
 		 */	
 		D_OK : 0,
 		/**
@@ -135,7 +150,7 @@ blackberry.ui.dialog ={
 		 * @type Number
 		 * @description Standard Save dialog
 		 * @default 1
-		 * @PB10
+		 * @BB50+
 		 */
 		D_SAVE:1,
 		/**
@@ -143,7 +158,7 @@ blackberry.ui.dialog ={
 		 * @type Number
 		 * @description Standard Delete confirmation dialog
 		 * @default 2
-		 * @PB10
+		 * @BB50+
 		 */
 		D_DELETE:2,
 		/**
@@ -151,7 +166,7 @@ blackberry.ui.dialog ={
 		 * @type Number
 		 * @description Standard Yes/No dialog
 		 * @default 3
-		 * @PB10
+		 * @BB50+
 		 */
 		D_YES_NO:3,
 		/**
@@ -159,9 +174,66 @@ blackberry.ui.dialog ={
 		 * @type Number
 		 * @description Standard OK/Cancel dialog
 		 * @default 4
-		 * @PB10
+		 * @BB50+
 		 */
 		D_OK_CANCEL:4,
+		
+		/**
+		 * @constant
+		 * @type Number
+		 * @description Cancel Choice for us in dialogs
+		 * @default -1
+		 * @BB50+
+		 */
+		C_CANCEL:-1,
+		/**
+		 * @constant
+		 * @type Number
+		 * @description OK choice for use in dialogs
+		 * @default 0
+		 * @BB50+
+		 */
+		C_OK:0,
+		/**
+		 * @constant
+		 * @type Number
+		 * @description SAVE choice for use in dialogs
+		 * @default 1
+		 * @BB50+
+		 */
+		C_SAVE:1,
+		/**
+		 * @constant
+		 * @type Number
+		 * @description DISCARD choice for use in dialogs
+		 * @default 2
+		 * @BB50+
+		 */
+		C_DISCARD:2,
+		/**
+		 * @constant
+		 * @type Number
+		 * @description DELETE choice for use in dialogs
+		 * @default 3
+		 * @BB50+
+		 */
+		C_DELETE:3,
+		/**
+		 * @constant
+		 * @type Number
+		 * @description YES choice for use in dialogs
+		 * @default 4
+		 * @BB50+
+		 */
+		C_YES:4,
+		/**
+		 * @constant
+		 * @type Number
+		 * @description NO choice for use in dialogs
+		 * @default -1
+		 * @BB50+
+		 */
+		C_NO:-1,
 		/**
 		 * @constant
 		 * @type String
@@ -225,5 +297,5 @@ blackberry.ui.dialog ={
 		 * @default "tall"
 		 * @PB10
 		 */
-		SIZE_TALL : null	
+		SIZE_TALL : null			
 };
