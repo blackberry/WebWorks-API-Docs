@@ -66,8 +66,8 @@ localStorage ={
 
 		/**
 		 * @PB10
-		 * @desc cause the key/value pair with the given key to be removed from the list associated with the object, if it exists. If no item with that key exists, the method do nothing.
-		 * @param  {DOMString} key the key for the key/value pair
+		 * @desc Causes the key/value pair with the given key to be removed from the list associated with the object, if it exists. If no item with that key exists, the method do nothing.
+		 * @param  {DOMString} key the key for the key/value pair.
 		 */
 		removeItem : function(key){},
 
