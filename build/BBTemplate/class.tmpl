@@ -213,7 +213,20 @@
 							</if>
 							<for each="item" in="allChildren">
 							<tr x-ww-support="{+item.support.getSupportTag()+}">
-								<td class="apiTd">{+new Link().toSymbol(item.alias)+}
+								<td class="apiTd">
+								<if test="item.squareAccessor">
+									{+new Link().toSymbol(item.alias).withText("[]")+}
+								<else />
+									<if test="item.uri">
+										{+new Link().toSymbol(item.alias).withText("webworks://"+item.alias.replace(/\./g, "/"))+}
+									<else />
+										<if test="item.isStatic">
+											{+new Link().toSymbol(item.alias).withText(item.memberOf+"."+item.name.replace(/\^\d+$/, ''))+}
+										<else />
+											{+new Link().toSymbol(item.alias).withText(item.name.replace(/\^\d+$/, ''))+}
+										</if>
+									</if>
+								</if>	
 								{+item.support.getSupportTable()+}
 							</tr>								
 							</for>
