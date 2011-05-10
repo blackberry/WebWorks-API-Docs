@@ -454,15 +454,21 @@
     {+ResetIndex()+}
     <if test="data.constructedBy">
         <for each="constructedBy" in="data.constructedBy">
-            <h2><a name="constructedBy{+GenerateIndex()+}"> </a>{+constructedBy.type+}</h2>
-            <hr style="margin-bottom:15px;"/>
-			<div class="title">Description</div>
-			&nbsp;{+resolveLinks(constructedBy.desc)+}
-            <table class="scriptTable">				
-                <tr><td class="scriptTd">
-                <pre>{+constructedBy.example+}</pre>
-                </td></tr>
-            </table>
+            <if test="constructedBy.type">
+                <h2><a name="constructedBy{+GenerateIndex()+}"> </a>{+constructedBy.type+}</h2>
+                <hr style="margin-bottom:15px;"/>
+                <if test="constructedBy.desc">
+                    <div class="title">Description</div>
+                    &nbsp;{+resolveLinks(constructedBy.desc)+}
+                </if>
+                <if test="constructedBy.example">
+                    <table class="scriptTable">
+                        <tr><td class="scriptTd">
+                        <pre>{+constructedBy.example+}</pre>
+                        </td></tr>
+                    </table>
+                 </if>
+             </if>
         </for>
     </if>
 <!-- ============================== Function details ========================= -->		
