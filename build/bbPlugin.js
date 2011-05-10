@@ -20,6 +20,39 @@
  * Put this file in <JSDoc dir>\app\plugins\ and it will be used whenever JSDoc is run.
  */
 
+
+var generatedindex = 0;
+
+function ResetIndex()
+{
+    generatedindex = 0;
+    return '';
+}
+
+function GenerateIndex()
+{
+    return generatedindex++;
+}
+
+function GetType(src)
+{
+    var type = null;
+    
+	if (typeof src != "string") throw "src must be a string not "+(typeof src);
+	
+	if (src.match(/^\s*\{/)) {
+		var typeRange = src.balance("{", "}");
+		if (typeRange[1] == -1) {
+			throw "Malformed comment tag ignored. Tag type requires an opening { and a closing }: "+src;
+		}
+		type = src.substring(typeRange[0]+1, typeRange[1]).trim();
+		type = type.replace(/\s*,\s*/g, "|"); // multiples can be separated by , or |
+		src = src.substring(typeRange[1]+1);
+	}
+	
+	return {type: type, remainder: src};
+}
+
 JSDOC.PluginManager.registerPlugin(
 	"JSDOC.BBTag",
 	{
@@ -33,9 +66,11 @@ JSDOC.PluginManager.registerPlugin(
 				var betaTag = symbol.comment.getTag("beta");
 				var paramCallbacks = symbol.comment.tags.filter(function($){return $.isCallback && $.title == "param"});
 				var fieldCBs = symbol.comment.tags.filter(function($){return $.isCallback && $.title == "field"});
-				var learnTag = symbol.comment.getTag("learns");
+                var learnTag = symbol.comment.getTag("learns");
 				var squareAccessor = symbol.comment.getTag("squareAccessor");
-
+                var constructorTag = symbol.comment.getTag("constructor");
+                var constructedBy = symbol.comment.tags.filter(function($){return $.title=="constructedBy" && !!$.type}); 
+                
 				//If its a class/namespace
 				if((symbol.is("CONSTRUCTOR") || symbol.isNamespace) && !(symbol.alias == "_global_")){
 					if(toc.length) {
@@ -47,15 +82,23 @@ JSDOC.PluginManager.registerPlugin(
 							}
 						} 
 					}
+                    
+                    if(constructedBy.length) {
+                        if(constructorTag.length == 0) {
+                            symbol.noConstructor = true;
+                        }
+                        symbol.constructedBy = constructedBy;
+                    }
+                    
 					if(featureID.length) {
 						symbol.featureID = featureID;
 					}
 
-					if(betaTag.length) {
+                    if(betaTag.length) {
 						symbol.betaTag = betaTag;
 					}
 
-					if(learnTag.length) {
+                    if(learnTag.length) {
 						symbol.learnTag = learnTag;
 					}
 				}else{ //Its a property or method
@@ -135,9 +178,18 @@ JSDOC.PluginManager.registerPlugin(
 					docTag.title = "param";
 					docTag.isCallback = true;
 				}
-				if (docTag.title == "learns"){
-					docTag.desc = docTag.nibbleName(docTag.desc);
-				}
+                if (docTag.title == "learns"){
+                    docTag.desc = docTag.nibbleName(docTag.desc);
+                }
+                if(docTag.title == "constructedBy") {
+                    if(!docTag.type) {
+                        LOG.warn(docTag.title + " missing type");
+                    } else {
+                        var parts = GetType(docTag.desc);
+                        docTag.desc = parts.type;
+                        docTag.example = parts.remainder;
+                    }
+                }
 			}           
 		}
 	}
