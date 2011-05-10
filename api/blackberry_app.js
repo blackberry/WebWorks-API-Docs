@@ -153,7 +153,7 @@ blackberry.app ={
 	license : "",
 	
 	/**
-	 * @description AThe license URL of the BlackBerry WebWorks Application that is specified in the config.xml file. 
+	 * @description The license URL of the BlackBerry WebWorks Application that is specified in the config.xml file. 
 	 * @BB50+
 	 * @PB10
 	 * @readonly

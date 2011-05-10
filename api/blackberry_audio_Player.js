@@ -23,8 +23,8 @@
 * </div>
 * @toc {Media} Audio Player 
 * @BB50+
-* @class The audio player is an API introduced so that audio could be played on the BlackBerry 5.0 operating system since the 
-*		HTML5 &lt;audio&gt; element was not yet supported on this OS. The audio player is intended to play audio files only 
+* @class The audio player is an API introduced so that audio can be played on the BlackBerry 5.0 operating system since the 
+*		HTML5 &lt;audio&gt; element is not yet supported on this OS. The audio player is intended to play audio files only 
 *		which does <b>not</b> include streaming audio.
 *		<br/><br/>
 *		It is recommended that you use the HTML5 &lt;audio&gt; element on BlackBerry Operating Systems with versions higher than OS 5.0 as well as on the Tablet OS.
