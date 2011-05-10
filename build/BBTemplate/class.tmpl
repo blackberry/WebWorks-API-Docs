@@ -248,7 +248,9 @@
 	<if test="!data.isBuiltin() && data.is('CONSTRUCTOR')">
 		<h1>Constructor</h1>
 		<ul class="ulNoTopMargin">
-			<li>{+new Link().toSymbol(data.alias).withText(data.name.replace(/\^\d+$/, ''))+}</li>
+			<li x-ww-support="{+data.support.getSupportTag()+}">
+				{+new Link().toSymbol(data.alias).withText(data.name.replace(/\^\d+$/, ''))+}
+			</li>
 		</ul>
 	</if>
 
