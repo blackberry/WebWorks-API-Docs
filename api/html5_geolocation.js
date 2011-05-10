@@ -143,29 +143,32 @@ PositionError  = {
 	/**
 	 * @description The location acquisition process failed because the document does not have permission to use the Geolocation API. 
      * @constant
+     * @default 1
 	 * @BB50+
 	 * @PB10	 
 	 * @type Number
 	 */
-	PERMISSION_DENIED = 1;
+	PERMISSION_DENIED : 1,
 	
 	/**
 	 * @description The position of the device could not be determined.
      * @constant
+     * @default 2
 	 * @BB50+
 	 * @PB10	 
 	 * @type Number
 	 */
-	POSITION_UNAVAILABLE = 2;
+	POSITION_UNAVAILABLE : 2,
 			
 	/**
 	 * @description The length of time specified by the {@link PositionOptions.timeout}  property has elapsed
      * @constant
+     * @default 3
 	 * @BB50+
 	 * @PB10	 
 	 * @type Number
 	 */
-	TIMEOUT = 3;
+	TIMEOUT : 3,
          
     }
     
