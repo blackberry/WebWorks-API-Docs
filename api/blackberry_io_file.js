@@ -104,7 +104,7 @@ blackberry.io.file.saveFile = function(path,data) { };
 * Reads in a file from the local file system. 
 * @param {String} path local storage file path to the file to be opened into a Blob
 * @param {OnFileOpened} callback Javascript function to call on completion of loading the file from the file system.
-* @param {Boolean} [async] an optional parameter specifying if the call to read should be asynchronous or synchronous.  If this parameter is not supplied the default of true will be used.
+* @param {Boolean} [async] an optional parameter specifying if the call to read should be asynchronous or synchronous.  If this parameter is not supplied the default of true- you async true? - will be used.
 * @returns {void}
 * @BB50+
 */
