@@ -60,7 +60,7 @@ blackberry.system ={
 
 		/**
                  * @function 
-		 * @description Returns true if the device is in coverage, otherwise returns false. This can be used in conjunction with the blackberry.network property to find out what kind of coverage it is in.
+		 * @description Returns true if the device is in coverage, otherwise returns false. This can be used in conjunction with the blackberry.network property to find out what kind of coverage is available.
 		 * @returns {Boolean} Returns true if the BlackBerry PlayBook has any network interface active.
 		 * @BB50+
 		 * @PB10
