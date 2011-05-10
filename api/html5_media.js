@@ -133,7 +133,7 @@ TimeRanges.prototype.end = function(index) { };
 * Media elements are used to present audio data, or video and 
 * audio data, to the user. This is referred to as media data in 
 * this section, since this section applies equally to media 
-* elements for audio or for video
+* elements for audio or for video.
 * @class
 * @extends HTMLElement
 * @toc {Media} HTMLMediaElement
@@ -158,7 +158,7 @@ HTMLMediaElement.prototype.error = { };
 * If a src attribute of a media element is set or changed, the user 
 * agent must invoke the media element's media element load algorithm. 
 * (Removing the src attribute does not do this, even if there are 
-* source elements present.)
+* source elements present).
 * @type String
 */
 HTMLMediaElement.prototype.src = { };
@@ -288,7 +288,7 @@ HTMLMediaElement.prototype.load = function () { };
 * Returns the empty string (a negative response), "maybe", or 
 * "probably" based on how confident the user agent is that it can 
 * play media resources of the given type.
-* @param {String} type the media type you are trying to play, for example: "application/octet-stream;codecs=theora" would return an empty string
+* @param {String} type The media type you are trying to play, for example: "application/octet-stream;codecs=theora" would return an empty string.
 */
 HTMLMediaElement.prototype.canPlayType = function(type) { };
 
@@ -404,7 +404,7 @@ HTMLMediaElement.prototype.currentTime = { };
 HTMLMediaElement.prototype.initialTime = { };
 
 /**
-* The duration attribute must return the time of the end of the media resource, in seconds
+* The duration attribute must return the time of the end of the media resource, in seconds.
 * @type Number
 * @readOnly
 * @BB60+
@@ -435,7 +435,7 @@ HTMLMediaElement.prototype.paused = { };
 * the media resource is to play, as a multiple of its intrinsic speed. 
 * The attribute is mutable: on getting it must return the last value 
 * it was set to, or 1.0 if it hasn't yet been set; on setting the 
-* attribute must be set to the new value
+* attribute must be set to the new value.
 * @type Number
 * @BB60+
 * @PB10+
@@ -601,7 +601,7 @@ TextTrackCue.prototype.startTime = { };
 TextTrackCue.prototype.endTime = { };
 
 /**
-* Returns true if the text track cue pause-on-exit flag is set, false otherwi
+* Returns true if the text track cue pause-on-exit flag is set, false otherwise.
 * @type Boolean
 * @readOnly
 * @BB60+
@@ -610,8 +610,8 @@ TextTrackCue.prototype.endTime = { };
 TextTrackCue.prototype.pauseOnExit = { };
 
 /**
-* fire the onenter event if the current position now includes this
-* text cue 
+* Fire the onenter event if the current position now includes this
+* text cue. 
 * @BB60+
 * @PB10+
 * @event
@@ -620,8 +620,8 @@ TextTrackCue.prototype.pauseOnExit = { };
 TextTrack.prototype.onenter = function(event) { };
 
 /**
-* fire the onexit event if the current position no longer includes this
-* text cue 
+* Fire the onexit event if the current position no longer includes this
+* text cue. 
 * @BB60+
 * @PB10+
 * @event
@@ -639,7 +639,7 @@ TextTrackCue.prototype.getCueAsSource = function() { };
 
 /**
 * Returns the text track cue text as a {DocumentFragment} of 
-* HTML elements and other DOM nodes
+* HTML elements and other DOM nodes.
 * @returns String
 * @BB60+
 * @PB10+
@@ -658,7 +658,7 @@ TextTrackCueList = function() { }
 
 
 /**
-* Returns the number of cues in the list
+* Returns the number of cues in the list.
 * @type Number
 * @readOnly
 * @BB60+
@@ -667,7 +667,7 @@ TextTrackCueList = function() { }
 TextTrackCueList.prototype.length = { };
 
 /**
-* Returns the number of cues in the list
+* Returns the number of cues in the list.
 * @param {String} id Returns the first text track cue (in text track cue order) with text track cue identifier id. Returns null if none of the cues have the given identifier or if the argument is the empty string.
 * @returns TextTrackCue
 * @BB60+
@@ -679,7 +679,7 @@ TextTrackCueList.prototype.getCueById = function(id) { };
 
 /**
 * TextTrack is a used to store a collection of text that accompany the 
-* the loaded media
+* the loaded media.
 * @class
 * @extends EventTarget
 * @BB60+
@@ -688,8 +688,8 @@ TextTrackCueList.prototype.getCueById = function(id) { };
 TextTrack = function() { }
 
 /**
-* kind is one of the following strings "subtitles", "captions", 
-* "descriptions", "chapters", "metadata"
+* Kind is one of the following strings "subtitles", "captions", 
+* "descriptions", "chapters", "metadata".
 * @type String
 * @readOnly
 * @BB60+
@@ -707,7 +707,7 @@ TextTrack.prototype.kind = { };
 TextTrack.prototype.label = { };
 
 /**
-* language of the text track
+* Language of the text track.
 * @type String
 * @readOnly
 * @BB60+
@@ -716,7 +716,7 @@ TextTrack.prototype.label = { };
 TextTrack.prototype.language = { };
 
 /**
-* The text track not loaded state
+* The text track not loaded state.
 * @type Number
 * @constant
 * @BB60+
@@ -761,7 +761,7 @@ TextTrack.ERROR = 3;
 TextTrack.prototype.readyState = { };
 
 /**
-* Fire the onload if the {TextTrack} has loaded
+* Fire the onload if the {TextTrack} has loaded.
 * @BB60+
 * @PB10+
 * @event
@@ -771,7 +771,7 @@ TextTrack.prototype.onload = function(event) { };
 
 /**
 * Fire the onerror event if an error has occured with this {TextTrack}.
-* for example loading has failed.
+* For example loading has failed.
 * @BB60+
 * @PB10+
 * @event
@@ -909,9 +909,9 @@ HTMLMediaElement.prototype.textTracks = { };
 /**
 * Creates and returns a new {MutableTextTrack} object, which is also 
 * added to the media element's list of text tracks.
-* @param {String} kind kind is one of the following strings "subtitles", "captions", "descriptions", "chapters", "metadata"
-* @param {String} label text track label
-* @param {String} language language of the text track
+* @param {String} kind Kind is one of the following strings "subtitles", "captions", "descriptions", "chapters", "metadata"
+* @param {String} label Text track label
+* @param {String} language Language of the text track
 * @returns MutableTextTrack
 * @BB60+
 * @PB10+
