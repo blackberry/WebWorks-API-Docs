@@ -95,10 +95,7 @@ function publish(symbolSet) {
 
 	// create each of the class pages
 	for (var i = 0, l = classes.length; i < l; i++) {
-		var symbol = classes[i];
-		
-		//Set up support strings and tags for namespaces and children
-		resolveSupport(symbol);
+		var symbol = classes[i];		
 		
 		symbol.events = symbol.getEvents();   // 1 order matters
 		symbol.methods = symbol.getMethods(); // 2

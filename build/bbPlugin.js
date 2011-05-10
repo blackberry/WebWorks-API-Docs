@@ -149,6 +149,8 @@ function resolveSupport(symbol){
 	return support;
 }
 
+function isaClass($) {return ($.is("CONSTRUCTOR") || $.isNamespace) && !($.alias == "_global_")}
+
 JSDOC.PluginManager.registerPlugin(
 	"JSDOC.BBTag",
 	{
@@ -166,7 +168,7 @@ JSDOC.PluginManager.registerPlugin(
 				var squareAccessor = symbol.comment.getTag("squareAccessor");
 
 				//If its a class/namespace
-				if((symbol.is("CONSTRUCTOR") || symbol.isNamespace) && !(symbol.alias == "_global_")){
+				if(isaClass(symbol)){
 					if(toc.length) {
 						//MUST get the original TOC tag ...WHO KNOWS WHY???
 						for(var i=0 ; i < symbol.comment.tags.length; i++){
@@ -272,7 +274,15 @@ JSDOC.PluginManager.registerPlugin(
 		
 		onFinishedParsing : function(symbolSet){
 			if(symbolSet){
-//				makeTocSort();
+				var symbols = symbolSet.toArray();
+				var classes = symbols.filter(isaClass);
+				
+				// create each of the class pages
+				for (var i = 0, l = classes.length; i < l; i++) {
+					resolveSupport(classes[i]);
+				}
+				
+				
 			}	
 		}
 	}
