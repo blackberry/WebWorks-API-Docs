@@ -118,7 +118,6 @@ blackberry.system.event.KEY_VOLUMEUP = 7;
 * Assigns a listener for the click of one of the hardware buttons on the device. 
 * @param {Number} key Hardware key to listen for.  A list of constants allowed for these keys is shown above.
 * @param {OnSystemEvent} callback Function to be called when the key is clicked - this function takes no parameters and no return value is required.  If you attempt to subscribe more than one callback function to a particular key, only the newest callback will be used when the key is pressed.  To remove the callback simply call the onHardwareKey with null as the callback parameter.
-* @returns {void}
 * @BB50+
 */
 blackberry.system.event.prototype.onHardwareKey = function(key,callback) { };
@@ -126,22 +125,9 @@ blackberry.system.event.prototype.onHardwareKey = function(key,callback) { };
 /**
 * Assigns a listener for when the coverage status changes. 
 * @param {OnSystemEvent} callback Function to be called when coverage changes.  Only one function can be assigned to this event. To unregister the callback, call the onCoverageChange method and pass in null for the callback parameter.
-* @returns {void}
 * @BB50+
 */
 blackberry.system.event.prototype.onCoverageChange = function(callback) { };
-
-
-/**
-* <div><p>
-*           This is the interface that must be available on the system event callback function provided.
-*         </p></div>
-* @toc {System} Event OnSystemEvent 
-* @BB50+
-* @namespace Interface for system event callbacks.
-*/
-blackberry.system.event.OnSystemEvent = { };
-
 
 /**
  * @function
