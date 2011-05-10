@@ -205,10 +205,12 @@
 								   
 								</th>
 							</tr>
-							<tr x-ww-support="{+data.support.getSupportTag()+}">
-								<td class="apiTd">{+new Link().toSymbol(data.alias)+}
-								{+data.support.getSupportTable()+}
-							</tr>
+							<if test="!data.isBuiltin() && data.is('CONSTRUCTOR')">
+								<tr x-ww-support="{+data.support.getSupportTag()+}">
+									<td class="apiTd">{+new Link().toSymbol(data.alias)+}
+									{+data.support.getSupportTable()+}
+								</tr>
+							</if>
 							<for each="item" in="allChildren">
 							<tr x-ww-support="{+item.support.getSupportTag()+}">
 								<td class="apiTd">{+new Link().toSymbol(item.alias)+}
