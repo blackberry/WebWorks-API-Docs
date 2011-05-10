@@ -136,7 +136,6 @@ TimeRanges.prototype.end = function(index) { };
 * this section, since this section applies equally to media 
 * elements for audio or for video
 * @extends HTMLElement
-* @toc {Media} HTMLMediaElement
 */
 HTMLMediaElement = function() { }
 

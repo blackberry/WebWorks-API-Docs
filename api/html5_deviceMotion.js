@@ -16,7 +16,7 @@
 
 
 /**
- * @toc {DeviceOrientation} DeviceOrientationEvent
+ * @toc {Device Orientation} HTML5 Device Orientation Event
  * @namespace The Orientation event is subsequently fired on a window object when a significant change on orientation occurs. 
  * <br>Registration for orientation events is achieved by calling window.addEventListener with event type "deviceorientation". Implementations must only fire events asynchronously, after this call has returned.
  * <br><br>The orientation of the device is given in terms of the transformation from a coordinate frame fixed on the Earth to a coordinate frame fixed in the device. This is typically implemented by combining information from an accelerometer and a magnetometer.
@@ -94,7 +94,7 @@
  
 
 /**
- * @toc {DeviceOrientation} Acceleration
+ * @toc {Device Orientation} HTML5 Acceleration
  * @namespace
  * Acceleration data is given in meters per second squared and uses the body axes defined in the device orientation event. Acceleration data (without the effect of gravity) cannot be provided when there is a lack of a gyroscope. 
  * Implementations that are unable to provide acceleration data without the effect of gravity may instead supply the acceleration including the effect of gravity. 
@@ -136,7 +136,7 @@ Acceleration = {
 };
 
 /**
- * @toc {DeviceOrientation} RotationRate
+ * @toc {Device Orientation} HTML5 Rotation Rate
  * @PB10
  * @namespace
  * Represents the Angular velocity of the motion.
@@ -194,7 +194,7 @@ RotationRate={
 };
 
 /**
- * @toc {DeviceOrientation} DeviceMotionEvent
+ * @toc {Device Orientation} HTML5 Device Motion Event
  * @PB10
  * @namespace
  * This event provides direct access to motion data from an accelerometer and gyroscope. The three pieces of data provided are the acceleration, acceleration including gravity and rotation rate. <br>Because our hardware currently does not have a gyroscope, not all interfaces of this event are available to us (acceleration without gravity and rotation rate.)<br>
