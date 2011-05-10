@@ -23,7 +23,7 @@
 *     </p></div>
 * @toc {PIM} FilterExpression 
 * @BB50+
-* @class The FilterExpression object represents the expression that is used to &apos;find&apos; an item that matches its defined condition. A FilterExpression object contains two fields, an operator and optional a boolean flag that indicates whether the condition should be evaluated negatively.
+* @class The FilterExpression object represents the expression that is used to &apos;find&apos; an item that matches its defined condition. A FilterExpression object contains two fields, an operator and optional a Boolean flag that indicates whether the condition should be evaluated negatively.
 * @featureID blackberry.find
 * @constructor Constructor for a new FilterExpression object. 
 * @param {object} leftField an object of String or FilterExpression class.
@@ -151,7 +151,7 @@ blackberry.find.FilterExpression = function(leftField,operator,rightField,negate
 	blackberry.find.FilterExpression.prototype.rightField = { };
 
 	/**
-	* The boolean flag that indicates whether the condition of the FilterExpression object should be evaluated negatively.  This should only be used when you have nested expressions.  On regular field&sol;value comparisons, negate isn&apos;t necessary as the != is sufficient. 
+	* The Boolean flag that indicates whether the condition of the FilterExpression object should be evaluated negatively.  This should only be used when you have nested expressions.  On regular field&sol;value comparisons, negate isn&apos;t necessary as the != is sufficient. 
 	* @type Boolean
 	* @readOnly
 	* @BB50+
