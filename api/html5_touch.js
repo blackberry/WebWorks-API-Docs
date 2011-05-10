@@ -22,8 +22,8 @@
 
 
 /**
+* @namespace
 * This interface defines an individual point of contact for a touch event.
-* @class
 * @toc {Touch} Touch Point
 * @BB60+
 * @PB10
@@ -153,8 +153,8 @@ Touch.prototype.force = { };
 
 
 /**
+* @namespace {@link Touch} point list. 
 * This interface defines a list of individual points of contact for a touch event.
-* @class {@link Touch} point list
 * @BB60+
 * @PB10
 */
@@ -193,9 +193,9 @@ TouchList.prototype.item = function(index) { };
 TouchList.prototype.identifiedTouch = function(identifier) { };
 
 /**
+* @namespace
 * This interface defines the touchstart, touchend, touchmove, touchenter, touchleave, and touchcancel event types.
 * @toc {Touch} Touch Event
-* @class
 * @extends UIEvent
 */
 TouchEvent = function() { };
@@ -304,9 +304,9 @@ ctrlKey,altKey,shiftKey,metaKey,touches,targetTouches,changedTouches) {
 
 
 /**
+* @namespace
 * HTML Element<br/><br/>
 * The touchstart, touchend, touchmove, touchenter, touchleave, touchcancel events must be defined on an element.
-* @class
 * @toc {Touch} Element Touch Events
 * @BB60+
 * @PB10

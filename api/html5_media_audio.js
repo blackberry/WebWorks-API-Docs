@@ -20,10 +20,14 @@
 */
 
 /**
+* @namespace
 * An audio element represents a sound or audio stream.
 * @toc {Media} HTML5 Audio
-* @class 
 * @extends HTMLMediaElement
+* @constructedBy {new Audio([String: url])} {HTMLAudioElement can be created using the named constructor Audio(). It takes an optional String url parameter.}
+* var audio = new Audio("sound.wav");
+* @constructedBy {document.createElement("audio")} {HTMLAudioElement can also be constructed by using the document.createElement() method.}
+* var audio = document.createElement("audio");
 * @PB10
 * @BB60+
 * @example

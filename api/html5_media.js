@@ -22,12 +22,12 @@
 
 
 /**
+* @namespace
 * All media elements have an associated error status, which records 
 * the last error the element encountered since its resource selection 
 * algorithm was last invoked. The error attribute, on getting, must 
 * return the MediaError object created for this last error, or null if 
 * there has not been an error.
-* @class
 * @BB60+
 * @PB10
 */
@@ -85,6 +85,7 @@ MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED = 4;
 MediaError.prototype.code = { }
 
 /**
+* @namespace
 * Objects implementing the TimeRanges interface represent a list of 
 * ranges (periods) of time. <br/><br/>
 *
@@ -95,7 +96,6 @@ MediaError.prototype.code = { }
 * In other words, the ranges in such an object are ordered, don't 
 * overlap, aren't empty, and don't touch (adjacent ranges are folded 
 * into one bigger range).
-* @class
 * @BB60+
 * @PB10
 */
@@ -130,11 +130,11 @@ TimeRanges.prototype.end = function(index) { };
 
 
 /**
+* @namespace
 * Media elements are used to present audio data, or video and 
 * audio data, to the user. This is referred to as media data in 
 * this section, since this section applies equally to media 
 * elements for audio or for video
-* @class
 * @extends HTMLElement
 * @toc {Media} HTMLMediaElement
 */
@@ -648,9 +648,9 @@ TextTrackCue.prototype.getCueAsHTML = function() { };
 
 
 /**
+* @namespace
 * A {@link TextTrackCueList} object represents a dynamically updating list 
 * of {@link TextTrackCue}s in a given order.
-* @class
 * @BB60+
 * @PB10
 */
