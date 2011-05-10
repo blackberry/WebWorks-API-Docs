@@ -143,6 +143,7 @@ blackberry.ui.dialog ={
 		 * @description Standard OK dialog
 		 * @default 0
 		 * @BB50+
+		 * @PB10
 		 */	
 		D_OK : 0,
 		/**
@@ -151,6 +152,7 @@ blackberry.ui.dialog ={
 		 * @description Standard Save dialog
 		 * @default 1
 		 * @BB50+
+		 * @PB10
 		 */
 		D_SAVE:1,
 		/**
@@ -159,6 +161,7 @@ blackberry.ui.dialog ={
 		 * @description Standard Delete confirmation dialog
 		 * @default 2
 		 * @BB50+
+		 * @PB10
 		 */
 		D_DELETE:2,
 		/**
@@ -167,6 +170,7 @@ blackberry.ui.dialog ={
 		 * @description Standard Yes/No dialog
 		 * @default 3
 		 * @BB50+
+		 * @PB10
 		 */
 		D_YES_NO:3,
 		/**
@@ -175,6 +179,7 @@ blackberry.ui.dialog ={
 		 * @description Standard OK/Cancel dialog
 		 * @default 4
 		 * @BB50+
+		 * @PB10
 		 */
 		D_OK_CANCEL:4,
 		
@@ -241,7 +246,7 @@ blackberry.ui.dialog ={
 		 * @default "bottomCenter"
 		 * @PB10
 		 */
-		LOC_BOTTOM : "bottomCenter",
+		BOTTOM : "bottomCenter",
 		/**
 		 * @constant
 		 * @type String
@@ -249,7 +254,7 @@ blackberry.ui.dialog ={
 		 * @default "middleCenter"
 		 * @PB10
 		 */
-		LOC_CENTER : "middleCenter",
+		CENTER : "middleCenter",
 		/**
 		 * @constant
 		 * @type String
@@ -257,7 +262,7 @@ blackberry.ui.dialog ={
 		 * @default "topCenter"
 		 * @PB10
 		 */
-		LOC_TOP : "topCenter",
+		TOP : "topCenter",
 		/**
 		 * @constant
 		 * @type String
