@@ -23,9 +23,9 @@
 * @class The FilterExpression object represents the expression that is used to find an item that matches its defined condition.
 * @featureID blackberry.phone.Find
 * @constructor Constructor for a new FilterExpression object. 
-* @param {object} leftField  an object of String or FilterExpression class.
-* @param {object} operator  the operator used for comparing or combining.
-* @param {object} rightField a value to be comared or an object of the FilterExpression class to be combined.
+* @param {object} leftField  An object of String or FilterExpression class.
+* @param {object} operator  The operator used for comparing or combining.
+* @param {object} rightField A value to be compared, or an object of the FilterExpression class, to be combined.
 * @param {Boolean} [negate] optional (default value is false), the flag that indicates whether the condition of the FilterExpression object should be evaluated negatively.
 * @example
 * &lt;script type=&quot;text&sol;javascript&quot;&gt;  
@@ -62,7 +62,7 @@ blackberry.phone.Find.FilterExpression.prototype.operator = { };
 blackberry.phone.Find.FilterExpression.prototype.rightField = { };
 
 /**
-* The boolean flag that indicates whether the condition of the FilterExpression object should be evaluated negatively.  This should only be used when you have nested expressions.  On regular field&sol;value comparisons, negate isn&apos;t necessary as the != is sufficient. 
+* The Boolean flag that indicates whether the condition of the FilterExpression object should be evaluated negatively.  This should only be used when you have nested expressions.  On regular field&sol;value comparisons, negate isn&apos;t necessary as the != is sufficient. 
 * @type Boolean
 * @readOnly
 * @BB50+
