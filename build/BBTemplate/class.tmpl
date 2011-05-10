@@ -245,11 +245,21 @@
 
 <!-- ============================== Constructor Summary ========================= -->
 <!-- NEW: BETA -->
-	<if test="!data.isBuiltin() && data.is('CONSTRUCTOR')">
+	<if test="(!data.isBuiltin() && data.is('CONSTRUCTOR')) || data.constructedBy">
 		<h1>Constructor</h1>
-		<ul class="ulNoTopMargin">
-			<li>{+new Link().toSymbol(data.alias).withText(data.name.replace(/\^\d+$/, ''))+}</li>
-		</ul>
+        <ul class="ulNoTopMargin">
+            <if test="!data.noConstructor">
+                <li>{+new Link().toSymbol(data.alias).withText(data.name.replace(/\^\d+$/, ''))+}</li>
+            </if>
+            <if test="data.constructedBy">
+                {+ResetIndex()+}
+                <for each="constructedBy" in="data.constructedBy">
+                    <if test="constructedBy.type">
+                        <li><a href="#constructedBy{+GenerateIndex()+}">{+constructedBy.type+}</a></li>
+                    </if>
+                </for>
+            </if>
+        </ul>
 	</if>
 
 <!-- ============================== Function Summary  ==================== -->
@@ -364,9 +374,9 @@
 	
 <!-- ============================== Constructor Details ========================= -->
 <!-- NEW: BETA -->
-	<if test="!data.isBuiltin() && data.is('CONSTRUCTOR')">
+	<if test="!data.isBuiltin() && data.is('CONSTRUCTOR') && !data.noConstructor">
 		<div x-ww-support="{+data.supportTag+}">
-			<h2><a name="{ +Link.symbolNameToLinkName(data)+}"> </a>{+data.alias+}</h2>
+			<h2><a name="{+Link.symbolNameToLinkName(data)+}"> </a>{+data.alias+}</h2>
 			<hr style="margin-bottom:15px;"/>
 		
 			<table class="scriptTable">
@@ -461,6 +471,26 @@
 			</if>
 		</div>
 	</if>
+    {+ResetIndex()+}
+    <if test="data.constructedBy">
+        <for each="constructedBy" in="data.constructedBy">
+            <if test="constructedBy.type">
+                <h2><a name="constructedBy{+GenerateIndex()+}"> </a>{+constructedBy.type+}</h2>
+                <hr style="margin-bottom:15px;"/>
+                <if test="constructedBy.desc">
+                    <div class="title">Description</div>
+                    &nbsp;{+resolveLinks(constructedBy.desc)+}
+                </if>
+                <if test="constructedBy.example">
+                    <table class="scriptTable">
+                        <tr><td class="scriptTd">
+                        <pre>{+constructedBy.example+}</pre>
+                        </td></tr>
+                    </table>
+                 </if>
+             </if>
+        </for>
+    </if>
 <!-- ============================== Function details ========================= -->		
 	<if test="defined(ownMethods) && ownMethods.length">
 		<for each="member" in="ownMethods">
