@@ -266,14 +266,14 @@
 	            <if test="!data.noConstructor">
 	                <li>{+new Link().toSymbol(data.alias).withText(data.name.replace(/\^\d+$/, '').toString().replace(/\|/g, ' | '))+}</li>
 	            </if>
-	            <if test="data.constructedBy">
-	                {+ResetIndex()+}
+				<if test="data.constructedBy">
+	                {! var generatedindex = 0; !}
 	                <for each="constructedBy" in="data.constructedBy">
 	                    <if test="constructedBy.type">
-	                        <li><a href="#constructedBy{+GenerateIndex()+}">{+constructedBy.type+}</a></li>
+	                        <li><a href="#constructedBy{+ generatedindex++ +}">{+constructedBy.type+}</a></li>
 	                    </if>
-	                </for>
-            	</if>
+	      	         </for>
+	            </if>
        		</ul>
 		</div>
 	</if>
@@ -666,11 +666,11 @@
 			</if>
 		</div>
 	</if>
-    {+ResetIndex()+}
     <if test="data.constructedBy">
+        {! var generatedindex = 0; !}
         <for each="constructedBy" in="data.constructedBy">
             <if test="constructedBy.type">
-                <h2><a name="constructedBy{+GenerateIndex()+}"> </a>{+constructedBy.type+}</h2>
+                <h2><a name="constructedBy{+ generatedindex++ +}"> </a>{+constructedBy.type+}</h2>
                 <hr style="margin-bottom:15px;"/>
                 <if test="constructedBy.desc">
                     <div class="title">Description</div>
