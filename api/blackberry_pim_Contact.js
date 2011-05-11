@@ -42,10 +42,10 @@ blackberry.pim.Contact = function(service) { };
 
 /**
 * This function looks up the contacts that match the expression provided. 
-* @param {blackberry.find.FilterExpression} [fieldFilter] optional parameter that defines the search criteria for the find.  If no value is provided the method will return all the contacts on the device.
-* @param {String} [orderBy] optional &apos;orderBy&apos; parameter specifying the field which the results will be sorted by. If &apos;isAscending&apos; is not supplied or &apos;isAscending&apos; is true, the sort results will be in an ascending order. If &apos;isAscending&apos; is false, the sort results will be in a descending order.
-* @param {Number} [maxReturn] optional integer parameter specifying the maximum number of results to return from the find.  If not supplied or set to -1, it will return all results found.
-* @param {blackberry.identity.Service} [service] optional parameter specifying which service you wish to search for contacts.  If not supplied, the default service for contacts will be used.
+* @param {blackberry.find.FilterExpression} [fieldFilter] Optional parameter that defines the search criteria for the find.  If no value is provided the method will return all the contacts on the device.
+* @param {String} [orderBy] Optional &apos;orderBy&apos; parameter specifying the field which the results will be sorted by. If &apos;isAscending&apos; is not supplied or &apos;isAscending&apos; is true, the sort results will be in an ascending order. If &apos;isAscending&apos; is false, the sort results will be in a descending order.
+* @param {Number} [maxReturn] Optional integer parameter specifying the maximum number of results to return from the find.  If not supplied or set to -1, it will return all results found.
+* @param {blackberry.identity.Service} [service] Optional parameter specifying which service you wish to search for contacts.  If not supplied, the default service for contacts will be used.
 * @param {Boolean} [isAscending] optional &apos;isAscending&apos; parameter specifying whether the sort order is ascending or descending. If not supplied or set to true, the results sorted by the field specified by &apos;orderBy&apos; will be in an ascending order. If set to false, the sort results will be in a descending order. If no &apos;orderBy&apos; value is specified, &apos;isAscending&apos; is neglected.
 * @returns {Contact[]}
 * @BB50+

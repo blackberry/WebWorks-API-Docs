@@ -75,7 +75,7 @@ Geolocation = {
          * @callback {Position} positionCallback.position Object that contains the position that was just received 
 		 * @callback {function} [positionErrorCallback] This optional method is called if the attempt fails, the errorCallback must be invoked with a new {@link PositionError} object, reflecting the reason for the failure.
          * @callback {PositionError} [positionErrorCallback.error] Error call if there is an error.
-		 * @param {PositionOptions} [options] return {@link PositionOptions} of a watch position.
+		 * @param {PositionOptions} [options] Return {@link PositionOptions} of a watch position.
 		 * @returns {Long} Return a watchId so that it can be use in function {@link Geolocation.clearWatch}.
 		 * @PB10
 		 */
@@ -104,15 +104,15 @@ Position = {
 	 * @PB10	 
 	 * @type Coordinates 
 	 */
-	coords : "",
+	prototype.coords : "",
 	
 	/**
-	 * @description The timestamp attribute represents the time when the Position object was acquired and is represented as a DOMTimeStamp. 
+	 * @description The timestamp attribute represents the time when the Position object was acquired and is represented as a Date. 
 	 * @BB50+
 	 * @PB10	 
-	 * @type DOMTIMESTAMP
+	 * @type Date
 	 */
-    timestamp : "",
+    prototype.timestamp : "",
 	
     }
 
@@ -129,7 +129,7 @@ PositionError  = {
 	 * @readonly	 
 	 * @type Short
 	 */
-    code  : "",
+    prototype.code  : "",
 	
 	/**
 	 * @description Error message describing the details of the error encountered. 
@@ -138,7 +138,7 @@ PositionError  = {
 	 * @readonly
 	 * @type String
 	 */
-    message : "",
+    prototype.message : "",
 	
 	/**
 	 * @description The location acquisition process failed because the document does not have permission to use the Geolocation API. 
@@ -161,7 +161,7 @@ PositionError  = {
 	POSITION_UNAVAILABLE : 2,
 			
 	/**
-	 * @description The length of time specified by the {@link PositionOptions.timeout}  property has elapsed
+	 * @description The length of time specified by the {@link PositionOptions.timeout}  property has elapsed.
      * @constant
      * @default 3
 	 * @BB50+
@@ -184,24 +184,24 @@ PositionOptions = {
 	 * @PB10	 
 	 * @type Boolean
 	 */
-	enableHighAccuracy : "",
+	prototype.enableHighAccuracy : "",
 	
 	/**
 	 * @description The timeout attribute denotes the maximum length of time (expressed in milliseconds) that is allowed to pass from the call to getCurrentPosition() or watchPosition(). 
 	 * @BB50+
 	 * @PB10	 
-	 * @type Long
+	 * @type Number
 	 */
-    timeout : "",
+    prototype.timeout : "",
 	
 	/**
 	 * @description The maximumAge attribute indicates that the application is willing to accept a cached position whose age is no greater than the specified time in milliseconds.
 	 * @BB50+
 	 * @PB10
 	 * @readonly
-	 * @type Long
+	 * @type Number
 	 */
-    maximumAge : ""               
+    prototype.maximumAge : ""               
          
     }
 
@@ -218,7 +218,7 @@ Coordinates = {
 	 * @readOnly
 	 * @type double 
 	 */
-	latitude : "",
+	prototype.latitude : "",
 	
 	/**
 	 * @description The longitude attributes is geographic coordinates specified in decimal degrees. 
@@ -227,7 +227,7 @@ Coordinates = {
 	 * @readOnly
 	 * @type double 
 	 */
-    longitude  : "",
+    prototype.longitude  : "",
 	
 	/**
 	 * @description The altitude attribute denotes the height of the position, specified in meters above the [WGS84] ellipsoid. 
@@ -236,7 +236,7 @@ Coordinates = {
 	 * @readOnly
 	 * @type double 
 	 */
-	altitude : "",
+	prototype.altitude : "",
     
 	/**
 	 * @description The accuracy attribute denotes the accuracy level of the latitude and longitude coordinates. 
@@ -245,7 +245,7 @@ Coordinates = {
 	 * @readOnly	 
 	 * @type double 
 	 */
-	accuracy : "",
+	prototype.accuracy : "",
     
 	/**
 	 * @description The altitudeAccuracy attribute is in meters.
@@ -254,7 +254,7 @@ Coordinates = {
 	 * @readOnly	 
 	 * @type double 
 	 */
-	altitudeAccuracy : "",
+	prototype.altitudeAccuracy : "",
     
 	/**
 	 * @description The heading attribute denotes the direction of travel of the hosting device in degrees, where 0&deg; &le; heading &le; 360&deg;, counting clockwise relative to the true north.
@@ -263,7 +263,7 @@ Coordinates = {
 	 * @readOnly	 
 	 * @type double 
 	 */
-	heading : "",
+	prototype.heading : "",
     
 	/**
 	 * @description The speed attribute denotes the current ground speed of the hosting device in meters per second.
@@ -272,6 +272,6 @@ Coordinates = {
      * @readOnly	 
 	 * @type double 
 	 */
-	speed : "",
+	prototype.speed : "",
     }
     	

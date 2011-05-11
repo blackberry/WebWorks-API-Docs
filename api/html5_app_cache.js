@@ -15,13 +15,18 @@
 */
 
 /**
- * @namespace
- * The applicationCache object is your programmatic access to the browser's app cache.
- * <br>cache = window.applicationCache (In a window.)
- * <br>   Returns the ApplicationCache object that applies to the active document of that Window.
- * <br>cache = self.applicationCache (In a shared worker.)
- * <br>   Returns the ApplicationCache object that applies to the current shared worker. [WEBWORKERS] 
- * @toc {Cache} HTML5 Application Cache
+ * @class The applicationCache object is your programmatic access to the browser's app cache.
+ * @constructedBy {window.applicationCache} {Returns the ApplicationCache object that applies to the active document of that Window.}
+ * var appCache = window.applicationCache
+ * @constructedBy {worker.applicationCache} {Returns the ApplicationCache object that applies to the current shared {@link WebWorkers#applicationCache}.}
+ * &lt;script type="text/javascript"&gt;
+ *   var worker = new Worker('doWork.js');
+ * &lt;/script&gt;
+ *
+ *doWork.js (the worker):
+ *
+ *   var appCache = self.applicationCache()
+ * @toc {Cache} HTML5 ApplicationCache
  */
 
 ApplicationCache ={
@@ -29,259 +34,262 @@ ApplicationCache ={
 		/**
 		* @constant
 		* @default 0
-		* @descripton The ApplicationCache object's cache host is not associated with an application cache at this time.
-		* @type unsigned short
+		* @description The ApplicationCache object's cache host is not associated with an application cache at this time.
+		* @type Number
 		* @BB60+
 		* @PB10
 		*/ 
-		const UNCACHED: 0;
+		UNCACHED: 0,
 		
 		/**
 		* @constant
 		* @default 1
-		* @descripton The ApplicationCache object's cache host is associated with
+		* @description The ApplicationCache object's cache host is associated with
 		* an application cache whose application cache group's update status is idle,
 		* and that application cache is the newest cache in its application cache group,
 		* and the application cache group is not marked as obsolete.
-		* @type unsigned short
+		* @type Number
 		* @BB60+
 		* @PB10
 		*/ 
-		const IDLE: 1,
+		IDLE: 1,
 
 		/**
 		* @constant
 		* @default 2
-		* @descripton The ApplicationCache object's cache host is associated with an application cache
+		* @description The ApplicationCache object's cache host is associated with an application cache
 		* whose application cache group's update status is checking.
-		* @type unsigned short
+		* @type Number
 		* @BB60+
 		* @PB10
 		*/ 
-		const CHECKING: 2,
+		CHECKING: 2,
 		
 		/**
 		* @constant
 		* @default 3
-		* @descripton The ApplicationCache object's cache host is associated with an application cache
+		* @description The ApplicationCache object's cache host is associated with an application cache
 		* whose application cache group's update status is downloading.
-		* @type unsigned short
+		* @type Number
 		* @BB60+
 		* @PB10
 		*/ 
-		const DOWNLOADING: 3,
+		DOWNLOADING: 3,
 
 		/**
 		* @constant
 		* @default 4
-		* @descripton The ApplicationCache object's cache host is associated with an application cache
+		* @description The ApplicationCache object's cache host is associated with an application cache
 		* whose application cache group's update status is idle, and whose application cache group
 		* is not marked as obsolete, but that application cache is not the newest cache in its group.
-		* @type unsigned short
+		* @type Number
 		* @BB60+
 		* @PB10
 		*/ 
-		const UPDATEREADY: 4,
+		UPDATEREADY: 4,
 
 		/**
 		* @constant
 		* @default 5
-		* @descripton The ApplicationCache object's cache host is associated with an application cache
+		* @description The ApplicationCache object's cache host is associated with an application cache
 		* whose application cache group is marked as obsolete.
-		* @type unsigned short
+		* @type Number
 		* @BB60+
 		* @PB10
 		*/ 
-		const OBSOLETE: 5,
-
-		/**
-		 * @descripton 
-		 *The current state of the application cache that the ApplicationCache object's cache host is associated with, if any.
-		 * <br>This must be the appropriate value from the following list:
-		 *    <li>UNCACHED (numeric value 0)
-		 *    <li>IDLE (numeric value 1) 
-		 *    <li>CHECKING (numeric value 2)
-		 *    <li>DOWNLOADING (numeric value 3)
-		 *    <li>UPDATEREADY (numeric value 4)
-		 *    <li>OBSOLETE (numeric value 5)
-		 * @readonly
-		 * @type unsigned short
-		 * @BB60+
-		 * @PB10
-		 * @example
-		 * var appCache = window.applicationCache;
-		 * switch (appCache.status) {
-		 * case appCache.UNCACHED:    // UNCACHED == 0
-		 * 	return 'UNCACHED';
-		 * 	break;
-		 * case appCache.IDLE: 		  // IDLE == 1
-		 * 	return 'IDLE'; 
-		 * 	break;
-		 * case appCache.CHECKING:    // CHECKING == 2
-		 *	return 'CHECKING';
-		 * 	break;
-		 * case appCache.DOWNLOADING: // DOWNLOADING == 3
-		 * 	return 'DOWNLOADING';
-		 * 	break;
-		 * case appCache.UPDATEREADY: // UPDATEREADY == 5
-		 * 	return 'UPDATEREADY';
-		 * 	break;
-		 * case appCache.OBSOLETE:    // OBSOLETE == 5
-		 * 	return 'OBSOLETE';
-		 * 	break;
-		 * default:
-		 * 	return 'UKNOWN CACHE STATUS';
-		 * 	break;
-		 * };
-		 */
-		status :,
-		
-		/**
-		 * @descripton  Invokes the application cache download process.
-		 * <br>Throws an INVALID_STATE_ERR exception if there is no application cache to update.<br>
-		 * @BB60+
-		 * @PB10
-		 * @example
-		 * var appCache = window.applicationCache;
-		 * appCache.update(); // Attempt to update the user's cache.
-		 * ...
-		 * if (appCache.status == window.applicationCache.UPDATEREADY) {
-		 *     appCache.swapCache();  // The fetch was successful, swap in the new cache.
-		 * }
-		 */
-		update: function() {},
-			
-		/**
-		 * @descripton  Switches to the most recent application cache, if there is a newer one.
-		 * If there isn't, throws an INVALID_STATE_ERR exception.
-		 * <br>This does not cause previously-loaded resources to be reloaded; for example,
-		 * images do not suddenly get reloaded and style sheets and scripts do not get reparsed or reevaluated.
-		 * The only change is that subsequent requests for cached resources will obtain the newer copies.<br>
-		 * @BB60+
-		 * @PB10
-		 * @example
-		 * var appCache = window.applicationCache;
-		 * appCache.update(); // Attempt to update the user's cache.
-		 * ...
-		 * if (appCache.status == window.applicationCache.UPDATEREADY) {
-		 *     appCache.swapCache();  // The fetch was successful, swap in the new cache.
-		 * }
-		 */
-		swapCache: function() {},
-		
-		/**@event
-		 * @descripton  Sent when the cache update process begins.<br>
-		 * @BB60+
-		 * @PB10
-		 * @example 
-		 * function handleCacheEvent(e) {
-		 *     //...
-		 * }
-		 * // Checking for an update. Always the first event fired in the sequence.
-		 * appCache.addEventListener('checking', handleCacheEvent, false);
-		 */
-        checking:,
-
-		/**
-		 * @event
-		 * @descripton  Sent when an error occurs.<br>
-		 * @BB60+
-		 * @PB10
-		 * @example 
-		 * function handleCacheErro(e) {
-		 *     alert('Error: Cache failed to update!');
-		 * };
-		 * // The manifest returns 404 or 410, the download failed,
-		 * // or the manifest changed while the download was in progress.
-		 * appCache.addEventListener('error', handleCacheError, false);
-		 */
-        error:,
-		   
-		/**
-		 * @event
-		 * @descripton  Sent when the update process finishes but the manifest file does not change.<br>
-		 * @BB60+
-		 * @PB10
-		 * @example 
-		 * function handleCacheEvent(e) {
-		 *     //...
-		 * }
-		 * // Fired after the first download of the manifest.
-		 * appCache.addEventListener('noupdate', handleCacheEvent, false);
-		 */
-        noupdate:,
-		   
-		/**
-		 * @event
-		 * @descripton  Sent when the update process begins downloading resources in the manifest file.<br>
-		 * @BB60+
-		 * @PB10
-		 * @example 
-		 * function handleCacheEvent(e) {
-		 *     //...
-		 * }
-		 * // An update was found. The browser is fetching resources.
-		 * appCache.addEventListener('downloading', handleCacheEvent, false);
-		 */
-        downloading:,
-		   
-		/**
-		 * @event
-		 * @descripton  Sent when each resource in the manifest file begins to download.<br>
-		 * @BB60+
-		 * @PB10
-		 * @example 
-		 * function handleCacheEvent(e) {
-		 *     //...
-		 * }
-		 * // Fired for each resource listed in the manifest as it is being fetched.
-		 * appCache.addEventListener('progress', handleCacheEvent, false);
-		 */
-        progress:,
-		   
-		/**
-		 * @event
-		 * @descripton  Sent when there is an existing application cache, the update process finishes,
-		 * and there is a new application cache ready for use.<br>
-		 * @BB60+
-		 * @PB10
-		 * @example 
-		 * function handleCacheEvent(e) {
-		 *     //...
-		 * }
-		 * // Fired when the manifest resources have been newly redownloaded.
-		 * appCache.addEventListener('updateready', handleCacheEvent, false);
-		 */
-        updateready:,
-		   
-		/**
-		 * @event
-		 * @descripton  Sent when the resources listed in the manifest have been downloaded, 
-		 * and the application is now cached.<br>
-		 * @BB60+
-		 * @PB10
-		 * @example 
-		 * function handleCacheEvent(e) {
-		 *     //...
-		 * }
-		 * // Fired after the first cache of the manifest.
-		 * appCache.addEventListener('cached', handleCacheEvent, false);
-		 */
-        cached:,
-		   
-		/**
-		 * @event
-		 * @descripton  Sent when the manifest was found to have become a 404 or 410 page, 
-		 * so the application cache is being deleted.<br>
-		 * @BB60+
-		 * @PB10
-		 * @example 
-		 * function handleCacheEvent(e) {
-		 *     //...
-		 * }
-		 * // Fired if the manifest file returns a 404 or 410.
-		 * // This results in the application cache being deleted
-		 * appCache.addEventListener('obsolete', handleCacheEvent, false);
-		 */
-        obsolete:
+		OBSOLETE: 5
 };
+
+/**
+ * @description 
+ *The current state of the application cache that the ApplicationCache object's cache host is associated with, if any.
+ * <br>This must be the appropriate value from the following list:
+ *    <li>UNCACHED (numeric value 0)
+ *    <li>IDLE (numeric value 1) 
+ *    <li>CHECKING (numeric value 2)
+ *    <li>DOWNLOADING (numeric value 3)
+ *    <li>UPDATEREADY (numeric value 4)
+ *    <li>OBSOLETE (numeric value 5)
+ * @readonly
+ * @type Number
+ * @BB60+
+ * @PB10
+ * @example
+ * var appCache = window.applicationCache;
+ * switch (appCache.status) {
+ * case appCache.UNCACHED:    // UNCACHED == 0
+ * 	return 'UNCACHED';
+ * 	break;
+ * case appCache.IDLE: 		  // IDLE == 1
+ * 	return 'IDLE'; 
+ * 	break;
+ * case appCache.CHECKING:    // CHECKING == 2
+ *	return 'CHECKING';
+ * 	break;
+ * case appCache.DOWNLOADING: // DOWNLOADING == 3
+ * 	return 'DOWNLOADING';
+ * 	break;
+ * case appCache.UPDATEREADY: // UPDATEREADY == 5
+ * 	return 'UPDATEREADY';
+ * 	break;
+ * case appCache.OBSOLETE:    // OBSOLETE == 5
+ * 	return 'OBSOLETE';
+ * 	break;
+ * default:
+ * 	return 'UKNOWN CACHE STATUS';
+ * 	break;
+ * };
+ */
+ApplicationCache.prototype.status = undefined;
+		
+/**
+ * @function
+ * @description  Invokes the application cache download process.
+ * <br>Throws an INVALID_STATE_ERR exception if there is no application cache to update.<br>
+ * @BB60+
+ * @PB10
+ * @example
+ * var appCache = window.applicationCache;
+ * appCache.update(); // Attempt to update the user's cache.
+ * ...
+ * if (appCache.status == window.applicationCache.UPDATEREADY) {
+ *     appCache.swapCache();  // The fetch was successful, swap in the new cache.
+ * }
+ */
+ApplicationCache.prototype.update = undefined;
+			
+/**
+ * @function
+ * @description  Switches to the most recent application cache, if there is a newer one.
+ * <br>This does not cause previously-loaded resources to be reloaded; for example,
+ * images do not suddenly get reloaded and style sheets and scripts do not get reparsed or reevaluated.
+ * The only change is that subsequent requests for cached resources will obtain the newer copies.<br>
+ * @throws {INVALID_STATE_ERR} If the current app cache is the most recent
+ * @BB60+
+ * @PB10
+ * @example
+ * var appCache = window.applicationCache;
+ * appCache.update(); // Attempt to update the user's cache.
+ * ...
+ * if (appCache.status == window.applicationCache.UPDATEREADY) {
+ *     appCache.swapCache();  // The fetch was successful, swap in the new cache.
+ * }
+ */
+ApplicationCache.prototype.swapCache = undefined;
+		
+/**@event
+ * @description  Sent when the cache update process begins.<br>
+ * @BB60+
+ * @PB10
+ * @example 
+ * function handleCacheEvent(e) {
+ *     //...
+ * }
+ * // Checking for an update. Always the first event fired in the sequence.
+ * appCache.addEventListener('checking', handleCacheEvent, false);
+ */
+ApplicationCache.prototype.checking = undefined;
+
+/**
+ * @event
+ * @description  Sent when an error occurs.<br>
+ * @BB60+
+ * @PB10
+ * @example 
+ * function handleCacheErro(e) {
+ *     alert('Error: Cache failed to update!');
+ * };
+ * // The manifest returns 404 or 410, the download failed,
+ * // or the manifest changed while the download was in progress.
+ * appCache.addEventListener('error', handleCacheError, false);
+ */
+ApplicationCache.prototype.error = undefined;
+		   
+/**
+ * @event
+ * @description  Sent when the update process finishes but the manifest file does not change.<br>
+ * @BB60+
+ * @PB10
+ * @example 
+ * function handleCacheEvent(e) {
+ *     //...
+ * }
+ * // Fired after the first download of the manifest.
+ * appCache.addEventListener('noupdate', handleCacheEvent, false);
+ */
+ApplicationCache.prototype.noupdate = undefined;
+		   
+/**
+ * @event
+ * @description  Sent when the update process begins downloading resources in the manifest file.<br>
+ * @BB60+
+ * @PB10
+ * @example 
+ * function handleCacheEvent(e) {
+ *     //...
+ * }
+ * // An update was found. The browser is fetching resources.
+ * appCache.addEventListener('downloading', handleCacheEvent, false);
+ */
+ApplicationCache.prototype.downloading = undefined;
+		   
+/**
+ * @event
+ * @description  Sent when each resource in the manifest file begins to download.<br>
+ * @BB60+
+ * @PB10
+ * @example 
+ * function handleCacheEvent(e) {
+ *     //...
+ * }
+ * // Fired for each resource listed in the manifest as it is being fetched.
+ * appCache.addEventListener('progress', handleCacheEvent, false);
+ */
+ApplicationCache.prototype.progress = undefined;
+		   
+/**
+ * @event
+ * @description  Sent when there is an existing application cache, the update process finishes,
+ * and there is a new application cache ready for use.<br>
+ * @BB60+
+ * @PB10
+ * @example 
+ * function handleCacheEvent(e) {
+ *     //...
+ * }
+ * // Fired when the manifest resources have been newly redownloaded.
+ * appCache.addEventListener('updateready', handleCacheEvent, false);
+ */
+ApplicationCache.prototype.updateready = undefined;
+		   
+/**
+ * @event
+ * @description  Sent when the resources listed in the manifest have been downloaded, 
+ * and the application is now cached.<br>
+ * @BB60+
+ * @PB10
+ * @example 
+ * function handleCacheEvent(e) {
+ *     //...
+ * }
+ * // Fired after the first cache of the manifest.
+ * appCache.addEventListener('cached', handleCacheEvent, false);
+ */
+ApplicationCache.prototype.cached = undefined;
+		   
+/**
+ * @event
+ * @description  Sent when the manifest was found to have become a 404 or 410 page, 
+ * so the application cache is being deleted.<br>
+ * @BB60+
+ * @PB10
+ * @example 
+ * function handleCacheEvent(e) {
+ *     //...
+ * }
+ * // Fired if the manifest file returns a 404 or 410.
+ * // This results in the application cache being deleted
+ * appCache.addEventListener('obsolete', handleCacheEvent, false);
+ */
+ApplicationCache.prototype.obsolete = undefined;
+

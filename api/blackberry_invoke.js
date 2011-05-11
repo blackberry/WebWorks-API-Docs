@@ -38,7 +38,8 @@
 blackberry.invoke = {
                 
 		/**
-		 * @descripton Invokes another application on the BlackBerry Playbook.
+
+		 * @description Invokes another application on the BlackBerry Playbook.
 		 * @param {Number} appType an integer value representing the type of application to launch. Must be one of the 'APP_*' constants.
 		 * @param {Object} [args] An arguments object specifying information for the application being invoked.
 		 * @throws {Exception} If values supplied are not correct. 
@@ -52,33 +53,37 @@ blackberry.invoke = {
 		 * @type Number
 		 * @constant
 		 * @BB50+
-		 * @descripton Constant used to invoke the Address Book.
+		 * @description Constant used to invoke the Address Book.
 		 */
-		APP_ADDRESSBOOK : 0,
+
+         APP_ADDRESSBOOK : 0,
 		/**
 		 * @default 1
 		 * @type Number
 		 * @constant
 		 * @BB50+
-		 * @descripton Constant used to invoke the Bluetooth Configuration.
+		 * @description Constant used to invoke the Bluetooth Configuration.
 		 */
-		APP_BLUETOOTH_CONFIG : 1,
+
+         APP_BLUETOOTH_CONFIG : 1,
 		/**
 		 * @default 2
 		 * @type Number
 		 * @constant
 		 * @BB50+
-		 * @descripton Constant used to invoke the Calculator.
+		 * @description Constant used to invoke the Calculator.
 		 */
-		APP_CALCULATOR : 2,
+
+         APP_CALCULATOR : 2,
 		/**
 		 * @default 3
 		 * @type Number
 		 * @constant
 		 * @BB50+
-		 * @descripton Calendar.
+		 * @description Calendar.
 		 */
-		APP_CALENDAR : 3,
+
+         APP_CALENDAR : 3,
 		/**
 		 * @default 4
 		 * @type Number
@@ -87,7 +92,8 @@ blackberry.invoke = {
 		 * @PB10
 		 * @description Camera.
 		 */
-		APP_CAMERA : 4,
+
+         APP_CAMERA : 4,
 		/**
 		 * @default 5
 		 * @type Number
@@ -102,39 +108,43 @@ blackberry.invoke = {
 		 * @type Number
 		 * @constant
 		 * @BB50+
-		 * @descripton Constant used to invoke the Memopad.
+		 * @description Constant used to invoke the Memopad.
 		 */
-		APP_MEMOPAD : 6,
+
+         APP_MEMOPAD : 6,
 		/**
 		 * @default 7
 		 * @type Number
 		 * @constant
 		 * @BB50+
-		 * @descripton Constant used to invoke the Messages Application.
+		 * @description Constant used to invoke the Messages Application.
 		 */
-		APP_MESSAGES : 7,
+
+         APP_MESSAGES : 7,
 		/**
 		 * @default 8
 		 * @type Number
 		 * @constant
 		 * @BB50+
-		 * @descripton Constant used to invoke the Phone.
+		 * @description Constant used to invoke the Phone.
 		 */
-		APP_PHONE : 8,
+
+         APP_PHONE : 8,
 		/**
 		 * @default 9
 		 * @type Number
 		 * @constant
 		 * @BB50+
-		 * @descripton Constant used to invoke the Search.
+		 * @description Constant used to invoke the Search.
 		 */
-		APP_SEARCH : 9,
+
+         APP_SEARCH : 9,
 		/**
 		 * @default 10
 		 * @type Number
 		 * @constant
 		 * @BB50+
-		 * @descripton Constant used to invoke the Tasks.
+		 * @description Constant used to invoke the Tasks.
 		 */
 		APP_TASKS : 10,
 		/**
@@ -151,7 +161,7 @@ blackberry.invoke = {
 		 * @type Number
 		 * @constant
 		 * @BB50+
-		 * @descripton Constant used to invoke a Java Application.
+		 * @description Constant used to invoke a Java Application.
 		 */
 		APP_JAVA : 12,
 		/**

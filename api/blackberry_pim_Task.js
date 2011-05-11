@@ -105,10 +105,10 @@ blackberry.pim.Task.PRIORITY_LOW = 2;
 
 /**
 * This method finds the tasks that match the regular expression provided. 
-* @param {blackberry.find.FilterExpression} [filter] optional expression parameter that defines the search criteria for the find.  If no value is provided the method will return all the Tasks on the device.
-* @param {String} [orderBy] optional &apos;orderBy&apos; parameter specifying the field which the results will be sorted by. If &apos;isAscending&apos; is not specified or &apos;isAscending&apos; is true, the sort results will be in an ascending order. If &apos;isAscending&apos; is false, the sort results will be in a descending order.
-* @param {Number} [maxReturn] optional integer parameter specifying the maximum number of results to return from the find.  If not specified or set to -1, it will return all results found.
-* @param {Boolean} [isAscending] optional &apos;isAscending&apos; parameter specifying whether the sort order is ascending or descending. If not specified or set to true, the results sorted by the field specified by &apos;orderBy&apos; will be in an ascending order. If set to false, the sort results will be in a descending order. If no &apos;orderBy&apos; value is specified, &apos;isAscending&apos; is neglected.
+* @param {blackberry.find.FilterExpression} [filter] Optional expression parameter that defines the search criteria for the find.  If no value is provided the method will return all the Tasks on the device.
+* @param {String} [orderBy] Optional &apos;orderBy&apos; parameter specifying the field which the results will be sorted by. If &apos;isAscending&apos; is not specified or &apos;isAscending&apos; is true, the sort results will be in an ascending order. If &apos;isAscending&apos; is false, the sort results will be in a descending order.
+* @param {Number} [maxReturn] Optional integer parameter specifying the maximum number of results to return from the find.  If not specified or set to -1, it will return all results found.
+* @param {Boolean} [isAscending] Optional &apos;isAscending&apos; parameter specifying whether the sort order is ascending or descending. If not specified or set to true, the results sorted by the field specified by &apos;orderBy&apos; will be in an ascending order. If set to false, the sort results will be in a descending order. If no &apos;orderBy&apos; value is specified, &apos;isAscending&apos; is neglected.
 * @returns {Task[]}
 * @BB50+
 */

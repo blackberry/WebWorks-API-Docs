@@ -24,13 +24,28 @@
  * <br><br>The values of alpha, beta and gamma represent the angles measured as the  device's axes change with respect to some fixed coordinate frame. See {@link RotationRate} for details.
  * <br><br>A device lying flat on a horizontal surface with the top of the screen pointing west has the following orientation:
  * <br>			<i> { alpha: 90, beta: 0, gamma: 0 }</i>
+ * @example
+ * &lt;script type="text/javascript"&gt;
+ *
+ * //Device Orientation is registered by calling window.addEventListener with event type "deviceorientation." 
+ * window.addEventListener("deviceorientation", function(event) {
+ *     // Events processes event.alpha, event.beta and event.gamma
+ *              
+ *     // The following code displays the alpha, beta and gamma values on the webworks application page. 
+ *     Alpha.innerHTML = "alpha - " + event.alpha;         
+ *     Beta.innerHTML = "beta - " + event.beta;
+ *     Gamma.innerHTML = "gamma - " + event.gamma;
+ *               
+ * }, true)
+ * 
+ * &lt;/script&gt;
  */
  DeviceOrientationEvent = {
 
 	/**
 	 * @default 90
 	 * @type Number
-	 * @descripton Returns the rotation angle around the device frame's Z-axis in degrees. See {@link RotationRate} for details.
+	 * @description Returns the rotation angle around the device frame's Z-axis in degrees. See {@link RotationRate} for details.
 	 * @readOnly
 	 * @PB10
 	 */ 
@@ -39,7 +54,7 @@
 	/**
 	 * @default 0
 	 * @type Number
-	 * @descripton Returns the rotation angle around the device frame's X-axis in degrees. See {@link RotationRate} for details.
+	 * @description Returns the rotation angle around the device frame's X-axis in degrees. See {@link RotationRate} for details.
 	 * @readOnly
 	 * @PB10
 	 */ 
@@ -48,7 +63,7 @@
 	/**
 	 * @default 0
 	 * @type Number
-	 * @descripton Returns the rotation angle around the device frame's Y-axis in degrees. See {@link RotationRate} for details.
+	 * @description Returns the rotation angle around the device frame's Y-axis in degrees. See {@link RotationRate} for details.
 	 * @readOnly
 	 * @PB10
 	 */ 
@@ -56,39 +71,24 @@
 
 	/**
 	 * @type boolean
-	 * @descripton Returns true if can provide absolute values for the three angles, false if can provide values for the three angles that are relative to some arbritary orientation.
+	 * @description Returns true if can provide absolute values for the three angles, false if can provide values for the three angles that are relative to some arbritary orientation.
 	 * @PB10
 	 */
 	absolute: boolean,
 
 	/**
 	 * @type boolean
-	 * @descripton Indicates if the compass of the device is correctly calibrated. If it is set to false, user action, such as performing a manual calibration procedure, is required.
+	 * @description Indicates if the compass of the device is correctly calibrated. If it is set to false, user action, such as performing a manual calibration procedure, is required.
 	 * @PB10
 	 */
 	compassCalibrated: boolean,
 	
 	/**
 	 * @function 
-	 * @descripton
+	 * @description Initializes the event listener and it's parameters
 	 * @PB10
-	 * @example
-	 * &lt;script type="text/javascript"&gt;
-	 *
-	 * //Device Orientation is registered by calling window.addEventListener with event type "deviceorientation." 
-	 * window.addEventListener("deviceorientation", function(event) {
-	 *     // Events processes event.alpha, event.beta and event.gamma
-	 *              
-	 *     // The following code displays the alpha, beta and gamma values on the webworks application page. 
-	 *     Alpha.innerHTML = "alpha - " + event.alpha;         
-	 *     Beta.innerHTML = "beta - " + event.beta;
-	 * 	   Gamma.innerHTML = "gamma - " + event.gamma;
-	 *               
-	 * }, true)
-	 *
-	 * &lt;/script&gt;
 	 */
-	initDeviceOrientationEvent : function(){};
+	initDeviceOrientationEvent : function(){}
 
 };
  
@@ -112,7 +112,7 @@ Acceleration = {
 
 	/**
 	 * @type Number
-	 * @descripton x-coordinate of the acceleration
+	 * @description x-coordinate of the acceleration
 	 * @readOnly
 	 * @PB10
 	 */ 
@@ -120,7 +120,7 @@ Acceleration = {
 
 	/**
 	 * @type Number
-	 * @descripton y-coordinate of the acceleration
+	 * @description y-coordinate of the acceleration
 	 * @readOnly
 	 * @PB10
 	 */ 	
@@ -128,7 +128,7 @@ Acceleration = {
 	
 	/**
 	 * @type Number
-	 * @descripton z-coordinate of the acceleration
+	 * @description z-coordinate of the acceleration
 	 * @readOnly
 	 * @PB10
 	 */ 
@@ -166,9 +166,10 @@ RotationRate={
   */
   
  	/**
-     * @desc  () {@image /images/a-rotation.jpg}</br> Returns the rotation angle around the device frame's Z-axis in degrees.
+     * @description  <br/> {@image /images/a-rotation.jpg}</br> Returns the rotation angle around the device frame's Z-axis in degrees.
 	 * @default 90
 	 * @type Number
+	 * @description <br/> {@image /images/a-rotation.jpg}</br> Returns the rotation angle around the device frame's Z-axis in degrees.
 	 * @readOnly
 	 * @PB10
 	 */ 
@@ -177,7 +178,7 @@ RotationRate={
 	/**
 	 * @default 0
 	 * @type Number
-	 * @desc () {@image /images/b-rotation.jpg}</br> Returns the rotation angle around the device frame's X-axis in degrees.
+	 * @description <br/> {@image /images/b-rotation.jpg}</br> Returns the rotation angle around the device frame's X-axis in degrees.
 	 * @readOnly
 	 * @PB10
 	 */ 
@@ -186,7 +187,7 @@ RotationRate={
 	/**
 	 * @default 0
 	 * @type Number
-	 * @desc () {@image /images/g-rotation.jpg}</br> Returns the rotation angle around the device frame's Y-axis in degrees.
+	 * @description <br/> {@image /images/g-rotation.jpg}</br> Returns the rotation angle around the device frame's Y-axis in degrees.
 	 * @readOnly
 	 * @PB10
 	 */ 
@@ -198,12 +199,27 @@ RotationRate={
  * @PB10
  * @namespace
  * This event provides direct access to motion data from an accelerometer and gyroscope. The three pieces of data provided are the acceleration, acceleration including gravity and rotation rate. <br>Because our hardware currently does not have a gyroscope, not all interfaces of this event are available to us (acceleration without gravity and rotation rate.)<br>
+ * @example
+ * &lt;script type="text/javascript"&gt;
+ *
+ * window.addEventListener("devicemotion", function(event) {
+ *
+ *		var ax = "Acceleration X value- " + event.accelerationIncludingGravity.x;
+ *		var ay = "Acceleration Y value- " + event.accelerationIncludingGravity.y;
+ *		var az = "Acceleration Z value- " + event.accelerationIncludingGravity.z;
+ *		var rotation = "Rotation rate - " + event.rotationRate;
+ *
+ *		alert(ax+"\n"+ay+"\n"+az);
+ *
+ * }, true);
+ *
+ * &lt;/script&gt;
  */ 
 DeviceMotionEvent = {
 
 	/**
 	 * @type Number
-	 * @descripton The regular interval at which the event must fire at, given in milliseconds
+	 * @description The regular interval at which the event must fire at, given in milliseconds
 	 * @readOnly
 	 * @PB10
 	 */ 
@@ -211,7 +227,7 @@ DeviceMotionEvent = {
 	
 	/**
 	 * @type Acceleration
-	 * @descripton The acceleration provided by the acceleration property is that of the body and hence excludes the effect of gravity.
+	 * @description The acceleration provided by the acceleration property is that of the body and hence excludes the effect of gravity.
 	 * @readOnly
 	 * @PB10
 	 */
@@ -219,7 +235,7 @@ DeviceMotionEvent = {
 	
 	/**
 	 * @type Acceleration
-	 * @descripton Implementations that are unable to provide acceleration data without the effect of gravity (due, for example, to the lack of a gyroscope) may instead supply the acceleration including the effect of gravity. This is less useful in many applications but is provided as a means of providing best-effort support. 
+	 * @description Implementations that are unable to provide acceleration data without the effect of gravity (due, for example, to the lack of a gyroscope) may instead supply the acceleration including the effect of gravity. This is less useful in many applications but is provided as a means of providing best-effort support. 
 	 * In this case, the values reported are equal to the acceleration of the device, plus an acceleration equal and opposite to the acceleration due to gravity.
 	 * @readOnly
 	 * @PB10
@@ -228,32 +244,18 @@ DeviceMotionEvent = {
 	
 	/**
 	 * @type RotationRate
-	 * @descripton The angular velocity of the motion.
+	 * @description The angular velocity of the motion.
 	 * @readOnly
 	 * @PB10
 	 */
 	rotationRate:null,
 	
 	/**
-	 * @function 
+	 * @function
+	 * @description Initializes the event listener and it's parameters
 	 * @PB10
-	 * @example
-	 * &lt;script type="text/javascript"&gt;
-	 *
-	 * window.addEventListener("devicemotion", function(event) {
-	 *
-	 *		var ax = "Acceleration X value- " + event.accelerationIncludingGravity.x;
-	 *		var ay = "Acceleration Y value- " + event.accelerationIncludingGravity.y;
-	 *		var az = "Acceleration Z value- " + event.accelerationIncludingGravity.z;
-	 *		var rotation = "Rotation rate - " + event.rotationRate;
-	 *
-	 *		alert(ax+"\n"+ay+"\n"+az);
-	 *
-	 * }, true);
-	 *
-	 * &lt;/script&gt;
 	 */
-	initDeviceMotionEvent : function(){};
+	initDeviceMotionEvent : function(){}
 };
 
 

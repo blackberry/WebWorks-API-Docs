@@ -45,7 +45,7 @@ HTMLVideoElement = function() { };
 
 
 /**
-* Width of the video area
+* Width of the video area.
 * @type Number
 * @BB60+
 * @PB10
@@ -54,7 +54,7 @@ HTMLVideoElement = function() { };
 HTMLVideoElement.prototype.width = { };
 
 /**
-* Height of the video area
+* Height of the video area.
 * @type Number
 * @BB60+
 * @PB10
@@ -64,7 +64,7 @@ HTMLVideoElement.prototype.height = { };
 
 /**
 * videoWidth must return the intrinsic width of the video in CSS 
-* pixels
+* pixels.
 * @type Number
 * @readOnly
 * @BB60+
@@ -75,7 +75,7 @@ HTMLVideoElement.prototype.videoWidth = { };
 
 /**
 * videoHeight must return the intrinsic height of the video in CSS 
-* pixels
+* pixels.
 * @type Number
 * @readOnly
 * @BB60+

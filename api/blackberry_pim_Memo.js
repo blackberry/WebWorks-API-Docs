@@ -38,10 +38,10 @@ blackberry.pim.Memo = function() { };
 
 /**
 * This method finds the memo that matches the regular expression provided. 
-* @param {blackberry.find.FilterExpression} [filter] optional expression parameter that defines the search criteria for the find.  If no value is provided the method will return all the Memos on the device.
-* @param {String} [orderBy] optional &apos;orderBy&apos; parameter specifying the field which the results will be sorted by. If &apos;isAscending&apos; is not supplied or &apos;isAscending&apos; is true, the sort results will be in an ascending order. If &apos;isAscending&apos; is false, the sort results will be in a descending order.
-* @param {Number} [maxReturn] optional integer parameter specifying the maximum number of results to return from the find.  If not supplied or set to -1, it will return all results found.
-* @param {Boolean} [isAscending] optional &apos;isAscending&apos; parameter specifying whether the sort order is ascending or descending. If not supplied or set to true, the results sorted by the field specified by &apos;orderBy&apos; will be in an ascending order. If set to false, the sort results will be in a descending order. If no &apos;orderBy&apos; value is specified, &apos;isAscending&apos; is neglected.
+* @param {blackberry.find.FilterExpression} [filter] Optionalexpression parameter that defines the search criteria for the find.  If no value is provided the method will return all the Memos on the device.
+* @param {String} [orderBy] Optional&apos;orderBy&apos; parameter specifying the field which the results will be sorted by. If &apos;isAscending&apos; is not supplied or &apos;isAscending&apos; is true, the sort results will be in an ascending order. If &apos;isAscending&apos; is false, the sort results will be in a descending order.
+* @param {Number} [maxReturn] Optional integer parameter specifying the maximum number of results to return from the find.  If not supplied or set to -1, it will return all results found.
+* @param {Boolean} [isAscending] Optional&apos;isAscending&apos; parameter specifying whether the sort order is ascending or descending. If not supplied or set to true, the results sorted by the field specified by &apos;orderBy&apos; will be in an ascending order. If set to false, the sort results will be in a descending order. If no &apos;orderBy&apos; value is specified, &apos;isAscending&apos; is neglected.
 * @returns {Memo[]}
 * @BB50+
 */
