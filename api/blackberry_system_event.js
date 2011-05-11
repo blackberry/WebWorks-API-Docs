@@ -116,19 +116,18 @@ blackberry.system.event.KEY_VOLUMEUP = 7;
 
 /**
 * Assigns a listener for the click of one of the hardware buttons on the device. 
-* @param {Number} Key Hardware key to listen for.  A list of constants allowed for these keys is shown above.
-* @param {OnSystemEvent} Callback Function to be called when the key is clicked - this function takes no parameters and no return value is required.  If you attempt to subscribe more than one callback function to a particular key, only the newest callback will be used when the key is pressed.  To remove the callback simply call the onHardwareKey with null as the callback parameter.
-* @returns {void}
+* @param {Number} key Hardware key to listen for.  A list of constants allowed for these keys is shown above.
+* @callback {function} OnSystemEvent Function to be called when the key is clicked - this function takes no parameters and no return value is required.  If you attempt to subscribe more than one callback function to a particular key, only the newest callback will be used when the key is pressed.  To remove the callback simply call the onHardwareKey with null as the callback parameter.
 * @BB50+
 */
-blackberry.system.event.prototype.onHardwareKey = function(key,callback) { };
+blackberry.system.event.prototype.onHardwareKey = function(key,onSystemEvent) { };
 
 /**
 * Assigns a listener for when the coverage status changes. 
-* @param {OnSystemEvent} callback Function to be called when coverage changes.  Only one function can be assigned to this event. To unregister the callback, call the onCoverageChange method and pass in null for the callback parameter.
+* @callback {function} OnSystemEvent Function to be called when coverage changes.  Only one function can be assigned to this event. To unregister the callback, call the onCoverageChange method and pass in null for the callback parameter.
 * @BB50+
 */
-blackberry.system.event.prototype.onCoverageChange = function(callback) { };
+blackberry.system.event.prototype.onCoverageChange = function(onSystemEvent) { };
 
 /**
  * @function

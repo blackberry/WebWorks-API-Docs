@@ -36,8 +36,8 @@ blackberry.system ={
 		
 		/**
 		 * @param {String} capability The capability being checked for.
-		 * @description This method will determine if the BlackBerry PlayBook is capable of the given service.<br>
-		 * <br> hasCapability() returns true if the BlackBerry PlayBook is capable of the service; false otherwise. <br>
+		 * @description This method will determine if the BlackBerry PlayBook or the BlackBerry Smartphone device is capable of the given service.<br>
+		 * <br> hasCapability() returns true if the BlackBerry device is capable of the service; false otherwise. <br>
 		 * <br> The supported string values for 'capability' are:
 		 * <br>input.keyboard.issuretype (returns if the user is currently using SureType),
 		 * <br>input.touch,
@@ -60,8 +60,8 @@ blackberry.system ={
 
 		/**
                  * @function 
-		 * @description Returns true if the device is in coverage, otherwise returns false. This can be used in conjunction with the blackberry.network property to find out what kind of coverage is available.
-		 * @returns {Boolean} Returns true if the BlackBerry PlayBook has any network interface active.
+		 * @description Returns true if the device is in coverage, otherwise returns false. This can be used in conjunction with the blackberry.network property to find out what kind of coverage it is in.
+		 * @returns {Boolean} Returns true if the BlackBerry PlayBook or the BlackBerry Smartphone device has any network interface active.
 		 * @BB50+
 		 * @PB10
 		 */
@@ -86,7 +86,7 @@ blackberry.system ={
 		
 		/**
 		 * @type String
-		 * @description Returns the model number of the BlackBerry PlayBook.
+		 * @description Returns the model number of the BlackBerry PlayBook or the BlackBerry Smartphone device.
 		 * @readOnly
 		 * @BB50+
 		 * @PB10

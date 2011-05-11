@@ -15,6 +15,7 @@
 */
 .toc {
 	position: absolute;
+	overflow: auto;
 	left: 0px;
 	top: 97px;
 	padding-bottom: 30px;
