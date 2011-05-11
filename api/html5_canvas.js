@@ -25,10 +25,10 @@
  * @PB10
  */
 
-canvas ={
+ canvas ={
 
 		/**
-		 * @desc Specifies the height of the canvas.
+		 * @description Specifies the height of the canvas.
 		 * <p/>
 		 * The default value of height is 150 pixels.
 		 * <p/>
@@ -45,7 +45,7 @@ canvas ={
 		height :,
 		
 		/**
-		 * @desc Specifies the width of the canvas.
+		 * @description Specifies the width of the canvas.
 		 * <p/>
 		 * The default value of width is 300 pixels.
 		 * <p/>
@@ -60,7 +60,7 @@ canvas ={
 		width :,
 		
 		/**
-		 * @desc Returns an object that exposes an API for drawing on the canvas. 
+		 * @description Returns an object that exposes an API for drawing on the canvas. 
 		 * @param {String} contextId Specifies the desired API.<br>
 		 * List of defined contexts: 2d, webgl. 
 		 * @returns {Object} Returns an object for contextId.
@@ -79,7 +79,7 @@ canvas ={
 		getContext: function(contextId) {},
 			
 		/**
-		 * @desc Returns a data:URL for the image in the canvas.
+		 * @description Returns a data:URL for the image in the canvas.
 		 * @param {String} [type] The argument, if provided, controls the type of the image to be returned (e.g. PNG or JPEG). 
 		 * The default is image/png; that type is also used if the given type isn't supported. 
 		 * @returns {String} When called with no arguments, returns a data:URL containing a representation of the image as a PNG file.

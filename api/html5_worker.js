@@ -16,10 +16,11 @@
 
 /**
  * @toc {System} HTML5 Web Workers
- * @class Web Workers objects act as if they had an implicit MessagePort associated with them. This port is part of a channel that is set up when the worker is created and never be garbage collected before the Web Workers object. Only DedicatedWorker is supported.
+ * @namespace Web Workers objects act as if they had an implicit MessagePort associated with them. This port is part of a channel that is set up when the worker is created and never be garbage collected before the Web Workers object. Only DedicatedWorker is supported. 
+ * @constructedBy {Worker(worker_script.js)} The worker can be construct using the new keyword.
+ * @learns {Sample - Using HTML5 Web Worker } http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Sample-Application-Using-HTML5-Web-Workers/ta-p/627078 Sample that demonstrates how to use the HTML5 Web Workers API [BlackBerry Developer Resource Center].
  * @param {String} fileName The name of the javascript file that the worker will run
  * @description Creates a new WebWorker object.
- * @constructs 
 */
 WebWorkers = function() {
 

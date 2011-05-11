@@ -34,7 +34,7 @@ ApplicationCache ={
 		/**
 		* @constant
 		* @default 0
-		* @desc The ApplicationCache object's cache host is not associated with an application cache at this time.
+		* @description The ApplicationCache object's cache host is not associated with an application cache at this time.
 		* @type Number
 		* @BB60+
 		* @PB10
@@ -44,7 +44,7 @@ ApplicationCache ={
 		/**
 		* @constant
 		* @default 1
-		* @desc The ApplicationCache object's cache host is associated with
+		* @description The ApplicationCache object's cache host is associated with
 		* an application cache whose application cache group's update status is idle,
 		* and that application cache is the newest cache in its application cache group,
 		* and the application cache group is not marked as obsolete.
@@ -57,7 +57,7 @@ ApplicationCache ={
 		/**
 		* @constant
 		* @default 2
-		* @desc The ApplicationCache object's cache host is associated with an application cache
+		* @description The ApplicationCache object's cache host is associated with an application cache
 		* whose application cache group's update status is checking.
 		* @type Number
 		* @BB60+
@@ -68,7 +68,7 @@ ApplicationCache ={
 		/**
 		* @constant
 		* @default 3
-		* @desc The ApplicationCache object's cache host is associated with an application cache
+		* @description The ApplicationCache object's cache host is associated with an application cache
 		* whose application cache group's update status is downloading.
 		* @type Number
 		* @BB60+
@@ -79,7 +79,7 @@ ApplicationCache ={
 		/**
 		* @constant
 		* @default 4
-		* @desc The ApplicationCache object's cache host is associated with an application cache
+		* @description The ApplicationCache object's cache host is associated with an application cache
 		* whose application cache group's update status is idle, and whose application cache group
 		* is not marked as obsolete, but that application cache is not the newest cache in its group.
 		* @type Number
@@ -91,7 +91,7 @@ ApplicationCache ={
 		/**
 		* @constant
 		* @default 5
-		* @desc The ApplicationCache object's cache host is associated with an application cache
+		* @description The ApplicationCache object's cache host is associated with an application cache
 		* whose application cache group is marked as obsolete.
 		* @type Number
 		* @BB60+
@@ -144,7 +144,7 @@ ApplicationCache.prototype.status = undefined;
 		
 /**
  * @function
- * @desc  Invokes the application cache download process.
+ * @description  Invokes the application cache download process.
  * <br>Throws an INVALID_STATE_ERR exception if there is no application cache to update.<br>
  * @BB60+
  * @PB10
@@ -160,7 +160,7 @@ ApplicationCache.prototype.update = undefined;
 			
 /**
  * @function
- * @desc  Switches to the most recent application cache, if there is a newer one.
+ * @description  Switches to the most recent application cache, if there is a newer one.
  * <br>This does not cause previously-loaded resources to be reloaded; for example,
  * images do not suddenly get reloaded and style sheets and scripts do not get reparsed or reevaluated.
  * The only change is that subsequent requests for cached resources will obtain the newer copies.<br>
@@ -178,7 +178,7 @@ ApplicationCache.prototype.update = undefined;
 ApplicationCache.prototype.swapCache = undefined;
 		
 /**@event
- * @desc  Sent when the cache update process begins.<br>
+ * @description  Sent when the cache update process begins.<br>
  * @BB60+
  * @PB10
  * @example 
@@ -192,7 +192,7 @@ ApplicationCache.prototype.checking = undefined;
 
 /**
  * @event
- * @desc  Sent when an error occurs.<br>
+ * @description  Sent when an error occurs.<br>
  * @BB60+
  * @PB10
  * @example 
@@ -207,7 +207,7 @@ ApplicationCache.prototype.error = undefined;
 		   
 /**
  * @event
- * @desc  Sent when the update process finishes but the manifest file does not change.<br>
+ * @description  Sent when the update process finishes but the manifest file does not change.<br>
  * @BB60+
  * @PB10
  * @example 
@@ -221,7 +221,7 @@ ApplicationCache.prototype.noupdate = undefined;
 		   
 /**
  * @event
- * @desc  Sent when the update process begins downloading resources in the manifest file.<br>
+ * @description  Sent when the update process begins downloading resources in the manifest file.<br>
  * @BB60+
  * @PB10
  * @example 
@@ -235,7 +235,7 @@ ApplicationCache.prototype.downloading = undefined;
 		   
 /**
  * @event
- * @desc  Sent when each resource in the manifest file begins to download.<br>
+ * @description  Sent when each resource in the manifest file begins to download.<br>
  * @BB60+
  * @PB10
  * @example 
@@ -249,7 +249,7 @@ ApplicationCache.prototype.progress = undefined;
 		   
 /**
  * @event
- * @desc  Sent when there is an existing application cache, the update process finishes,
+ * @description  Sent when there is an existing application cache, the update process finishes,
  * and there is a new application cache ready for use.<br>
  * @BB60+
  * @PB10
@@ -264,7 +264,7 @@ ApplicationCache.prototype.updateready = undefined;
 		   
 /**
  * @event
- * @desc  Sent when the resources listed in the manifest have been downloaded, 
+ * @description  Sent when the resources listed in the manifest have been downloaded, 
  * and the application is now cached.<br>
  * @BB60+
  * @PB10
@@ -279,7 +279,7 @@ ApplicationCache.prototype.cached = undefined;
 		   
 /**
  * @event
- * @desc  Sent when the manifest was found to have become a 404 or 410 page, 
+ * @description  Sent when the manifest was found to have become a 404 or 410 page, 
  * so the application cache is being deleted.<br>
  * @BB60+
  * @PB10
@@ -292,3 +292,4 @@ ApplicationCache.prototype.cached = undefined;
  * appCache.addEventListener('obsolete', handleCacheEvent, false);
  */
 ApplicationCache.prototype.obsolete = undefined;
+
