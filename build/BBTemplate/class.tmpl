@@ -249,7 +249,7 @@
 		<h1>Constructor</h1>
         <ul class="ulNoTopMargin">
             <if test="!data.noConstructor">
-                <li>{+new Link().toSymbol(data.alias).withText(data.name.replace(/\^\d+$/, ''))+}</li>
+                <li>{+new Link().toSymbol(data.alias).withText(data.name.replace(/\^\d+$/, '').toString().replace(/\|/g, ' | '))+}</li>
             </if>
             <if test="data.constructedBy">
                 {+ResetIndex()+}
@@ -263,8 +263,14 @@
 	</if>
 
 <!-- ============================== Function Summary  ==================== -->
-	{! var hasDeprecation = false; !}
-	<if test="defined(ownMethods) && ownMethods.length">
+    {!
+        var hasDeprecation = false; 
+        
+        var borrowedMembers = data.methods.filter(function($) {return $.memberOf != data.alias});
+        var contributers = [];
+        borrowedMembers.map(function($) {if (contributers.indexOf($.memberOf) < 0) contributers.push($.memberOf)});   
+    !}
+	<if test="((defined(ownMethods) && ownMethods.length)) || (contributers && contributers.length)">
 		<br/>
 		<h1>Functions</h1>
 		<ul class="ulNoTopMargin">			
@@ -274,7 +280,7 @@
 						{+new Link().toSymbol(member.alias).withText("[]")+}
 					<else />
 						<if test="member.isStatic">
-							{+new Link().toSymbol(member.alias).withText(member.memberOf+"."+member.name.replace(/\^\d+$/, ''))+}
+							{+new Link().toSymbol(member.alias).withText(member.memberOf+"."+member.name.replace(/\^\d+$/, '').toString().replace(/\|/g, ' | '))+}
 						<else />
 							{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
 						</if>						
@@ -286,6 +292,29 @@
 				</li>				
 			</for>
 		</ul>	
+        <if test="contributers && contributers.length">
+        <dl class="inheritsList">
+        {!
+            for (var i = 0, l = contributers.length; i < l; i++) {
+                output +=
+                    "<dt>Functions inherited from class "+new Link().toSymbol(contributers[i])+": </dt>"
+                    +
+                    "<dd>" +
+                    borrowedMembers
+                    .filter(
+                        function($) { return $.memberOf == contributers[i] }
+                    )
+                    .sort(makeSortby("name"))
+                    .map(
+                        function($) { return new Link().toSymbol($.alias).withText($.name) }
+                    )
+                    .join(", ")
+                    +
+                    "</dd>";
+            }
+        !}
+        </dl>
+        </if>
 	</if>		
 	
 <!-- ============================== events summary ======================== -->
@@ -309,7 +338,14 @@
 		</ul>	
 	</if>
 <!-- ============================== Properties summary ===================== -->	
-	<if test="defined(ownProperties) && ownProperties.length">
+    <if test="data.inheritsFrom.length">
+    {!
+        var borrowedMembers = data.properties.filter(function($) {return $.memberOf != data.alias});
+        var contributers = [];
+        borrowedMembers.map(function($) {if (contributers.indexOf($.memberOf) < 0) contributers.push($.memberOf)});
+     !}
+     </if>
+	<if test="(defined(ownProperties) && ownProperties.length) || (contributers && contributers.length)">
 		<br/>
 		<h1>Properties</h1>
 		<ul class="ulNoTopMargin">
@@ -327,6 +363,29 @@
 				</li>				
 			</for>
 		</ul>
+        <if test="contributers && contributers.length">
+        <dl class="inheritsList">
+        {!
+            for (var i = 0, l = contributers.length; i < l; i++) {
+                output +=
+                    "<dt>Properties inherited from class "+new Link().toSymbol(contributers[i])+": </dt>"
+                    +
+                    "<dd>" +
+                    borrowedMembers
+                    .filter(
+                        function($) { return $.memberOf == contributers[i] }
+                    )
+                    .sort(makeSortby("name"))
+                    .map(
+                        function($) { return new Link().toSymbol($.alias).withText($.name) }
+                    )
+                    .join(", ")
+                    +
+                    "</dd>";
+            }
+        !}
+        </dl>
+        </if>
 	</if>
 
 <!-- ============================== Constants summary ===================== -->
@@ -374,7 +433,10 @@
 	
 <!-- ============================== Constructor Details ========================= -->
 <!-- NEW: BETA -->
-	<if test="!data.isBuiltin() && data.is('CONSTRUCTOR') && !data.noConstructor">
+    {!
+        var generateDefaultConstructor = !data.isBuiltin() && data.is('CONSTRUCTOR') && !data.noConstructor;
+    !}
+	<if test="generateDefaultConstructor">
 		<div x-ww-support="{+data.supportTag+}">
 			<h2><a name="{+Link.symbolNameToLinkName(data)+}"> </a>{+data.alias+}</h2>
 			<hr style="margin-bottom:15px;"/>
@@ -435,9 +497,9 @@
 						<td class="confluenceTd"><b>{+item.name+}</b></td>
 						<td class="confluenceTd">
 							<if test="item.isCallback">
-								{+ ((item.type)?(new Link().toSymbol(item.type)) : "")+ makeCallbackSignature(subParams) +}
+								{+ ((item.type)?(new Link().toSymbol(item.type).toString().replace(/\|/g, ' | ')) : "")+ makeCallbackSignature(subParams) +}
 							<else/>
-								{+((item.type)?(new Link().toSymbol(item.type)) : "")+}
+								{+((item.type)?(new Link().toSymbol(item.type).toString().replace(/\|/g, ' | ')) : "")+}
 							</if>
 							<if test="item.isOptional"><br/><i>Optional</i></if>													
 						</td>
@@ -573,9 +635,9 @@
 							<td class="confluenceTd"><b>{+item.name+}</b></td>
 							<td class="confluenceTd">
 								<if test="item.isCallback">
-									{+ ((item.type)?(new Link().toSymbol(item.type)) : "") + makeCallbackSignature(subParams) +}
+									{+ ((item.type)?(new Link().toSymbol(item.type).toString().replace(/\|/g, ' | ')) : "") + makeCallbackSignature(subParams) +}
 								<else/>
-									{+((item.type)?(new Link().toSymbol(item.type)) : "")+}
+									{+((item.type)?(new Link().toSymbol(item.type).toString().replace(/\|/g, ' | ')) : "")+}
 								</if>
 								<if test="item.isOptional"><br/><i>Optional</i></if>													
 							</td>
@@ -611,7 +673,7 @@
 						<for each="item" in="member.exceptions">
 							<tr>
 								<td class="confluenceTd">
-									{+((item.type)?(new Link().toSymbol(item.type)) : "")+}												
+									{+((item.type)?(new Link().toSymbol(item.type).toString().replace(/\|/g, ' | ')) : "")+}												
 								</td>
 								<td class="confluenceTd">
 									{+resolveLinks(item.desc)+}
@@ -715,9 +777,9 @@
 							<td class="confluenceTd"><b>{+item.name+}</b></td>
 							<td class="confluenceTd">
 								<if test="item.isCallback">
-									{+ ((item.type)?(new Link().toSymbol(item.type)) : "")+ makeCallbackSignature(subParams) +}
+									{+ ((item.type)?(new Link().toSymbol(item.type).toString().replace(/\|/g, ' | ')) : "")+ makeCallbackSignature(subParams) +}
 								<else/>
-									{+((item.type)?(new Link().toSymbol(item.type)) : "")+}
+									{+((item.type)?(new Link().toSymbol(item.type).toString().replace(/\|/g, ' | ')) : "")+}
 								</if>
 								<if test="item.isOptional"><br/><i>Optional</i></if>													
 							</td>
@@ -753,7 +815,7 @@
 						<for each="item" in="member.exceptions">
 							<tr>
 								<td class="confluenceTd">
-									{+((item.type)?(new Link().toSymbol(item.type)) : "")+}												
+									{+((item.type)?(new Link().toSymbol(item.type).toString().replace(/\|/g, ' | ')) : "")+}												
 								</td>
 								<td class="confluenceTd">
 									{+resolveLinks(item.desc)+}
@@ -811,9 +873,9 @@
 						Static<br/>
 					</if>
 					<if test="member.isCallback">
-						{+ ((member.type)?(new Link().toSymbol(member.type)) : "") + makeCallbackSignature(member.params) +}
+						{+ ((member.type)?(new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')) : "") + makeCallbackSignature(member.params) +}
 					<else/>
-						{+((member.type)?(new Link().toSymbol(member.type)) : "")+}
+						{+((member.type)?(new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')) : "")+}
 					</if>
 					<if test="member.defaultValue">
 						{+" = " +resolveLinks(member.defaultValue)+}
@@ -896,7 +958,7 @@
 			<for each="member" in="ownConstants">
 			<tr x-ww-support="{+member.supportTag+}">
 				<td class="confluenceTd"><a name="{+Link.symbolNameToLinkName(member)+}" class="propertyName"><if test="member.isStatic">{+member.memberOf+}.</if>{+member.name+}</a></td>
-				<td class="confluenceTd">{+new Link().toSymbol(member.type)+}
+				<td class="confluenceTd">{+new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')+}
 				<if test="member.defaultValue">
 					{+" = " +resolveLinks(member.defaultValue)+}
 				</if>
@@ -976,7 +1038,7 @@
 						<for each="item" in="member.params">
 							<tr>
 							       <td class="confluenceTd"><b>{+item.name+}</b></td>
-							       <td class="confluenceTd">{+((item.type)?(new Link().toSymbol(item.type)) : "")+} <if test="item.isOptional"><i>Optional</i></if></td>
+							       <td class="confluenceTd">{+((item.type)?(new Link().toSymbol(item.type).toString().replace(/\|/g, ' | ')) : "")+} <if test="item.isOptional"><i>Optional</i></if></td>
 							       <td class="confluenceTd">{+resolveLinks(item.desc)+}</td>
 							</tr>
 						</for>								
@@ -1032,6 +1094,23 @@
 				</div>
 			</for>
 		</if>		
+	</if>
+	
+	<if test="!generateDefaultConstructor">
+		<div x-ww-support="{+data.supportTag+}">
+			<h2><a name="{+Link.symbolNameToLinkName(data)+}"> </a>Code Example(s)</h2>
+			<hr style="margin-bottom:15px;"/>
+			<if test="data.example.length">
+				<for each="example" in="data.example">
+				<table class="scriptTable">				
+					<tr><td class="scriptTd">
+					<pre>{+example+}</pre>
+					</td></tr>				
+				</table>
+				</for>
+				</div>
+			</if>
+		</div>
 	</if>
 	
 	      	  	
