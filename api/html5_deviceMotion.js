@@ -5,7 +5,7 @@
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
 *
-* http://www.apache.org/licenses/LICENSE-2.0
+* http=//www.apache.org/licenses/LICENSE-2.0
 *
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,10 +20,10 @@
  * @namespace The Orientation event is subsequently fired on a window object when a significant change on orientation occurs. 
  * <br>Registration for orientation events is achieved by calling window.addEventListener with event type "deviceorientation". Implementations must only fire events asynchronously, after this call has returned.
  * <br><br>The orientation of the device is given in terms of the transformation from a coordinate frame fixed on the Earth to a coordinate frame fixed in the device. This is typically implemented by combining information from an accelerometer and a magnetometer.
- * <br><br>The event's absolute property dictates whether the implementation is able or unable to provide absolute values for the three angles of alpha, beta and gamma.
+ * <br><br>The event's absolute property dictates whether the implementation is able or unable to provide absolute values for the three angles of alpha, beta and gammDeviceMotionEvent.prototype.
  * <br><br>The values of alpha, beta and gamma represent the angles measured as the  device's axes change with respect to some fixed coordinate frame. See {@link RotationRate} for details.
- * <br><br>A device lying flat on a horizontal surface with the top of the screen pointing west has the following orientation:
- * <br>			<i> { alpha: 90, beta: 0, gamma: 0 }</i>
+ * <br><br>A device lying flat on a horizontal surface with the top of the screen pointing west has the following orientation=
+ * <br>			<i> { alpha= 90, beta= 0, gamma= 0 }</i>
  * @example
  * &lt;script type="text/javascript"&gt;
  *
@@ -32,9 +32,9 @@
  *     // Events processes event.alpha, event.beta and event.gamma
  *              
  *     // The following code displays the alpha, beta and gamma values on the webworks application page. 
- *     Alpha.innerHTML = "alpha - " + event.alpha;         
- *     Beta.innerHTML = "beta - " + event.beta;
- *     Gamma.innerHTML = "gamma - " + event.gamma;
+ *     AlphDeviceMotionEvent.prototype.innerHTML = "alpha - " + event.alpha;         
+ *     BetDeviceMotionEvent.prototype.innerHTML = "beta - " + event.beta;
+ *     GammDeviceMotionEvent.prototype.innerHTML = "gamma - " + event.gamma;
  *               
  * }, true)
  * 
@@ -49,7 +49,7 @@
 	 * @readOnly
 	 * @PB10
 	 */ 
-	alpha : Number,
+	DeviceOrientationEvent.prototype.alpha = Number,
 
 	/**
 	 * @default 0
@@ -58,7 +58,7 @@
 	 * @readOnly
 	 * @PB10
 	 */ 
-	beta : Number,
+	DeviceOrientationEvent.prototype.beta = Number,
 
 	/**
 	 * @default 0
@@ -67,28 +67,28 @@
 	 * @readOnly
 	 * @PB10
 	 */ 
-	gamma: Number,
+	DeviceOrientationEvent.prototype.gamma= Number,
 
 	/**
 	 * @type boolean
 	 * @description Returns true if can provide absolute values for the three angles, false if can provide values for the three angles that are relative to some arbritary orientation.
 	 * @PB10
 	 */
-	absolute: boolean,
+	DeviceOrientationEvent.prototype.absolute= boolean,
 
 	/**
 	 * @type boolean
 	 * @description Indicates if the compass of the device is correctly calibrated. If it is set to false, user action, such as performing a manual calibration procedure, is required.
 	 * @PB10
 	 */
-	compassCalibrated: boolean,
+	DeviceOrientationEvent.prototype.compassCalibrated= boolean,
 	
 	/**
 	 * @function 
 	 * @description Initializes the event listener and it's parameters
 	 * @PB10
 	 */
-	initDeviceOrientationEvent : function(){}
+	DeviceOrientationEvent.prototype.initDeviceOrientationEvent = function(){}
 
 };
  
@@ -102,11 +102,11 @@
  * This is less useful in many applications but is provided as a means of providing best-effort support. 
  * These values can be stored and manipulated in variables outside the event scope. These values can be used to control the motion of objects defined on the DOM by the device's gyroscope and accelerometer. 
  * <br><br> {@image /images/xyz.jpg} <br><br>
- * <p>Data Examples: 
- * A device lying flat on a horizontal surface with the screen upmost has an acceleration of zero and the following value for accelerationIncludingGravity:
- *     <p><i> {x: 0,
- *      y: 0,
- *      z: 9.81};</i></p></p>
+ * <p>Data Examples= 
+ * A device lying flat on a horizontal surface with the screen upmost has an acceleration of zero and the following value for accelerationIncludingGravity=
+ *     <p><i> {x= 0,
+ *      y= 0,
+ *      z= 9.81};</i></p></p>
 */
 Acceleration = {
 
@@ -116,7 +116,7 @@ Acceleration = {
 	 * @readOnly
 	 * @PB10
 	 */ 
-	x:Number,
+	Acceleration.prototype.x=Number,
 
 	/**
 	 * @type Number
@@ -124,7 +124,7 @@ Acceleration = {
 	 * @readOnly
 	 * @PB10
 	 */ 	
-	y:Number,
+	Acceleration.prototype.y=Number,
 	
 	/**
 	 * @type Number
@@ -132,7 +132,7 @@ Acceleration = {
 	 * @readOnly
 	 * @PB10
 	 */ 
-	z:Number,
+	Acceleration.prototype.z=Number,
 };
 
 /**
@@ -156,7 +156,7 @@ Acceleration = {
  * <li>z is perpendicular to the screen, positive out of the screen.</li>
  * </ul>
  * The transformation from the Earth frame to the device frame is expressed in terms of 3 rotations, 
- * specified in the device frame. Rotations use the right-hand convention: positive rotation around an axis is clockwise when viewed along the positive direction of the axis.
+ * specified in the device frame. Rotations use the right-hand convention= positive rotation around an axis is clockwise when viewed along the positive direction of the axis.
  */ 
 RotationRate={
 
@@ -172,7 +172,7 @@ RotationRate={
 	 * @readOnly
 	 * @PB10
 	 */ 
-	alpha : Number,
+	RotationRate.prototype.alpha = Number,
 
 	/**
 	 * @default 0
@@ -181,7 +181,7 @@ RotationRate={
 	 * @readOnly
 	 * @PB10
 	 */ 
-	beta : Number,
+	RotationRate.prototype.beta = Number,
 
 	/**
 	 * @default 0
@@ -190,7 +190,7 @@ RotationRate={
 	 * @readOnly
 	 * @PB10
 	 */ 
-	gamma: Number,
+	RotationRate.prototype.gamma= Number,
 };
 
 /**
@@ -222,7 +222,7 @@ DeviceMotionEvent = {
 	 * @readOnly
 	 * @PB10
 	 */ 
-	interval: Number,
+	DeviceMotionEvent.prototype.interval= Number,
 	
 	/**
 	 * @type Acceleration
@@ -230,7 +230,7 @@ DeviceMotionEvent = {
 	 * @readOnly
 	 * @PB10
 	 */
-	acceleration:null,
+	DeviceMotionEvent.prototype.acceleration=null,
 	
 	/**
 	 * @type Acceleration
@@ -239,7 +239,7 @@ DeviceMotionEvent = {
 	 * @readOnly
 	 * @PB10
 	 */
-	accelerationIncludingGravity:null,
+	DeviceMotionEvent.prototype.accelerationIncludingGravity=null,
 	
 	/**
 	 * @type RotationRate
@@ -247,14 +247,14 @@ DeviceMotionEvent = {
 	 * @readOnly
 	 * @PB10
 	 */
-	rotationRate:null,
+	DeviceMotionEvent.prototype.rotationRate=null,
 	
 	/**
 	 * @function
 	 * @description Initializes the event listener and it's parameters
 	 * @PB10
 	 */
-	initDeviceMotionEvent : function(){}
+	DeviceMotionEvent.prototype.initDeviceMotionEvent = function(){}
 };
 
 
