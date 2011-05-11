@@ -15,7 +15,7 @@
 */
 
 /**
- * @toc {System} Web Workers
+ * @toc {System} HTML5 Web Workers
  * @namespace Web Workers objects act as if they had an implicit MessagePort associated with them. This port is part of a channel that is set up when the worker is created and never be garbage collected before the Web Workers object. Only DedicatedWorker is supported. 
 */
  

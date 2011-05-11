@@ -16,7 +16,7 @@
 
 /**
  * @namespace The Geolocation object is used by scripts to programmatically determine the location information associated with the hosting device. The location information is acquired by applying a user-agent specific algorithm, creating a Position object, and populating that object with appropriate data accordingly.  
- * @toc {GPS} Geolocation 
+ * @toc {GPS} HTML5 Geolocation 
  * @learns {Sample - Using HTML5 Geolocation} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Using-HTML5-Geolocation-in-your-Web-or-BlackBerry-WebWorks/ta-p/630406 Sample that demonstrates how to use the HTML5 Geolocation API [BlackBerry Developer Resource Center].
  * @learns {How To - Enable GPS on PlayBook} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/How-To-Enable-GPS-capability-in-BlackBerry-WebWorks-for-Tablet/ta-p/1035855 How to enable GPS capability when using the BlackBerry WebWorks SDK for Tablet OS [BlackBerry Developer Resource Center].
  */
@@ -94,7 +94,7 @@ Geolocation = {
 
 	/**
  * @namespace The Position is the container for the geolocation information.
- * @toc {GPS} Position
+ * @toc {GPS} HTML5 Position
  */
 Position = {        
     
@@ -118,7 +118,7 @@ Position = {
 
 /**
  * @namespace The PositionError is reflecting the reason for the failure.
- * @toc {GPS} PositionError  
+ * @toc {GPS} HTML5 PositionError  
  */
 PositionError  = {        
     		
@@ -174,7 +174,7 @@ PositionError  = {
     
 /**
  * @namespace The PositionOptions represented a native objects with optional properties named enableHighAccuracy, timeout and maximumAge to use in {@link Geolocation.getCurrentPosition} or {@link Geolocation.watchPosition}.
- * @toc {GPS} PositionOptions 
+ * @toc {GPS} HTML5 PositionOptions 
  */
 PositionOptions = {        
     
@@ -207,7 +207,7 @@ PositionOptions = {
 
 /**
  * @namespace The geographic coordinate reference system used by the attributes in this interface is the World Geodetic System (2d) [WGS84]. No other reference system is supported. 
- * @toc {GPS} Coordinates
+ * @toc {GPS} HTML5 Coordinates
  */
 Coordinates = {        
     

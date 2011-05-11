@@ -21,10 +21,12 @@
 */
 
 /**
+* @namespace
 * An audio element represents a sound or audio stream.
 * @toc {Media} HTML5 Video
-* @class 
 * @extends HTMLMediaElement
+* @constructedBy {document.createElement("video")} {HTMLVideoElement can be constructed by using the document.createElement() method.}
+* var video = document.createElement("video");
 * @PB10
 * @BB60+
 * @example
