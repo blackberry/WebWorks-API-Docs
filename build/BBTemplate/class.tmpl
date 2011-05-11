@@ -1234,7 +1234,7 @@
 	</if>
 	
 	<if test="!generateDefaultConstructor && data.example.length">
-		<div x-ww-support="{+data.supportTag+}">
+		<div x-ww-support="{+data.support.getSupportTag()+}">
 			<h2><a name="{+Link.symbolNameToLinkName(data)+}"> </a>Code Example(s)</h2>
 			<hr style="margin-bottom:15px;"/>
 			<for each="example" in="data.example">
