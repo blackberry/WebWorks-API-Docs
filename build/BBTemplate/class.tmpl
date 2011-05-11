@@ -263,8 +263,14 @@
 	</if>
 
 <!-- ============================== Function Summary  ==================== -->
-	{! var hasDeprecation = false; !}
-	<if test="defined(ownMethods) && ownMethods.length">
+    {!
+        var hasDeprecation = false; 
+        
+        var borrowedMembers = data.methods.filter(function($) {return $.memberOf != data.alias});
+        var contributers = [];
+        borrowedMembers.map(function($) {if (contributers.indexOf($.memberOf) < 0) contributers.push($.memberOf)});   
+    !}
+	<if test="((defined(ownMethods) && ownMethods.length)) || (contributers && contributers.length)">
 		<br/>
 		<h1>Functions</h1>
 		<ul class="ulNoTopMargin">			
@@ -286,6 +292,29 @@
 				</li>				
 			</for>
 		</ul>	
+        <if test="contributers && contributers.length">
+        <dl class="inheritsList">
+        {!
+            for (var i = 0, l = contributers.length; i < l; i++) {
+                output +=
+                    "<dt>Functions inherited from class "+new Link().toSymbol(contributers[i])+": </dt>"
+                    +
+                    "<dd>" +
+                    borrowedMembers
+                    .filter(
+                        function($) { return $.memberOf == contributers[i] }
+                    )
+                    .sort(makeSortby("name"))
+                    .map(
+                        function($) { return new Link().toSymbol($.alias).withText($.name) }
+                    )
+                    .join(", ")
+                    +
+                    "</dd>";
+            }
+        !}
+        </dl>
+        </if>
 	</if>		
 	
 <!-- ============================== events summary ======================== -->
@@ -309,7 +338,14 @@
 		</ul>	
 	</if>
 <!-- ============================== Properties summary ===================== -->	
-	<if test="defined(ownProperties) && ownProperties.length">
+    <if test="data.inheritsFrom.length">
+    {!
+        var borrowedMembers = data.properties.filter(function($) {return $.memberOf != data.alias});
+        var contributers = [];
+        borrowedMembers.map(function($) {if (contributers.indexOf($.memberOf) < 0) contributers.push($.memberOf)});
+     !}
+     </if>
+	<if test="(defined(ownProperties) && ownProperties.length) || (contributers && contributers.length)">
 		<br/>
 		<h1>Properties</h1>
 		<ul class="ulNoTopMargin">
@@ -327,6 +363,29 @@
 				</li>				
 			</for>
 		</ul>
+        <if test="contributers && contributers.length">
+        <dl class="inheritsList">
+        {!
+            for (var i = 0, l = contributers.length; i < l; i++) {
+                output +=
+                    "<dt>Properties inherited from class "+new Link().toSymbol(contributers[i])+": </dt>"
+                    +
+                    "<dd>" +
+                    borrowedMembers
+                    .filter(
+                        function($) { return $.memberOf == contributers[i] }
+                    )
+                    .sort(makeSortby("name"))
+                    .map(
+                        function($) { return new Link().toSymbol($.alias).withText($.name) }
+                    )
+                    .join(", ")
+                    +
+                    "</dd>";
+            }
+        !}
+        </dl>
+        </if>
 	</if>
 
 <!-- ============================== Constants summary ===================== -->
