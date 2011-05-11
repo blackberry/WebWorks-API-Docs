@@ -26,7 +26,7 @@
  *doWork.js (the worker):
  *
  *   var appCache = self.applicationCache()
- * @toc {Cache} ApplicationCache
+ * @toc {Cache} HTML5 ApplicationCache
  */
 
 ApplicationCache ={
