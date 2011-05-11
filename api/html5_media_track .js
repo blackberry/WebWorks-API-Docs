@@ -22,6 +22,7 @@
 
 
 /**
+* @namespace
 * The track element allows authors to specify explicit external timed 
 * text tracks for media elements. It does not represent anything 
 * on its own. <br/><br/>
@@ -30,10 +31,18 @@
 * srclang attributes are both missing or have values that represent 
 * the same language, and whose label attributes are again both 
 * missing or both have the same value.
-* @class
 * @extends HTMLElement
+* @constructedBy {document.createElement("track")} {HTMLTrackElement can be constructed by using the document.createElement() method.}
+* var track = document.createElement("track");
 * @BB60+
 * @PB10
+* @example
+* &lt;video src=\&quot;brave.webm\&quot;&gt;
+*  &lt;track kind=subtitles src=brave.en.vtt srclang=en label=\&quot;English\&quot;&gt;
+*  &lt;track kind=captions src=brave.en.vtt srclang=en label=\&quot;English for the Hard of Hearing\&quot;&gt;
+*  &lt;track kind=subtitles src=brave.fr.vtt srclang=fr label=\&quot;Fran&ccedil;ais\&quot;&gt;
+*  &lt;track kind=subtitles src=brave.de.vtt srclang=de label=\&quot;Deutsch\&quot;&gt;
+* &lt;/video&gt;
 */
 HTMLTrackElement = function() { };
 

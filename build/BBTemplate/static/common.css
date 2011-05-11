@@ -297,6 +297,14 @@ vertical-align: center;
 width : 80px;
 }
 
+
+dl.inheritsList
+{
+list-style: square;
+margin-left: 20px;
+padding-left: 0;
+width : 90%;
+}
 /*A:link {text-decoration: underline; color: #0b78b2}
 A:visited {text-decoration: underline; color: #0b78b2}
 A:hover {text-decoration: underline; color: navy;}
