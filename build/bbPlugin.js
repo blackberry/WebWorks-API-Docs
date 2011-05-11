@@ -20,6 +20,146 @@
  * Put this file in <JSDoc dir>\app\plugins\ and it will be used whenever JSDoc is run.
  */
 
+
+BBTag = {};
+
+BBTag.Support = function(symbolArray){
+	this.init();
+	if(symbolArray){
+		this.populateBySymbolArray(symbolArray);
+	}
+};
+
+BBTag.Support.prototype.init = function(){
+	this.bb50 = false;
+	this.bb60 = false;
+	this.pb10 = false;
+	this.common = false;
+	this.clearSupportAttributes();
+};
+
+BBTag.Support.prototype.clearSupportAttributes = function(){
+	this.supportStrings = [];
+	this.supportTag = "";
+	this.supportTable = "";
+}
+
+BBTag.Support.prototype.getSupportStrings = function(){
+	if(!this.supportStrings.length){
+		if(this.bb50 && this.bb60){
+			this.supportStrings.push("BlackBerry OS 5.0+");
+		}else if(this.bb50 && !this.bb60){
+			this.supportStrings.push("BlackBerry OS 5.0");
+		}else if(!this.bb50 && this.bb60){
+			this.supportStrings.push("BlackBerry OS 6.0+");
+		}//This last else has no support
+		
+		if(this.pb10){
+			this.supportStrings.push("BlackBerry PlayBook");
+		}
+	}
+	return this.supportStrings;
+};
+
+BBTag.Support.prototype.getSupportTag = function(){
+	if(!this.supportTag.length){
+		if(this.bb50 && this.bb60){
+			this.supportTag = "bb5.0|bb6.0";
+		}else if(this.bb50 && !this.bb60){
+			this.supportTag = "bb5.0";
+		}else if(!this.bb50 && this.bb60){
+			this.supportTag = "bb6.0";
+		}//This last else has no support
+		
+		if(this.pb10){
+			if(this.supportTag.length){
+				this.supportTag += "|";
+			}
+			this.supportTag += "pb1.0";
+		}
+		
+		if(this.common){
+			this.supportTag += "|common";
+		}
+	}
+	return this.supportTag;
+};
+
+
+BBTag.Support.prototype.getSupportTable = function(){
+	if(!this.supportTable.length){
+		var tableYes = "<td class=\"apiTd apiYes\">Y</td>";
+		var tableNo =  "<td class=\"apiTd apiNo\">&nbsp;</td>";
+		this.supportTable = (this.bb50?tableYes:tableNo) + "\n" 
+						+ (this.bb60?tableYes:tableNo) + "\n" 
+						+ (this.pb10?tableYes:tableNo);
+	}
+	return this.supportTable;
+};
+
+BBTag.Support.prototype.populateByBools = function(bb50,bb60,pb10){
+	this.bb50 |= bb50;
+	this.bb60 |= bb60;
+	this.pb10 |= pb10;
+	this.common |= bb50 && bb60 && pb10;
+	this.clearSupportAttributes();
+};
+
+BBTag.Support.prototype.populateBySymbol = function(symbol){
+	 //BlackBerry Support Tags
+	if(symbol){
+		if(symbol.support){
+			this.populateBySupport(symbol.support);
+		}else if (symbol.comment){
+		    var BB50 = symbol.comment.getTag("BB50").length;
+		    var BB50P = symbol.comment.getTag("BB50+").length;
+		    var BB60 = symbol.comment.getTag("BB60").length;
+		    var BB60P = symbol.comment.getTag("BB60+").length;
+		    var PB10 = symbol.comment.getTag("PB10").length;
+		    var PB10P = symbol.comment.getTag("PB10+").length;
+			
+		    symbol.support = new BBTag.Support();
+			symbol.support.populateByBools((BB50 || BB50P), (BB50P || BB60P || BB60),(PB10 || PB10P));
+			this.populateBySupport(symbol.support);					
+		}
+	}
+};
+
+BBTag.Support.prototype.populateBySupport = function(support){
+
+	this.bb50 |= support.bb50;
+	this.bb60 |= support.bb60;
+	this.pb10 |= support.pb10;
+	this.common |= support.common;
+	this.clearSupportAttributes();
+};
+
+BBTag.Support.prototype.populateBySymbolArray = function(symbolArray){
+	for (var i = 0, l = symbolArray.length; i < l; i++) {
+		var symbol = symbolArray[i];
+		this.populateBySymbol(symbol);
+	}
+};
+
+
+function resolveSupport(symbol){
+	var support = new BBTag.Support();
+	if(symbol){								
+		support.populateBySymbol(symbol);	    
+		
+	    var children = [].concat(symbol.methods,symbol.properties,symbol.events);    
+		for (var i = 0, l = children.length; i < l; i++) {
+			var object = children[i];
+			var childSupport = resolveSupport(object);
+			support.populateBySupport(childSupport);
+		}			                           	    	    	    	    
+	    symbol.support = support;	    		
+	}
+	return support;
+}
+
+function isaClass($) {return ($.is("CONSTRUCTOR") || $.isNamespace) && !($.alias == "_global_")}
+
 /** Generate Incrementing Numbers for use in templates **/
 var generatedindex = 0;
 
@@ -67,13 +207,13 @@ JSDOC.PluginManager.registerPlugin(
 				var betaTag = symbol.comment.getTag("beta");
 				var paramCallbacks = symbol.comment.tags.filter(function($){return $.isCallback && $.title == "param"});
 				var fieldCBs = symbol.comment.tags.filter(function($){return $.isCallback && $.title == "field"});
-                var learnTag = symbol.comment.getTag("learns");
+				var learnTag = symbol.comment.getTag("learns");
 				var squareAccessor = symbol.comment.getTag("squareAccessor");
-                var constructorTag = symbol.comment.getTag("constructor");
-                var constructedBy = symbol.comment.tags.filter(function($){return $.title=="constructedBy" && $.type}); 
+            var constructorTag = symbol.comment.getTag("constructor");
+            var constructedBy = symbol.comment.tags.filter(function($){return $.title=="constructedBy" && $.type}); 
                 
 				//If its a class/namespace
-				if((symbol.is("CONSTRUCTOR") || symbol.isNamespace) && !(symbol.alias == "_global_")){
+				if(isaClass(symbol)){
 					if(toc.length) {
 						//MUST get the original TOC tag ...WHO KNOWS WHY???
 						for(var i=0 ; i < symbol.comment.tags.length; i++){
@@ -192,6 +332,20 @@ JSDOC.PluginManager.registerPlugin(
                     }
                 }
 			}           
+		},
+		
+		onFinishedParsing : function(symbolSet){
+			if(symbolSet){
+				var symbols = symbolSet.toArray();
+				var classes = symbols.filter(isaClass);
+				
+				// create each of the class pages
+				for (var i = 0, l = classes.length; i < l; i++) {
+					resolveSupport(classes[i]);
+				}
+				
+				
+			}	
 		}
 	}
 );

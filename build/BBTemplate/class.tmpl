@@ -172,12 +172,12 @@
 		{! allChildren = allChildren.concat(ownEvents);!}
 	</if>	
 
-	<if test="data.supportStrings">
+	<if test="data.support.getSupportStrings()">
 		<div class="title">Supported Platform(s)</div>		
 		<table class="scriptTable">			
 			<tr> 
 				<td class="scriptTd">
-					<for each="item" in="data.supportStrings">
+					<for each="item" in="data.support.getSupportStrings()">
 						- {+item+}<br/>
 					</for>
 				</td> 
@@ -205,14 +205,29 @@
 								   
 								</th>
 							</tr>
-							<tr x-ww-support="{+data.supportTag+}">
-								<td class="apiTd">{+new Link().toSymbol(data.alias)+}
-								{+data.supportTable+}
-							</tr>
+							<if test="!data.isBuiltin() && data.is('CONSTRUCTOR')">
+								<tr x-ww-support="{+data.support.getSupportTag()+}">
+									<td class="apiTd">{+new Link().toSymbol(data.alias)+}
+									{+data.support.getSupportTable()+}
+								</tr>
+							</if>
 							<for each="item" in="allChildren">
-							<tr x-ww-support="{+item.supportTag+}">
-								<td class="apiTd">{+new Link().toSymbol(item.alias)+}
-								{+item.supportTable+}
+							<tr x-ww-support="{+item.support.getSupportTag()+}">
+								<td class="apiTd">
+								<if test="item.squareAccessor">
+									{+new Link().toSymbol(item.alias).withText("[]")+}
+								<else />
+									<if test="item.uri">
+										{+new Link().toSymbol(item.alias).withText("webworks://"+item.alias.replace(/\./g, "/"))+}
+									<else />
+										<if test="item.isStatic">
+											{+new Link().toSymbol(item.alias).withText(item.memberOf+"."+item.name.replace(/\^\d+$/, ''))+}
+										<else />
+											{+new Link().toSymbol(item.alias).withText(item.name.replace(/\^\d+$/, ''))+}
+										</if>
+									</if>
+								</if>	
+								{+item.support.getSupportTable()+}
 							</tr>								
 							</for>
 						</table>
@@ -244,69 +259,80 @@
 	</if>
 
 <!-- ============================== Constructor Summary ========================= -->
-<!-- NEW: BETA -->
 	<if test="(!data.isBuiltin() && data.is('CONSTRUCTOR')) || data.constructedBy">
-		<h1>Constructor</h1>
-        <ul class="ulNoTopMargin">
-            <if test="!data.noConstructor">
-                <li>{+new Link().toSymbol(data.alias).withText(data.name.replace(/\^\d+$/, '').toString().replace(/\|/g, ' | '))+}</li>
-            </if>
-            <if test="data.constructedBy">
-                {+ResetIndex()+}
-                <for each="constructedBy" in="data.constructedBy">
-                    <if test="constructedBy.type">
-                        <li><a href="#constructedBy{+GenerateIndex()+}">{+constructedBy.type+}</a></li>
-                    </if>
-                </for>
-            </if>
-        </ul>
+		<div x-ww-support="{+data.support.getSupportTag()+}">
+			<h1>Constructor</h1>
+        	<ul class="ulNoTopMargin">
+	            <if test="!data.noConstructor">
+	                <li>{+new Link().toSymbol(data.alias).withText(data.name.replace(/\^\d+$/, '').toString().replace(/\|/g, ' | '))+}</li>
+	            </if>
+	            <if test="data.constructedBy">
+	                {+ResetIndex()+}
+	                <for each="constructedBy" in="data.constructedBy">
+	                    <if test="constructedBy.type">
+	                        <li><a href="#constructedBy{+GenerateIndex()+}">{+constructedBy.type+}</a></li>
+	                    </if>
+	                </for>
+            	</if>
+       		</ul>
+		</div>
 	</if>
 
 <!-- ============================== Function Summary  ==================== -->
     {!
-        var hasDeprecation = false; 
-        
-        var borrowedMembers = data.methods.filter(function($) {return $.memberOf != data.alias});
-        var contributers = [];
-        borrowedMembers.map(function($) {if (contributers.indexOf($.memberOf) < 0) contributers.push($.memberOf)});   
+        var hasDeprecation = false;
+		var deprecationSupport = new BBTag.Support();
     !}
-	<if test="((defined(ownMethods) && ownMethods.length)) || (contributers && contributers.length)">
+	<if test="(defined(ownMethods) && ownMethods.length)">
+		{!var ownMethodSupport =new BBTag.Support(ownMethods);!}
 		<br/>
-		<h1>Functions</h1>
-		<ul class="ulNoTopMargin">			
-			<for each="member" in="ownMethods">
-				<li x-ww-support="{+member.supportTag+}">
-					<if test="member.squareAccessor">
-						{+new Link().toSymbol(member.alias).withText("[]")+}
-					<else />
-						<if test="member.isStatic">
-							{+new Link().toSymbol(member.alias).withText(member.memberOf+"."+member.name.replace(/\^\d+$/, '').toString().replace(/\|/g, ' | '))+}
+		<div x-ww-support="{+ownMethodSupport.getSupportTag()+}">
+			<h1>Functions</h1>
+			<ul class="ulNoTopMargin">			
+				<for each="member" in="ownMethods">
+					<li x-ww-support="{+member.support.getSupportTag()+}">
+						<if test="member.squareAccessor">
+							{+new Link().toSymbol(member.alias).withText("[]")+}
 						<else />
-							{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
-						</if>						
-					</if>
-					<if test="member.deprecated">
-						<span class="depricate">**</span>
-						{!hasDeprecation = true;!}
-					</if>
-				</li>				
-			</for>
-		</ul>	
-        <if test="contributers && contributers.length">
+							<if test="member.isStatic">
+								{+new Link().toSymbol(member.alias).withText(member.memberOf+"."+member.name.replace(/\^\d+$/, '').toString().replace(/\|/g, ' | '))+}
+							<else />
+								{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
+							</if>						
+						</if>
+						<if test="member.deprecated">
+							<span class="depricate">**</span>
+							{! hasDeprecation = true; deprecationSupport.populateBySymbol(member); !}
+						</if>
+					</li>				
+				</for>
+			</ul>	
+		</div>
+	</if>
+
+<!-- ============================== Inherited Functions Summary  ==================== -->	
+	<if test="data.inheritsFrom.length">
+		{!        
+	    	var borrowedMembers = data.methods.filter(function($) {return $.memberOf != data.alias && !$.uri});
+	    	var memberContributors = [];
+	    	borrowedMembers.map(function($) {if (memberContributors.indexOf($.memberOf) < 0) memberContributors.push($.memberOf)});   
+	    !}
+	</if>
+    <if test="memberContributors && memberContributors.length">
         <dl class="inheritsList">
         {!
-            for (var i = 0, l = contributers.length; i < l; i++) {
+            for (var i = 0, l = memberContributors.length; i < l; i++) {
                 output +=
-                    "<dt>Functions inherited from class "+new Link().toSymbol(contributers[i])+": </dt>"
+                    "<dt>Functions inherited from class "+new Link().toSymbol(memberContributors[i])+": </dt>"
                     +
                     "<dd>" +
                     borrowedMembers
                     .filter(
-                        function($) { return $.memberOf == contributers[i] }
+                        function($) { return $.memberOf == memberContributors[i] }
                     )
                     .sort(makeSortby("name"))
                     .map(
-                        function($) { return new Link().toSymbol($.alias).withText($.name) }
+                        function($) { return "<span x-ww-support=\""+$.support.getSupportTag()+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
                     )
                     .join(", ")
                     +
@@ -314,70 +340,55 @@
             }
         !}
         </dl>
-        </if>
 	</if>		
 	
 <!-- ============================== events summary ======================== -->
 	<if test="defined(ownEvents) && ownEvents.length">
+		{!var ownEventSupport =new BBTag.Support(ownEvents);!}
 		<br/>
-		<h1>Events</h1>
-		<ul class="ulNoTopMargin">			
-			<for each="member" in="ownEvents">
-				<li x-ww-support="{+member.supportTag+}">
-					<if test="member.isStatic">
-						{+new Link().toSymbol(member.alias).withText(member.memberOf+"."+member.name.replace(/\^\d+$/, ''))+}
-					<else />
-						{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
-					</if>
-					<if test="member.deprecated">
-						<span class="depricate">**</span>
-						{!hasDeprecation = true;!}
-					</if>
-				</li>				
-			</for>
-		</ul>	
+		<div x-ww-support="{+ownEventSupport.getSupportTag()+}">
+			<h1>Events</h1>
+			<ul class="ulNoTopMargin">			
+				<for each="member" in="ownEvents">
+					<li x-ww-support="{+member.support.getSupportTag()+}">
+						<if test="member.isStatic">
+							{+new Link().toSymbol(member.alias).withText(member.memberOf+"."+member.name.replace(/\^\d+$/, ''))+}
+						<else />
+							{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
+						</if>
+						<if test="member.deprecated">
+							<span class="depricate">**</span>
+							{!hasDeprecation = true; deprecationSupport.populateBySymbol(member);!}
+						</if>
+					</li>				
+				</for>
+			</ul>
+		</div>
 	</if>
-<!-- ============================== Properties summary ===================== -->	
-    <if test="data.inheritsFrom.length">
-    {!
-        var borrowedMembers = data.properties.filter(function($) {return $.memberOf != data.alias});
-        var contributers = [];
-        borrowedMembers.map(function($) {if (contributers.indexOf($.memberOf) < 0) contributers.push($.memberOf)});
-     !}
-     </if>
-	<if test="(defined(ownProperties) && ownProperties.length) || (contributers && contributers.length)">
-		<br/>
-		<h1>Properties</h1>
-		<ul class="ulNoTopMargin">
-			<for each="member" in="ownProperties">
-				<li x-ww-support="{+member.supportTag+}">
-					<if test="member.isStatic">
-						{+new Link().toSymbol(member.alias).withText(member.memberOf+"."+member.name.replace(/\^\d+$/, ''))+}
-					<else />
-						{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
-					</if>
-					<if test="member.deprecated">
-						<span class="depricate">**</span>
-						{!hasDeprecation = true;!}
-					</if>
-				</li>				
-			</for>
-		</ul>
-        <if test="contributers && contributers.length">
+	
+<!-- ============================== Inherited Event Summary  ==================== -->	
+	<if test="data.inheritsFrom.length">
+		{!        
+	    	var borrowedEvents = data.events.filter(function($) {return $.memberOf != data.alias});
+	    	var eventContributors = [];
+	    	borrowedEvents.map(function($) {if (eventContributors.indexOf($.memberOf) < 0) eventContributors.push($.memberOf)});   
+	    !}
+	</if>
+    <if test="eventContributors && eventContributors.length">
         <dl class="inheritsList">
         {!
-            for (var i = 0, l = contributers.length; i < l; i++) {
+            for (var i = 0, l = eventContributors.length; i < l; i++) {
                 output +=
-                    "<dt>Properties inherited from class "+new Link().toSymbol(contributers[i])+": </dt>"
+                    "<dt>Events inherited from class "+new Link().toSymbol(eventContributors[i])+": </dt>"
                     +
                     "<dd>" +
                     borrowedMembers
                     .filter(
-                        function($) { return $.memberOf == contributers[i] }
+                        function($) { return $.memberOf == eventContributors[i] }
                     )
                     .sort(makeSortby("name"))
                     .map(
-                        function($) { return new Link().toSymbol($.alias).withText($.name) }
+                        function($) { return "<span x-ww-support=\""+$.support.getSupportTag()+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
                     )
                     .join(", ")
                     +
@@ -385,50 +396,173 @@
             }
         !}
         </dl>
-        </if>
+	</if>	
+<!-- ============================== Properties summary ===================== -->	
+	<if test="defined(ownProperties) && ownProperties.length">
+		{!var ownPropertySupport =new BBTag.Support(ownProperties);!}
+		<br/>
+		<div x-ww-support="{+ownPropertySupport.getSupportTag()+}">
+			<h1>Properties</h1>
+			<ul class="ulNoTopMargin">
+				<for each="member" in="ownProperties">
+					<li x-ww-support="{+member.support.getSupportTag()+}">
+						<if test="member.isStatic">
+							{+new Link().toSymbol(member.alias).withText(member.memberOf+"."+member.name.replace(/\^\d+$/, ''))+}
+						<else />
+							{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
+						</if>
+						<if test="member.deprecated">
+							<span class="depricate">**</span>
+							{!hasDeprecation = true; deprecationSupport.populateBySymbol(member);!}
+						</if>
+					</li>				
+				</for>
+			</ul>
+		</div>
 	</if>
-
+<!-- ============================== Inherited Properties Summary  ==================== -->	
+	<if test="data.inheritsFrom.length">
+		{!        
+	    	var borrowedProperties = data.properties.filter(function($) {return $.memberOf != data.alias && !$.isNamespace && !$.isConstant});
+	    	var propertyContributors = [];
+	    	borrowedProperties.map(function($) {if (propertyContributors.indexOf($.memberOf) < 0) propertyContributors.push($.memberOf)});   
+	    !}
+	</if>
+    <if test="propertyContributors && propertyContributors.length">
+        <dl class="inheritsList">
+        {!
+            for (var i = 0, l = propertyContributors.length; i < l; i++) {
+                output +=
+                    "<dt>Properties inherited from class "+new Link().toSymbol(propertyContributors[i])+": </dt>"
+                    +
+                    "<dd>" +
+                    borrowedMembers
+                    .filter(
+                        function($) { return $.memberOf == propertyContributors[i] }
+                    )
+                    .sort(makeSortby("name"))
+                    .map(
+                        function($) { return "<span x-ww-support=\""+$.support.getSupportTag()+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
+                    )
+                    .join(", ")
+                    +
+                    "</dd>";
+            }
+        !}
+        </dl>
+	</if>	
 <!-- ============================== Constants summary ===================== -->
 	<if test="defined(ownConstants) && ownConstants.length">
+		{!var ownConstantSupport =new BBTag.Support(ownConstants);!}
 		<br/>
-		<h1>Constants</h1>
-		<ul class="ulNoTopMargin">
-			<for each="member" in="ownConstants">
-				<li x-ww-support="{+member.supportTag+}">
-					<if test="member.isStatic">
-						{+new Link().toSymbol(member.alias).withText(member.memberOf+"."+member.name.replace(/\^\d+$/, ''))+}
-					<else />
-						{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
-					</if>
-					<if test="member.deprecated">
-						<span class="depricate">**</span>
-						{!hasDeprecation = true;!}
-					</if>
-				</li>				
-			</for>
-		</ul>
+		<div x-ww-support="{+ownConstantSupport.getSupportTag()+}">
+			<h1>Constants</h1>
+			<ul class="ulNoTopMargin">
+				<for each="member" in="ownConstants">
+					<li x-ww-support="{+member.support.getSupportTag()+}">
+						<if test="member.isStatic">
+							{+new Link().toSymbol(member.alias).withText(member.memberOf+"."+member.name.replace(/\^\d+$/, ''))+}
+						<else />
+							{+new Link().toSymbol(member.alias).withText(member.name.replace(/\^\d+$/, ''))+}
+						</if>
+						<if test="member.deprecated">
+							<span class="depricate">**</span>
+							{!hasDeprecation = true; deprecationSupport.populateBySymbol(member);!}
+						</if>
+					</li>				
+				</for>
+			</ul>
+		</div>
 	</if>
 
+<!-- ============================== Inherited Properties Summary  ==================== -->	
+	<if test="data.inheritsFrom.length">
+		{!        
+	    	var borrowedConstants = data.properties.filter(function($) {return $.memberOf != data.alias && !$.isNamespace && $.isConstant});
+	    	var constantContributors = [];
+	    	borrowedConstants.map(function($) {if (constantContributors.indexOf($.memberOf) < 0) constantContributors.push($.memberOf)});   
+	    !}
+	</if>
+    <if test="constantContributors && constantContributors.length">
+        <dl class="inheritsList">
+        {!
+            for (var i = 0, l = constantContributors.length; i < l; i++) {
+                output +=
+                    "<dt>Constants inherited from class "+new Link().toSymbol(constantContributors[i])+": </dt>"
+                    +
+                    "<dd>" +
+                    borrowedMembers
+                    .filter(
+                        function($) { return $.memberOf == constantContributors[i] }
+                    )
+                    .sort(makeSortby("name"))
+                    .map(
+                        function($) { return "<span x-ww-support=\""+$.support.getSupportTag()+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
+                    )
+                    .join(", ")
+                    +
+                    "</dd>";
+            }
+        !}
+        </dl>
+	</if>
 <!-- ============================== URI Summary  ==================== -->			
 	<if test="defined(ownURIMethods) && ownURIMethods.length">
-		<br>
-		<h1>URI Functions</h1>
-		<ul class="ulNoTopMargin">			
-			<for each="member" in="ownURIMethods">
-				<li x-ww-support="{+member.supportTag+}">
-					{+new Link().toSymbol(member.alias).withText("webworks://"+member.alias.replace(/\./g, "/"))+}
-					<if test="member.deprecated">
-						<span class="depricate">**</span>
-						{!hasDeprecation = true;!}
-					</if>
-				</li>				
-			</for>
-		</ul>	
+		{!var ownURISupport =new BBTag.Support(ownURIMethods);!}
+		<br/>
+		<div x-ww-support="{+ownURISupport.getSupportTag()+}">
+			<h1>URI Functions</h1>
+			<ul class="ulNoTopMargin">			
+				<for each="member" in="ownURIMethods">
+					<li x-ww-support="{+member.support.getSupportTag()+}">
+						{+new Link().toSymbol(member.alias).withText("webworks://"+member.alias.replace(/\./g, "/"))+}
+						<if test="member.deprecated">
+							<span class="depricate">**</span>
+							{!hasDeprecation = true; deprecationSupport.populateBySymbol(member);!}
+						</if>
+					</li>				
+				</for>
+			</ul>
+		</div>	
 	</if>		
+
+<!-- ============================== Inherited Properties Summary  ==================== -->	
+	<if test="data.inheritsFrom.length">
+		{!        
+	    	var borrowedURI = data.properties.filter(function($) {return $.memberOf != data.alias && $.uri});
+	    	var URIContributors = [];
+	    	borrowedURI.map(function($) {if (URIContributors.indexOf($.memberOf) < 0) URIContributors.push($.memberOf)});   
+	    !}
+	</if>
+    <if test="URIContributors && URIContributors.length">
+        <dl class="inheritsList">
+        {!
+            for (var i = 0, l = URIContributors.length; i < l; i++) {
+                output +=
+                    "<dt>URI inherited from class "+new Link().toSymbol(URIContributors[i])+": </dt>"
+                    +
+                    "<dd>" +
+                    borrowedMembers
+                    .filter(
+                        function($) { return $.memberOf == URIContributors[i] }
+                    )
+                    .sort(makeSortby("name"))
+                    .map(
+                        function($) { return "<span x-ww-support=\""+$.support.getSupportTag()+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
+                    )
+                    .join(", ")
+                    +
+                    "</dd>";
+            }
+        !}
+        </dl>
+	</if>
 	
 <!-- ============================== Deprecation Notice  ==================== -->
 	<if test="hasDeprecation">
-		<span class="depricate">** Marked for Deprecation</span>
+		<div x-ww-support="{+deprecationSupport.getSupportTag()+}">
+			<span class="depricate">** Marked for Deprecation</span>
+		</div>
 	</if>	
 	
 <!-- ============================== Constructor Details ========================= -->
@@ -437,7 +571,7 @@
         var generateDefaultConstructor = !data.isBuiltin() && data.is('CONSTRUCTOR') && !data.noConstructor;
     !}
 	<if test="generateDefaultConstructor">
-		<div x-ww-support="{+data.supportTag+}">
+		<div x-ww-support="{+data.support.getSupportTag()+}">
 			<h2><a name="{+Link.symbolNameToLinkName(data)+}"> </a>{+data.alias+}</h2>
 			<hr style="margin-bottom:15px;"/>
 		
@@ -462,9 +596,9 @@
 				</table>				
 			</if>			
 			
-			<if test="data.supportStrings">				
+			<if test="data.support.getSupportStrings()">				
 				<div class="title">Supported Platform(s)</div>		
-				<for each="item" in="data.supportStrings">
+				<for each="item" in="data.support.getSupportStrings()">
 					&nbsp;- {+item+}<br/>
 				</for>				
 			</if>
@@ -556,7 +690,7 @@
 <!-- ============================== Function details ========================= -->		
 	<if test="defined(ownMethods) && ownMethods.length">
 		<for each="member" in="ownMethods">
-			<div x-ww-support="{+member.supportTag+}">
+			<div x-ww-support="{+member.support.getSupportTag()+}">
 				<h2><a name="{+Link.symbolNameToLinkName(member)+}"></a>
 					<if test="member.squareAccessor">
 						{+data.alias+}[]
@@ -592,9 +726,9 @@
 					</table>				
 				</if>			
 				
-				<if test="member.supportStrings">				
+				<if test="member.support.getSupportStrings()">				
 					<div class="title">Supported Platform(s)</div>		
-					<for each="item" in="member.supportStrings">
+					<for each="item" in="member.support.getSupportStrings()">
 						&nbsp;- {+item+}<br/>
 					</for>				
 				</if>
@@ -702,7 +836,7 @@
 <!-- ============================== Event details ========================= -->		
 	<if test="defined(ownEvents) && ownEvents.length">
 		<for each="member" in="ownEvents">
-			<div x-ww-support="{+member.supportTag+}">
+			<div x-ww-support="{+member.support.getSupportTag()+}">
 				<h2><a name="{+Link.symbolNameToLinkName(member)+}"></a>
 					<if test="member.squareAccessor">
 						{+data.alias+}[]
@@ -734,9 +868,9 @@
 					</table>				
 				</if>			
 				
-				<if test="member.supportStrings">				
+				<if test="member.support.getSupportStrings()">				
 					<div class="title">Supported Platform(s)</div>		
-					<for each="item" in="member.supportStrings">
+					<for each="item" in="member.support.getSupportStrings()">
 						&nbsp;- {+item+}<br/>
 					</for>				
 				</if>
@@ -842,155 +976,159 @@
 	</if>
 <!-- ============================== properties details ========================== -->		
 	<if test="defined(ownProperties) && ownProperties.length">
-		<h2>Properties:</h2>
-		<hr style="margin-bottom:15px;"/>
-	  
-		<table class="confluenceTable">
-			<tr>
-				<th class="confluenceTh">
-				Property
-		       
-				</th>
-				<th class="confluenceTh">
-				   Type
-				   
-				</th>
-				<th class="confluenceTh">
-				   Description
-				   
-				</th>
-				<th class="confluenceTh">
-				   Supported Platform(s)
-				   
-				</th>
-			</tr>
+		<div x-ww-support="{+ownPropertySupport.getSupportTag()+}">
+			<h2>Properties:</h2>
+			<hr style="margin-bottom:15px;"/>
+		  
+			<table class="confluenceTable">
+				<tr>
+					<th class="confluenceTh">
+					Property
+			       
+					</th>
+					<th class="confluenceTh">
+					   Type
+					   
+					</th>
+					<th class="confluenceTh">
+					   Description
+					   
+					</th>
+					<th class="confluenceTh">
+					   Supported Platform(s)
+					   
+					</th>
+				</tr>
+				
+				<for each="member" in="ownProperties">
+				<tr x-ww-support="{+member.support.getSupportTag()+}">
+					<td class="confluenceTd"><a name="{+Link.symbolNameToLinkName(member)+}" class="propertyName"><if test="member.isStatic">{+member.memberOf+}.</if>{+member.name+}</a></td>
+					<td class="confluenceTd">
+						<if test="member.isStatic">
+							Static<br/>
+						</if>
+						<if test="member.isCallback">
+							{+ ((member.type)?(new Link().toSymbol(member.type)) : "") + makeCallbackSignature(member.params) +}
+						<else/>
+							{+((member.type)?(new Link().toSymbol(member.type)) : "")+}
+						</if>
+						<if test="member.defaultValue">
+							{+" = " +resolveLinks(member.defaultValue)+}
+						</if>
+						<if test="member.readOnly">
+							<br/>readonly
+						</if>
+					</td>
+					
+					<td class="confluenceTd">{+resolveLinks(member.desc)+}
+					<if test="member.params">
+						<br/>
+						<for each="subItem" in="member.params">
+							<br/>
+							<b>{+subItem.name+":"+}</b> {+resolveLinks(subItem.desc)+}
+						</for>
+					</if>
+					<if test="member.deprecated">
+						<table class="depricationTable" >
+							<tr>
+								<td class="depricationTd">
+									<i>{+ resolveLinks(member.deprecated) +}</i></td>
+								</td>
+							</tr>
+						</table>
+					</if>				
+					</td>
+					
+					<td class="confluenceTd">
+						<if test="member.support.getSupportStrings()">				
+							<for each="item" in="member.support.getSupportStrings()">
+								&nbsp;- {+item+}<br/>
+							</for>					
+						</if>
+					</td>
+				</tr>
+				</for>
+			</table>
 			
 			<for each="member" in="ownProperties">
-			<tr x-ww-support="{+member.supportTag+}">
-				<td class="confluenceTd"><a name="{+Link.symbolNameToLinkName(member)+}" class="propertyName"><if test="member.isStatic">{+member.memberOf+}.</if>{+member.name+}</a></td>
-				<td class="confluenceTd">
-					<if test="member.isStatic">
-						Static<br/>
-					</if>
-					<if test="member.isCallback">
-						{+ ((member.type)?(new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')) : "") + makeCallbackSignature(member.params) +}
-					<else/>
-						{+((member.type)?(new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')) : "")+}
-					</if>
-					<if test="member.defaultValue">
-						{+" = " +resolveLinks(member.defaultValue)+}
-					</if>
-					<if test="member.readOnly">
-						<br/>readonly
-					</if>
-				</td>
-				
-				<td class="confluenceTd">{+resolveLinks(member.desc)+}
-				<if test="member.params">
-					<br/>
-					<for each="subItem" in="member.params">
-						<br/>
-						<b>{+subItem.name+":"+}</b> {+resolveLinks(subItem.desc)+}
-					</for>
-				</if>
-				<if test="member.deprecated">
-					<table class="depricationTable" >
-						<tr>
-							<td class="depricationTd">
-								<i>{+ resolveLinks(member.deprecated) +}</i></td>
-							</td>
-						</tr>
+				<if test="member.example.length">
+					<div class="title">Code Example(s)</div>
+					<for each="example" in="member.example">
+					<table class="scriptTable">				
+						<tr><td class="scriptTd">
+						<pre>{+example+}</pre>
+						</td></tr>				
 					</table>
-				</if>				
-				</td>
-				
-				<td class="confluenceTd">
-					<if test="member.supportStrings">				
-						<for each="item" in="member.supportStrings">
-							&nbsp;- {+item+}<br/>
-						</for>					
-					</if>
-				</td>
-			</tr>
+					</for>
+					</div>
+				</if>
 			</for>
-		</table>
-		
-		<for each="member" in="ownProperties">
-			<if test="member.example.length">
-				<div class="title">Code Example(s)</div>
-				<for each="example" in="member.example">
-				<table class="scriptTable">				
-					<tr><td class="scriptTd">
-					<pre>{+example+}</pre>
-					</td></tr>				
-				</table>
-				</for>
-				</div>
-			</if>
-		</for>
+		</div>
 	</if>
 	
 <!-- ============================== constant details ========================== -->		
 	<if test="defined(ownConstants) && ownConstants.length">
-		<h2>Constants:</h2>
-		<hr style="margin-bottom:15px;"/>
-	  
-		<table class="confluenceTable">
-			<tr>
-				<th class="confluenceTh">
-				Constant
-		       
-				</th>
-				<th class="confluenceTh">
-				   Type
-				   
-				</th>
-				<th class="confluenceTh">
-				   Description
-				   
-				</th>
-				<th class="confluenceTh">
-				   Supported Platform(s)
-				   
-				</th>
-			</tr>
-			
-			<for each="member" in="ownConstants">
-			<tr x-ww-support="{+member.supportTag+}">
-				<td class="confluenceTd"><a name="{+Link.symbolNameToLinkName(member)+}" class="propertyName"><if test="member.isStatic">{+member.memberOf+}.</if>{+member.name+}</a></td>
-				<td class="confluenceTd">{+new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')+}
-				<if test="member.defaultValue">
-					{+" = " +resolveLinks(member.defaultValue)+}
-				</if>
-				</td>
-				<td class="confluenceTd">{+resolveLinks(member.desc)+}
-				<if test="member.deprecated">
-					<table class="depricationTable" >
-						<tr>
-							<td class="depricationTd">
-								<i>{+ resolveLinks(member.deprecated) +}</i></td>
-							</td>
-						</tr>
-					</table>
-				</if>
-				</td>
-				<td class="confluenceTd">
-					<if test="member.supportStrings">				
-						<for each="item" in="member.supportStrings">
-							&nbsp;- {+item+}<br/>
-						</for>					
+		<div x-ww-support="{+ownConstantSupport.getSupportTag()+}">
+			<h2>Constants:</h2>
+			<hr style="margin-bottom:15px;"/>
+		  
+			<table class="confluenceTable">
+				<tr>
+					<th class="confluenceTh">
+					Constant
+			       
+					</th>
+					<th class="confluenceTh">
+					   Type
+					   
+					</th>
+					<th class="confluenceTh">
+					   Description
+					   
+					</th>
+					<th class="confluenceTh">
+					   Supported Platform(s)
+					   
+					</th>
+				</tr>
+				
+				<for each="member" in="ownConstants">
+				<tr x-ww-support="{+member.support.getSupportTag()+}">
+					<td class="confluenceTd"><a name="{+Link.symbolNameToLinkName(member)+}" class="propertyName"><if test="member.isStatic">{+member.memberOf+}.</if>{+member.name+}</a></td>
+					<td class="confluenceTd">{+new Link().toSymbol(member.type)+}
+					<if test="member.defaultValue">
+						{+" = " +resolveLinks(member.defaultValue)+}
 					</if>
-				</td>
-			</tr>
-			</for>
-		</table>
+					</td>
+					<td class="confluenceTd">{+resolveLinks(member.desc)+}
+					<if test="member.deprecated">
+						<table class="depricationTable" >
+							<tr>
+								<td class="depricationTd">
+									<i>{+ resolveLinks(member.deprecated) +}</i></td>
+								</td>
+							</tr>
+						</table>
+					</if>
+					</td>
+					<td class="confluenceTd">
+						<if test="member.support.getSupportStrings()">				
+							<for each="item" in="member.support.getSupportStrings()">
+								&nbsp;- {+item+}<br/>
+							</for>					
+						</if>
+					</td>
+				</tr>
+				</for>
+			</table>
+		</div>
 	</if>
 
 <!-- ============================== URI  ==================== -->			
 	<if test="data.methods.length">		
 		<if test="ownURIMethods.length">
 			<for each="member" in="ownURIMethods">
-				<div x-ww-support="{+member.supportTag+}">
+				<div x-ww-support="{+member.support.getSupportTag()+}">
 					<h2><a name="{+Link.symbolNameToLinkName(member)+}"> </a>webworks://{+member.alias.replace(/\./g, "/")+}</h2>
 					<hr style="margin-bottom:15px;"/>
 					
@@ -1010,10 +1148,10 @@
 						</table>
 					</if>				
 					
-					<if test="member.supportStrings">
+					<if test="member.support.getSupportStrings()">
 						<br/>
 						<div class="title">Supported Platform(s)</div>		
-						<for each="item" in="member.supportStrings">
+						<for each="item" in="member.support.getSupportStrings()">
 							&nbsp;- {+item+}<br/>
 						</for>					
 					</if>

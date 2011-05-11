@@ -157,11 +157,12 @@ Touch.prototype.force = { };
 * This interface defines a list of individual points of contact for a touch event.
 * @BB60+
 * @PB10
+* @toc {Touch} TouchList
 */
 TouchList = function() {};
 
 /**
-* returns the number of {@link Touch}es in the list
+* returns the number of {@link Touch} objects in the list
 * @type Number
 * @readOnly
 * @BB60+

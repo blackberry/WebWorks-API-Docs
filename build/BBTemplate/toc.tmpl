@@ -34,14 +34,16 @@
 	<for each="thisClass" in="data">		
 		<if test="thisClass.toc">
 			<if test="(prevTocType && prevTocType == thisClass.toc.type)">
-				<div class="lineItem" x-ww-support="{+thisClass.supportTag+}">- {+new Link().toClass(thisClass.alias).withText(thisClass.toc.desc)+}</div>
+				<div class="lineItem" x-ww-support="{+thisClass.support.getSupportTag()+}">- {+new Link().toClass(thisClass.alias).withText(thisClass.toc.desc)+}</div>
 			<else />
 				<if test="prevTocType">
 					</div>
 				</if>
-				<div id="{+thisClass.toc.type+}" class = "section">
+				{!var tocSymbols = data.filter(function($){return $.toc.type == thisClass.toc.type});!}
+				{!var tocSupport = new BBTag.Support(tocSymbols);!}
+				<div id="{+thisClass.toc.type+}" class = "section" x-ww-support="{+tocSupport.getSupportTag()+}">
 					<div class="title">{+thisClass.toc.type+}</div>
-					<div class="lineItem" x-ww-support="{+thisClass.supportTag+}">- {+new Link().toClass(thisClass.alias).withText(thisClass.toc.desc)+}</div>			
+					<div class="lineItem" x-ww-support="{+thisClass.support.getSupportTag()+}">- {+new Link().toClass(thisClass.alias).withText(thisClass.toc.desc)+}</div>			
 				{!prevTocType = thisClass.toc.type;!}
 			</if>
 		</if>
