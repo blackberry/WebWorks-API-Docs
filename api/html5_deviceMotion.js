@@ -14,87 +14,8 @@
 * limitations under the License.
 */
 
-
 /**
- * @toc {Device Orientation} HTML5 Device Orientation Event
- * @namespace The Orientation event is subsequently fired on a window object when a significant change on orientation occurs. 
- * <br>Registration for orientation events is achieved by calling window.addEventListener with event type "deviceorientation". Implementations must only fire events asynchronously, after this call has returned.
- * <br><br>The orientation of the device is given in terms of the transformation from a coordinate frame fixed on the Earth to a coordinate frame fixed in the device. This is typically implemented by combining information from an accelerometer and a magnetometer.
- * <br><br>The event's absolute property dictates whether the implementation is able or unable to provide absolute values for the three angles of alpha, beta and gammDeviceMotionEvent.prototype.
- * <br><br>The values of alpha, beta and gamma represent the angles measured as the  device's axes change with respect to some fixed coordinate frame. See {@link RotationRate} for details.
- * <br><br>A device lying flat on a horizontal surface with the top of the screen pointing west has the following orientation=
- * <br>			<i> { alpha= 90, beta= 0, gamma= 0 }</i>
- * @example
- * &lt;script type="text/javascript"&gt;
- *
- * //Device Orientation is registered by calling window.addEventListener with event type "deviceorientation." 
- * window.addEventListener("deviceorientation", function(event) {
- *     // Events processes event.alpha, event.beta and event.gamma
- *              
- *     // The following code displays the alpha, beta and gamma values on the webworks application page. 
- *     AlphDeviceMotionEvent.prototype.innerHTML = "alpha - " + event.alpha;         
- *     BetDeviceMotionEvent.prototype.innerHTML = "beta - " + event.beta;
- *     GammDeviceMotionEvent.prototype.innerHTML = "gamma - " + event.gamma;
- *               
- * }, true)
- * 
- * &lt;/script&gt;
- */
- DeviceOrientationEvent = {
-
-	/**
-	 * @default 90
-	 * @type Number
-	 * @description Returns the rotation angle around the device frame's Z-axis in degrees. See {@link RotationRate} for details.
-	 * @readOnly
-	 * @PB10
-	 */ 
-	DeviceOrientationEvent.prototype.alpha = Number,
-
-	/**
-	 * @default 0
-	 * @type Number
-	 * @description Returns the rotation angle around the device frame's X-axis in degrees. See {@link RotationRate} for details.
-	 * @readOnly
-	 * @PB10
-	 */ 
-	DeviceOrientationEvent.prototype.beta = Number,
-
-	/**
-	 * @default 0
-	 * @type Number
-	 * @description Returns the rotation angle around the device frame's Y-axis in degrees. See {@link RotationRate} for details.
-	 * @readOnly
-	 * @PB10
-	 */ 
-	DeviceOrientationEvent.prototype.gamma= Number,
-
-	/**
-	 * @type boolean
-	 * @description Returns true if can provide absolute values for the three angles, false if can provide values for the three angles that are relative to some arbritary orientation.
-	 * @PB10
-	 */
-	DeviceOrientationEvent.prototype.absolute= boolean,
-
-	/**
-	 * @type boolean
-	 * @description Indicates if the compass of the device is correctly calibrated. If it is set to false, user action, such as performing a manual calibration procedure, is required.
-	 * @PB10
-	 */
-	DeviceOrientationEvent.prototype.compassCalibrated= boolean,
-	
-	/**
-	 * @function 
-	 * @description Initializes the event listener and it's parameters
-	 * @PB10
-	 */
-	DeviceOrientationEvent.prototype.initDeviceOrientationEvent = function(){}
-
-};
- 
-
-/**
- * @toc {Device Orientation} HTML5 Acceleration
+ * @toc {Device Motion} HTML5 Acceleration
  * @namespace
  * Acceleration data is given in meters per second squared and uses the body axes defined in the device orientation event. Acceleration data (without the effect of gravity) cannot be provided when there is a lack of a gyroscope. 
  * Implementations that are unable to provide acceleration data without the effect of gravity may instead supply the acceleration including the effect of gravity. 
@@ -136,7 +57,7 @@ Acceleration = {
 };
 
 /**
- * @toc {Device Orientation} HTML5 Rotation Rate
+ * @toc {Device Motion} HTML5 Rotation Rate
  * @PB10
  * @namespace
  * Represents the Angular velocity of the motion.
@@ -195,7 +116,7 @@ RotationRate={
 };
 
 /**
- * @toc {Device Orientation} HTML5 Device Motion Event
+ * @toc {Device Motion} HTML5 Device Motion Event
  * @PB10
  * @namespace
  * This event provides direct access to motion data from an accelerometer and gyroscope. The three pieces of data provided are the acceleration, acceleration including gravity and rotation rate. <br>Because our hardware currently does not have a gyroscope, not all interfaces of this event are available to us (acceleration without gravity and rotation rate.)<br>
