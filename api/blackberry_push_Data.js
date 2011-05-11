@@ -74,14 +74,14 @@ blackberry.push.Data = {
 	/**
 	* Retrieves the source for this push stream.  String form of the source of this push; it could be a UID for a connection, IPv4 address, or SMSC. 
 	* This method expires and will throw an exception if called outside of the push callback function.
-	* @returns {String} Returns the source of the push request
+	* @returns {String} Returns the source of the push request.
 	* @BB50+
 	*/
 	getSource : function() { },
 
 	/**
 	* Request the URI of the push request. This method expires and will throw an exception if called outside of the push callback function.
-	* @returns {String} Returns the URI of the push request
+	* @returns {String} Returns the URI of the push request.
 	* @BB50+
 	*/
 	getRequestURI : function() { },

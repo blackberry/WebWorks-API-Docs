@@ -21,11 +21,11 @@
 *     </p></div>
 * @toc {Message} Message 
 * @BB50+
-* @class The Email Message object represents a message on the BlackBerry device. This class can be created to be used when launching the new message screen using the invoke API or for direct interaction with the message list storage itself.
+* @class The Email Message object represents a message on the BlackBerry device. This class can be created and used when launching the new message screen using the invoke API or for direct interaction with the message list storage function.
 * @featureID blackberry.message
 * @featureID blackberry.identity
 * @featureID blackberry.find
-* @constructor The constructor will create a new instance of the Message for the proper targeted recipient. 
+* @constructor The constructor will create a new instance of the Message for the targeted recipient. 
 * @param {blackberry.identity.Service} [service] optional parameter that specifies the type of service that is expected.  This value can specify the email service to create an email message for.  If no parameter is specified the default email service will be used.
 * @example
 * &lt;script type=&quot;text&sol;javascript&quot;&gt;
@@ -151,7 +151,7 @@ blackberry.message.Message.FOLDER_DELETED = 4;
 blackberry.message.Message.FOLDER_OTHER = 5;
 
 /**
-* This method looks up the messages that match the expression provided. 
+* This method looks up the messages that matches the expression provided. 
 * @param {blackberry.find.FilterExpression} [filter] optional parameter that defines the search criteria for the find.  If no value is provided the method will return all the Messages on the device for the service provided.
 * @param {Number} [maxReturn] optional integer parameter specifying the maximum number of results to return from the find.  If no value is specified, it will return all results found.
 * @param {blackberry.identity.Service} [service] optional parameter to define which service you wish to search for your messages. If not provided the default service for messages will be used.
@@ -182,21 +182,21 @@ blackberry.message.Message.prototype.send = function() { };
 blackberry.message.Message.prototype.remove = function() { };
 
 /**
-* Contains a list of the addresses that this message should be sent to; they are delimited by any white spaces (for example, space or &apos;&bsol;n&apos;), a semicolon, or a comma. 
+* Contains a list of the addresses that this message should be sent to. The list of addresses is delimited by white spaces (for example, space or &apos;&bsol;n&apos;), a semicolon, or a comma. 
 * @type String
 * @BB50+
 */
 blackberry.message.Message.prototype.toRecipients = { };
 
 /**
-* Contains a list of the addresses that this message should be cc&apos;d to; they are delimited by any white spaces (for example, space or &apos;&bsol;n&apos;), a semicolon, or a comma. 
+* Contains a list of the addresses that this message should be cc&apos;d to; they are delimited by white spaces (for example, space or &apos;&bsol;n&apos;), a semicolon, or a comma. 
 * @type String
 * @BB50+
 */
 blackberry.message.Message.prototype.ccRecipients = { };
 
 /**
-* Contains a list of the addresses that this message should be bcc&apos;d to; they are delimited by any white spaces (for example, space or &apos;&bsol;n&apos;), a semicolon, or a comma. 
+* Contains a list of the addresses that this message should be bcc&apos;d to; they are delimited by white spaces (for example, space or &apos;&bsol;n&apos;), a semicolon, or a comma. 
 * @type String
 * @BB50+
 */

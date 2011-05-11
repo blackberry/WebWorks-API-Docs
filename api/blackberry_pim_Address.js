@@ -19,7 +19,7 @@
 
 /**
 * <div><p>
-*       The Address object is an instance object, where if a new instance is desired, it must be created using the new keyword.
+*       The Address object is an instance object. If a new instance is desired, it must be created using the new keyword.
 *     </p></div>
 * @toc {PIM} Address 
 * @BB50+
@@ -65,7 +65,7 @@ blackberry.pim.Address.prototype.address1 = { };
 blackberry.pim.Address.prototype.address2 = { };
 
 /**
-* Contains the locality information of a particular address, for example a city, county, town. 
+* Contains the locality information of a particular address; for example a town, city, or county. 
 * @type String
 * @BB50+
 */

@@ -56,7 +56,7 @@ blackberry.pim.Reminder = function() { };
 blackberry.pim.Reminder.DATE = 0;
 
 /**
-* Indicates that this reminder is set by relative time to the appointment or task 
+* Indicates that this reminder is set by relative time to the appointment or task. 
 * @type Number
 * @constant
 * @BB50+

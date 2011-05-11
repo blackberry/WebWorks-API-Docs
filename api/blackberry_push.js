@@ -39,7 +39,7 @@ blackberry.push = {
 	* <br/><br/>
 	* At that point it will then pass the data to the subscribed callback function. To subscribe to the same previously 
 	* opened push port on a new web page, a secondary call to openPushListener is called. In this scenario it will 
-	* re-assign the callback provided to the already open port. 
+	* reassign the callback provided to the already open port. 
 	* <br/><br/>
 	* If calling openPushListener on a page where the port is already open, the callback will be updated to use the 
 	* latest one passed in. <b>NOTE:</b> In such cases where consecutive calls to openPushListener occurs on the page,
@@ -48,8 +48,8 @@ blackberry.push = {
 	* @callback {function} onData This callback function is triggered when data is received.
 	* @callback {blackberry.push.Data} onData.data Object that contains the data that was just received
 	* @param {Number} port Integer port number to listen on for push data.
-	* @param {blackberry.identity.Transport} [transport] optional parameter where you can choose which communications transport you wish to listen on.
-	* @param {Number} [maxQueueCap] optional parameter that specifies how many messages the app should queue if the port was not closed, but a function handler was lost (for example, during a page transition). See details.
+	* @param {blackberry.identity.Transport} [transport] Optional parameter where you can choose which communications transport you wish to listen on.
+	* @param {Number} [maxQueueCap] Optional parameter that specifies how many messages the app should queue if the port was not closed, but a function handler was lost (for example, during a page transition). See details.
 	* @BB50+
 	* @example
 	* &lt;script  type=&quot;text/javascript&quot;&gt;
