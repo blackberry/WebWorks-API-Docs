@@ -16,7 +16,10 @@
 
 /**
  * @toc {System} Web Workers
- * @class Web Workers objects act as if they had an implicit MessagePort associated with them. This port is part of a channel that is set up when the worker is created and never be garbage collected before the Web Workers object. Only DedicatedWorker is supported. 
+ * @class Web Workers objects act as if they had an implicit MessagePort associated with them. This port is part of a channel that is set up when the worker is created and never be garbage collected before the Web Workers object. Only DedicatedWorker is supported.
+ * @param {String} fileName The name of the javascript file that the worker will run
+ * @description Creates a new WebWorker object.
+ * @constructs 
 */
 WebWorkers = function() {
 
