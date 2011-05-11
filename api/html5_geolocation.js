@@ -75,7 +75,7 @@ Geolocation = {
          * @callback {Position} positionCallback.position Object that contains the position that was just received 
 		 * @callback {function} [positionErrorCallback] This optional method is called if the attempt fails, the errorCallback must be invoked with a new {@link PositionError} object, reflecting the reason for the failure.
          * @callback {PositionError} [positionErrorCallback.error] Error call if there is an error.
-		 * @param {PositionOptions} [options] return {@link PositionOptions} of a watch position.
+		 * @param {PositionOptions} [options] Return {@link PositionOptions} of a watch position.
 		 * @returns {Long} Return a watchId so that it can be use in function {@link Geolocation.clearWatch}.
 		 * @PB10
 		 */
@@ -161,7 +161,7 @@ PositionError  = {
 	POSITION_UNAVAILABLE : 2,
 			
 	/**
-	 * @description The length of time specified by the {@link PositionOptions.timeout}  property has elapsed
+	 * @description The length of time specified by the {@link PositionOptions.timeout}  property has elapsed.
      * @constant
      * @default 3
 	 * @BB50+

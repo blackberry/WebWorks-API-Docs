@@ -21,7 +21,7 @@
  * <br/> Classes can have a mix of static and instance members (signified with the use of 'prototype'), whereas Namespaces are limited to static members.
  * <br/>See {@link blackberry.sampleNamespace} to view how namespaces are supported. 
  * @description I am a kickass constructor description
- * @toc {Samples} Sample Statics Class
+ * @toc {Samples} Sample Static Class
  * @featureID blackberry.sampleStaticClass
  * @learns {How are constructors/classes documented in JSDocs?} http://code.google.com/p/jsdoc-toolkit/wiki/TagClass Please visit this link to learn more about the @class tag, and its difference from the @constructor/@construcs tags. 
 */

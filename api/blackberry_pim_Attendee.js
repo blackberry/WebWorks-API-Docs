@@ -61,7 +61,7 @@ blackberry.pim.Attendee = function() { };
 blackberry.pim.Attendee.ORGANIZER = 0;
 
 /**
-* Attendee as been invited 
+* Attendee as been invited. 
 * @type Number
 * @constant
 * @BB50+
@@ -69,7 +69,7 @@ blackberry.pim.Attendee.ORGANIZER = 0;
 blackberry.pim.Attendee.INVITED = 1;
 
 /**
-* Attendee has accepted the invitation 
+* Attendee has accepted the invitation. 
 * @type Number
 * @constant
 * @BB50+
@@ -77,7 +77,7 @@ blackberry.pim.Attendee.INVITED = 1;
 blackberry.pim.Attendee.ACCEPTED = 2;
 
 /**
-* Attendee has declined the invitation 
+* Attendee has declined the invitation. 
 * @type Number
 * @constant
 * @BB50+
@@ -85,7 +85,7 @@ blackberry.pim.Attendee.ACCEPTED = 2;
 blackberry.pim.Attendee.DECLINED = 3;
 
 /**
-* Attendee has tentatively accepted the invitation 
+* Attendee has tentatively accepted the invitation. 
 * @type Number
 * @constant
 * @BB50+

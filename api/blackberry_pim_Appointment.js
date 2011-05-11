@@ -28,7 +28,7 @@
 * @featureID blackberry.pim.Reminder
 * @featureID blackberry.find
 * @constructor Constructor for a new Appointment object. 
-* @param {Service} [service] optional parameter specifying which service to create this appointment for.  If not provided, the default device service is used.
+* @param {Service} [service] Optional parameter specifying which service to create this appointment for.  If not provided, the default device service is used.
 * @example
 * &lt;script type=&quot;text&sol;javascript&quot;&gt;
 *   &sol;&sol;Create our Event
@@ -90,7 +90,7 @@ blackberry.pim.Appointment.OUT_OF_OFFICE = 3;
 
 /**
 * Looks up the appointments that match the regular expression provided. 
-* @param {FilterExpression} [filter] optional parameter that defines the search criteria for the find.  If no value is provided the method will return all the appointments on the device.
+* @param {FilterExpression} [filter] optional parameter that defines the search criteria for the find.  If no value is provided, the method will return all the appointments on the device.
 * @param {String} [orderBy] optional &apos;orderBy&apos; parameter specifying the field which the results will be sorted by. If &apos;isAscending&apos; is not supplied or &apos;isAscending&apos; is true, the sort results will be in an ascending order. If &apos;isAscending&apos; is false, the sort results will be in a descending order.
 * @param {Number} [maxReturn] optional integer parameter specifying the maximum number of results to return from the find.  If not supplied or set to -1, it will return all results found.
 * @param {Service} [service] optional parameter to define which service you wish to search for your appointments. If not provided the default service for appointments will be used.

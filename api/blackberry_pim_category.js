@@ -17,11 +17,11 @@
 
 /**
 * <div><p>
-*       The functionality in this namespace allows you to access and manipulate categories defined for the PIM database.
+*       The functionality in this namespace allows you to access and manipulate categories defined for in the Personal Information Management (PIM) database.
 *     </p></div>
 * @toc {PIM} Category 
 * @BB50+
-* @namespace The Category object defines APIs necessary to access and manipulate categories in the Personal Information Management (PIM) database.
+* @namespace The Category object defines APIs necessary to access and manipulate categories in the PIM  database.
 * @featureID blackberry.pim.category
 * @example
 * &lt;script type=&quot;text&sol;javascript&quot;&gt;

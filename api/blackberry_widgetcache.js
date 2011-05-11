@@ -25,7 +25,7 @@
 blackberry.widgetcache = { 
 
 	/**
-	* Requests the current total size used by the caches. 
+	* Requests the current total size used by the all the caches. 
 	* @returns {Number} Returns the current total size in bytes
 	* @BB50+
 	*/
@@ -33,7 +33,7 @@ blackberry.widgetcache = {
 
 	/**
 	* Requests all the cache information of the cached copies. 
-	* @returns {CacheInformation[]} Returns an array of CacheInformation objects
+	* @returns {blackberry.widgetcache.CacheInformation[]} Returns an array of CacheInformation objects
 	* @BB50+
 	*/
 	getCacheInformation : function() { },

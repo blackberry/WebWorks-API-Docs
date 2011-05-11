@@ -296,7 +296,7 @@ blackberry.phone.PhoneLogs.CallLog.prototype.name = { };
 blackberry.phone.PhoneLogs.CallLog.prototype.number = { };
 
 /**
-* The address book phone number for this call. If not found, the raw phone number is returned 
+* The address book phone number for this call. If not found, the raw phone number is returned. 
 * @type String
 * @readOnly
 * @BB50+
