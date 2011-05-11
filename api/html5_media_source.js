@@ -22,13 +22,22 @@
 
 
 /**
+* @namespace
 * The source element allows authors to specify multiple alternative 
 * media resources for media elements. It does not represent anything 
 * on its own.
-* @class
 * @extends HTMLElement
+* @constructedBy {document.createElement("source")} {HTMLSourceElement can be constructed by using the document.createElement() method.}
+* var source = document.createElement("source");
 * @BB60+
-* @PB10+
+* @PB10
+* @example
+* &lt;video controls autoplay&gt;
+*  &lt;source src=\&#039;video.mp4\&#039; type=\&#039;video/mp4; codecs=\&quot;avc1.42E01E, mp4a.40.2\&quot;\&#039;&gt;
+*  &lt;source src=\&#039;video.ogv\&#039; type=\&#039;video/ogg; codecs=\&quot;theora, vorbis\&quot;\&#039;
+*          onerror=\&quot;fallback(parentNode)\&quot;&gt;
+*  ...
+* &lt;/video&gt;
 */
 HTMLSourceElement = function() { };
 
@@ -38,7 +47,7 @@ HTMLSourceElement = function() { };
 * attribute must be present.
 * @type String
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLSourceElement.prototype.src = { };
 
@@ -46,7 +55,7 @@ HTMLSourceElement.prototype.src = { };
 * 
 * @type String
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLSourceElement.prototype.type = { };
 
@@ -54,7 +63,7 @@ HTMLSourceElement.prototype.type = { };
 * 
 * @type String
 * @BB60+
-* @PB10+
+* @PB10
 */
 HTMLSourceElement.prototype.media = { };
 

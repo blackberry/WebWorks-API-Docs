@@ -22,7 +22,7 @@
  * The canvas tag is new in HTML5.<br>
  * Any text inside the between &#60canvas&#62 and &#60/canvas&#62 will be displayed in browsers that does not support the canvas element.
  * @BB60+
- * @PB10+
+ * @PB10
  */
 
 canvas ={
@@ -38,7 +38,7 @@ canvas ={
 		 * &#60canvas height="value"&#62	
 		 * @type pixels 
 		 * @BB60+
-		 * @PB10+
+		 * @PB10
 		 * @example
 		 * &#60canvas id="myCanvas" width="200" height="100"&#62&#60/canvas&#62
 		 */
@@ -55,7 +55,7 @@ canvas ={
 		 * &#60canvas width="value"&#62	
 		 * @type pixels 
 		 * @BB60+
-		 * @PB10+
+		 * @PB10
 		 */
 		width :,
 		
@@ -67,7 +67,7 @@ canvas ={
 		 * Returns null if the given context ID is not supported or if the canvas has already been initialised with some other (incompatible) 
 		 * context type (e.g. trying to get a "2d" context after getting a "webgl" context).
 		 * @BB60+
-		 * @PB10+
+		 * @PB10
 		 * @example
 		 * &#60script type="text/javascript"&#62
 		 *   var c=document.getElementById("myCanvas");
@@ -88,7 +88,7 @@ canvas ={
 		 * given by type. The possible values are MIME types with no parameters, for example image/png, image/jpeg, 
 		 * or even maybe image/svg+xml if the implementation actually keeps enough information to reliably render an SVG image from the canvas.
 		 * @BB60+
-		 * @PB10+
+		 * @PB10
 		 * @example
 		 * &#60script&#62
 		 *   var img1=new Image();

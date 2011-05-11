@@ -21,10 +21,12 @@
 */
 
 /**
+* @namespace
 * An audio element represents a sound or audio stream.
 * @toc {Media} HTML5 Video
-* @class 
 * @extends HTMLMediaElement
+* @constructedBy {document.createElement("video")} {HTMLVideoElement can be constructed by using the document.createElement() method.}
+* var video = document.createElement("video");
 * @PB10
 * @BB60+
 * @example
@@ -46,7 +48,7 @@ HTMLVideoElement = function() { };
 * Width of the video area.
 * @type Number
 * @BB60+
-* @PB10+
+* @PB10
 */
 
 HTMLVideoElement.prototype.width = { };
@@ -55,7 +57,7 @@ HTMLVideoElement.prototype.width = { };
 * Height of the video area.
 * @type Number
 * @BB60+
-* @PB10+
+* @PB10
 */
 
 HTMLVideoElement.prototype.height = { };
@@ -66,7 +68,7 @@ HTMLVideoElement.prototype.height = { };
 * @type Number
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 
 HTMLVideoElement.prototype.videoWidth = { };
@@ -77,7 +79,7 @@ HTMLVideoElement.prototype.videoWidth = { };
 * @type Number
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 
 HTMLVideoElement.prototype.videoHeight = { };
@@ -88,7 +90,7 @@ HTMLVideoElement.prototype.videoHeight = { };
 * non-empty URL potentially surrounded by spaces.
 * @type String
 * @BB60+
-* @PB10+
+* @PB10
 */
 
 HTMLVideoElement.prototype.poster = { };

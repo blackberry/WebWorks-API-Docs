@@ -22,11 +22,11 @@
 
 
 /**
+* @namespace
 * This interface defines an individual point of contact for a touch event.
-* @class
-* @toc {Touch} Touch Point
+* @toc {Touch} HTML5 Touch Point
 * @BB60+
-* @PB10+
+* @PB10
 */
 Touch = function() {
 }
@@ -44,7 +44,7 @@ Touch = function() {
 * @type Number
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 Touch.prototype.identifier = { };
 
@@ -53,7 +53,7 @@ Touch.prototype.identifier = { };
 * @type Number
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 Touch.prototype.screenX = { };
 
@@ -62,7 +62,7 @@ Touch.prototype.screenX = { };
 * @type Number
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 Touch.prototype.screenY = { };
 
@@ -71,7 +71,7 @@ Touch.prototype.screenY = { };
 * @type Number
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 Touch.prototype.clientX = { };
 
@@ -80,7 +80,7 @@ Touch.prototype.clientX = { };
 * @type Number
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 Touch.prototype.clientY = { };
 
@@ -89,7 +89,7 @@ Touch.prototype.clientY = { };
 * @type Number
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 Touch.prototype.pageX = { };
 
@@ -98,7 +98,7 @@ Touch.prototype.pageX = { };
 * @type Number
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 Touch.prototype.pageY = { };
 
@@ -107,7 +107,7 @@ Touch.prototype.pageY = { };
 * @type Number
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 Touch.prototype.radiusX = { };
 
@@ -116,7 +116,7 @@ Touch.prototype.radiusX = { };
 * @type Number
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 Touch.prototype.radiusY = { };
 
@@ -134,7 +134,7 @@ Touch.prototype.radiusY = { };
 * @type Number
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 Touch.prototype.rotationAngle = { };
 
@@ -147,83 +147,84 @@ Touch.prototype.rotationAngle = { };
 * @type Number
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 Touch.prototype.force = { };
 
 
 /**
+* @namespace {@link Touch} point list. 
 * This interface defines a list of individual points of contact for a touch event.
-* @touch {Touch} Touch Point List
-* @class
-* @getter {Number} {Touch} fetch touch event at the given index
 * @BB60+
-* @PB10+
+* @PB10
 */
 TouchList = function() {};
 
 /**
-* returns the number of {Touch}es in the list
+* returns the number of {@link Touch}es in the list
 * @type Number
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 TouchList.prototype.length = {};
 
 /**
-* returns the {Touch} with index index from the list, sorted in order from latest to earliest
-* @BB60+
-* @PB10+
+* returns the {@link Touch} with index index from the list, sorted in order from latest to earliest
+* @squareAccessor
+* @function
 * @param {Number} index the identifier of the touch event to fetch
-* @returns {Touch} the {Touch} with index index from the list, sorted in order from latest to earliest
+* @returns {Touch} the {@link Touch} with index index from the list, sorted in order from latest to earliest
+* @readOnly
+* @throws {IndexOutOfBoundsException} When the index is invalid
+* @BB60+
+* @PB10
 */
 TouchList.prototype.item = function(index) { };
 
-
 /**
-* returns the first {Touch} with long identifier from the list
+* returns the first {@link Touch} with long identifier from the list
 
 * @BB60+
-* @PB10+
+* @PB10
 * @param {Number} identifier the identifier of the touch event to fetch
-* @returns {Touch} the first {Touch} with long identifier from the list
+* @returns {Touch} the first {@link Touch} with long identifier from the list
 */
 TouchList.prototype.identifiedTouch = function(identifier) { };
 
 /**
+* @namespace
 * This interface defines the touchstart, touchend, touchmove, touchenter, touchleave, and touchcancel event types.
-* @toc {Touch} Touch Event
-* @class
+* @toc {Touch} HTML5 Touch Event
 * @extends UIEvent
 */
 TouchEvent = function() { };
 
 /**
-* a list of {Touch}es for every point of contact currently touching the surface
+* a list of {@link Touch}es for every point of contact currently touching the surface
 * @type TouchList
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 TouchEvent.prototype.touches = {};
 
 /**
-* a list of {Touch}es for every point of contact currently touching the surface, which started on the same target
+* a list of {@link Touch}es for every point of contact currently touching the surface, which started on the same target
 * @type TouchList
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 TouchEvent.prototype.targetTouches = {};
 
 
 /**
-* a list of {Touch}es for every point of contact which contributed to the event
+* a list of {@link Touch}es for every point of contact which contributed to the event
 * @type TouchList
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 TouchEvent.prototype.changedTouches = {};
 
@@ -232,7 +233,7 @@ TouchEvent.prototype.changedTouches = {};
 * @type Boolean
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 TouchEvent.prototype.altKey = {};
 
@@ -243,7 +244,7 @@ TouchEvent.prototype.altKey = {};
 * @type Boolean
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 TouchEvent.prototype.metaKey = {};
 
@@ -252,7 +253,7 @@ TouchEvent.prototype.metaKey = {};
 * @type Boolean
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 TouchEvent.prototype.ctrlKey = {};
 
@@ -261,7 +262,7 @@ TouchEvent.prototype.ctrlKey = {};
 * @type Boolean
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 TouchEvent.prototype.shiftKey = {};
 
@@ -274,7 +275,7 @@ TouchEvent.prototype.shiftKey = {};
 * @type EventTarget
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 */
 TouchEvent.prototype.relatedTarget = {};
 
@@ -283,7 +284,7 @@ TouchEvent.prototype.relatedTarget = {};
 * @type Boolean
 * @readOnly
 * @BB60+
-* @PB10+
+* @PB10
 * @param {String} type
 * @param {Boolean} canBubble
 * @param {Boolean} cancelable
@@ -303,12 +304,12 @@ ctrlKey,altKey,shiftKey,metaKey,touches,targetTouches,changedTouches) {
 
 
 /**
+* @namespace
 * HTML Element<br/><br/>
 * The touchstart, touchend, touchmove, touchenter, touchleave, touchcancel events must be defined on an element.
-* @class
-* @toc {Touch} Element Touch Events
+* @toc {Touch} HTML5 Element Touch Events
 * @BB60+
-* @PB10+
+* @PB10
 * @example
 * &lt;html&gt;&lt;head&gt;&lt;title&gt;sample&lt;/title&gt;&lt;/head&gt;
 *   &lt;body&gt;
@@ -346,7 +347,7 @@ Element = function() {
 * on the touch surface. <br/><br/>
 * The target of this event must be an Element.
 * @BB60+
-* @PB10+
+* @PB10
 * @event
 * @param {TouchEvent} event
 */
@@ -364,7 +365,7 @@ Element.prototype.ontouchstart = function(event) { };
 * The touch point or points that were removed must be included in the changedTouches attribute 
 * of the TouchEvent, and must not be included in the touches and targetTouches attributes.
 * @BB60+
-* @PB10+
+* @PB10
 * @event
 * @param {TouchEvent} event
 */
@@ -387,7 +388,7 @@ Element.prototype.ontouchend = function(event) { };
 * Note that the rate at which the user agent sends touchmove events is implementation-defined, 
 * and may depend on hardware capabilities and other implementation details.
 * @BB60+
-* @PB10+
+* @PB10
 * @event
 * @param {TouchEvent} event
 */
@@ -398,7 +399,7 @@ Element.prototype.ontouchmove = function(event) { };
 * A user agent must dispatch this event type to indicate when a touch point moves onto the 
 * interactive area defined by a DOM element. Events of this type must not bubble.
 * @BB60+
-* @PB10+
+* @PB10
 * @event
 * @param {TouchEvent} event
 */
@@ -409,7 +410,7 @@ Element.prototype.ontouchenter = function(event) { };
 * A user agent must dispatch this event type to indicate when a touch point moves off the 
 * interactive area defined by a DOM element. Events of this type must not bubble.
 * @BB60+
-* @PB10+
+* @PB10
 * @event
 * @param {TouchEvent} event
 */
@@ -426,7 +427,7 @@ Element.prototype.ontouchleave = function(event) { };
 * or implementation is configured to store, in which case the earliest Touch object in 
 * the TouchList should be removed.
 * @BB60+
-* @PB10+
+* @PB10
 * @event
 * @param {TouchEvent} event
 */
