@@ -433,7 +433,10 @@
 	
 <!-- ============================== Constructor Details ========================= -->
 <!-- NEW: BETA -->
-	<if test="!data.isBuiltin() && data.is('CONSTRUCTOR') && !data.noConstructor">
+    {!
+        var generateDefaultConstructor = !data.isBuiltin() && data.is('CONSTRUCTOR') && !data.noConstructor;
+    !}
+	<if test="generateDefaultConstructor">
 		<div x-ww-support="{+data.supportTag+}">
 			<h2><a name="{+Link.symbolNameToLinkName(data)+}"> </a>{+data.alias+}</h2>
 			<hr style="margin-bottom:15px;"/>
@@ -1091,6 +1094,23 @@
 				</div>
 			</for>
 		</if>		
+	</if>
+	
+	<if test="!generateDefaultConstructor">
+		<div x-ww-support="{+data.supportTag+}">
+			<h2><a name="{+Link.symbolNameToLinkName(data)+}"> </a>Code Example(s)</h2>
+			<hr style="margin-bottom:15px;"/>
+			<if test="data.example.length">
+				<for each="example" in="data.example">
+				<table class="scriptTable">				
+					<tr><td class="scriptTd">
+					<pre>{+example+}</pre>
+					</td></tr>				
+				</table>
+				</for>
+				</div>
+			</if>
+		</div>
 	</if>
 	
 	      	  	
