@@ -578,7 +578,7 @@
 			<table class="scriptTable">
 				<tr>
 					<td class="scriptTd">					
-					<if test="data.type">{+new Link().toSymbol(data.type)+}</if>
+					<if test="data.type">{+new Link().toSymbol(data.type).toString().replace(/\|/g, ' | ')+}</if>
 						{+data.name.replace(/\^\d+$/, '')+}{+makeSignature(data.params)+}
 					</td>
 				</tr>
@@ -703,7 +703,7 @@
 					<tr>
 						<td class="scriptTd">
 						<if test="member.isStatic">static</if>				
-						<if test="member.type">{+new Link().toSymbol(member.type)+}<else/>void</if>
+						<if test="member.type">{+new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')+}<else/>void</if>
 						<if test="member.squareAccessor">
 							[{+makeSignature(member.params).slice(1,-1)+}]
 						<else />
@@ -849,7 +849,7 @@
 					<tr>
 						<td class="scriptTd">
 						<if test="member.isStatic">static</if>
-						<if test="member.type">{+new Link().toSymbol(member.type)+}<else/>void</if>
+						<if test="member.type">{+new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')+}<else/>void</if>
 							{+member.name.replace(/\^\d+$/, '')+}{+makeSignature(member.params)+}
 						</td>
 					</tr>
@@ -1007,9 +1007,9 @@
 							Static<br/>
 						</if>
 						<if test="member.isCallback">
-							{+ ((member.type)?(new Link().toSymbol(member.type)) : "") + makeCallbackSignature(member.params) +}
+							{+ ((member.type)?(new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')) : "") + makeCallbackSignature(member.params) +}
 						<else/>
-							{+((member.type)?(new Link().toSymbol(member.type)) : "")+}
+							{+((member.type)?(new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')) : "")+}
 						</if>
 						<if test="member.defaultValue">
 							{+" = " +resolveLinks(member.defaultValue)+}
@@ -1094,7 +1094,7 @@
 				<for each="member" in="ownConstants">
 				<tr x-ww-support="{+member.support.getSupportTag()+}">
 					<td class="confluenceTd"><a name="{+Link.symbolNameToLinkName(member)+}" class="propertyName"><if test="member.isStatic">{+member.memberOf+}.</if>{+member.name+}</a></td>
-					<td class="confluenceTd">{+new Link().toSymbol(member.type)+}
+					<td class="confluenceTd">{+new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')+}
 					<if test="member.defaultValue">
 						{+" = " +resolveLinks(member.defaultValue)+}
 					</if>
