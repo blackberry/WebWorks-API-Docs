@@ -30,7 +30,7 @@
 	/**
 	 * @default 90
 	 * @type Number
-	 * @desc Returns the rotation angle around the device frame's Z-axis in degrees. See {@link RotationRate} for details.
+	 * @descripton Returns the rotation angle around the device frame's Z-axis in degrees. See {@link RotationRate} for details.
 	 * @readOnly
 	 * @PB10
 	 */ 
@@ -39,7 +39,7 @@
 	/**
 	 * @default 0
 	 * @type Number
-	 * @desc Returns the rotation angle around the device frame's X-axis in degrees. See {@link RotationRate} for details.
+	 * @descripton Returns the rotation angle around the device frame's X-axis in degrees. See {@link RotationRate} for details.
 	 * @readOnly
 	 * @PB10
 	 */ 
@@ -48,7 +48,7 @@
 	/**
 	 * @default 0
 	 * @type Number
-	 * @desc Returns the rotation angle around the device frame's Y-axis in degrees. See {@link RotationRate} for details.
+	 * @descripton Returns the rotation angle around the device frame's Y-axis in degrees. See {@link RotationRate} for details.
 	 * @readOnly
 	 * @PB10
 	 */ 
@@ -56,21 +56,21 @@
 
 	/**
 	 * @type boolean
-	 * @desc Returns true if can provide absolute values for the three angles, false if can provide values for the three angles that are relative to some arbritary orientation.
+	 * @descripton Returns true if can provide absolute values for the three angles, false if can provide values for the three angles that are relative to some arbritary orientation.
 	 * @PB10
 	 */
 	absolute: boolean,
 
 	/**
 	 * @type boolean
-	 * @desc Indicates if the compass of the device is correctly calibrated. If it is set to false, user action, such as performing a manual calibration procedure, is required.
+	 * @descripton Indicates if the compass of the device is correctly calibrated. If it is set to false, user action, such as performing a manual calibration procedure, is required.
 	 * @PB10
 	 */
 	compassCalibrated: boolean,
 	
 	/**
 	 * @function 
-	 * @desc
+	 * @descripton
 	 * @PB10
 	 * @example
 	 * &lt;script type="text/javascript"&gt;
@@ -112,7 +112,7 @@ Acceleration = {
 
 	/**
 	 * @type Number
-	 * @desc x-coordinate of the acceleration
+	 * @descripton x-coordinate of the acceleration
 	 * @readOnly
 	 * @PB10
 	 */ 
@@ -120,7 +120,7 @@ Acceleration = {
 
 	/**
 	 * @type Number
-	 * @desc y-coordinate of the acceleration
+	 * @descripton y-coordinate of the acceleration
 	 * @readOnly
 	 * @PB10
 	 */ 	
@@ -128,7 +128,7 @@ Acceleration = {
 	
 	/**
 	 * @type Number
-	 * @desc z-coordinate of the acceleration
+	 * @descripton z-coordinate of the acceleration
 	 * @readOnly
 	 * @PB10
 	 */ 
@@ -166,9 +166,9 @@ RotationRate={
   */
   
  	/**
+     * @desc  () {@image /images/a-rotation.jpg}</br> Returns the rotation angle around the device frame's Z-axis in degrees.
 	 * @default 90
 	 * @type Number
-	 * @desc () {@image /images/a-rotation.jpg}</br> Returns the rotation angle around the device frame's Z-axis in degrees.
 	 * @readOnly
 	 * @PB10
 	 */ 
@@ -203,7 +203,7 @@ DeviceMotionEvent = {
 
 	/**
 	 * @type Number
-	 * @desc The regular interval at which the event must fire at, given in milliseconds
+	 * @descripton The regular interval at which the event must fire at, given in milliseconds
 	 * @readOnly
 	 * @PB10
 	 */ 
@@ -211,7 +211,7 @@ DeviceMotionEvent = {
 	
 	/**
 	 * @type Acceleration
-	 * @desc The acceleration provided by the acceleration property is that of the body and hence excludes the effect of gravity.
+	 * @descripton The acceleration provided by the acceleration property is that of the body and hence excludes the effect of gravity.
 	 * @readOnly
 	 * @PB10
 	 */
@@ -219,7 +219,7 @@ DeviceMotionEvent = {
 	
 	/**
 	 * @type Acceleration
-	 * @desc Implementations that are unable to provide acceleration data without the effect of gravity (due, for example, to the lack of a gyroscope) may instead supply the acceleration including the effect of gravity. This is less useful in many applications but is provided as a means of providing best-effort support. 
+	 * @descripton Implementations that are unable to provide acceleration data without the effect of gravity (due, for example, to the lack of a gyroscope) may instead supply the acceleration including the effect of gravity. This is less useful in many applications but is provided as a means of providing best-effort support. 
 	 * In this case, the values reported are equal to the acceleration of the device, plus an acceleration equal and opposite to the acceleration due to gravity.
 	 * @readOnly
 	 * @PB10
@@ -228,7 +228,7 @@ DeviceMotionEvent = {
 	
 	/**
 	 * @type RotationRate
-	 * @desc The angular velocity of the motion.
+	 * @descripton The angular velocity of the motion.
 	 * @readOnly
 	 * @PB10
 	 */

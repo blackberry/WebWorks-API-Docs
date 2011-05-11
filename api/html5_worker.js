@@ -17,12 +17,14 @@
 /**
  * @toc {System} HTML5 Web Workers
  * @namespace Web Workers objects act as if they had an implicit MessagePort associated with them. This port is part of a channel that is set up when the worker is created and never be garbage collected before the Web Workers object. Only DedicatedWorker is supported. 
+ * @constructedBy {Worker(worker_script.js)} The worker can be construct using the new keyword.
+ * @learns {Sample - Using HTML5 Web Worker } http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Sample-Application-Using-HTML5-Web-Workers/ta-p/627078 Sample that demonstrates how to use the HTML5 Web Workers API [BlackBerry Developer Resource Center].
 */
  
 WebWorkers = {
 
         /**
-        * @desc  The postMessage() method on Web Workers objects invoked the method of the same name on the port, with the same arguments, and returned the same return value.
+        * @description  The postMessage() method on Web Workers objects invoked the method of the same name on the port, with the same arguments, and returned the same return value.
         * @param {Object} message A message to post when worker is created.
         * @PB10
         * @BB50+
@@ -49,7 +51,7 @@ WebWorkers = {
 
 
         /**
-        * @desc  The onmessage is the event handler as IDL attributes to Web Workers ojbect.
+        * @description  The onmessage is the event handler as IDL attributes to Web Workers ojbect.
         * @param {String} [messageText] text message.
         * @param {String} [senderId] sender ID.
         * @param {Object} [messageObject] message object when send.

@@ -29,7 +29,7 @@ ApplicationCache ={
 		/**
 		* @constant
 		* @default 0
-		* @desc The ApplicationCache object's cache host is not associated with an application cache at this time.
+		* @descripton The ApplicationCache object's cache host is not associated with an application cache at this time.
 		* @type unsigned short
 		* @BB60+
 		* @PB10
@@ -39,7 +39,7 @@ ApplicationCache ={
 		/**
 		* @constant
 		* @default 1
-		* @desc The ApplicationCache object's cache host is associated with
+		* @descripton The ApplicationCache object's cache host is associated with
 		* an application cache whose application cache group's update status is idle,
 		* and that application cache is the newest cache in its application cache group,
 		* and the application cache group is not marked as obsolete.
@@ -52,7 +52,7 @@ ApplicationCache ={
 		/**
 		* @constant
 		* @default 2
-		* @desc The ApplicationCache object's cache host is associated with an application cache
+		* @descripton The ApplicationCache object's cache host is associated with an application cache
 		* whose application cache group's update status is checking.
 		* @type unsigned short
 		* @BB60+
@@ -63,7 +63,7 @@ ApplicationCache ={
 		/**
 		* @constant
 		* @default 3
-		* @desc The ApplicationCache object's cache host is associated with an application cache
+		* @descripton The ApplicationCache object's cache host is associated with an application cache
 		* whose application cache group's update status is downloading.
 		* @type unsigned short
 		* @BB60+
@@ -74,7 +74,7 @@ ApplicationCache ={
 		/**
 		* @constant
 		* @default 4
-		* @desc The ApplicationCache object's cache host is associated with an application cache
+		* @descripton The ApplicationCache object's cache host is associated with an application cache
 		* whose application cache group's update status is idle, and whose application cache group
 		* is not marked as obsolete, but that application cache is not the newest cache in its group.
 		* @type unsigned short
@@ -86,7 +86,7 @@ ApplicationCache ={
 		/**
 		* @constant
 		* @default 5
-		* @desc The ApplicationCache object's cache host is associated with an application cache
+		* @descripton The ApplicationCache object's cache host is associated with an application cache
 		* whose application cache group is marked as obsolete.
 		* @type unsigned short
 		* @BB60+
@@ -95,7 +95,7 @@ ApplicationCache ={
 		const OBSOLETE: 5,
 
 		/**
-		 * @desc 
+		 * @descripton 
 		 *The current state of the application cache that the ApplicationCache object's cache host is associated with, if any.
 		 * <br>This must be the appropriate value from the following list:
 		 *    <li>UNCACHED (numeric value 0)
@@ -137,7 +137,7 @@ ApplicationCache ={
 		status :,
 		
 		/**
-		 * @desc  Invokes the application cache download process.
+		 * @descripton  Invokes the application cache download process.
 		 * <br>Throws an INVALID_STATE_ERR exception if there is no application cache to update.<br>
 		 * @BB60+
 		 * @PB10
@@ -152,7 +152,7 @@ ApplicationCache ={
 		update: function() {},
 			
 		/**
-		 * @desc  Switches to the most recent application cache, if there is a newer one.
+		 * @descripton  Switches to the most recent application cache, if there is a newer one.
 		 * If there isn't, throws an INVALID_STATE_ERR exception.
 		 * <br>This does not cause previously-loaded resources to be reloaded; for example,
 		 * images do not suddenly get reloaded and style sheets and scripts do not get reparsed or reevaluated.
@@ -170,7 +170,7 @@ ApplicationCache ={
 		swapCache: function() {},
 		
 		/**@event
-		 * @desc  Sent when the cache update process begins.<br>
+		 * @descripton  Sent when the cache update process begins.<br>
 		 * @BB60+
 		 * @PB10
 		 * @example 
@@ -184,7 +184,7 @@ ApplicationCache ={
 
 		/**
 		 * @event
-		 * @desc  Sent when an error occurs.<br>
+		 * @descripton  Sent when an error occurs.<br>
 		 * @BB60+
 		 * @PB10
 		 * @example 
@@ -199,7 +199,7 @@ ApplicationCache ={
 		   
 		/**
 		 * @event
-		 * @desc  Sent when the update process finishes but the manifest file does not change.<br>
+		 * @descripton  Sent when the update process finishes but the manifest file does not change.<br>
 		 * @BB60+
 		 * @PB10
 		 * @example 
@@ -213,7 +213,7 @@ ApplicationCache ={
 		   
 		/**
 		 * @event
-		 * @desc  Sent when the update process begins downloading resources in the manifest file.<br>
+		 * @descripton  Sent when the update process begins downloading resources in the manifest file.<br>
 		 * @BB60+
 		 * @PB10
 		 * @example 
@@ -227,7 +227,7 @@ ApplicationCache ={
 		   
 		/**
 		 * @event
-		 * @desc  Sent when each resource in the manifest file begins to download.<br>
+		 * @descripton  Sent when each resource in the manifest file begins to download.<br>
 		 * @BB60+
 		 * @PB10
 		 * @example 
@@ -241,7 +241,7 @@ ApplicationCache ={
 		   
 		/**
 		 * @event
-		 * @desc  Sent when there is an existing application cache, the update process finishes,
+		 * @descripton  Sent when there is an existing application cache, the update process finishes,
 		 * and there is a new application cache ready for use.<br>
 		 * @BB60+
 		 * @PB10
@@ -256,7 +256,7 @@ ApplicationCache ={
 		   
 		/**
 		 * @event
-		 * @desc  Sent when the resources listed in the manifest have been downloaded, 
+		 * @descripton  Sent when the resources listed in the manifest have been downloaded, 
 		 * and the application is now cached.<br>
 		 * @BB60+
 		 * @PB10
@@ -271,7 +271,7 @@ ApplicationCache ={
 		   
 		/**
 		 * @event
-		 * @desc  Sent when the manifest was found to have become a 404 or 410 page, 
+		 * @descripton  Sent when the manifest was found to have become a 404 or 410 page, 
 		 * so the application cache is being deleted.<br>
 		 * @BB60+
 		 * @PB10

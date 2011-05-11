@@ -23,7 +23,7 @@
 Geolocation = {        
         
 		/**
-		 * @desc  Attempt to obtain the current location of the device.
+		 * @description  Attempt to obtain the current location of the device.
 		 * @callback {function} positionCallback This method is called if the attempt is successful i.e. the handleEvent operation must be called on the {@link Position} object
          * @callback {Position} positionCallback.position Object that contains the position that was just received 
 		 * @callback {function} [positionErrorCallback] This optional method is called if the attempt fails, the errorCallback must be invoked with a new {@link PositionError} object, reflecting the reason for the failure.
@@ -70,7 +70,7 @@ Geolocation = {
         
 		
 		/**
-		 * @desc  Like {@link getCurrentPosition} continue to monitor the position of the device and invoke the appropriate callback every time this position changes. It continues until the clearWatch method is called with the corresponding identifier.
+		 * @description  Like {@link getCurrentPosition} continue to monitor the position of the device and invoke the appropriate callback every time this position changes. It continues until the clearWatch method is called with the corresponding identifier.
 		 * @callback {function} positionCallback This method is called if the attempt is successful i.e. the handleEvent operation must be called on the {@link Position} object
          * @callback {Position} positionCallback.position Object that contains the position that was just received 
 		 * @callback {function} [positionErrorCallback] This optional method is called if the attempt fails, the errorCallback must be invoked with a new {@link PositionError} object, reflecting the reason for the failure.
@@ -83,7 +83,7 @@ Geolocation = {
         
 		
 		/**
-		 * @desc  Like {@link getCurrentPosition} continue to monitor the position of the device and invoke the appropriate callback every time this position changes. It continues until the clearWatch method is called with the corresponding identifier.
+		 * @description  Like {@link getCurrentPosition} continue to monitor the position of the device and invoke the appropriate callback every time this position changes. It continues until the clearWatch method is called with the corresponding identifier.
 		 * @param {long} watchId A unique identifier return from {@link Geolocation.watchPosition}.
 		 * @PB10
 		 */
