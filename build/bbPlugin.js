@@ -85,7 +85,6 @@ BBTag.Support.prototype.getSupportTag = function(){
 	return this.supportTag;
 };
 
-
 BBTag.Support.prototype.getSupportTable = function(){
 	if(!this.supportTable.length){
 		var tableYes = "<td class=\"apiTd apiYes\">Y</td>";
@@ -160,19 +159,6 @@ function resolveSupport(symbol){
 
 function isaClass($) {return ($.is("CONSTRUCTOR") || $.isNamespace) && !($.alias == "_global_")}
 
-/** Generate Incrementing Numbers for use in templates **/
-var generatedindex = 0;
-
-function ResetIndex()
-{
-    generatedindex = 0;
-    return '';
-}
-
-function GenerateIndex()
-{
-    return generatedindex++;
-}
 
 /** Fetch and remove additional { foo } parameters from a string **/
 function GetType(src)
@@ -181,13 +167,12 @@ function GetType(src)
     
 	if (typeof src != "string") throw "src must be a string not "+(typeof src);
 	
-	if (src.match(/^\s*\{/)) {
+	if (src.indexOf('{') >= 0) {
 		var typeRange = src.balance("{", "}");
 		if (typeRange[1] == -1) {
 			throw "Malformed comment tag ignored. Tag type requires an opening { and a closing }: "+src;
 		}
 		type = src.substring(typeRange[0]+1, typeRange[1]).trim();
-		type = type.replace(/\s*,\s*/g, "|"); // multiples can be separated by , or |
 		src = src.substring(typeRange[1]+1);
 	}
 	
@@ -209,8 +194,8 @@ JSDOC.PluginManager.registerPlugin(
 				var fieldCBs = symbol.comment.tags.filter(function($){return $.isCallback && $.title == "field"});
 				var learnTag = symbol.comment.getTag("learns");
 				var squareAccessor = symbol.comment.getTag("squareAccessor");
-            var constructorTag = symbol.comment.getTag("constructor");
-            var constructedBy = symbol.comment.tags.filter(function($){return $.title=="constructedBy" && $.type}); 
+                var constructorTag = symbol.comment.getTag("constructor");
+                var constructedBy = symbol.comment.tags.filter(function($, index){$.itemIndex = index; return $.title=="constructedBy" && $.type}); 
                 
 				//If its a class/namespace
 				if(isaClass(symbol)){
@@ -225,6 +210,14 @@ JSDOC.PluginManager.registerPlugin(
 					}
                     
                     if(constructedBy.length) {
+                    
+                        // reparse the .type attribute as jsDocs as modifies characters
+                        for(var i = 0; i < constructedBy.length; i++) {
+                            var c = constructedBy[i];
+                            var parts = GetType(symbol.comment.tagTexts[c.itemIndex]);
+                            if(parts && parts.type)
+                                c.type = parts.type;
+                        } 
                         if(constructorTag.length == 0) {
                             symbol.noConstructor = true;
                         }
@@ -285,7 +278,7 @@ JSDOC.PluginManager.registerPlugin(
 
 		onDocCommentTags: function(comment)
 		{
-			if(comment){
+            if(comment) {
 				//The name must be nibbled so we get a name property like a normal param
 				//They are marked as callbacks for future processing.
 				//We mark the items as fields and set the description accordingly
@@ -302,7 +295,7 @@ JSDOC.PluginManager.registerPlugin(
 						comment.tags.push(new JSDOC.DocTag("type " + currentPropertyCBTag.type));
 						comment.tags.push(new JSDOC.DocTag("desc " + currentPropertyCBTag.desc));
 					}
-				}else if(comment.getTag("squareAccessor").length){
+                } else if(comment.getTag("squareAccessor").length){
 					//Push a function tag because we only support [] functions
 					comment.tags.push(new JSDOC.DocTag("function"));
 				}
@@ -314,15 +307,13 @@ JSDOC.PluginManager.registerPlugin(
 				//Callbacks pretend to be  parameters so that their order is preserved
 				//The name must be nibbled so we get a name property like a normal param
 				//They are marked as callbacks for future processing.
-				if(docTag.title == "callback"){                                        
+				if(docTag.title == "callback") {                                        
 					docTag.desc = docTag.nibbleName(docTag.desc);
 					docTag.title = "param";
 					docTag.isCallback = true;
-				}
-                if (docTag.title == "learns"){
+				} else if (docTag.title == "learns") {
                     docTag.desc = docTag.nibbleName(docTag.desc);
-                }
-                if(docTag.title == "constructedBy") {
+                } else if(docTag.title == "constructedBy") {
                     if(!docTag.type) {
                         LOG.warn(docTag.title + " missing type");
                     } else {
