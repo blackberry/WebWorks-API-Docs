@@ -19,24 +19,20 @@
  * @featureID blackberry.app
  * @namespace The Application object provides functions and properties for the currently running application.
  * @example
+ * &lt;script type="text/javascript"&gt;
  *	function makeTable() {
  *		try {
- *			var details = document.getElementById("details");
- *			if (details) {
- *				var output = "<table>";
- *				output += "<tr><td><b>Author</b></td><td>" + blackberry.app.author + "</td></tr>";
- *				output += "<tr><td><b>Author Email</b></td><td>" + blackberry.app.authorEmail + "</td></tr>";
- *				output += "<tr><td><b>Author URL</b></td><td>" + blackberry.app.authorURL + "</td></tr>";
- *				output += "<tr><td><b>Copyright</b></td><td>" + blackberry.app.copyright + "</td></tr>";
- *				output += "<tr><td><b>Description</b></td><td>" + blackberry.app.description + "</td></tr>";
- *				output += "<tr><td><b>ID</b></td><td>" + blackberry.app.id + "</td></tr>";
- *				output += "<tr><td><b>License</b></td><td>" + blackberry.app.license + "</td></tr>";
- *				output += "<tr><td><b>License URL</b></td><td>" + blackberry.app.licenseURL + "</td></tr>";
- *				output += "<tr><td><b>Name</b></td><td>" + blackberry.app.name + "</td></tr>";
- *				output += "<tr><td><b>Version</b></td><td>" + blackberry.app.version + "</td></tr>";
+ *			alert("<b>Author</b>" + blackberry.app.author );
+ *			alert("<b>Author Email</b>" + blackberry.app.authorEmail );
+ *			alert("<b>Author URL</b>" + blackberry.app.authorURL );
+ *			alert("<b>Copyright</b>" + blackberry.app.copyright );
+ *			alert("<b>Description</b>" + blackberry.app.description );
+ *			alert("<b>ID</b>" + blackberry.app.id );
+ *			alert("<b>License</b>" + blackberry.app.license );
+ *			alert("<b>License URL</b>" + blackberry.app.licenseURL );
+ *			alert("<b>Name</b>" + blackberry.app.name );
+ *			alert("<b>Version</b>" + blackberry.app.version );
  *			
- *				details.innerHTML = output;
- *			}
  *		} catch(e) {
  *			alert("Exception in displayDetails: " + e);
  *		}

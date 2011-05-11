@@ -1098,9 +1098,9 @@
 	
 	<if test="!generateDefaultConstructor">
 		<div x-ww-support="{+data.supportTag+}">
-			<h2><a name="{+Link.symbolNameToLinkName(data)+}"> </a>Code Example(s)</h2>
-			<hr style="margin-bottom:15px;"/>
 			<if test="data.example.length">
+				<h2><a name="{+Link.symbolNameToLinkName(data)+}"> </a>Code Example(s)</h2>
+				<hr style="margin-bottom:15px;"/>
 				<for each="example" in="data.example">
 				<table class="scriptTable">				
 					<tr><td class="scriptTd">
