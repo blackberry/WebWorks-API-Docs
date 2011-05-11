@@ -663,7 +663,6 @@
 					</td></tr>				
 				</table>
 				</for>
-				</div>
 			</if>
 		</div>
 	</if>
@@ -1234,20 +1233,17 @@
 		</if>		
 	</if>
 	
-	<if test="!generateDefaultConstructor">
+	<if test="!generateDefaultConstructor && data.example.length">
 		<div x-ww-support="{+data.supportTag+}">
-			<if test="data.example.length">
-				<h2><a name="{+Link.symbolNameToLinkName(data)+}"> </a>Code Example(s)</h2>
-				<hr style="margin-bottom:15px;"/>
-				<for each="example" in="data.example">
-				<table class="scriptTable">				
-					<tr><td class="scriptTd">
-					<pre>{+example+}</pre>
-					</td></tr>				
-				</table>
-				</for>
-				</div>
-			</if>
+			<h2><a name="{+Link.symbolNameToLinkName(data)+}"> </a>Code Example(s)</h2>
+			<hr style="margin-bottom:15px;"/>
+			<for each="example" in="data.example">
+			<table class="scriptTable">				
+				<tr><td class="scriptTd">
+				<pre>{+example+}</pre>
+				</td></tr>				
+			</table>
+			</for>
 		</div>
 	</if>
 	
