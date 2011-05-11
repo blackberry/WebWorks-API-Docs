@@ -29,7 +29,7 @@
  */
 Database ={
 		/**
-		 * @description the current version of the database.
+		 * @description The current version of the database.
 		 * @readOnly
 		 * @type String
 		 * @PB10
@@ -100,9 +100,9 @@ Database ={
  */
 SQLTransaction = {
 		/**
-		 * @description This method executes the provided SQL statement
+		 * @description This method executes the provided SQL statement.
 		 * @param {String} sqlStatement the SQL statement
-		 * @param {ObjectArray} [arguments] the optional arguments used to preprocess a SQL statement by binding each ? placeholder with the value of the argument in the arguments array with the same position.
+		 * @param {Array} [arguments] the optional arguments used to preprocess a SQL statement by binding each ? placeholder with the value of the argument in the arguments array with the same position.
 		 * @param {function} [callback] Function to be called when statement's result set is ready. Expected signature: function SQLStatementCallback (SQLTransaction transaction, SQLResultSet resultSet).
 		 * @param {function} [errorCallback] Function to be called when SQL error occurs. Expected signature: function SQLStatementErrorCallback (SQLTransaction transaction, SQLError error).
 		 * @PB10
@@ -176,7 +176,7 @@ SQLResultSet = {
  */
 SQLResultSetRowList = {
 		/**
-		 * @description the number of rows returned by the database.
+		 * @description The number of rows returned by the database.
 		 * @readOnly
 		 * @type Number
 		 * @PB10
@@ -185,7 +185,7 @@ SQLResultSetRowList = {
 		length : 0,
 		
 		/**
-		 * @description return the row with the given index.
+		 * @description Return the row with the given index.
 		 * @param {Number} index the index
 		 * @returns {Object} the row with the given index. If there is no such row, return null.
 		 * @PB10
@@ -284,7 +284,7 @@ SQLError = {
 		TIMEOUT_ERR : 7,
 
 		/**
-		 * @description the most appropriate error code 
+		 * @description The most appropriate error code. 
 		 * @readOnly
 		 * @type Number
 		 * @PB10
@@ -293,7 +293,7 @@ SQLError = {
 		code : 0,
 
 		/**
-		 * @description an error message describing the error encountered. The message should be localized to the user's language.
+		 * @description An error message describing the error encountered. The message should be localized to the user's language.
 		 * @readOnly
 		 * @type String
 		 * @PB10
