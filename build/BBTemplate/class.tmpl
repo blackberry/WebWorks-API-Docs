@@ -118,7 +118,24 @@
 			{+resolveLinks(data.classDesc)+}
 		</if>
 	</p>
+	
+<!-- ============================== notice ============================ -->
+    {! function isBlank(str) { return (!str || /^\s*$/.test(str)); } !}
 
+    <if test="data.notice">
+        <for each="item" in="data.notice">
+            <if test="!(isBlank(item.title) || isBlank(item.desc))">
+                <table class="noticeTable">
+                    <tr>
+                        <td class="noticeTd">
+                            <div class="title">{+item.title+}</div>
+                            {+item.desc+}
+                        </td>
+                    </tr>
+                </table>
+            </if>
+        </for>
+    </if>
 <!-- ============================== Beta Tag ============================ -->
 	<if test="data.betaTag">
 		<table class="betaTable">
