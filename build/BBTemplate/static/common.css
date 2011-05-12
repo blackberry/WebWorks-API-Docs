@@ -234,6 +234,40 @@ padding: 0;
 padding-right: 10px;
 }
 
+th.confluenceThnoverflow, table.confluenceTable th.confluenceThnoverflow {
+border-width: 1px;
+border-style: solid;
+border-color: #ccc;
+padding: 5px;
+background-color: #f0f0f0;
+text-align: left;
+vertical-align: top;
+width : 175px;
+}
+
+.wiki-content th.confluenceThnoverflow {
+margin: 0;
+padding: 0;
+color: #484848;
+width : 175px;
+}
+
+td.confluenceTdnoverflow, td.confluenceTdnoverflow {
+border-width: 1px;
+border-style: solid;
+border-color: #ccc;
+padding: 5px;
+vertical-align: top;
+width : 175px;
+}
+
+.wiki-content td.confluenceTdnoverdlow {
+margin: 0;
+padding: 0;
+padding-right: 10px;
+width : 175px;
+}
+
 div.title {
 font-weight : bold;
 /*font-size: 12pt;  Changed this */
