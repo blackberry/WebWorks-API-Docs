@@ -130,7 +130,7 @@ Position = {
 PositionError  = {
 
     /**
-     * @description Error code. One of the PERMISSION_DENIED, POSITION_UNAVAILABLE or TIMEOUT
+     * @description Error code. One of the {@link PositionError.PERMISSION_DENIED}, {@link PositionError.POSITION_UNAVAILABLE} or {@link PositionError.TIMEOUT}
      * @BB50+
      * @PB10
      * @readonly
