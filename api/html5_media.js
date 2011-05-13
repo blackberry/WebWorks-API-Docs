@@ -37,7 +37,7 @@ MediaError = function() { }
 * The fetching process for the media resource was aborted by the user 
 * agent at the user's request.
 * @constant
-* @type NUMBER
+* @type Number
 * @BB60+
 * @PB10
 */
@@ -48,7 +48,7 @@ MediaError.MEDIA_ERR_ABORTED = 1;
 * fetching the media resource, after the resource was established to 
 * be usable.
 * @constant
-* @type NUMBER
+* @type Number
 * @BB60+
 * @PB10
 */
