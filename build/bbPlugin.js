@@ -188,7 +188,8 @@ JSDOC.PluginManager.registerPlugin(
 				var toc = symbol.comment.getTag("toc");
 				var readOnly = symbol.comment.getTag("readOnly");
 				var uri = symbol.comment.getTag("uri");
-				var featureID = symbol.comment.getTag("featureID");
+				var featureID = symbol.comment.getTag("featureID");				
+				var permission = symbol.comment.getTag("permission");
 				var betaTag = symbol.comment.getTag("beta");
 				var paramCallbacks = symbol.comment.tags.filter(function($){return $.isCallback && $.title == "param"});
 				var fieldCBs = symbol.comment.tags.filter(function($){return $.isCallback && $.title == "field"});
@@ -227,6 +228,10 @@ JSDOC.PluginManager.registerPlugin(
 					if(featureID.length) {
 						symbol.featureID = featureID;
 					}
+					
+					if(permission.length) {					    
+                        symbol.permission = permission;
+                    }
 
                     if(betaTag.length) {
 						symbol.betaTag = betaTag;
