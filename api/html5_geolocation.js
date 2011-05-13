@@ -134,7 +134,7 @@ PositionError  = {
      * @BB50+
      * @PB10
      * @readonly
-     * @type Short
+	 * @type Number
      */
     prototype.code  : "",
 
@@ -227,7 +227,7 @@ Coordinates = {
      * @BB50+
      * @PB10
      * @readOnly
-     * @type double
+	 * @type Number
      */
     prototype.latitude : "",
 
@@ -236,7 +236,7 @@ Coordinates = {
      * @BB50+
      * @PB10
      * @readOnly
-     * @type double
+	 * @type Number
      */
     prototype.longitude  : "",
 
@@ -245,7 +245,7 @@ Coordinates = {
      * @BB50+
      * @PB10
      * @readOnly
-     * @type double
+	 * @type Number
      */
     prototype.altitude : "",
 
@@ -254,7 +254,7 @@ Coordinates = {
      * @BB50+
      * @PB10
      * @readOnly
-     * @type double
+	 * @type Number
      */
     prototype.accuracy : "",
 
@@ -263,7 +263,7 @@ Coordinates = {
      * @BB50+
      * @PB10
      * @readOnly
-     * @type double
+	 * @type Number
      */
     prototype.altitudeAccuracy : "",
 
@@ -272,7 +272,7 @@ Coordinates = {
      * @BB50+
      * @PB10
      * @readOnly
-     * @type double
+	 * @type Number
      */
     prototype.heading : "",
 
@@ -281,7 +281,7 @@ Coordinates = {
      * @BB50+
      * @PB10
      * @readOnly
-     * @type double
+	 * @type Number
      */
     prototype.speed : "",
     }
