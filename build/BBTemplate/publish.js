@@ -331,10 +331,10 @@ function getSymbolName(symbol) {
     if (symbol.squareAccessor) {
         return "[]";
     } else if (symbol.uri) {
-        return "webworks://" + symbol.alias.replace(/\./g, "/");
+        return "webworks://" + symbol.alias.replace(/\./g, "//").replace("[\^][\d]", '');
     } else if (symbol.isStatic) {
-        return symbol.memberOf + "." + symbol.name.replace(/\^\d+$/, '');
+        return symbol.memberOf + "." + symbol.name.replace(/\^\d+$/, '').replace("[\^][\d]", '');
     } else {
-        return symbol.name.replace(/\^\d+$/, '');
+        return symbol.name.replace(/\^\d+$/, '').replace("[\^][\d]", '');
     }
 }
