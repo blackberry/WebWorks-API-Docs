@@ -172,91 +172,115 @@
 		{! allChildren = allChildren.concat(ownEvents);!}
 	</if>	
 
-	<if test="data.support.getSupportStrings()">
-		<div class="title">Supported Platform(s)</div>		
-		<table class="scriptTable">			
-			<tr> 
-				<td class="scriptTd">
-					<for each="item" in="data.support.getSupportStrings()">
-						- {+item+}<br/>
-					</for>
-				</td> 
-			</tr>
-			<tr>
-		 		<td>
-		 			<div>- Supported Platform Table: <span id="codeExpand" onclick="codeClick(this)";>Expand</span></div>
-		 			<div id="codeExamples">
-		 				<table class="apiTable">
-		 					<tr>
-								<th class="apiTh apiColumn">
-								   API
-								   
-								</th>
-								<th class="apiTh" >
-								   OS 5.0
-								   
-								</th>
-								<th class="apiTh" >
-								   OS 6.0
-								   
-								</th>
-								<th class="apiTh" >
-								   PlayBook
-								   
-								</th>
-							</tr>
-							<if test="!data.isBuiltin() && data.is('CONSTRUCTOR')">
-								<tr x-ww-support="{+data.support.getSupportTag()+}">
-									<td class="apiTd">{+new Link().toSymbol(data.alias)+}
-									{+data.support.getSupportTable()+}
-								</tr>
-							</if>
-							<for each="item" in="allChildren">
-							<tr x-ww-support="{+item.support.getSupportTag()+}">
+	<div class="title">Supported Platform(s)</div>		
+	<table class="scriptTable">			
+		<tr> 
+			<td class="scriptTd">
+				<for each="item" in="data.support.getSupportStrings()">
+					- {+item+}<br/>
+				</for>
+			</td> 
+		</tr>
+		<tr>
+	 		<td>
+	 			<div>- Supported Platform Table: <span id="codeExpand" onclick="codeClick(this)";>Expand</span></div>
+	 			<div id="codeExamples">
+	 				<table class="apiTable">
+	 					<tr>
+							<th class="apiTh apiColumn">
+							   API
+							   
+							</th>
+							<th class="apiTh" >
+							   OS 5.0
+							   
+							</th>
+							<th class="apiTh" >
+							   OS 6.0
+							   
+							</th>
+							<th class="apiTh" >
+							   PlayBook
+							   
+							</th>
+						</tr>
+						<if test="!data.isBuiltin() && data.is('CONSTRUCTOR')">
+							<tr x-ww-support="{+data.support.getSupportTag()+}">
 								<td class="apiTd">
-								<if test="item.squareAccessor">
-									{+new Link().toSymbol(item.alias).withText("[]")+}
+								   {+new Link().toSymbol(data.alias)+}
+								   {+data.support.getSupportTable()+}
+								</td>
+							</tr>
+						</if>
+						<for each="item" in="allChildren">
+						<tr x-ww-support="{+item.support.getSupportTag()+}">
+							<td class="apiTd">
+							<if test="item.squareAccessor">
+								{+new Link().toSymbol(item.alias).withText("[]")+}
+							<else />
+								<if test="item.uri">
+									{+new Link().toSymbol(item.alias).withText("webworks://"+item.alias.replace(/\./g, "/"))+}
 								<else />
-									<if test="item.uri">
-										{+new Link().toSymbol(item.alias).withText("webworks://"+item.alias.replace(/\./g, "/"))+}
+									<if test="item.isStatic">
+										{+new Link().toSymbol(item.alias).withText(item.memberOf+"."+item.name.replace(/\^\d+$/, ''))+}
 									<else />
-										<if test="item.isStatic">
-											{+new Link().toSymbol(item.alias).withText(item.memberOf+"."+item.name.replace(/\^\d+$/, ''))+}
-										<else />
-											{+new Link().toSymbol(item.alias).withText(item.name.replace(/\^\d+$/, ''))+}
-										</if>
+										{+new Link().toSymbol(item.alias).withText(item.name.replace(/\^\d+$/, ''))+}
 									</if>
-								</if>	
-								{+item.support.getSupportTable()+}
-							</tr>								
-							</for>
-						</table>
-					</div>
-				</td>
-			</tr>			
-		</table>
-	</if>
+								</if>
+							</if>	
+							{+item.support.getSupportTable()+}
+						</tr>								
+						</for>
+					</table>
+				</div>
+			</td>
+		</tr>			
+	</table>
 	
-<!-- ============================== Permissions ============================ -->	
-	<if test="data.featureID">
-		<div class="title">Permissions</div>
-		To use <u>all</u> of the API described for this object, you must declare the below feature element(s) in your configuration document:
-		<br>
-		<table class="scriptTable">
-			<for each="item" in="data.featureID">
-				<tr> 
-					<td class="scriptTd"> 
-						&lt;feature id="{+item.desc+}" /&gt;
-						<br>
-					</td> 
-				</tr>
-			</for>
-		</table>
-	<else/>
-		<div class="title">Permissions</div>
-		This API does not require a &lt;feature&gt; element to be declared in the configuration document of your BlackBerry WebWorks.
-		<br/>
-	</if>
+<!-- ============================== Configuration Settings  ============================ -->	
+	<br/>
+	<div class="title">Configuration Document Settings</div>
+	To use <u>all</u> of the API described for this object, you must ensure the following settings are in your configuration document:    	
+    
+    <table class="scriptTable">
+        <tr><th>Feature Elements</th></tr>
+        <if test="data.featureID">
+            <tr><td class="scriptTd">
+    		  You must declare the feature element(s) below in your configuration document:
+    		</td></tr><br>
+    		
+    			<for each="item" in="data.featureID">
+    				<tr><td class="scriptTd"> 
+    						&lt;feature id="{+item.desc+}" /&gt;
+    						<br>
+    				</td></tr>
+    			</for>		
+    	<else/>
+    	    <tr><td class="scriptTd">
+    		  This API does not require a &lt;feature&gt; element to be declared in the configuration document of your BlackBerry WebWorks Application.
+            </td></tr><br/>
+    	</if>
+	</table>
+	
+    <table class="scriptTable">
+        <tr><th>Permission Elements (Only For Playbook)</th></tr>
+        <if test="data.permission">
+            <tr><td class="scriptTd">
+              You must declare the permission element(s) below in your configuration document:
+            </td></tr><br>
+            
+                <for each="item" in="data.permission">
+                    <tr><td class="scriptTd"> 
+                            &lt;permission="{+item.desc+}" /&gt;
+                            <br>
+                    </td></tr>
+                </for>      
+        <else/>
+            <tr><td class="scriptTd">
+              This API does not require a &lt;permission&gt; element to be declared in the configuration document of your BlackBerry WebWorks Application.
+            </td></tr><br/>
+        </if>
+    </table>
 
 <!-- ============================== Constructor Summary ========================= -->
 	<if test="(!data.isBuiltin() && data.is('CONSTRUCTOR')) || data.constructedBy">
