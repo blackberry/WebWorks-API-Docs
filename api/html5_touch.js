@@ -24,7 +24,6 @@
 /**
 * @namespace
 * This interface defines an individual point of contact for a touch event.
-* @toc {Touch} HTML5 Touch Point
 * @BB60+
 * @PB10
 */
@@ -157,7 +156,6 @@ Touch.prototype.force = { };
 * This interface defines a list of individual points of contact for a touch event.
 * @BB60+
 * @PB10
-* @toc {Touch} TouchList
 */
 TouchList = function() {};
 

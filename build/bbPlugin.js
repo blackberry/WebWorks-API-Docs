@@ -196,6 +196,7 @@ JSDOC.PluginManager.registerPlugin(
 				var squareAccessor = symbol.comment.getTag("squareAccessor");
                 var constructorTag = symbol.comment.getTag("constructor");
                 var constructedBy = symbol.comment.tags.filter(function($, index){$.itemIndex = index; return $.title=="constructedBy" && $.type}); 
+                var notice = symbol.comment.tags.filter(function($, index){$.itemIndex = index; return $.title=="notice" && $.type}); 
                 
 				//If its a class/namespace
 				if(isaClass(symbol)){
@@ -208,6 +209,18 @@ JSDOC.PluginManager.registerPlugin(
 							}
 						} 
 					}
+					
+                    if(notice.length) {
+                        // reparse the .type attribute as jsDocs as modifies characters
+                        for(var i = 0; i < notice.length; i++) {
+                            var n = notice[i];
+                            var parts = GetType(symbol.comment.tagTexts[n.itemIndex]);
+                            if(parts && parts.type)
+                                n.title = parts.type;
+                                n.desc = parts.remainder;
+                        } 
+                        symbol.notice = notice;
+                    }
                     
                     if(constructedBy.length) {
                     

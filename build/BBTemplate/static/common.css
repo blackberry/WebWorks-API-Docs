@@ -43,6 +43,25 @@ body {
 
 /*------------------------------------------------------------*/
 
+table.noticeTable {
+border-width: 1px;
+border-style: solid;
+border-color: #ccc;
+padding: 5px;
+vertical-align: top;
+margin: 5px;
+margin-bottom:15px;
+width : 90%;
+background-color: #FAF8CC;
+}
+
+td.noticeTd {
+color: #484848;
+vertical-align: top;
+background-color: #FAF8CC;
+}
+
+
 table.depricationTable {
 border-width: 1px;
 border-style: solid;
