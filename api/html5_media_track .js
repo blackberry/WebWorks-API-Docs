@@ -32,8 +32,6 @@
 * the same language, and whose label attributes are again both 
 * missing or both have the same value.
 * @extends HTMLElement
-* @constructedBy {document.createElement("track")} {HTMLTrackElement can be constructed by using the document.createElement() method.}
-* var track = document.createElement("track");
 * @BB60+
 * @PB10
 * @example
@@ -45,6 +43,18 @@
 * &lt;/video&gt;
 */
 HTMLTrackElement = function() { };
+
+
+/**
+ * @field
+ * @constructedBy document.createElement("track")
+ * @description Creates an HTMLTrackElement
+ * @example 
+ * var track = document.createElement("track");
+ * @PB10
+ * @BB60+
+ */
+HTMLTrackElement.documentConstructor = undefined;
 
 /**
 * kind is one of the following strings "subtitles", "captions", 

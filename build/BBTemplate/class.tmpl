@@ -173,22 +173,27 @@
 	</if>
 	
 <!-- ============================== Support Platforms ============================ -->
-	{!var allChildren =[]!}
+	{!var allChildren =[]; var constructors = [];!}
 	<if test="data.methods.length">
-		{! var ownMethods = data.methods.filter(function($){return $.memberOf == data.alias  && !$.isNamespace && !$.uri}).sort(makeNameSort()); !}
-		{! var ownURIMethods = data.methods.filter(function($){return $.memberOf == data.alias  && !$.isNamespace && $.uri}).sort(makeNameSort()); !}
+		{! var ownMethods = data.methods.filter(function($){return $.memberOf == data.alias  && !$.isNamespace && !$.uri && !$.constructedBy}).sort(makeNameSort()); !}
+		{! var ownURIMethods = data.methods.filter(function($){return $.memberOf == data.alias  && !$.isNamespace && $.uri && !$.constructedBy}).sort(makeNameSort()); !}
+		{! constructors = data.methods.filter(function($){return $.memberOf == data.alias  && $.constructedBy}).sort(makeNameSort()); !}
 		{! allChildren = allChildren.concat(ownMethods, ownURIMethods);!}
 	</if>
 	<if test="data.properties.length">
-		{! var ownProperties = data.properties.filter(function($){return $.memberOf == data.alias && !$.isNamespace && !$.isConstant}).sort(makeNameSort()); !}
-		{! var ownConstants = data.properties.filter(function($){return $.memberOf == data.alias && !$.isNamespace && $.isConstant}); !}
+		{! var ownProperties   = data.properties.filter(function($){return $.memberOf == data.alias && !$.isNamespace && !$.isConstant && !$.constructedBy}).sort(makeNameSort()); !}
+		{! var ownConstants    = data.properties.filter(function($){return $.memberOf == data.alias && !$.isNamespace && $.isConstant && !$.constructedBy}); !}
+		{! constructors =  constructors.concat(data.properties.filter(function($){return $.memberOf == data.alias && !$.isNamespace && $.constructedBy})); !}
 		{! allChildren = allChildren.concat(ownProperties,ownConstants);!}
 	</if>
 	<if test="data.events.length">
 		{! var ownEvents = data.events.filter(function($){return $.memberOf == data.alias  && !$.isNamespace}).sort(makeNameSort()); !}
 		{! allChildren = allChildren.concat(ownEvents);!}
-	</if>	
-
+	</if>
+    {! var generateDefaultConstructor = !data.isBuiltin() && data.is('CONSTRUCTOR') && !data.noConstructor; !}
+    <if test="generateDefaultConstructor">
+        {! constructors.unshift(data); !}
+    </if>
 	<if test="data.support.getSupportStrings()">
 		<div class="title">Supported Platform(s)</div>		
 		<table class="scriptTable">			
@@ -222,25 +227,14 @@
 								   
 								</th>
 							</tr>
-							<if test="!data.isBuiltin() && data.is('CONSTRUCTOR') || data.constructedBy">
-								<if test="!data.noConstructor">
-									<tr x-ww-support="{+data.support.getSupportTag()+}">
-										<td class="apiTd">{+new Link().toSymbol(data.alias)+}
-										{+data.support.getSupportTable()+}
-									</tr>
-								</if>
-								<if test="data.constructedBy">	                
-									{! var generatedindex = 0; !}
-					                <for each="constructedBy" in="data.constructedBy">					                
-					                    <if test="constructedBy.type">
-					                        <tr x-ww-support="{+data.support.getSupportTag()+}">
-					                           <td class="apiTd">
-					                           <a href="#constructedBy{+ generatedindex++ +}">{+constructedBy.type+}</a>
-					                           {+data.support.getSupportTable()+}
-					                        </tr>
-					                    </if>
-					      	        </for>
-	            				</if>
+							<if test="constructors.length">
+                                <for each="item" in="constructors">
+                                    <tr x-ww-support="{+item.support.getSupportTag()+}">
+                                        <td class="apiTd">
+                                        {+new Link().toSymbol(item.alias).withText(getSymbolName(item))+}                               
+                                        {+item.support.getSupportTable()+}
+                                    </tr>                               
+                                </for>
 							</if>
 							<for each="item" in="allChildren">
     							<tr x-ww-support="{+item.support.getSupportTag()+}">
@@ -278,21 +272,19 @@
 	</if>
 
 <!-- ============================== Constructor Summary ========================= -->
-	<if test="(!data.isBuiltin() && data.is('CONSTRUCTOR')) || data.constructedBy">
+	<if test="(defined(constructors) && constructors.length)">
 		<div x-ww-support="{+data.support.getSupportTag()+}">
-			<h1>Constructor</h1>
+			<h1>Constructors</h1>
         	<ul class="ulNoTopMargin">
-	            <if test="!data.noConstructor">
-	                <li>{+new Link().toSymbol(data.alias).withText(data.name.replace(/\^\d+$/, '').toString().replace(/\|/g, ' | '))+}</li>
-	            </if>
-				<if test="data.constructedBy">
-	                {! var generatedindex = 0; !}
-	                <for each="constructedBy" in="data.constructedBy">
-	                    <if test="constructedBy.type">
-	                        <li><a href="#constructedBy{+ generatedindex++ +}">{+constructedBy.type+}</a></li>
-	                    </if>
-	      	         </for>
-	            </if>
+                <for each="member" in="constructors">
+                    <li x-ww-support="{+member.support.getSupportTag()+}">
+                        {+new Link().toSymbol(member.alias).withText(getSymbolName(member))+}
+                        <if test="member.deprecated">
+                            <span class="depricate">**</span>
+                            {! hasDeprecation = true; deprecationSupport.populateBySymbol(member); !}
+                        </if>
+                    </li>
+      	        </for>
        		</ul>
 		</div>
 	</if>
@@ -565,126 +557,106 @@
 	</if>	
 	
 <!-- ============================== Constructor Details ========================= -->
-<!-- NEW: BETA -->
-    {!
-        var generateDefaultConstructor = !data.isBuiltin() && data.is('CONSTRUCTOR') && !data.noConstructor;
-    !}
-	<if test="generateDefaultConstructor">
-		<div x-ww-support="{+data.support.getSupportTag()+}">
-			<h2><a name="{+Link.symbolNameToLinkName(data)+}"> </a>{+data.alias+}</h2>
-			<hr style="margin-bottom:15px;"/>
+	<if test="defined(constructors) && constructors.length">
+	   <for each="member" in="constructors">
+	       <div x-ww-support="{+member.support.getSupportTag()+}">
+	           <h2><a name="{+Link.symbolNameToLinkName(member)+}"> </a>{+getSymbolName(member)+}</h2>
+               <hr style="margin-bottom:15px;"/>
 		
-			<table class="scriptTable">
-				<tr>
-					<td class="scriptTd">					
-					<if test="data.type">{+new Link().toSymbol(data.type).toString().replace(/\|/g, ' | ')+}</if>
-						{+data.name.replace(/\^\d+$/, '')+}{+makeSignature(data.params)+}
-					</td>
-				</tr>
-			</table>
-			<br/>
+    			<table class="scriptTable">
+    				<tr>
+    					<td class="scriptTd">
+    					   {+getSymbolName(member)+}
+    					   <if test="!member.is('OBJECT')"> 
+    						  {+makeSignature(member.params)+}
+    					   </if>
+    					</td>
+    				</tr>
+    			</table>
+    			<br/>
 			
-			<if test="data.deprecated">				
-				<table class="depricationTable">
-				 <tr>
-					<td class="depricationTd">
-					   <div class="title">Deprecation Notice:</div>
-					   {+ resolveLinks(data.deprecated) +}
-					</td>
-				 </tr>
-				</table>				
-			</if>			
-			
-			<if test="data.support.getSupportStrings()">				
+    			<if test="member.deprecated">				
+    				<table class="depricationTable">
+    				 <tr>
+    					<td class="depricationTd">
+    					   <div class="title">Deprecation Notice:</div>
+    					   {+ resolveLinks(member.deprecated) +}
+    					</td>
+    				 </tr>
+    				</table>				
+    			</if>			
+			    							
 				<div class="title">Supported Platform(s)</div>		
-				<for each="item" in="data.support.getSupportStrings()">
+				<for each="item" in="member.support.getSupportStrings()">
 					&nbsp;- {+item+}<br/>
 				</for>				
-			</if>
+
 			
-			<br/>
-			<div class="title">Description</div>
-			&nbsp;{+resolveLinks(data.desc)+}
+    			<br/>
+    			<div class="title">Description</div>
+    			&nbsp;{+resolveLinks(member.desc)+}
 		
-			<if test="data.params.length || data.callbacks">
-				<br/><br/>
-				<table class="confluenceTable">
-					<tr>
-					<th class="confluenceTh">
-					   Parameter
-					   
-					</th>
-					<th class="confluenceTh">
-					   Type
-					   
-					</th>
-					<th class="confluenceTh">
-					   Description
-					   
-					</th>
-					</tr>
-				{!var functionParams = data.params.filter(function($){return $.name.indexOf(".") == -1});!}				
-				<for each="item" in="functionParams">
-					{!var subParams = data.params.filter(function($){return $.name.indexOf(item.name+".") != -1});!}
-					<tr>
-						<td class="confluenceTd"><b>{+item.name+}</b></td>
-						<td class="confluenceTd">
-							<if test="item.isCallback">
-								{+ ((item.type)?(new Link().toSymbol(item.type).toString().replace(/\|/g, ' | ')) : "")+ makeCallbackSignature(subParams) +}
-							<else/>
-								{+((item.type)?(new Link().toSymbol(item.type).toString().replace(/\|/g, ' | ')) : "")+}
-							</if>
-							<if test="item.isOptional"><br/><i>Optional</i></if>													
-						</td>
-						<td class="confluenceTd">
-							<if test="item.defaultValue"><i>[Default Value: {+item.defaultValue+}]</i><p/></if>
-							{+resolveLinks(item.desc)+}							
-							<if test="subParams.length">
-								<br/>
-								<for each="subItem" in="subParams">
-									<br/>
-									<b>{+subItem.name.slice(subItem.name.indexOf(".")+1,subItem.name.length)+":"+}</b> {+resolveLinks(subItem.desc)+}
-								</for>
-							</if>
-						</td>
-					</tr>
-				</for>				
-				</table>
-			</if>
+    			<if test="member.params.length || member.callbacks">
+    				<br/><br/>
+    				<table class="confluenceTable">
+    					<tr>
+    					<th class="confluenceTh">
+    					   Parameter
+    					   
+    					</th>
+    					<th class="confluenceTh">
+    					   Type
+    					   
+    					</th>
+    					<th class="confluenceTh">
+    					   Description
+    					   
+    					</th>
+    					</tr>
+    				{!var functionParams = member.params.filter(function($){return $.name.indexOf(".") == -1});!}				
+    				<for each="item" in="functionParams">
+    					{!var subParams = member.params.filter(function($){return $.name.indexOf(item.name+".") != -1});!}
+    					<tr>
+    						<td class="confluenceTd"><b>{+item.name+}</b></td>
+    						<td class="confluenceTd">
+    							<if test="item.isCallback">
+    								{+ ((item.type)?(new Link().toSymbol(item.type).toString().replace(/\|/g, ' | ')) : "")+ makeCallbackSignature(subParams) +}
+    							<else/>
+    								{+((item.type)?(new Link().toSymbol(item.type).toString().replace(/\|/g, ' | ')) : "")+}
+    							</if>
+    							<if test="item.isOptional"><br/><i>Optional</i></if>													
+    						</td>
+    						<td class="confluenceTd">
+    							<if test="item.defaultValue"><i>[Default Value: {+item.defaultValue+}]</i><p/></if>
+    							{+resolveLinks(item.desc)+}							
+    							<if test="subParams.length">
+    								<br/>
+    								<for each="subItem" in="subParams">
+    									<br/>
+    									<b>{+subItem.name.slice(subItem.name.indexOf(".")+1,subItem.name.length)+":"+}</b> {+resolveLinks(subItem.desc)+}
+    								</for>
+    							</if>
+    						</td>
+    					</tr>
+    				</for>				
+    				</table>
+    			</if>
 		
-			<if test="data.example.length">
-				<br/>
-				<div class="title">Code Example(s)</div>
-				<for each="example" in="data.example">
-				<table class="scriptTable">				
-					<tr><td class="scriptTd">
-					<pre>{+example+}</pre>
-					</td></tr>				
-				</table>
-				</for>
-			</if>
-		</div>
-	</if>
-    <if test="data.constructedBy">
-        {! var generatedindex = 0; !}
-        <for each="constructedBy" in="data.constructedBy">
-            <if test="constructedBy.type">
-                <h2><a name="constructedBy{+ generatedindex++ +}"> </a>{+constructedBy.type+}</h2>
-                <hr style="margin-bottom:15px;"/>
-                <if test="constructedBy.desc">
-                    <div class="title">Description</div>
-                    &nbsp;{+resolveLinks(constructedBy.desc)+}
-                </if>
-                <if test="constructedBy.example">
-                    <table class="scriptTable">
-                        <tr><td class="scriptTd">
-                        <pre>{+constructedBy.example+}</pre>
-                        </td></tr>
-                    </table>
-                 </if>
-             </if>
+    			<if test="member.example.length">
+    				<br/>
+    				<div class="title">Code Example(s)</div>
+    				<for each="example" in="member.example">
+    				<table class="scriptTable">				
+    					<tr><td class="scriptTd">
+    					<pre>{+example+}</pre>
+    					</td></tr>				
+    				</table>
+    				</for>
+    			</if>
+    			
+            </div>
         </for>
-    </if>
+	</if>
 <!-- ============================== Function details ========================= -->		
 	<if test="defined(ownMethods) && ownMethods.length">
 		<for each="member" in="ownMethods">

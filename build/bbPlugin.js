@@ -193,9 +193,7 @@ JSDOC.PluginManager.registerPlugin(
 				var paramCallbacks = symbol.comment.tags.filter(function($){return $.isCallback && $.title == "param"});
 				var fieldCBs = symbol.comment.tags.filter(function($){return $.isCallback && $.title == "field"});
 				var learnTag = symbol.comment.getTag("learns");
-				var squareAccessor = symbol.comment.getTag("squareAccessor");
-                var constructorTag = symbol.comment.getTag("constructor");
-                var constructedBy = symbol.comment.tags.filter(function($, index){$.itemIndex = index; return $.title=="constructedBy" && $.type}); 
+				var squareAccessor = symbol.comment.getTag("squareAccessor"); 
                 var notice = symbol.comment.tags.filter(function($, index){$.itemIndex = index; return $.title=="notice" && $.type}); 
                 
 				//If its a class/namespace
@@ -222,19 +220,9 @@ JSDOC.PluginManager.registerPlugin(
                         symbol.notice = notice;
                     }
                     
-                    if(constructedBy.length) {
-                    
-                        // reparse the .type attribute as jsDocs as modifies characters
-                        for(var i = 0; i < constructedBy.length; i++) {
-                            var c = constructedBy[i];
-                            var parts = GetType(symbol.comment.tagTexts[c.itemIndex]);
-                            if(parts && parts.type)
-                                c.type = parts.type;
-                        } 
-                        if(constructorTag.length == 0) {
-                            symbol.noConstructor = true;
-                        }
-                        symbol.constructedBy = constructedBy;
+                    var constructorTag = symbol.comment.getTag("constructor");
+                    if(constructorTag.length == 0) {
+                        symbol.noConstructor = true;
                     }
                     
 					if(featureID.length) {
@@ -258,6 +246,10 @@ JSDOC.PluginManager.registerPlugin(
 					if(squareAccessor.length){
 						symbol.squareAccessor = squareAccessor;
 					}
+					var constructedBy = symbol.comment.getTag("constructedBy");
+                    if(constructedBy.length){
+                        symbol.constructedBy = constructedBy;
+                    }
 				}
 
 				//Mark all parameters as callback based on their tags
@@ -326,15 +318,7 @@ JSDOC.PluginManager.registerPlugin(
 					docTag.isCallback = true;
 				} else if (docTag.title == "learns") {
                     docTag.desc = docTag.nibbleName(docTag.desc);
-                } else if(docTag.title == "constructedBy") {
-                    if(!docTag.type) {
-                        LOG.warn(docTag.title + " missing type");
-                    } else {
-                        var parts = GetType(docTag.desc);
-                        docTag.desc = parts.type;
-                        docTag.example = parts.remainder;
-                    }
-                }
+				}
 			}           
 		},
 		

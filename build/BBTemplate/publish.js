@@ -328,7 +328,11 @@ function resolveLinks(str, from) {
 }
 
 function getSymbolName(symbol) {
-    if (symbol.squareAccessor) {
+    if(symbol.is('CONSTRUCTOR')){
+        return symbol.alias.replace(/\^\d+$/, '').toString().replace(/\|/g, ' | ');
+    }else if (symbol.constructedBy){
+        return symbol.constructedBy.toString().replace("[\^][\d]", '');
+    }else if (symbol.squareAccessor) {
         return "[]";
     } else if (symbol.uri) {
         return "webworks://" + symbol.alias.replace(/\./g, "//").replace("[\^][\d]", '');
