@@ -26,14 +26,15 @@ Database ={
         /**
          * @function
          * @constructedBy Window.openDatabase
-         * @description Asynchronously creates a new databse object. 
+         * @description Creates a new databse object. 
          * If the database already exists, the existing database will be returned and the creation callback will not be invoked.
          * @param {String} name The name of the database to be created
          * @param {String} version The version of the database to be created
          * @param {String} displayName The display name of the database to be created
          * @param {Number} estimatedSize The estimated size in bytes of the database
-         * @callback {function} creationCallback The callback will be invoked on database creation
+         * @callback {function} creationCallback The callback will be invoked when the database is first created.
          * @callback {Database} creationCallback.database The newly created database
+         * @returns {Database} The database object that has been opened.
          * @example
          * Database db=Window.openDatabase('documents', '1.0', 'Offline document storage', 5*1024*1024, null);
          * @PB10

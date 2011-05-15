@@ -49,7 +49,7 @@ blackberry.exampleClass.CONSTANT_C = 3;
 /**
  * @constructedBy Window.makeExampleClass
  * @function
- * @param {String} s StringZorZ
+ * @param {String} s A string paramter
  * @description A constructor with a customName
  * @PB10
  */ 
