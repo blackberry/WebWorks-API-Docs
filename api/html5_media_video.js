@@ -25,15 +25,6 @@
 * An audio element represents a sound or audio stream.
 * @toc {Media} HTML5 Video
 * @extends HTMLMediaElement
-* @constructedBy {document.createElement("video")} {HTMLVideoElement can be constructed by using the document.createElement() method.}
-* var video = document.createElement("video");
-* @PB10
-* @BB60+
-* @example
-* var video = document.createElement('video');
-* video.src = 'video.avi';
-* video.controls = true;
-* document.body.appendChild(video);
 * @example
 * Test if user can play H.264:
 * function canPlayH264() {
@@ -42,6 +33,20 @@
 * }
 */
 HTMLVideoElement = function() { };
+
+/**
+ * @field
+ * @constructedBy document.createElement("video")
+ * @description Creates an HTMLVideoElement
+ * @example
+ * var video = document.createElement('video');
+ * video.src = 'video.avi';
+ * video.controls = true;
+ * document.body.appendChild(video);
+ * @PB10
+ * @BB60+
+ */
+HTMLVideoElement.documentConstructor = undefined;
 
 
 /**

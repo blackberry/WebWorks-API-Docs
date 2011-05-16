@@ -27,10 +27,6 @@
 * media resources for media elements. It does not represent anything 
 * on its own.
 * @extends HTMLElement
-* @constructedBy {document.createElement("source")} {HTMLSourceElement can be constructed by using the document.createElement() method.}
-* var source = document.createElement("source");
-* @BB60+
-* @PB10
 * @example
 * &lt;video controls autoplay&gt;
 *  &lt;source src=\&#039;video.mp4\&#039; type=\&#039;video/mp4; codecs=\&quot;avc1.42E01E, mp4a.40.2\&quot;\&#039;&gt;
@@ -40,6 +36,17 @@
 * &lt;/video&gt;
 */
 HTMLSourceElement = function() { };
+
+/**
+ * @field
+ * @constructedBy document.createElement("source")
+ * @description Creates an HTMLSourceElement
+ * @example
+ * var source = document.createElement("source");
+ * @PB10
+ * @BB60+
+ */
+HTMLSourceElement.documentConstructor = undefined;
 
 /**
 * The src attribute gives the address of the media resource. The value 

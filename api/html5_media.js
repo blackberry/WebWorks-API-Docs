@@ -289,6 +289,8 @@ HTMLMediaElement.prototype.load = function () { };
 * "probably" based on how confident the user agent is that it can 
 * play media resources of the given type.
 * @param {String} type The media type you are trying to play, for example: "application/octet-stream;codecs=theora" would return an empty string.
+* @BB60+
+* @PB10
 */
 HTMLMediaElement.prototype.canPlayType = function(type) { };
 
