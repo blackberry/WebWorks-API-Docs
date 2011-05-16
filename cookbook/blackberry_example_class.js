@@ -19,6 +19,11 @@
  * @toc {OtherSamples} Example Class
  * @featureID blackberry.exampleClass
  * @beta This is how to use the beta tag
+ * @permission some_id_permission Descriptive text for this permission, which is required for this example class
+ * @permission [some_optional_id_permission] Descriptive text for this permission, which is optional for this example class
+ * @permission [some_optional_id_permission2] Descriptive text for some_optional_id_permission2
+ * @permission some_id_permission2 Descriptive text for some_id_permission2
+ * @permission some_id_permission3 Descriptive text for some_id_permission3
 */
 blackberry.exampleClass = function() {};
 
