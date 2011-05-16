@@ -755,6 +755,8 @@ CanvasRenderingContext2D.prototype.drawImage^2 = function(image, sx, sy, sw, sh,
 
 
 /**
+* @name CanvasRenderingContext2D.prototype.createImageData^2
+* @function
 * Returns an {@link ImageData} object with the given dimensions in CSS pixels 
 * (which might map to a different number of actual device pixels 
 * exposed by the object itself). All the pixels in the returned 
@@ -777,7 +779,7 @@ CanvasRenderingContext2D.prototype.createImageData = function(sw, sh) { };
 * @BB60+
 * @PB10
 */
-CanvasRenderingContext2D.prototype.createImageData = function(imagedata) { };
+CanvasRenderingContext2D.prototype.createImageData^2 = function(imagedata) { };
 
 /**
 * Returns an {@link ImageData} object containing the image data 
