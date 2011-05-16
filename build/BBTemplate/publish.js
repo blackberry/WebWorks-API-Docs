@@ -153,8 +153,10 @@ function makeSortby(attribute) {
 	return function(a, b) {
 		try{
 		if (a[attribute] != undefined && b[attribute] != undefined) {
-			a = a[attribute].toLowerCase();
-			b = b[attribute].toLowerCase();
+			if (a[attribute].toLowerCase && b[attribute].toLowerCase) {
+				a = a[attribute].toLowerCase();
+				b = b[attribute].toLowerCase();
+			}
 			if (a < b) return -1;
 			if (a > b) return 1;
 			return 0;
