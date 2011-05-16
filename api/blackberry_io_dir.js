@@ -37,7 +37,7 @@
 blackberry.io.dir = { };
 
 /**
-* List all the files and sub-directories that reside in a given directory. 
+* List all the files that reside in a given directory. 
 * @param {String} path Path location of the directory.
 * @returns {String[]}
 * @BB50+
