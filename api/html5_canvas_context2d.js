@@ -1,3 +1,23 @@
+/*
+* Copyright 2010-2011 Research In Motion Limited.
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
+/*
+* Taken from: http://dev.w3.org/html5/2dcontext/
+*/
+
 /**
 * @namespace
 * The 2D context represents a flat Cartesian surface whose origin 
@@ -5,7 +25,17 @@
 * having x values increasing when going right, and y values 
 * increasing when going down.
 * @toc {User Interface} HTML5 2D Canvas Context
-* @constructedBy {canvas.getContext(&#039;2d&#039;)} {to create an CanvasRenderingContext2D object you must fetch the context of a {@link Canvas} using the '2d' identifier}
+* @BB60+
+* @PB10
+*/ 
+CanvasRenderingContext2D = { };
+
+
+/**
+* @field
+* @constructedBy canvas.getContext(&#039;2d&#039;)
+* @description to create an CanvasRenderingContext2D object you must fetch the context of a {@link Canvas} using the '2d' identifier
+* @example
 * &lt;html&gt;
 * &lt;head&gt;
 *     &lt;title&gt;Example&lt;/title&gt;
@@ -33,10 +63,11 @@
 *         &lt;canvas id=&quot;myCanvas&quot; width=&quot;300&quot; height=&quot;300&quot;&gt;&lt;/canvas&gt;
 *     &lt;/body&gt;
 * &lt;/html&gt;
-* @BB60+
 * @PB10
-*/ 
-CanvasRenderingContext2D = { };
+* @BB60+
+*/
+CanvasRenderingContext2D.documentConstructor = undefined;
+
 
 /**
 * Return the canvas interface element that the context paints on.
@@ -67,8 +98,8 @@ CanvasRenderingContext2D.prototype.restore = function() { };
 * Add the scaling transformation described by the arguments to the 
 * transformation matrix. The x argument represents the scale factor 
 * in the horizontal direction and the y argument represents the scale factor in the vertical direction. The factors are multiples.
-* @param {Number} x
-* @param {Number} y
+* @param {Number} x the amount to scale horizontally
+* @param {Number} y the amount to scale vertically
 * @BB60+
 * @PB10
 */
@@ -79,7 +110,7 @@ CanvasRenderingContext2D.prototype.scale = function(x, y) { };
 * Add the rotation transformation described by the argument to the 
 * transformation matrix. The angle argument represents a clockwise 
 * rotation angle expressed in radians.
-* @param {Number} angle
+* @param {Number} angle clockwise rotation angle expressed in radians
 * @BB60+
 * @PB10
 */
@@ -91,27 +122,28 @@ CanvasRenderingContext2D.prototype.rotate = function(angle) { };
 * distance in the horizontal direction and the y argument represents 
 * the translation distance in the vertical direction. The arguments 
 * are in coordinate space units.
-* @param {Number} x
-* @param {Number} y
+* @param {Number} x x-coord of the translation
+* @param {Number} y y-coord of the translation
 * @BB60+
 * @PB10
 */
 CanvasRenderingContext2D.prototype.translate = function(x, y) { };
 
 /**
-* Method must multiply the current transformation matrix with the 
-* matrix described by:
+* Method must replace the current transformation matrix with the 
+* result of multiplying the current transformation matrix with 
+* the matrix described by:
 * <table>
 *   <tr><td>m11</td><td>m21</td><td>dx</td></tr>
 *   <tr><td>m12</td><td>m22</td><td>dy</td></tr>
 *   <tr><td>0</td><td>0</td><td>1</td></tr>
 * </table>
-* @param {Number} m11
-* @param {Number} m12
-* @param {Number} m21
-* @param {Number} m22
-* @param {Number} dx
-* @param {Number} dy
+* @param {Number} m11 Is the (1,1) parameter of of the transformation matrix
+* @param {Number} m12 Is the (1,2) parameter of of the transformation matrix
+* @param {Number} m21 Is the (2,1) parameter of of the transformation matrix
+* @param {Number} m22 Is the (2,2) parameter of of the transformation matrix
+* @param {Number} dx Is the x-scalar of the transformation matrix
+* @param {Number} dy Is the y-scalar of the transformation matrix
 * @BB60+
 * @PB10
 */
@@ -121,12 +153,12 @@ CanvasRenderingContext2D.prototype.transform = function(m11, m12, m21, m22, dx, 
 * Reset the current transform to the identity matrix (it should not 
 * change the image). To transform the image, invoke the transform(m11, 
 * m12, m21, m22, dx, dy) method with the appropriate arguments.
-* @param {Number} m11
-* @param {Number} m12
-* @param {Number} m21
-* @param {Number} m22
-* @param {Number} dx
-* @param {Number} dy
+* @param {Number} m11 Is the (1,1) parameter of of the transformation matrix
+* @param {Number} m12 Is the (1,2) parameter of of the transformation matrix
+* @param {Number} m21 Is the (2,1) parameter of of the transformation matrix
+* @param {Number} m22 Is the (2,2) parameter of of the transformation matrix
+* @param {Number} dx Is the x-scalar of the transformation matrix
+* @param {Number} dy Is the y-scalar of the transformation matrix
 * @BB60+
 * @PB10
 */
@@ -232,82 +264,43 @@ CanvasRenderingContext2D.prototype.strokeStyle = "black";
 CanvasRenderingContext2D.prototype.fillStyle = "black"
 
 /**
-* Takes four arguments that represent the start point (x0, y0) and 
-* end point (x1, y1) of the gradient. If any of the arguments to 
-* createLinearGradient() are infinite or NaN, the method must 
-* raise a NOT_SUPPORTED_ERR exception. Otherwise, the method 
-* must return a linear {@link CanvasGradient} initialized with the 
-* specified line.<br/><br/>
+* Returns a CanvasGradient object that 
+* represents a linear gradient that paints 
+* along the line given by the coordinates 
+* represented by the arguments.<br/><br/>
 * 
-* Linear gradients must be rendered such that all points on a line 
-* perpendicular to the line that crosses the start and end points 
-* have the color at the point where those two lines cross 
-* (with the colors coming from the interpolation and extrapolation 
-* described above). The points in the linear gradient must be 
-* transformed as described by the current transformation matrix 
-* when rendering.<br/><br/>
-* 
-* If x0 = x1 and y0 = y1, then the linear gradient must paint nothing.
-* @param {Number} x0
-* @param {Number} y0
-* @param {Number} x1
-* @param {Number} y1
+* If x0 = x1 and y0 = y1, then the linear gradient will paint nothing.
+* @param {Number} x0 x-coord of the start point
+* @param {Number} y0 y-coord of the start point
+* @param {Number} x1 x-coord of the end point
+* @param {Number} y1 y-coord of the end point
+* @return {CanvasGradient} The created {@link CanvasGradient}
+* @throws {NOT_SUPPORTED_ERR} If any of the arguments are not finite numbers.
 * @BB60+
 * @PB10
 */
 CanvasRenderingContext2D.prototype.createLinearGradient = function(x0, y0, x1, y1) { };
 
 /**
-* Method takes six arguments, the first three representing the start 
-* circle with origin (x0, y0) and radius r0, and the last three 
-* representing the end circle with origin (x1, y1) and radius r1. 
-* The values are in coordinate space units. If any of the arguments 
-* are infinite or NaN, a NOT_SUPPORTED_ERR exception must be raised. 
-* If either of r0 or r1 are negative, an INDEX_SIZE_ERR exception must 
-* be raised. Otherwise, the method must return a radial 
-* {@link CanvasGradient}  initialized with the two 
-* specified circles.<br/><br/>
-* 
-* Radial gradients must be rendered by following these steps:<br/><br/>
-* 
-* 1. If x0 = x1 and y0 = y1 and r0 = r1, then the radial gradient 
-* must paint nothing. Abort these steps.<br/><br/>
-* 
-* 2. Let x(?) = (x1-x0)? + x0<br/>
-* Let y(?) = (y1-y0)? + y0<br/>
-* Let r(?) = (r1-r0)? + r0<br/><br/>
-* 
-* Let the color at ? be the color at that position on the gradient 
-* (with the colors coming from the interpolation and extrapolation 
-* described above).<br/><br/>
-* 
-* 3. For all values of ? where r(?) > 0, starting with the value 
-* of ? nearest to positive infinity and ending with the value 
-* of ? nearest to negative infinity, draw the circumference of 
-* the circle with radius r(?) at position (x(?), y(?)), with the 
-* color at ?, but only painting on the parts of the canvas that have 
-* not yet been painted on by earlier circles in this step for this 
-* rendering of the gradient.<br/><br/>
-* 
-* This effectively creates a cone, touched by the two circles 
-* defined in the creation of the gradient, with the part of the 
-* cone before the start circle (0.0) using the color of the first 
-* offset, the part of the cone after the end circle (1.0) using the 
-* color of the last offset, and areas outside the cone untouched 
-* by the gradient (transparent black).
-* @param {Number} x0
-* @param {Number} y0
-* @param {Number} r0
-* @param {Number} x1
-* @param {Number} y1
-* @param {Number} r1
+* Returns a CanvasGradient object that represents a radial 
+* gradient that paints along the cone given by the circles 
+* represented by the arguments.
+* @param {Number} x0 x-coord of the start circle
+* @param {Number} y0 y-coord of the start circle
+* @param {Number} r0 radius of the start circle
+* @param {Number} x1 x-coord of the end circle
+* @param {Number} y1 y-oord of the end circle
+* @param {Number} r1 radius of the end circle
+* @return {CanvasGradient} The created {@link CanvasGradient}
+* @throws {NOT_SUPPORTED_ERR} If any of the arguments are not finite numbers.
+* @throws {INDEX_SIZE_ERR} If either of the radii are negative.
 * @BB60+
 * @PB10
 */
 CanvasRenderingContext2D.prototype.createRadialGradient = function (x0, y0, r0, x1, y1, r1) { };
 
 /**
-* Returns a CanvasPattern object that uses the given image and 
+* Returns a {@link CanvasPattern} object that uses the given image and 
 * repeats in the direction(s) given by the repetition 
 * argument.<br/><br/>
 * 
@@ -327,6 +320,10 @@ CanvasRenderingContext2D.prototype.createRadialGradient = function (x0, y0, r0, 
 * a SYNTAX_ERR exception.<br/><br/>
 * @param {HTMLImageElement|HTMLCanvasElement|HTMLVideoElement} image
 * @param {String} repetition
+* @return {CanvasPattern} The created {@link CanvasPattern}
+* @throws {TYPE_MISMATCH_ERR} If the first argument isn't an img, canvas, or video element.
+* @throws {INVALID_STATE_ERR} If the image has no image data.
+* @throws {SYNTAX_ERR} If the second argument isn't one of the allowed values.
 * @BB60+
 * @PB10
 */
@@ -420,10 +417,10 @@ CanvasRenderingContext2D.prototype.shadowColor = "transparent black"; // (defaul
 /**
 * Clears all pixels on the canvas in the given rectangle 
 * to transparent black.
-* @param {Number} x
-* @param {Number} y
-* @param {Number} w
-* @param {Number} h
+* @param {Number} x x-coord of the rectangle 
+* @param {Number} y y-coord of the rectangle
+* @param {Number} w width of the rectangle
+* @param {Number} h height of the rectangle
 * @BB60+
 * @PB10
 */
@@ -432,10 +429,10 @@ CanvasRenderingContext2D.prototype.clearRect = function(x, y, w, h) { };
 /**
 * Paints the given rectangle onto the canvas, using 
 * the current fill style.
-* @param {Number} x
-* @param {Number} y
-* @param {Number} w
-* @param {Number} h
+* @param {Number} x x-coord of the rectangle 
+* @param {Number} y y-coord of the rectangle
+* @param {Number} w width of the rectangle
+* @param {Number} h height of the rectangle
 * @BB60+
 * @PB10
 */
@@ -444,10 +441,10 @@ CanvasRenderingContext2D.prototype.fillRect = function(x, y, w, h) { };
 /**
 * Paints the box that outlines the given rectangle onto the 
 * canvas, using the current stroke style.
-* @param {Number} x
-* @param {Number} y
-* @param {Number} w
-* @param {Number} h
+* @param {Number} x x-coord of the rectangle 
+* @param {Number} y y-coord of the rectangle
+* @param {Number} w width of the rectangle
+* @param {Number} h height of the rectangle
 * @BB60+
 * @PB10
 */
@@ -470,8 +467,8 @@ CanvasRenderingContext2D.prototype.closePath = function() { };
 /**
 * Creates a new subpath with the given point as its first 
 * (and only) point.
-* @param {Number} x
-* @param {Number} y
+* @param {Number} x x-coord of the point to move to
+* @param {Number} y y-coord of the point to move to
 * @BB60+
 * @PB10
 */
@@ -480,8 +477,8 @@ CanvasRenderingContext2D.prototype.moveTo = function(x, y) { };
 /**
 * Adds the given point to the current subpath, connected to 
 * the previous point by a straight line.
-* @param {Number} x
-* @param {Number} y
+* @param {Number} x x-coord of the end point to draw a line to
+* @param {Number} y y-coord of the end point to draw a line to
 * @BB60+
 * @PB10
 */
@@ -491,10 +488,10 @@ CanvasRenderingContext2D.prototype.lineTo = function(x, y) { };
 * Adds the given point to the current path, connected to 
 * the previous one by a quadratic Bézier curve with the 
 * given control point.
-* @param {Number} cpx
-* @param {Number} cpy
-* @param {Number} x
-* @param {Number} y
+* @param {Number} cpx x-coord of the intermediate control point describing the curve
+* @param {Number} cpy y-coord of the intermediate control point describing the curve
+* @param {Number} x x-coord of the end point
+* @param {Number} y y-coord of the end point
 * @BB60+
 * @PB10
 */
@@ -503,12 +500,12 @@ CanvasRenderingContext2D.prototype.quadraticCurveTo = function(cpx, cpy, x, y) {
 /**
 * Adds the given point to the current path, connected to the 
 * previous one by a cubic Bézier curve with the given control points.
-* @param {Number} cp1x
-* @param {Number} cp1y
-* @param {Number} cp2x
-* @param {Number} cp2y
-* @param {Number} x
-* @param {Number} y
+* @param {Number} cp1x x-coord of the first intermediate control point describing the curve
+* @param {Number} cp1y y-coord of the first intermediate control point describing the curve
+* @param {Number} cp2x x-coord of the second intermediate control point describing the curve
+* @param {Number} cp2y y-coord of the second intermediate control point describing the curve
+* @param {Number} x x-coord of the end point
+* @param {Number} y y-coord of the end point
 * @BB60+
 * @PB10
 */
@@ -521,11 +518,12 @@ CanvasRenderingContext2D.prototype.bezierCurveTo = function(cp1x, cp1y, cp2x, cp
 * described by the arguments.<br/><br/>
 * 
 * If the given radius is negative, throws an INDEX_SIZE_ERR exception .
-* @param {Number} x1
-* @param {Number} y1
-* @param {Number} x2
-* @param {Number} y2
-* @param {Number} radius
+* @param {Number} x1 x-coord of the start point
+* @param {Number} y1 y-coord of the start point
+* @param {Number} x2 x-coord of the end point
+* @param {Number} y2 y-coord of the end point
+* @param {Number} radius radius of the arc
+* @throws {INDEX_SIZE_ERR} If the given radius is negative.
 * @BB60+
 * @PB10
 */
@@ -534,10 +532,10 @@ CanvasRenderingContext2D.prototype.arcTo = function(x1, y1, x2, y2, radius) { };
 /**
 * Adds a new closed subpath to the path, representing the 
 * given rectangle.
-* @param {Number} x
-* @param {Number} y
-* @param {Number} w
-* @param {Number} h
+* @param {Number} x x-coord of the rectangle
+* @param {Number} y y-coord of the rectangle
+* @param {Number} w width of the rectangle
+* @param {Number} h height of the rectangle
 * @BB60+
 * @PB10
 */
@@ -551,12 +549,13 @@ CanvasRenderingContext2D.prototype.rect = function(x, y, w, h) { };
 * previous point by a straight line. <br/><br/>
 * 
 * If the given radius is negative, throws an INDEX_SIZE_ERR exception.
-* @param {Number} x
-* @param {Number} y
-* @param {Number} radius
-* @param {Number} startAngle
-* @param {Number} endAngle
-* @param {Boolean} anticlockwise
+* @param {Number} x x-coord of the start point
+* @param {Number} y y-coord of the start point
+* @param {Number} radius radius of the arc
+* @param {Number} startAngle start angle in radians 
+* @param {Number} endAngle end angle in radians
+* @param {Boolean} anticlockwise if true draw the arc anti-clockwise
+* @throws {INDEX_SIZE_ERR} If the given radius is negative.
 * @BB60+
 * @PB10
 */
@@ -586,9 +585,9 @@ CanvasRenderingContext2D.prototype.clip = function() { };
 
 /**
 * Returns true if the given point is in the current path.
-* @param {Number} x
-* @param {Number} y
-* @returns {Boolean}
+* @param {Number} x x-coord of the point to check
+* @param {Number} y y-coord of the point to check
+* @returns {Boolean} true if point x,y is in the path, otherwise false
 * @BB60+
 * @PB10
 */
@@ -596,14 +595,12 @@ CanvasRenderingContext2D.prototype.isPointInPath = function(x, y) { };
 
 
 /**
-* The drawing path is used to form the focus ring provided that drawing 
-* path contains a closed path. The drawing path is used to form a 
-* best fit bounding rectangle in screen coordinates. The bounding 
-* rectangle and drawing path may be used to enhance accessibility 
-* properties for the targeted element.
-* @param {Element} element
-* @param {Boolean} [canDrawCustom]
-* @returns {Boolean}
+* If the given element is focused or a descendant of the element with 
+* focus, draws a focus ring around the current path, following the 
+* platform conventions for focus rings.
+* @param {Element} element check if the given element is focused
+* @param {Boolean} [canDrawCustom] If true, then the focus ring is only drawn if the user has configured his system to draw focus rings in a particular manner. (For example, high contrast focus rings.)
+* @returns {Boolean} When the method returns true, the author is expected to manually draw a focus ring
 * @BB60+
 * @PB10
 */
@@ -613,7 +610,7 @@ CanvasRenderingContext2D.prototype.drawFocusRing = function(element, canDrawCust
 /**
 * Returns the blink rate of the system in milliseconds if supported. 
 * Otherwise, returns -1 if it is unsupported by the system.
-* @returns {Number}
+* @returns {Number} blinkrate in milliseconds. -1 if unsupported.
 * @BB60+
 * @PB10
 */
@@ -624,11 +621,11 @@ CanvasRenderingContext2D.prototype.caretBlinkRate = function() { };
 * Returns true if the given element is focused or a document 
 * descendant of an element with focus. Otherwise, returns false.
 * @param {Element} element
-* @param {Number} x point x-coord
-* @param {Number} y point y-coord
-* @param {Number} w width
-* @param {Number} h height
-* @returns {Boolean}
+* @param {Number} x x-coord of the selection position
+* @param {Number} y y-coord of the selection position
+* @param {Number} w width of the selection position
+* @param {Number} h height of the selection position
+* @returns {Boolean} true if the given element is focused or a document descendant of an element with focus. Otherwise, returns false
 * @BB60+
 * @PB10
 */
@@ -676,10 +673,10 @@ CanvasRenderingContext2D.prototype.textBaseline = "alphabetic"; // "top", "hangi
 * Renders fill for the given text at the given position. If a 
 * maximum width is provided, the text is scaled to fit that 
 * width if necessary.
-* @param {String} text
-* @param {Number} x
-* @param {Number} y
-* @param {Number} [maxWidth]
+* @param {String} text the text to fill
+* @param {Number} x the x-coord of where the text is placed
+* @param {Number} y the y-coord of where the text is placed
+* @param {Number} [maxWidth] The maximum width the text should take up
 * @BB60+
 * @PB10
 */
@@ -690,9 +687,9 @@ CanvasRenderingContext2D.prototype.fillText = function(text, x, y, maxWidth) { }
 * If a maximum width is provided, the text is scaled to fit 
 * that width if necessary.
 * @param {String} text
-* @param {Number} x
-* @param {Number} y
-* @param {Number} [maxWidth]
+* @param {Number} x the x-coord of where the text is placed
+* @param {Number} y the y-coord of where the text is placed
+* @param {Number} [maxWidth] The maximum width the text should take up
 * @BB60+
 * @PB10
 */
@@ -701,8 +698,8 @@ CanvasRenderingContext2D.prototype.strokeText = function(text, x, y, maxWidth) {
 /**
 * Returns a {@link TextMetrics} object with the metrics of the 
 * given text in the current font.
-* @param {String} text
-* @returns {TextMetrics}
+* @param {String} text the text string to measure
+* @returns {TextMetrics} the width of the text if rendered
 * @BB60+
 * @PB10
 */
@@ -712,11 +709,11 @@ CanvasRenderingContext2D.prototype.measureText = function(text) { };
 /**
 * Draw the given image onto the canvas.<br/><br/>
 * {@image images/drawImage.png}
-* @param {HTMLImageElement|HTMLCanvasElement|HTMLVideoElement} image
-* @param {Number} dx
-* @param {Number} dy
-* @param {Number} [dw]
-* @param {Number} [dh]
+* @param {HTMLImageElement|HTMLCanvasElement|HTMLVideoElement} image the source image
+* @param {Number} dx x-coord of the destination position
+* @param {Number} dy y-coord of the destination position
+* @param {Number} [dw] width of the destination position
+* @param {Number} [dh] height of the destination position
 * @BB60+
 * @PB10
 */
@@ -742,15 +739,15 @@ CanvasRenderingContext2D.prototype.drawImage = function(image, dx, dy, dw, dh) {
 * {@image images/drawImage.png}
 * @name CanvasRenderingContext2D.prototype.drawImage^2
 * @function
-* @param {HTMLImageElement|HTMLCanvasElement|HTMLVideoElement} image
-* @param {Number} dx
-* @param {Number} dy
-* @param {Number} sw
-* @param {Number} sh
-* @param {Number} dx
-* @param {Number} dy
-* @param {Number} dw
-* @param {Number} dh
+* @param {HTMLImageElement|HTMLCanvasElement|HTMLVideoElement} image the source image
+* @param {Number} sx x-coord of the source position
+* @param {Number} sy y-coord of the source position
+* @param {Number} sw width of the source position
+* @param {Number} sh height of the source position
+* @param {Number} dx x-coord of the destination position
+* @param {Number} dy y-coord of the destination position
+* @param {Number} dw width of the destination position
+* @param {Number} dh height of the destination position
 * @BB60+
 * @PB10
 */
@@ -758,31 +755,40 @@ CanvasRenderingContext2D.prototype.drawImage^2 = function(image, sx, sy, sw, sh,
 
 
 /**
-*
-* @param {Number} sw
-* @param {Number} sh
-* @returns {ImageData}
+* Returns an {@link ImageData} object with the given dimensions in CSS pixels 
+* (which might map to a different number of actual device pixels 
+* exposed by the object itself). All the pixels in the returned 
+* object are transparent black.
+* @param {Number} sw width of the image data object to create
+* @param {Number} sh height of the image data object to create
+* @returns {ImageData} The {@link ImageData}
 * @BB60+
 * @PB10
 */
 CanvasRenderingContext2D.prototype.createImageData = function(sw, sh) { };
 
 /**
-*
-* @param {ImageData} imagedata
-* @returns {ImageData}
+* Returns an {@link ImageData} object with the same dimensions as the 
+* argument. All the pixels in the returned object are 
+* transparent black.
+* @param {ImageData} imagedata The {@link ImageData} to copy
+* @returns {ImageData} The {@link ImageData}
+* @throws {NOT_SUPPORTED_ERR} If the argument is null
 * @BB60+
 * @PB10
 */
 CanvasRenderingContext2D.prototype.createImageData = function(imagedata) { };
 
 /**
-*
-* @param {Number} sx
-* @param {Number} sy
-* @param {Number} sw
-* @param {Number} sh
-* @returns {ImageData}
+* Returns an {@link ImageData} object containing the image data 
+* for the given rectangle of the canvas.
+* @param {Number} sx x-coord of the source position
+* @param {Number} sy y-coord of the source position
+* @param {Number} sw width of the source position
+* @param {Number} sh height of the source position
+* @returns {ImageData} The {@link ImageData}
+* @throws {INDEX_SIZE_ERR} If the either of the width or height arguments are zero.
+* @throws {NOT_SUPPORTED_ERR} If the argument is null
 * @BB60+
 * @PB10
 */
@@ -790,15 +796,24 @@ CanvasRenderingContext2D.prototype.getImageData = function(sx, sy, sw, sh) { };
 
 
 /**
+* Paints the data from the given ImageData object onto the 
+* canvas. If a dirty rectangle is provided, only the pixels 
+* from that rectangle are painted.<br/><br/>
 *
-* @param {ImageData} imagedata
-* @param {Number} dx
-* @param {Number} dy
-* @param {Number} [dirtyX]
-* @param {Number} [dirtyY]
-* @param {Number} [dirtyWith]
-* @param {Number} [dirtyHeight]
-* @returns {ImageData}
+* The globalAlpha and globalCompositeOperation attributes, 
+* as well as the shadow attributes, are ignored for the 
+* purposes of this method call; pixels in the canvas are 
+* replaced wholesale, with no composition, alpha 
+* blending, no shadows, etc.
+* @param {ImageData} imagedata The {@link ImageData} to copy
+* @param {Number} dx x-coord of the destination position
+* @param {Number} dy y-coord of the destination position
+* @param {Number} [dirtyX] x-coord of the source position
+* @param {Number} [dirtyY] y-coord of the source position
+* @param {Number} [dirtyWith] width of the source position
+* @param {Number} [dirtyHeight] height of the source position
+* @throws {TYPE_MISMATCH_ERR} If the first argument is null
+* @throws {NOT_SUPPORTED_ERR} If any of the other arguments are not finite.
 * @BB60+
 * @PB10
 */
@@ -814,20 +829,13 @@ CanvasRenderingContext2D.prototype.putImageData = function(imagedata, dx, dy, di
 CanvasGradient = function() { };
 
 /*
-* Adds a new stop to a gradient. If the offset is less than 0, greater 
-* than 1, infinite, or NaN, then an INDEX_SIZE_ERR exception must be 
-* raised. If the color cannot be parsed as a CSS <color> value, then 
-* a SYNTAX_ERR exception must be raised. Otherwise, the gradient must 
-* have a new stop placed, at offset offset relative to the whole 
-* gradient, and with the color obtained by parsing color as a CSS 
-* <color> value. If multiple stops are added at the same offset on a 
-* gradient, they must be placed in the order added, with the first 
-* one closest to the start of the gradient, and each subsequent one 
-* infinitesimally further along towards the end point (in effect 
-* causing all but the first and last stop added at each point to 
-* be ignored).
-* @param {Number} offset
-* @param {String} color
+* Adds a color stop with the given color to the gradient at the 
+* given offset. 0.0 is the offset at one end of the gradient, 
+* 1.0 is the offset at the other end.
+* @param {Number} offset the offset of the new stop
+* @param {String} color the color of the new stop
+* @throws {INDEX_SIZE_ERR} If the offset is less than 0, greater than 1, infinite, or NaN
+* @throws {SYNTAX_ERR} If the color cannot be parsed
 * @BB60+
 * @PB10
 */
@@ -848,7 +856,7 @@ CanvasPattern = function() { };
 * width property set to the width the text given the set font and 
 * element properties.
 * @BB60+
-* @PB10
+* @PB10http://dev.w3.org/html5/2dcontext/#dom-context-2d-createlineargradient
 */
 TextMetrics = function() { };
 
