@@ -19,8 +19,6 @@
  * <p>Using Camera API allows to invoke the native camera application to record video or take a picture and receive a path to the file stored.</p>
  * <p>The methods are static and don't required to create an instance of a camera.</p>
  * @toc {Media} Camera
- * @BB50+
- * @PB10
  * @featureID blackberry.media.camera
  */
 blackberry.media.camera = {
