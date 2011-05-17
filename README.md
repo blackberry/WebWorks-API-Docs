@@ -6,9 +6,6 @@ This project is Open Sourced under the Apache 2.0 license
 
 [Read more](https://github.com/blackberry/WebWorks/wiki) about the BlackBerry WebWorks open source project
 
-# STILL A WORK IN PROGRESS
-We are still working on the initial setup of this repository
-
 
 ## Setting up your Environment
 1. Download the [jsdoc-toolkit](http://code.google.com/p/jsdoc-toolkit/downloads/list)
