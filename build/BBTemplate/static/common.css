@@ -24,13 +24,12 @@ body {
 	height:33px;
 	top: 65px;
 	text-align:center;
-	padding-left: 10px;
 	padding-bottom: 5px;
 	padding-top:2px;
 	left: 0px;
 	font-size: 14pt;
 	background:url('images/title_header.png') repeat-x 0px top;
-	width: 99.8%;
+	width: 100%;
 }
 
 .toc {
