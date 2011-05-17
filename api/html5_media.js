@@ -160,6 +160,8 @@ HTMLMediaElement.prototype.error = { };
 * (Removing the src attribute does not do this, even if there are 
 * source elements present).
 * @type String
+* @BB60+
+* @PB10
 */
 HTMLMediaElement.prototype.src = { };
 
@@ -169,6 +171,8 @@ HTMLMediaElement.prototype.src = { };
 * attribute to absolute URL.
 * @readOnly
 * @type String
+* @BB60+
+* @PB10
 */
 HTMLMediaElement.prototype.currentSRC = { };
 

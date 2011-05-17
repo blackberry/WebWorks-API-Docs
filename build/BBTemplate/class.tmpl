@@ -175,19 +175,19 @@
 <!-- ============================== Support Platforms ============================ -->
 	{!var allChildren =[]; var constructors = [];!}
 	<if test="data.methods.length">
-		{! var ownMethods = data.methods.filter(function($){return $.memberOf == data.alias  && !$.isNamespace && !$.uri && !$.constructedBy}).sort(makeNameSort()); !}
-		{! var ownURIMethods = data.methods.filter(function($){return $.memberOf == data.alias  && !$.isNamespace && $.uri && !$.constructedBy}).sort(makeNameSort()); !}
-		{! constructors = data.methods.filter(function($){return $.memberOf == data.alias  && $.constructedBy}).sort(makeNameSort()); !}
+		{! var ownMethods = data.methods.filter(function($){return $.memberOf == data.alias  && isMethod($)}).sort(makeNameSort()); !}
+		{! var ownURIMethods = data.methods.filter(function($){return $.memberOf == data.alias  && isURIMethod($)}).sort(makeNameSort()); !}
+		{! constructors = data.methods.filter(function($){return $.memberOf == data.alias  && isConstructor($)}).sort(makeNameSort()); !}
 		{! allChildren = allChildren.concat(ownMethods, ownURIMethods);!}
 	</if>
 	<if test="data.properties.length">
-		{! var ownProperties   = data.properties.filter(function($){return $.memberOf == data.alias && !$.isNamespace && !$.isConstant && !$.constructedBy}).sort(makeNameSort()); !}
-		{! var ownConstants    = data.properties.filter(function($){return $.memberOf == data.alias && !$.isNamespace && $.isConstant && !$.constructedBy}); !}
-		{! constructors =  constructors.concat(data.properties.filter(function($){return $.memberOf == data.alias && !$.isNamespace && $.constructedBy})); !}
+		{! var ownProperties   = data.properties.filter(function($){return $.memberOf == data.alias && isProperty($)}).sort(makeNameSort()); !}
+		{! var ownConstants    = data.properties.filter(function($){return $.memberOf == data.alias && isConstant($)}); !}
+		{! constructors =  constructors.concat(data.properties.filter(function($){return $.memberOf == data.alias && isConstructor($)})); !}
 		{! allChildren = allChildren.concat(ownProperties,ownConstants);!}
 	</if>
 	<if test="data.events.length">
-		{! var ownEvents = data.events.filter(function($){return $.memberOf == data.alias  && !$.isNamespace}).sort(makeNameSort()); !}
+		{! var ownEvents = data.events.filter(function($){return $.memberOf == data.alias  && isEvent($)}).sort(makeNameSort()); !}
 		{! allChildren = allChildren.concat(ownEvents);!}
 	</if>
     {! var generateDefaultConstructor = !data.isBuiltin() && data.is('CONSTRUCTOR') && !data.noConstructor; !}
@@ -289,119 +289,145 @@
 		</div>
 	</if>
 
-<!-- ============================== Function Summary  ==================== -->
+<!-- ============================== Deprecation setup  ==================== -->
     {!
         var hasDeprecation = false;
 		var deprecationSupport = new BBTag.Support();
     !}
-	<if test="(defined(ownMethods) && ownMethods.length)">
-		{!var ownMethodSupport =new BBTag.Support(ownMethods);!}
-		<br/>
-		<div x-ww-support="{+ownMethodSupport.getSupportTag()+}">
-			<h1>Functions</h1>
-			<ul class="ulNoTopMargin">			
-				<for each="member" in="ownMethods">
-					<li x-ww-support="{+member.support.getSupportTag()+}">
-					    {+new Link().toSymbol(member.alias).withText(getSymbolName(member))+}
-						<if test="member.deprecated">
-							<span class="depricate">**</span>
-							{! hasDeprecation = true; deprecationSupport.populateBySymbol(member); !}
-						</if>
-					</li>				
-				</for>
-			</ul>	
-		</div>
-	</if>
+    
+<!-- ============================== Function Summary  ==================== -->    
+     <if test="data.inheritsFrom.length">
+        {!        
+            var borrowedMembers = data.methods.filter(function($) {return $.memberOf != data.alias && isMethod($)});
+            var memberContributors = [];
+            borrowedMembers.map(function($) {if (memberContributors.indexOf($.memberOf) < 0) memberContributors.push($.memberOf)});   
+        !}
+    </if>
+    <if test="((defined(ownMethods) && ownMethods.length)) || (memberContributors && memberContributors.length)">
+        {!var methodSupport =new BBTag.Support(data.methods.filter(isMethod));!}
+        <br/>
+        <div x-ww-support="{+methodSupport.getSupportTag()+}">
+            <h1>Functions</h1>
+    </if>
+    
+   <if test="(defined(ownMethods) && ownMethods.length)">			
+    		<ul class="ulNoTopMargin">			
+    			<for each="member" in="ownMethods">
+    				<li x-ww-support="{+member.support.getSupportTag()+}">
+    				    {+new Link().toSymbol(member.alias).withText(getSymbolName(member))+}
+    					<if test="member.deprecated">
+    						<span class="depricate">**</span>
+    						{! hasDeprecation = true; deprecationSupport.populateBySymbol(member); !}
+    					</if>
+    				</li>				
+    			</for>
+    		</ul>	
+   </if>
 
 <!-- ============================== Inherited Functions Summary  ==================== -->	
-	<if test="data.inheritsFrom.length">
-		{!        
-	    	var borrowedMembers = data.methods.filter(function($) {return $.memberOf != data.alias && !$.uri});
-	    	var memberContributors = [];
-	    	borrowedMembers.map(function($) {if (memberContributors.indexOf($.memberOf) < 0) memberContributors.push($.memberOf)});   
-	    !}
-	</if>
     <if test="memberContributors && memberContributors.length">
-        <dl class="inheritsList">
-        {!
-            for (var i = 0, l = memberContributors.length; i < l; i++) {
-                output +=
-                    "<dt>Functions inherited from class "+new Link().toSymbol(memberContributors[i])+": </dt>"
-                    +
-                    "<dd>" +
-                    borrowedMembers
-                    .filter(
-                        function($) { return $.memberOf == memberContributors[i] }
-                    )
-                    .sort(makeSortby("name"))
-                    .map(
-                        function($) { return "<span x-ww-support=\""+$.support.getSupportTag()+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
-                    )
-                    .join(", ")
-                    +
-                    "</dd>";
-            }
-        !}
-        </dl>
-	</if>		
+            <dl class="inheritsList">
+            {!
+                for (var i = 0, l = memberContributors.length; i < l; i++) {
+                    output +=
+                        "<dt>Functions inherited from class "+new Link().toSymbol(memberContributors[i])+": </dt>"
+                        +
+                        "<dd>" +
+                        borrowedMembers
+                        .filter(
+                            function($) { return $.memberOf == memberContributors[i] }
+                        )
+                        .sort(makeSortby("name"))
+                        .map(
+                            function($) { return "<span x-ww-support=\""+$.support.getSupportTag()+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
+                        )
+                        .join(", ")
+                        +
+                        "</dd>";
+                }
+            !}
+            </dl>
+	</if>
+	
+    <if test="((defined(ownMethods) && ownMethods.length)) || (memberContributors && memberContributors.length)">
+        </div>
+    </if>    		
 	
 <!-- ============================== events summary ======================== -->
+    <if test="data.inheritsFrom.length">
+        {!        
+            var borrowedEvents = data.events.filter(function($) {return $.memberOf != data.alias && isEvent($)});
+            var eventContributors = [];
+            borrowedEvents.map(function($) {if (eventContributors.indexOf($.memberOf) < 0) eventContributors.push($.memberOf)});   
+        !}
+    </if>
+    
+    <if test="(defined(ownEvents) && ownEvents.length) || (eventContributors && eventContributors.length)">
+        {!var eventSupport =new BBTag.Support(data.events.filter(isEvent));!}
+        <br/>
+        <div x-ww-support="{+eventSupport.getSupportTag()+}">
+            <h1>Events</h1>
+    </if>
+    
 	<if test="defined(ownEvents) && ownEvents.length">
-		{!var ownEventSupport =new BBTag.Support(ownEvents);!}
-		<br/>
-		<div x-ww-support="{+ownEventSupport.getSupportTag()+}">
-			<h1>Events</h1>
-			<ul class="ulNoTopMargin">			
-				<for each="member" in="ownEvents">
-					<li x-ww-support="{+member.support.getSupportTag()+}">
+    		<ul class="ulNoTopMargin">			
+    			<for each="member" in="ownEvents">
+    				<li x-ww-support="{+member.support.getSupportTag()+}">
                         {+new Link().toSymbol(member.alias).withText(getSymbolName(member))+}
-						<if test="member.deprecated">
-							<span class="depricate">**</span>
-							{!hasDeprecation = true; deprecationSupport.populateBySymbol(member);!}
-						</if>
-					</li>				
-				</for>
-			</ul>
-		</div>
+    					<if test="member.deprecated">
+    						<span class="depricate">**</span>
+    						{!hasDeprecation = true; deprecationSupport.populateBySymbol(member);!}
+    					</if>
+    				</li>				
+    			</for>
+    		</ul>
 	</if>
 	
 <!-- ============================== Inherited Event Summary  ==================== -->	
-	<if test="data.inheritsFrom.length">
-		{!        
-	    	var borrowedEvents = data.events.filter(function($) {return $.memberOf != data.alias});
-	    	var eventContributors = [];
-	    	borrowedEvents.map(function($) {if (eventContributors.indexOf($.memberOf) < 0) eventContributors.push($.memberOf)});   
-	    !}
-	</if>
     <if test="eventContributors && eventContributors.length">
-        <dl class="inheritsList">
-        {!
-            for (var i = 0, l = eventContributors.length; i < l; i++) {
-                output +=
-                    "<dt>Events inherited from class "+new Link().toSymbol(eventContributors[i])+": </dt>"
-                    +
-                    "<dd>" +
-                    borrowedMembers
-                    .filter(
-                        function($) { return $.memberOf == eventContributors[i] }
-                    )
-                    .sort(makeSortby("name"))
-                    .map(
-                        function($) { return "<span x-ww-support=\""+$.support.getSupportTag()+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
-                    )
-                    .join(", ")
-                    +
-                    "</dd>";
-            }
+            <dl class="inheritsList">
+            {!
+                for (var i = 0, l = eventContributors.length; i < l; i++) {
+                    output +=
+                        "<dt>Events inherited from class "+new Link().toSymbol(eventContributors[i])+": </dt>"
+                        +
+                        "<dd>" +
+                        borrowedEvents
+                        .filter(
+                            function($) { return $.memberOf == eventContributors[i] }
+                        )
+                        .sort(makeSortby("name"))
+                        .map(
+                            function($) { return "<span x-ww-support=\""+$.support.getSupportTag()+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
+                        )
+                        .join(", ")
+                        +
+                        "</dd>";
+                }
+            !}
+            </dl>
+	</if>
+	
+	<if test="(defined(ownEvents) && ownEvents.length) || (eventContributors && eventContributors.length)">	
+        </div>
+    </if>
+<!-- ============================== Properties summary ===================== -->
+    <if test="data.inheritsFrom.length">
+        {!        
+            var borrowedProperties = data.properties.filter(function($) {return $.memberOf != data.alias && isProperty($)});
+            var propertyContributors = [];
+            borrowedProperties.map(function($) {if (propertyContributors.indexOf($.memberOf) < 0) propertyContributors.push($.memberOf)});   
         !}
-        </dl>
-	</if>	
-<!-- ============================== Properties summary ===================== -->	
-	<if test="defined(ownProperties) && ownProperties.length">
-		{!var ownPropertySupport =new BBTag.Support(ownProperties);!}
-		<br/>
-		<div x-ww-support="{+ownPropertySupport.getSupportTag()+}">
-			<h1>Properties</h1>
+    </if>
+    
+    <if test="(defined(ownProperties) && ownProperties.length) || (propertyContributors && propertyContributors.length)">
+        {!var propertySupport =new BBTag.Support(data.properties.filter(isProperty));!}
+        <br/>
+        <div x-ww-support="{+propertySupport.getSupportTag()+}">
+            <h1>Properties</h1>
+    </if>
+	
+	<if test="defined(ownProperties) && ownProperties.length">		
 			<ul class="ulNoTopMargin">
 				<for each="member" in="ownProperties">
 					<li x-ww-support="{+member.support.getSupportTag()+}">
@@ -413,45 +439,52 @@
 					</li>				
 				</for>
 			</ul>
-		</div>
 	</if>
 <!-- ============================== Inherited Properties Summary  ==================== -->	
-	<if test="data.inheritsFrom.length">
-		{!        
-	    	var borrowedProperties = data.properties.filter(function($) {return $.memberOf != data.alias && !$.isNamespace && !$.isConstant});
-	    	var propertyContributors = [];
-	    	borrowedProperties.map(function($) {if (propertyContributors.indexOf($.memberOf) < 0) propertyContributors.push($.memberOf)});   
-	    !}
-	</if>
     <if test="propertyContributors && propertyContributors.length">
-        <dl class="inheritsList">
-        {!
-            for (var i = 0, l = propertyContributors.length; i < l; i++) {
-                output +=
-                    "<dt>Properties inherited from class "+new Link().toSymbol(propertyContributors[i])+": </dt>"
-                    +
-                    "<dd>" +
-                    borrowedMembers
-                    .filter(
-                        function($) { return $.memberOf == propertyContributors[i] }
-                    )
-                    .sort(makeSortby("name"))
-                    .map(
-                        function($) { return "<span x-ww-support=\""+$.support.getSupportTag()+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
-                    )
-                    .join(", ")
-                    +
-                    "</dd>";
-            }
-        !}
-        </dl>
-	</if>	
+            <dl class="inheritsList">
+            {!
+                for (var i = 0, l = propertyContributors.length; i < l; i++) {
+                    output +=
+                        "<dt>Properties inherited from class "+new Link().toSymbol(propertyContributors[i])+": </dt>"
+                        +
+                        "<dd>" +
+                        borrowedProperties
+                        .filter(
+                            function($) { return $.memberOf == propertyContributors[i] }
+                        )
+                        .sort(makeSortby("name"))
+                        .map(
+                            function($) { return "<span x-ww-support=\""+$.support.getSupportTag()+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
+                        )
+                        .join(", ")
+                        +
+                        "</dd>";
+                }
+            !}
+            </dl>
+	</if>
+	
+	<if test="(defined(ownProperties) && ownProperties.length) || (propertyContributors && propertyContributors.length)">
+        </div>
+    </if>	
 <!-- ============================== Constants summary ===================== -->
+    <if test="data.inheritsFrom.length">
+        {!        
+            var borrowedConstants = data.properties.filter(function($) {return $.memberOf != data.alias && isConstant($)});
+            var constantContributors = [];
+            borrowedConstants.map(function($) {if (constantContributors.indexOf($.memberOf) < 0) constantContributors.push($.memberOf)});   
+        !}
+    </if>
+	
+	<if test="(defined(ownConstants) && ownConstants.length) || (constantContributors && constantContributors.length)">
+        {!var constantSupport =new BBTag.Support(data.properties.filter(isConstant));!}
+        <br/>
+        <div x-ww-support="{+constantSupport.getSupportTag()+}">
+            <h1>Constants</h1>
+	</if>
+	
 	<if test="defined(ownConstants) && ownConstants.length">
-		{!var ownConstantSupport =new BBTag.Support(ownConstants);!}
-		<br/>
-		<div x-ww-support="{+ownConstantSupport.getSupportTag()+}">
-			<h1>Constants</h1>
 			<ul class="ulNoTopMargin">
 				<for each="member" in="ownConstants">
 					<li x-ww-support="{+member.support.getSupportTag()+}">
@@ -463,46 +496,53 @@
 					</li>				
 				</for>
 			</ul>
-		</div>
 	</if>
 
 <!-- ============================== Inherited Constants Summary  ==================== -->	
-	<if test="data.inheritsFrom.length">
-		{!        
-	    	var borrowedConstants = data.properties.filter(function($) {return $.memberOf != data.alias && !$.isNamespace && $.isConstant});
-	    	var constantContributors = [];
-	    	borrowedConstants.map(function($) {if (constantContributors.indexOf($.memberOf) < 0) constantContributors.push($.memberOf)});   
-	    !}
-	</if>
     <if test="constantContributors && constantContributors.length">
-        <dl class="inheritsList">
-        {!
-            for (var i = 0, l = constantContributors.length; i < l; i++) {
-                output +=
-                    "<dt>Constants inherited from class "+new Link().toSymbol(constantContributors[i])+": </dt>"
-                    +
-                    "<dd>" +
-                    borrowedMembers
-                    .filter(
-                        function($) { return $.memberOf == constantContributors[i] }
-                    )
-                    .sort(makeSortby("name"))
-                    .map(
-                        function($) { return "<span x-ww-support=\""+$.support.getSupportTag()+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
-                    )
-                    .join(", ")
-                    +
-                    "</dd>";
-            }
-        !}
-        </dl>
+            <dl class="inheritsList">
+            {!
+                for (var i = 0, l = constantContributors.length; i < l; i++) {
+                    output +=
+                        "<dt>Constants inherited from class "+new Link().toSymbol(constantContributors[i])+": </dt>"
+                        +
+                        "<dd>" +
+                        borrowedConstants
+                        .filter(
+                            function($) { return $.memberOf == constantContributors[i] }
+                        )
+                        .sort(makeSortby("name"))
+                        .map(
+                            function($) { return "<span x-ww-support=\""+$.support.getSupportTag()+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
+                        )
+                        .join(", ")
+                        +
+                        "</dd>";
+                }
+            !}
+            </dl>
 	</if>
+	
+	<if test="(defined(ownConstants) && ownConstants.length) || (constantContributors && constantContributors.length)">
+        </div>
+    </if>
 <!-- ============================== URI Summary  ==================== -->			
+    <if test="data.inheritsFrom.length">
+        {!        
+            var borrowedURI = data.properties.filter(function($) {return $.memberOf != data.alias && isURIMethod($)});
+            var URIContributors = [];
+            borrowedURI.map(function($) {if (URIContributors.indexOf($.memberOf) < 0) URIContributors.push($.memberOf)});   
+        !}
+    </if>
+    
+    <if test="(defined(ownURIMethods) && ownURIMethods.length) || (URIContributors && URIContributors.length)">
+        {!var URISupport =new BBTag.Support(data.methods.filter(isURIMethod));!}
+        <br/>
+        <div x-ww-support="{+URISupport.getSupportTag()+}">
+            <h1>URI Functions</h1>
+    </if>
+    
 	<if test="defined(ownURIMethods) && ownURIMethods.length">
-		{!var ownURISupport =new BBTag.Support(ownURIMethods);!}
-		<br/>
-		<div x-ww-support="{+ownURISupport.getSupportTag()+}">
-			<h1>URI Functions</h1>
 			<ul class="ulNoTopMargin">			
 				<for each="member" in="ownURIMethods">
 					<li x-ww-support="{+member.support.getSupportTag()+}">
@@ -513,41 +553,37 @@
 						</if>
 					</li>				
 				</for>
-			</ul>
-		</div>	
+			</ul>	
 	</if>		
 
 <!-- ============================== Inherited URI Summary  ==================== -->	
-	<if test="data.inheritsFrom.length">
-		{!        
-	    	var borrowedURI = data.properties.filter(function($) {return $.memberOf != data.alias && $.uri});
-	    	var URIContributors = [];
-	    	borrowedURI.map(function($) {if (URIContributors.indexOf($.memberOf) < 0) URIContributors.push($.memberOf)});   
-	    !}
-	</if>
     <if test="URIContributors && URIContributors.length">
-        <dl class="inheritsList">
-        {!
-            for (var i = 0, l = URIContributors.length; i < l; i++) {
-                output +=
-                    "<dt>URI inherited from class "+new Link().toSymbol(URIContributors[i])+": </dt>"
-                    +
-                    "<dd>" +
-                    borrowedMembers
-                    .filter(
-                        function($) { return $.memberOf == URIContributors[i] }
-                    )
-                    .sort(makeSortby("name"))
-                    .map(
-                        function($) { return "<span x-ww-support=\""+$.support.getSupportTag()+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
-                    )
-                    .join(", ")
-                    +
-                    "</dd>";
-            }
-        !}
-        </dl>
+            <dl class="inheritsList">
+            {!
+                for (var i = 0, l = URIContributors.length; i < l; i++) {
+                    output +=
+                        "<dt>URI inherited from class "+new Link().toSymbol(URIContributors[i])+": </dt>"
+                        +
+                        "<dd>" +
+                        borrowedURI
+                        .filter(
+                            function($) { return $.memberOf == URIContributors[i] }
+                        )
+                        .sort(makeSortby("name"))
+                        .map(
+                            function($) { return "<span x-ww-support=\""+$.support.getSupportTag()+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
+                        )
+                        .join(", ")
+                        +
+                        "</dd>";
+                }
+            !}
+            </dl>
 	</if>
+	
+    <if test="(defined(ownURIMethods) && ownURIMethods.length) || (URIContributors && URIContributors.length)">
+        </div>
+    </if>
 	
 <!-- ============================== Deprecation Notice  ==================== -->
 	<if test="hasDeprecation">
@@ -938,6 +974,7 @@
 	</if>
 <!-- ============================== properties details ========================== -->		
 	<if test="defined(ownProperties) && ownProperties.length">
+	   {!var ownPropertySupport = new BBTag.Support(ownProperties)!}
 		<div x-ww-support="{+ownPropertySupport.getSupportTag()+}">
 			<h2>Properties:</h2>
 			<hr style="margin-bottom:15px;"/>
@@ -1030,6 +1067,7 @@
 	
 <!-- ============================== constant details ========================== -->		
 	<if test="defined(ownConstants) && ownConstants.length">
+        {!var ownConstantSupport = new BBTag.Support(ownConstants)!}
 		<div x-ww-support="{+ownConstantSupport.getSupportTag()+}">
 			<h2>Constants:</h2>
 			<hr style="margin-bottom:15px;"/>

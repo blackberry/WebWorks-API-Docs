@@ -71,7 +71,7 @@ CanvasRenderingContext2D.documentConstructor = undefined;
 
 /**
 * Return the canvas interface element that the context paints on.
-* @type HTMLCanvasElement
+* @type canvas
 * @readOnly
 * @BB60+
 * @PB10
@@ -461,6 +461,8 @@ CanvasRenderingContext2D.prototype.beginPath = function() { };
 /**
 * Marks the current subpath as closed, and starts a new subpath with 
 * a point the same as the start and end of the newly closed subpath.
+* @BB60+
+* @PB10
 */
 CanvasRenderingContext2D.prototype.closePath = function() { };
 
@@ -751,38 +753,38 @@ CanvasRenderingContext2D.prototype.drawImage = function(image, dx, dy, dw, dh) {
 * @BB60+
 * @PB10
 */
-CanvasRenderingContext2D.prototype.drawImage^2 = function(image, sx, sy, sw, sh, dx, dy, dw, dh) { };
+CanvasRenderingContext2D.prototype.drawImage = function(image, sx, sy, sw, sh, dx, dy, dw, dh) { };
 
 
 /**
 * @name CanvasRenderingContext2D.prototype.createImageData^2
 * @function
-* Returns an {@link ImageData} object with the given dimensions in CSS pixels 
+* @description Returns an {@link ImageData} object with the given dimensions in CSS pixels 
 * (which might map to a different number of actual device pixels 
 * exposed by the object itself). All the pixels in the returned 
 * object are transparent black.
 * @param {Number} sw width of the image data object to create
 * @param {Number} sh height of the image data object to create
-* @returns {ImageData} The {@link ImageData}
+* @returns {ImageData} The {@link ImageData} for the current context
 * @BB60+
 * @PB10
 */
 CanvasRenderingContext2D.prototype.createImageData = function(sw, sh) { };
 
 /**
-* Returns an {@link ImageData} object with the same dimensions as the 
+* @description Returns an {@link ImageData} object with the same dimensions as the 
 * argument. All the pixels in the returned object are 
 * transparent black.
 * @param {ImageData} imagedata The {@link ImageData} to copy
-* @returns {ImageData} The {@link ImageData}
+* @returns {ImageData} The {@link ImageData} for the current context
 * @throws {NOT_SUPPORTED_ERR} If the argument is null
 * @BB60+
 * @PB10
 */
-CanvasRenderingContext2D.prototype.createImageData^2 = function(imagedata) { };
+CanvasRenderingContext2D.prototype.createImageData = function(imagedata) { };
 
 /**
-* Returns an {@link ImageData} object containing the image data 
+* @description Returns an {@link ImageData} object containing the image data 
 * for the given rectangle of the canvas.
 * @param {Number} sx x-coord of the source position
 * @param {Number} sy y-coord of the source position

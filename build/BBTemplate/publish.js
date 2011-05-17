@@ -57,11 +57,11 @@ function publish(symbolSet) {
         quit();
     }
 
-    // some ustility filters
-	function hasNoParent($) {return ($.memberOf == "")}
-	function isaFile($) {return ($.is("FILE"))}
-	function isaClass($) {return ($.is("CONSTRUCTOR") || $.isNamespace) && !($.alias == "_global_")}
-
+    // some utility filters
+	function hasNoParent($) {return ($.memberOf == "");};
+	function isaFile($) {return ($.is("FILE"));};
+	function isaClass($) {return ($.is("CONSTRUCTOR") || $.isNamespace) && !($.alias == "_global_");};
+	
     // get an array version of the symbolset, useful for filtering
     var symbols = symbolSet.toArray();
 
@@ -342,3 +342,10 @@ function getSymbolName(symbol) {
         return symbol.name.replace(/\^\d+$/, '').replace("[\^][\d]", '');
     }
 }
+
+function isMethod($)      {return (!$.isNamespace && !$.uri && !$.isConstant && !$.constructedBy);};
+function isURIMethod($)   {return (!$.isNamespace && $.uri  && !$.isConstant && !$.constructedBy);};
+function isConstructor($) {return (!$.isNamespace && !$.uri && !$.isConstant && $.constructedBy);};
+function isProperty($)    {return (!$.isNamespace && !$.uri && !$.isConstant && !$.constructedBy);};
+function isConstant($)    {return (!$.isNamespace && !$.uri && $.isConstant  && !$.constructedBy);};
+function isEvent($)       {return (!$.isNamespace && !$.uri && !$.isConstant && !$.constructedBy);};
