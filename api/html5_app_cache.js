@@ -16,8 +16,8 @@
 
 /**
  * @class The applicationCache object is your programmatic access to the browser's app cache.
- * @notice {Warning (BlackBerry Only):}
- * Application Cache is only supported since OS version 6.0.0.418
+ * @notice {Warning (BlackBerry 6.0 Notice):}
+ * Support for Application Cache on BlackBerry Smartphones starts with 6.0.0.418
  * @toc {Cache} HTML5 ApplicationCache
  */
 
