@@ -49,17 +49,17 @@ blackberry.media.microphone.Mic = {
 	* <ul><li>encoded in WAV format</li>
 	* <li>has sampling rate of 44,100 Hz</li>
 	* <li>has 2 channels</li></ul>
-	* @param {String} filePath
-	* @param {Number} duration
-	* @callback {function} [onRecordSuccess] This callback function is called when the application has successfully recorded the audio and saved it to the requested file.
-	* @callback {String} [onRecordSuccess.filePath] The file path that points to the created WAV file.	
-	* @callback {function} [onRecordError] This callback function is called if the recording has failed.
-	* @callback {Number} [onRecordError.errorCode] The error code for the error.
-	* @callback {String} [onRecordError.errorMsg] The error message for the error.	
+	* @param {String} filePath full path to the file, specified in the form of file:// URL
+	* @param {Number} duration number of seconds to record
+	* @callback {function} onRecordSuccess This callback function is called when the application has successfully recorded the audio and saved it to the requested file.
+	* @callback {String} onRecordSuccess.filePath The file path that points to the created WAV file.	
+	* @callback {function} onRecordError This callback function is called if the recording has failed.
+	* @callback {Number} onRecordError.errorCode The error code for the error.
+	* @callback {String} onRecordError.errorMsg The error message for the error.	
 	* @returns {void}
 	* @PB10
 	*/
-	recordToFile : function(filePath, duration, onRecordSuccess, onRecordError) { }
+	blackberry.media.microphone.Mic.prototype.recordToFile = function(filePath, duration, onRecordSuccess, onRecordError) { }
 
 };
 

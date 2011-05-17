@@ -16,7 +16,6 @@
 
 /**
  * @toc {Media} Microphone
- * @PB10
  * @featureID blackberry.media.microphone
  * @namespace The Microphone object contains functions for recording audio from microphone.
  */
