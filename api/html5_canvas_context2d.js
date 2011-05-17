@@ -76,7 +76,7 @@ CanvasRenderingContext2D.documentConstructor = undefined;
 * @BB60+
 * @PB10
 */
-CanvasRenderingContext2D.prototype.canvas = { }
+CanvasRenderingContext2D.prototype.canvas = { };
 
 /**
 * Push a copy of the current drawing state onto the drawing state stack.
@@ -631,7 +631,7 @@ CanvasRenderingContext2D.prototype.caretBlinkRate = function() { };
 * @BB60+
 * @PB10
 */
-CanvasRenderingContext2D.prototype.setCaretSelectionRect(element, x, y, w, h);
+CanvasRenderingContext2D.prototype.setCaretSelectionRect = function(element, x, y, w, h){};
 
 
 /**
@@ -832,7 +832,7 @@ CanvasRenderingContext2D.prototype.putImageData = function(imagedata, dx, dy, di
 */
 CanvasGradient = function() { };
 
-/*
+/**
 * Adds a color stop with the given color to the gradient at the 
 * given offset. 0.0 is the offset at one end of the gradient, 
 * 1.0 is the offset at the other end.
@@ -879,7 +879,7 @@ TextMetrics.prototype.width = { };
 * @BB60+
 * @PB10
 */
-ImageData = function() { }
+ImageData = function() { };
 
 /**
 * The image data
@@ -888,7 +888,7 @@ ImageData = function() { }
 * @BB60+
 * @PB10
 */
-ImageData.prototype.data;
+ImageData.prototype.data = undefined;
 
 /**
 * The number of physical device pixels per row in the image data.
@@ -897,7 +897,7 @@ ImageData.prototype.data;
 * @BB60+
 * @PB10
 */
-ImageData.prototype.height;
+ImageData.prototype.height = undefined;
 
 /**
 * The number of rows in the image data.
@@ -906,7 +906,7 @@ ImageData.prototype.height;
 * @BB60+
 * @PB10
 */
-ImageData.prototype.width;
+ImageData.prototype.width = undefined;
 
 /**
 * @namespace
