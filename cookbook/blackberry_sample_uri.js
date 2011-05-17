@@ -17,39 +17,36 @@
  * @namespace This sample object shows how to document a uri function.   
  * @toc {Samples} Sample URI
  * @featureID blackberry.sampleURI
- * @permission view_sample_URI
+ * @permission view_sample_URI Some descriptive text for the first sample URI permission
+ * @permission [view_op_sample_URI] Example with other sample URI permission
  */
 blackberry.sampleURI = {
         /**
          * @uri 
          * @PB10
          * @description The objects in hasPermission will always be ALLOW (0). They will correspond to all the entries in the whitelist. If they are not whitelisted, they are omitted from the list. Similarly, all of the objects in hasCapability will be true, otherwise they will be omitted.
-         * @returns 
+         * @returns {Object Literal}
          * {
-         *     "data":{
-         *         "hasCapability":[
-         *             "location.gps",
-         *             "media.audio.capture",
-         *             "media.video.capture",
-         *             "media.recording",
-         *             "network.bluetooth",
-         *             "network.wlan"
-         *         ],
-         *         "softwareVersion":"QNX",
-         *         "hasPermission":[
-         *             "blackberry.invoke",
-         *             "blackberry.system",
-         *             "blackberry.app",
-         *             "blackberry.app.event",
-         *             "blackberry.system.event",
-         *             "blackberry.ui.dialog",
-         *             "blackberry.utils"
-         *         ],
-         *         "model":100669958,
-         *         "hasDataCoverage":true,
-         *         "scriptApiVersion":"1.0.0.0",
-         *         "isMassStorageActive":false
-         *     }
+         * "code":0,
+         * "msg":null,
+         * "data":{
+         *      "dateCreated" : "Tue Apr 26 09:45:25 GMT-0400 2011", // date string format to be confirmed
+         *      "dateModified" : "Tue Apr 26 09:45:25 GMT-0400 2011", // date string format to be confirmed
+         *      "directory" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/shared/camera",
+         *      "fileExtension" : "txt",
+         *      "isHidden" : false,
+         *      "size" : 1289242,
+         *      "author":"John Doe",
+         *      "name":"My WebWorks Widget",
+         *      "authorEmail":"jdoe@company.com",
+         *      "authorURL":"www.company.com",
+         *      "description":"A sample widget",
+         *      "license":"Legal stuff goes here",
+         *      "id":"888",
+         *      "version":"1.0",
+         *      "copyright":"Company Ltd.",
+         *      "licenseURL":"www.company.com/license"
+         *      }
          * }
          * @example 
          * &lt;html&gt;
@@ -64,9 +61,9 @@ blackberry.sampleURI = {
          *          function getSystemData(){
          *              $.ajax({
          *                  type: "get",
-         *                  url: "webworks://blackberry/system/get",
+         *                  url: "webworks://blackberry/sample_uri/get",
          *                  success: function(msg){
-         *                      $('#mySystemDiv').populate(JSON.parse(msg).data);
+         *                      $('#myAppDiv').populate(JSON.parse(msg).data);
          *                  }
          *               });
          *           }
@@ -74,17 +71,12 @@ blackberry.sampleURI = {
          *&lt;/head&gt;
          *&lt;body&gt;
          *
-         *    &lt;input type="button" onclick="getAppData();" value="Populate - APP"/&gt;
-         *    &lt;input type="button" onclick="getSystemData();" value="Populate - System"/&gt;
+         *    &lt;input type="button" onclick="getData();" value="Populate"/&gt;
          *    &lt;div id="myAppDiv"&gt;
-         *        Name: &lt;span id="author"&gt;&lt;/span&gt;&lt;br/&gt;
-         *        ID: &lt;span id="id"&gt;&lt;/span&gt;
-         *    &lt;/div&gt;
-         *    &lt;br/&gt;
-         *    &lt;br/&gt;
-         *    &lt;div id="mySystemDiv"&gt;
-         *        Software Version: &lt;span id="softwareVersion"&gt;&lt;/span&gt;&lt;br/&gt;
-         *        Mass Storage Active: &lt;span id="isMassStorageActive"&gt;&lt;/span&gt;
+         *        Name : &lt;span id="author"&gt;&lt;/span&gt;&lt;br/&gt;
+         *        ID : &lt;span id="id"&gt;&lt;/span&gt;&lt;br/&gt;
+         *        Date Created : &lt;span id="dateCreated"&gt;&lt;/span&gt;&lt;br/&gt;
+         *        File Extension : &lt;span id="fileExtension"&gt;&lt;/span&gt;&lt;br/&gt;
          *    &lt;/div&gt;
          *&lt;/body&gt;
          *&lt;/html&gt;
