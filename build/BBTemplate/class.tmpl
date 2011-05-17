@@ -250,7 +250,7 @@
 		</td></tr><br>
 			<for each="item" in="data.featureID">
 				<tr><td class="scriptTd"> 
-				&lt;feature id="{+item.desc+}" /&gt;
+				- &lt;feature id="{+item.desc+}" /&gt;
 				<br>
 				</td></tr>
 			</for>		
@@ -261,12 +261,13 @@
 		</if>
 	</table>
 	
-	<div x-ww-support="pb1.0">	
+	<div x-ww-support="pb1.0">
 		<table class="scriptTable">
-		<tr><th>Permission Elements (Only For Playbook)</th></tr>
+		<tr><th>Permission Elements (PlayBook Only)</th></tr>
 		<if test="data.permission">
 			{! var mandatory = data.permission.filter(function($){return !$.isOptional}).sort(makeSortby("name"));!}
 			{! var optional = data.permission.filter(function($){return $.isOptional}).sort(makeSortby("name"));!}
+			
 			<tr><td class="scriptTd">
 			You must declare the permission element(s) below in your configuration document:
 			</td></tr><br>
