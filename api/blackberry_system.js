@@ -85,6 +85,70 @@ blackberry.system ={
 		isMassStorageActive : function(){},
 		
 		/**
+		 * @uri 
+		 * @PB10
+		 * @description The objects in hasPermission will always be ALLOW (0). They will correspond to all the entries in the whitelist. If they are not whitelisted, they are omitted from the list. Similarly, all of the objects in hasCapability will be true, otherwise they will be omitted.
+		 * @returns {JSON of all the properties}
+		 * {
+		 *     "data":{
+		 *         "hasCapability":[
+		 *             "location.gps",
+		 *             "media.audio.capture",
+		 *             "media.video.capture",
+		 *             "media.recording",
+		 *             "network.bluetooth",
+		 *             "network.wlan"
+		 *         ],
+		 *         "softwareVersion":"QNX",
+		 *         "hasPermission":[
+		 *             "blackberry.invoke",
+		 *             "blackberry.system",
+		 *             "blackberry.app",
+		 *             "blackberry.app.event",
+		 *             "blackberry.system.event",
+		 *             "blackberry.ui.dialog",
+		 *             "blackberry.utils"
+		 *         ],
+		 *         "model":100669958,
+		 *         "hasDataCoverage":true,
+		 *         "scriptApiVersion":"1.0.0.0",
+		 *         "isMassStorageActive":false
+		 *     }
+		 * }
+		 * @example 
+		 * &lt;html&gt;
+		 * &lt;head&gt;
+		 *     &lt;script type="text/javascript" src="js/jquery-1.4.2.js" &gt;&lt;/script&gt;
+		 *     &lt;script type="text/javascript" src="js/jquery.form.js" &gt;&lt;/script&gt;
+		 *     &lt;script type="text/javascript" src="js/jquery.populate.js" &gt;&lt;/script&gt;
+		 *  
+		 *     &lt;script type="text/javascript"&gt;
+		 *          function getSystemData(){
+		 *              $.ajax({
+		 *                  type: "get",
+		 *                  url: "webworks://blackberry/system/get",
+		 *                  success: function(msg){
+		 *                      $('#mySystemDiv').populate(JSON.parse(msg).data);
+		 *                  }
+		 *               });
+		 *           }
+		 *      &lt;/script&gt;
+		 *      
+		 *&lt;/head&gt;
+		 *&lt;body&gt;
+		 *
+		 *    &lt;input type="button" onclick="getSystemData();" value="Populate - System"/&gt;
+		 *    &lt;div id="mySystemDiv"&gt;
+		 *        Software Version: &lt;span id="softwareVersion"&gt;&lt;/span&gt;&lt;br/&gt;
+		 *        Mass Storage Active: &lt;span id="isMassStorageActive"&gt;&lt;/span&gt;
+		 *    &lt;/div&gt;
+		 *    
+		 *&lt;/body&gt;
+		 *&lt;/html&gt;
+		 */
+		get: function(){},
+		
+		/**
 		 * @type String
 		 * @description Returns the model number of the BlackBerry PlayBook or the BlackBerry Smartphone device.
 		 * @readOnly
