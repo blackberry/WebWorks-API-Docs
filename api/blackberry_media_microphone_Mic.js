@@ -20,26 +20,6 @@
 * @PB10
 * @namespace The Mic object allows applications to record audio with the default microphone on the BlackBerry PlayBook
 * @featureID blackberry.media.microphone
-* @example
-* &lt;script type="text/javascript"&gt;
-* 
-* function getMic() {
-*   if (blackberry.media.microphone.hasMicrophones) {
-*      var mic = blackberry.media.microphone.getMic();
-*      // accessing folders under "shared" requires permission to be added to config.xml
-*      mic.recordToFile(blackberry.io.dir.appDirs.shared.music.path + '/test.wav', 10, testSuccess, testError);
-*   }
-* }
-* 
-* function testSuccess(filePath) {
-*     alert('Audio recorded to .wav file successfully! Path:' + filePath);
-* }
-* 
-* function testError(errorCode, errorMsg) {
-*     alert('Could not record audio, error code:' + errorCode + ' errorMsg:' + errorMsg);
-* }
-* 		 
-* &lt;/script&gt;
 */
 blackberry.media.microphone.Mic = { 
 
@@ -49,6 +29,7 @@ blackberry.media.microphone.Mic = {
 	* <ul><li>encoded in WAV format</li>
 	* <li>has sampling rate of 44,100 Hz</li>
 	* <li>has 2 channels</li></ul>
+	* See also {@link blackberry.media.microphone.getMic}
 	* @param {String} filePath full path to the file, specified in the form of file:// URL
 	* @param {Number} duration number of seconds to record
 	* @callback {function} onRecordSuccess This callback function is called when the application has successfully recorded the audio and saved it to the requested file.
@@ -58,6 +39,26 @@ blackberry.media.microphone.Mic = {
 	* @callback {String} onRecordError.errorMsg The error message for the error.	
 	* @returns {void}
 	* @PB10
+	* @example
+	* &lt;script type="text/javascript"&gt;
+	* 
+	* function getMic() {
+	*   if (blackberry.media.microphone.hasMicrophones) {
+	*      var mic = blackberry.media.microphone.getMic();
+	*      // accessing folders under "shared" requires permission to be added to config.xml
+	*      mic.recordToFile(blackberry.io.dir.appDirs.shared.music.path + '/test.wav', 10, testSuccess, testError);
+	*   }
+	* }
+	* 
+	* function testSuccess(filePath) {
+	*     alert('Audio recorded to .wav file successfully! Path:' + filePath);
+	* }
+	* 
+	* function testError(errorCode, errorMsg) {
+	*     alert('Could not record audio, error code:' + errorCode + ' errorMsg:' + errorMsg);
+	* }
+	* 		 
+	* &lt;/script&gt;	
 	*/
 	blackberry.media.microphone.Mic.prototype.recordToFile = function(filePath, duration, onRecordSuccess, onRecordError) { }
 

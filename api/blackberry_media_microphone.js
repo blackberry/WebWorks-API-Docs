@@ -22,7 +22,7 @@
 blackberry.media.microphone = {
 		
 		/**
-		 * @description Get a Mic object that corresponds to the default microphone on the BlackBerry PlayBook
+		 * Get a Mic object that corresponds to the default microphone on the BlackBerry PlayBook.<br><br>See also {@link blackberry.media.microphone.Mic#recordToFile}
 		 * @returns {blackberry.media.microphone.Mic} A Mic object that corresponds to the default microphone on the BlackBerry PlayBook
 		 * @PB10
 		 * @example
