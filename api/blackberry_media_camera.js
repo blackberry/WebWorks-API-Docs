@@ -21,6 +21,7 @@
  * @toc {Media} Camera
  * @featureID blackberry.media.camera
  * @permission use_camera Permits the user to invoke the native camera application.  
+ * @permission [access_shared] Permits the user to retrieve a path to the file stored in the system.
  */
 blackberry.media.camera = {
 
