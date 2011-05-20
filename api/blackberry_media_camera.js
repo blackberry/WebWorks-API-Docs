@@ -20,8 +20,8 @@
  * <p>The methods are static and don't required to create an instance of a camera.</p>
  * @toc {Media} Camera
  * @featureID blackberry.media.camera
- * @permission use_camera Permits the user to invoke the native camera application.  
- * @permission [access_shared] Permits the user to retrieve a path to the file stored in the system.
+ * @permission use_camera Permits your app to use the camera.  
+ * @permission access_shared Permits your app to retrieve a path to the file saved.
  */
 blackberry.media.camera = {
 
