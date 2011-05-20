@@ -37,7 +37,7 @@ MediaError = function() { }
 * The fetching process for the media resource was aborted by the user 
 * agent at the user's request.
 * @constant
-* @type NUMBER
+* @type Number
 * @BB60+
 * @PB10
 */
@@ -48,7 +48,7 @@ MediaError.MEDIA_ERR_ABORTED = 1;
 * fetching the media resource, after the resource was established to 
 * be usable.
 * @constant
-* @type NUMBER
+* @type Number
 * @BB60+
 * @PB10
 */
@@ -160,6 +160,8 @@ HTMLMediaElement.prototype.error = { };
 * (Removing the src attribute does not do this, even if there are 
 * source elements present).
 * @type String
+* @BB60+
+* @PB10
 */
 HTMLMediaElement.prototype.src = { };
 
@@ -169,6 +171,8 @@ HTMLMediaElement.prototype.src = { };
 * attribute to absolute URL.
 * @readOnly
 * @type String
+* @BB60+
+* @PB10
 */
 HTMLMediaElement.prototype.currentSRC = { };
 
@@ -289,6 +293,8 @@ HTMLMediaElement.prototype.load = function () { };
 * "probably" based on how confident the user agent is that it can 
 * play media resources of the given type.
 * @param {String} type The media type you are trying to play, for example: "application/octet-stream;codecs=theora" would return an empty string.
+* @BB60+
+* @PB10
 */
 HTMLMediaElement.prototype.canPlayType = function(type) { };
 

@@ -25,12 +25,42 @@
 * @featureID blackberry.invoke.MapsArguments
 * @featureID blackberry.pim.Address
 * @constructor Constructor for a new MapsArguments object. 
+* @param {Number} latitude The latitude for the BlackBerry Maps Application to startup with.
+* @param {Number} longitude The longitude for the BlackBerry Maps Application to startup with.
 * @example
 * &lt;script type=&quot;text&sol;javascript&quot;&gt;  
 *    var args = new blackberry.invoke.MapsArguments(43.26, -80.30);
 *    blackberry.invoke.invoke(blackberry.invoke.APP_MAPS, args);
 * &lt;&sol;script&gt;
 */
-blackberry.invoke.MapsArguments = function() { };
+blackberry.invoke.MapsArguments = {
+    
+    /**
+     * @function
+     * @constructedBy blackberry.invoke.MapsArguments
+     * @BB50+
+     * @description Creates a new MapsArguments object.
+     * @param {blackberry.pim.Address} address The address for the BlackBerry Maps Application to startup with.
+     */
+    addrConstructor : undefined,
+    
+    /**
+     * @function
+     * @constructedBy blackberry.invoke.MapsArguments
+     * @BB50+
+     * @description Creates a new MapsArguments object.
+     * @param {String} locationDocument The location for the BlackBerry Maps Application to startup with.
+     */
+    strConstructor : undefined,
+    
+    /**
+     * @function
+     * @constructedBy blackberry.invoke.MapsArguments
+     * @BB50
+     * @description Creates a new MapsArguments object.
+     * @param {Document} locationDocument The location for the BlackBerry Maps Application to startup with.
+     */
+    docConstructor : undefined
+};
 
 

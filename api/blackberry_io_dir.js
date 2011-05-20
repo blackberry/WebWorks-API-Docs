@@ -37,9 +37,9 @@
 blackberry.io.dir = { };
 
 /**
-* List all the files and sub-directories that reside in a given directory. 
+* List all the files that reside in a given directory. 
 * @param {String} path Path location of the directory.
-* @returns {String[]}
+* @returns {String[]} A string array containing all the files in the given directory. 
 * @BB50+
 */
 blackberry.io.dir.listFiles = function(path) { };
@@ -47,7 +47,7 @@ blackberry.io.dir.listFiles = function(path) { };
 /**
 * List all the directories that reside in a given directory. 
 * @param {String} path path location of the directory.
-* @returns {String[]}
+* @returns {String[]} A string array containing all the subdirectories in a given directory. 
 * @BB50+
 */
 blackberry.io.dir.listDirectories = function(path) { };
@@ -55,7 +55,7 @@ blackberry.io.dir.listDirectories = function(path) { };
 /**
 * Determine whether a given directory exists or not. 
 * @param {String} path path location of the directory.
-* @returns {Boolean}
+* @returns {Boolean} True if the given directory exists; false otherwise.
 * @BB50+
 */
 blackberry.io.dir.exists = function(path) { };
@@ -79,9 +79,9 @@ blackberry.io.dir.rename = function(path,newDirectoryName) { };
 blackberry.io.dir.deleteDirectory = function(path,recursive) { };
 
 /**
-* Returns the path location of the directory that the give file or directory resides in. 
+* Returns the path location of the directory that the given file or directory resides in. 
 * @param {String} path Path of the directory or file.
-* @returns {String}
+* @returns {String} The path location of the directory that the given file or directory resides in.
 * @BB50+
 */
 blackberry.io.dir.getParentDirectory = function(path) { };
@@ -96,7 +96,7 @@ blackberry.io.dir.createNewDir = function(path) { };
 
 /**
 * Get a list of root directories. 
-* @returns {String[]}
+* @returns {String[]} A string array containing all root directories.
 * @BB50+
 */
 blackberry.io.dir.getRootDirs = function() { };
@@ -104,7 +104,7 @@ blackberry.io.dir.getRootDirs = function() { };
 /**
 * Get the amount of free space available in the specified root. 
 * @param {String} rootPath Root path location to determine free space for.
-* @returns {Number}
+* @returns {Number} The amound of free space availalble in the specified root.
 * @BB50+
 */
 blackberry.io.dir.getFreeSpaceForRoot = function(rootPath) { };

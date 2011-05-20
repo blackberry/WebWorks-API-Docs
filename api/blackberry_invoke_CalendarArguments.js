@@ -18,13 +18,13 @@
 * <div><p>
 *       The CalendarArguments object must be created as an instance using the new keyword.
 *     </p></div>
-* @toc {Invoke} CalendarArguments 
-* @BB50+
+* @toc {Invoke} CalendarArguments  
 * @class The CalendarArguments object is an instance object, and is used as a parameter to the invoke() method when invoking the Calendar application.
 * @featureID blackberry.invoke
 * @featureID blackberry.invoke.CalendarArguments
 * @featureID blackberry.pim.Appointment
 * @constructor Constructor for a new CalendarArguments object. 
+* @param {blackberry.pim.Appointment} appointment The appointment to be passed into the Calendar application.
 * @example
 * &lt;script type=&quot;text&sol;javascript&quot;&gt;  
 *   var appt = new blackberry.pim.Appointment();
@@ -33,10 +33,20 @@
 *   var args = new blackberry.invoke.CalendarArguments(appt);
 *   args.view = 0;
 *    
-*   blackberry.invoke.invoke(blackberry.invoke.APP_CALENDAR, args);  &sol;&sol; Calendar
-* &lt;&sol;script&gt;
+*   blackberry.invoke.invoke(blackberry.invoke.APP_CALENDAR, args);
+* &lt;script&gt;
 */
 blackberry.invoke.CalendarArguments = function() { };
+
+/**
+ * @function
+ * @constructedBy blackberry.invoke.CalendarArguments
+ * @description Create a new CalendarArguments object.
+ * @param {Date} date The date to be passed into the Calendar application.
+ * @BB50+
+ * 
+ */
+blackberry.invoke.CalendarArguments.duplicateConstrucotr = function() { };
 
 /**
 * New&sol;Compose View 

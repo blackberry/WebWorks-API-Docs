@@ -52,6 +52,15 @@ blackberry.exampleClass.CONSTANT_B = 2;
 blackberry.exampleClass.CONSTANT_C = 3;
 
 /**
+ * @constructedBy Window.makeExampleClass
+ * @function
+ * @param {String} s A string paramter
+ * @description A constructor with a customName
+ * @PB10
+ */ 
+blackberry.exampleClass.constructor = undefined;
+
+/**
 * <div><p>
 * Shows an innerclass instance object of the example class
 * </p></div>
@@ -61,7 +70,7 @@ blackberry.exampleClass.CONSTANT_C = 3;
 * @featureID blackberry.exampleClass
 * @featureID blackberry.exampleClass.InnerClass
 * @constructor Constructor for a new InnerClass object.
-* @param [neededNumber] Depending on which one of the constants chose, will create a new InnerClass with either the NEW, OLD or CALLBACK property. 
+* @param {Number} [neededNumber] Depending on which one of the constants chose, will create a new InnerClass with either the NEW, OLD or CALLBACK property. 
 * @throws IllegalInnerClassTypeException thrown when given not one of the expected three constants that define the three types of inner class (will have different properties)
 * @example
 * &lt;script type=&quot;text&sol;javascript&quot;&gt;

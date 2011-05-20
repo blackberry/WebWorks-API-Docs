@@ -22,23 +22,39 @@
 /**
 * @namespace
 * An audio element represents a sound or audio stream.
-* @toc {Media} HTML5 Audio
-* @extends HTMLMediaElement
-* @constructedBy {new Audio([String: url])} {HTMLAudioElement can be created using the named constructor Audio(). It takes an optional String url parameter.}
-* var audio = new Audio("sound.wav");
-* @constructedBy {document.createElement("audio")} {HTMLAudioElement can also be constructed by using the document.createElement() method.}
-* var audio = document.createElement("audio");
 * @PB10
 * @BB60+
-* @example
-* var audio = document.createElement('audio');
-* audio.src = 'audio.wav';
-* audio.controls = true;
-* document.body.appendChild(audio);
-* @example
-* var audio = new Audio();
-* audio.src = 'audio.wav';
-* @example
-* var audio = new Audio('audio.wav');
+* @toc {Media} HTML5 Audio
+* @extends HTMLMediaElement
 */
-HTMLAudioElement = { };
+HTMLAudioElement = {         
+        
+        /**
+         * @field
+         * @constructedBy document.createElement("audio")
+         * @description Creates an HTMLAudioElement
+         * @example
+         * var audio = document.createElement('audio');
+         * audio.src = 'audio.wav';
+         * audio.controls = true;
+         * document.body.appendChild(audio);
+         * @PB10
+         * @BB60+
+         */
+        documentConstructor : undefined
+        
+        /**
+         * @field
+         * @constructedBy new Audio([String: url])
+         * @description An HTMLAudioElement can also be created using the named constructor Audio(). 
+         * @param {String} [url] URL of the source
+         * @example
+         * var audio = new Audio();
+         * audio.src = 'audio.wav';
+         * @example
+         * var audio = new Audio('audio.wav');
+         * @PB10
+         * @BB60+
+         */
+        audioConstructor : undefined
+};

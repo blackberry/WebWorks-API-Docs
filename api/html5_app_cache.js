@@ -16,20 +16,42 @@
 
 /**
  * @class The applicationCache object is your programmatic access to the browser's app cache.
- * @constructedBy {window.applicationCache} {Returns the ApplicationCache object that applies to the active document of that Window.}
- * var appCache = window.applicationCache
- * @constructedBy {worker.applicationCache} {Returns the ApplicationCache object that applies to the current shared {@link WebWorkers#applicationCache}.}
- * &lt;script type="text/javascript"&gt;
- *   var worker = new Worker('doWork.js');
- * &lt;/script&gt;
- *
- *doWork.js (the worker):
- *
- *   var appCache = self.applicationCache()
+ * @notice {Warning (BlackBerry 6.0 Notice):}
+ * Support for Application Cache on BlackBerry Smartphones starts with 6.0.0.418
  * @toc {Cache} HTML5 ApplicationCache
  */
 
 ApplicationCache ={
+        
+        /**
+         * @constructedBy window.applicationCache 
+         * @field
+         * @description Returns the ApplicationCache object that applies to the active document of that Window.
+         * @example 
+         * &lt;script type="text/javascript"&gt;
+         *   var appCache = window.applicationCache;
+         * &lt;/script&gt;
+         * @BB60+
+         * @PB10
+         */
+        windowConstructor : undefined,
+        
+        /**
+         * @constructedBy worker.applicationCache 
+         * @field
+         * @description Returns the ApplicationCache object that applies to the current shared {@link Worker#applicationCache}.
+         * @example 
+         * &lt;script type="text/javascript"&gt;
+         *   var worker = new Worker('doWork.js');
+         * &lt;/script&gt;
+         *
+         *doWork.js (the worker):
+         *
+         *   var appCache = self.applicationCache()
+         * @BB60+
+         * @PB10
+         */
+        workerConstructor : undefined,
 
 		/**
 		* @constant
