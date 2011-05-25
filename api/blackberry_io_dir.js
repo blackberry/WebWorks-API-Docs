@@ -151,8 +151,6 @@ blackberry.io.dir = {
 	 * BlackBerry PlayBook has "File Sharing" turned on. The <b>access_shared</b> permission must be set in order to reference any files/folders under "shared".
 	 * @returns {Object Literal}
 	 * {
-	 *   "code" : 0 (if successful) or negative (if there is an error),
-	 *   "msg" : null (if successful) or error message string (if there is an error),
 	 *   "data" : {
 	 *     "app": {
 	 *       "storage" : {
@@ -207,8 +205,6 @@ blackberry.io.dir = {
 	 * @param {String} path path of the directory to be created, the name of the new directory should be included as parts of the path, specified in the form of file:/// URL
 	 * @returns {Object Literal}
 	 * {
-	 *   "code" : 0 (if successful) or negative (if there is an error),
-	 *   "msg" : null (if successful) or error message string (if there is an error),
 	 *   "data" : {
 	 *     "path": "&lt;path that was passed&gt;"
 	  *   }
@@ -225,8 +221,6 @@ blackberry.io.dir = {
 	 * @param {Boolean} [recursive] flag to decide if all contents should be deleted, defaulted to false
 	 * @returns {Object Literal}
 	 * {
-	 *   "code" : 0 (if successful) or negative (if there is an error),
-	 *   "msg" : null (if successful) or error message string (if there is an error),
 	 *   "data" : {
 	 *     "path": "&lt;path that was passed&gt;",
 	 *     "recursive" : the boolean that was passed (false if "recursive" was not specified)
@@ -244,8 +238,6 @@ blackberry.io.dir = {
 	 * @param {String} path path of the directory, specified in the form of file:/// URL
 	 * @returns {Object Literal}
 	 * {
-	 *   "code" : 0 (if successful) or negative (if there is an error),
-	 *   "msg" : null (if successful) or error message string (if there is an error),
 	 *   "data" : {
 	 *     "path": "&lt;path that was passed&gt;",
 	 *     "exists" : true if the path exists and points to a directory, false otherwise
@@ -262,8 +254,6 @@ blackberry.io.dir = {
 	 * @param {String} path path of the directory, specified in the form of file:/// URL
 	 * @returns {Object Literal}
 	 * {
-	 *   "code" : 0 (if successful) or negative (if there is an error),
-	 *   "msg" : null (if successful) or error message string (if there is an error),
 	 *   "data" : {
 	 *     "path": "&lt;path that was passed&gt;",
 	 *     "name": "&lt;name of the directory&gt;", // only defined if "code" is 0
@@ -281,8 +271,6 @@ blackberry.io.dir = {
 	 * @param {String} path path of the directory or file, specified in the form of file:/// URL
 	 * @returns {Object Literal}
 	 * {
-	 *   "code" : 0 (if successful) or negative (if there is an error),
-	 *   "msg" : null (if successful) or error message string (if there is an error),
 	 *   "data" : {
 	 *     "path": "&lt;path that was passed&gt;",
 	 *     "directory" : "&lt;parent directory&gt;" // only defined if "code" is 0
@@ -298,8 +286,6 @@ blackberry.io.dir = {
 	 * @param {String} path path of the directory or file, specified in the form of file:/// URL
 	 * @returns {Object Literal}
 	 * {
-	 *   "code" : 0 (if successful) or negative (if there is an error),
-	 *   "msg" : null (if successful) or error message string (if there is an error),
 	 *   "data" : {
 	 *     "path": "&lt;path that was passed&gt;",
 	 *     "directories" : [
@@ -349,8 +335,6 @@ blackberry.io.dir = {
 	 * @param {String} newDirectoryName new name for the directory
 	 * @returns {Object Literal}
 	 * {
-	 *   "code" : 0 (if successful) or negative (if there is an error),
-	 *   "msg" : null (if successful) or error message string (if there is an error),
 	 *   "data" : {
 	 *     "path": "&lt;path that was passed&gt;",
 	 *     "newDirectoryName" : "&lt;newDirectoryName that was passed&gt;"

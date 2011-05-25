@@ -128,8 +128,6 @@ blackberry.io.file = {
 	 * @param {String} targetPath path to the newly copied file, the name of the copied file should be specified at the end of the targetPath, in the form of file:/// URL
 	 * @returns {Object Literal}
 	 * {
-	 *   "code" : 0 (if successful) or negative (if there is an error),
-	 *   "msg" : null (if successful) or error message string (if there is an error),
 	 *   "data" : {
 	 *     "path" : "&lt;path that was passed&gt;",
 	 *     "targetPath" : "&lt;targetPath that was passed&gt;"
@@ -147,8 +145,6 @@ blackberry.io.file = {
 	 * @param {String} path path to the file to be deleted, specified in the form of file:/// URL
 	 * @returns {Object Literal}
 	 * {
-	 *   "code" : 0 (if successful) or negative (if there is an error),
-	 *   "msg" : null (if successful) or error message string (if there is an error),
 	 *   "data" : {
 	 *     "path" : "&lt;path that was passed&gt;"
 	 *   }
@@ -165,8 +161,6 @@ blackberry.io.file = {
 	 * @param {String} path path of the file, specified in the form of file:/// URL
 	 * @returns {Object Literal}
 	 * {
-	 *   "code" : 0 (if successful) or negative (if there is an error),
-	 *   "msg" : null (if successful) or error message string (if there is an error),
 	 *   "data" : {
 	 *     "path": "&lt;path that was passed&gt;",
 	 *     "exists" : true if the path exists and points to a file, false otherwise
@@ -183,8 +177,6 @@ blackberry.io.file = {
 	 * @param {String} path path to the file, specified in the form of file:/// URL
 	 * @returns {Object Literal}
 	 * {
-	 *   "code" : 0 (if successful) or negative (if there is an error),
-	 *   "msg" : null (if successful) or error message string (if there is an error),
 	 *   "data" : {
 	 *     "path" : "&lt;path that was passed&gt;",
 	 *     "dateCreated" : "&lt;file creation date, in number of milliseconds since UTC&gt;", // only defined if "code" is 0
@@ -236,8 +228,6 @@ blackberry.io.file = {
 	 * @param {String} path path to the file to be opened, specified in the form of file:/// URL
 	 * @returns {Object Literal}
 	 * {
-	 *   "code" : 0 (if successful) or negative (if there is an error),
-	 *   "msg" : null (if successful) or error message string (if there is an error),
 	 *   "data" : {
 	 *     "path" : "&lt;path that was passed&gt;"
 	 *   }
@@ -256,8 +246,6 @@ blackberry.io.file = {
 	 * @param {String} newFileName new file name
 	 * @returns {Object Literal}
 	 * {
-	 *   "code" : 0 (if successful) or negative (if there is an error),
-	 *   "msg" : null (if successful) or error message string (if there is an error),
 	 *   "data" : {
 	 *     "path" : "&lt;path that was passed&gt;",
 	 *     "newFileName" : "&lt;newFileName that was passed&gt;"
