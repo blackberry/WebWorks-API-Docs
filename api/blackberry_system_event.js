@@ -37,15 +37,15 @@
  * @example
  * &lt;script type="text/javascript"&gt;
  *
- * 	function onBatteryLevelChange(level) {
- * 		alert("Battery Level: " + level);
- * 	}
+ *  function onBatteryLevelChange(level) {
+ *    alert("Battery Level: " + level);
+ *  }
  *
- * 	function notifyOnBatteryLevelChange(batteryLevelChangeCb) {
- * 		blackberry.system.event.PlayBookBatteryLevelChange(batteryLevelChangeCb);
- * 	}
+ *  function notifyOnBatteryLevelChange(batteryLevelChangeCb) {
+ *    blackberry.system.event.deviceBatteryLevelChange(batteryLevelChangeCb);
+ *  }
  *
- * 	notifyOnBatteryLevelChange(onBatteryLevelChange);
+ *  notifyOnBatteryLevelChange(onBatteryLevelChange);
  * &lt;/script&gt;
 */
 blackberry.system.event = { };
@@ -133,7 +133,8 @@ blackberry.system.event.prototype.onCoverageChange = function(onSystemEvent) { }
  * @function
  * @description Assigns a listener for when the battery level changes.
  * Battery level is a percentage value.
- * @callback {function} onBatteryLevelChange Function to be called when the battery level changes. The level is passed as its only argument. Expected callback signature: function onBatteryLevelChange(level).
+ * @callback {function} onBatteryLevelChange Function to be called when the battery level changes. The level is passed as its only argument.
+ * @callback {Number} onBatteryLevelChange.level battery level of the device ranging from 0 to 100
  * @PB10
  */
 blackberry.system.event.deviceBatteryLevelChange =  function(onBatteryLevelChange){};
@@ -147,7 +148,8 @@ blackberry.system.event.deviceBatteryLevelChange =  function(onBatteryLevelChang
  * <br>FULL		= 1;
  * <br>CHARGING 	= 2;
  * <br>UNPLUGGED	= 3;
- * @callback {function} onBatteryStateChange Function to be called when the battery charge state changes. The new state is passed as its only argument. Expected callback signature: function onBatteryStateChange(state).
+ * @callback {function} onBatteryStateChange Function to be called when the battery charge state changes. The new state is passed as its only argument.
+ * @callback {Number} onBatteryStateChange.state battery state of the device
  * @PB10
  */
 blackberry.system.event.deviceBatteryStateChange = function(onBatteryStateChange){};
