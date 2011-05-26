@@ -14,34 +14,25 @@
 * limitations under the License.
 */
 
+.scrollable {
+	position:fixed;
+	right: 0px;
+	bottom: 0px;
+	overflow: auto;
+	left: 270px;
+}
+
 .mainHeader {
-	padding: 0; 
-	margin: 0; 
-	width:100%; 
-	border-top:1px solid #898989; 
-	font-family: Verdana; 
-	font-size:13px;
-	background:url('../images/header_back.png') repeat-x 0px top;
-	top: 0px;
+	position: fixed;
+}
+
+.toc {
+	position: fixed;
+	bottom: 0px;
 	left: 0px;
+	top: 98px;
+	overflow:auto;
+	z-index: 1;
+	width: 245px;
+	padding-right: 8px;
 }
-
-.headerBackground {
-	margin: 0 auto;  
-	overflow: hidden; 
-	height:75px; 
-	padding:30px 7px 0; 
-	background:url('../images/header_back_inner.png') no-repeat center top;
-}
-
-.headerIcon {
-	background:url('../images/icon.png') no-repeat left top;
-	width: 400px;
-	top: 5px;
-	height: 75px;
-	position: absolute;
-}
-
-
-
-
