@@ -15,12 +15,8 @@
 */
 
 /**
-* <div><p>
-*       This class can only be created by using the "blackberry.io.file.getFileProperties()" method.
-*     </p></div>
-* @toc {IO} FileProperties 
-* @BB50+
-* @namespace The FileProperties object provides functions and attributes for interacting with a file&apos;s properties on the file system.
+* @toc {IO} FileProperties
+* @namespace The FileProperties object provides functions and attributes for interacting with a file&apos;s properties on the file system.<br><br>This object can only be created by using the {@link blackberry.io.file.getFileProperties} method.
 * @featureID blackberry.io.file
 * @example
 * &lt;script type=&quot;text&sol;javascript&quot;&gt;
@@ -49,6 +45,7 @@ blackberry.io.file.FileProperties.prototype.isReadonly = { };
 * @type Boolean
 * @readOnly
 * @BB50+
+* @PB10
 */
 blackberry.io.file.FileProperties.prototype.isHidden = { };
 
@@ -57,6 +54,7 @@ blackberry.io.file.FileProperties.prototype.isHidden = { };
 * @type Number
 * @readOnly
 * @BB50+
+* @PB10
 */
 blackberry.io.file.FileProperties.prototype.size = { };
 
@@ -65,6 +63,7 @@ blackberry.io.file.FileProperties.prototype.size = { };
 * @type Date
 * @readOnly
 * @BB50+
+* @PB10
 */
 blackberry.io.file.FileProperties.prototype.dateModified = { };
 
@@ -73,6 +72,7 @@ blackberry.io.file.FileProperties.prototype.dateModified = { };
 * @type String
 * @readOnly
 * @BB50+
+* @PB10
 */
 blackberry.io.file.FileProperties.prototype.fileExtension = { };
 
@@ -81,6 +81,7 @@ blackberry.io.file.FileProperties.prototype.fileExtension = { };
 * @type String
 * @readOnly
 * @BB50+
+* @PB10
 */
 blackberry.io.file.FileProperties.prototype.directory = { };
 
