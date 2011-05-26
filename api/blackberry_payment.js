@@ -73,7 +73,7 @@ blackberry.payment = {
      * @callback {String} args.digitalGoodID ID of the digital good being purchased.
      * @callback {String} args.digitalGoodSKU SKU of the digital good being purchased.
      * @callback {String} args.digitalGoodName Name of the digital good being purchased.
-     * @callback {String} args.metaData Metadata associated with the purchase being purchased.
+     * @callback {String} args.metaData Metadata associated with the digital good. Metadata offers the application developer a way to store information about each purchase on the Payment Service server, and to retrieve that data via blackberry.payment.getExistingPurchases method.
      * @callback {String} args.purchaseAppName Name of the application requesting the purchase.
      * @callback {String} args.purchaseAppIcon Icon of the application requesting the purchase.
      * @callback {function} callbackOnSuccess Function to be called when the payment is successful.
@@ -113,7 +113,7 @@ blackberry.payment = {
      *  }
      * &lt;/script&gt;
      */
-    purchase : function ( args, callbackOnSuccess, callbackOnFailure) {
+    purchase : function (args, callbackOnSuccess, callbackOnFailure) {
     },
     /**
      * @type Boolean
@@ -132,7 +132,7 @@ Purchase = {
 
     /**
      * @type String
-     * @description The ID corresponding to the purchase transaction.
+     * @description The transaction ID for this purchase.
      * @BB50+
      * @PB10
      */
@@ -140,7 +140,7 @@ Purchase = {
 
     /**
      * @type String
-     * @description The ID corresponding to the digitalGood to be purchased.
+     * @description The ID of the purchased digital good.
      * @BB50+
      * @PB10
      */
@@ -148,7 +148,7 @@ Purchase = {
 
     /**
      * @type String
-     * @description The SKU corresponding to the digitalGood to be purchased.
+     * @description The SKU of the purchased digital good.
      * @BB50+
      * @PB10
      */
@@ -156,7 +156,7 @@ Purchase = {
 
     /**
      * @type String
-     * @description Metadata offers the application developer a way to store information about each purchase on the Payment Service server, and to retrieve that data via net.rim.blackberry.api.payment.PaymentSystem.getExistingPurchases(boolean). For example, assume a book vendor offers many titles at a single price point, and represents them on the vendor portal as a single digital good. In this case, the ISBN of the book can be provided as metadata, which uniquely identifies the digital good that was purchased. The entire list of purchased books can then be retrieved at any time by obtaining previous purchases via the getExistingPurchases method, filtering on the book's digital good Content ID, and finally enumerating the ISBNs in the metadata of each purchase.
+     * @description The metadata for this purchase, or null if no metadata was included with the purchase.
      * @BB50+
      * @PB10
      */
