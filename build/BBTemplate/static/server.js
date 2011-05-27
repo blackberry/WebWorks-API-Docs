@@ -25,6 +25,9 @@ var linkId = 'deploy-link';
 
 var xmlhttp;
 
+var isIE = navigator.appName == 'Microsoft Internet Explorer';
+
+
 if (window.XMLHttpRequest)
 {// code for IE7+, Firefox, Chrome, Opera, Safari
 	xmlhttp=new XMLHttpRequest();
@@ -52,11 +55,30 @@ else if(typeof window.attachEvent != 'undefined')
 
 
 function doLoad() {
+	loadProperCSS();
 	setDownloadLink();
 	setHeaderBar();
 	insertFooter();
 	insertTOC();
 	runFilter();
+}
+
+function loadProperCSS() {
+	var path;
+	
+	if (isIE) {
+		path = 'css/browser-ie.css';
+	}
+	else {
+		path = 'css/browser-other.css';	
+	}
+	
+	// Insert the proper style sheet with the browser differences
+	var style = document.createElement('link');
+	style.setAttribute('rel', 'stylesheet');
+	style.setAttribute('type', 'text/css');
+	style.setAttribute('href', path);	
+	document.getElementsByTagName("head")[0].appendChild(style);
 }
 
 function setDownloadLink() {
@@ -116,10 +138,8 @@ function insertTOC() {
 	
 	var cookie = getCookie('index');
 	var tocFile = '';
-	var bodyMarginLeft;
 	if (cookie == 'feature') {
 		tocFile = 'list.html';
-		bodyMarginLeft = '290px';
 	} else {
 		tocFile = 'toc.html';
 	}
@@ -130,13 +150,24 @@ function insertTOC() {
 	var responseText =xmlhttp.responseText;
 	
 	// Insert TOC
-	var headerDiv = document.createElement('div');
-	headerDiv.innerHTML = responseText;
-	document.body.appendChild(headerDiv);
+	var tocDiv = document.createElement('div');
+	tocDiv.innerHTML = responseText;
+	document.body.appendChild(tocDiv);
 	
 	// Adjust the mody margins for the feature list
-	if (bodyMarginLeft != undefined)
-		document.body.style.marginLeft = bodyMarginLeft;
+	if (tocFile == 'list.html') {
+		document.getElementById('content').style.left = '310px';
+		document.getElementById('toc').style.width = '290px';
+		// Now scroll the TOC by the amount saved in the Cookie
+		document.getElementById('toc').scrollTop = getCookie('indexScroll');
+	}
+	else {
+		// Now scroll the TOC by the amount saved in the Cookie
+		document.getElementById('toc').scrollTop = getCookie('tocScroll');
+	}
+	
+	
+	
 }
 
 function runFilter() {
@@ -218,7 +249,7 @@ function insertFooter() {
 	var footerText = '<div style="border-style: none none dashed none; border-width: 1px; border-color: Silver;margin-top: 40px;"></div><p style="font-size: 8.5pt;color:Gray;text-decoration:italics;text-align: center;">Copyright 1999-2011 Research In Motion Limited. 295 Phillip Street, Waterloo, Ontario, Canada, N2L 3W8. All Rights Reserved.</p>';
 	var footerDiv = document.createElement('div');
 	footerDiv.innerHTML = footerText;
-	document.body.appendChild(footerDiv);
+	document.getElementById('content').appendChild(footerDiv);
 }
 
 function codeClick(element) {
@@ -258,4 +289,16 @@ function clickIndex(index) {
 	exp.setTime(exp.getTime() + (1000 * 60 * 60 * 24 * 30));     //set it 30 days ahead 
 	setCookie('index',index, exp);
 	location.reload(true);
+}
+
+function onTocScroll(toc) {
+	var exp = new Date();	    //set new date object	
+	exp.setTime(exp.getTime() + (1000 * 60 * 60 * 24 * 30));     //set it 30 days ahead 
+	setCookie('tocScroll',toc.scrollTop, exp); 
+}
+
+function onObjectIndexScroll(index){
+	var exp = new Date();	    //set new date object	
+	exp.setTime(exp.getTime() + (1000 * 60 * 60 * 24 * 30));     //set it 30 days ahead 
+	setCookie('indexScroll',index.scrollTop, exp); 
 }

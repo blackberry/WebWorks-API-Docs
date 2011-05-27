@@ -87,7 +87,6 @@ RotationRate={
   */
   
  	/**
-     * @description  <br/> {@image /images/a-rotation.jpg}</br> Returns the rotation angle around the device frame's Z-axis in degrees.
 	 * @default 90
 	 * @type Number
 	 * @description <br/> {@image /images/a-rotation.jpg}</br> Returns the rotation angle around the device frame's Z-axis in degrees.

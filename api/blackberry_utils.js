@@ -81,6 +81,7 @@ blackberry.utils = {
 		 * @description Obtain the value of a parameter by key.
 		 * @param {String} key The key of the parameter to be retrieved.
 		 * @returns {String} An undefined object is returned if the key does not exist in the URL query.
+		 * @BB50+
 		 * @PB10
 		 */
 		getURLParameter:function(key){},
@@ -89,6 +90,7 @@ blackberry.utils = {
 		 * @description Obtain the value of a parameter by index. The values are stored in the order they appear in the URL string.
 		 * @param {Number} index The index of the parameter to be retrieved.
 		 * @returns {String} An undefined object is returned if the index is invalid.
+         * @BB50+
 		 * @PB10
 		 */
 		getURLParameterByIndex:function(index){},
@@ -96,6 +98,7 @@ blackberry.utils = {
 		/**
 		 * @readOnly
 		 * @type String
+		 * @BB50+
 		 * @PB10
 		 * @description Host address in the URL string.
 		 */
@@ -103,6 +106,7 @@ blackberry.utils = {
 		/**
 		 * @readOnly
 		 * @type String
+		 * @BB50+
 		 * @PB10
 		 * @description Port number in the URL string.
 		 */

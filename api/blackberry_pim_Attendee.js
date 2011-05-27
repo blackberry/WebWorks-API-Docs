@@ -40,7 +40,7 @@
 *     newAppt.end = end;
 * 
 *   &sol;&sol; Create Attendee
-*     var attendees = new Array();
+*     var attendees = [];
 *     var onlyAttendee = new blackberry.pim.Attendee();
 *     onlyAttendee.address = &quot;john@foo.com&quot;;
 *     onlyAttendee.type = blackberry.pim.Attendee.INVITED;

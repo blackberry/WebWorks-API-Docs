@@ -35,7 +35,7 @@ blackberry.ui.dialog ={
 		 * &lt;script type="text/javascript"&gt;
 		 * 
 		 * function globalDialog() {
-		 *   var ss = new Array("Saab", "Volvo", "BMW", "Subaru");
+		 *   var ss = ["Saab", "Volvo", "BMW", "Subaru"];
 		 *   var ret = blackberry.ui.dialog.customAsk("Select your favorite car", ss, 2, true);
 		 *     
 		 *   document.getElementById('carSelect').innerHTML = ss[ret]
@@ -68,7 +68,7 @@ blackberry.ui.dialog ={
 		 * 
 		 * function customDialog() {
 		 *   try {
-		 *     var buttons = new Array("Yes", "No", "Sometimes", "NA");
+		 *     var buttons = ["Yes", "No", "Sometimes", "NA"];
 		 *     var ops = {title : "Choose the answer that describes you best", size : blackberry.ui.dialog.SIZE_TALL, position : blackberry.ui.dialog.LOC_CENTER};
 		 *     blackberry.ui.dialog.customAskAsync("Do you routinely work out?", buttons, dialogCallBack, ops);
 		 *   } catch(e) {
@@ -97,7 +97,7 @@ blackberry.ui.dialog ={
 		 * }
 		 *
 		 * function globalDialog() {
-		 *   var ss = new Array("Saab", "Volvo", "BMW");
+		 *   var ss = ["Saab", "Volvo", "BMW"];
 		 *   var ret = blackberry.ui.dialog.customAsk("Select your favorite car", ss, 2, true);
 		 *   blackberry.ui.dialog.standardAsk(blackberry.ui.dialog.D_OK, "You selected " + ss[ret], 0, true);
 		 * }

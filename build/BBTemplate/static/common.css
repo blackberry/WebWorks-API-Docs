@@ -13,10 +13,10 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-body {
-	margin-top: 90px;
-	margin-left: 250px;
-	padding-top: 10px;
+
+
+.scrollable {
+	top: 98px;
 }
 
 .topicDiv {
@@ -24,7 +24,6 @@ body {
 	height:33px;
 	top: 65px;
 	text-align:center;
-	padding-left: 10px;
 	padding-bottom: 5px;
 	padding-top:2px;
 	left: 0px;
@@ -33,15 +32,30 @@ body {
 	width: 100%;
 }
 
-.toc {
-	width: 230px;
-}
-
 .featureList {
 	width: 280px;
 }
 
 /*------------------------------------------------------------*/
+
+table.noticeTable {
+border-width: 1px;
+border-style: solid;
+border-color: #ccc;
+padding: 5px;
+vertical-align: top;
+margin: 5px;
+margin-bottom:15px;
+width : 90%;
+background-color: #FAF8CC;
+}
+
+td.noticeTd {
+color: #484848;
+vertical-align: top;
+background-color: #FAF8CC;
+}
+
 
 table.depricationTable {
 border-width: 1px;
@@ -232,6 +246,40 @@ width :90%;
 margin: 0;
 padding: 0;
 padding-right: 10px;
+}
+
+th.confluenceThnoverflow, table.confluenceTable th.confluenceThnoverflow {
+border-width: 1px;
+border-style: solid;
+border-color: #ccc;
+padding: 5px;
+background-color: #f0f0f0;
+text-align: left;
+vertical-align: top;
+width : 175px;
+}
+
+.wiki-content th.confluenceThnoverflow {
+margin: 0;
+padding: 0;
+color: #484848;
+width : 175px;
+}
+
+td.confluenceTdnoverflow, td.confluenceTdnoverflow {
+border-width: 1px;
+border-style: solid;
+border-color: #ccc;
+padding: 5px;
+vertical-align: top;
+width : 175px;
+}
+
+.wiki-content td.confluenceTdnoverdlow {
+margin: 0;
+padding: 0;
+padding-right: 10px;
+width : 175px;
 }
 
 div.title {

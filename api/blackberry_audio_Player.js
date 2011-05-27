@@ -60,13 +60,11 @@
 *   var playerInstance = new  blackberry.audio.Player(&quot;file:///store/home/user/music/filename.mp3&quot;);
 * 
 *   // Setting new time for media
-*   var newMediaTime = 10000;
-*   playerInstance.mediaTime = newMediaTime;
+*   playerInstance.mediaTime = 10000;
 *   alert(&quot;New media time: &quot; + playerInstance.mediaTime);
 * 
 *   // Setting new volume for media
-*   var newVolumeLevel = 85;
-*   playerInstance.volumeLevel = newVolumeLevel;
+*   playerInstance.volumeLevel = 85;
 *   alert(&quot;New volume level: &quot; + playerInstance.volumeLevel);    
 * &lt;/script&gt;
 
@@ -164,7 +162,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	mediaTime : 0,
 
 	/**
-	* Get/Set the player&apos;s volume level. 
+	* Get/Set the player&apos;s volume level.  Valid values are between 0 and 100.
 	* @type Number
 	* @BB50+
 	*/

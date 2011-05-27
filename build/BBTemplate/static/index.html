@@ -21,18 +21,49 @@
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link rel="stylesheet" href="common.css" type="text/css"></link>
 		<script src="server.js"></script>	
+		<style type="text/css">
+		
+			.instructions 
+			{
+				color: Green;
+			}
+			
+			.numberCol {
+				width: 20px;
+				vertical-align: top;
+				padding: 7px;
+				font-weight: bold;
+			}
+
+			.commandStep {
+			border-width: 1px;
+			border-style: solid;
+			border-color: #ccc;
+			padding: 5px;
+			vertical-align: top;
+			margin: 5px;
+			width : 90%;
+			background-color: #F5F5F5;
+			}
+			
+			.highlightStep {
+				color: Blue;
+			}
+		
+		</style>
 		<title>Welcome to the BlackBerry&reg; WebWorks&trade; API Reference</title>
 	</head>
    <body text="#000000" bgColor="#ffffff">
+   <div id="content" class="scrollable">
    <br/>
    <table>
 	<tr>
 		<td valign="top"><img src="webworks.png"/></td>
-		<td valign="top">BlackBerry WebWorks application development provides you with APIs that can help take your application to a new level of function and design. These APIs provide you access to 
-	compelling technology that you can leverage to create engaging, visually complex and stunning new apps that seamlessly connect to system level functionallity as well as other BlackBerry smartphone or Tablet OS applications.
+		<td valign="top">BlackBerry WebWorks application development provides APIs that help take your application to a new level. WebWorks APIs provide you access to 
+	compelling technology that you can leverage to create engaging and visually stunning new apps that seamlessly connect to system-level functionallity on both BlackBerry smartphone and PlayBook tablet devices.
 	  <br/>
 	  <br/>
-	  Start exploring the APIs and find out how you can interact with almost everything in the BlackBerry solution: from built-in features such as GPS and the camera and video recorder, to push services on smartphones 
+	  Start exploring the APIs and find out how you can interact with the BlackBerry ecosystem: from built-in features such as GPS and the camera and video recorder, to push services on smartphones 
 	and the BlackBerry Enterprise Server.<br/><br/>
 		Download the latest BlackBerry WebWorks SDK for <a href="http://us.blackberry.com/developers/browserdev/widgetsdk.jsp" class="details">Smartphones</a> and <a href="http://us.blackberry.com/developers/tablet/webworks.jsp" class="details">Tablet OS</a>
 		</td>
@@ -41,12 +72,12 @@
 
 	<h1>Learn more</h1> 
 	<ul> 
-	  <li><a href="http://na.blackberry.com/eng/developers/choosingtargetos.jsp" class="details" >Target Smartphone Breakdown</a>: WebWorks applications will run on BlackBerry Smartphones running OS version 5.0 and higher and the BlackBerry PlayBook.  Find out just how big a target audience this provides. </li>
-	  <li><a href="http://na.blackberry.com/eng/developers/started/" class="details" >Getting Started with BlackBerry Development</a>: Get started developing, testing and distributing applications for the BlackBerry&reg; Application Platform. </li>
-	  <li><a href="http://docs.blackberry.com/en/developers/subcategories/?userType=21&category=BlackBerry+Widgets&subCategory=BlackBerry+Widget+Development+Guides" class="details" >Smartphone</a> and <a href="http://docs.blackberry.com/en/developers/subcategories/?userType=21&category=BlackBerry+WebWorks+SDK+for+Tablet+OS" class="details">Tablet OS</a> WebWorks Developer Guides</a>: Your central source for developer guides, feature and technical overviews, and documentation about BlackBerry WebWorks.</li> 
-	  <li><a href="http://www.blackberry.com/developers" class="details" >BlackBerry Developer Zone</a>: The central place to get tools, resources and information to develop, test and distribute applications for the BlackBerry Application Platform. </li> 
-	  <li><a href="http://supportforums.blackberry.com/t5/BlackBerry-Development/tkbc-p/BlackBerryDevelopment" class="details" >Developer Resource Center</a>: The premier destination to get answers to specific questions on developer-related topics. Talk to other developers in developer-community support forums.</li>
-	  <li><a href="http://na.blackberry.com/eng/developers/started/super_apps.jsp" class="details" >Create a Super App experience</a>: Harness the BlackBerry WebWorks API to create a transformative mobile application experience for your users. Learn how to use the unique capabilities of the BlackBerry platform to make your app:</li>
+	  <li><a href="http://na.blackberry.com/eng/developers/choosingtargetos.jsp" class="details" target="_blank" >Target Smartphone Breakdown</a>: WebWorks applications will run on BlackBerry Smartphones running OS version 5.0 and higher and the BlackBerry PlayBook.  Find out just how big a target audience this provides. </li>
+	  <li><a href="http://na.blackberry.com/eng/developers/started/" class="details"  target="_blank">Getting Started with BlackBerry Development</a>: Get started developing, testing and distributing applications for the BlackBerry&reg; Application Platform. </li>
+	  <li><a href="http://docs.blackberry.com/en/developers/subcategories/?userType=21&category=BlackBerry+Widgets&subCategory=BlackBerry+Widget+Development+Guides" class="details"  target="_blank">Smartphone</a> and <a href="http://docs.blackberry.com/en/developers/subcategories/?userType=21&category=BlackBerry+WebWorks+SDK+for+Tablet+OS" class="details" target="_blank">Tablet OS</a> WebWorks Developer Guides</a>: Your central source for developer guides, feature and technical overviews, and documentation about BlackBerry WebWorks.</li> 
+	  <li><a href="http://www.blackberry.com/developers" class="details"  target="_blank">BlackBerry Developer Zone</a>: The central place to get tools, resources and information to develop, test and distribute applications for the BlackBerry Application Platform. </li> 
+	  <li><a href="http://supportforums.blackberry.com/t5/tkb/communitypage" class="details"  target="_blank">Developer Resource Center</a>: The premier destination to get answers to specific questions on developer-related topics. Talk to other developers in developer-community support forums.</li>
+	  <li><a href="http://na.blackberry.com/eng/developers/started/super_apps.jsp" class="details"  target="_blank">Create a Super App experience</a>: Harness the BlackBerry WebWorks API to create a transformative mobile application experience for your users. Learn how to use the unique capabilities of the BlackBerry platform to make your app:</li>
 		  <ul> 
 			<li>an always-on experience</li> 
 			<li>context-aware and location-driven</li> 
@@ -57,5 +88,117 @@
 		  </ul> 
 	</ul> 
 	
+	<hr style="margin-top:15px;"/>
+
+	<h3>Emulating BlackBerry WebWorks APIs</h3>
+	<p>BlackBerry WebWorks applications can be emulated and tested without the use of a device Simulator for <a href="http://rippledocs.tinyhippos.com/index.html#platforms/webworks" target="_blank">the majority of WebWorks APIs</a>. 
+	This is accomplished by the use of the <a href="http://ripple.tinyhippos.com/" target="_blank">BETA Ripple emulator</a> which is currently implemented as a Chrome plug-in.  As this BETA product evolves it will 
+	eventually move away from its current implementation as a Chrome plug-in and grow into something even more powerful.  Be sure to follow the <a href="http://devblog.blackberry.com/" target="_blank">BlackBerry Developer Blog</a> for further updates surrounding the Ripple tooling. </p>
+	
+	<hr style="margin-top:15px;"/>
+	
+	<h3>Preparing Your Environment</h3>
+    <p>Before packaging your first BlackBerry WebWorks application, you will need to ensure that you have your environment properly configured.  You can follow the Getting Started Guide for 
+	<a href="http://docs.blackberry.com/en/developers/deliverables/27260/" target="_blank">BlackBerry Smartphones on Windows</a>, and the Getting Started Guides for WebWorks on Tablet OS for either 
+	<a href="http://docs.blackberry.com/en/developers/deliverables/27274/" target="_blank">Mac OS X</a> or <a href="http://docs.blackberry.com/en/developers/deliverables/27278/" target="_blank">Windows</a>.</p>
+	
+	
+	<p>You can download the BlackBerry WebWorks SDK for <a href="http://us.blackberry.com/developers/browserdev/widgetsdk.jsp" target="_blank">Smartphones</a> and for 
+	<a href="http://us.blackberry.com/developers/tablet/webworks.jsp" target="_blank">Tablet OS</a> from the BlackBerry Developer Zone</p>
+	
+	
+	<hr style="margin-top:15px;"/>
+
+	<h3>Building Your First App Using BlackBerry WebWorks APIs</h3>
+	<p>Creating your first WebWorks application that utilizes BlackBerry specific APIs is quite simple.  The steps below will demonstrate the pattern to use when create an
+	application using a WebWorks API. Make sure you follow the "Preparing Your Environment" instructions right above this topic first before attempting the following steps. 
+	</p>
+	<p>
+	NOTE: The steps outlined below are the same for Windows and Mac OS X.  However, the path examples given are sample Windows paths.
+	</p>
+	
+	<table width="100%">
+		<tr>
+			<td class="numberCol">1.</td>
+			<td>
+				<div class="commandStep">
+					<span class="instructions">Create the main HTML file for your BlackBerry WebWorks application by creating a directory that includes an index.html file.</span><br/> <br/>
+					C:\MyDirectory\index.html<br/><br/>
+					<span class="instructions">Then add a simple BlackBerry specific API to your application's source code:</span><br/><br/>
+					&lt;html&gt;<br/>
+					&nbsp;&nbsp;&lt;head&gt;<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta name="viewport" id="viewport" content="height=device-height,width=device-width,user-scalable=no" /&gt;<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlightStep">&lt;script type="text/javascript" &gt;<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function doAlert() {<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert('The name of my app is: ' + blackberry.app.name);<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;&lt;/script&gt;<br/></span>
+					&nbsp;&nbsp;&lt;/head&gt;<br/>
+					&nbsp;&nbsp;&lt;body <span class="highlightStep">onload="doAlert()"</span> &gt;<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Hello World&lt;/h1&gt;<br/>
+					&nbsp;&nbsp;&lt;/body&gt;<br/>
+					&lt;/html&gt;<br/><br/>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="numberCol">2.</td>
+				<td>
+				<div class="commandStep">
+					<span class="instructions">Now create a config.xml file for your app:</span><br/> <br/>
+					C:\MyDirectory\config.xml<br/><br/>
+					<span class="instructions">Edit your config.xml file to include a &lt;feature&gt; declaration for your desired API:</span><br/><br/>
+					&lt;?xml version="1.0" encoding="utf-8"?&gt;<br/>
+					&lt;widget xmlns="http://www.w3.org/ns/widgets" xmlns:rim="http://www.blackberry.com/ns/widgets" version="1.0.0" rim:header="RIM-Widget:rim/widget"&gt;<br/>
+					&nbsp;&nbsp;&lt;name&gt;My App&lt;/name&gt;<br/>
+					&nbsp;&nbsp;&lt;author&gt;Me&lt;/author&gt;<br/>
+					&nbsp;&nbsp;&lt;content src="index.html" /&gt;<br/>
+					&nbsp;&nbsp;<span class="highlightStep">&lt;feature id="blackberry.app" /&gt;</span><br/>
+					&lt;/widget&gt;<br/><br/>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="numberCol">3.</td>
+			<td>
+				<div class="commandStep">
+					<span class="instructions">Add your index.html and config.xml to a ZIP file <i>(myapp.zip)</i>:</span><br/> <br/>
+					myapp.zip<br/>
+					&nbsp;&nbsp;|- index.html<br/>
+					&nbsp;&nbsp;|- config.xml<br/><br/>
+					Both files should be at the root of the ZIP archive
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="numberCol">4.</td>
+			<td>
+				<div class="commandStep">
+					<span class="instructions">Open a command prompt and change directories to the root of the WebWorks SDK install folder.  If you find the bbwp application you will know you are in the root folder of the SDK.</span><br/> <br/>
+					<span class="instructions">Now run the command line utility to build up your application and place the output in the "C:\OutputDirectory"</span><br/><br/>
+					bbwp "C:\myapp.zip" -o "C:\OutputDirectory"<br/><br/>
+					&gt;&gt;[INFO]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parsing command line options<br/>
+					&gt;&gt;[INFO]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parsing bbwp.properties<br/>
+					&gt;&gt;[INFO]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Validating WebWorks archive<br/>
+					&gt;&gt;[INFO]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parsing config.xml<br/>
+					&gt;&gt;[INFO]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Populating WebWorks source<br/>
+					&gt;&gt;[INFO]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Compiling WebWorks app<br/>
+					&gt;&gt;[INFO]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Generating output files<br/>
+					&gt;&gt;[INFO]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WebWorks packaging complete<br/>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="numberCol">5.</td>
+			<td>
+				<div class="commandStep">
+					<span class="instructions">You now have an installable application for either a BlackBerry Smartphone or a BlackBerry PlayBook located in your specified output directory</span><br/> <br/>
+					C:\OutputDirectory\bin<br/><br/>
+					For more detailed information please refer to the WebWorks SDK documentation for <a href="http://docs.blackberry.com/en/developers/subcategories/?userType=21&category=BlackBerry+WebWorks+SDK+for+Tablet+OS" target="_blank">Tablet OS</a> and <a href="http://docs.blackberry.com/en/developers/subcategories/?userType=21&category=BlackBerry+WebWorks+SDK&subCategory=BlackBerry+WebWorks+Development+Guides" target="_blank">BlackBerry Smartphones</a><br/> <br/>
+				</div>
+			</td>
+		</tr>
+	</table> 
+	</div> <!-- Scrollable -->
    </body>
 </html>

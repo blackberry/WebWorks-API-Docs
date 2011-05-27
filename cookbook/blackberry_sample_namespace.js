@@ -39,11 +39,11 @@ blackberry.sampleNamespace = {
 		 * @PB10
 		 * @description This is how you document a readonly property
 		 */
-		 readonly_property:,	
+		 readonly_property: undefined,	
 
 		/**
 		 * @description This is how you document a static function
-		 * @returns {Boolean = TRUE} Returns true by default, false if a string beginning with a vowel is passed.   
+		 * @returns {Boolean} Returns true by default, false if a string beginning with a vowel is passed.   
 		 * @BB50+
 		 * @param {String} word String parameter.
 		 * @example
@@ -60,5 +60,24 @@ blackberry.sampleNamespace = {
 		 * &lt;/script&gt;
 		 */
 		 function_example : function(word){}
-
 }
+
+
+/**
+ * @name blackberry.sampleNamespace.prototype.overloadedFunction
+ * @function
+ * @description This is one version of an overloaded function
+ * @param {String} phrase Parses the phrase and searches for the first number and manipulates it.
+ * @returns {Number} The number divided by 42
+ * @BB50+
+ */
+/**
+ * @name blackberry.sampleNamespace.prototype.overloadedFunction^2
+ * @function
+ * @description This is another version of an overloaded function
+ * @param {Number} num The number to be manipulated.
+ * @returns {Number} The number divided by 42
+ * @BB50+
+ * @PB10
+ */
+blackberry.sampleNamespace.prototype.overloadedFunction = function(){};

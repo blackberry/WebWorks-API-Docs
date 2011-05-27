@@ -16,23 +16,22 @@
 
 
 /**
-* @BB50+
 * @toc {System} Network
 * @namespace The blackberry object is the root of all BlackBerry specific JavaScript functionality. blackberry.network is available by default in the regular browser.
-* @example
-* &lt;script type=&quot;text&sol;javascript&quot;&gt;
-*   alert(&quot;You are on the &quot; + blackberry.network + &quot; Network&quot;);
-* &lt;&sol;script&gt;
 */
-blackberry = { };
-
-/**
-* Returns the wireless network on which the BlackBerry device is communicating. 
-* @type String
-* @static
-* @readOnly
-* @BB50+
-*/
-blackberry.network = { };
-
+blackberry = { 
+        
+       /**
+        * @field
+        * @description Returns the wireless network on which the BlackBerry device is communicating. 
+        * @type String
+        * @readOnly
+        * @BB50+
+        * @example
+        * &lt;script type=&quot;text&sol;javascript&quot;&gt;
+        *   alert(&quot;You are on the &quot; + blackberry.network + &quot; Network&quot;);
+        * &lt;&sol;script&gt;
+        */
+        network : undefined
+};
 

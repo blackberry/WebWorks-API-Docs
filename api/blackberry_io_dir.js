@@ -48,7 +48,7 @@ blackberry.io.dir = {
 	appDirs : {},
 
 	/**
-	* List all the files and sub-directories that reside in a given directory. 
+	* List all the files that reside in a given directory. 
 	* @param {String} path Path location of the directory.
 	* @returns {String[]}
 	* @BB50+
@@ -137,7 +137,7 @@ blackberry.io.dir = {
 	/**
 	* Get the amount of free space available in the specified root. 
 	* @param {String} rootPath Root path location to determine free space for.
-	* @returns {Number}
+	* @returns {Number} The amound of free space availalble in the specified root.
 	* @BB50+
 	*/
 	getFreeSpaceForRoot : function(rootPath) { },
@@ -198,7 +198,7 @@ blackberry.io.dir = {
 	 * @uri
 	 * @function
 	 */
-	appDirs : function() {},
+	appDirs2 : function() {},
 	
 	/**
 	 * Create an empty directory.
@@ -230,24 +230,24 @@ blackberry.io.dir = {
 	 * @uri
 	 * @function	 
 	 */
-	delete2 : function(path, recursive) {};	
+	delete2 : function(path, recursive) {},	
 
 	/**
-	 * @name blackberry.io.dir.exists^2
-	 * @description Determine whether a given directory exists or not. 
-	 * @param {String} path path of the directory, specified in the form of file:/// URL
-	 * @returns {Object Literal}
-	 * {
-	 *   "data" : {
-	 *     "path": "&lt;path that was passed&gt;",
-	 *     "exists" : true if the path exists and points to a directory, false otherwise
-	 *   }
-	 * }
-	 * @PB10
-	 * @uri
-	 * @function	 
-	 */
-	exists2 : function(path) {},
+     * @name blackberry.io.dir.exists^2
+     * @description Determine whether a given directory exists or not. 
+     * @param {String} path path of the directory, specified in the form of file:/// URL
+     * @returns {Object Literal}
+     * {
+     *   "data" : {
+     *     "path": "&lt;path that was passed&gt;",
+     *     "exists" : true if the path exists and points to a directory, false otherwise
+     *   }
+     * }
+     * @PB10
+     * @uri
+     * @function     
+     */
+    exists2 : function(path) {},
 
 	/**
 	 * Get properties for a given directory.
@@ -344,7 +344,7 @@ blackberry.io.dir = {
 	 * @uri
 	 * @function
 	 */ 
-	rename2 : function(path, newDirectoryName) {};	
+	rename2 : function(path, newDirectoryName) {}	
 };
 
 
