@@ -290,7 +290,7 @@
 			
 			<for each="item" in="mandatory">
 				<tr><td class="scriptTd">
-				- &lt;permission="{+item.name+}" /&gt; {+item.desc+}
+				- &lt;rim:permit&gt;"{+item.name+}"&lt;/rim:permit&gt; {+item.desc+}
 				<br>
 				</td></tr>
 			</for>
@@ -304,7 +304,7 @@
 			
 			<for each="item" in="optional">
 				<tr><td class="scriptTd">
-				- &lt;permission="{+item.name+}" /&gt; {+item.desc+}
+				- &lt;rim:permit&gt;"{+item.name+}"&lt;/rim:permit&gt; {+item.desc+}
 				<br>
 				</td></tr>
 			</for>

@@ -131,13 +131,5 @@ blackberry.media.microphone = {
 		* @returns {void}
 		* @PB10	
 		*/	
-		stop : function() {},
-		
-		/**
-		 * @type Boolean
-		 * @description True if at least one microphone exists on the system, and that the microphone is not in use by another application
-		 * @readOnly
-		 * @PB10
-		 */		 
-		hasMicrophones : true		
+		stop : function() {}
 };
