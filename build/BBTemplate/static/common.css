@@ -13,10 +13,10 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-body {
-	margin-top: 90px;
-	margin-left: 250px;
-	padding-top: 10px;
+
+
+.scrollable {
+	top: 98px;
 }
 
 .topicDiv {
@@ -30,10 +30,6 @@ body {
 	font-size: 14pt;
 	background:url('images/title_header.png') repeat-x 0px top;
 	width: 100%;
-}
-
-.toc {
-	width: 230px;
 }
 
 .featureList {
