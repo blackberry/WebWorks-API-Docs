@@ -1,23 +1,26 @@
 ﻿/*
-* Copyright 2010-2011 Research In Motion Limited.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-* http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * Copyright 2010-2011 Research In Motion Limited.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 /*
  * This is a JSDoc plugin for all of the BB necessary tags
  *
  * Put this file in <JSDoc dir>\app\plugins\ and it will be used whenever JSDoc is run.
  */
+
+
 BBTag = {};
 
 BBTag.Support = function (symbolArray) {
@@ -49,7 +52,7 @@ BBTag.Support.prototype.getSupportStrings = function () {
             this.supportStrings.push("BlackBerry OS 5.0");
         } else if (!this.bb50 && this.bb60) {
             this.supportStrings.push("BlackBerry OS 6.0+");
-        } //This last else has no support
+        } // This last else has no support
         if (this.pb10) {
             this.supportStrings.push("BlackBerry PlayBook");
         }
@@ -65,7 +68,7 @@ BBTag.Support.prototype.getSupportTag = function () {
             this.supportTag = "bb5.0";
         } else if (!this.bb50 && this.bb60) {
             this.supportTag = "bb6.0";
-        } //This last else has no support
+        } // This last else has no support
         if (this.pb10) {
             if (this.supportTag.length) {
                 this.supportTag += "|";
@@ -84,7 +87,9 @@ BBTag.Support.prototype.getSupportTable = function () {
     if (!this.supportTable.length) {
         var tableYes = "<td class=\"apiTd apiYes\">Y</td>";
         var tableNo = "<td class=\"apiTd apiNo\">&nbsp;</td>";
-        this.supportTable = (this.bb50 ? tableYes : tableNo) + "\n" + (this.bb60 ? tableYes : tableNo) + "\n" + (this.pb10 ? tableYes : tableNo);
+        this.supportTable = (this.bb50?tableYes:tableNo) + "\n" 
+        + (this.bb60?tableYes:tableNo) + "\n" 
+        + (this.pb10?tableYes:tableNo);
     }
     return this.supportTable;
 };
@@ -98,7 +103,7 @@ BBTag.Support.prototype.populateByBools = function (bb50, bb60, pb10) {
 };
 
 BBTag.Support.prototype.populateBySymbol = function (symbol) {
-    //BlackBerry Support Tags
+    // BlackBerry Support Tags
     if (symbol) {
         if (symbol.support) {
             this.populateBySupport(symbol.support);
@@ -140,8 +145,7 @@ function isaClass($) {
 }
 
 
-/** Fetch and remove additional { foo } parameters from a string **/
-
+/** Fetch and remove additional { foo } parameters from a string * */
 function GetType(src) {
     var type = null;
 
@@ -156,107 +160,108 @@ function GetType(src) {
         src = src.substring(typeRange[1] + 1);
     }
 
-    return {
-        type: type,
-        remainder: src
-    };
+    return {type: type, remainder: src};
 }
 
 JSDOC.PluginManager.registerPlugin("JSDOC.BBTag", {
     onSymbol: function (symbol) {
         if (symbol.comment) {
-
-            var toc = symbol.comment.getTag("toc");
-            var readOnly = symbol.comment.getTag("readOnly");
-            var uri = symbol.comment.getTag("uri");
-            var featureID = symbol.comment.getTag("featureID");
-            var permission = symbol.comment.getTag("permission");
-            var betaTag = symbol.comment.getTag("beta");
-            var paramCallbacks = symbol.comment.tags.filter(function ($) {
-                return $.isCallback && $.title == "param"
-            });
-            var fieldCBs = symbol.comment.tags.filter(function ($) {
-                return $.isCallback && $.title == "field"
-            });
-            var learnTag = symbol.comment.getTag("learns");
-            var squareAccessor = symbol.comment.getTag("squareAccessor");
-				var notice = symbol.comment.tags.filter(function($, index){
-					$.itemIndex = index;
-					return $.title=="notice" && $.type
-				}); 
-
-            //If its a class/namespace
+            
+            // If its a class/namespace
             if (isaClass(symbol)) {
+                
+                var toc = symbol.comment.getTag("toc");
                 if (toc.length) {
-                    //MUST get the original TOC tag ...WHO KNOWS WHY???
+                    // MUST get the original TOC tag ...WHO KNOWS WHY???
                     for (var i = 0; i < symbol.comment.tags.length; i++) {
                         if (symbol.comment.tags[i].title == "toc") {
                             symbol.toc = symbol.comment.tags[i];
                             break;
                         }
                     }
-					}
-
-               if(notice.length) {
-                   // reparse the .type attribute as jsDocs as modifies characters
-                   for(var i = 0; i < notice.length; i++) {
-                       var n = notice[i];
-                       var parts = GetType(symbol.comment.tagTexts[n.itemIndex]);
-							  if(parts && parts.type){
-                           n.title = parts.type;
-							  }
-                       n.desc = parts.remainder;
-                   } 
-                   symbol.notice = notice;
-               }
-
-                    var constructorTag = symbol.comment.getTag("constructor");
-                    if(constructorTag.length == 0) {
-                        symbol.noConstructor = true;
-                    }
-
-                    if(featureID.length) {
-                        symbol.featureID = featureID;
-                    }
-
-                    if(permission.length) {					    
-                        symbol.permission = permission;
-                    }
-
+                }
+    
+                var notice = symbol.comment.tags.filter(function($, index){$.itemIndex = index; return $.title=="notice" && $.type});
+                if(notice.length) {
+                    // reparse the .type attribute as jsDocs as modifies characters
+                    for(var i = 0; i < notice.length; i++) {
+                        var n = notice[i];
+                        var parts = GetType(symbol.comment.tagTexts[n.itemIndex]);
+                        if(parts && parts.type){
+                            n.title = parts.type;
+                        }
+                        n.desc = parts.remainder;
+                    } 
+                    symbol.notice = notice;
+                }
+    
+                var constructorTag = symbol.comment.getTag("constructor");
+                if(constructorTag.length == 0) {
+                    symbol.noConstructor = true;
+                }
+                
+                var featureID = symbol.comment.getTag("featureID");
+                if(featureID.length) {
+                    symbol.featureID = featureID;
+                }
+                
+                var permission = symbol.comment.getTag("permission");
+                if(permission.length) {					    
+                    symbol.permission = permission;
+                }
+    
+                var betaTag = symbol.comment.getTag("beta");
                 if (betaTag.length) {
                     symbol.betaTag = betaTag;
                 }
-
+    
+                var learnTag = symbol.comment.getTag("learns");
                 if (learnTag.length) {
                     symbol.learnTag = learnTag;
                 }
-            } else { //Its a property or method
+            } else { // Its a property or method
+                
+                var readOnly = symbol.comment.getTag("readOnly");
                 if (readOnly.length) {
                     symbol.readOnly = readOnly;
                 }
+                
+                var uri = symbol.comment.getTag("uri");
                 if (uri.length) {
                     symbol.uri = uri;
                 }
+                
+                var squareAccessor = symbol.comment.getTag("squareAccessor");
                 if (squareAccessor.length) {
                     symbol.squareAccessor = squareAccessor;
                 }
-
-            //Mark all parameters as callback based on their tags
+                
+                var constructedBy = symbol.comment.getTag("constructedBy");
+                if(constructedBy.length){
+                    symbol.constructedBy = constructedBy;
+                }                
+            }
+    
+            var paramCallbacks = symbol.comment.tags.filter(function($){return $.isCallback && $.title == "param"});
+            // Mark all parameters as callback based on their tags
             if (paramCallbacks.length) {
                 for (var i = 0; i < paramCallbacks.length; i++) {
                     var currentCallback = paramCallbacks[i];
-                    //There should only be 1 matching param
-                    var matchingParams = symbol.params.filter(function ($) {
-                        return $.type == currentCallback.type && $.name == currentCallback.name && $.desc == currentCallback.desc && $.isOptional == currentCallback.isOptional && $.defaultValue == currentCallback.defaultValue
-                    });
-                    //Mark the param a callback
+                    // There should only be 1 matching param
+                    var matchingParams = symbol.params.filter(function($){return $.type == currentCallback.type &&
+                        $.name == currentCallback.name &&
+                        $.desc == currentCallback.desc &&
+                        $.isOptional == currentCallback.isOptional &&
+                        $.defaultValue == currentCallback.defaultValue});
+                    // Mark the param a callback
                     if (matchingParams && matchingParams[0]) {
                         matchingParams[0].isCallback = true;
                     }
                 }
             }
-
-            //Mark all properties as callback based on their tags
+    
+            var fieldCBs = symbol.comment.tags.filter(function($){return $.isCallback && $.title == "field"});
+            // Mark all properties as callback based on their tags
             if (fieldCBs.length) {
                 symbol.isCallback = true;
                 for (var i = 0; i < fieldCBs; i++) {
@@ -267,14 +272,13 @@ JSDOC.PluginManager.registerPlugin("JSDOC.BBTag", {
         }
     },
 
+
     onDocCommentTags: function (comment) {
         if (comment) {
             //The name must be nibbled so we get a name property like a normal param
-            //They are marked as callbacks for future processing.
-            //We mark the items as fields and set the description accordingly
-            var propertyCBTags = comment.tags.filter(function ($) {
-                return $.title == "propertyCB"
-            });
+            // They are marked as callbacks for future processing.
+            // We mark the items as fields and set the description accordingly
+            var propertyCBTags = comment.tags.filter(function($){return $.title == "propertyCB"});
             if (propertyCBTags.length) {
                 for (var i = 0; i < propertyCBTags.length; i++) {
                     var currentPropertyCBTag = propertyCBTags[i];
@@ -288,7 +292,7 @@ JSDOC.PluginManager.registerPlugin("JSDOC.BBTag", {
                     comment.tags.push(new JSDOC.DocTag("desc " + currentPropertyCBTag.desc));
                 }
             } else if (comment.getTag("squareAccessor").length) {
-                //Push a function tag because we only support [] functions
+                // Push a function tag because we only support [] functions
                 comment.tags.push(new JSDOC.DocTag("function"));
             }
         }
@@ -296,9 +300,9 @@ JSDOC.PluginManager.registerPlugin("JSDOC.BBTag", {
 
     onDocTag: function (docTag) {
         if (docTag.title) {
-            //Callbacks pretend to be  parameters so that their order is preserved
-            //The name must be nibbled so we get a name property like a normal param
-            //They are marked as callbacks for future processing.
+            // Callbacks pretend to be parameters so that their order is preserved
+            // The name must be nibbled so we get a name property like a normal param
+            // They are marked as callbacks for future processing.
             if (docTag.title == "callback") {
                 docTag.desc = docTag.nibbleName(docTag.desc);
                 docTag.title = "param";
@@ -306,29 +310,27 @@ JSDOC.PluginManager.registerPlugin("JSDOC.BBTag", {
             } else if (docTag.title == "learns") {
                 docTag.desc = docTag.nibbleName(docTag.desc);
             }          
-        },
-
-        onFinishedParsing : function(symbolSet){
-            if(symbolSet){
-                var symbols = symbolSet.toArray();
-                var classes = symbols.filter(isaClass);
-
-                // create each of the class pages
-                for (var i = 0, l = classes.length; i < l; i++) {
-                    var symbol = classes[i];
-                    if(symbol){
-                        var symbolSupport = new BBTag.Support();
-                        symbolSupport.populateBySymbol(symbol);
-
-                        var children = [].concat(symbol.methods,symbol.properties,symbol.events);
-                        var childSupport = new BBTag.Support(children);
-                        symbol.support.populateBySupport(childSupport);
-                    }
-
-                }
-
-
-            }   
         }
+    },
+
+    onFinishedParsing : function(symbolSet){
+        if(symbolSet){
+            var symbols = symbolSet.toArray();
+            var classes = symbols.filter(isaClass);
+    
+            // create each of the class pages
+            for (var i = 0, l = classes.length; i < l; i++) {
+                var symbol = classes[i];
+                if(symbol){
+                    var symbolSupport = new BBTag.Support();
+                    symbolSupport.populateBySymbol(symbol);
+    
+                    var children = [].concat(symbol.methods,symbol.properties,symbol.events);
+                    var childSupport = new BBTag.Support(children);
+                    symbol.support.populateBySupport(childSupport);
+                }
+            }
+        }   
     }
+
 });
