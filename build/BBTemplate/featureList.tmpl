@@ -27,7 +27,7 @@
 	</div>	
 	<div id="featureIds" style="font-size:9pt;">
 		<for each="thisClass" in="data">
-		<div class="lineItem" x-ww-support="{+thisClass.support.getSupportTag()+}">{+new Link().toClass(thisClass.alias)+}</div>
+		<div class="lineItem" x-ww-support="{+thisClass.support.supportTag+}">{+new Link().toClass(thisClass.alias)+}</div>
 		</for>
 	</div>
 </div>
