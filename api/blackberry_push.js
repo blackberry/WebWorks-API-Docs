@@ -54,7 +54,7 @@ blackberry.push = {
 	* latest one passed in. <b>NOTE:</b> In such cases where consecutive calls to openPushListener occurs on the page,
 	* the transport argument will only be used on the first call, and ignored for all others. Any calls to 
 	* openPushListener should have matching calls to closePushListener to ensure ports are not left open accidentally.
-	* @deprecated This API is deprecated, please use opebBESPushListener or openBISPushListener instead.
+	* @deprecated This API is deprecated, please use {@link blackberry.push.openBESPushListener} or {@link blackberry.push.openBISPushListener} instead.
 	* @callback {function} onData This callback function is triggered when data is received.
 	* @callback {blackberry.push.Data} onData.data Object that contains the data that was just received
 	* @param {Number} port Integer port number to listen on for push data.
@@ -98,8 +98,8 @@ blackberry.push = {
 
 	/**
 	* Closes the listening connection for an already open push channel. <br/><br/>
-	* When this close is called, it will stop listening for incoming data on the push port.
-	* @param {Number} [port] The port in the original openPushListener method. If port is not specified, all opened ports will be closed. In the case of BIS push, the Application will be unregistered from push server.
+	* When this method is called, it will stop listening for incoming data on the push port.
+	* @param {Number} [port] The port used in the open push method. If port is not specified, all open ports will be closed.
 	* @BB50+
 	* @example
 	* &lt;script type=&quot;text/javascript&quot;&gt;
