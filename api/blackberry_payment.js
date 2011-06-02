@@ -115,7 +115,7 @@ blackberry.payment = {
     },
     /**
      * @type Boolean
-     * @description Sets the development mode used in the application. If development mode is set to true, the application does not contact the Payment Service server for any transactions. For purchases, a simulated purchase screen is displayed, allowing the user to choose the result of the purchase. For retrieving existing purchases, only simulated successful purchases are returned. This mode is useful for testing how your application handles the possible results without requiring network connections or currency. THIS MODE SHOULD NOT BE USED IN PRODUCTION CODE. If development mode is set to false, purchases and retrievals of existing purchases proceed normally, contacting the Payment Service server as necessary. This is the default development mode, and applications in production should not modify it.
+     * @description Defines the development mode used in the application. If development mode is set to true, the application does not contact the Payment Service server for any transactions. For purchases, a simulated purchase screen is displayed, allowing the user to choose the result of the purchase. For retrieving existing purchases, only simulated successful purchases are returned. This mode is useful for testing how your application handles the possible results without requiring network connections or currency. THIS MODE SHOULD NOT BE USED IN PRODUCTION CODE. If development mode is set to false, purchases and retrievals of existing purchases proceed normally, contacting the Payment Service server as necessary. This is the default development mode, and applications in production should not modify it.
      * @default false
      * @PB10
      */
@@ -124,7 +124,7 @@ blackberry.payment = {
 };
 
 /**
- * @namespace This object encapsulates attributes of the purchase.
+ * @namespace This object encapsulates the attributes of a purchase.
  * <p>
  * It may be aquired by calling to one of the {@link blackberry.payment} methods.
  * @toc {Payment} Purchase
