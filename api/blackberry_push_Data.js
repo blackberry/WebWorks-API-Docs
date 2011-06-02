@@ -33,43 +33,8 @@ blackberry.push.Data = {
 	* @param {Object} field This parameter is either the Integer index or a String name of the header to retrieve.
 	* @returns {String} Returns the value of a header field.
 	* @BB50+
-	* @example
-	* &lt;script type=&quot;text/javascript&quot;&gt;
-	*   var port = 1234; 
-	* 
-	*   function doMySubscription() {
-	*     &sol;&sol;See if they have a BIS transport.. if so use it
-	*     var transports = blackberry.system.getTransportList();
-	*     found = false;
-	*     for (var i = 0; i &lt; transports.length; i++) {
-	*       if (transports[i].name == &quot;BIS&quot;) {
-	*         found = true;
-	*         blackberry.push.openPushListener(handleMyReturnData, port, transport[i]);
-	*         break;
-	*       }        
-	*     }
-	*     if (!found)
-	*       blackberry.push.openPushListener(handleMyReturnData, port);
-	*   }
-	* 
-	*   function handleMyReturnData(data) {
-	*     if (data != null) {
-	*       var myRecievedData= blackberry.utils.blobToString(data.payload);   
-	*       alert(data1.getHeaderField(0));
-	*       alert(&quot;RequestURI=&quot; + data.getRequestURI());
-	*       alert(&quot;Source=&quot; + data.getSource());
-	*     }       
-	*     else
-	*       alert(&quot;No data available&quot;);
-	*   }
-	* 
-	*   function cancelSubscription() {
-	*     blackberry.push.closePushListener(port);
-	*   }
-	* &lt;/script&gt;
 	*/
 	getHeaderField : function(field) { },
-
 
 	/**
 	* Retrieves the source for this push stream.  String form of the source of this push; it could be a UID for a connection, IPv4 address, or SMSC. 
