@@ -34,71 +34,52 @@ BBTag.Support.prototype.init = function() {
     this.bb60 = false;
     this.pb10 = false;
     this.common = false;
-    this.clearSupportAttributes();
+    this.resetSupportAttributes();
 };
 
-BBTag.Support.prototype.clearSupportAttributes = function() {
+BBTag.Support.prototype.resetSupportAttributes = function() {
     this.supportStrings = [];
     this.supportTag = "";
     this.supportTable = "";
+    var tableYes = "<td class=\"apiTd apiYes\">Y</td>";
+    var tableNo = "<td class=\"apiTd apiNo\">&nbsp;</td>";
+
+    if(this.bb50 && this.bb60){
+        this.supportStrings.push("BlackBerry OS 5.0+");
+        this.supportTag = "bb5.0|bb6.0";
+        this.supportTable = tableYes + "\n" + tableYes + "\n";
+    }else if(this.bb50 && !this.bb60){
+        this.supportStrings.push("BlackBerry OS 5.0");
+        this.supportTag = "bb5.0";
+        this.supportTable = tableYes + "\n" + tableNo + "\n";
+    }else if(!this.bb50 && this.bb60){
+        this.supportStrings.push("BlackBerry OS 6.0+");
+        this.supportTag = "bb6.0";
+        this.supportTable = tableNo + "\n" + tableYes + "\n";
+    } // This last else has no support
+
+    if(this.pb10){
+        this.supportStrings.push("BlackBerry PlayBook");
+        if(this.supportTag.length){
+            this.supportTag += "|";
+        }
+        this.supportTag += "pb1.0";
+        this.supportTable += tableYes;
+    }else{
+        this.supportTable += tableNo;
+    }
+
+    if(this.common){
+        this.supportTag += "|common";
+    }
 }
-
-BBTag.Support.prototype.getSupportStrings = function() {
-    if(!this.supportStrings.length){
-        if(this.bb50 && this.bb60){
-            this.supportStrings.push("BlackBerry OS 5.0+");
-        }else if(this.bb50 && !this.bb60){
-            this.supportStrings.push("BlackBerry OS 5.0");
-        }else if(!this.bb50 && this.bb60){
-            this.supportStrings.push("BlackBerry OS 6.0+");
-        } // This last else has no support
-        if(this.pb10){
-            this.supportStrings.push("BlackBerry PlayBook");
-        }
-    }
-    return this.supportStrings;
-};
-
-BBTag.Support.prototype.getSupportTag = function() {
-    if(!this.supportTag.length){
-        if(this.bb50 && this.bb60){
-            this.supportTag = "bb5.0|bb6.0";
-        }else if(this.bb50 && !this.bb60){
-            this.supportTag = "bb5.0";
-        }else if(!this.bb50 && this.bb60){
-            this.supportTag = "bb6.0";
-        } // This last else has no support
-        if(this.pb10){
-            if(this.supportTag.length){
-                this.supportTag += "|";
-            }
-            this.supportTag += "pb1.0";
-        }
-
-        if(this.common){
-            this.supportTag += "|common";
-        }
-    }
-    return this.supportTag;
-};
-
-BBTag.Support.prototype.getSupportTable = function() {
-    if(!this.supportTable.length){
-        var tableYes = "<td class=\"apiTd apiYes\">Y</td>";
-        var tableNo = "<td class=\"apiTd apiNo\">&nbsp;</td>";
-        this.supportTable = (this.bb50 ? tableYes : tableNo) + "\n"
-        + (this.bb60 ? tableYes : tableNo) + "\n"
-        + (this.pb10 ? tableYes : tableNo);
-    }
-    return this.supportTable;
-};
 
 BBTag.Support.prototype.populateByBools = function(bb50, bb60, pb10) {
     this.bb50 |= bb50;
     this.bb60 |= bb60;
     this.pb10 |= pb10;
     this.common |= bb50 && bb60 && pb10;
-    this.clearSupportAttributes();
+    this.resetSupportAttributes();
 };
 
 BBTag.Support.prototype.populateBySymbol = function(symbol) {
@@ -128,7 +109,7 @@ BBTag.Support.prototype.populateBySupport = function(support) {
     this.bb60 |= support.bb60;
     this.pb10 |= support.pb10;
     this.common |= support.common;
-    this.clearSupportAttributes();
+    this.resetSupportAttributes();
 };
 
 BBTag.Support.prototype.populateBySymbolArray = function(symbolArray) {
@@ -152,8 +133,8 @@ function GetType(src) {
     if(src.indexOf('{') >= 0){
         var typeRange = src.balance("{", "}");
         if(typeRange[1] == -1)
-            throw "Malformed comment tag ignored. Tag type requires an opening { and a closing }: "
-            + src;
+            throw "Malformed comment tag ignored. Tag type requires an opening { and a closing }: " +
+                  src;
         type = src.substring(typeRange[0] + 1, typeRange[1]).trim();
         src = src.substring(typeRange[1] + 1);
     }
@@ -161,8 +142,9 @@ function GetType(src) {
     return {type : type, remainder : src};
 }
 
-JSDOC.PluginManager.registerPlugin("JSDOC.BBTag",{
+JSDOC.PluginManager.registerPlugin("JSDOC.BBTag", {
     onSymbol : function(symbol) {
+
         if(symbol.comment){
             // If its a class/namespace
             if(isaClass(symbol)){
@@ -327,5 +309,5 @@ JSDOC.PluginManager.registerPlugin("JSDOC.BBTag",{
                 }
             }
         }
-    }
+    } 
 });
