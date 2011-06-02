@@ -48,7 +48,7 @@ blackberry.push = {
 	* The object passed to the callback function is of type {@link blackberry.push.Data} which has a payload property which is a Blob. The developer can then 
 	* retrieve the data either as the Blob or use .toString() if the data contained in the Blob is a string. 
 	* <br/><br/>
-	* Furthermore, the callback function must return an integer (one of constants described in blackberry.push.Data) 
+	* Furthermore, the callback function must return an integer (one of constants described in {@link blackberry.push.Data}) 
 	* indicating if the push message is accepted or declined. 
 	* If calling openPushListener on a page where the port is already open, the callback will be updated to use the 
 	* latest one passed in. <b>NOTE:</b> In such cases where consecutive calls to openPushListener occurs on the page,
@@ -113,15 +113,13 @@ blackberry.push = {
 	/**
 	* Opens the push listener to allow an application to listen for BES pushes. Only one port can be opened at a time if openBESPushListener
 	* or openBISPushListener functions are used.
-	* Furthermore, the callback function must return an integer (one of constants described in blackberry.push.Data) 
-	* indicating if the push message is accepted or declined. 
-	* If calling openBESPushListener on a page where the port is already open, the callbacks will be updated to use the latest one passed in.
-	* <br/>If an application registered to BES push is closed, when a push message arrives, the application will be launched in background and the wakeup page specified in the call is displayed 
+	* <br/>If calling openBESPushListener on a page where the port is already open, the callbacks will be updated to use the latest one passed in. The queue size and wake up page will not be updated.
+	* <br/>If an application registered to BES push is closed and a push message arrives, the application will be launched in background and the wake up page is displayed. <b>rim:allowInvokeParams="true"</b> attribute must be specified in the content element of config.xml.
 	* @param {Object} options Object literal that allows the user to specify the port, wake up page and maximum queue size.
 	* @param {Number} options.port port The port on the device to listen for pushes on.
 	* @param {String} options.wakeUpPage The page that wlll be displayed when application is closed and a new push message arrives.
-	* @param {Number} [options.maxQueueCap] Optional parameter that specifies how many messages the app should queue if the port was not closed, but a function handler was lost (for example, during a page transition).
-	* @callback {function} onData The callback that is invoked when a new push has been received.
+	* @param {Number} [options.maxQueueCap] Optional parameter that specifies how many messages the app should queue if the port was not closed, but a function handler was lost (for example, during a page transition). If the parameter is not specified, no limit will be imposed.
+	* @callback {function} onData The callback that is invoked when a new push has been received. The callback function must return an integer (one of constants described in {@link blackberry.push.Data}) indicating if the push message is accepted or declined. 
 	* @callback {blackberry.push.Data} onData.data Object that contains the data that was just received.
 	* @callback {function} onSimChange The callback that is invoked when SIM card is changed.
 	* @BB50+
@@ -159,11 +157,8 @@ blackberry.push = {
 	/**
 	* Opens the push listener to allow an application to listen for BIS pushes. Only one port can be opened at a time if openBESPushListener
     * or openBISPushListener functions are used.
-	* Furthermore, the callback function must return an integer (one of constants described in blackberry.push.Data) 
-	* indicating if the push message is accepted or declined. 
-	* If calling openBISPushListener on a page where the port is already open, the callbacks will be updated to use the 
-	* latest one passed in.
-	* <br/>If an application registered to BIS push is closed, when a push message arrives, the application will be launched in background and the wakeup page specified in the call is displayed 
+	* <br/>If calling openBISPushListener on a page where the port is already open, the callbacks will be updated to use the latest one passed in. The queue size and wake up page will not be updated.
+	* <br/>If an application registered to BIS push is closed and a push message arrives, the application will be launched in background and the wake up page is displayed. <b>rim:allowInvokeParams="true"</b> attribute must be specified in the content element of config.xml.
 	* @param {Object} options Object literal that allows the user to specify the port, appId, server URL, wakeup page and maximum queue size.
 	* @param {Number} options.port port The port on the device to listen for pushes on.
 	* @param {String} options.appId The id provided to you for your push application after signing up to use the BlackBerry Push Service.
@@ -172,11 +167,11 @@ blackberry.push = {
 	* Push Service or http://pushapi.na.blackberry.com if using the production environment 
 	* of the BlackBerry Push Service.
 	* @param {String} options.wakeUpPage The page that wlll be displayed when application is closed and a new push message arrives.
-	* @param {Number} [options.maxQueueCap] Optional parameter that specifies how many messages the app should queue if the port was not closed, but a function handler was lost (for example, during a page transition).
-	* @callback {function} onData The callback that is invoked when a new push has been received.
+	* @param {Number} [options.maxQueueCap] Optional parameter that specifies how many messages the app should queue if the port was not closed, but a function handler was lost (for example, during a page transition). If the parameter is not specified, no limit will be imposed.
+	* @callback {function} onData The callback that is invoked when a new push has been received. The callback function must return an integer (one of constants described in {@link blackberry.push.Data}) indicating if the push message is accepted or declined. 
 	* @callback {blackberry.push.Data} onData.data Object that contains the data that was just received.
 	* @callback {function} onRegister The callback that is invoked when the result of the registration is received.
-	* @callback {Number} onRegister.result The registration result.
+	* @callback {Number} onRegister.result The registration result. These include: 0: success, 1: network error, 2: rejected by server, 3: invalid parameters, -1: general error.
 	* @callback {function} onSimChange The callback that is invoked when SIM card is changed.
 	* @BB50+
 	* @example
@@ -209,7 +204,7 @@ blackberry.push = {
 	*     else if (status == 3) {
 	*       alert("invalid parameters");
 	*     }
-	*     else if (status == 4) {
+	*     else if (status == -1) {
 	*       alert("general error");
     *     }
 	*     else {
