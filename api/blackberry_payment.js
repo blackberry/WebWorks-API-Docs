@@ -124,15 +124,17 @@ blackberry.payment = {
 };
 
 /**
- * @class
+ * @namespace This object encapsulates attributes of the purchase.
+ * <p>
+ * It may be aquired by calling to one of the {@link blackberry.payment} methods.
  * @toc {Payment} Purchase
+ * @featureID blackberry.payment
  */
 Purchase = { }
 
 /**
  * @type String
  * @description The transaction ID for this purchase.
- * @BB50+
  * @PB10
  */
 Purchase.prototype.transactionID : null,
@@ -140,7 +142,6 @@ Purchase.prototype.transactionID : null,
 /**
  * @type String
  * @description The ID of the purchased digital good.
- * @BB50+
  * @PB10
  */
 Purchase.prototype.digitalGoodID : null,
@@ -148,7 +149,6 @@ Purchase.prototype.digitalGoodID : null,
 /**
  * @type String
  * @description The SKU of the purchased digital good.
- * @BB50+
  * @PB10
  */
 Purchase.prototype.digitalGoodSKU : null,
@@ -156,7 +156,6 @@ Purchase.prototype.digitalGoodSKU : null,
 /**
  * @type String
  * @description The metadata for this purchase, or null if no metadata was included with the purchase.
- * @BB50+
  * @PB10
  */
 Purchase.prototype.metaData : null,
@@ -164,7 +163,6 @@ Purchase.prototype.metaData : null,
 /**
  * @type String
  * @description Represents the date this purchase was made.
- * @BB50+
  * @PB10
  */
 Purchase.prototype.date : null,
@@ -172,7 +170,6 @@ Purchase.prototype.date : null,
 /**
  * @type String
  * @description Represents the license key for this purchase, or null if the purchased digital good does not have a license key.
- * @BB50+
  * @PB10
  */
 Purchase.prototype.licenseKey : null
