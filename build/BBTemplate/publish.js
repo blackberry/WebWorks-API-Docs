@@ -337,7 +337,7 @@ function getSymbolName(symbol) {
     }else if (symbol.squareAccessor) {
         return "[]";
     } else if (symbol.uri) {
-        return "webworks://" + symbol.alias.replace(/\./g, "//").replace("[\^][\d]", '');
+        return "webworks://" + symbol.alias.replace(/\./g, "/").replace("[\^][\d]", '');
     } else if (symbol.isStatic) {
         return symbol.memberOf + "." + symbol.name.replace(/\^\d+$/, '').replace("[\^][\d]", '');
     } else {

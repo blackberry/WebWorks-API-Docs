@@ -22,8 +22,9 @@
 * @permission [access_shared] Any references to files/directories under "shared" folder (e.g. music) requires this permission to be set.
 */
 blackberry.io.dir = {
-	/**
-	* Gets the full paths of application storage folder and sub-folders under "shared". Paths are in the form of file:// URL <br><br>
+   /**
+	* @name blackberry.io.dir.appDirs^2	
+	* @description Gets the full paths of application storage folder and sub-folders under "shared". Paths are in the form of file:// URL <br><br>
 	* The application storage folder is created when you first access blackberry.io.dir.appDirs. This directory is a convenient location to store application-specific data that can only be accessed by the application.<br><br>
 	* The "shared" folder is the parent directory to the sub-folders such as camera and music, which can be accessed by all applications. These sub-folders can also be accessed when the BlackBerry PlayBook has "File Sharing" turned on. The <b>access_shared</b> permission must be set in order to reference any files/folders under "shared".
 	*
@@ -45,6 +46,62 @@ blackberry.io.dir = {
 	*   alert('Music folder path:' + musicDir);
 	* &lt;&sol;script&gt;	
 	*/
+	/**
+	 * @name blackberry.io.dir.appDirs
+	 * @description Gets the full paths of application storage folder and sub-folders under "shared". Paths are in the form of file:// URL <br><br>
+	 * The application storage folder is created when you first invoke this call. This directory is a convenient location to store application-specific data that can only be
+	 * accessed by the application.<br><br>
+	 * The "shared" folder is the parent directory to the sub-folders such as camera and music, which can be accessed by all applications. These sub-folders can also be accessed when the
+	 * BlackBerry PlayBook has "File Sharing" turned on. The <b>access_shared</b> permission must be set in order to reference any files/folders under "shared".
+	 * @returns {Object Literal}
+	 * {
+	 *   "data" : {
+	 *     "app": {
+	 *       "storage" : {
+	 *         "path" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/data"
+	 *       }
+	 *     },
+	 *     "shared": {
+	 *       "bookmarks": {
+	 *         "path" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/shared/bookmarks"
+	 *       },
+	 *       "books": {
+	 *         "path" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/shared/books"
+	 *       },
+	 *       "camera": {
+	 *         "path" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/shared/camera"
+	 *       },
+	 *       "documents": {
+	 *         "path" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/shared/documents"
+	 *       },
+	 *       "downloads": {
+	 *         "path" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/shared/downloads"
+	 *       },
+	 *       "misc": {
+	 *         "path" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/shared/misc"
+	 *       },
+	 *       "music": {
+	 *         "path" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/shared/music"
+	 *       },
+	 *       "photos": {
+	 *         "path" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/shared/photos"
+	 *       },
+	 *       "print": {
+	 *         "path" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/shared/print"
+	 *       },
+	 *       "videos": {
+	 *         "path" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/shared/videos"
+	 *       },
+	 *       "voice": {
+	 *         "path" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/shared/voice"
+	 *       }
+	 *     }
+	 *   }
+	 * }
+	 * @PB10
+	 * @uri
+	 * @function
+	 */	
 	appDirs : {},
 
 	/**
@@ -66,23 +123,58 @@ blackberry.io.dir = {
 	listDirectories : function(path) { },
 	
 	/**
-	* Determine whether a given directory exists or not. Returns true if the path exists and points to a
-	* directory, false otherwise.
-	* @param {String} path path location of the directory.
-	* @returns {Boolean}
-	* @BB50+
-	* @PB10
-	*/
+     * @name blackberry.io.dir.exists^2	
+	 * @function
+	 * @description Determine whether a given directory exists or not. Returns true if the path exists and points to a
+	 * directory, false otherwise.
+	 * @param {String} path path location of the directory.
+	 * @returns {Boolean}
+	 * @BB50+
+	 * @PB10
+	 */
+	/**
+     * @name blackberry.io.dir.exists
+     * @description Determine whether a given directory exists or not. 
+     * @param {String} path path of the directory, specified in the form of file:/// URL
+     * @returns {Object Literal}
+     * {
+     *   "data" : {
+     *     "path": "&lt;path that was passed&gt;",
+     *     "exists" : true if the path exists and points to a directory, false otherwise
+     *   }
+     * }
+     * @PB10
+     * @uri
+     * @function     
+     */	
 	exists : function(path) { },
 	
 	/**
-	* Rename a given directory. 
-	* @param {String} path path location of the directory to be renamed.
-	* @param {String} newDirectoryName the new name for the directory.
-	* @returns {void}
-	* @BB50+
-	* @PB10
-	*/
+	 * @name blackberry.io.dir.rename^2	
+	 * @function
+	 * @description Rename a given directory. 
+	 * @param {String} path path location of the directory to be renamed.
+	 * @param {String} newDirectoryName the new name for the directory.
+	 * @returns {void}
+	 * @BB50+
+	 * @PB10
+	 */
+	/**
+	 * @name blackberry.io.dir.rename
+	 * @description Rename a given directory.
+	 * @param {String} path path of the directory, specified in the form of file:/// URL
+	 * @param {String} newDirectoryName new name for the directory
+	 * @returns {Object Literal}
+	 * {
+	 *   "data" : {
+	 *     "path": "&lt;path that was passed&gt;",
+	 *     "newDirectoryName" : "&lt;newDirectoryName that was passed&gt;"
+	 *   }
+	 * }
+	 * @PB10
+	 * @uri
+	 * @function
+	 */ 	
 	rename : function(path, newDirectoryName) { },
 	
 	/**
@@ -140,65 +232,7 @@ blackberry.io.dir = {
 	* @returns {Number} The amound of free space availalble in the specified root.
 	* @BB50+
 	*/
-	getFreeSpaceForRoot : function(rootPath) { },
-	
-	/**
-	 * @name blackberry.io.dir.appDirs^2
-	 * @description Gets the full paths of application storage folder and sub-folders under "shared". Paths are in the form of file:// URL <br><br>
-	 * The application storage folder is created when you first invoke this call. This directory is a convenient location to store application-specific data that can only be
-	 * accessed by the application.<br><br>
-	 * The "shared" folder is the parent directory to the sub-folders such as camera and music, which can be accessed by all applications. These sub-folders can also be accessed when the
-	 * BlackBerry PlayBook has "File Sharing" turned on. The <b>access_shared</b> permission must be set in order to reference any files/folders under "shared".
-	 * @returns {Object Literal}
-	 * {
-	 *   "data" : {
-	 *     "app": {
-	 *       "storage" : {
-	 *         "path" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/data"
-	 *       }
-	 *     },
-	 *     "shared": {
-	 *       "bookmarks": {
-	 *         "path" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/shared/bookmarks"
-	 *       },
-	 *       "books": {
-	 *         "path" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/shared/books"
-	 *       },
-	 *       "camera": {
-	 *         "path" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/shared/camera"
-	 *       },
-	 *       "documents": {
-	 *         "path" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/shared/documents"
-	 *       },
-	 *       "downloads": {
-	 *         "path" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/shared/downloads"
-	 *       },
-	 *       "misc": {
-	 *         "path" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/shared/misc"
-	 *       },
-	 *       "music": {
-	 *         "path" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/shared/music"
-	 *       },
-	 *       "photos": {
-	 *         "path" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/shared/photos"
-	 *       },
-	 *       "print": {
-	 *         "path" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/shared/print"
-	 *       },
-	 *       "videos": {
-	 *         "path" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/shared/videos"
-	 *       },
-	 *       "voice": {
-	 *         "path" : "file:///accounts/1000/appdata/WebWorksAppTemplate.testa3NBcHBUZW1wbGF0ZSAgICA/shared/voice"
-	 *       }
-	 *     }
-	 *   }
-	 * }
-	 * @PB10
-	 * @uri
-	 * @function
-	 */
-	appDirs2 : function() {},
+	getFreeSpaceForRoot : function(rootPath) { },	
 	
 	/**
 	 * Create an empty directory.
@@ -230,24 +264,7 @@ blackberry.io.dir = {
 	 * @uri
 	 * @function	 
 	 */
-	delete2 : function(path, recursive) {},	
-
-	/**
-     * @name blackberry.io.dir.exists^2
-     * @description Determine whether a given directory exists or not. 
-     * @param {String} path path of the directory, specified in the form of file:/// URL
-     * @returns {Object Literal}
-     * {
-     *   "data" : {
-     *     "path": "&lt;path that was passed&gt;",
-     *     "exists" : true if the path exists and points to a directory, false otherwise
-     *   }
-     * }
-     * @PB10
-     * @uri
-     * @function     
-     */
-    exists2 : function(path) {},
+	delete : function(path, recursive) {},	
 
 	/**
 	 * Get properties for a given directory.
@@ -326,25 +343,7 @@ blackberry.io.dir = {
 	 * @PB10
 	 * @uri
 	 */
-	list : function(path) {},
-
-	/**
-	 * @name blackberry.io.dir.rename^2
-	 * @description Rename a given directory.
-	 * @param {String} path path of the directory, specified in the form of file:/// URL
-	 * @param {String} newDirectoryName new name for the directory
-	 * @returns {Object Literal}
-	 * {
-	 *   "data" : {
-	 *     "path": "&lt;path that was passed&gt;",
-	 *     "newDirectoryName" : "&lt;newDirectoryName that was passed&gt;"
-	 *   }
-	 * }
-	 * @PB10
-	 * @uri
-	 * @function
-	 */ 
-	rename2 : function(path, newDirectoryName) {}	
+	list : function(path) {}
 };
 
 
