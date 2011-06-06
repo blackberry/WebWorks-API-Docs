@@ -27,6 +27,26 @@ blackberry.media.camera = {
 
     /**
      * @function
+     * @description Close the camera or video recorder if it's in the foreground.
+     * @BB50+
+     * @example
+     * function takeVideo() {
+     *   try {
+     *     blackberry.media.camera.takeVideo(successCB);
+     *   } catch(e) {
+     *     alert("Error in supported: " + e);
+     *   }
+     * }
+     *
+     * function successCB(filePath) {
+     *   blackberry.media.camera.close();
+     *   // do something with filePath
+     * }
+     */
+    close: function() {
+    },
+    /**
+     * @function
      * @description Opens the camera and return a path to the onCaptured callback when a photo is taken.
      * @callback {function} onCaptured Method will be invoked when a picture is captured. <br/>Expected signature: <code>function onCaptured(filePath)</code>
      * @callback {String} [onCaptured.filePath] Path to a picture captured by the camera.
