@@ -115,7 +115,7 @@ blackberry.payment = {
     },
     /**
      * @type Boolean
-     * @description Sets the development mode used in the application. If development mode is set to true, the application does not contact the Payment Service server for any transactions. For purchases, a simulated purchase screen is displayed, allowing the user to choose the result of the purchase. For retrieving existing purchases, only simulated successful purchases are returned. This mode is useful for testing how your application handles the possible results without requiring network connections or currency. THIS MODE SHOULD NOT BE USED IN PRODUCTION CODE. If development mode is set to false, purchases and retrievals of existing purchases proceed normally, contacting the Payment Service server as necessary. This is the default development mode, and applications in production should not modify it.
+     * @description Defines the development mode used in the application. If development mode is set to true, the application does not contact the Payment Service server for any transactions. For purchases, a simulated purchase screen is displayed, allowing the user to choose the result of the purchase. For retrieving existing purchases, only simulated successful purchases are returned. This mode is useful for testing how your application handles the possible results without requiring network connections or currency. THIS MODE SHOULD NOT BE USED IN PRODUCTION CODE. If development mode is set to false, purchases and retrievals of existing purchases proceed normally, contacting the Payment Service server as necessary. This is the default development mode, and applications in production should not modify it.
      * @default false
      * @PB10
      */
@@ -124,15 +124,17 @@ blackberry.payment = {
 };
 
 /**
- * @class
+ * @namespace This object encapsulates the attributes of a purchase.
+ * <p>
+ * It may be aquired by calling to one of the {@link blackberry.payment} methods.
  * @toc {Payment} Purchase
+ * @featureID blackberry.payment
  */
 Purchase = { }
 
 /**
  * @type String
  * @description The transaction ID for this purchase.
- * @BB50+
  * @PB10
  */
 Purchase.prototype.transactionID : null,
@@ -140,7 +142,6 @@ Purchase.prototype.transactionID : null,
 /**
  * @type String
  * @description The ID of the purchased digital good.
- * @BB50+
  * @PB10
  */
 Purchase.prototype.digitalGoodID : null,
@@ -148,7 +149,6 @@ Purchase.prototype.digitalGoodID : null,
 /**
  * @type String
  * @description The SKU of the purchased digital good.
- * @BB50+
  * @PB10
  */
 Purchase.prototype.digitalGoodSKU : null,
@@ -156,7 +156,6 @@ Purchase.prototype.digitalGoodSKU : null,
 /**
  * @type String
  * @description The metadata for this purchase, or null if no metadata was included with the purchase.
- * @BB50+
  * @PB10
  */
 Purchase.prototype.metaData : null,
@@ -164,7 +163,6 @@ Purchase.prototype.metaData : null,
 /**
  * @type String
  * @description Represents the date this purchase was made.
- * @BB50+
  * @PB10
  */
 Purchase.prototype.date : null,
@@ -172,7 +170,6 @@ Purchase.prototype.date : null,
 /**
  * @type String
  * @description Represents the license key for this purchase, or null if the purchased digital good does not have a license key.
- * @BB50+
  * @PB10
  */
 Purchase.prototype.licenseKey : null
