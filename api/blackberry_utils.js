@@ -105,7 +105,7 @@ blackberry.utils = {
 		host:null,
 		/**
 		 * @readOnly
-		 * @type String
+		 * @type Number
 		 * @BB50+
 		 * @PB10
 		 * @description Port number in the URL string.
