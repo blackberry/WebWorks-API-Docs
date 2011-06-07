@@ -57,7 +57,7 @@ blackberry.utils = {
 	 * @PB10
      * @BB50+
 	 */
-	generateUniqueID: function(){},
+	generateUniqueId: function(){},
 	
 	/**
 	 * @description Parses a URL string and returns an URL object.
