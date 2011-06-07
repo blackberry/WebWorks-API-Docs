@@ -52,41 +52,111 @@ blackberry.io.file = {
 	getFileProperties : function(path) { },
 	
 	/**
-	* Check whether or not a given file exists. 
-	* @param {String} path local storage file path to the file
-	* @returns {Boolean}
-	* @BB50+
-	* @PB10
-	*/
+	 * @name blackberry.io.file.exists^2	
+	 * @function
+	 * @description Check whether or not a given file exists. 
+	 * @param {String} path local storage file path to the file
+	 * @returns {Boolean}
+	 * @BB50+
+	 * @PB10
+	 */
+	/**
+	 * @name blackberry.io.file.exists
+	 * @description Determine whether a given file exists or not. 
+	 * @param {String} path path of the file, specified in the form of file:/// URL
+	 * @returns {Object Literal}
+	 * {
+	 *   "data" : {
+	 *     "path": "&lt;path that was passed&gt;",
+	 *     "exists" : true if the path exists and points to a file, false otherwise
+	 *   }
+	 * }
+	 * @PB10
+	 * @uri
+	 * @function	 
+	 */	
 	exists : function(path) { },
 	
 	/**
-	* Open the specified file with the registered content handler. 
-	* @param {String} path file path to the file to be opened.
-	* @returns {Boolean}
-	* @BB50+
-	* @PB10
-	*/
+	 * @name blackberry.io.file.open^2	
+	 * @function
+	 * @description Open the specified file with the registered content handler. 
+	 * @param {String} path file path to the file to be opened.
+	 * @returns {Boolean}
+	 * @BB50+
+	 * @PB10
+	 */
+	/**
+	 * @name blackberry.io.file.open
+	 * @description Open the specified file with the registered content handler.
+	 * @param {String} path path to the file to be opened, specified in the form of file:/// URL
+	 * @returns {Object Literal}
+	 * {
+	 *   "data" : {
+	 *     "path" : "&lt;path that was passed&gt;"
+	 *   }
+	 * }
+	 * @type {Boolean}
+	 * @PB10
+	 * @uri
+	 * @function
+	 */		
 	open : function(path) { },
 	
 	/**
-	* Rename a given file. 
+	* @name blackberry.io.file.rename^2
+	* @function
+	* @description Rename a given file. 	
 	* @param {String} path local storage file path to the file
 	* @param {String} newFileName the new file name.
 	* @returns {void}
 	* @BB50+
 	* @PB10
 	*/
+	/**
+	 * @name blackberry.io.file.rename
+	 * @description Rename a given file.
+	 * @param {String} path path to the file, specified in the form of file:/// URL
+	 * @param {String} newFileName new file name
+	 * @returns {Object Literal}
+	 * {
+	 *   "data" : {
+	 *     "path" : "&lt;path that was passed&gt;",
+	 *     "newFileName" : "&lt;newFileName that was passed&gt;"
+	 *   }
+	 * }
+	 * @PB10
+	 * @uri
+	 * @function
+	 */	
 	rename : function(path,newFileName) { },
 	
-	/**
-	* Copy a file to a given destination. 
+   /**
+	* @name blackberry.io.file.copy^2
+	* @function
+	* @description Copy a file to a given destination. 
 	* @param {String} sourcePath local storage file path to the file to be copied
 	* @param {String} targetPath local storage file path to the new copied file. The name of the copied file should be specified at the end of the targetPath.
 	* @returns {void}
 	* @BB50+
 	* @PB10
 	*/
+	/**
+	 * @name blackberry.io.file.copy
+	 * @description Copy a file to a given destination.
+	 * @param {String} path path to the file to be copied, specified in the form of file:/// URL
+	 * @param {String} targetPath path to the newly copied file, the name of the copied file should be specified at the end of the targetPath, in the form of file:/// URL
+	 * @returns {Object Literal}
+	 * {
+	 *   "data" : {
+	 *     "path" : "&lt;path that was passed&gt;",
+	 *     "targetPath" : "&lt;targetPath that was passed&gt;"
+	 *   }
+	 * }
+	 * @PB10
+	 * @uri
+	 * @function
+	 */
 	copy : function(sourcePath,targetPath) { },
 	
 	/**
@@ -122,24 +192,6 @@ blackberry.io.file = {
 	readFile : function(path,onFileOpened,async) { },
 	
 	/**
-	 * @name blackberry.io.file.copy^2
-	 * @description Copy a file to a given destination.
-	 * @param {String} path path to the file to be copied, specified in the form of file:/// URL
-	 * @param {String} targetPath path to the newly copied file, the name of the copied file should be specified at the end of the targetPath, in the form of file:/// URL
-	 * @returns {Object Literal}
-	 * {
-	 *   "data" : {
-	 *     "path" : "&lt;path that was passed&gt;",
-	 *     "targetPath" : "&lt;targetPath that was passed&gt;"
-	 *   }
-	 * }
-	 * @PB10
-	 * @uri
-	 * @function
-	 */
-	copy2 : function(path, targetPath) {},
-	
-	/**
 	 * @name blackberry.io.file.delete
 	 * @description Delete the specified file.
 	 * @param {String} path path to the file to be deleted, specified in the form of file:/// URL
@@ -153,24 +205,7 @@ blackberry.io.file = {
 	 * @uri
 	 * @function
 	 */
-	delete2 : function(path) {},
-	
-	/**
-	 * @name blackberry.io.file.exists^2
-	 * @description Determine whether a given file exists or not. 
-	 * @param {String} path path of the file, specified in the form of file:/// URL
-	 * @returns {Object Literal}
-	 * {
-	 *   "data" : {
-	 *     "path": "&lt;path that was passed&gt;",
-	 *     "exists" : true if the path exists and points to a file, false otherwise
-	 *   }
-	 * }
-	 * @PB10
-	 * @uri
-	 * @function	 
-	 */
-	exists2 : function(path) {},
+	delete : function(path) {},
 	
 	/**
 	 * Get properties for a given file.
@@ -220,40 +255,5 @@ blackberry.io.file = {
 	 *   });
 	 * &lt;&sol;script&gt;	 
 	 */	
-	get : function(path) {},
-	
-	/**
-	 * @name blackberry.io.file.open^2
-	 * @description Open the specified file with the registered content handler.
-	 * @param {String} path path to the file to be opened, specified in the form of file:/// URL
-	 * @returns {Object Literal}
-	 * {
-	 *   "data" : {
-	 *     "path" : "&lt;path that was passed&gt;"
-	 *   }
-	 * }
-	 * @type {Boolean}
-	 * @PB10
-	 * @uri
-	 * @function
-	 */	
-	open2 : function(path) {},
-	
-	/**
-	 * @name blackberry.io.file.rename^2
-	 * @description Rename a given file.
-	 * @param {String} path path to the file, specified in the form of file:/// URL
-	 * @param {String} newFileName new file name
-	 * @returns {Object Literal}
-	 * {
-	 *   "data" : {
-	 *     "path" : "&lt;path that was passed&gt;",
-	 *     "newFileName" : "&lt;newFileName that was passed&gt;"
-	 *   }
-	 * }
-	 * @PB10
-	 * @uri
-	 * @function
-	 */
-	rename2 : function(path, newFileName) {};
+	get : function(path) {}
 };
