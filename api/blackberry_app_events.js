@@ -24,6 +24,18 @@
  */
 blackberry.app.event = {
 	
+    /**
+     * @function
+     * @description Assigns a listener for when the application is about to exit.
+     * <p/>
+     * Only one function can be assigned to this event. To unregister the callback, simply call the onExit method and pass in null for the callback parameter.
+     * This event will be fired when the application is about to exit.  When you trap for the onExit event you must control the exit of the application
+     * in your JavaScript.  If you choose to allow the application to exit, you must call blackberry.app.exit() to terminate the application.
+     * @callback {function} onExitCallback Function to be called when the application is about to exit. Expected signature: function onExitCallback().
+     * @BB50+
+     */
+    onExit : function(onExitCallback) {},
+         
 	/**
 	 * @function
 	 * @description Assigns a listener that is called when the application goes to the background.
