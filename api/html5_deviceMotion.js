@@ -57,68 +57,10 @@ Acceleration = {
 };
 
 /**
- * @toc {Device Motion} HTML5 Rotation Rate
- * @PB10
- * @namespace
- * Represents the Angular velocity of the motion.
- * The orientation of the device is given in terms of the transfromation from a coordinate frame fixed on the Earth to a coordinate frame fixed in the device.
- * The Earth coordinate frame is a 'East, North, Up' frame at the user's location. It has the following 3 axes, where the ground plane is tangent to the WGS 84 spheroid at the user's location.
- * <ul>
- * <li>East (X) is in the ground plane, perpendicular to the North axis and positive towards the East.</li>
- * <li>North (Y) is in the ground plane and positive towards True North (towards the North Pole).</li>
- * <li>Up (Z) is perpendicular to the ground plane and positive upwards.</li>
- * </ul>
- * For a mobile device, the device coordinate frame has the following 3 axes. The axes are defined relative to the standard orientation of the screen, 
- * typically portrait, when slide-out keyboards are not deployed. If the orientation of the screen changes when the device is rotated or a slide-out keyboard is deployed, 
- * this does not affect the orientation of the coordinate frame relative to the device. Users wishing to detect these changes in screen orientation may be able to do so with the existing orientationchange event.
- * <ul>
- * <li>x is in the plane of the screen and is positive towards the right hand side of the screen.</li>
- * <li>y is in the plane of the screen and is positive towards the top of the screen.</li>
- * <li>z is perpendicular to the screen, positive out of the screen.</li>
- * </ul>
- * The transformation from the Earth frame to the device frame is expressed in terms of 3 rotations, 
- * specified in the device frame. Rotations use the right-hand convention= positive rotation around an axis is clockwise when viewed along the positive direction of the axis.
- */ 
-RotationRate={
-
- /*@property {Number} alpha Angular velocity of the device frame around its z axis by alpha degrees/s.
-  *@property {Number} beta Angular velocity of the device frame around its x axis by beta degrees/s.
-  *@property {Number} gamma Angular velocity of the device frame around its y axis by gamma degrees/s.
-  */
-  
- 	/**
-	 * @default 90
-	 * @type Number
-	 * @description <br/> {@image /images/a-rotation.jpg}</br> Returns the rotation angle around the device frame's Z-axis in degrees.
-	 * @readOnly
-	 * @PB10
-	 */ 
-	RotationRate.prototype.alpha = Number,
-
-	/**
-	 * @default 0
-	 * @type Number
-	 * @description <br/> {@image /images/b-rotation.jpg}</br> Returns the rotation angle around the device frame's X-axis in degrees.
-	 * @readOnly
-	 * @PB10
-	 */ 
-	RotationRate.prototype.beta = Number,
-
-	/**
-	 * @default 0
-	 * @type Number
-	 * @description <br/> {@image /images/g-rotation.jpg}</br> Returns the rotation angle around the device frame's Y-axis in degrees.
-	 * @readOnly
-	 * @PB10
-	 */ 
-	RotationRate.prototype.gamma= Number,
-};
-
-/**
  * @toc {Device Motion} HTML5 Device Motion Event
  * @PB10
  * @namespace
- * This event provides direct access to motion data from an accelerometer and gyroscope. The three pieces of data provided are the acceleration, acceleration including gravity and rotation rate. <br>Because our hardware currently does not have a gyroscope, not all interfaces of this event are available to us (acceleration without gravity and rotation rate.)<br>
+ * This event provides direct access to motion data from an accelerometer and gyroscope. The three pieces of data provided are the acceleration, acceleration including gravity and rotation rate. <br>At this moment the data supported is from Accelerometer only.<br>
  * @example
  * &lt;script type="text/javascript"&gt;
  *
@@ -127,7 +69,6 @@ RotationRate={
  *		var ax = "Acceleration X value- " + event.accelerationIncludingGravity.x;
  *		var ay = "Acceleration Y value- " + event.accelerationIncludingGravity.y;
  *		var az = "Acceleration Z value- " + event.accelerationIncludingGravity.z;
- *		var rotation = "Rotation rate - " + event.rotationRate;
  *
  *		alert(ax+"\n"+ay+"\n"+az);
  *
@@ -147,28 +88,12 @@ DeviceMotionEvent = {
 	
 	/**
 	 * @type Acceleration
-	 * @description The acceleration provided by the acceleration property is that of the body and hence excludes the effect of gravity.
-	 * @readOnly
-	 * @PB10
-	 */
-	DeviceMotionEvent.prototype.acceleration=null,
-	
-	/**
-	 * @type Acceleration
 	 * @description Implementations that are unable to provide acceleration data without the effect of gravity (due, for example, to the lack of a gyroscope) may instead supply the acceleration including the effect of gravity. This is less useful in many applications but is provided as a means of providing best-effort support. 
 	 * In this case, the values reported are equal to the acceleration of the device, plus an acceleration equal and opposite to the acceleration due to gravity.
 	 * @readOnly
 	 * @PB10
 	 */
 	DeviceMotionEvent.prototype.accelerationIncludingGravity=null,
-	
-	/**
-	 * @type RotationRate
-	 * @description The angular velocity of the motion.
-	 * @readOnly
-	 * @PB10
-	 */
-	DeviceMotionEvent.prototype.rotationRate=null,
 	
 	/**
 	 * @function
