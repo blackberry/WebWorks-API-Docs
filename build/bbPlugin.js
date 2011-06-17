@@ -43,11 +43,12 @@ BBTag.Support.prototype.resetSupportAttributes = function() {
     this.supportTable = "";
     var tableYes = "<td class=\"apiTd apiYes\">Y</td>";
     var tableNo = "<td class=\"apiTd apiNo\">&nbsp;</td>";
-
+    
     if(this.bb50 && this.bb60){
         this.supportStrings.push("BlackBerry OS 5.0+");
         this.supportTag = "bb5.0|bb6.0";
         this.supportTable = tableYes + "\n" + tableYes + "\n";
+        
     }else if(this.bb50 && !this.bb60){
         this.supportStrings.push("BlackBerry OS 5.0");
         this.supportTag = "bb5.0";
@@ -56,8 +57,10 @@ BBTag.Support.prototype.resetSupportAttributes = function() {
         this.supportStrings.push("BlackBerry OS 6.0+");
         this.supportTag = "bb6.0";
         this.supportTable = tableNo + "\n" + tableYes + "\n";
-    } // This last else has no support
-
+    } else {// This last else has no support
+        this.supportTable = tableNo + "\n" + tableNo + "\n";
+    }
+    
     if(this.pb10){
         this.supportStrings.push("BlackBerry PlayBook");
         if(this.supportTag.length){
@@ -68,7 +71,7 @@ BBTag.Support.prototype.resetSupportAttributes = function() {
     }else{
         this.supportTable += tableNo;
     }
-
+    
     if(this.common){
         this.supportTag += "|common";
     }
