@@ -64,34 +64,32 @@ blackberry.phone.Find.FilterExpression = function(leftField ,operator ,rightFiel
  * @BB50+
  */
 blackberry.phone.Find.FilterExpression.prototype.leftField = { };
-
-/**
- * @type Object
- * @description
- * Contains an operator, used for comparing or combining.
- * <br/>
- * Support one of the following operators:
- * <br/>
- * "!="
- * <br/>
- * "=="
- * <br/>
- * "<"
- * <br/>
- * ">"
- * <br/>
- * "<="
- * <br/>
- * ">="
- * <br/>
- * "AND"
- * <br/>
- * "OR"
- * <br/>
- * "CONTAINS"
- * @readOnly
- * @BB50+
- */
+ 
+ /**
+     * @type Object
+     * @description
+     * Contains the operator, which is either an integer or a string, used for comparing or combining:
+     * <br/>
+     * 0, "!="        - Not equal
+     * <br/>
+     * 1, "=="        - Equal
+     * <br/>
+     * 2, "<"         - Less than
+     * <br/>
+     * 4, ">"         - Greater than
+     * <br/>
+     * 3, "<="        - Equal | Less than (Less or Equal)
+     * <br/>
+     * 5, ">="        - Equal | Greater than (Greater or Equal)
+     * <br/>
+     * 8, "AND"       - AND
+     * <br/>
+     * 16, "OR"       - OR
+     * <br/>
+     * 32, "CONTAINS" - CONTAINS
+     * @readOnly
+     * @BB50+
+     */
 blackberry.phone.Find.FilterExpression.prototype.operator = { };
 
 /**
