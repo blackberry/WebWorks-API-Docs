@@ -74,7 +74,7 @@ blackberry.system ={
 		 * @BB50+
 		 * @PB10
 		 */
-		hasPermissions : function(module){},
+		hasPermission : function(module){},
 		
 		/**
 		 * @description Returns whether USB MassStorage mode is active.
