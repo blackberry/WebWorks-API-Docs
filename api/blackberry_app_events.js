@@ -69,15 +69,35 @@ blackberry.app.event = {
 	 * @PB10
 	 */
 	onSwipeDown : function(onSwipeDownCallback) {},
-	
-	/**
+		/**
 	 * @function
 	 * @description Assigns a listener for when when a user begins to swipe from the top bezel of the BlackBerry PlayBook into the screen.
 	 * <p/>
 	 * This event is dispatched when the user starts a swipe from the top bezel of the BlackBerry PlayBook. Only one function can be assigned to this event. To unregister the callback call the onSwipeStart method and pass in null for the callback parameter.
-	 * @callback {function} onSwipeStartCallback Function to be called when the user starts a swipe from the top bezel of the PlayBook. Expected signature: function onSwipeStartCallback().
+	 * @callback {function} onSwipeStartCallback Function to be called when the user starts a swipe from the top bezel of the PlayBook. Expected signature: function onSwipeStartCallback(). Static="true" returns="void".
 	 * @PB10
 	 */
 	onSwipeStart : function(onSwipeStartCallback) {}
+    
+    /**
+	 * @function
+     * @type OnAppEvent Static
+    	 * @description Assigns a listener for when the application is about to exit.
+	 * <p/>
+	 *  <p>Only one function can be assigned to this event. To unregister the callback, simply call the onExit method and pass in null for the callback parameter. 
+        This event will be fired when the application is about to exit.  When you trap for the onExit event you must control the exit of the application
+        in your JavaScript.  If you choose to allow the application to exit, you must call blackberry.app.exit() to terminate the application. </p>
+       @callback {function} callback Function to be called when the application is about to exit.  
+       @BB50+
+	 * @example
+     *  function trapExit()
+       *       {
+       *           var answer = confirm("Leave this application?");
+       *               if (answer)
+      *                    blackberry.app.exit();
+       *       }
+	 */
+    
+     onExit  : function(blackberry.app.event.onExit) {}, 
 
 };
