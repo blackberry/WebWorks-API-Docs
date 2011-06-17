@@ -210,7 +210,7 @@ function runFilter() {
 on IE6 */
 function getDesiredElements(element, attributeName) {
 	var results = new Array();
-	if (element.hasAttribute(attributeName))
+	if (element.getAttribute(attributeName) != null)
 		results.push(element);
 		
 	// Check child nodes
