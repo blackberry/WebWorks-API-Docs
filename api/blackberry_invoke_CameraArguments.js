@@ -19,7 +19,6 @@
 *       The CameraArguments object must be created as an instance using the new keyword.
 *     </p></div>
 * @toc {Invoke} CameraArguments 
-* @BB50+
 * @PB10
 * @class The CameraArguments object is an instance object, and is used as a parameter to the invoke() method when invoking the Camera application or Recorder application.
 * @featureID blackberry.invoke
@@ -39,7 +38,6 @@ blackberry.invoke.CameraArguments = function() { };
 * Photo Camera 
 * @type Number
 * @constant
-* @BB50+
 * @PB10
 */
 blackberry.invoke.CameraArguments.VIEW_CAMERA = 0;
@@ -48,7 +46,6 @@ blackberry.invoke.CameraArguments.VIEW_CAMERA = 0;
 * Video Recorder 
 * @type Number
 * @constant
-* @BB50+
 * @PB10
 */
 blackberry.invoke.CameraArguments.VIEW_RECORDER = 1;
@@ -56,7 +53,6 @@ blackberry.invoke.CameraArguments.VIEW_RECORDER = 1;
 /**
 * Value that specifies what kind of camera application you want to open. 
 * @type Number
-* @BB50+
 * @PB10
 */
 blackberry.invoke.CameraArguments.prototype.view = { };
