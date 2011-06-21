@@ -38,6 +38,7 @@
 blackberry.identity = {
 
 /**
+ * Returns a JSON object containing the PIN of the device.
  * @uri 
  * @PB10
  * @returns {JSON of all the properties}
