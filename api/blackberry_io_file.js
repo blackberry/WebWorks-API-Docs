@@ -40,6 +40,29 @@
 *     alert(&quot;file opened was: &quot; + fullPath + &quot; which contained &quot; + blobData.length + &quot; bytes&quot;);
 *   }
 * &lt;&sol;script&gt;
+*
+* &lt;script type=&quot;text&sol;javascript&quot;&gt;
+*   //This example is for PlayBook it assumes that a test.jpg file exists in the photos directory
+*   //Substitute the file name as necessary
+* 
+*   var dirs = blackberry.io.dir.appDirs;
+*   // readFile
+*   var globalBlob;
+*   function onFileOpen(fullPath, blobData){
+*       globalBlob = blobData;
+*   }
+*
+*   try{
+*       blackberry.io.file.readFile(dirs.shared.photos.path + "/test.jpg", onFileOpen, true);																		
+*   }catch(e){
+*       alert(e);
+*   }
+*
+*   //saveFile
+*   var newFilename = "/testCopy.jpg";
+*   var newFilePath = dirs.shared.photos.path + newFilename;
+*   blackberry.io.file.saveFile(newFilePath, globalBlob);
+* &lt;&sol;script&gt;
 */
 blackberry.io.file = {
 	/**
