@@ -68,6 +68,12 @@
                 padding-left: 20px;
             }
             
+            .elemTh {
+                text-align: left;
+                vertical-align: top;
+                color: #616161;
+            }
+            
             table.betaTable {
                 border-width: 1px;
                 border-style: solid;
@@ -241,7 +247,7 @@
         To use <u>all</u> of the API described for this object, you must ensure the following settings are in your configuration document:      
     
     <table class="scriptTable">
-        <tr><th>Feature Elements</th></tr>
+        <tr><th class="elemTh">Feature Elements</th></tr>
         <if test="data.featureID">
             <tr><td class="scriptTd">
             You must declare the feature element(s) below in your configuration document:
@@ -261,7 +267,7 @@
     
     <div x-ww-support="pb1.0">
         <table class="scriptTable">
-        <tr><th>Permission Elements (PlayBook Only)</th></tr>
+        <tr><th class="elemTh">Permission Elements (PlayBook Only)</th></tr>
         <if test="data.permission">
             {! var mandatory = data.permission.filter(function($){return !$.isOptional}).sort(makeSortby("name"));!}
             {! var optional = data.permission.filter(function($){return $.isOptional}).sort(makeSortby("name"));!}
