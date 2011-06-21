@@ -85,24 +85,6 @@
                 vertical-align: top;
                 background-color: #FCD8B9;
             }
-            
-            table.learnTable {
-                border-width: 1px;
-                border-style: solid;
-                border-color: #ccc;
-                padding: 5px;
-                vertical-align: top;
-                margin: 5px;
-                margin-bottom:15px;
-                width : 90%;
-                background-color: #FAF8CC;
-            }
-            
-            td.learnTd {
-                color: #484848;
-                vertical-align: top;
-                background-color: #FAF8CC;
-            }
 
         </style>
       
@@ -160,11 +142,11 @@
     
 <!-- ============================== Learning Resources ============================ -->
         <if test="data.learnTag">
-            <table class="learnTable">
+            <table class="scriptTable">
                 <div class="title">Learning Resources:</div>
                 <for each="item" in="data.learnTag">
                     <tr>
-                        <td class="learnTd">
+                        <td class="scriptTd">
                             {!output+="<a href=" + item.name + " target='_new'>" + item.type + "</a>";!}
                             {+item.desc+}
                         </td>
