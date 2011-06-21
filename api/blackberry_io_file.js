@@ -188,7 +188,7 @@ blackberry.io.file = {
     *   }
     *
     *   try{
-    *       blackberry.io.file.readFile(dirs.shared.photos.path + "/test.jpg", onFileOpen, true);																		
+    *       blackberry.io.file.readFile(dirs.shared.photos.path + "/test.jpg", onFileOpen, true);
     *   }catch(e){
     *       alert(e);
     *   }
