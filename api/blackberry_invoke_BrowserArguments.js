@@ -30,7 +30,8 @@
 &sol;&sol;&sol;          Throws an Exception if values supplied are not correct.
 &sol;&sol;&sol;        &lt;&sol;p&gt;&lt;&sol;div&gt; 
 * @param {String} url The desired url to bring up in the browser.
-* @param {blackberry.identity.Transport} [transport] an optional parameter representing the transport type that the browser should use.  If no parameter is specified the default browser configured for the device will be used.
+* @param {blackberry.identity.Transport} [transport] an optional parameter for BB5.0+ only representing the transport type that the browser should use.  If no parameter is specified 
+* the default browser configured for the device will be used.
 * @example
 * &lt;script type=&quot;text&sol;javascript&quot;&gt;
 *   var args = new blackberry.invoke.BrowserArguments(&apos;http:&sol;&sol;www.blackberry.com&apos;);
