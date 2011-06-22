@@ -106,6 +106,21 @@ BBTag.Support.prototype.populateBySymbol = function(symbol) {
     }
 };
 
+BBTag.Support.prototype.populateByString = function(string) {
+    // BlackBerry Support Tags
+    if(string){
+        var BB50 = string.equals("BB50");
+        var BB50P = string.equals("BB50+");
+        var BB60 = string.equals("BB60");
+        var BB60P = string.equals("BB60+");
+        var PB10 = string.equals("PB10");
+        var PB10P = string.equals("PB10+");
+
+        this.populateByBools((BB50 || BB50P),
+                (BB50P || BB60P || BB60), (PB10 || PB10P));
+    }
+};
+
 BBTag.Support.prototype.populateBySupport = function(support) {
 
     this.bb50 |= support.bb50;
@@ -121,6 +136,12 @@ BBTag.Support.prototype.populateBySymbolArray = function(symbolArray) {
         this.populateBySymbol(symbol);
     }
 };
+
+BBTag.PlaybookSupport = function(){
+    var pbSupport = new BBTag.Support();
+    pbSupport.populateByBools(false, false, true);
+    return pbSupport;
+}
 
 function isaClass($) {
     return ($.is("CONSTRUCTOR") || $.isNamespace) && !($.alias == "_global_")
@@ -182,6 +203,9 @@ JSDOC.PluginManager.registerPlugin("JSDOC.BBTag", {
                     symbol.noConstructor = true;
                 }
 
+                //FeatureID has an optional type attribute
+                //If it is missing then the feature is fully supported
+                //If it is present than it will represent the limited support
                 var featureID = symbol.comment.getTag("featureID");
                 if(featureID.length){
                     symbol.featureID = featureID;
