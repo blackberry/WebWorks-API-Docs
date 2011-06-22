@@ -316,6 +316,8 @@ JSDOC.PluginManager.registerPlugin("JSDOC.BBTag", {
                 docTag.isCallback = true;
             }else if(docTag.title == "learns"){
                 docTag.desc = docTag.nibbleName(docTag.desc);
+            } else if(docTag.title == "permission"){
+                docTag.desc = docTag.nibbleName(docTag.desc);
             }
         }
     },
