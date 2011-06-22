@@ -20,6 +20,7 @@
 * @featureID blackberry.io.file
 * @example
 * &lt;script type=&quot;text&sol;javascript&quot;&gt;
+*   //Example file path only works on BB 5.0 and higher. For PlayBook, you must use the Directory API to resolve the path.
 *   var filePath = &quot;file:&sol;&sol;&sol;store&sol;home&sol;user&sol;sample.xml&quot;;
 *        
 *   if (blackberry.io.file.exists(filePath)) {
