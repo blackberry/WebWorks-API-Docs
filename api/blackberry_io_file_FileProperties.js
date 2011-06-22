@@ -59,6 +59,14 @@ blackberry.io.file.FileProperties.prototype.isHidden = { };
 blackberry.io.file.FileProperties.prototype.size = { };
 
 /**
+* File creation date 
+* @type Date
+* @readOnly
+* @PB10
+*/
+blackberry.io.file.FileProperties.prototype.dateCreated = { };
+
+/**
 * File modified date 
 * @type Date
 * @readOnly
