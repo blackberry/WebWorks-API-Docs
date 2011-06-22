@@ -20,26 +20,6 @@
 * See also {@link blackberry.io.dir}
 * @featureID blackberry.io.file
 * @permission [access_shared] Any references to files/directories under "shared" folder (e.g. music) requires this permission to be set.
-* @example
-* &lt;script type=&quot;text&sol;javascript&quot;&gt;
-*   // This example is for BlackBerry OS 5.0+
-*   var xmlString = &quot;&lt;test&gt;IO functions&lt;&sol;test&gt;&quot;;
-*   var filePath = &quot;file:&sol;&sol;&sol;store&sol;home&sol;user&sol;sample.xml&quot;;
-*   var parser = new DOMParser();
-*   var doc = parser.parseFromString(xmlString, &quot;text&sol;xml&quot;);
-*   var blob_data = blackberry.utils.documentToBlob(doc);
-*      
-*   blackberry.io.file.saveFile(filePath, blob_data);
-*                 
-*   if (blackberry.io.file.exists(filePath)) {
-*     blackberry.io.file.copy(filePath, &quot;file:&sol;&sol;&sol;SDCard&sol;myxmlfile2.xml&quot;);
-*     blackberry.io.file.readFile(filePath,handleOpenedFile);
-*   }
-*      
-*   function handleOpenedFile(fullPath, blobData) {
-*     alert(&quot;file opened was: &quot; + fullPath + &quot; which contained &quot; + blobData.length + &quot; bytes&quot;);
-*   }
-* &lt;&sol;script&gt;
 */
 blackberry.io.file = {
 	/**
@@ -175,6 +155,49 @@ blackberry.io.file = {
 	* @returns {void}
 	* @BB50+
 	* @PB10
+    * @example
+    * &lt;script type=&quot;text&sol;javascript&quot;&gt;
+    *   // This example is for BlackBerry OS 5.0+
+    *   var xmlString = &quot;&lt;test&gt;IO functions&lt;&sol;test&gt;&quot;;
+    *   var filePath = &quot;file:&sol;&sol;&sol;store&sol;home&sol;user&sol;sample.xml&quot;;
+    *   var parser = new DOMParser();
+    *   var doc = parser.parseFromString(xmlString, &quot;text&sol;xml&quot;);
+    *   var blob_data = blackberry.utils.documentToBlob(doc);
+    *      
+    *   blackberry.io.file.saveFile(filePath, blob_data);
+    *                 
+    *   if (blackberry.io.file.exists(filePath)) {
+    *     blackberry.io.file.copy(filePath, &quot;file:&sol;&sol;&sol;SDCard&sol;myxmlfile2.xml&quot;);
+    *     blackberry.io.file.readFile(filePath,handleOpenedFile);
+    *   }
+    *      
+    *   function handleOpenedFile(fullPath, blobData) {
+    *     alert(&quot;file opened was: &quot; + fullPath + &quot; which contained &quot; + blobData.length + &quot; bytes&quot;);
+    *   }
+    * &lt;&sol;script&gt;
+    *
+    * &lt;script type=&quot;text&sol;javascript&quot;&gt;
+    *   //This example is for PlayBook it assumes that a test.jpg file exists in the photos directory
+    *   //Substitute the file name as necessary
+    * 
+    *   var dirs = blackberry.io.dir.appDirs;
+    *   // readFile
+    *   var globalBlob;
+    *   function onFileOpen(fullPath, blobData){
+    *       globalBlob = blobData;
+    *   }
+    *
+    *   try{
+    *       blackberry.io.file.readFile(dirs.shared.photos.path + "/test.jpg", onFileOpen, true);
+    *   }catch(e){
+    *       alert(e);
+    *   }
+    *
+    *   //saveFile
+    *   var newFilename = "/testCopy.jpg";
+    *   var newFilePath = dirs.shared.photos.path + newFilename;
+    *   blackberry.io.file.saveFile(newFilePath, globalBlob);
+    * &lt;&sol;script&gt;
 	*/
 	saveFile : function(path,data) { },
 	

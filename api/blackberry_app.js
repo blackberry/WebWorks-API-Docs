@@ -183,6 +183,7 @@ blackberry.app ={
 	
 	
 	/**
+     * Returns a JSON object containing all properties of the application.
 	 * @uri 
 	 * @PB10
 	 * @returns {JSON of all the properties}

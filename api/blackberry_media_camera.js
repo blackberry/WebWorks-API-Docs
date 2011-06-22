@@ -32,7 +32,6 @@ blackberry.media.camera = {
      * @callback {String} [onCaptured.filePath] Path to a picture captured by the camera.
      * @callback {function} [onCameraClosed] Method will be invoked on camera closed event. <br/>Expected signature: <code>function onCameraClosed()</code>
      * @callback {function} [onError] Method will be invoked when an error occurs. <br/>Expected signature: <code>function onError()</code>
-     * @BB50+
      * @PB10
      */
     takePicture: function(onCaptured, onCameraClosed, onError) {
@@ -44,7 +43,6 @@ blackberry.media.camera = {
      * @callback {String} [onCaptured.filePath] Path to a video captured by the camera.
      * @callback {function} [onCameraClosed] Method will be invoked on camera closed event. <br/>Expected signature: <code>function onCameraClosed()</code>
      * @callback {function} [onError] Method will be invoked when an error occurs. <br/>Expected signature: <code>function onError()</code>
-     * @BB50+
      * @PB10
      * @example
      * function takeVideo() {
