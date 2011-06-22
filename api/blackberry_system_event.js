@@ -21,7 +21,7 @@
 *       The System Object is static; all of its functions and properties are used directly from the object.
 *     </p></div>
 * @toc {System} System Event 
-* @featureid blackberry.system.event
+* @featureID blackberry.system.event
 * @BB50+
 * @namespace The System Event object allows you to get access to events triggered by system events on the BlackBerry device.
 * @example
