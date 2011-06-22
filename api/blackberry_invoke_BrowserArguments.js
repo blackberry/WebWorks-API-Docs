@@ -24,13 +24,14 @@
 * @PB10
 * @class The BrowserArguments object is an instance object, and is used as a parameter to the invoke() method when invoking the BlackBerry Browser application.
 * @featureID blackberry.invoke
-* @featureID blackberry.invoke.BrowserArguments
-* @featureID blackberry.identity
+* @featureID {BB50+} blackberry.invoke.BrowserArguments
+* @featureID {BB50+} blackberry.identity
 * @constructor Open Browser application on the BlackBerry smartphone. &lt;div&gt;&lt;p&gt;
 &sol;&sol;&sol;          Throws an Exception if values supplied are not correct.
 &sol;&sol;&sol;        &lt;&sol;p&gt;&lt;&sol;div&gt; 
 * @param {String} url The desired url to bring up in the browser.
-* @param {blackberry.identity.Transport} [transport] an optional parameter representing the transport type that the browser should use.  If no parameter is specified the default browser configured for the device will be used.
+* @param {blackberry.identity.Transport} [transport] an optional parameter for BB5.0+ only representing the transport type that the browser should use.  If no parameter is specified 
+* the default browser configured for the device will be used.
 * @example
 * &lt;script type=&quot;text&sol;javascript&quot;&gt;
 *   var args = new blackberry.invoke.BrowserArguments(&apos;http:&sol;&sol;www.blackberry.com&apos;);

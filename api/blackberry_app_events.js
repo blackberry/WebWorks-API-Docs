@@ -16,7 +16,7 @@
 
 /**
  * @toc {System} Application Event
- * @featureid blackberry.app.event
+ * @featureID blackberry.app.event
  * @namespace The Application Event object allows you to access events triggered by the application
   * <p/>
  * The Application Event Object is static; all of its functions and properties are used directly from the object.

@@ -91,7 +91,12 @@
                 vertical-align: top;
                 background-color: #FCD8B9;
             }
-
+            #APISupportTable {
+                display: none;
+            }
+            #FeatureIDSupportTable {
+                display: none;
+            }
         </style>
       
         <link rel="stylesheet" href="common.css" type="text/css" />
@@ -195,8 +200,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <div>- Supported Platform Table: <span id="codeExpand" onclick="codeClick(this)";>Expand</span></div>
-                        <div id="codeExamples">
+                        <div>- Supported Platform Table: <span id="codeExpand" onclick="codeClick('APISupportTable',this)";>Expand</span></div>
+                        <div id="APISupportTable">
                             <table class="apiTable">
                                 <tr>
                                     <th class="apiTh apiColumn">
@@ -247,17 +252,53 @@
         To use <u>all</u> of the API described for this object, you must ensure the following settings are in your configuration document:      
     
     <table class="scriptTable">
-        <tr><th class="elemTh">Feature Elements</th></tr>
+        <tr>
+            <th class="elemTh">Feature Elements</th>
+        </tr>
         <if test="data.featureID">
             <tr><td class="scriptTd">
             You must declare the feature element(s) below in your configuration document:
-        </td></tr><br>
-            <for each="item" in="data.featureID">
-                <tr><td class="scriptTd"> 
-                - &lt;feature id="{+item.desc+}" /&gt;
-                <br>
-                </td></tr>
-            </for>      
+            </td></tr>
+            <br>
+            <tr><td>
+                <div>- Supported Feature ID Table: <span id="codeExpand" onclick="codeClick('FeatureIDSupportTable',this)";>Expand</span></div>
+                <div id="FeatureIDSupportTable">
+                    <table class="apiTable">
+                        <tr>
+                            <th class="apiTh apiColumn">
+                               Feature ID
+                               
+                            </th>
+                            <th class="apiTh" >
+                               OS 5.0
+                               
+                            </th>
+                            <th class="apiTh" >
+                               OS 6.0
+                               
+                            </th>
+                            <th class="apiTh" >
+                               PlayBook
+                               
+                            </th>
+                        </tr>
+                        <for each="item" in="data.featureID">
+                          {!item.support = (new BBTag.Support()) !}
+                            <if test="item.type">
+                                {!item.support.populateByString(item.type)!}
+                             <else/>
+                                {!item.support.populateBySymbol(data)!}
+                            </if>
+                            <tr x-ww-support="{+item.support.supportTag+}">
+                                <td class="apiTd">
+                                    {+item.desc+}                               
+                                    {+item.support.supportTable+}
+                                </td>
+                            </tr>
+                        </for>
+                    </table>
+                 </div>
+             </td></tr>       
         <else/>
             <tr><td class="scriptTd">
             This API does not require a &lt;feature&gt; element to be declared in the configuration document of your BlackBerry WebWorks Application.
@@ -265,37 +306,39 @@
         </if>
     </table>
     
-    <div x-ww-support="pb1.0">
+    <div x-ww-support="{+BBTag.PlaybookSupport().supportTag+}">
         <table class="scriptTable">
         <tr><th class="elemTh">Permission Elements (PlayBook Only)</th></tr>
         <if test="data.permission">
             {! var mandatory = data.permission.filter(function($){return !$.isOptional}).sort(makeSortby("name"));!}
             {! var optional = data.permission.filter(function($){return $.isOptional}).sort(makeSortby("name"));!}
             
-            <tr><td class="scriptTd">
-            You must declare the permission element(s) below in your configuration document:
-            </td></tr><br>
-            
-            <for each="item" in="mandatory">
+            <if test="mandatory.length">
                 <tr><td class="scriptTd">
-                - &lt;rim:permit&gt;"{+item.name+}"&lt;/rim:permit&gt; {+item.desc+}
-                <br>
-                </td></tr>
-            </for>
-            
-            <if test="optional.length">
-            <tr><td class="scriptTd">
-            </br>
-            <i><b>Note:</b> Declaring the permission element(s) below in your configuration document is optional.</i></br>
-            </td></tr><br>
+                You must declare the permission element(s) below in your configuration document:
+                </td></tr><br>
+                
+                <for each="item" in="mandatory">
+                    <tr><td class="scriptTd">
+                    - &lt;rim:permit&gt;{+item.name+}&lt;/rim:permit&gt; {+item.desc+}
+                    <br>
+                    </td></tr>
+                </for>
             </if>
             
-            <for each="item" in="optional">
+            <if test="optional.length">
                 <tr><td class="scriptTd">
-                - &lt;rim:permit&gt;"{+item.name+}"&lt;/rim:permit&gt; {+item.desc+}
-                <br>
-                </td></tr>
-            </for>
+                <if test="mandatory.length && optional.length"><br/></if>
+                <i><b>Note:</b> Declaring the permission element(s) below in your configuration document is optional.</i></br>
+                </td></tr><br>
+            
+                <for each="item" in="optional">
+                    <tr><td class="scriptTd">
+                    - &lt;rim:permit&gt;{+item.name+}&lt;/rim:permit&gt; {+item.desc+}
+                    <br>
+                    </td></tr>
+                </for>
+            </if>
         <else/>
             <tr><td class="scriptTd">
             This API does not require a &lt;permission&gt; element to be declared in the configuration document of your BlackBerry WebWorks Application.

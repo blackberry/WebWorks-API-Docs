@@ -18,7 +18,8 @@
  * @toc {Media} Microphone
  * @featureID blackberry.media.microphone
  * @namespace The Microphone object contains functions for recording audio from microphone.
- * @permission [record_audio] Permits the app to record sound through the microphone without prompting the user.
+ * @permission record_audio Permits the app to record sound through the microphone without prompting the user.
+ * @permission [access_shared] Any references to files/directories under "shared" folder (e.g. music) requires this permission to be set.
  * @example
  * &lt;!DOCTYPE html&gt;
  * &lt;html&gt;
