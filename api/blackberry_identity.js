@@ -14,15 +14,13 @@
 * limitations under the License.
 */
 
-
-
-
 /**
 * @toc {Identity} Identity 
 * @BB50+
 * @namespace The Identity object contains information regarding the user&apos;s identity and accounts on a BlackBerry smartphone.
 * @featureID blackberry.identity
 * @featureID blackberry.identity.phone
+* @permission read_device_identifying_information Permits your app to access device identifiers.
 * @example
 * &lt;script type=&quot;text&sol;javascript&quot;&gt;
 *   var transportList = blackberry.identity.getTransportList();
