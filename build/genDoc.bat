@@ -3,8 +3,10 @@ SET JSDOC_TEMPLATE_DIR=%1%\jsdoc-toolkit\templates\BBTemplate
 SET BB_TEMPLATE_DIR=BBTemplate
 SET BB_PLUGIN=bbPlugin.js
 SET API_DOC_DIR=..\api
-SET OUTPUT_DIR=..\output
+SET OUTPUT_DIR=..\..\output
 
+rmdir /s /q "%JSDOC_TEMPLATE_DIR%"
+mkdir "%JSDOC_TEMPLATE_DIR%"
 xcopy %BB_TEMPLATE_DIR% "%JSDOC_TEMPLATE_DIR%" /e /y
 copy %BB_PLUGIN% "%JSDOC_DIR%\app\plugins\" /y
 
