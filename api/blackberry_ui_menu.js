@@ -20,20 +20,14 @@
 *       The functionality in this object allows you to manipulate the dynamically created menu items for the application.  This will not allow you to remove the default menu items for the application.
 *       To create a separator simply pass the appropriate parameters into the MenuItem constructor.
 *     </p></div>
-* @toc {User Interface} Menu 
+* @toc {User Interface} Menu
+* @featureID blackberry.ui.menu
 * @BB50+
 * @namespace The Menu object contains functionality for manipulating menu items for the application.
 * @learns {Sample - Menu Items} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Adding-Menu-Items-using-the-BlackBerry-WebWorks-SDK/ta-p/516885 Example that demonstrates how to use the Menu API to 
 * create a custom application menu in a BlackBerry WebWorks application [BlackBerry Developer Resource Center].
 */
-blackberry.ui.menu = { 
-
-
-
-
-
-
-};
+blackberry.ui.menu = { };
 
 /**
 * Sets which item on the menu should be selected by default. 

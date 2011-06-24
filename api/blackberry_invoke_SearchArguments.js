@@ -33,4 +33,12 @@
 */
 blackberry.invoke.SearchArguments = function() { };
 
-
+/**
+* @constructedBy blackberry.invoke.SearchArguments
+* @description Build a SearchArguments object from string arguments
+* @BB50+
+* @function
+* @param {String} text The text string to pass to the Search application
+* @param {String} name The name string to pass to the Search application
+*/
+blackberry.invoke.SearchArguments.const1 = function() { };

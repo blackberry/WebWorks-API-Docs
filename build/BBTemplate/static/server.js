@@ -210,7 +210,7 @@ function runFilter() {
 on IE6 */
 function getDesiredElements(element, attributeName) {
 	var results = new Array();
-	if (element.hasAttribute(attributeName))
+	if (element.getAttribute(attributeName) != null)
 		results.push(element);
 		
 	// Check child nodes
@@ -252,14 +252,14 @@ function insertFooter() {
 	document.getElementById('content').appendChild(footerDiv);
 }
 
-function codeClick(element) {
-	var codeExamples = document.getElementById('codeExamples');
-	if (codeExamples.style.display == 'inline') {
-		codeExamples.style.display = 'none';
+function codeClick(divID,element) {
+	var divToHide = document.getElementById(divID);
+	if (divToHide.style.display == 'inline') {
+		divToHide.style.display = 'none';
 		element.innerHTML = 'Expand';
 	}
 	else {
-		codeExamples.style.display = 'inline';
+		divToHide.style.display = 'inline';
 		element.innerHTML = 'Collapse';
 	}
 }

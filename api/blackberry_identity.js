@@ -14,14 +14,13 @@
 * limitations under the License.
 */
 
-
-
 /**
 * @toc {Identity} Identity 
 * @BB50+
 * @namespace The Identity object contains information regarding the user&apos;s identity and accounts on a BlackBerry smartphone.
 * @featureID blackberry.identity
 * @featureID blackberry.identity.phone
+* @permission read_device_identifying_information Permits your app to access device identifiers.
 * @example
 * &lt;script type=&quot;text&sol;javascript&quot;&gt;
 *   var transportList = blackberry.identity.getTransportList();
@@ -34,7 +33,51 @@
 *   alert(&quot;IMEI: &quot; + blackberry.identity.IMEI);
 * &lt;&sol;script&gt;
 */
-blackberry.identity = { };
+blackberry.identity = {
+
+/**
+ * Returns a JSON object containing the PIN of the device.
+ * @uri 
+ * @PB10
+ * @returns {JSON of all the properties}
+ * {
+ * 	"data":{
+ *		"PIN":"0x12345678",
+ * 	}
+ * }
+ * @example 
+ * &lt;html&gt;
+ * &lt;head&gt;
+ *     &lt;script type="text/javascript" src="js/jquery-1.4.2.js" &gt;&lt;/script&gt;
+ *     &lt;script type="text/javascript" src="js/jquery.form.js" &gt;&lt;/script&gt;
+ *     &lt;script type="text/javascript" src="js/jquery.populate.js" &gt;&lt;/script&gt;
+ *     
+ *     &lt;script type="text/javascript"&gt;  
+ *	function getIdentityData(){
+ *		$.ajax({
+ *		    type: "get",
+ *		    url: "webworks://blackberry/identity/get",
+ *		    success: function(msg){
+ *		      $('#myIdentityDiv').populate(JSON.parse(msg).data);
+ *		    }
+ *		});
+ *	}
+ *      &lt;/script&gt;
+ *      
+ *&lt;/head&gt;
+ *&lt;body&gt;
+ *
+ *    &lt;input type="button" onclick="getIdentityData();" value="Populate - IDENTITY"/&gt;
+ *    &lt;div id="myIdentityDiv"&gt;
+ *        PIN: &lt;span id="PIN"&gt;&lt;/span&gt;&lt;br/&gt;
+ *    &lt;/div&gt;
+ *    
+ *&lt;/body&gt;
+ *&lt;/html&gt;
+ */
+get: function(){}
+
+};
 
 /**
 * Returns the list of Service objects that describe each of the services that the user has for their device. 
@@ -56,6 +99,7 @@ blackberry.identity.getTransportList = function() { };
 * @static
 * @readOnly
 * @BB50+
+* @PB10
 */
 blackberry.identity.PIN = { };
 

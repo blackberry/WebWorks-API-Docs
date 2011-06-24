@@ -1,4 +1,4 @@
-<!--
+﻿<!--
 * Copyright 2010-2011 Research In Motion Limited.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -68,6 +68,12 @@
                 padding-left: 20px;
             }
             
+            .elemTh {
+                text-align: left;
+                vertical-align: top;
+                color: #616161;
+            }
+            
             table.betaTable {
                 border-width: 1px;
                 border-style: solid;
@@ -85,25 +91,12 @@
                 vertical-align: top;
                 background-color: #FCD8B9;
             }
-            
-            table.learnTable {
-                border-width: 1px;
-                border-style: solid;
-                border-color: #ccc;
-                padding: 5px;
-                vertical-align: top;
-                margin: 5px;
-                margin-bottom:15px;
-                width : 90%;
-                background-color: #FAF8CC;
+            #APISupportTable {
+                display: none;
             }
-            
-            td.learnTd {
-                color: #484848;
-                vertical-align: top;
-                background-color: #FAF8CC;
+            #FeatureIDSupportTable {
+                display: none;
             }
-
         </style>
       
         <link rel="stylesheet" href="common.css" type="text/css" />
@@ -144,7 +137,9 @@
                  <tr>
                     <td class="betaTd">
                         <div class="title">Beta Notice:</div>
-                        This API is considered to be in Beta.  The function and property signatures listed below could change at anytime.  Once the API moves out of Beta it will be distributed as part of the core API.
+                        This API is considered to be in Beta.
+                        The function and property signatures listed below could change at anytime.
+                        Once the API moves out of Beta it will be distributed as part of the core API.
                         <br/><br/>
                         <for each="item" in="data.betaTag">
                             {+item.desc+}
@@ -158,11 +153,11 @@
     
 <!-- ============================== Learning Resources ============================ -->
         <if test="data.learnTag">
-            <table class="learnTable">
+            <table class="scriptTable">
                 <div class="title">Learning Resources:</div>
                 <for each="item" in="data.learnTag">
                     <tr>
-                        <td class="learnTd">
+                        <td class="scriptTd">
                             {!output+="<a href=" + item.name + " target='_new'>" + item.type + "</a>";!}
                             {+item.desc+}
                         </td>
@@ -193,20 +188,20 @@
         <if test="generateDefaultConstructor">
             {! constructors.unshift(data); !}
         </if>
-        <if test="data.support.getSupportStrings()">
+        <if test="data.support.supportStrings">
             <div class="title">Supported Platform(s)</div>      
             <table class="scriptTable">         
                 <tr> 
                     <td class="scriptTd">
-                        <for each="item" in="data.support.getSupportStrings()">
+                        <for each="item" in="data.support.supportStrings">
                             - {+item+}<br/>
                         </for>
                     </td> 
                 </tr>
                 <tr>
                     <td>
-                        <div>- Supported Platform Table: <span id="codeExpand" onclick="codeClick(this)";>Expand</span></div>
-                        <div id="codeExamples">
+                        <div>- Supported Platform Table: <span id="codeExpand" onclick="codeClick('APISupportTable',this)";>Expand</span></div>
+                        <div id="APISupportTable">
                             <table class="apiTable">
                                 <tr>
                                     <th class="apiTh apiColumn">
@@ -228,19 +223,19 @@
                                 </tr>
                                 <if test="constructors.length">
                                     <for each="item" in="constructors">
-                                        <tr x-ww-support="{+item.support.getSupportTag()+}">
+                                        <tr x-ww-support="{+item.support.supportTag+}">
                                             <td class="apiTd">
                                                 {+new Link().toSymbol(item.alias).withText(getSymbolName(item))+}                               
-                                                {+item.support.getSupportTable()+}
+                                                {+item.support.supportTable+}
                                             </td>
                                         </tr>                               
                                     </for>
                                 </if>
                                 <for each="item" in="allChildren">
-                                    <tr x-ww-support="{+item.support.getSupportTag()+}">
+                                    <tr x-ww-support="{+item.support.supportTag+}">
                                         <td class="apiTd">
                                             {+new Link().toSymbol(item.alias).withText(getSymbolName(item))+}                               
-                                            {+item.support.getSupportTable()+}
+                                            {+item.support.supportTable+}
                                         </td>
                                     </tr>                               
                                 </for>
@@ -251,34 +246,114 @@
             </table>
         </if>
         
-<!-- ============================== Permissions ============================ -->    
-        <if test="data.featureID">
-            <div class="title">Permissions</div>
-            To use <u>all</u> of the API described for this object, you must declare the below feature element(s) in your configuration document:
-            <br/>
-            <table class="scriptTable">
-                <for each="item" in="data.featureID">
-                    <tr> 
-                        <td class="scriptTd"> 
-                            &lt;feature id="{+item.desc+}" /&gt;
-                            <br/>
-                        </td> 
-                    </tr>
-                </for>
-            </table>
-        <else/>
-            <div class="title">Permissions</div>
-            This API does not require a &lt;feature&gt; element to be declared in the configuration document of your BlackBerry WebWorks.
-            <br/>
-        </if>
+<!-- ============================== Configuration Settings  ============================ -->	
+    <br/>
+    <div class="title">Configuration Document Settings</div>
+        To use <u>all</u> of the API described for this object, you must ensure the following settings are in your configuration document:      
     
+    <table class="scriptTable">
+        <tr>
+            <th class="elemTh">Feature Elements</th>
+        </tr>
+        <if test="data.featureID">
+            <tr><td class="scriptTd">
+            You must declare the feature element(s) below in your configuration document:
+            </td></tr>
+            <br>
+            <tr><td>
+                <div>- Supported Feature ID Table: <span id="codeExpand" onclick="codeClick('FeatureIDSupportTable',this)";>Expand</span></div>
+                <div id="FeatureIDSupportTable">
+                    <table class="apiTable">
+                        <tr>
+                            <th class="apiTh apiColumn">
+                               Feature ID
+                               
+                            </th>
+                            <th class="apiTh" >
+                               OS 5.0
+                               
+                            </th>
+                            <th class="apiTh" >
+                               OS 6.0
+                               
+                            </th>
+                            <th class="apiTh" >
+                               PlayBook
+                               
+                            </th>
+                        </tr>
+                        <for each="item" in="data.featureID">
+                          {!item.support = (new BBTag.Support()) !}
+                            <if test="item.type">
+                                {!item.support.populateByString(item.type)!}
+                             <else/>
+                                {!item.support.populateBySymbol(data)!}
+                            </if>
+                            <tr x-ww-support="{+item.support.supportTag+}">
+                                <td class="apiTd">
+                                    {+item.desc+}                               
+                                    {+item.support.supportTable+}
+                                </td>
+                            </tr>
+                        </for>
+                    </table>
+                 </div>
+             </td></tr>       
+        <else/>
+            <tr><td class="scriptTd">
+            This API does not require a &lt;feature&gt; element to be declared in the configuration document of your BlackBerry WebWorks Application.
+            </td></tr><br/>
+        </if>
+    </table>
+    
+    <div x-ww-support="{+BBTag.PlaybookSupport().supportTag+}">
+        <table class="scriptTable">
+        <tr><th class="elemTh">Permission Elements (PlayBook Only)</th></tr>
+        <if test="data.permission">
+            {! var mandatory = data.permission.filter(function($){return !$.isOptional}).sort(makeSortby("name"));!}
+            {! var optional = data.permission.filter(function($){return $.isOptional}).sort(makeSortby("name"));!}
+            
+            <if test="mandatory.length">
+                <tr><td class="scriptTd">
+                You must declare the permission element(s) below in your configuration document:
+                </td></tr><br>
+                
+                <for each="item" in="mandatory">
+                    <tr><td class="scriptTd">
+                    - &lt;rim:permit&gt;{+item.name+}&lt;/rim:permit&gt; {+item.desc+}
+                    <br>
+                    </td></tr>
+                </for>
+            </if>
+            
+            <if test="optional.length">
+                <tr><td class="scriptTd">
+                <if test="mandatory.length && optional.length"><br/></if>
+                <i><b>Note:</b> Declaring the permission element(s) below in your configuration document is optional.</i></br>
+                </td></tr><br>
+            
+                <for each="item" in="optional">
+                    <tr><td class="scriptTd">
+                    - &lt;rim:permit&gt;{+item.name+}&lt;/rim:permit&gt; {+item.desc+}
+                    <br>
+                    </td></tr>
+                </for>
+            </if>
+        <else/>
+            <tr><td class="scriptTd">
+            This API does not require a &lt;permission&gt; element to be declared in the configuration document of your BlackBerry WebWorks Application.
+            </td></tr><br/>
+        </if>
+        </table>
+    </div>
+
 <!-- ============================== Constructor Summary ========================= -->
         <if test="(defined(constructors) && constructors.length)">
-            <div x-ww-support="{+data.support.getSupportTag()+}">
+            <div x-ww-support="{+data.support.supportTag+}">
                 <h1>Constructors</h1>
                 <ul class="ulNoTopMargin">
                     <for each="member" in="constructors">
-                        <li x-ww-support="{+member.support.getSupportTag()+}">
+                        <li x-ww-support="{+member.support.supportTag+}">
                             {+new Link().toSymbol(member.alias).withText(getSymbolName(member))+}
                             <if test="member.deprecated">
                                 <span class="depricate">**</span>
@@ -307,14 +382,14 @@
         <if test="((defined(ownMethods) && ownMethods.length)) || (memberContributors && memberContributors.length)">
             {!var methodSupport =new BBTag.Support(data.methods.filter(isMethod));!}
             <br/>
-            <div x-ww-support="{+methodSupport.getSupportTag()+}">
+            <div x-ww-support="{+methodSupport.supportTag+}">
                 <h1>Functions</h1>
         </if>
         
        <if test="(defined(ownMethods) && ownMethods.length)">           
                 <ul class="ulNoTopMargin">          
                     <for each="member" in="ownMethods">
-                        <li x-ww-support="{+member.support.getSupportTag()+}">
+                        <li x-ww-support="{+member.support.supportTag+}">
                             {+new Link().toSymbol(member.alias).withText(getSymbolName(member))+}
                             <if test="member.deprecated">
                                 <span class="depricate">**</span>
@@ -340,7 +415,7 @@
                             )
                             .sort(makeSortby("name"))
                             .map(
-                                function($) { return "<span x-ww-support=\""+$.support.getSupportTag()+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
+                                function($) { return "<span x-ww-support=\""+$.support.supportTag+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
                             )
                             .join(", ")
                             +
@@ -366,14 +441,14 @@
         <if test="(defined(ownEvents) && ownEvents.length) || (eventContributors && eventContributors.length)">
             {!var eventSupport =new BBTag.Support(data.events.filter(isEvent));!}
             <br/>
-            <div x-ww-support="{+eventSupport.getSupportTag()+}">
+            <div x-ww-support="{+eventSupport.supportTag+}">
                 <h1>Events</h1>
         </if>
         
         <if test="defined(ownEvents) && ownEvents.length">
                 <ul class="ulNoTopMargin">          
                     <for each="member" in="ownEvents">
-                        <li x-ww-support="{+member.support.getSupportTag()+}">
+                        <li x-ww-support="{+member.support.supportTag+}">
                             {+new Link().toSymbol(member.alias).withText(getSymbolName(member))+}
                             <if test="member.deprecated">
                                 <span class="depricate">**</span>
@@ -399,7 +474,7 @@
                             )
                             .sort(makeSortby("name"))
                             .map(
-                                function($) { return "<span x-ww-support=\""+$.support.getSupportTag()+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
+                                function($) { return "<span x-ww-support=\""+$.support.supportTag+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
                             )
                             .join(", ")
                             +
@@ -424,14 +499,14 @@
         <if test="(defined(ownProperties) && ownProperties.length) || (propertyContributors && propertyContributors.length)">
             {!var propertySupport =new BBTag.Support(data.properties.filter(isProperty));!}
             <br/>
-            <div x-ww-support="{+propertySupport.getSupportTag()+}">
+            <div x-ww-support="{+propertySupport.supportTag+}">
                 <h1>Properties</h1>
         </if>
         
         <if test="defined(ownProperties) && ownProperties.length">      
                 <ul class="ulNoTopMargin">
                     <for each="member" in="ownProperties">
-                        <li x-ww-support="{+member.support.getSupportTag()+}">
+                        <li x-ww-support="{+member.support.supportTag+}">
                             {+new Link().toSymbol(member.alias).withText(getSymbolName(member))+}
                             <if test="member.deprecated">
                                 <span class="depricate">**</span>
@@ -456,7 +531,7 @@
                             )
                             .sort(makeSortby("name"))
                             .map(
-                                function($) { return "<span x-ww-support=\""+$.support.getSupportTag()+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
+                                function($) { return "<span x-ww-support=\""+$.support.supportTag+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
                             )
                             .join(", ")
                             +
@@ -481,14 +556,14 @@
         <if test="(defined(ownConstants) && ownConstants.length) || (constantContributors && constantContributors.length)">
             {!var constantSupport =new BBTag.Support(data.properties.filter(isConstant));!}
             <br/>
-            <div x-ww-support="{+constantSupport.getSupportTag()+}">
+            <div x-ww-support="{+constantSupport.supportTag+}">
                 <h1>Constants</h1>
         </if>
         
         <if test="defined(ownConstants) && ownConstants.length">
                 <ul class="ulNoTopMargin">
                     <for each="member" in="ownConstants">
-                        <li x-ww-support="{+member.support.getSupportTag()+}">
+                        <li x-ww-support="{+member.support.supportTag+}">
                             {+new Link().toSymbol(member.alias).withText(getSymbolName(member))+}
                             <if test="member.deprecated">
                                 <span class="depricate">**</span>
@@ -514,7 +589,7 @@
                             )
                             .sort(makeSortby("name"))
                             .map(
-                                function($) { return "<span x-ww-support=\""+$.support.getSupportTag()+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
+                                function($) { return "<span x-ww-support=\""+$.support.supportTag+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
                             )
                             .join(", ")
                             +
@@ -539,14 +614,14 @@
         <if test="(defined(ownURIMethods) && ownURIMethods.length) || (URIContributors && URIContributors.length)">
             {!var URISupport =new BBTag.Support(data.methods.filter(isURIMethod));!}
             <br/>
-            <div x-ww-support="{+URISupport.getSupportTag()+}">
+            <div x-ww-support="{+URISupport.supportTag+}">
                 <h1>URI Functions</h1>
         </if>
         
         <if test="defined(ownURIMethods) && ownURIMethods.length">
                 <ul class="ulNoTopMargin">          
                     <for each="member" in="ownURIMethods">
-                        <li x-ww-support="{+member.support.getSupportTag()+}">
+                        <li x-ww-support="{+member.support.supportTag+}">
                             {+new Link().toSymbol(member.alias).withText(getSymbolName(member))+}
                             <if test="member.deprecated">
                                 <span class="depricate">**</span>
@@ -572,7 +647,7 @@
                             )
                             .sort(makeSortby("name"))
                             .map(
-                                function($) { return "<span x-ww-support=\""+$.support.getSupportTag()+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
+                                function($) { return "<span x-ww-support=\""+$.support.supportTag+"\">"+ new Link().toSymbol($.alias).withText($.name)+"</span>" }
                             )
                             .join(", ")
                             +
@@ -588,7 +663,7 @@
         
 <!-- ============================== Deprecation Notice  ==================== -->
         <if test="hasDeprecation">
-            <div x-ww-support="{+deprecationSupport.getSupportTag()+}">
+            <div x-ww-support="{+deprecationSupport.supportTag+}">
                 <span class="depricate">** Marked for Deprecation</span>
             </div>
         </if>   
@@ -596,7 +671,7 @@
 <!-- ============================== Constructor Details ========================= -->
         <if test="defined(constructors) && constructors.length">
            <for each="member" in="constructors">
-               <div x-ww-support="{+member.support.getSupportTag()+}">
+               <div x-ww-support="{+member.support.supportTag+}">
                    <h2><a name="{+Link.symbolNameToLinkName(member)+}"> </a>{+getSymbolName(member)+}</h2>
                    <hr style="margin-bottom: 15px;"/>
             
@@ -624,7 +699,7 @@
                     </if>           
                                                 
                     <div class="title">Supported Platform(s)</div>      
-                    <for each="item" in="member.support.getSupportStrings()">
+                    <for each="item" in="member.support.supportStrings">
                         &nbsp;- {+item+}<br/>
                     </for>                                  
                     <br/>
@@ -695,7 +770,7 @@
 <!-- ============================== Function details ========================= -->      
         <if test="defined(ownMethods) && ownMethods.length">
             <for each="member" in="ownMethods">
-                <div x-ww-support="{+member.support.getSupportTag()+}">
+                <div x-ww-support="{+member.support.supportTag+}">
                     <h2><a name="{+Link.symbolNameToLinkName(member)+}"></a>
                         {+getSymbolName(member)+}
                     </h2>
@@ -727,9 +802,9 @@
                         </table>                
                     </if>           
                     
-                    <if test="member.support.getSupportStrings()">              
+                    <if test="member.support.supportStrings">              
                         <div class="title">Supported Platform(s)</div>      
-                        <for each="item" in="member.support.getSupportStrings()">
+                        <for each="item" in="member.support.supportStrings">
                             &nbsp;- {+item+}<br/>
                         </for>              
                     </if>                   
@@ -835,7 +910,7 @@
 <!-- ============================== Event details ========================= -->     
         <if test="defined(ownEvents) && ownEvents.length">
             <for each="member" in="ownEvents">
-                <div x-ww-support="{+member.support.getSupportTag()+}">
+                <div x-ww-support="{+member.support.supportTag+}">
                     <h2>
                         <a name="{+Link.symbolNameToLinkName(member)+}"></a>
                         {+getSymbolName(member)+}
@@ -864,9 +939,9 @@
                         </table>                
                     </if>           
                     
-                    <if test="member.support.getSupportStrings()">              
+                    <if test="member.support.supportStrings">              
                         <div class="title">Supported Platform(s)</div>      
-                        <for each="item" in="member.support.getSupportStrings()">
+                        <for each="item" in="member.support.supportStrings">
                             &nbsp;- {+item+}<br/>
                         </for>              
                     </if>                   
@@ -971,7 +1046,7 @@
 <!-- ============================== properties details ========================== -->       
         <if test="defined(ownProperties) && ownProperties.length">
            {!var ownPropertySupport = new BBTag.Support(ownProperties)!}
-            <div x-ww-support="{+ownPropertySupport.getSupportTag()+}">
+            <div x-ww-support="{+ownPropertySupport.supportTag+}">
                 <h2>Properties:</h2>
                 <hr style="margin-bottom: 15px;"/>
               
@@ -996,7 +1071,7 @@
                     </tr>
                     
                     <for each="member" in="ownProperties">
-                        <tr x-ww-support="{+member.support.getSupportTag()+}">
+                        <tr x-ww-support="{+member.support.supportTag+}">
                             <td class="confluenceTd"><a name="{+Link.symbolNameToLinkName(member)+}" class="propertyName">{+getSymbolName(member)+}</a></td>
                             <td class="confluenceTd">
                                 <if test="member.isStatic">
@@ -1036,8 +1111,8 @@
                             </td>
                             
                             <td class="confluenceTdnoverflow">
-                                <if test="member.support.getSupportStrings()">              
-                                    <for each="item" in="member.support.getSupportStrings()">
+                                <if test="member.support.supportStrings">              
+                                    <for each="item" in="member.support.supportStrings">
                                         &nbsp;- {+item+}
                                         <br/>
                                     </for>                  
@@ -1065,7 +1140,7 @@
 <!-- ============================== constant details ========================== -->     
         <if test="defined(ownConstants) && ownConstants.length">
             {!var ownConstantSupport = new BBTag.Support(ownConstants)!}
-            <div x-ww-support="{+ownConstantSupport.getSupportTag()+}">
+            <div x-ww-support="{+ownConstantSupport.supportTag+}">
                 <h2>Constants:</h2>
                 <hr style="margin-bottom: 15px;"/>
               
@@ -1090,7 +1165,7 @@
                     </tr>
                     
                     <for each="member" in="ownConstants">
-                        <tr x-ww-support="{+member.support.getSupportTag()+}">
+                        <tr x-ww-support="{+member.support.supportTag+}">
                             <td class="confluenceTd">
                                <a name="{+Link.symbolNameToLinkName(member)+}" class="propertyName">{+getSymbolName(member)+}</a>
                             </td>
@@ -1111,8 +1186,8 @@
                                 </if>
                             </td>
                             <td class="confluenceTdnoverflow">
-                                <if test="member.support.getSupportStrings()">              
-                                    <for each="item" in="member.support.getSupportStrings()">
+                                <if test="member.support.supportStrings">              
+                                    <for each="item" in="member.support.supportStrings">
                                         &nbsp;- {+item+}
                                         <br/>
                                     </for>                  
@@ -1128,7 +1203,7 @@
         <if test="data.methods.length">     
             <if test="ownURIMethods.length">
                 <for each="member" in="ownURIMethods">
-                    <div x-ww-support="{+member.support.getSupportTag()+}">
+                    <div x-ww-support="{+member.support.supportTag+}">
                         <h2><a name="{+Link.symbolNameToLinkName(member)+}"> </a>{+getSymbolName(member)+}</h2>
                         <hr style="margin-bottom: 15px;"/>
                         
@@ -1148,10 +1223,10 @@
                             </table>
                         </if>               
                         
-                        <if test="member.support.getSupportStrings()">
+                        <if test="member.support.supportStrings">
                             <br/>
                             <div class="title">Supported Platform(s)</div>      
-                            <for each="item" in="member.support.getSupportStrings()">
+                            <for each="item" in="member.support.supportStrings">
                                 &nbsp;- {+item+}
                                 <br/>
                             </for>                  
@@ -1241,7 +1316,7 @@
         </if>
         
         <if test="!generateDefaultConstructor && data.example.length">
-            <div x-ww-support="{+data.support.getSupportTag()+}">
+            <div x-ww-support="{+data.support.supportTag+}">
                 <h2><a name="{+Link.symbolNameToLinkName(data)+}"> </a>Code Example(s)</h2>
                 <hr style="margin-bottom: 15px;"/>
                 <for each="example" in="data.example">

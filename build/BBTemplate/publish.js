@@ -150,11 +150,13 @@ function summarize(desc) {
 
 /** Make a symbol sorter by some attribute. */
 function makeSortby(attribute) {
-    return function(a, b) {
-        try {
-            if (a[attribute] != undefined && b[attribute] != undefined) {
-                a = a[attribute].toLowerCase();
-                b = b[attribute].toLowerCase();
+	return function(a, b) {
+		try{
+		if (a[attribute] != undefined && b[attribute] != undefined) {
+			if (a[attribute].toLowerCase && b[attribute].toLowerCase) {
+				a = a[attribute].toLowerCase();
+				b = b[attribute].toLowerCase();
+			}
 			if (a < b) return -1;
 			if (a > b) return 1;
                 return 0;
@@ -335,7 +337,7 @@ function getSymbolName(symbol) {
     }else if (symbol.squareAccessor) {
         return "[]";
     } else if (symbol.uri) {
-        return "webworks://" + symbol.alias.replace(/\./g, "//").replace("[\^][\d]", '');
+        return "webworks://" + symbol.alias.replace(/\./g, "/").replace("[\^][\d]", '');
     } else if (symbol.isStatic) {
         return symbol.memberOf + "." + symbol.name.replace(/\^\d+$/, '').replace("[\^][\d]", '');
     } else {
