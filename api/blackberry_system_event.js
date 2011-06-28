@@ -21,7 +21,7 @@
 *       The System Object is static; all of its functions and properties are used directly from the object.
 *     </p></div>
 * @toc {System} System Event 
-* @featureid blackberry.system.event
+* @featureID blackberry.system.event
 * @BB50+
 * @namespace The System Event object allows you to get access to events triggered by system events on the BlackBerry device.
 * @example
@@ -37,15 +37,15 @@
  * @example
  * &lt;script type="text/javascript"&gt;
  *
- * 	function onBatteryLevelChange(level) {
- * 		alert("Battery Level: " + level);
- * 	}
+ *  function onBatteryLevelChange(level) {
+ *    alert("Battery Level: " + level);
+ *  }
  *
- * 	function notifyOnBatteryLevelChange(batteryLevelChangeCb) {
- * 		blackberry.system.event.PlayBookBatteryLevelChange(batteryLevelChangeCb);
- * 	}
+ *  function notifyOnBatteryLevelChange(batteryLevelChangeCb) {
+ *    blackberry.system.event.deviceBatteryLevelChange(batteryLevelChangeCb);
+ *  }
  *
- * 	notifyOnBatteryLevelChange(onBatteryLevelChange);
+ *  notifyOnBatteryLevelChange(onBatteryLevelChange);
  * &lt;/script&gt;
 */
 blackberry.system.event = { };
@@ -117,23 +117,24 @@ blackberry.system.event.KEY_VOLUMEUP = 7;
 /**
 * Assigns a listener for the click of one of the hardware buttons on the device. 
 * @param {Number} key Hardware key to listen for.  A list of constants allowed for these keys is shown above.
-* @callback {function} OnSystemEvent Function to be called when the key is clicked - this function takes no parameters and no return value is required.  If you attempt to subscribe more than one callback function to a particular key, only the newest callback will be used when the key is pressed.  To remove the callback simply call the onHardwareKey with null as the callback parameter.
+* @callback {function} onSystemEvent Function to be called when the key is clicked - this function takes no parameters and no return value is required.  If you attempt to subscribe more than one callback function to a particular key, only the newest callback will be used when the key is pressed.  To remove the callback simply call the onHardwareKey with null as the callback parameter.
 * @BB50+
 */
-blackberry.system.event.prototype.onHardwareKey = function(key,onSystemEvent) { };
+blackberry.system.event.onHardwareKey = function(key,onSystemEvent) { };
 
 /**
 * Assigns a listener for when the coverage status changes. 
-* @callback {function} OnSystemEvent Function to be called when coverage changes.  Only one function can be assigned to this event. To unregister the callback, call the onCoverageChange method and pass in null for the callback parameter.
+* @callback {function} onSystemEvent Function to be called when coverage changes.  Only one function can be assigned to this event. To unregister the callback, call the onCoverageChange method and pass in null for the callback parameter.
 * @BB50+
 */
-blackberry.system.event.prototype.onCoverageChange = function(onSystemEvent) { };
+blackberry.system.event.onCoverageChange = function(onSystemEvent) { };
 
 /**
  * @function
  * @description Assigns a listener for when the battery level changes.
  * Battery level is a percentage value.
- * @callback {function} onBatteryLevelChange Function to be called when the battery level changes. The level is passed as its only argument. Expected callback signature: function onBatteryLevelChange(level).
+ * @callback {function} onBatteryLevelChange Function to be called when the battery level changes. The level is passed as its only argument.
+ * @callback {Number} onBatteryLevelChange.level battery level of the device ranging from 0 to 100
  * @PB10
  */
 blackberry.system.event.deviceBatteryLevelChange =  function(onBatteryLevelChange){};
@@ -147,7 +148,8 @@ blackberry.system.event.deviceBatteryLevelChange =  function(onBatteryLevelChang
  * <br>FULL		= 1;
  * <br>CHARGING 	= 2;
  * <br>UNPLUGGED	= 3;
- * @callback {function} onBatteryStateChange Function to be called when the battery charge state changes. The new state is passed as its only argument. Expected callback signature: function onBatteryStateChange(state).
+ * @callback {function} onBatteryStateChange Function to be called when the battery charge state changes. The new state is passed as its only argument.
+ * @callback {Number} onBatteryStateChange.state battery state of the device
  * @PB10
  */
 blackberry.system.event.deviceBatteryStateChange = function(onBatteryStateChange){};

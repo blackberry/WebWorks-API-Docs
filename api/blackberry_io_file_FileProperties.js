@@ -15,15 +15,12 @@
 */
 
 /**
-* <div><p>
-*       This class can only be created by using the "blackberry.io.file.getFileProperties()" method.
-*     </p></div>
-* @toc {IO} FileProperties 
-* @BB50+
-* @namespace The FileProperties object provides functions and attributes for interacting with a file&apos;s properties on the file system.
+* @toc {IO} FileProperties
+* @namespace The FileProperties object provides functions and attributes for interacting with a file&apos;s properties on the file system.<br><br>This object can only be created by using the {@link blackberry.io.file.getFileProperties} method.
 * @featureID blackberry.io.file
 * @example
 * &lt;script type=&quot;text&sol;javascript&quot;&gt;
+*   //Example file path only works on BB 5.0 and higher. For PlayBook, you must use the Directory API to resolve the path.
 *   var filePath = &quot;file:&sol;&sol;&sol;store&sol;home&sol;user&sol;sample.xml&quot;;
 *        
 *   if (blackberry.io.file.exists(filePath)) {
@@ -49,6 +46,7 @@ blackberry.io.file.FileProperties.prototype.isReadonly = { };
 * @type Boolean
 * @readOnly
 * @BB50+
+* @PB10
 */
 blackberry.io.file.FileProperties.prototype.isHidden = { };
 
@@ -57,14 +55,24 @@ blackberry.io.file.FileProperties.prototype.isHidden = { };
 * @type Number
 * @readOnly
 * @BB50+
+* @PB10
 */
 blackberry.io.file.FileProperties.prototype.size = { };
+
+/**
+* File creation date 
+* @type Date
+* @readOnly
+* @PB10
+*/
+blackberry.io.file.FileProperties.prototype.dateCreated = { };
 
 /**
 * File modified date 
 * @type Date
 * @readOnly
 * @BB50+
+* @PB10
 */
 blackberry.io.file.FileProperties.prototype.dateModified = { };
 
@@ -73,6 +81,7 @@ blackberry.io.file.FileProperties.prototype.dateModified = { };
 * @type String
 * @readOnly
 * @BB50+
+* @PB10
 */
 blackberry.io.file.FileProperties.prototype.fileExtension = { };
 
@@ -81,6 +90,7 @@ blackberry.io.file.FileProperties.prototype.fileExtension = { };
 * @type String
 * @readOnly
 * @BB50+
+* @PB10
 */
 blackberry.io.file.FileProperties.prototype.directory = { };
 

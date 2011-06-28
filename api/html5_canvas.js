@@ -17,10 +17,10 @@
 /**
  * @toc {User Interface} HTML5 Canvas
  * @namespace
- * The canvas tag is used to display graphics. <br>
- * The canvas tag is only a container for graphics, you must use a script to actually paint graphics.<br>
- * The canvas tag is new in HTML5.<br>
- * Any text inside the between &#60canvas&#62 and &#60/canvas&#62 will be displayed in browsers that does not support the canvas element.
+ * The HTML5 canvas element provides a container for JavaScript to draw graphics on a web page. It is a resolution dependent rectangular area with per-pixel control. 
+ * <br/>
+ * The canvas element has several methods for drawing paths, boxes, circles, characters, and adding images. 
+ * Any text inside the between <strong>&#60canvas&#62</strong> tags will be displayed in browsers that do not support the canvas element.
  * @BB60+
  * @PB10
  */

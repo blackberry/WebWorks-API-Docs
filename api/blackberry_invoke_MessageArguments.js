@@ -36,6 +36,26 @@
 blackberry.invoke.MessageArguments = function() { };
 
 /**
+* @constructedBy blackberry.invoke.MessageArguments
+* @description Build a MessageArguments object from a {blackberry.message.Message} object
+* @BB50+
+* @function
+* @param {blackberry.message.Message} message The Message object used to construct the MessageArguments
+*/
+blackberry.invoke.MessageArguments.const1 = function() { };
+
+/**
+* @constructedBy blackberry.invoke.MessageArguments
+* @description Build a MessageArguments object from string arguments
+* @BB50+
+* @function
+* @param {String} to The recipient's email address
+* @param {String} subject The message's subject line
+* @param {String} body The contents of the message
+*/
+blackberry.invoke.MessageArguments.const2 = function() { };
+
+/**
 * New&sol;Compose View 
 * @type Number
 * @constant
