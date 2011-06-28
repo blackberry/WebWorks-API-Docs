@@ -14,7 +14,7 @@
 * limitations under the License.
 -->
 
-<div id="toc" class="toc">
+<div id="toc" class="toc" onscroll="onTocScroll(this);">
 	<div class="tocFilter">
 		<div style="font-size:8pt;margin-bottom:5px;">Topic Index | <a href="javascript:clickIndex('feature');">Object Index</a></div>
 		<select id="filter" onchange="doFilterChange(this)">
@@ -34,16 +34,16 @@
 	<for each="thisClass" in="data">		
 		<if test="thisClass.toc">
 			<if test="(prevTocType && prevTocType == thisClass.toc.type)">
-				<div class="lineItem" x-ww-support="{+thisClass.support.getSupportTag()+}">- {+new Link().toClass(thisClass.alias).withText(thisClass.toc.desc)+}</div>
+				<div class="lineItem" x-ww-support="{+thisClass.support.supportTag+}">- {+new Link().toClass(thisClass.alias).withText(thisClass.toc.desc)+}</div>
 			<else />
 				<if test="prevTocType">
 					</div>
 				</if>
 				{!var tocSymbols = data.filter(function($){return $.toc.type == thisClass.toc.type});!}
 				{!var tocSupport = new BBTag.Support(tocSymbols);!}
-				<div id="{+thisClass.toc.type+}" class = "section" x-ww-support="{+tocSupport.getSupportTag()+}">
+				<div id="{+thisClass.toc.type+}" class = "section" x-ww-support="{+tocSupport.supportTag+}">
 					<div class="title">{+thisClass.toc.type+}</div>
-					<div class="lineItem" x-ww-support="{+thisClass.support.getSupportTag()+}">- {+new Link().toClass(thisClass.alias).withText(thisClass.toc.desc)+}</div>			
+					<div class="lineItem" x-ww-support="{+thisClass.support.supportTag+}">- {+new Link().toClass(thisClass.alias).withText(thisClass.toc.desc)+}</div>			
 				{!prevTocType = thisClass.toc.type;!}
 			</if>
 		</if>

@@ -14,7 +14,7 @@
 * limitations under the License.
 -->
 
-<div id="toc" class="toc featureList">
+<div id="toc" class="toc featureList" onscroll="onObjectIndexScroll(this);">
 	<div class="tocFilter">
 		<div style="font-size:8pt;margin-bottom:5px;"> <a href="javascript:clickIndex('topic');">Topic Index</a> | Object Index</div>
 		<select id="filter" onchange="doFilterChange(this)">
@@ -27,7 +27,7 @@
 	</div>	
 	<div id="featureIds" style="font-size:9pt;">
 		<for each="thisClass" in="data">
-		<div class="lineItem" x-ww-support="{+thisClass.support.getSupportTag()+}">{+new Link().toClass(thisClass.alias)+}</div>
+		<div class="lineItem" x-ww-support="{+thisClass.support.supportTag+}">{+new Link().toClass(thisClass.alias)+}</div>
 		</for>
 	</div>
 </div>

@@ -57,7 +57,7 @@ blackberry.utils = {
 	 * @PB10
      * @BB50+
 	 */
-	generateUniqueID: function(){},
+	generateUniqueId: function(){},
 	
 	/**
 	 * @description Parses a URL string and returns an URL object.
@@ -105,7 +105,7 @@ blackberry.utils = {
 		host:null,
 		/**
 		 * @readOnly
-		 * @type String
+		 * @type Number
 		 * @BB50+
 		 * @PB10
 		 * @description Port number in the URL string.

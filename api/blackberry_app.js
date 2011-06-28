@@ -22,17 +22,22 @@
  * &lt;script type="text/javascript"&gt;
  *	function makeTable() {
  *		try {
- *			alert("<b>Author</b>" + blackberry.app.author );
- *			alert("<b>Author Email</b>" + blackberry.app.authorEmail );
- *			alert("<b>Author URL</b>" + blackberry.app.authorURL );
- *			alert("<b>Copyright</b>" + blackberry.app.copyright );
- *			alert("<b>Description</b>" + blackberry.app.description );
- *			alert("<b>ID</b>" + blackberry.app.id );
- *			alert("<b>License</b>" + blackberry.app.license );
- *			alert("<b>License URL</b>" + blackberry.app.licenseURL );
- *			alert("<b>Name</b>" + blackberry.app.name );
- *			alert("<b>Version</b>" + blackberry.app.version );
+ *			var details = document.getElementById("details");
+ *			if (details) {
+ *				var output = "<table>";
+ *				output += "<tr><td><b>Author</b></td><td>" + blackberry.app.author + "</td></tr>";
+ *				output += "<tr><td><b>Author Email</b></td><td>" + blackberry.app.authorEmail + "</td></tr>";
+ *				output += "<tr><td><b>Author URL</b></td><td>" + blackberry.app.authorURL + "</td></tr>";
+ *				output += "<tr><td><b>Copyright</b></td><td>" + blackberry.app.copyright + "</td></tr>";
+ *				output += "<tr><td><b>Description</b></td><td>" + blackberry.app.description + "</td></tr>";
+ *				output += "<tr><td><b>ID</b></td><td>" + blackberry.app.id + "</td></tr>";
+ *				output += "<tr><td><b>License</b></td><td>" + blackberry.app.license + "</td></tr>";
+ *				output += "<tr><td><b>License URL</b></td><td>" + blackberry.app.licenseURL + "</td></tr>";
+ *				output += "<tr><td><b>Name</b></td><td>" + blackberry.app.name + "</td></tr>";
+ *				output += "<tr><td><b>Version</b></td><td>" + blackberry.app.version + "</td></tr>";
  *			
+ *				details.innerHTML = output;
+ *			}
  *		} catch(e) {
  *			alert("Exception in displayDetails: " + e);
  *		}
@@ -175,4 +180,59 @@ blackberry.app ={
 	 */
 	version : "",
 
+	
+	
+	/**
+     * Returns a JSON object containing all properties of the application.
+	 * @uri 
+	 * @PB10
+	 * @returns {JSON of all the properties}
+	 * {
+	 * 	"data":{
+	 *		"author":"John Doe",
+	 *		"name":"My WebWorks Widget",
+	 *		"authorEmail":"jdoe@company.com",
+	 *		"authorURL":"www.company.com",
+	 *		"description":"A sample widget",
+	 *		"license":"Legal stuff goes here",
+	 *		"id":"888",
+	 *		"version":"1.0",
+	 *		"copyright":"Company Ltd.",
+	 *		"licenseURL":"www.company.com/license"
+	 * 	}
+	 * }
+	 * @example 
+	 * &lt;html&gt;
+	 * &lt;head&gt;
+	 *     &lt;script type="text/javascript" src="js/jquery-1.4.2.js" &gt;&lt;/script&gt;
+	 *     &lt;script type="text/javascript" src="js/jquery.form.js" &gt;&lt;/script&gt;
+	 *     &lt;script type="text/javascript" src="js/jquery.populate.js" &gt;&lt;/script&gt;
+	 *     
+	 *     &lt;script type="text/javascript"&gt;  
+	 *	function getAppData(){
+	 *		$.ajax({
+	 *		    type: "get",
+	 *		    url: "webworks://blackberry/app/get",
+	 *		    success: function(msg){
+	 *		      $('#myAppDiv').populate(JSON.parse(msg).data);
+	 *		    }
+	 *		});
+	 *	}
+	 *      &lt;/script&gt;
+	 *      
+	 *&lt;/head&gt;
+	 *&lt;body&gt;
+	 *
+	 *    &lt;input type="button" onclick="getAppData();" value="Populate - APP"/&gt;
+	 *    &lt;div id="myAppDiv"&gt;
+	 *        Name: &lt;span id="author"&gt;&lt;/span&gt;&lt;br/&gt;
+	 *        ID: &lt;span id="id"&gt;&lt;/span&gt;
+	 *    &lt;/div&gt;
+	 *    
+	 *&lt;/body&gt;
+	 *&lt;/html&gt;
+	 */
+	get: function(){}
+	
+	
 };
