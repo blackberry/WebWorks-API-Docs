@@ -94,9 +94,6 @@
             #APISupportTable {
                 display: none;
             }
-            #FeatureIDSupportTable {
-                display: none;
-            }
         </style>
       
         <link rel="stylesheet" href="common.css" type="text/css" />
@@ -261,11 +258,10 @@
             </td></tr>
             <br>
             <tr><td>
-                <div>- Supported Feature ID Table: <span id="codeExpand" onclick="codeClick('FeatureIDSupportTable',this)";>Expand</span></div>
-                <div id="FeatureIDSupportTable">
+                <div id="FeatureIDSupportTable" style="display:inline;" >
                     <table class="apiTable">
                         <tr>
-                            <th class="apiTh apiColumn">
+                            <th class="apiTh">
                                Feature ID
                                
                             </th>
@@ -291,7 +287,7 @@
                             </if>
                             <tr x-ww-support="{+item.support.supportTag+}">
                                 <td class="apiTd">
-                                    {+item.desc+}                               
+                                    &lt;feature id="{+item.desc+}" /&gt;                               
                                     {+item.support.supportTable+}
                                 </td>
                             </tr>
