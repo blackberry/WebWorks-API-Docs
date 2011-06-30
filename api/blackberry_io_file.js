@@ -154,7 +154,6 @@ blackberry.io.file = {
 	* @param {Blob} data The Blob to be saved.
 	* @returns {void}
 	* @BB50+
-	* @PB10
     * @example
     * &lt;script type=&quot;text&sol;javascript&quot;&gt;
     *   // This example is for BlackBerry OS 5.0+
@@ -175,29 +174,6 @@ blackberry.io.file = {
     *     alert(&quot;file opened was: &quot; + fullPath + &quot; which contained &quot; + blobData.length + &quot; bytes&quot;);
     *   }
     * &lt;&sol;script&gt;
-    *
-    * &lt;script type=&quot;text&sol;javascript&quot;&gt;
-    *   //This example is for PlayBook it assumes that a test.jpg file exists in the photos directory
-    *   //Substitute the file name as necessary
-    * 
-    *   var dirs = blackberry.io.dir.appDirs;
-    *   // readFile
-    *   var globalBlob;
-    *   function onFileOpen(fullPath, blobData){
-    *       globalBlob = blobData;
-    *   }
-    *
-    *   try{
-    *       blackberry.io.file.readFile(dirs.shared.photos.path + "/test.jpg", onFileOpen, true);
-    *   }catch(e){
-    *       alert(e);
-    *   }
-    *
-    *   //saveFile
-    *   var newFilename = "/testCopy.jpg";
-    *   var newFilePath = dirs.shared.photos.path + newFilename;
-    *   blackberry.io.file.saveFile(newFilePath, globalBlob);
-    * &lt;&sol;script&gt;
 	*/
 	saveFile : function(path,data) { },
 	
@@ -210,7 +186,6 @@ blackberry.io.file = {
 	* @param {Boolean} [async] a flag specifying if the call to read should be asynchronous or synchronous.  If this parameter is not supplied the default of true will be used. This flag is ignored if used on BlackBerry PlayBook.
 	* @returns {void}
 	* @BB50+
-	* @PB10
 	*/
 	readFile : function(path,onFileOpened,async) { },
 	
