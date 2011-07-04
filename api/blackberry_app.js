@@ -82,6 +82,20 @@ blackberry.app ={
 	 */
 	setHomeScreenName : function(text){},
 	
+    /**
+	 * @description This function will show an indicator on the banner.
+	 * @BB50+
+	 * @param {String} icon The name of the icon to show on the banner. The icon must be a local resource and it's size varies from 10x10 up to 32x32 depending on current theme and device screen size.
+	 * @param {Number} [value] The number to show on the banner.
+	 */	 
+	showBannerIndicator:function( icon, value ){} 
+
+    /**
+	 * @description This function will remove the indicator on the banner.
+	 * @BB50+
+	 */	 
+	removeBannerIndicator:function(){} 
+	
 	/**
 	 * @description The ID of the author's name that is specified in the config.xml file. 
 	 * @BB50+
