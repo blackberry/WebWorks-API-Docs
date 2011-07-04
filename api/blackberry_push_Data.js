@@ -22,7 +22,6 @@
 * @BB50+
 * @namespace The Push Data object provides access to the data that has arrived as the result of a push.
 * @featureID blackberry.push
-
 */
 blackberry.push.Data = { 
 
@@ -50,83 +49,20 @@ blackberry.push.Data = {
 	* @BB50+
 	*/
 	getRequestURI : function() { },
-
-	/**
-	* True if this channel is encrypted; otherwise, false. 
-	* @type Boolean
-	* @readOnly
-	* @BB50+
-	*/
-	isChannelEncrypted : ,
-
-	/**
-	* The binary data pushed to the device. 
-	* @type Blob
-	* @readOnly
-	* @BB50+
-	*/
-	payload : ,
-
-	/**
-	* Push message accepted 
-	* @type Number
-	* @constant
-	* @default 0
-	* @BB50+
-	*/
-	ACCEPT : 0,
-
-	/**
-	* Push message discarded due to resource shortage 
-	* @type Number
-	* @constant
-	* @default 1
-	* @BB50+
-	*/
-	DECLINE_USERDCR : 1,
-
-	/**
-	* Content type of Push message cannot be processed 
-	* @type Number
-	* @constant
-	* @default 2
-	* @BB50+
-	*/
-	DECLINE_USERDCU : 2,
-
-	/**
-	* Push message cannot be delivered to intended destination 
-	* @type Number
-	* @constant
-	* @default 3
-	* @BB50+
-	*/
-	DECLINE_USERPND : 3,
-
-	/**
-	* User refused Push message 
-	* @type Number
-	* @constant
-	* @default 4
-	* @BB50+
-	*/
-	DECLINE_USERREQ : 4,
-
-	/**
-	* User refused Push message 
-	* @type Number
-	* @constant
-	* @default 5
-	* @BB50+
-	*/
-	DECLINE_USERRFS : 5,
-
 };
 
+/**
+ * True if this channel is encrypted; otherwise, false. 
+ * @type Boolean
+ * @readOnly
+ * @BB50+
+ */
+blackberry.push.Data.prototype.isChannelEncrypted = undefined;
 
-
-
-
-
-
-
+/**
+ * The binary data pushed to the device. 
+ * @type Blob
+ * @readOnly
+ * @BB50+
+*/
+blackberry.push.Data.prototype.payload = undefined;
