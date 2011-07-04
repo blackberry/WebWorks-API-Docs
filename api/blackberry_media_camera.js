@@ -18,6 +18,7 @@
  * @namespace
  * <p>Using Camera API allows to invoke the native camera application to record video or take a picture and receive a path to the file stored.</p>
  * <p>The methods are static and don't required to create an instance of a camera.</p>
+ * <p>Note that the application will require the user to grant it input simulation and file api permissions for this extension to work on the BlackBerry.</p>
  * @toc {Media} Camera
  * @featureID blackberry.media.camera
  * @permission use_camera Permits your app to use the camera.
