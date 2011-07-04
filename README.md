@@ -6,8 +6,11 @@ This project is Open Sourced under the Apache 2.0 license
 
 [Read more](https://github.com/blackberry/WebWorks/wiki) about the BlackBerry WebWorks open source project
 
+## Automated Build
+*Build scripts for windows and Mac are located at [build/genDoc.bat](https://github.com/blackberry/WebWorks-API-Docs/tree/master/build) and [build/genDoc](https://github.com/blackberry/WebWorks-API-Docs/tree/master/build).*
 
-## Setting up your Environment
+## Manual Build
+### Setting up your Environment
 1. Download the [jsdoc-toolkit](http://code.google.com/p/jsdoc-toolkit/downloads/list)
 
 2. Extract the contents of the downloaded jsdoc zip file to a location on your machine _**&lt;jsdoc-location&gt;**_
@@ -20,7 +23,7 @@ This project is Open Sourced under the Apache 2.0 license
 
 6. If you don't already have one, download and configure a [Java Runtime Environment] (http://www.oracle.com/technetwork/java/javase/downloads/index.html) on your machine
 
-## Building the Documentation
+### Building the Documentation
 1. Open a command prompt to your _**&lt;jsdoc-location&gt;/jsdoc-toolkit**_ directory.  This directory should contain _**jsrun.jar**_
 
 2. Type in the following command:

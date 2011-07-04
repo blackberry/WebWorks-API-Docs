@@ -1,0 +1,25 @@
+#!/bin/bash
+#builds the docs.
+usage(){
+    echo "Usage: $0 specify the absolute path of jsdoc-toolkit folder like
+    './genDoc /Users/nukul2/github/webworks-docs/jsdoc_toolkit-2.4.0\ 4/'
+    Note- path including ~ are not supported."
+    exit 1
+}
+#invoke usage if no jsdoc-toolkit is specified.
+[[ $# -eq 0 ]] && usage
+
+args=("$@")
+
+outputDir="${args[0]}/../output/"
+webworksGit="${PWD}/../" 
+jsToolkit="${args[0]}"
+
+rm -f -r "$outputDir"
+
+cp "${webworksGit}build/bbPlugin.js" "${jsToolkit}jsdoc-toolkit/app/plugins/"
+cp -fr "${webworksGit}build/BBTemplate" "${jsToolkit}jsdoc-toolkit/templates"
+cd "${jsToolkit}jsdoc-toolkit"    
+java -jar jsrun.jar app/run.js -a "${webworksGit}/api" -t=templates/BBTemplate -d="${outputDir}${sb}"
+
+
