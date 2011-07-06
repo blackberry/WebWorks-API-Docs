@@ -51,7 +51,8 @@ blackberry.media.camera = {
      * @callback {function} onCaptured Method will be invoked when a picture is captured. <br/>Expected signature: <code>function onCaptured(filePath)</code>
      * @callback {String} [onCaptured.filePath] Path to a picture captured by the camera.
      * @callback {function} [onCameraClosed] Method will be invoked on camera closed event. <br/>Expected signature: <code>function onCameraClosed()</code>
-     * @callback {function} [onError] Method will be invoked when an error occurs. <br/>Expected signature: <code>function onError()</code>
+     * @callback {function} [onError] Method will be invoked when an error occurs. <br/>Expected signature: <code>function onError(e)</code>
+	 * @callback {String} [onError.e] Error message
      * @BB50+
      * @PB10
      */
@@ -63,7 +64,8 @@ blackberry.media.camera = {
      * @callback {function} onCaptured Method will be invoked when a video is recorded. <br/>Expected signature: <code>function onCaptured(filePath)</code>
      * @callback {String} [onCaptured.filePath] Path to a video captured by the camera.
      * @callback {function} [onCameraClosed] Method will be invoked on camera closed event. <br/>Expected signature: <code>function onCameraClosed()</code>
-     * @callback {function} [onError] Method will be invoked when an error occurs. <br/>Expected signature: <code>function onError()</code>
+     * @callback {function} [onError] Method will be invoked when an error occurs. <br/>Expected signature: <code>function onError(e)</code>
+	 * @callback {String} [onError.e] Error message
      * @BB50+
      * @PB10
      * @example
@@ -83,8 +85,8 @@ blackberry.media.camera = {
      *   alert("Camera closed event");
      * }
      *
-     * function errorCB() {
-     *   alert("Error occured");
+     * function errorCB(e) {
+     *   alert("Error occured: " + e);
      * }
      */
     takeVideo: function(onCaptured, onCameraClosed, onError) {
