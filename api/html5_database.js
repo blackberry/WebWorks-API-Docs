@@ -17,8 +17,6 @@
 /**
  * @toc {Data Storage} HTML5 Database
  * @namespace This object provides functions to manipulate client-side databases using SQL. 
- * @notice {Warning (BlackBerry 5.0 Notice):}
- * Database support on BlackBerry OS 5.0 is accomplished by using the <a href="http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Supporting-Gears-using-HTML5-in-BlackBerry-WebWorks-applications/ta-p/557280" target="_blank">HTML5 JavaScript toolkit</a> for BlackBerry OS 5.0.
  */
 Database = {
                 
@@ -114,8 +112,6 @@ Database = {
 /**
  * @toc {Data Storage} HTML5 SQLTransaction
  * @namespace The SQLTransaction object is the object used to actually run SQL commands on your database.
- * @notice {Warning (BlackBerry 5.0 Notice):}
- * Database support on BlackBerry OS 5.0 is accomplished by using the <a href="http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Supporting-Gears-using-HTML5-in-BlackBerry-WebWorks-applications/ta-p/557280" target="_blank">HTML5 JavaScript toolkit</a> for BlackBerry OS 5.0.
  */
 SQLTransaction = {};
 		/**
@@ -154,8 +150,6 @@ SQLTransaction = {};
 /**
  * @toc {Data Storage} HTML5 SQLResultSet
  * @namespace The SQLResultSet object is generated as a result of executing an SQL Transaction. See {@link SQLTransaction#executeSql}. 
- * @notice {Warning (BlackBerry 5.0 Notice):}
- * Database support on BlackBerry OS 5.0 is accomplished by using the <a href="http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Supporting-Gears-using-HTML5-in-BlackBerry-WebWorks-applications/ta-p/557280" target="_blank">HTML5 JavaScript toolkit</a> for BlackBerry OS 5.0.
  */
 SQLResultSet = {};
 		/**
@@ -190,8 +184,6 @@ SQLResultSet = {};
 /**
  * @toc {Data Storage} HTML5 SQLResultSetRowList
  * @namespace The SQLResultSet object is generated as part of an {@link SQLResultSet} by executing an SQL Transaction. See {@link SQLTransaction#executeSql}. 
- * @notice {Warning (BlackBerry 5.0 Notice):}
- * Database support on BlackBerry OS 5.0 is accomplished by using the <a href="http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Supporting-Gears-using-HTML5-in-BlackBerry-WebWorks-applications/ta-p/557280" target="_blank">HTML5 JavaScript toolkit</a> for BlackBerry OS 5.0.
  */
 SQLResultSetRowList = {};
 		/**
@@ -216,8 +208,6 @@ SQLResultSetRowList = {};
 /**
  * @toc {Data Storage} HTML5 SQLError
  * @namespace Errors in the asynchronous database API are reported using callbacks that have a <b>SQLError</b> object as one of their arguments.
- * @notice {Warning (BlackBerry 5.0 Notice):}
- * Database support on BlackBerry OS 5.0 is accomplished by using the <a href="http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Supporting-Gears-using-HTML5-in-BlackBerry-WebWorks-applications/ta-p/557280" target="_blank">HTML5 JavaScript toolkit</a> for BlackBerry OS 5.0.
  */
 SQLError = {
 		/**
