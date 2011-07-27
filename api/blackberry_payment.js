@@ -53,13 +53,15 @@ blackberry.payment = {
      * "metaData": ""
      * }]</pre>
      * @callback {function} [callbackOnFailure] Function to be invoked when an error occurs.
-     * @callback {Number} callbackOnFailure.error An error code will be passed in corresponding to the following codes
+     * @callback {String} callbackOnFailure.errorText Retrieves the message set for an error. In addition to descriptive text, error code may appear at the end of the message. 
+     * @callback {Number} callbackOnFailure.errorID Contains the reference number associated with the specific error in corresponding to the following values.
      * <ul>
      * <li> User Cancelled = 1</li>
      * <li> Payment System Busy = 2</li>
      * <li> General Payment System Error  = 3</li>
      * <li> Digital Good not Found = 4</li>
      * </ul>
+     * <b>Note:</b> The actual values may be different when {@link blackberry.payment.developmentMode} equals true.
      * @PB10
      */
     getExistingPurchases : function (refresh, callbackOnSuccess, callbackOnFailure) {
@@ -130,46 +132,46 @@ blackberry.payment = {
  * @toc {Payment} Purchase
  * @featureID blackberry.payment
  */
-Purchase = { }
+Purchase = { };
 
 /**
  * @type String
  * @description The transaction ID for this purchase.
  * @PB10
  */
-Purchase.prototype.transactionID : null,
+Purchase.prototype.transactionID = null;
 
 /**
  * @type String
  * @description The ID of the purchased digital good.
  * @PB10
  */
-Purchase.prototype.digitalGoodID : null,
+Purchase.prototype.digitalGoodID = null;
 
 /**
  * @type String
  * @description The SKU of the purchased digital good.
  * @PB10
  */
-Purchase.prototype.digitalGoodSKU : null,
+Purchase.prototype.digitalGoodSKU = null;
 
 /**
  * @type String
  * @description The metadata for this purchase, or null if no metadata was included with the purchase.
  * @PB10
  */
-Purchase.prototype.metaData : null,
+Purchase.prototype.metaData = null;
 
 /**
  * @type String
  * @description Represents the date this purchase was made.
  * @PB10
  */
-Purchase.prototype.date : null,
+Purchase.prototype.date = null;
 
 /**
  * @type String
  * @description Represents the license key for this purchase, or null if the purchased digital good does not have a license key.
  * @PB10
  */
-Purchase.prototype.licenseKey : null
+Purchase.prototype.licenseKey = null;
