@@ -23,12 +23,6 @@
 * @BB50+
 * @namespace The Category object defines APIs necessary to access and manipulate categories in the PIM  database.
 * @featureID blackberry.pim.category
-* @example
-* &lt;script type=&quot;text&sol;javascript&quot;&gt;
-*   function createNewCategory(newCategoryName) {
-*     blackberry.pim.addCategory(newCategoryName);
-*   }
-* &lt;&sol;script&gt;
 */
 blackberry.pim.category = { };
 
@@ -44,6 +38,12 @@ blackberry.pim.category.getCategories = function() { };
 * @param {String} categoryName String representing a category.
 * @returns {void}
 * @BB50+
+* @example
+* &lt;script type=&quot;text&sol;javascript&quot;&gt;
+*   function createNewCategory(newCategoryName) {
+*     blackberry.pim.category.addCategory(newCategoryName);
+*   }
+* &lt;&sol;script&gt;
 */
 blackberry.pim.category.addCategory = function(categoryName) { };
 
