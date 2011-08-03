@@ -20,11 +20,11 @@
  * <p>
  * API that permits BlackBerry device users to initiate the purchase of digital goods from within your application. For example, this API can be used to allow users to purchase additional levels in a gaming application, music from a radio application, or any other digital good registered on the Vendor Portal for BlackBerry App World. The digital good being purchased must be associated with the calling application in the Vendor Portal for BlackBerry App World.
  * <p>
- * Purchases are initiated via the purchase method. The amount of time that elapses before a response is returned depends on how quickly the user completes the purchase process (which may include steps such as signing in to their BlackBerry ID account and setting up their preferred billing method, etc.). The purchase method dispatches a callbackOnSuccess on success, or dispatches a callbackOnFailure on failure.
+ * Purchases are initiated via the purchase method. The amount of time that elapses before a response is returned depends on how quickly the user completes the purchase process (which may include steps such as signing in to their BlackBerry ID account and setting up their preferred billing method). The purchase method dispatches a callbackOnSuccess on success, or dispatches a callbackOnFailure on failure.
  * <p>
  * When calling the puchase method only the ID or SKU of the digital good to be purchased is required; it is not necessary to provide both, and all other arguments are optional. If both the ID and SKU are provided, then the ID takes precedence; the SKU is only used if the digital good could not be located on the Payment Service server based on the ID.
  * <p>
- * If an application requires a list of its digital goods that have already been purchased by the user (e.g., to avoid offering for sale a digital good the user already owns), such a list can be obtained with the {@link blackberry.payment.getExistingPurchases} method. This method requires the same user interaction as the purchase method, so it can also be a long-running method.
+ * If an application requires a list of its digital goods that have already been purchased by the user (for example, to avoid offering for sale a digital good the user already owns), such a list can be obtained with the {@link blackberry.payment.getExistingPurchases} method. This method requires the same user interaction as the purchase method, so it can also be a long-running method.
  * @toc {Payment} Payment
  * @featureID blackberry.payment
  */
@@ -69,7 +69,7 @@ blackberry.payment = {
     /**
      * @function
      * @description Initiates the purchase of a digital good.
-     * @param {Object} args Contains an information that describes the purchase.
+     * @param {Object} args Contains information that describes the purchase.
      * @callback {String} args.digitalGoodID ID of the digital good being purchased.
      * @callback {String} args.digitalGoodSKU SKU of the digital good being purchased.
      * @callback {String} args.digitalGoodName Name of the digital good being purchased.
