@@ -281,7 +281,7 @@ blackberry.pim.Contact.prototype.picture = { };
 
 /**
 * The list of categories associated to the contact. 
-* @type String
+* @type {String[]}
 * @BB50+
 */
 blackberry.pim.Contact.prototype.categories = { };
