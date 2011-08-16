@@ -28,7 +28,7 @@
  * @toc {Payment} Payment
  * @featureID blackberry.payment
  * @notice {Warning (BlackBerry 5.0 Notice):}
- * The javascript method JSON.stringify() is not availabe with the BlackBerry 5.0 browser.  
+ * The javascript method JSON.stringify() is not available with the BlackBerry 5.0 browser.  
  */
 blackberry.payment = {
 
