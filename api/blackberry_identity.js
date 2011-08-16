@@ -21,17 +21,6 @@
 * @featureID blackberry.identity
 * @featureID blackberry.identity.phone
 * @permission read_device_identifying_information Permits your app to access device identifiers.
-* @example
-* &lt;script type=&quot;text&sol;javascript&quot;&gt;
-*   var transportList = blackberry.identity.getTransportList();
-*   for (var i = 0; i &lt; transportList.length; i++) {
-*     alert(&quot;Transport name is:&quot; + transportList[i].name + &quot;&bsol;ntransport type:&quot; + transportList[i].type);
-*   }
-*   
-*   alert(&quot;PIN: &quot; + blackberry.identity.PIN);
-*   alert(&quot;IMSI: &quot; + blackberry.identity.IMSI);
-*   alert(&quot;IMEI: &quot; + blackberry.identity.IMEI);
-* &lt;&sol;script&gt;
 */
 blackberry.identity = {
 
@@ -90,6 +79,13 @@ blackberry.identity.getServiceList = function() { };
 * Returns a list of possible communications transports that can be used. 
 * @returns {Transport[]}
 * @BB50+
+* @example
+* &lt;script type=&quot;text&sol;javascript&quot;&gt;
+*   var transportList = blackberry.identity.getTransportList();
+*   for (var i = 0; i &lt; transportList.length; i++) {
+*     alert(&quot;Transport name is:&quot; + transportList[i].name + &quot;&bsol;ntransport type:&quot; + transportList[i].type);
+*   }
+* &lt;&sol;script&gt;
 */
 blackberry.identity.getTransportList = function() { };
 
