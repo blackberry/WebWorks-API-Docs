@@ -152,11 +152,10 @@ blackberry.app ={
 	/**
 	 * @description A property that will return true if the BlackBerry WebWorks Application is in the foreground. 
 	 * @BB50+
-	 * @PB10
 	 * @readonly
-	 * @type String
+	 * @type Boolean
 	 */
-	//isForeground : "",
+	isForeground : "",
 	
 	/**
 	 * @description The license of the BlackBerry WebWorks Application that is specified in the config.xml file. 

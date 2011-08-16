@@ -187,7 +187,7 @@ blackberry.pim.Task.prototype.reminder = { };
 
 /**
 * The list of categories associated to the task. 
-* @type String
+* @type {String[]}
 * @BB50+
 */
 blackberry.pim.Task.prototype.categories = { };
