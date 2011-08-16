@@ -429,7 +429,8 @@ blackberry.phone.Phone.CALL_ERROR_CALL_REPLACED_BY_STK = 28;
 blackberry.phone.Phone.CALL_ERROR_STK_CALL_NOT_ALLOWED = 29;
 
 /**
-* Determines whether or not the phone is currently in an active call * @returns {Boolean} Returns true if there is an active call
+* Determines whether or not the phone is currently in an active call 
+* @returns {Boolean} Returns true if the phone is currently in an active call
 * @BB50+
 * @example
 * &lt;script type=&quot;text/javascript&quot;&gt;
