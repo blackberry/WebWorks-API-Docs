@@ -185,7 +185,7 @@ blackberry.io.file = {
     * @callback {function} onFileOpened callback function to call on completion of loading the file from the file system.
     * @callback {String} onFileOpened.fullPath full path of the file that was just opened
     * @callback {Blob} onFileOpened.blobData blob that contains the file&apos;s contents
-    * @param {Boolean} [async] a flag specifying if the call to read should be asynchronous or synchronous.  If this parameter is not supplied the default of true will be used. This flag is ignored if used on BlackBerry PlayBook.
+    * @param {Boolean} [async] a flag specifying if the call to read should be asynchronous or synchronous.  If this parameter is not supplied the default of true will be used.
     * @returns {void}
     * @BB50+
     * @PB10 
