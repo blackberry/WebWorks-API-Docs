@@ -1,0 +1,51 @@
+#!/bin/bash
+#build all branches
+args=("$@")
+
+outputDir="output/"
+webworksGit="../"
+rm -fr jsdoc_toolkit-2.4.0.zip 
+rm -fr jsdoc_toolkit-2.4.0/
+wget http://jsdoc-toolkit.googlecode.com/files/jsdoc_toolkit-2.4.0.zip
+unzip jsdoc_toolkit-2.4.0.zip 
+jsToolkit="jsdoc_toolkit-2.4.0/"
+workspace="${args[0]}"
+
+cd "$webworksGit"
+rm -f -r "../${outputDir}"
+
+echo "${PWD}"
+git fetch
+git checkout master
+branches=()
+eval "$(git for-each-ref --shell --format='branches+=(%(refname:short))' refs/remotes/origin/)"
+for branch in "${branches[@]}"; do
+    if [ $branch != 'origin/HEAD' ] && [ $branch != 'origin/gh-pages' ]; then
+            
+            echo "${PWD}"
+            echo $branch
+            sb=${branch:7} 
+            git branch -d $sb
+            git checkout -t $branch
+            git checkout $sb
+            git pull origin $sb
+           
+            cp "build/bbPlugin.js" "build/${jsToolkit}jsdoc-toolkit/app/plugins/"
+            cp -fr "build/BBTemplate" "build/${jsToolkit}jsdoc-toolkit/templates"
+            echo "${PWD}"
+            cd "build/${jsToolkit}jsdoc-toolkit"    
+            echo "${PWD}"
+            java -jar jsrun.jar app/run.js -a "../../../api" -t=templates/BBTemplate -d="../../../../${outputDir}${sb}"
+            cd "../../../"
+            echo "${PWD}"
+    fi
+done
+git checkout -t -f origin\gh-pages
+git checkout -f gh-pages
+rm -fr *
+git rm -r *
+git commit -m "cleaning the directory."
+cp -fr "../${outputDir}" "../${workspace}"
+git add .
+git commit -m "automagically pushed from the node server."
+git push origin gh-pages
