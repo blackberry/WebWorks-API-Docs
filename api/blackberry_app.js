@@ -66,7 +66,7 @@ blackberry.app ={
 	requestForeground : function(){},
 	
 	/**
-	 * @description This method will set the icon that appears in the Home Screen of the PlayBook.
+	 * @description This method will set the icon that appears in the Home Screen of the Smartphone.
 	 * @returns {Boolean} Returns true if successful, false otherwise. The hover icon can only be set when the application icon has been set first. Changes made using this API are NOT persisted across PlayBook resets.
 	 * @BB50+
 	 * @param {String} uri Location of the image to use for the icon. The path to the image resource must be fully qualified. An example of a fully qualified path is local:///resourceFolder/icons/icon.png. The path to the resource must also be included in the whitelist. For example, accessing an image on the file system requires 'file:///' to be whitelisted
@@ -75,7 +75,7 @@ blackberry.app ={
 	setHomeScreenIcon : function(uri,hover){},
 	
 	/**
-	 * @description This method will set the text for the icon that appears in the Home Screen of the PlayBook.
+	 * @description This method will set the text for the icon that appears in the Home Screen of the Smartphone.
 	 * @returns {Boolean} Returns true if successful, false otherwise. Changes made using this API are NOT persisted across resets. 
 	 * @BB50+
 	 * @param {String} text Text to appear on the home screen icon.

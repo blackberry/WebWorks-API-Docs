@@ -59,13 +59,21 @@ blackberry.system ={
 		hasCapability : function(capability){},
 
 		/**
-                 * @function 
+         * @function 
 		 * @description Returns true if the device is in coverage, otherwise returns false. This can be used in conjunction with the blackberry.network property to find out what kind of coverage it is in.
 		 * @returns {Boolean} Returns true if the BlackBerry PlayBook or the BlackBerry Smartphone device has any network interface active.
 		 * @BB50+
 		 * @PB10
 		 */
 		hasDataCoverage : function(){},
+		
+		/**
+         * @function 
+		 * @description  Set the image that appears as the background of the Home screen on a BlackBerry device.
+		 * @param {String} uri URI path to an image file that resides in flash memory or a microSD Card.
+		 * @BB50+
+		 */
+		setHomeScreenBackground : function(uri){},
 		
 		/**
 		 * @param {String} module The BlackBerry WebWorks namespace or class to check for access. For example blackberry.system, blackberry.app.
