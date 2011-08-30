@@ -27,8 +27,6 @@
  * If an application requires a list of its digital goods that have already been purchased by the user (for example, to avoid offering for sale a digital good the user already owns), such a list can be obtained with the {@link blackberry.payment.getExistingPurchases} method. This method requires the same user interaction as the purchase method, so it can also be a long-running method.
  * @toc {Payment} Payment
  * @featureID blackberry.payment
- * @notice {Warning (BlackBerry 5.0 Notice):}
- * The javascript method JSON.stringify() is not available with the BlackBerry 5.0 browser.  
  */
 blackberry.payment = {
 
@@ -62,7 +60,7 @@ blackberry.payment = {
      * <li> Payment System Busy = 2</li>
      * <li> General Payment System Error  = 3</li>
      * <li> Digital Good not Found = 4</li>
-	 * <li> Illegal Application Error = 5 [BlackBerry OS 5.0+ only]</li>
+     * <li> Illegal Application Error = 5 [BlackBerry OS 5.0+ only]</li>
      * </ul>
      * <b>Note:</b> The actual values may be different when {@link blackberry.payment.developmentMode} equals true.
      * @PB10
@@ -83,16 +81,17 @@ blackberry.payment = {
      * @callback {function} callbackOnSuccess Function to be called when the payment is successful.
      * @callback {String} callbackOnSuccess.data An String representation of a JSONObject of a purchase is passed as a parameter in the form below.
      * @callback {function} [callbackOnFailure] Function to be called when an error occurs.
-     * @callback {Number} callbackOnFailure.error An error code will be passed in corresponding to the following codes
+     * @callback {String} callbackOnFailure.errorText Retrieves the message set for an error. In addition to descriptive text, error code may appear at the end of the message. 
+     * @callback {Number} callbackOnFailure.errorID Contains the reference number associated with the specific error in corresponding to the following values.
      * <ul>
      * <li> User Cancelled = 1</li>
      * <li> Payment System Busy = 2</li>
      * <li> General Payment System Error  = 3</li>
      * <li> Digital Good not Found = 4</li>
-	 * <li> Illegal Application Error = 5 [BlackBerry OS 5.0+ only]</li>
+     * <li> Illegal Application Error = 5 [BlackBerry OS 5.0+ only]</li>
      * </ul>
      * @PB10
-	 * @BB50+
+     * @BB50+
      * @example
      * &lt;script type="text/javascript"&gt;
      *   function pay() {
@@ -126,7 +125,7 @@ blackberry.payment = {
      * @description Defines the development mode used in the application. If development mode is set to true, the application does not contact the Payment Service server for any transactions. For purchases, a simulated purchase screen is displayed, allowing the user to choose the result of the purchase. For retrieving existing purchases, only simulated successful purchases are returned. This mode is useful for testing how your application handles the possible results without requiring network connections or currency. THIS MODE SHOULD NOT BE USED IN PRODUCTION CODE. If development mode is set to false, purchases and retrievals of existing purchases proceed normally, contacting the Payment Service server as necessary. This is the default development mode, and applications in production should not modify it.
      * @default false
      * @PB10
-	 * @BB50+
+     * @BB50+
      */
     developmentMode: false;
 
