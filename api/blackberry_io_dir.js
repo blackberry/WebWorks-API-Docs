@@ -320,7 +320,7 @@ blackberry.io.dir = {
     * &lt;script type=&quot;text&sol;javascript&quot;&gt;
     *   var dirPath = encodeURI(blackberry.io.dir.appDirs.app.storage.path + '/app_settings'); 
     *   $.ajax({
-    *      url: "webworks://blackberry/io/dir/list?path=" + filePath,
+    *      url: "http://localhost:8472/blackberry/io/dir/list?path=" + filePath,
     *      success: function(result, textStatus, jqXHR){
     *        try {
     *           var resultObj = JSON.parse(result);

@@ -225,7 +225,7 @@ blackberry.app ={
 	 *	function getAppData(){
 	 *		$.ajax({
 	 *		    type: "get",
-	 *		    url: "webworks://blackberry/app/get",
+	 *		    url: "http://localhost:8472/blackberry/app/get",
 	 *		    success: function(msg){
 	 *		      $('#myAppDiv').populate(JSON.parse(msg).data);
 	 *		    }

@@ -240,7 +240,7 @@ blackberry.io.file = {
      *
      *   // inspect properties for this file
      *   $.ajax({
-     *      url: "webworks://blackberry/io/file/get?path=" + filePath,
+     *      url: "http://localhost:8472/blackberry/io/file/get?path=" + filePath,
      *      success: function(result, textStatus, jqXHR){
      *        try {
      *           var resultObj = JSON.parse(result, reviverFn);

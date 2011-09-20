@@ -45,7 +45,7 @@ blackberry.identity = {
  *	function getIdentityData(){
  *		$.ajax({
  *		    type: "get",
- *		    url: "webworks://blackberry/identity/get",
+ *		    url: "http://localhost:8472/blackberry/identity/get",
  *		    success: function(msg){
  *		      $('#myIdentityDiv').populate(JSON.parse(msg).data);
  *		    }

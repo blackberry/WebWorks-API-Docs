@@ -134,7 +134,7 @@ blackberry.system ={
 		 *          function getSystemData(){
 		 *              $.ajax({
 		 *                  type: "get",
-		 *                  url: "webworks://blackberry/system/get",
+		 *                  url: "http://localhost:8472/blackberry/system/get",
 		 *                  success: function(msg){
 		 *                      $('#mySystemDiv').populate(JSON.parse(msg).data);
 		 *                  }
