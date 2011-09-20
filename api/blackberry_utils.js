@@ -36,6 +36,9 @@ blackberry.utils = {
 	 * @description Convert a document into a Blob. Supported in 5.0.0 only. 
 	 * @param {Document} doc The document to be converted.
 	 * @returns {Blob} The Blob result from converting the Document
+	 * @deprecated This API is deprecated, please use {@link blackberry.utils.stringToBlob} instead.<br/><br/>
+	 * For example:
+	 * <pre>var foo = blackberry.utils.stringToBlob( document.toString() );</pre>
 	 * @BB50
 	 */
 	documentToBlob : function(doc){},
