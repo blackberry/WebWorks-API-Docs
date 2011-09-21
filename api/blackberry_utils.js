@@ -46,7 +46,7 @@ blackberry.utils = {
 	/**
 	 * @description Convert a string object into a Blob using the specified character encoding.
 	 * @param {String} str The string to be converted.
-	 * @param {String} [encoding = UTF-16BE] The name of a supported character encoding.BlackBerry supports the following character encodings: ISO-8859-1, UTF-8, UTF-16BE, US-ASCII. Besides these encodings, Web API also supports BASE64 encoding. Support of other encodings depends on the configuration of the BlackBerry Smartphone.
+	 * @param {String} [encoding = ISO-8859-1] The name of a supported character encoding.BlackBerry supports the following character encodings: ISO-8859-1, UTF-8, UTF-16BE, US-ASCII. Besides these encodings, Web API also supports BASE64 encoding. Support of other encodings depends on the configuration of the BlackBerry Smartphone.
 	 * @returns {Blob} The Blob result from converting the String
 	 * @BB50+
      * @BB50+
