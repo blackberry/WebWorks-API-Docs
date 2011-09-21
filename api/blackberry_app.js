@@ -17,6 +17,8 @@
 /**
  * @toc {System} Application
  * @featureID blackberry.app
+ * @notice {Warning ( Playbook 1.0 Notice):}
+ * For URI based APIs, webworks:// has been deprecated and replaced with http://localhost:8472. This change does not affect the procedural APIs.
  * @namespace The Application object provides functions and properties for the currently running application.
  * @example
  * &lt;script type="text/javascript"&gt;

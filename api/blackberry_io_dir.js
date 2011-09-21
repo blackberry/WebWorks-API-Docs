@@ -16,6 +16,8 @@
 
 /**
 * @toc {IO} Directory 
+* @notice {Warning ( Playbook 1.0 Notice):}
+* For URI based APIs, webworks:// has been deprecated and replaced with http://localhost:8472. This change does not affect the procedural APIs.
 * @namespace The Directory object provides functions for interacting with directories on the file system.<br><br>
 * See also {@link blackberry.io.file}
 * @featureID blackberry.io.dir
