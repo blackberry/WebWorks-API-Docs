@@ -1,40 +1,22 @@
 {!
 	//Setup
 	var hasDeprecation = false,
-		deprecationSupport = new BBTag.Support(),
-		memberSupport,
+		deprecationSupport = new BBTag.Support(),		
 		i,
 		parentsChildren,
-		memberChildren,
-        contributingParents = [[],[],[],[],[]];
+        contributingParents = [];
 	for( i = 0; i <data.inheritedChildren.length;i++){
+        contributingParents[i] = [];
 		data.inheritedChildren[i].map(function($) {if (contributingParents[i].indexOf($.memberOf) < 0) contributingParents[i].push($.memberOf)});
 	}
 	i = -1;
-!} 
-<if test="(data.constructors && data.constructors.length)">
-	<div x-ww-support="{+data.constructorSupport.supportTag+}">
-		<h1>Constructors</h1>
-		<ul class="ulNoTopMargin">
-			<for each="member" in="data.constructors">
-				<li x-ww-support="{+member.support.supportTag+}">
-					{+new Link().toSymbol(member.alias).withText(getSymbolName(member))+}
-					<if test="member.deprecated">
-						<span class="depricate">**</span>
-						{! hasDeprecation = true; deprecationSupport.populateBySymbol(member); !}
-					</if>
-				</li>
-			</for>
-		</ul>
-	</div>
-</if>      
+!}  
 
 <for each="header" in="data.headerText">
-	{! i++; memberChildren = []; !}
+	{! i++; !}
 	<if test="( (data.ownChildren[i] && data.ownChildren[i].length) || (data.inheritedChildren[i] && data.inheritedChildren[i].length) )">
-		<br/>
-		{! memberSupport = new BBTag.Support(memberChildren.concat(data.ownChildren[i]?data.ownChildren[i]:[],data.inheritedChildren[i]?data.inheritedChildren[i]:[])) !}		
-		<div x-ww-support="{+memberSupport.supportTag+}">
+		<br/>		
+		<div x-ww-support="{+data.supportTags[i]+}">
 			<h1> {+header+} </h1>
 			<if test="(data.ownChildren[i] && data.ownChildren[i].length)">           
 					<ul class="ulNoTopMargin">          

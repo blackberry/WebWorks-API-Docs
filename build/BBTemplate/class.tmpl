@@ -354,23 +354,30 @@
 <!-- ============================== Summary ========================= -->
         {!var args = 
             {
-				ownChildren         : [ownMethods,
+				ownChildren         : [constructors,
+                                       ownMethods,
 									   ownEvents,
 									   ownProperties,
 									   ownConstants,
 									   ownURIMethods ],
-				headerText          : ["Functions",
+				headerText          : ["Constructors",
+                                       "Functions",
 									   "Events",
 									   "Properties",
 									   "Constants",
 									   "URI Functions" ],
-				inheritedChildren   : [data.methods.filter(function($) {return $.memberOf != data.alias && isMethod($)}),
+				inheritedChildren   : [[],
+                                       data.methods.filter(function($) {return $.memberOf != data.alias && isMethod($)}),
 									   data.events.filter(function($) {return $.memberOf != data.alias && isEvent($)}),
 									   data.properties.filter(function($) {return $.memberOf != data.alias && isProperty($)}), 
 									   data.properties.filter(function($) {return $.memberOf != data.alias && isConstant($)}),
-									   data.properties.filter(function($) {return $.memberOf != data.alias && isURIMethod($)}) ],				
-				constructors		: constructors,
-				constructorSupport  : data.support
+									   data.methods.filter(function($) {return $.memberOf != data.alias && isURIMethod($)}) ],				
+				supportTags         : [data.support.supportTag,
+                                       (new BBTag.Support(data.methods.filter(function($) {return isMethod($)}))).supportTag,
+									   (new BBTag.Support(data.events.filter(function($) {return isEvent($)}))).supportTag,
+									   (new BBTag.Support(data.properties.filter(function($) {return isProperty($)}))).supportTag, 
+									   (new BBTag.Support(data.properties.filter(function($) {return isConstant($)}))).supportTag,
+									   (new BBTag.Support(data.methods.filter(function($) {return isURIMethod($)}))).supportTag ],
 			} 
         !}
         {+subtemplate("subtemplates/summary.tmpl",args)+}
