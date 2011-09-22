@@ -351,3 +351,11 @@ function isConstructor($) {return (!$.isNamespace && !$.uri && !$.isConstant && 
 function isProperty($)    {return (!$.isNamespace && !$.uri && !$.isConstant && !$.constructedBy);};
 function isConstant($)    {return (!$.isNamespace && !$.uri && $.isConstant  && !$.constructedBy);};
 function isEvent($)       {return (!$.isNamespace && !$.uri && !$.isConstant && !$.constructedBy);};
+
+/** Include a sub-template in the current template, specifying a data object */
+function subtemplate(template, data) {
+	try {
+		return new JSDOC.JsPlate(publish.conf.templatesDir+template).process(data);
+	}
+	catch(e) { print(e.message); quit(); }
+}

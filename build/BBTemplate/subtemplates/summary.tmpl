@@ -1,0 +1,76 @@
+{!
+	//Setup
+	var hasDeprecation = false,
+		deprecationSupport = new BBTag.Support(),
+		memberSupport,
+		i,
+		parentsChildren,
+		memberChildren,
+        contributingParents = [[],[],[],[],[]];
+	for( i = 0; i <data.inheritedChildren.length;i++){
+		data.inheritedChildren[i].map(function($) {if (contributingParents[i].indexOf($.memberOf) < 0) contributingParents[i].push($.memberOf)});
+	}
+	i = -1;
+!} 
+<if test="(data.constructors && data.constructors.length)">
+	<div x-ww-support="{+data.constructorSupport.supportTag+}">
+		<h1>Constructors</h1>
+		<ul class="ulNoTopMargin">
+			<for each="member" in="data.constructors">
+				<li x-ww-support="{+member.support.supportTag+}">
+					{+new Link().toSymbol(member.alias).withText(getSymbolName(member))+}
+					<if test="member.deprecated">
+						<span class="depricate">**</span>
+						{! hasDeprecation = true; deprecationSupport.populateBySymbol(member); !}
+					</if>
+				</li>
+			</for>
+		</ul>
+	</div>
+</if>      
+
+<for each="header" in="data.headerText">
+	{! i++; memberChildren = []; !}
+	<if test="( (data.ownChildren[i] && data.ownChildren[i].length) || (data.inheritedChildren[i] && data.inheritedChildren[i].length) )">
+		<br/>
+		{! memberSupport = new BBTag.Support(memberChildren.concat(data.ownChildren[i]?data.ownChildren[i]:[],data.inheritedChildren[i]?data.inheritedChildren[i]:[])) !}		
+		<div x-ww-support="{+memberSupport.supportTag+}">
+			<h1> {+header+} </h1>
+			<if test="(data.ownChildren[i] && data.ownChildren[i].length)">           
+					<ul class="ulNoTopMargin">          
+						<for each="member" in="data.ownChildren[i]">
+							<li x-ww-support="{+member.support.supportTag+}">
+								{+new Link().toSymbol(member.alias).withText(getSymbolName(member))+}
+								<if test="member.deprecated">
+									<span class="depricate">**</span>
+									{! hasDeprecation = true; deprecationSupport.populateBySymbol(member); !}
+								</if>
+							</li>               
+						</for>
+					</ul>   
+			</if>
+			<if test="contributingParents[i] && contributingParents[i].length">
+					<dl class="inheritsList">
+						<for each="parent" in="contributingParents[i]">
+							<dt> {+header +" inherited from class "+(new Link().toSymbol(parent))+": "+} </dt>
+							<dd>
+								{! parentsChildren = data.inheritedChildren[i].filter(function($) { return $.memberOf == parent }).sort(makeSortby("name")); !}
+								<for each="parentsChild" in="parentsChildren">
+									<span x-ww-support="{+parentsChild.support.supportTag+}">
+										{+(new Link().toSymbol(parentsChild.alias).withText(parentsChild.name))+}
+									</span>
+								</for>
+							</dd>              
+						</for>
+					</dl>
+			</if>                
+		</div>
+	</if>
+</for>
+        
+<if test="hasDeprecation">
+	<div x-ww-support="{+deprecationSupport.supportTag+}">
+		<span class="depricate">** Marked for Deprecation</span>
+	</div>
+</if>   
+  
