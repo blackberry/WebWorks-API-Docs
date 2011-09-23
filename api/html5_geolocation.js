@@ -17,8 +17,6 @@
 /**
  * @class The Geolocation object is used by scripts to programmatically determine the location information associated with the hosting device. The location information is acquired by applying a user-agent specific algorithm, creating a Position object, and populating that object with appropriate data accordingly.
  * @toc {GPS} HTML5 Geolocation
- * @notice {Warning (BlackBerry 5.0 Notice):}
- * Geolocation support on BlackBerry OS 5.0 is accomplished by using the <a href="http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Supporting-Gears-using-HTML5-in-BlackBerry-WebWorks-applications/ta-p/557280" target="_blank">HTML5 JavaScript toolkit</a> for BlackBerry OS 5.0.
  * @learns {Sample - Using HTML5 Geolocation} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Using-HTML5-Geolocation-in-your-Web-or-BlackBerry-WebWorks/ta-p/630406 Sample that demonstrates how to use the HTML5 Geolocation API [BlackBerry Developer Resource Center].
  * @learns {How To - Enable GPS on PlayBook} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/How-To-Enable-GPS-capability-in-BlackBerry-WebWorks-for-Tablet/ta-p/1035855 How to enable GPS capability when using the BlackBerry WebWorks SDK for Tablet OS [BlackBerry Developer Resource Center].
  * @permission read_geolocation Permits your app to access geolocation information
@@ -102,8 +100,6 @@ navigator.geolocation = {
 /**
  * @namespace The Position is the container for the geolocation information.
  * @toc {GPS} HTML5 Position
- * @notice {Warning (BlackBerry 5.0 Notice):}
- * Geolocation support on BlackBerry OS 5.0 is accomplished by using the <a href="http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Supporting-Gears-using-HTML5-in-BlackBerry-WebWorks-applications/ta-p/557280" target="_blank">HTML5 JavaScript toolkit</a> for BlackBerry OS 5.0.
  * @learns {Sample - Using HTML5 Geolocation} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Using-HTML5-Geolocation-in-your-Web-or-BlackBerry-WebWorks/ta-p/630406 Sample that demonstrates how to use the HTML5 Geolocation API [BlackBerry Developer Resource Center].
  * @learns {How To - Enable GPS on PlayBook} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/How-To-Enable-GPS-capability-in-BlackBerry-WebWorks-for-Tablet/ta-p/1035855 How to enable GPS capability when using the BlackBerry WebWorks SDK for Tablet OS [BlackBerry Developer Resource Center].
  */
@@ -130,8 +126,6 @@ Position = {};
 /**
  * @namespace The PositionError is reflecting the reason for the failure.
  * @toc {GPS} HTML5 PositionError
- * @notice {Warning (BlackBerry 5.0 Notice):}
- * Geolocation support on BlackBerry OS 5.0 is accomplished by using the <a href="http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Supporting-Gears-using-HTML5-in-BlackBerry-WebWorks-applications/ta-p/557280" target="_blank">HTML5 JavaScript toolkit</a> for BlackBerry OS 5.0.
  * @learns {Sample - Using HTML5 Geolocation} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Using-HTML5-Geolocation-in-your-Web-or-BlackBerry-WebWorks/ta-p/630406 Sample that demonstrates how to use the HTML5 Geolocation API [BlackBerry Developer Resource Center].
  * @learns {How To - Enable GPS on PlayBook} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/How-To-Enable-GPS-capability-in-BlackBerry-WebWorks-for-Tablet/ta-p/1035855 How to enable GPS capability when using the BlackBerry WebWorks SDK for Tablet OS [BlackBerry Developer Resource Center].
  */
@@ -197,9 +191,7 @@ PositionError  = {
  * @toc {GPS} HTML5 PositionOptions
  * @learns {Sample - Using HTML5 Geolocation} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Using-HTML5-Geolocation-in-your-Web-or-BlackBerry-WebWorks/ta-p/630406 Sample that demonstrates how to use the HTML5 Geolocation API [BlackBerry Developer Resource Center].
  * @learns {How To - Enable GPS on PlayBook} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/How-To-Enable-GPS-capability-in-BlackBerry-WebWorks-for-Tablet/ta-p/1035855 How to enable GPS capability when using the BlackBerry WebWorks SDK for Tablet OS [BlackBerry Developer Resource Center].
- * @notice {Warning (BlackBerry 5.0 Notice):}
- * Geolocation support on BlackBerry OS 5.0 is accomplished by using the <a href="http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Supporting-Gears-using-HTML5-in-BlackBerry-WebWorks-applications/ta-p/557280" target="_blank">HTML5 JavaScript toolkit</a> for BlackBerry OS 5.0.
- */
+*/
 PositionOptions = {};
 
     /**
@@ -237,9 +229,7 @@ PositionOptions = {};
  * @toc {GPS} HTML5 Coordinates
  * @learns {Sample - Using HTML5 Geolocation} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Using-HTML5-Geolocation-in-your-Web-or-BlackBerry-WebWorks/ta-p/630406 Sample that demonstrates how to use the HTML5 Geolocation API [BlackBerry Developer Resource Center].
  * @learns {How To - Enable GPS on PlayBook} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/How-To-Enable-GPS-capability-in-BlackBerry-WebWorks-for-Tablet/ta-p/1035855 How to enable GPS capability when using the BlackBerry WebWorks SDK for Tablet OS [BlackBerry Developer Resource Center].
- * @notice {Warning (BlackBerry 5.0 Notice):}
- * Geolocation support on BlackBerry OS 5.0 is accomplished by using the <a href="http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Supporting-Gears-using-HTML5-in-BlackBerry-WebWorks-applications/ta-p/557280" target="_blank">HTML5 JavaScript toolkit</a> for BlackBerry OS 5.0.
- */
+*/
 Coordinates = {};
 
     /**
