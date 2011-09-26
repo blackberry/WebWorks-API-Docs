@@ -351,7 +351,7 @@ function getSymbolName(symbol, forSummary) {
 
 function isMethod($)      {return (!$.isNamespace && !$.uri && !$.isConstant && !$.constructedBy);};
 function isURIMethod($)   {return (!$.isNamespace && $.uri  && !$.isConstant && !$.constructedBy);};
-function isConstructor($) {return (!$.isNamespace && !$.uri && !$.isConstant && $.constructedBy);};
+function isConstructor($) {return ((!$.isNamespace && !$.uri && !$.isConstant && $.constructedBy) || ($.is('CONSTRUCTOR')));};
 function isProperty($)    {return (!$.isNamespace && !$.uri && !$.isConstant && !$.constructedBy);};
 function isConstant($)    {return (!$.isNamespace && !$.uri && $.isConstant  && !$.constructedBy);};
 function isEvent($)       {return (!$.isNamespace && !$.uri && !$.isConstant && !$.constructedBy);};
