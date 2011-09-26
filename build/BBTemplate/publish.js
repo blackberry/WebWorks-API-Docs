@@ -51,6 +51,7 @@ function publish(symbolSet) {
 		var classTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"class.tmpl");
 		var tocTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"toc.tmpl");
 		var featureListTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"featureList.tmpl");
+        var ditamapTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"ditamap.tmpl");
 	}
 	catch(e) {
         print("Couldn't create the required templates: " + e);
@@ -113,7 +114,10 @@ function publish(symbolSet) {
     var classes = classes.filter(hasTOC).sort(makeTocSort());
 
     publish.classesIndex = tocTemplate.process(classes);
-	IO.saveFile(publish.conf.outDir, "toc"+publish.conf.ext, publish.classesIndex);	
+	IO.saveFile(publish.conf.outDir, "toc"+publish.conf.ext, publish.classesIndex);
+    
+    var processedDitamap = ditamapTemplate.process(classes);
+    IO.saveFile(publish.conf.outDir+"/"+publish.conf.srcDir, "toc.ditamap", processedDitamap);
 
     // Create the feature list page
     classes = symbols.filter(isaClass).sort(makeSortby("alias"));

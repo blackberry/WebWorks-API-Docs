@@ -1,0 +1,64 @@
+<!--
+* Copyright 2010-2011 Research In Motion Limited.
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+-->
+
+{!
+
+function DitaMapLink() {}
+DitaMapLink.prototype = new Link();
+DitaMapLink.prototype.constructor = DitaMapLink;
+Link.prototype.toString = DitaMapLink.prototype.toString; //Must do this to keep track of the function
+DitaMapLink.prototype.toString = function () {
+    var hrefLink = Link.prototype.toString.call(this),
+        re = new RegExp('^(?:.*<a )(.*)(?:>)(?:.*)(?:<[//]a>$)');
+    return hrefLink.replace(re,'$1');
+};
+
+
+var prevTocType,
+    i=0,
+    tocSymbols,
+    tocSupport;
+
+!}
+
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "http://www.qnx.com/dita/xml/1.2/map.dtd">
+<map id="com.qnx.doc.neutrino.sys_arch" title="System Architecture" xml:lang="en-us"
+  anchorref="../com.qnx.doc.neutrino/main.xml#sys_arch">
+
+<topicref {+new DitaMapLink().toFile("index.html").withText("API Reference")+} type="concept">
+</topicref>
+
+<for each="thisClass" in="data">
+    <if test="thisClass.toc">
+        <if test="(prevTocType && prevTocType == thisClass.toc.type)">
+    <topicref {+new DitaMapLink().toClass(thisClass.alias).withText(thisClass.toc.desc)+} type="concept" x-ww-support="{+thisClass.support.supportTag+}">
+    </topicref>
+        <else />
+            <if test="prevTocType">
+</topicref>
+            </if>
+            {!
+                tocSymbols = data.filter(function($){return $.toc.type == thisClass.toc.type});
+                tocSupport = new BBTag.Support(tocSymbols);
+            !}
+<topicref href="" type="concept" x-ww-support="{+tocSupport.supportTag+}">
+{+thisClass.toc.type+}
+    <topicref {+new DitaMapLink().toClass(thisClass.alias).withText(thisClass.toc.desc)+} type="concept" x-ww-support="{+thisClass.support.supportTag+}">
+    </topicref>
+            {!prevTocType = thisClass.toc.type;!}
+        </if>
+    </if>
+</for>
