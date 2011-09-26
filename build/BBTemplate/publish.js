@@ -333,7 +333,7 @@ function resolveLinks(str, from) {
     return str;
 }
 
-function getSymbolName(symbol) {
+function getSymbolName(symbol, forSummary) {
     if(symbol.is('CONSTRUCTOR')){
         return symbol.alias.replace(/\^\d+$/, '').toString().replace(/\|/g, ' | ');
     }else if (symbol.constructedBy){
@@ -342,7 +342,7 @@ function getSymbolName(symbol) {
         return "[]";
     } else if (symbol.uri) {
         return "webworks://" + symbol.alias.replace(/\./g, "/").replace("[\^][\d]", '');
-    } else if (symbol.isStatic) {
+    } else if (symbol.isStatic && !forSummary) {
         return symbol.memberOf + "." + symbol.name.replace(/\^\d+$/, '').replace("[\^][\d]", '');
     } else {
         return symbol.name.replace(/\^\d+$/, '').replace("[\^][\d]", '');
