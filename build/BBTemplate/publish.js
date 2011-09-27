@@ -52,6 +52,7 @@ function publish(symbolSet) {
 		var tocTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"toc.tmpl");
 		var featureListTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"featureList.tmpl");
         var ditamapTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"ditamap.tmpl");
+        var viewableClassTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"viewableClass.tmpl");
 	}
 	catch(e) {
         print("Couldn't create the required templates: " + e);
@@ -102,10 +103,13 @@ function publish(symbolSet) {
         symbol.methods = symbol.getMethods(); // 2
 
         Link.currentSymbol = symbol;
-        var output = "";
-        output = classTemplate.process(symbol);
-
-		IO.saveFile(publish.conf.outDir+"/"+publish.conf.symbolsDir, ((JSDOC.opt.u)? Link.filemap[symbol.alias] : symbol.alias) + publish.conf.ext, output);
+        Link.base="";
+        
+        var output = classTemplate.process(symbol);
+		IO.saveFile(publish.conf.outDir+"/"+publish.conf.symbolsDir+publish.conf.srcDir, ((JSDOC.opt.u)? Link.filemap[symbol.alias] : symbol.alias) + publish.conf.ext, output);
+        
+        var output2 = viewableClassTemplate.process(symbol);
+        IO.saveFile(publish.conf.outDir, ((JSDOC.opt.u)? Link.filemap[symbol.alias] : symbol.alias) + publish.conf.ext, output2);
     }
 
     // Generate the toc page

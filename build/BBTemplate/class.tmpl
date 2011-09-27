@@ -1,238 +1,127 @@
-<!--
-* Copyright 2010-2011 Research In Motion Limited.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-* http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.-->
 
-<!DOCTYPE html
-  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- ============================== header ================================= -->    
-<html> 
-    <head> 
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
-        <if test="data.toc && data.toc.desc">
-            <title>{+data.toc.desc+}</title>
-        <else />
-            <title>{+data.alias+}</title>
-        </if>
-        
-        <style type="text/css">
-            .apiColumn {
-                width: 200px;
-            }
-            
-            .apiTable {
-                margin: 5px;
-                border-collapse: collapse;
-            }
-            
-            .apiYes {
-                background-color: #95B9C7;
-                color:#FAF8CC;
-                text-align:center;
-            }
-            
-            .apiNo {
-                background-color: #FAF8CC;
-                text-align:center;
-            }
-            
-            .apiTh {
-                border-width: 1px;
-                border-style: solid;
-                border-color: #ccc;
-                padding: 5px;
-                background-color: #f0f0f0;
-                text-align: left;
-                vertical-align: top;
-            }
-            
-            .apiTd {
-                border-width: 1px;
-                border-style: solid;
-                border-color: #ccc;
-                padding: 5px;
-                vertical-align: top;
-            }
-            
-            .apiProperty {
-                padding-left: 20px;
-            }
-            
-            .elemTh {
-                text-align: left;
-                vertical-align: top;
-                color: #616161;
-            }
-            
-            table.betaTable {
-                border-width: 1px;
-                border-style: solid;
-                border-color: #ccc;
-                padding: 5px;
-                vertical-align: top;
-                margin: 5px;
-                margin-bottom:15px;
-                width : 90%;
-                background-color: #FCD8B9;
-            }
-            
-            td.betaTd {
-                color: #484848;
-                vertical-align: top;
-                background-color: #FCD8B9;
-            }
-            #APISupportTable {
-                display: none;
-            }
-        </style>
-      
-        <link rel="stylesheet" href="common.css" type="text/css" />
-        <script src="server.js" type="text/javascript"></script>
-    </head>
-    
-<!-- ============================== Body ============================ -->   
-    <body><div class="scrollable" id="content">     
-    
+<section>
+
 <!-- ============================== description ============================ -->
-        <p>
-            <if test="data.classDesc">
-                {+resolveLinks(data.classDesc)+}
-            </if>
-        </p>
-        
+    <p>
+        <if test="data.classDesc">
+            {+resolveLinks(data.classDesc)+}
+        </if>
+    </p>
+    
 <!-- ============================== notice ============================ -->
-        {! function isBlank(str) { return (!str || /^\s*$/.test(str)); } !}
-    
-        <if test="data.notice">
-            <for each="item" in="data.notice">
-                <if test="!(isBlank(item.title) || isBlank(item.desc))">
-                    <table class="noticeTable">
-                        <tr>
-                            <td class="noticeTd">
-                                <div class="title">{+item.title+}</div>
-                                {+item.desc+}
-                            </td>
-                        </tr>
-                    </table>
-                </if>
-            </for>
-        </if>
-        
-<!-- ============================== Beta Tag ============================ -->
-        <if test="data.betaTag">
-            <table class="betaTable">
-                 <tr>
-                    <td class="betaTd">
-                        <div class="title">Beta Notice:</div>
-                        This API is considered to be in Beta.
-                        The function and property signatures listed below could change at anytime.
-                        Once the API moves out of Beta it will be distributed as part of the core API.
-                        <br/><br/>
-                        <for each="item" in="data.betaTag">
-                            {+item.desc+}
-                        </for>
-                        <br/><br/>
-                        <i>Last Updated: {+new Date()+}</i>
-                    </td>
-                 </tr>
-            </table>
-        </if>
-    
-<!-- ============================== Learning Resources ============================ -->
-        <if test="data.learnTag">
-            <table class="scriptTable">
-                <div class="title">Learning Resources:</div>
-                <for each="item" in="data.learnTag">
+    {! function isBlank(str) { return (!str || /^\s*$/.test(str)); } !}
+
+    <if test="data.notice">
+        <for each="item" in="data.notice">
+            <if test="!(isBlank(item.title) || isBlank(item.desc))">
+                <table class="noticeTable">
                     <tr>
-                        <td class="scriptTd">
-                            {!output+="<a href=" + item.name + " target='_new'>" + item.type + "</a>";!}
+                        <td class="noticeTd">
+                            <div class="title">{+item.title+}</div>
                             {+item.desc+}
                         </td>
                     </tr>
-                </for>
-            </table>
-        </if>
-        
-<!-- ============================== Support Platforms ============================ -->
-        {!var allChildren =[]; var constructors = [];!}
-        <if test="data.methods.length">
-            {! var ownMethods = data.methods.filter(function($){return $.memberOf == data.alias  && isMethod($)}).sort(makeNameSort()); !}
-            {! var ownURIMethods = data.methods.filter(function($){return $.memberOf == data.alias  && isURIMethod($)}).sort(makeNameSort()); !}
-            {! constructors = data.methods.filter(function($){return $.memberOf == data.alias  && isConstructor($)}).sort(makeNameSort()); !}
-            {! allChildren = allChildren.concat(ownMethods, ownURIMethods);!}
-        </if>
-        <if test="data.properties.length">
-            {! var ownProperties   = data.properties.filter(function($){return $.memberOf == data.alias && isProperty($)}).sort(makeNameSort()); !}
-            {! var ownConstants    = data.properties.filter(function($){return $.memberOf == data.alias && isConstant($)}); !}
-            {! constructors =  constructors.concat(data.properties.filter(function($){return $.memberOf == data.alias && isConstructor($)})); !}
-            {! allChildren = allChildren.concat(ownProperties,ownConstants);!}
-        </if>
-        <if test="data.events.length">
-            {! var ownEvents = data.events.filter(function($){return $.memberOf == data.alias  && isEvent($)}).sort(makeNameSort()); !}
-            {! allChildren = allChildren.concat(ownEvents);!}
-        </if>
-        {! var generateDefaultConstructor = !data.isBuiltin() && data.is('CONSTRUCTOR') && !data.noConstructor; !}
-        <if test="generateDefaultConstructor">
-            {! constructors.unshift(data); !}
-        </if>
-        <if test="data.support.supportStrings">
-            <div class="title">Supported Platform(s)</div>      
-            <table class="scriptTable">         
-                <tr> 
-                    <td class="scriptTd">
-                        <for each="item" in="data.support.supportStrings">
-                            - {+item+}<br/>
-                        </for>
-                    </td> 
-                </tr>
+                </table>
+            </if>
+        </for>
+    </if>
+    
+<!-- ============================== Beta Tag ============================ -->
+    <if test="data.betaTag">
+        <table class="betaTable">
+             <tr>
+                <td class="betaTd">
+                    <div class="title">Beta Notice:</div>
+                    This API is considered to be in Beta.
+                    The function and property signatures listed below could change at anytime.
+                    Once the API moves out of Beta it will be distributed as part of the core API.
+                    <br/><br/>
+                    <for each="item" in="data.betaTag">
+                        {+item.desc+}
+                    </for>
+                    <br/><br/>
+                    <i>Last Updated: {+new Date()+}</i>
+                </td>
+             </tr>
+        </table>
+    </if>
+
+<!-- ============================== Learning Resources ============================ -->
+    <if test="data.learnTag">
+        <table class="scriptTable">
+            <div class="title">Learning Resources:</div>
+            <for each="item" in="data.learnTag">
                 <tr>
-                    <td>
-                        <div>- Supported Platform Table: <span id="codeExpand" onclick="codeClick('APISupportTable',this)";>Expand</span></div>
-                        <div id="APISupportTable">
-                            <table class="apiTable">
-                                <tr>
-                                    <th class="apiTh apiColumn">
-                                       API
-                                       
-                                    </th>
-                                    <th class="apiTh" >
-                                       OS 5.0
-                                       
-                                    </th>
-                                    <th class="apiTh" >
-                                       OS 6.0
-                                       
-                                    </th>
-						<th class="apiTh" >
-                                       OS 7.0
-                                       
-                                    </th>
-                                    <th class="apiTh" >
-                                       PlayBook
-                                       
-                                    </th>
-                                </tr>
-                                <if test="constructors.length">
-                                    <for each="item" in="constructors">
-                                        <tr x-ww-support="{+item.support.supportTag+}">
-                                            <td class="apiTd">
-                                                {+new Link().toSymbol(item.alias).withText(getSymbolName(item))+}                               
-                                                {+item.support.supportTable+}
-                                            </td>
-                                        </tr>                               
-                                    </for>
-                                </if>
-                                <for each="item" in="allChildren">
+                    <td class="scriptTd">
+                        {!output+="<a href=" + item.name + " target='_new'>" + item.type + "</a>";!}
+                        {+item.desc+}
+                    </td>
+                </tr>
+            </for>
+        </table>
+    </if>
+    
+<!-- ============================== Support Platforms ============================ -->
+    {!var allChildren =[]; var constructors = [];!}
+    <if test="data.methods.length">
+        {! var ownMethods = data.methods.filter(function($){return $.memberOf == data.alias  && isMethod($)}).sort(makeNameSort()); !}
+        {! var ownURIMethods = data.methods.filter(function($){return $.memberOf == data.alias  && isURIMethod($)}).sort(makeNameSort()); !}
+        {! constructors = data.methods.filter(function($){return $.memberOf == data.alias  && isConstructor($)}).sort(makeNameSort()); !}
+        {! allChildren = allChildren.concat(ownMethods, ownURIMethods);!}
+    </if>
+    <if test="data.properties.length">
+        {! var ownProperties   = data.properties.filter(function($){return $.memberOf == data.alias && isProperty($)}).sort(makeNameSort()); !}
+        {! var ownConstants    = data.properties.filter(function($){return $.memberOf == data.alias && isConstant($)}); !}
+        {! constructors =  constructors.concat(data.properties.filter(function($){return $.memberOf == data.alias && isConstructor($)})); !}
+        {! allChildren = allChildren.concat(ownProperties,ownConstants);!}
+    </if>
+    <if test="data.events.length">
+        {! var ownEvents = data.events.filter(function($){return $.memberOf == data.alias  && isEvent($)}).sort(makeNameSort()); !}
+        {! allChildren = allChildren.concat(ownEvents);!}
+    </if>
+    {! var generateDefaultConstructor = !data.isBuiltin() && data.is('CONSTRUCTOR') && !data.noConstructor; !}
+    <if test="generateDefaultConstructor">
+        {! constructors.unshift(data); !}
+    </if>
+    <if test="data.support.supportStrings">
+        <div class="title">Supported Platform(s)</div>      
+        <table class="scriptTable">         
+            <tr> 
+                <td class="scriptTd">
+                    <for each="item" in="data.support.supportStrings">
+                        - {+item+}<br/>
+                    </for>
+                </td> 
+            </tr>
+            <tr>
+                <td>
+                    <div>- Supported Platform Table: <span id="codeExpand" onclick="codeClick('APISupportTable',this)";>Expand</span></div>
+                    <div id="APISupportTable">
+                        <table class="apiTable">
+                            <tr>
+                                <th class="apiTh apiColumn">
+                                   API
+                                   
+                                </th>
+                                <th class="apiTh" >
+                                   OS 5.0
+                                   
+                                </th>
+                                <th class="apiTh" >
+                                   OS 6.0
+                                   
+                                </th>
+                    <th class="apiTh" >
+                                   OS 7.0
+                                   
+                                </th>
+                                <th class="apiTh" >
+                                   PlayBook
+                                   
+                                </th>
+                            </tr>
+                            <if test="constructors.length">
+                                <for each="item" in="constructors">
                                     <tr x-ww-support="{+item.support.supportTag+}">
                                         <td class="apiTd">
                                             {+new Link().toSymbol(item.alias).withText(getSymbolName(item))+}                               
@@ -240,341 +129,341 @@
                                         </td>
                                     </tr>                               
                                 </for>
-                            </table>
-                        </div>
-                    </td>
-                </tr>           
-            </table>
+                            </if>
+                            <for each="item" in="allChildren">
+                                <tr x-ww-support="{+item.support.supportTag+}">
+                                    <td class="apiTd">
+                                        {+new Link().toSymbol(item.alias).withText(getSymbolName(item))+}                               
+                                        {+item.support.supportTable+}
+                                    </td>
+                                </tr>                               
+                            </for>
+                        </table>
+                    </div>
+                </td>
+            </tr>           
+        </table>
+    </if>
+    
+<!-- ============================== Configuration Settings  ============================ -->	
+<br/>
+<div class="title">Configuration Document Settings</div>
+    To use <u>all</u> of the API described for this object, you must ensure the following settings are in your configuration document:      
+
+<table class="scriptTable">
+    <tr>
+        <th class="elemTh">Feature Elements</th>
+    </tr>
+    <if test="data.featureID">
+        <tr><td class="scriptTd">
+        You must declare the feature element(s) below in your configuration document:
+        </td></tr>
+        <br>
+        <tr><td>
+            <div id="FeatureIDSupportTable" style="display:inline;" >
+                <table class="apiTable">
+                    <tr>
+                        <th class="apiTh">
+                           Feature ID
+                           
+                        </th>
+                        <th class="apiTh" >
+                           OS 5.0
+                           
+                        </th>
+                        <th class="apiTh" >
+                           OS 6.0
+                           
+                        </th>
+                <th class="apiTh" >
+                           OS 7.0
+                                   
+                        </th>
+                        <th class="apiTh" >
+                           PlayBook
+                           
+                        </th>
+                    </tr>
+                    <for each="item" in="data.featureID">
+                      {!item.support = (new BBTag.Support()) !}
+                        <if test="item.type">
+                            {!item.support.populateByString(item.type)!}
+                         <else/>
+                            {!item.support.populateBySymbol(data)!}
+                        </if>
+                        <tr x-ww-support="{+item.support.supportTag+}">
+                            <td class="apiTd">
+                                &lt;feature id="{+item.desc+}" /&gt;                               
+                                {+item.support.supportTable+}
+                            </td>
+                        </tr>
+                    </for>
+                </table>
+             </div>
+         </td></tr>       
+    <else/>
+        <tr><td class="scriptTd">
+        This API does not require a &lt;feature&gt; element to be declared in the configuration document of your BlackBerry WebWorks Application.
+        </td></tr><br/>
+    </if>
+</table>
+
+<div x-ww-support="{+BBTag.PlaybookSupport().supportTag+}">
+    <table class="scriptTable">
+    <tr><th class="elemTh">Permission Elements (PlayBook Only)</th></tr>
+    <if test="data.permission">
+        {! var mandatory = data.permission.filter(function($){return !$.isOptional}).sort(makeSortby("name"));!}
+        {! var optional = data.permission.filter(function($){return $.isOptional}).sort(makeSortby("name"));!}
+        
+        <if test="mandatory.length">
+            <tr><td class="scriptTd">
+            You must declare the permission element(s) below in your configuration document:
+            </td></tr><br>
+            
+            <for each="item" in="mandatory">
+                <tr><td class="scriptTd">
+                - &lt;rim:permit&gt;{+item.name+}&lt;/rim:permit&gt; {+item.desc+}
+                <br>
+                </td></tr>
+            </for>
         </if>
         
-<!-- ============================== Configuration Settings  ============================ -->	
-    <br/>
-    <div class="title">Configuration Document Settings</div>
-        To use <u>all</u> of the API described for this object, you must ensure the following settings are in your configuration document:      
-    
-    <table class="scriptTable">
-        <tr>
-            <th class="elemTh">Feature Elements</th>
-        </tr>
-        <if test="data.featureID">
+        <if test="optional.length">
             <tr><td class="scriptTd">
-            You must declare the feature element(s) below in your configuration document:
-            </td></tr>
-            <br>
-            <tr><td>
-                <div id="FeatureIDSupportTable" style="display:inline;" >
-                    <table class="apiTable">
-                        <tr>
-                            <th class="apiTh">
-                               Feature ID
-                               
-                            </th>
-                            <th class="apiTh" >
-                               OS 5.0
-                               
-                            </th>
-                            <th class="apiTh" >
-                               OS 6.0
-                               
-                            </th>
-				    <th class="apiTh" >
-                               OS 7.0
-                                       
-                            </th>
-                            <th class="apiTh" >
-                               PlayBook
-                               
-                            </th>
-                        </tr>
-                        <for each="item" in="data.featureID">
-                          {!item.support = (new BBTag.Support()) !}
-                            <if test="item.type">
-                                {!item.support.populateByString(item.type)!}
-                             <else/>
-                                {!item.support.populateBySymbol(data)!}
-                            </if>
-                            <tr x-ww-support="{+item.support.supportTag+}">
-                                <td class="apiTd">
-                                    &lt;feature id="{+item.desc+}" /&gt;                               
-                                    {+item.support.supportTable+}
-                                </td>
-                            </tr>
-                        </for>
-                    </table>
-                 </div>
-             </td></tr>       
-        <else/>
-            <tr><td class="scriptTd">
-            This API does not require a &lt;feature&gt; element to be declared in the configuration document of your BlackBerry WebWorks Application.
-            </td></tr><br/>
+            <if test="mandatory.length && optional.length"><br/></if>
+            <i><b>Note:</b> Declaring the permission element(s) below in your configuration document is optional.</i></br>
+            </td></tr><br>
+        
+            <for each="item" in="optional">
+                <tr><td class="scriptTd">
+                - &lt;rim:permit&gt;{+item.name+}&lt;/rim:permit&gt; {+item.desc+}
+                <br>
+                </td></tr>
+            </for>
         </if>
+    <else/>
+        <tr><td class="scriptTd">
+        This API does not require a &lt;permission&gt; element to be declared in the configuration document of your BlackBerry WebWorks Application.
+        </td></tr><br/>
+    </if>
     </table>
-    
-    <div x-ww-support="{+BBTag.PlaybookSupport().supportTag+}">
-        <table class="scriptTable">
-        <tr><th class="elemTh">Permission Elements (PlayBook Only)</th></tr>
-        <if test="data.permission">
-            {! var mandatory = data.permission.filter(function($){return !$.isOptional}).sort(makeSortby("name"));!}
-            {! var optional = data.permission.filter(function($){return $.isOptional}).sort(makeSortby("name"));!}
-            
-            <if test="mandatory.length">
-                <tr><td class="scriptTd">
-                You must declare the permission element(s) below in your configuration document:
-                </td></tr><br>
-                
-                <for each="item" in="mandatory">
-                    <tr><td class="scriptTd">
-                    - &lt;rim:permit&gt;{+item.name+}&lt;/rim:permit&gt; {+item.desc+}
-                    <br>
-                    </td></tr>
-                </for>
-            </if>
-            
-            <if test="optional.length">
-                <tr><td class="scriptTd">
-                <if test="mandatory.length && optional.length"><br/></if>
-                <i><b>Note:</b> Declaring the permission element(s) below in your configuration document is optional.</i></br>
-                </td></tr><br>
-            
-                <for each="item" in="optional">
-                    <tr><td class="scriptTd">
-                    - &lt;rim:permit&gt;{+item.name+}&lt;/rim:permit&gt; {+item.desc+}
-                    <br>
-                    </td></tr>
-                </for>
-            </if>
-        <else/>
-            <tr><td class="scriptTd">
-            This API does not require a &lt;permission&gt; element to be declared in the configuration document of your BlackBerry WebWorks Application.
-            </td></tr><br/>
-        </if>
-        </table>
-    </div>
+</div>
 
 <!-- ============================== Summary ========================= -->
-        {!var args = 
-            {
-				ownChildren         : [constructors,
-                                       ownMethods,
-									   ownEvents,
-									   ownProperties,
-									   ownConstants,
-									   ownURIMethods ],
-				headerText          : ["Constructors",
-                                       "Functions",
-									   "Events",
-									   "Properties",
-									   "Constants",
-									   "URI Functions" ],
-				inheritedChildren   : [[],
-                                       data.methods.filter(function($) {return $.memberOf != data.alias && isMethod($)}),
-									   data.events.filter(function($) {return $.memberOf != data.alias && isEvent($)}),
-									   data.properties.filter(function($) {return $.memberOf != data.alias && isProperty($)}), 
-									   data.properties.filter(function($) {return $.memberOf != data.alias && isConstant($)}),
-									   data.methods.filter(function($) {return $.memberOf != data.alias && isURIMethod($)}) ],				
-				supportTags         : [data.support.supportTag,
-                                       (new BBTag.Support(data.methods.filter(function($) {return isMethod($)}))).supportTag,
-									   (new BBTag.Support(data.events.filter(function($) {return isEvent($)}))).supportTag,
-									   (new BBTag.Support(data.properties.filter(function($) {return isProperty($)}))).supportTag, 
-									   (new BBTag.Support(data.properties.filter(function($) {return isConstant($)}))).supportTag,
-									   (new BBTag.Support(data.methods.filter(function($) {return isURIMethod($)}))).supportTag ]
-			} 
-        !}
-        {+subtemplate("subtemplates/summary.tmpl",args)+}
+    {!var args = 
+        {
+            ownChildren         : [constructors,
+                                   ownMethods,
+                                   ownEvents,
+                                   ownProperties,
+                                   ownConstants,
+                                   ownURIMethods ],
+            headerText          : ["Constructors",
+                                   "Functions",
+                                   "Events",
+                                   "Properties",
+                                   "Constants",
+                                   "URI Functions" ],
+            inheritedChildren   : [[],
+                                   data.methods.filter(function($) {return $.memberOf != data.alias && isMethod($)}),
+                                   data.events.filter(function($) {return $.memberOf != data.alias && isEvent($)}),
+                                   data.properties.filter(function($) {return $.memberOf != data.alias && isProperty($)}), 
+                                   data.properties.filter(function($) {return $.memberOf != data.alias && isConstant($)}),
+                                   data.methods.filter(function($) {return $.memberOf != data.alias && isURIMethod($)}) ],				
+            supportTags         : [data.support.supportTag,
+                                   (new BBTag.Support(data.methods.filter(function($) {return isMethod($)}))).supportTag,
+                                   (new BBTag.Support(data.events.filter(function($) {return isEvent($)}))).supportTag,
+                                   (new BBTag.Support(data.properties.filter(function($) {return isProperty($)}))).supportTag, 
+                                   (new BBTag.Support(data.properties.filter(function($) {return isConstant($)}))).supportTag,
+                                   (new BBTag.Support(data.methods.filter(function($) {return isURIMethod($)}))).supportTag ]
+        } 
+    !}
+    {+subtemplate("subtemplates/summary.tmpl",args)+}
 <!-- ============================== Details ========================= -->
-        {!var args = 
-            {
-				ownChildren         : [constructors,
-                                       ownMethods,
-                                       ownEvents]				
-			} 
-        !}
-        {+subtemplate("subtemplates/functionDetails.tmpl",args)+}                
+    {!var args = 
+        {
+            ownChildren         : [constructors,
+                                   ownMethods,
+                                   ownEvents]				
+        } 
+    !}
+    {+subtemplate("subtemplates/functionDetails.tmpl",args)+}                
 <!-- ============================== properties details ========================== -->       
-        <if test="defined(ownProperties) && ownProperties.length">
-           {!var ownPropertySupport = new BBTag.Support(ownProperties)!}
-            <div x-ww-support="{+ownPropertySupport.supportTag+}">
-                <h2>Properties:</h2>
-                <hr style="margin-bottom: 15px;"/>
-              
-                <table class="confluenceTable">
-                    <tr>
-                        <th class="confluenceTh">
-                        Property
+    <if test="defined(ownProperties) && ownProperties.length">
+       {!var ownPropertySupport = new BBTag.Support(ownProperties)!}
+        <div x-ww-support="{+ownPropertySupport.supportTag+}">
+            <h2>Properties:</h2>
+            <hr style="margin-bottom: 15px;"/>
+          
+            <table class="confluenceTable">
+                <tr>
+                    <th class="confluenceTh">
+                    Property
+                   
+                    </th>
+                    <th class="confluenceTh">
+                       Type
                        
-                        </th>
-                        <th class="confluenceTh">
-                           Type
-                           
-                        </th>
-                        <th class="confluenceTh">
-                           Description
-                           
-                        </th>
-                        <th class="confluenceThnoverflow">
-                           Supported Platform(s)
-                           
-                        </th>
-                    </tr>
-                    
-                    <for each="member" in="ownProperties">
-                        <tr x-ww-support="{+member.support.supportTag+}">
-                            <td class="confluenceTd"><a name="{+Link.symbolNameToLinkName(member)+}" class="propertyName">{+getSymbolName(member)+}</a></td>
-                            <td class="confluenceTd">
-                                <if test="member.isStatic">
-                                    Static<br/>
-                                </if>
-                                <if test="member.isCallback">
-                                    {+ ((member.type)?(new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')) : "") + makeCallbackSignature(member.params) +}
-                                <else/>
-                                    {+((member.type)?(new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')) : "")+}
-                                </if>
-                                <if test="member.defaultValue">
-                                    {+" = " +resolveLinks(member.defaultValue)+}
-                                </if>
-                                <if test="member.readOnly">
-                                    <br/>readonly
-                                </if>
-                            </td>
-                            
-                            <td class="confluenceTd">{+resolveLinks(member.desc)+}
-                                <if test="member.params">
-                                    <br/>
-                                    <for each="subItem" in="member.params">
-                                        <br/>
-                                        <b>{+subItem.name+":"+}</b>
-                                        {+resolveLinks(subItem.desc)+}
-                                    </for>
-                                </if>
-                                <if test="member.deprecated">
-                                    <table class="depricationTable" >
-                                        <tr>
-                                            <td class="depricationTd">
-                                                <i>{+ resolveLinks(member.deprecated) +}</i>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </if>               
-                            </td>
-                            
-                            <td class="confluenceTdnoverflow">
-                                <if test="member.support.supportStrings">              
-                                    <for each="item" in="member.support.supportStrings">
-                                        &nbsp;- {+item+}
-                                        <br/>
-                                    </for>                  
-                                </if>
-                            </td>
-                        </tr>
-                    </for>
-                </table>
+                    </th>
+                    <th class="confluenceTh">
+                       Description
+                       
+                    </th>
+                    <th class="confluenceThnoverflow">
+                       Supported Platform(s)
+                       
+                    </th>
+                </tr>
                 
                 <for each="member" in="ownProperties">
-                    <if test="member.example.length">
-                        <div class="title">Code Example(s)</div>
-                        <for each="example" in="member.example">
-                            <table class="scriptTable">             
-                                <tr><td class="scriptTd">
-                                    <pre>{+example+}</pre>
-                                </td></tr>              
-                            </table>
-                        </for>
-                    </if>
-                </for>
-            </div>
-        </if>
-        
-<!-- ============================== constant details ========================== -->     
-        <if test="defined(ownConstants) && ownConstants.length">
-            {!var ownConstantSupport = new BBTag.Support(ownConstants)!}
-            <div x-ww-support="{+ownConstantSupport.supportTag+}">
-                <h2>Constants:</h2>
-                <hr style="margin-bottom: 15px;"/>
-              
-                <table class="confluenceTable">
-                    <tr>
-                        <th class="confluenceTh">
-                        Constant
-                       
-                        </th>
-                        <th class="confluenceTh">
-                           Type
-                           
-                        </th>
-                        <th class="confluenceTh">
-                           Description
-                           
-                        </th>
-                        <th class="confluenceThnoverflow">
-                           Supported Platform(s)
-                           
-                        </th>
+                    <tr x-ww-support="{+member.support.supportTag+}">
+                        <td class="confluenceTd"><a name="{+Link.symbolNameToLinkName(member)+}" class="propertyName">{+getSymbolName(member)+}</a></td>
+                        <td class="confluenceTd">
+                            <if test="member.isStatic">
+                                Static<br/>
+                            </if>
+                            <if test="member.isCallback">
+                                {+ ((member.type)?(new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')) : "") + makeCallbackSignature(member.params) +}
+                            <else/>
+                                {+((member.type)?(new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')) : "")+}
+                            </if>
+                            <if test="member.defaultValue">
+                                {+" = " +resolveLinks(member.defaultValue)+}
+                            </if>
+                            <if test="member.readOnly">
+                                <br/>readonly
+                            </if>
+                        </td>
+                        
+                        <td class="confluenceTd">{+resolveLinks(member.desc)+}
+                            <if test="member.params">
+                                <br/>
+                                <for each="subItem" in="member.params">
+                                    <br/>
+                                    <b>{+subItem.name+":"+}</b>
+                                    {+resolveLinks(subItem.desc)+}
+                                </for>
+                            </if>
+                            <if test="member.deprecated">
+                                <table class="depricationTable" >
+                                    <tr>
+                                        <td class="depricationTd">
+                                            <i>{+ resolveLinks(member.deprecated) +}</i>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </if>               
+                        </td>
+                        
+                        <td class="confluenceTdnoverflow">
+                            <if test="member.support.supportStrings">              
+                                <for each="item" in="member.support.supportStrings">
+                                    &nbsp;- {+item+}
+                                    <br/>
+                                </for>                  
+                            </if>
+                        </td>
                     </tr>
-                    
-                    <for each="member" in="ownConstants">
-                        <tr x-ww-support="{+member.support.supportTag+}">
-                            <td class="confluenceTd">
-                               <a name="{+Link.symbolNameToLinkName(member)+}" class="propertyName">{+getSymbolName(member)+}</a>
-                            </td>
-                            <td class="confluenceTd">{+new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')+}                      
-                                <if test="member.defaultValue">
-                                    {+" = " + resolveLinks(member.defaultValue)+}
-                                </if>
-                            </td>
-                            <td class="confluenceTd">{+resolveLinks(member.desc)+}
-                                <if test="member.deprecated">
-                                    <table class="depricationTable" >
-                                        <tr>
-                                            <td class="depricationTd">
-                                                <i>{+ resolveLinks(member.deprecated) +}</i>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </if>
-                            </td>
-                            <td class="confluenceTdnoverflow">
-                                <if test="member.support.supportStrings">              
-                                    <for each="item" in="member.support.supportStrings">
-                                        &nbsp;- {+item+}
-                                        <br/>
-                                    </for>                  
-                                </if>
-                            </td>
-                        </tr>
-                    </for>
-                </table>
-            </div>
-        </if>
-    
-<!-- ============================== URI  ==================== -->           
-        {!var args = 
-            {
-				ownChildren         : [ownURIMethods]				
-			} 
-        !}
-        {+subtemplate("subtemplates/functionDetails.tmpl",args)+}  
-        
-        <if test="!generateDefaultConstructor && data.example.length">
-            <div x-ww-support="{+data.support.supportTag+}">
-                <h2><a name="{+Link.symbolNameToLinkName(data)+}"> </a>Code Example(s)</h2>
-                <hr style="margin-bottom: 15px;"/>
-                <for each="example" in="data.example">
-                    <table class="scriptTable">             
-                        <tr><td class="scriptTd">
-                            <pre>{+example+}</pre>
-                        </td></tr>              
-                    </table>
                 </for>
-            </div>
-        </if>
-        
-                    
-<!-- ============================== footer ================================= -->
-        <hr style="margin-bottom: 15px;"/>
-        <div class="fineprint" style="clear: both">
-            <if test="JSDOC.opt.D.copyright">&copy;{+JSDOC.opt.D.copyright+}<br /></if>
-            Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> {+JSDOC.VERSION+} on {+new Date()+}
+            </table>
+            
+            <for each="member" in="ownProperties">
+                <if test="member.example.length">
+                    <div class="title">Code Example(s)</div>
+                    <for each="example" in="member.example">
+                        <table class="scriptTable">             
+                            <tr><td class="scriptTd">
+                                <pre>{+example+}</pre>
+                            </td></tr>              
+                        </table>
+                    </for>
+                </if>
+            </for>
         </div>
-        
-    </div></body>
-</html>
+    </if>
+    
+<!-- ============================== constant details ========================== -->     
+    <if test="defined(ownConstants) && ownConstants.length">
+        {!var ownConstantSupport = new BBTag.Support(ownConstants)!}
+        <div x-ww-support="{+ownConstantSupport.supportTag+}">
+            <h2>Constants:</h2>
+            <hr style="margin-bottom: 15px;"/>
+          
+            <table class="confluenceTable">
+                <tr>
+                    <th class="confluenceTh">
+                    Constant
+                   
+                    </th>
+                    <th class="confluenceTh">
+                       Type
+                       
+                    </th>
+                    <th class="confluenceTh">
+                       Description
+                       
+                    </th>
+                    <th class="confluenceThnoverflow">
+                       Supported Platform(s)
+                       
+                    </th>
+                </tr>
+                
+                <for each="member" in="ownConstants">
+                    <tr x-ww-support="{+member.support.supportTag+}">
+                        <td class="confluenceTd">
+                           <a name="{+Link.symbolNameToLinkName(member)+}" class="propertyName">{+getSymbolName(member)+}</a>
+                        </td>
+                        <td class="confluenceTd">{+new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')+}                      
+                            <if test="member.defaultValue">
+                                {+" = " + resolveLinks(member.defaultValue)+}
+                            </if>
+                        </td>
+                        <td class="confluenceTd">{+resolveLinks(member.desc)+}
+                            <if test="member.deprecated">
+                                <table class="depricationTable" >
+                                    <tr>
+                                        <td class="depricationTd">
+                                            <i>{+ resolveLinks(member.deprecated) +}</i>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </if>
+                        </td>
+                        <td class="confluenceTdnoverflow">
+                            <if test="member.support.supportStrings">              
+                                <for each="item" in="member.support.supportStrings">
+                                    &nbsp;- {+item+}
+                                    <br/>
+                                </for>                  
+                            </if>
+                        </td>
+                    </tr>
+                </for>
+            </table>
+        </div>
+    </if>
+
+<!-- ============================== URI  ==================== -->           
+    {!var args = 
+        {
+            ownChildren         : [ownURIMethods]				
+        } 
+    !}
+    {+subtemplate("subtemplates/functionDetails.tmpl",args)+}  
+    
+    <if test="!generateDefaultConstructor && data.example.length">
+        <div x-ww-support="{+data.support.supportTag+}">
+            <h2><a name="{+Link.symbolNameToLinkName(data)+}"> </a>Code Example(s)</h2>
+            <hr style="margin-bottom: 15px;"/>
+            <for each="example" in="data.example">
+                <table class="scriptTable">             
+                    <tr><td class="scriptTd">
+                        <pre>{+example+}</pre>
+                    </td></tr>              
+                </table>
+            </for>
+        </div>
+    </if>
+
+</section>        
