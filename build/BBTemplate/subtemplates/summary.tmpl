@@ -12,47 +12,51 @@
 	i = -1;
 !}  
 
-<for each="header" in="data.headerText">
-	{! i++; !}
-	<if test="( (data.ownChildren[i] && data.ownChildren[i].length) || (data.inheritedChildren[i] && data.inheritedChildren[i].length) )">
-		<br/>		
-		<div x-ww-support="{+data.supportTags[i]+}">
-			<h1> {+header+} </h1>
-			<if test="(data.ownChildren[i] && data.ownChildren[i].length)">           
-					<ul class="ulNoTopMargin">          
-						<for each="member" in="data.ownChildren[i]">
-							<li x-ww-support="{+member.support.supportTag+}">
-								{+new Link().toSymbol(member.alias).withText(getSymbolName(member))+}
-								<if test="member.deprecated">
-									<span class="depricate">**</span>
-									{! hasDeprecation = true; deprecationSupport.populateBySymbol(member); !}
-								</if>
-							</li>               
-						</for>
-					</ul>   
-			</if>
-			<if test="contributingParents[i] && contributingParents[i].length">
-					<dl class="inheritsList">
-						<for each="parent" in="contributingParents[i]">
-							<dt> {+header +" inherited from class "+(new Link().toSymbol(parent))+": "+} </dt>
-							<dd>
-								{! parentsChildren = data.inheritedChildren[i].filter(function($) { return $.memberOf == parent }).sort(makeSortby("name")); !}
-								<for each="parentsChild" in="parentsChildren">
-									<span x-ww-support="{+parentsChild.support.supportTag+}">
-										{+(new Link().toSymbol(parentsChild.alias).withText(parentsChild.name))+}
-									</span>
-								</for>
-							</dd>              
-						</for>
-					</dl>
-			</if>                
-		</div>
-	</if>
-</for>
-        
-<if test="hasDeprecation">
-	<div x-ww-support="{+deprecationSupport.supportTag+}">
-		<span class="depricate">** Marked for Deprecation</span>
-	</div>
-</if>   
+
+<div>
+<h2>API Summary</h2>
+    <for each="header" in="data.headerText">
+        {! i++; !}
+        <if test="( (data.ownChildren[i] && data.ownChildren[i].length) || (data.inheritedChildren[i] && data.inheritedChildren[i].length) )">
+            <br/>		
+            <div x-ww-support="{+data.supportTags[i]+}">
+                <h3> {+header+} </h3>
+                <if test="(data.ownChildren[i] && data.ownChildren[i].length)">           
+                        <ul>          
+                            <for each="member" in="data.ownChildren[i]">
+                                <li x-ww-support="{+member.support.supportTag+}">
+                                    {+new Link().toSymbol(member.alias).withText(getSymbolName(member))+}
+                                    <if test="member.deprecated">
+                                        <span class="depricate">**</span>
+                                        {! hasDeprecation = true; deprecationSupport.populateBySymbol(member); !}
+                                    </if>
+                                </li>               
+                            </for>
+                        </ul>   
+                </if>
+                <if test="contributingParents[i] && contributingParents[i].length">
+                        <dl class="inheritsList">
+                            <for each="parent" in="contributingParents[i]">
+                                <dt> {+header +" inherited from class "+(new Link().toSymbol(parent))+": "+} </dt>
+                                <dd>
+                                    {! parentsChildren = data.inheritedChildren[i].filter(function($) { return $.memberOf == parent }).sort(makeSortby("name")); !}
+                                    <for each="parentsChild" in="parentsChildren">
+                                        <span x-ww-support="{+parentsChild.support.supportTag+}">
+                                            {+(new Link().toSymbol(parentsChild.alias).withText(parentsChild.name))+}
+                                        </span>
+                                    </for>
+                                </dd>              
+                            </for>
+                        </dl>
+                </if>                
+            </div>
+        </if>
+    </for>
+            
+    <if test="hasDeprecation">
+        <div x-ww-support="{+deprecationSupport.supportTag+}">
+            <span class="depricate">** Marked for Deprecation</span>
+        </div>
+    </if>
+</div>
   

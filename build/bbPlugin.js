@@ -20,7 +20,11 @@
  * Put this file in <JSDoc dir>\app\plugins\ and it will be used whenever JSDoc is run.
  */
 
-BBTag = {};
+BBTag = {
+    tableHeader : function(firstColumnName){
+        return "<thead><tr><th>"+firstColumnName+"</th><th>OS 5.0</th><th>OS 6.0</th><th>OS 7.0</th><th>PlayBook</th></tr></thead>";
+    }
+};
 
 BBTag.Support = function(symbolArray) {
     this.init();
@@ -136,7 +140,6 @@ BBTag.Support.prototype.populateByString = function(string) {
 };
 
 BBTag.Support.prototype.populateBySupport = function(support) {
-
     this.bb50 |= support.bb50;
     this.bb60 |= support.bb60;
     this.bb70 |= support.bb70;
@@ -154,7 +157,7 @@ BBTag.Support.prototype.populateBySymbolArray = function(symbolArray) {
 
 BBTag.PlaybookSupport = function(){
     var pbSupport = new BBTag.Support();
-    pbSupport.populateByBools(false, false, true);
+    pbSupport.populateByBools(false, false, false, true);
     return pbSupport;
 }
 
