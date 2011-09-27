@@ -1,0 +1,103 @@
+{!
+    var childrenSupport,
+        i=-1;
+
+!}
+
+<for each="children" in="data.ownChildren">
+    {!i++;!}
+    <if test="children && children.length">
+       {!childrenSupport = new BBTag.Support(children)!}
+        <div x-ww-support="{+childrenSupport.supportTag+}">
+            <h2>{+data.headerText[i]+}:</h2>
+            <hr style="margin-bottom: 15px;"/>
+          
+            <table class="confluenceTable">
+                <tr>
+                    <th class="confluenceTh">
+                    Property
+                   
+                    </th>
+                    <th class="confluenceTh">
+                       Type
+                       
+                    </th>
+                    <th class="confluenceTh">
+                       Description
+                       
+                    </th>
+                    <th class="confluenceThnoverflow">
+                       Supported Platform(s)
+                       
+                    </th>
+                </tr>
+                
+                <for each="member" in="children">
+                    <tr x-ww-support="{+member.support.supportTag+}">
+                        <td class="confluenceTd">
+                            <a name="{+Link.symbolNameToLinkName(member)+}" class="propertyName">{+getSymbolName(member)+}</a>
+                        </td>
+                        <td class="confluenceTd">
+                            <if test="member.isStatic && !isConstant(member)">
+                                Static<br/>
+                            </if>
+                            <if test="member.isCallback && !isConstant(member)">
+                                {+ ((member.type)?(new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')) : "") + makeCallbackSignature(member.params) +}
+                            <else/>
+                                {+((member.type)?(new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')) : "")+}
+                            </if>
+                            <if test="member.defaultValue">
+                                {+" = " +resolveLinks(member.defaultValue)+}
+                            </if>
+                            <if test="member.readOnly && !isConstant(member)">
+                                <br/>readonly
+                            </if>
+                        </td>
+                        
+                        <td class="confluenceTd">{+resolveLinks(member.desc)+}
+                            <if test="member.params">
+                                <br/>
+                                <for each="subItem" in="member.params">
+                                    <br/>
+                                    <b>{+subItem.name+":"+}</b>
+                                    {+resolveLinks(subItem.desc)+}
+                                </for>
+                            </if>
+                            <if test="member.deprecated">
+                                <table class="depricationTable" >
+                                    <tr>
+                                        <td class="depricationTd">
+                                            <i>{+ resolveLinks(member.deprecated) +}</i>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </if>               
+                        </td>
+                        
+                        <td class="confluenceTdnoverflow">
+                            <if test="member.support.supportStrings">              
+                                <for each="item" in="member.support.supportStrings">
+                                    &nbsp;- {+item+}
+                                    <br/>
+                                </for>                  
+                            </if>
+                        </td>
+                    </tr>
+                </for>
+            </table>
+            
+            <for each="member" in="children">
+                <if test="member.example.length">
+                    <div class="title">Code Example(s)</div>
+                    <for each="example" in="member.example">
+                        <table class="scriptTable">             
+                            <tr><td class="scriptTd">
+                                <pre>{+example+}</pre>
+                            </td></tr>              
+                        </table>
+                    </for>
+                </if>
+            </for>
+        </div>
+    </if>
+</for>
