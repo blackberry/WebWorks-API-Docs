@@ -10,34 +10,34 @@
        {!childrenSupport = new BBTag.Support(children)!}
         <div x-ww-support="{+childrenSupport.supportTag+}">
             <h2>{+data.headerText[i]+}:</h2>
-            <hr style="margin-bottom: 15px;"/>
+            <hr/>
           
-            <table class="confluenceTable">
-                <tr>
-                    <th class="confluenceTh">
+            <table>
+                <thead><tr>
+                    <th>
                     Property
                    
                     </th>
-                    <th class="confluenceTh">
+                    <th>
                        Type
                        
                     </th>
-                    <th class="confluenceTh">
+                    <th>
                        Description
                        
                     </th>
-                    <th class="confluenceThnoverflow">
+                    <th>
                        Supported Platform(s)
                        
                     </th>
-                </tr>
+                </tr></thead>
                 
                 <for each="member" in="children">
                     <tr x-ww-support="{+member.support.supportTag+}">
-                        <td class="confluenceTd">
-                            <a name="{+Link.symbolNameToLinkName(member)+}" class="propertyName">{+getSymbolName(member)+}</a>
+                        <td>
+                            <a name="{+Link.symbolNameToLinkName(member)+}">{+getSymbolName(member)+}</a>
                         </td>
-                        <td class="confluenceTd">
+                        <td>
                             <if test="member.isStatic && !isConstant(member)">
                                 Static<br/>
                             </if>
@@ -54,7 +54,7 @@
                             </if>
                         </td>
                         
-                        <td class="confluenceTd">{+resolveLinks(member.desc)+}
+                        <td>{+resolveLinks(member.desc)+}
                             <if test="member.params">
                                 <br/>
                                 <for each="subItem" in="member.params">
@@ -64,9 +64,9 @@
                                 </for>
                             </if>
                             <if test="member.deprecated">
-                                <table class="depricationTable" >
+                                <table>
                                     <tr>
-                                        <td class="depricationTd">
+                                        <td>
                                             <i>{+ resolveLinks(member.deprecated) +}</i>
                                         </td>
                                     </tr>
@@ -74,7 +74,7 @@
                             </if>               
                         </td>
                         
-                        <td class="confluenceTdnoverflow">
+                        <td>
                             <if test="member.support.supportStrings">              
                                 <for each="item" in="member.support.supportStrings">
                                     &nbsp;- {+item+}
@@ -88,10 +88,10 @@
             
             <for each="member" in="children">
                 <if test="member.example.length">
-                    <div class="title">Code Example(s)</div>
+                    <h3>Code Example(s)</h3>
                     <for each="example" in="member.example">
-                        <table class="scriptTable">             
-                            <tr><td class="scriptTd">
+                        <table>             
+                            <tr><td>
                                 <pre>{+example+}</pre>
                             </td></tr>              
                         </table>
