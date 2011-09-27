@@ -37,7 +37,6 @@ blackberry.utils = {
 	 * @param {Document} doc The document to be converted.
 	 * @returns {Blob} The Blob result from converting the Document
 	 * @BB50
-	 * @PB10
 	 */
 	documentToBlob : function(doc){},
 

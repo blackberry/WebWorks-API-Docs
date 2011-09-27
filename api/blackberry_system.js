@@ -17,6 +17,8 @@
 /**
  * @toc {System} System
  * @featureID blackberry.system
+ * @notice {Warning ( Playbook 1.0 Notice):}
+ * For URI based APIs, webworks:// has been deprecated and replaced with http://localhost:8472. This change does not affect the procedural APIs.
  * @namespace The System object allows you to get access to system level functions and attributes of the BlackBerry PlayBook.<br>
  * <br> The System object is static; all of its functions and properties are used directly from the object.
  * @example
@@ -134,7 +136,7 @@ blackberry.system ={
 		 *          function getSystemData(){
 		 *              $.ajax({
 		 *                  type: "get",
-		 *                  url: "webworks://blackberry/system/get",
+		 *                  url: "http://localhost:8472/blackberry/system/get",
 		 *                  success: function(msg){
 		 *                      $('#mySystemDiv').populate(JSON.parse(msg).data);
 		 *                  }
