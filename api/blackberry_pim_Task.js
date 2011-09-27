@@ -21,6 +21,7 @@
 *     </p></div>
 * @toc {PIM} Task 
 * @BB50+
+* @RIPPLE
 * @class The Task object represents a Task entry that would be in your PIM task list.  This Task object can be used for manipulating Task PIM information.
 * @featureID blackberry.find
 * @featureID blackberry.pim.Recurrence
@@ -44,6 +45,7 @@ blackberry.pim.Task = function() { };
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Task.NOT_STARTED = 0;
 
@@ -52,6 +54,7 @@ blackberry.pim.Task.NOT_STARTED = 0;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Task.IN_PROGRESS = 1;
 
@@ -60,6 +63,7 @@ blackberry.pim.Task.IN_PROGRESS = 1;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Task.COMPLETED = 2;
 
@@ -68,6 +72,7 @@ blackberry.pim.Task.COMPLETED = 2;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Task.WAITING = 3;
 
@@ -76,6 +81,7 @@ blackberry.pim.Task.WAITING = 3;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Task.DEFERRED = 4;
 
@@ -84,6 +90,7 @@ blackberry.pim.Task.DEFERRED = 4;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Task.PRIORITY_HIGH = 0;
 
@@ -92,6 +99,7 @@ blackberry.pim.Task.PRIORITY_HIGH = 0;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Task.PRIORITY_NORMAL = 1;
 
@@ -100,6 +108,7 @@ blackberry.pim.Task.PRIORITY_NORMAL = 1;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Task.PRIORITY_LOW = 2;
 
@@ -111,6 +120,7 @@ blackberry.pim.Task.PRIORITY_LOW = 2;
 * @param {Boolean} [isAscending] Optional &apos;isAscending&apos; parameter specifying whether the sort order is ascending or descending. If not specified or set to true, the results sorted by the field specified by &apos;orderBy&apos; will be in an ascending order. If set to false, the sort results will be in a descending order. If no &apos;orderBy&apos; value is specified, &apos;isAscending&apos; is neglected.
 * @returns {Task[]}
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Task.find = function(filter,orderBy,maxReturn,isAscending) { };
 
@@ -118,6 +128,7 @@ blackberry.pim.Task.find = function(filter,orderBy,maxReturn,isAscending) { };
 * This method will save the changes made to the Task object. 
 * @returns {void}
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Task.prototype.save = function() { };
 
@@ -125,6 +136,7 @@ blackberry.pim.Task.prototype.save = function() { };
 * This method will remove a Task from the PIM storage. 
 * @returns {void}
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Task.prototype.remove = function() { };
 
@@ -132,6 +144,7 @@ blackberry.pim.Task.prototype.remove = function() { };
 * Contains a brief description of the task. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Task.prototype.summary = { };
 
@@ -139,6 +152,7 @@ blackberry.pim.Task.prototype.summary = { };
 * Contains a more complete description than the summary field. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Task.prototype.note = { };
 
@@ -146,6 +160,7 @@ blackberry.pim.Task.prototype.note = { };
 * Current status of this task. Value can be one of the &apos;Status&apos; constants. Default value is NOT_STARTED. 
 * @type Number
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Task.prototype.status = { };
 
@@ -153,6 +168,7 @@ blackberry.pim.Task.prototype.status = { };
 * The due date for this task. 
 * @type Date
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Task.prototype.due = { };
 
@@ -160,6 +176,7 @@ blackberry.pim.Task.prototype.due = { };
 * This specifies the priority of the task.  Value can be one of the &apos;Priority&apos; constants. Default value is PRIORITY_NORMAL. 
 * @type Number
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Task.prototype.priority = { };
 
@@ -168,6 +185,7 @@ blackberry.pim.Task.prototype.priority = { };
 * @type String
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Task.prototype.uid = { };
 
@@ -175,6 +193,7 @@ blackberry.pim.Task.prototype.uid = { };
 * This is the rule to store how this task should be repeated if any. 
 * @type Recurrence
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Task.prototype.recurrence = { };
 
@@ -182,6 +201,7 @@ blackberry.pim.Task.prototype.recurrence = { };
 * This is the rule to store how the user should be reminded about the task. 
 * @type Reminder
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Task.prototype.reminder = { };
 
@@ -189,6 +209,7 @@ blackberry.pim.Task.prototype.reminder = { };
 * The list of categories associated to the task. 
 * @type {String[]}
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Task.prototype.categories = { };
 

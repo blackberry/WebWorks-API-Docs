@@ -20,6 +20,7 @@
 *     </p></div>
 * @toc {Invoke} MemoArguments 
 * @BB50+
+* @RIPPLE
 * @class The MemoArguments object is an instance object, and is used as a parameter to the invoke() method when invoking the Memo application.
 * @featureID blackberry.invoke
 * @featureID blackberry.invoke.MemoArguments
@@ -45,6 +46,7 @@ blackberry.invoke.MemoArguments = function(memo) { };
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.MemoArguments.VIEW_NEW = 0;
 
@@ -53,6 +55,7 @@ blackberry.invoke.MemoArguments.VIEW_NEW = 0;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.MemoArguments.VIEW_EDIT = 1;
 
@@ -60,6 +63,7 @@ blackberry.invoke.MemoArguments.VIEW_EDIT = 1;
 * Value that specifies what kind of view you want to view the memo in MemoPad application. 
 * @type Number
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.MemoArguments.prototype.view = { };
 

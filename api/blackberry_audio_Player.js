@@ -23,6 +23,7 @@
 * </div>
 * @toc {Media} Audio Player 
 * @BB50+
+* @RIPPLE
 * @class The audio player is an API introduced so that audio can be played on the BlackBerry 5.0 operating system since the 
 *		HTML5 &lt;audio&gt; element is not yet supported on this OS. The audio player is intended to play audio files only 
 *		which does <b>not</b> include streaming audio.
@@ -75,6 +76,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* Starts playing the loaded content.  
 	* @returns {Boolean} Returns true if the player successfully starts playing
 	* @BB50+
+    * @RIPPLE
 	* @example
 	* &lt;script type=&quot;text/javascript&quot;&gt;
 	*   &sol;&sol; Playing the player
@@ -88,6 +90,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* Pause the player&apos;s playback.  
 	* @returns {Boolean} Returns true if the player is successfully paused
 	* @BB50+
+    * @RIPPLE
 	* @example
 	* &lt;script type=&quot;text/javascript&quot;&gt;
 	*   // Pausing the player and then closing it
@@ -102,6 +105,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* Closing the Player and releases most of its resources, it must not be used again. 
 	* @returns {Boolean} Returns true if the player is successfully closed
 	* @BB50+
+    * @RIPPLE
 	*/
 	close : function() { },
 
@@ -113,6 +117,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @callback {Object} [onPlayerUpdate.eventData] The associated event data.
 	* @returns {Boolean} Returns true if the callback is successfully assigned
 	* @BB50+
+    * @RIPPLE
 	* @example
 	* &lt;script type=&quot;text/javascript&quot;&gt;
 	*   // Subscribing and unsubscribing with player&apos;s events
@@ -143,6 +148,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @type Number
 	* @readOnly
 	* @BB50+
+    * @RIPPLE
 	*/
 	duration : 0,
 
@@ -151,6 +157,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @type Number
 	* @readOnly
 	* @BB50+
+    * @RIPPLE
 	*/
 	state : 0,
 
@@ -158,6 +165,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* Get&sol;Set Player&apos;s media time. 
 	* @type Number
 	* @BB50+
+    * @RIPPLE
 	*/
 	mediaTime : 0,
 
@@ -165,6 +173,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* Get/Set the player&apos;s volume level.  Valid values are between 0 and 100.
 	* @type Number
 	* @BB50+
+    * @RIPPLE
 	*/
 	volumeLevel : 0,
 
@@ -174,6 +183,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @type String
 	* @readOnly
 	* @BB50+
+    * @RIPPLE
 	*/
 	EVENT_BUFFERING_STARTED : ,
 
@@ -183,6 +193,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @type String
 	* @readOnly
 	* @BB50+
+    * @RIPPLE
 	*/
 	EVENT_BUFFERING_STOPPED : ,
 
@@ -192,6 +203,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @type String
 	* @readOnly
 	* @BB50+
+    * @RIPPLE
 	*/
 	EVENT_CLOSED : ,
 
@@ -201,6 +213,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @type String
 	* @readOnly
 	* @BB50+
+    * @RIPPLE
 	*/
 	EVENT_DEVICE_AVAILABLE : ,
 
@@ -210,6 +223,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @type String
 	* @readOnly
 	* @BB50+
+    * @RIPPLE
 	*/
 	EVENT_DEVICE_UNAVAILABLE : ,
 
@@ -219,6 +233,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @type String
 	* @readOnly
 	* @BB50+
+    * @RIPPLE
 	*/
 	EVENT_DURATION_UPDATED : ,
 
@@ -228,6 +243,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @type String
 	* @readOnly
 	* @BB50+
+    * @RIPPLE
 	*/
 	EVENT_END_OF_MEDIA : ,
 
@@ -264,6 +280,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @type String
 	* @readOnly
 	* @BB50+
+    * @RIPPLE
 	*/
 	EVENT_ERROR : ,
 
@@ -273,6 +290,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @type String
 	* @readOnly
 	* @BB50+
+    * @RIPPLE
 	*/
 	EVENT_RECORD_ERROR : ,
 
@@ -282,6 +300,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @type String
 	* @readOnly
 	* @BB50+
+    * @RIPPLE
 	*/
 	EVENT_RECORD_STARTED : ,
 
@@ -291,6 +310,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @type String
 	* @readOnly
 	* @BB50+
+    * @RIPPLE
 	*/
 	EVENT_RECORD_STOPPED : ,
 
@@ -300,6 +320,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @type String
 	* @readOnly
 	* @BB50+
+    * @RIPPLE
 	*/
 	EVENT_SIZE_CHANGED : ,
 
@@ -309,6 +330,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @type String
 	* @readOnly
 	* @BB50+
+    * @RIPPLE
 	*/
 	EVENT_STARTED : ,
 
@@ -318,6 +340,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @type String
 	* @readOnly
 	* @BB50+
+    * @RIPPLE
 	*/
 	EVENT_STOPPED : ,
 
@@ -327,6 +350,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @type String
 	* @readOnly
 	* @BB50+
+    * @RIPPLE
 	*/
 	EVENT_STOPPED_AT_TIME : ,
 
@@ -336,6 +360,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @type String
 	* @readOnly
 	* @BB50+
+    * @RIPPLE
 	*/
 	EVENT_VOLUME_CHANGED : ,
 
@@ -345,6 +370,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @constant
 	* @default -1
 	* @BB50+
+    * @RIPPLE
 	*/
 	TIME_UNKNOWN : -1,
 	
@@ -354,6 +380,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @constant
 	* @default 0
 	* @BB50+
+    * @RIPPLE
 	*/
 	CLOSED : 0;
 
@@ -363,6 +390,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @constant
 	* @default 100
 	* @BB50+
+    * @RIPPLE
 	*/
 	UNREALIZED : 100,
 
@@ -372,6 +400,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @constant
 	* @default 200
 	* @BB50+
+    * @RIPPLE
 	*/
 	REALIZED : 200,
 
@@ -381,6 +410,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @constant
 	* @default 300
 	* @BB50+
+    * @RIPPLE
 	*/
 	PREFETCHED : 300,
 
@@ -390,6 +420,7 @@ blackberry.audio.Player = function(locator,type,async) {
 	* @constant
 	* @default 400
 	* @BB50+
+    * @RIPPLE
 	*/
 	STARTED = 400
 
