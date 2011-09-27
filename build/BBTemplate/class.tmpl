@@ -55,6 +55,7 @@
     
     </script>        
         
+{!/**********     Class Heading     **********/!}    
     <h1>
         <if test="data.toc && data.toc.desc">
             {+data.toc.desc+}
@@ -63,31 +64,33 @@
         </if>
     </h1>   
     
+{!/**********     Class Description     **********/!}    
     <if test="data.classDesc">
         <p>
             {+resolveLinks(data.classDesc)+}
         </p>
     </if>    
     
-
+{!/**********     Notices     **********/!}    
     <if test="data.notice">        
         <for each="item" in="data.notice">
             <if test="!(isBlank(item.title) || isBlank(item.desc))">
                 <table class="noticeTable">
                     <tr><td class="noticeTd">
-                        <div class="title">{+item.title+}</div>
+                        <h3>{+item.title+}</h3>
                         {+item.desc+}
                     </td></tr>
                 </table>
             </if>
         </for>
+        <br/>
     </if>
     
-
+{!/***********     Beta Notice     ***********/!}    
     <if test="data.betaTag">
         <table class="betaTable">
             <tr><td class="betaTd">
-                <h2>Beta Notice:<h2>
+                <h3>Beta Notice:</h3>
                 This API is considered to be in Beta.
                 The function and property signatures listed below could change at anytime.
                 Once the API moves out of Beta it will be distributed as part of the core API.
@@ -101,6 +104,7 @@
         </table>
     </if>
 
+{!/***********     Learning Resources     ***********/!}    
     <if test="data.learnTag">
         <table class="learnTable">
             <h2>Learning Resources:<h2>
@@ -149,7 +153,8 @@
             </td></tr>           
         </table>
     </if>
-    
+
+{!/***********     Configuration Settings     ***********/!}        
     <br/>
     <h2>Configuration Document Settings</h2>
     <p>To use <u>all</u> of the API described for this object, you must ensure the following settings are in your configuration document:</p>
@@ -238,6 +243,7 @@
         </table>
     </div>
 
+{!/***********     Summary     ***********/!}            
     {!var args = 
         {
             ownChildren         : [constructors,
@@ -268,6 +274,7 @@
     !}
     {+subtemplate("subtemplates/summary.tmpl",args)+}
 
+{!/***********     Constructor,Functions and Event Details     ***********/!}            
     {!var args = 
         {
             ownChildren         : [constructors,
@@ -276,7 +283,8 @@
         } 
     !}
     {+subtemplate("subtemplates/functionDetails.tmpl",args)+}                
-   
+
+{!/***********     Properties and Constants Details    ***********/!}               
     {!var args = 
         {
             ownChildren         : [ownProperties,
@@ -287,14 +295,15 @@
     !}
     {+subtemplate("subtemplates/propertyDetails.tmpl",args)+}    
 
-      
+{!/***********     URI Function Details     ***********/!}                  
     {!var args = 
         {
             ownChildren         : [ownURIMethods]				
         } 
     !}
     {+subtemplate("subtemplates/functionDetails.tmpl",args)+}  
-    
+
+{!/***********     Class-Wide examples     ***********/!}                
     <if test="!generateDefaultConstructor && data.example.length">
         <div x-ww-support="{+data.support.supportTag+}">
             <h2><a name="{+Link.symbolNameToLinkName(data)+}"> </a>Code Example(s)</h2>

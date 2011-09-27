@@ -44,7 +44,8 @@ var prevTocType,
 <for each="thisClass" in="data">
     <if test="thisClass.toc">
         <if test="(prevTocType && prevTocType == thisClass.toc.type)">
-    <topicref {+new DitaMapLink().toClass(thisClass.alias).withText(thisClass.toc.desc)+} type="concept" x-ww-support="{+thisClass.support.supportTag+}">
+    <topicref {+new DitaMapLink().toClass(thisClass.alias)+} type="concept" x-ww-support="{+thisClass.support.supportTag+}">
+        {+thisClass.toc.desc+}
     </topicref>
         <else />
             <if test="prevTocType">
@@ -55,8 +56,9 @@ var prevTocType,
                 tocSupport = new BBTag.Support(tocSymbols);
             !}
 <topicref href="" type="concept" x-ww-support="{+tocSupport.supportTag+}">
-{+thisClass.toc.type+}
-    <topicref {+new DitaMapLink().toClass(thisClass.alias).withText(thisClass.toc.desc)+} type="concept" x-ww-support="{+thisClass.support.supportTag+}">
+    {+thisClass.toc.type+}
+    <topicref {+new DitaMapLink().toClass(thisClass.alias)+} type="concept" x-ww-support="{+thisClass.support.supportTag+}">
+        {+thisClass.toc.desc+}
     </topicref>
             {!prevTocType = thisClass.toc.type;!}
         </if>

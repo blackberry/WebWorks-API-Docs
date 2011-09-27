@@ -154,7 +154,7 @@
 {!
     var ditaMap = IO.readFile(publish.conf.outDir+publish.conf.srcDir+"toc.ditamap");
     ditaMap = ditaMap.substring(838);
-    ditaMap = ditaMap.replace(/[\s]*(?:<topicref)(.*)(href=")(.*?)(".*)>/g,"<li><a $1$2$3$4>$3");
+    ditaMap = ditaMap.replace(/[\s]*(?:<topicref)(.*)(href=")(.*?)(".*)>/g,"<li><a $1$2$3$4>");
     ditaMap = ditaMap.replace(/<\/topicref>/g,"</a></li>");    
 !}
 
@@ -165,6 +165,7 @@
     {+ditaMap+}
     </ul>
 </div>
+<div class="column grid_8 page-content"><div>
 
 <div>
     {+IO.readFile(stringLink)+}
