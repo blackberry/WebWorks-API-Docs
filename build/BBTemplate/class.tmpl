@@ -163,42 +163,30 @@
 {!/***********     Configuration Settings     ***********/!}        
 <br/>
 <h2>Configuration Document Settings</h2>
-<p>To use <u>all</u> of the API described for this object, you must ensure the following settings are in your configuration document:</p>
-<table>
-    <tr>
-        <th>Feature Elements</th>
-    </tr>
-    <if test="data.featureID">
-        <tr><td>
-            You must declare the feature element(s) below in your configuration document:
-        </td></tr>
-        <br>
-        <tr><td>                
-            <table>
-                {+ BBTag.tableHeader("Feature ID") +}
-                <for each="item" in="data.featureID">
-                    {! item.support = (new BBTag.Support()); !}
-                    <if test="item.type">
-                        {!item.support.populateByString(item.type)!}
-                     <else/>
-                        {!item.support.populateBySymbol(data)!}
-                    </if>
-                    <tr x-ww-support="{+item.support.supportTag+}">
-                        <td>
-                            &lt;feature id="{+item.desc+}" /&gt;                               
-                            {+item.support.supportTable+}
-                        </td>
-                    </tr>
-                </for>
-            </table>
-        </td></tr>       
-    <else/>
-        <tr><td>
-            This API does not require a &lt;feature&gt; element to be declared in the configuration document of your BlackBerry WebWorks Application.
-        </td></tr>
-        <br/>
-    </if>
-</table>
+<p>To use <u>all</u> of the API described for this object, you must ensure the following settings are in your configuration document.You must declare the feature element(s) below in your configuration document:</p>
+<if test="data.featureID">
+    <table>
+         {+ BBTag.tableHeader("Feature ID") +}
+         <for each="item" in="data.featureID">
+             {! item.support = (new BBTag.Support()); !}
+             <if test="item.type">
+                 {!item.support.populateByString(item.type)!}
+             <else/>
+                 {!item.support.populateBySymbol(data)!}
+             </if>
+             <tr x-ww-support="{+item.support.supportTag+}">
+                 <td>
+                     &lt;feature id="{+item.desc+}" /&gt;                               
+                     {+item.support.supportTable+}
+                 </td>
+             </tr>
+         </for>
+    </table>               
+<else/>
+    This API does not require a &lt;feature&gt; element to be declared in the configuration document of your BlackBerry WebWorks Application.
+    <br/>
+</if>
+
 
 <div x-ww-support="{+BBTag.PlaybookSupport().supportTag+}">
     <table>
