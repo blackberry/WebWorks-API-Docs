@@ -20,6 +20,7 @@
 *     </p></div>
 * @toc {Invoke} PhoneArguments 
 * @BB50+
+* @RIPPLE
 * @class The PhoneArguments object is an instance object, and is used as a parameter to the invoke() method when invoking the Phone application.
 * @featureID blackberry.invoke
 * @featureID blackberry.invoke.PhoneArguments
@@ -42,6 +43,7 @@ blackberry.invoke.PhoneArguments = function(dialString,smartDialing,lineId) { };
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.PhoneArguments.VIEW_CALL = 0;
 
@@ -50,6 +52,7 @@ blackberry.invoke.PhoneArguments.VIEW_CALL = 0;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.PhoneArguments.VIEW_VOICEMAIL = 1;
 
@@ -57,6 +60,7 @@ blackberry.invoke.PhoneArguments.VIEW_VOICEMAIL = 1;
 * Value that specifies what kind of view you want to open in the Phone application. 
 * @type Number
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.PhoneArguments.prototype.view = { };
 

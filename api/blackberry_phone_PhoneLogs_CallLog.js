@@ -17,6 +17,7 @@
 /**
 * @toc {Phone} CallLog 
 * @BB50+
+* @RIPPLE
 * @namespace The CallLog object represents an entry in the call log of the phone application.
 * @featureID blackberry.phone.PhoneLogs
 * @example
@@ -47,6 +48,7 @@ blackberry.phone.PhoneLogs.CallLog = { };
 * @constant
 * @default 0
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_NORMAL = 0;
 
@@ -56,6 +58,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_NORMAL = 0;
 * @constant
 * @default 1
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_BUSY = 1;
 
@@ -65,6 +68,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_BUSY = 1;
 * @constant
 * @default 2
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_CONGESTION = 2;
 
@@ -74,6 +78,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_CONGESTION = 2;
 * @constant
 * @default 3
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_PATH_UNAVAILABLE = 3;
 
@@ -83,6 +88,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_PATH_UNAVAILABLE = 3;
 * @constant
 * @default 4
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_NUMBER_UNOBTAINABLE = 4;
 
@@ -92,6 +98,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_NUMBER_UNOBTAINABLE = 4;
 * @constant
 * @default 5
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_AUTHENTICATION_FAILURE = 5;
 
@@ -101,6 +108,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_AUTHENTICATION_FAILURE = 5;
 * @constant
 * @default 6
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_EMERGENCY_CALLS_ONLY = 6;
 
@@ -110,6 +118,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_EMERGENCY_CALLS_ONLY = 6;
 * @constant
 * @default 7
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_HOLD_ERROR = 7;
 
@@ -119,6 +128,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_HOLD_ERROR = 7;
 * @constant
 * @default 8
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_OUTGOING_CALLS_BARRED = 8;
 
@@ -128,6 +138,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_OUTGOING_CALLS_BARRED = 8;
 * @constant
 * @default 9
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_GENERAL_ERROR = 9;
 
@@ -137,6 +148,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_GENERAL_ERROR = 9;
 * @constant
 * @default 10
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_MAINTENANCE_REQUIRED = 10;
 
@@ -146,6 +158,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_MAINTENANCE_REQUIRED = 10;
 * @constant
 * @default 11
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_SERVICE_NOT_AVAILABLE = 11;
 
@@ -155,6 +168,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_SERVICE_NOT_AVAILABLE = 11;
 * @constant
 * @default 12
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_CALL_FAIL_DUE_TO_FADING = 12;
 
@@ -164,6 +178,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_CALL_FAIL_DUE_TO_FADING = 12;
 * @constant
 * @default 13
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_CALL_LOST_DUE_TO_FADING = 13;
 
@@ -173,6 +188,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_CALL_LOST_DUE_TO_FADING = 13;
 * @constant
 * @default 14
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_CALL_FAILED_TRY_AGAIN = 14;
 
@@ -182,6 +198,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_CALL_FAILED_TRY_AGAIN = 14;
 * @constant
 * @default 15
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_FDN_MISMATCH = 15;
 
@@ -191,6 +208,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_FDN_MISMATCH = 15;
 * @constant
 * @default 16
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_CONNECTION_DENIED = 16;
 
@@ -200,6 +218,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_CONNECTION_DENIED = 16;
 * @constant
 * @default 27
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.STATUS_INCOMING_CALL_BARRED = 27;
 
@@ -209,6 +228,7 @@ blackberry.phone.PhoneLogs.CallLog.STATUS_INCOMING_CALL_BARRED = 27;
 * @constant
 * @default 0
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.TYPE_RECEIVED_CALL = 0;
 
@@ -218,6 +238,7 @@ blackberry.phone.PhoneLogs.CallLog.TYPE_RECEIVED_CALL = 0;
 * @constant
 * @default 1
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.TYPE_PLACED_CALL = 1;
 
@@ -227,6 +248,7 @@ blackberry.phone.PhoneLogs.CallLog.TYPE_PLACED_CALL = 1;
 * @constant
 * @default 2
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.TYPE_MISSED_CALL_UNOPENED = 2;
 
@@ -236,6 +258,7 @@ blackberry.phone.PhoneLogs.CallLog.TYPE_MISSED_CALL_UNOPENED = 2;
 * @constant
 * @default 3
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.TYPE_MISSED_CALL_OPENED = 3;
 
@@ -244,6 +267,7 @@ blackberry.phone.PhoneLogs.CallLog.TYPE_MISSED_CALL_OPENED = 3;
 * @type Date
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.prototype.date = { };
 
@@ -252,6 +276,7 @@ blackberry.phone.PhoneLogs.CallLog.prototype.date = { };
 * @type Number
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.prototype.duration = { };
 
@@ -260,6 +285,7 @@ blackberry.phone.PhoneLogs.CallLog.prototype.duration = { };
 * @type Number
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.prototype.status = { };
 
@@ -268,6 +294,7 @@ blackberry.phone.PhoneLogs.CallLog.prototype.status = { };
 * @type String
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.prototype.notes = { };
 
@@ -276,6 +303,7 @@ blackberry.phone.PhoneLogs.CallLog.prototype.notes = { };
 * @type Number
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.prototype.type = { };
 
@@ -284,6 +312,7 @@ blackberry.phone.PhoneLogs.CallLog.prototype.type = { };
 * @type String
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.prototype.name = { };
 
@@ -292,6 +321,7 @@ blackberry.phone.PhoneLogs.CallLog.prototype.name = { };
 * @type String
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.prototype.number = { };
 
@@ -300,6 +330,7 @@ blackberry.phone.PhoneLogs.CallLog.prototype.number = { };
 * @type String
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.prototype.addressBookNumber = { };
 
@@ -311,6 +342,7 @@ returned (for example, &quot;Phone&quot;). Otherwise, an empty string is returne
 * @type String
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.CallLog.prototype.addressBookType = { };
 

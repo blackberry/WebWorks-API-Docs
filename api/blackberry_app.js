@@ -50,18 +50,21 @@ blackberry.app ={
 	 * @description This function will cause the application to exit.
 	 * @BB50+
 	 * @PB10
+     * @RIPPLE
 	 */
 	exit: function(){},
 	
 	/**
 	 * @description This function will move the application to the background.
 	 * @BB50+
+     * @RIPPLE
 	 */
 	requestBackground: function(){},
 	
 	/**
 	 * @description This function will move the application to the foreground application.
 	 * @BB50+
+     * @RIPPLE
 	 */
 	requestForeground : function(){},
 	
@@ -69,6 +72,7 @@ blackberry.app ={
 	 * @description This method will set the icon that appears in the Home Screen of the Smartphone.
 	 * @returns {Boolean} Returns true if successful, false otherwise. The hover icon can only be set when the application icon has been set first. Changes made using this API are NOT persisted across PlayBook resets.
 	 * @BB50+
+     * @RIPPLE
 	 * @param {String} uri Location of the image to use for the icon. The path to the image resource must be fully qualified. An example of a fully qualified path is local:///resourceFolder/icons/icon.png. The path to the resource must also be included in the whitelist. For example, accessing an image on the file system requires 'file:///' to be whitelisted
 	 * @param {Boolean} [hover=false]If set to true then the hover icon for the application is changed. By default this is false, so the icon that is changed is the default main icon for the application.
 	 */
@@ -78,6 +82,7 @@ blackberry.app ={
 	 * @description This method will set the text for the icon that appears in the Home Screen of the Smartphone.
 	 * @returns {Boolean} Returns true if successful, false otherwise. Changes made using this API are NOT persisted across resets. 
 	 * @BB50+
+     * @RIPPLE
 	 * @param {String} text Text to appear on the home screen icon.
 	 */
 	setHomeScreenName : function(text){},
@@ -85,6 +90,7 @@ blackberry.app ={
     /**
 	 * @description This function will show an indicator on the banner.
 	 * @BB50+
+     * @RIPPLE
 	 * @param {String} icon The name of the icon to show on the banner. The icon must be a local resource and it's size varies from 10x10 up to 32x32 depending on current theme and device screen size.
 	 * @param {Number} [value] The number to show on the banner.
 	 */	 
@@ -93,6 +99,7 @@ blackberry.app ={
     /**
 	 * @description This function will remove the indicator on the banner.
 	 * @BB50+
+     * @RIPPLE
 	 */	 
 	removeBannerIndicator:function(){} 
 	
@@ -100,6 +107,7 @@ blackberry.app ={
 	 * @description The ID of the author's name that is specified in the config.xml file. 
 	 * @BB50+
 	 * @PB10
+     * @RIPPLE
 	 * @readonly
 	 * @type String
 	 */
@@ -109,6 +117,7 @@ blackberry.app ={
 	 * @description The author's email of the BlackBerry WebWorks application that is specified in the config.xml file. 
 	 * @BB50+
 	 * @PB10
+     * @RIPPLE
 	 * @readonly
 	 * @type String
 	 */
@@ -118,6 +127,7 @@ blackberry.app ={
 	 * @description The author's URL of the BlackBerry WebWorks application that is specified in the config.xml file.
 	 * @BB50+
 	 * @PB10
+     * @RIPPLE
 	 * @readonly
 	 * @type String
 	 */
@@ -126,6 +136,7 @@ blackberry.app ={
 	 * @description The copyright information of the BlackBerry WebWorks application that is specified in the config.xml file.
 	 * @BB50+
 	 * @PB10
+     * @RIPPLE
 	 * @readonly
 	 * @type String
 	 */
@@ -135,6 +146,7 @@ blackberry.app ={
 	 * @description The description of the BlackBerry WebWorks application that is specified in the config.xml file.
 	 * @BB50+
 	 * @PB10
+     * @RIPPLE
 	 * @readonly
 	 * @type String
 	 */
@@ -144,6 +156,7 @@ blackberry.app ={
 	 * @description The ID of the BlackBerry WebWorks Application that is specified in the config.xml file. 
 	 * @BB50+
 	 * @PB10
+     * @RIPPLE
 	 * @readonly
 	 * @type String
 	 */
@@ -152,6 +165,7 @@ blackberry.app ={
 	/**
 	 * @description A property that will return true if the BlackBerry WebWorks Application is in the foreground. 
 	 * @BB50+
+     * @RIPPLE
 	 * @readonly
 	 * @type Boolean
 	 */
@@ -161,6 +175,7 @@ blackberry.app ={
 	 * @description The license of the BlackBerry WebWorks Application that is specified in the config.xml file. 
 	 * @BB50+
 	 * @PB10
+     * @RIPPLE
 	 * @readonly
 	 * @type String
 	 */
@@ -170,6 +185,7 @@ blackberry.app ={
 	 * @description The license URL of the BlackBerry WebWorks Application that is specified in the config.xml file. 
 	 * @BB50+
 	 * @PB10
+     * @RIPPLE
 	 * @readonly
 	 * @type String
 	 */
@@ -179,6 +195,7 @@ blackberry.app ={
 	 * @description The name of the BlackBerry WebWorks Application that is specified in the config.xml file. 
 	 * @BB50+
 	 * @PB10
+     * @RIPPLE
 	 * @readonly
 	 * @type String
 	 */
@@ -188,6 +205,7 @@ blackberry.app ={
 	 * @description The version of the BlackBerry WebWorks Application that is specified in the config.xml file. 
 	 * @BB50+
 	 * @PB10
+     * @RIPPLE
 	 * @readonly
 	 * @type String
 	 */

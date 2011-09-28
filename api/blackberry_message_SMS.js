@@ -18,6 +18,7 @@
 /**
 * @toc {Message} SMS
 * @BB50+
+* @RIPPLE
 * @namespace Provides static functions to send SMS messages
 * @featureID blackberry.message.sms
 * @example
@@ -44,6 +45,7 @@ blackberry.message.sms = { };
 * @type Boolean
 * @static
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.sms.isListeningForMessage = { };
 
@@ -53,6 +55,7 @@ blackberry.message.sms.isListeningForMessage = { };
 * @param {String} address Address where the message should be delivered to.
 * @returns {Undefined}
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.sms.send = function(message,address) { };
 
@@ -61,6 +64,7 @@ blackberry.message.sms.send = function(message,address) { };
 * @param {function(String, String, Date)} callback Callback function that is invoked when a new SMS message is received. Overwrites the previous callback. The parameters are: message, sender, and date.
 * @returns {Undefined}
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.sms.addReceiveListener = function(callback) { };
 
@@ -68,6 +72,7 @@ blackberry.message.sms.addReceiveListener = function(callback) { };
 * Remove the registered listener. Return false if there is no listener 
 * @returns {Boolean}
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.sms.removeReceiveListener = function() { };
 

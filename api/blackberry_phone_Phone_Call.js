@@ -17,6 +17,7 @@
 /**
 * @toc {Phone} Call 
 * @BB50+
+* @RIPPLE
 * @namespace Represents an active phone call.
 * @featureID blackberry.phone.Phone
 */
@@ -26,6 +27,7 @@ blackberry.phone.Phone.Call = { };
 * Determines whether or not the current call is being held. 
 * @returns {Boolean} Returns true if there the call is on hold.
 * @BB50+
+* @RIPPLE
 * @example
 * &lt;script type=&quot;text/javascript&quot;&gt;
 *   // Check if active call at index specified is on hold
@@ -43,6 +45,7 @@ blackberry.phone.Phone.Call.prototype.isOnHold = function() { };
 * @type Boolean
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.Call.prototype.outgoing = { };
 
@@ -51,6 +54,7 @@ blackberry.phone.Phone.Call.prototype.outgoing = { };
 * @type String
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.Call.prototype.recipientName = { };
 
@@ -59,6 +63,7 @@ blackberry.phone.Phone.Call.prototype.recipientName = { };
 * @type String
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.Call.prototype.recipientNumber = { };
 

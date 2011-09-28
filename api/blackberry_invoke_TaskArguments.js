@@ -20,6 +20,7 @@
 *     </p></div>
 * @toc {Invoke} TaskArguments 
 * @BB50+
+* @RIPPLE
 * @class The TaskArguments object is an instance object, and is used as a parameter to the invoke() method when invoking the Tasks application.
 * @featureID blackberry.invoke
 * @featureID blackberry.invoke.TaskArguments
@@ -44,6 +45,7 @@ blackberry.invoke.TaskArguments = function(task) { };
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.TaskArguments.VIEW_NEW = 0;
 
@@ -52,6 +54,7 @@ blackberry.invoke.TaskArguments.VIEW_NEW = 0;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.TaskArguments.VIEW_EDIT = 1;
 
@@ -59,6 +62,7 @@ blackberry.invoke.TaskArguments.VIEW_EDIT = 1;
 * Value that specifies what kind of view you want to view the task in Tasks application. 
 * @type Number
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.TaskArguments.prototype.view = { };
 

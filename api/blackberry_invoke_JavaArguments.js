@@ -20,6 +20,7 @@
 *     </p></div>
 * @toc {Invoke} JavaArguments 
 * @BB50+
+* @RIPPLE
 * @class The JavaArguments object is an instance object, and is used as a parameter to the invoke() method when invoking a Java application.
 * @featureID blackberry.invoke
 * @featureID blackberry.invoke.JavaArguments

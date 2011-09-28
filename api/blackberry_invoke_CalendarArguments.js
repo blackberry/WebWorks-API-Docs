@@ -44,6 +44,7 @@ blackberry.invoke.CalendarArguments = function() { };
  * @description Create a new CalendarArguments object.
  * @param {Date} date The date to be passed into the Calendar application.
  * @BB50+
+ * @RIPPLE
  * 
  */
 blackberry.invoke.CalendarArguments.duplicateConstrucotr = function() { };
@@ -53,6 +54,7 @@ blackberry.invoke.CalendarArguments.duplicateConstrucotr = function() { };
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.CalendarArguments.VIEW_NEW = 0;
 
@@ -61,6 +63,7 @@ blackberry.invoke.CalendarArguments.VIEW_NEW = 0;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.CalendarArguments.VIEW_VIEW = 1;
 
@@ -69,6 +72,7 @@ blackberry.invoke.CalendarArguments.VIEW_VIEW = 1;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.CalendarArguments.VIEW_AGENDA = 2;
 
@@ -77,6 +81,7 @@ blackberry.invoke.CalendarArguments.VIEW_AGENDA = 2;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.CalendarArguments.VIEW_DAY = 3;
 
@@ -85,6 +90,7 @@ blackberry.invoke.CalendarArguments.VIEW_DAY = 3;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.CalendarArguments.VIEW_DEFAULT = 4;
 
@@ -93,6 +99,7 @@ blackberry.invoke.CalendarArguments.VIEW_DEFAULT = 4;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.CalendarArguments.VIEW_MONTH = 5;
 
@@ -101,6 +108,7 @@ blackberry.invoke.CalendarArguments.VIEW_MONTH = 5;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.CalendarArguments.VIEW_WEEK = 6;
 
@@ -109,6 +117,7 @@ blackberry.invoke.CalendarArguments.VIEW_WEEK = 6;
 * @type Date
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.CalendarArguments.prototype.date = { };
 
@@ -117,6 +126,7 @@ blackberry.invoke.CalendarArguments.prototype.date = { };
 * @type Appointment
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.CalendarArguments.prototype.appointment = { };
 
@@ -124,6 +134,7 @@ blackberry.invoke.CalendarArguments.prototype.appointment = { };
 * Appointment to view in Calendar application. NOTE: appointment is only available in the Browser when used in a new view mode. 
 * @type Number
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.CalendarArguments.prototype.view = { };
 
