@@ -349,6 +349,8 @@ function isProperty($)    {return (!$.isNamespace && !$.uri && !$.isConstant && 
 function isConstant($)    {return (!$.isNamespace && !$.uri && $.isConstant  && !$.constructedBy);};
 function isEvent($)       {return (!$.isNamespace && !$.uri && !$.isConstant && !$.constructedBy);};
 
+function isBlank(str) { return (!str || /^\s*$/.test(str)); };
+
 /** Include a sub-template in the current template, specifying a data object */
 function subtemplate(template, data) {
 	try {
