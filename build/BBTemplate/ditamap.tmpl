@@ -38,8 +38,10 @@ var prevTocType,
 <map id="com.qnx.doc.neutrino.sys_arch" title="System Architecture" xml:lang="en-us"
   anchorref="../com.qnx.doc.neutrino/main.xml#sys_arch">
 
-<topicref {+new DitaMapLink().toFile("index.html").withText("API Reference")+} type="concept">
-</topicref>
+{!/*Don't know if the index is needed for the Ditamap and if so how?
+    <topicref {+new DitaMapLink().toFile("index.html").withText("API Reference")+} type="concept">
+    </topicref>
+*/!}    
 
 <for each="thisClass" in="data">
     <if test="thisClass.toc">
@@ -64,3 +66,4 @@ var prevTocType,
         </if>
     </if>
 </for>
+</topicref>

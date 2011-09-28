@@ -15,11 +15,11 @@
 
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- ============================== header ================================= -->    
+<!-- ============================== header ================================= -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-	<link href="/native/favicon.ico" rel="SHORTCUT ICON" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <link href="/native/favicon.ico" rel="SHORTCUT ICON" />
     <title>
         <if test="data.toc && data.toc.desc">
             {+data.toc.desc+}
@@ -27,8 +27,8 @@
             {+data.alias+}
         </if>
         - BlackBerry WebWorks
-    </title>               
-      
+    </title>
+
     <link href="http://devtat001cnc/native/webroot/css/main.css" type="text/css" rel="stylesheet" />
         <script type="text/javascript" src="http://devtat001cnc/native/webroot/js/jquery-1.5.1.min.js"></script>
         <script type="text/javascript" src="http://devtat001cnc/native/webroot/js/jquery.easing.1.3.js"></script>
@@ -63,29 +63,29 @@
                 $('a[name]:hover').css('text-decoration', 'none');
             });
         </script>
-    <![endif]-->						
+    <![endif]-->
 
     <style type="text/css">
-		
-			.propertyName {
-				font-weight: bold;
-			}
-		
-			.supportedOS {
-				white-space:nowrap;
-			}
-			
-			.apiTd {
-				text-align: center;
-			}
-			
-			.apiYes {
-				background-color: #D1F8FB;
-			}
+
+            .propertyName {
+                font-weight: bold;
+            }
+
+            .supportedOS {
+                white-space:nowrap;
+            }
+
+            .apiTd {
+                text-align: center;
+            }
+
+            .apiYes {
+                background-color: #D1F8FB;
+            }
     </style>
-        
+
 </head>
-    
+
 <body>
     <div class="site_container clearfix guide-container">
         <header id="header">
@@ -134,8 +134,8 @@
             </div>
         </header>
 
-    
-    
+
+
 {!
     function StringLink() {}
     StringLink.prototype = new Link();
@@ -146,7 +146,7 @@
             re = new RegExp('^(?:.*<a href=")(.*)(?:")(?:.*)(?:<[//]a>$)');
         return hrefLink.replace(re,'$1');
     };
-    
+
     var stringLink = new StringLink().toClass(data.alias);
     stringLink = publish.conf.outDir+publish.conf.srcDir+stringLink;
 !}
@@ -154,12 +154,14 @@
 {!
     var ditaMap = IO.readFile(publish.conf.outDir+publish.conf.srcDir+"toc.ditamap");
     ditaMap = ditaMap.substring(838);
-    ditaMap = ditaMap.replace(/[\s]*(?:<topicref)(.*)(href=")(.*?)(".*)>/g,"<li><a $1$2$3$4>");
-    ditaMap = ditaMap.replace(/<\/topicref>/g,"</a></li>");    
+    ditaMap = ditaMap.replace(/^<topicref href\=""(.*?)>([\s\S]*?)( {4}<topicref)/gm,
+    "<li class=\"with_children not_open\"><span class=\"item\"><span class=\"opener\">&nbsp;</span><a $1>$2</a><ul class=\"obfuscated_css level_2\">$3");
+    ditaMap = ditaMap.replace(/[\s]*(?:<topicref)(.*)(href=")(.*?)(".*)>/g,"<li class=\"with_children not_open\"><span class=\"item\"><a $1$2$3$4>");
+    ditaMap = ditaMap.replace(/^<\/topicref>/gm,"</ul><li class=\"seperator\"></li></span></li>");
+    ditaMap = ditaMap.replace(/<\/topicref>/g,"</a></span></li>");
 !}
 
 <a href="http://blackberry.github.com/webworks" target="_blank"><img style="position: absolute; top: 100; right: 0; border: 0; z-index:1000;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
-
 <div class="column grid_4 side-navigation">
     <ul class="level_1">
     {+ditaMap+}
@@ -170,7 +172,7 @@
 <div>
     {+IO.readFile(stringLink)+}
 </div>
-    
+
 <script type="text/javascript">
 //initObfuscation();
 initSidebarMenuEventHandlers();
@@ -179,39 +181,39 @@ SyntaxHighlighter.defaults['smart-tabs'] = false;
 SyntaxHighlighter.defaults['toolbar'] = false;
 SyntaxHighlighter.all();
 function getPackage() {
-	pathname = document.location.pathname;
-	g = '/reference/'
-	guideposition = pathname.lastIndexOf(g);
-	sub = pathname.substr(guideposition+g.length);
-	sub2 = sub.substr(0, sub.indexOf('/'));
-	return sub2;
+    pathname = document.location.pathname;
+    g = '/reference/'
+    guideposition = pathname.lastIndexOf(g);
+    sub = pathname.substr(guideposition+g.length);
+    sub2 = sub.substr(0, sub.indexOf('/'));
+    return sub2;
 }
 images = $('.page-content img, .page-content embed');
 pkg = getPackage();
 images.each(function() {
-	srcAttr = $(this).attr('src');
-	if (pkg != '') {
-		src = srcAttr.replace('..','/native/files/documetation/'+pkg);
-		im = 'images/';
-		imsb = src.substring(0, im.length);
-		if (imsb == im) {
-			src = '/native/files/documentation/'+pkg+'/'+src;
-		}
-		$(this).attr('src', src);
-	} else {
-		$(this).attr('src','/native/files/documentation/'+srcAttr);
-	}
-    
+    srcAttr = $(this).attr('src');
+    if (pkg != '') {
+        src = srcAttr.replace('..','/native/files/documetation/'+pkg);
+        im = 'images/';
+        imsb = src.substring(0, im.length);
+        if (imsb == im) {
+            src = '/native/files/documentation/'+pkg+'/'+src;
+        }
+        $(this).attr('src', src);
+    } else {
+        $(this).attr('src','/native/files/documentation/'+srcAttr);
+    }
+
 });
 
-</script>	<script type="text/javascript">
-		searchBoxLogic();
-	</script>
+</script>    <script type="text/javascript">
+        searchBoxLogic();
+    </script>
 <!-- SiteCatalyst code version: H.17.
 Copyright 1997-2008 Omniture, Inc. More info available at
 http://www.omniture.com -->
 
-	<script type="text/javascript" src="http://devtat001cnc/native/webroot/js/s_code.js"></script>
+    <script type="text/javascript" src="http://devtat001cnc/native/webroot/js/s_code.js"></script>
 
 <script language="JavaScript" type="text/javascript">
 omniture_code('rimdev');
@@ -219,15 +221,15 @@ omniture_code('rimdev');
 /* You may give each page an identifying name, server, and channel on
 the next lines. */
 /* Conversion Variables */
-		s.pageName = 'us:bb:developers:native:reference';
-			s.ch = 'us:bb:developers';
-			s.prop1 = 'us:bb:developers:native';
-			s.prop40 = 'http://devtat001cnc/native/reference/com.qnx.doc.neutrino.lib_ref/topic/a/abort.html';
-			s.evar23 = s.prop1;
-			s.evar10 = s.ch;
-			s.evar9 = s.pageName;
-			s.events = 'event8';
-	
+        s.pageName = 'us:bb:developers:native:reference';
+            s.ch = 'us:bb:developers';
+            s.prop1 = 'us:bb:developers:native';
+            s.prop40 = 'http://devtat001cnc/native/reference/com.qnx.doc.neutrino.lib_ref/topic/a/abort.html';
+            s.evar23 = s.prop1;
+            s.evar10 = s.ch;
+            s.evar9 = s.pageName;
+            s.events = 'event8';
+
 /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
 var s_code=s.t();if(s_code)document.write(s_code)//--></script>
 <script language="JavaScript" type="text/javascript"><!--
@@ -240,67 +242,67 @@ height="1" width="1" border="0" alt="" /></a></noscript><!--/DO NOT REMOVE/--
 >
 <!-- End SiteCatalyst code version: H.17. -->
 
-		<div class="row dev-nav">
-			<a href="/"><img src="http://devtat001cnc/native/webroot/img/common/bblogo-black.png"/></a>
-      		</div>
-      	<div class="footer clearfix">
+        <div class="row dev-nav">
+            <a href="/"><img src="http://devtat001cnc/native/webroot/img/common/bblogo-black.png"/></a>
+              </div>
+          <div class="footer clearfix">
 
-      		<div class="inner row">
-	     		<div class="column technologies">
-	      			<h2>Technologies</h2>
-	      			<ul>
-	      				<li><a href="/native">Native</a></li>
-	      				<li><a href="http://us.blackberry.com/developers/tablet/webworks.jsp">WebWorks</a></li>
-	      				<li><a href="http://us.blackberry.com/developers/tablet/adobe.jsp">AIR</a></li>
-	      				<li><a href="/android">Android</a></li>
-	      			</ul>
-	      		</div>
-	      		<div class="column programs">
-	      			<h2>Programs</h2>
-	      			<ul>
-	      				<li><a href="https://www.blackberry.com/beta/">Beta Zone</a></li>
-	      				<li><a href="https://partners.blackberry.com/web/guest;jsessionid=31C9AEC85AF27B421C9D776E793A6E65">Alliance programs</a></li>
-	      				<li><a href="http://us.blackberry.com/ataglance/academic/">Academic programs</a></li>
-	      				<li><a href="http://us.blackberry.com/developers/resources/communityprograms/groups.jsp">Developer groups</a></li>
-	      			</ul>
-	      		</div>
-	      		<div class="column support">
-	      			<h2>Support</h2>
-	      			<ul>
-	      				<li><a href="http://supportforums.blackberry.com/t5/General-Support-Forums/ct-p/GeneralSupportForums">Developer forums</a></li>
-	      				<li><a href="http://devtat001cnc/native/support/">Give feedback</a></li>
-						<li><a href="https://www.blackberry.com/jira/secure/Dashboard.jspa">Developer Issue Tracker</a></li>
-	      			</ul>
-	      		</div>
-	      		<div class="column app_store">
-	      			<h2>App World</h2>
-	      			<ul>
-	      				<li><a href="http://devtat001cnc/native/documentation/request_keys_cb_1765912_11.html">Get your signing key</a></li>
-	      				<li><a href="#">Submitting your app</a></li>
-	      			</ul>
-	      		</div>
-	      		<div class="column social">
-	      			<div class="general">
-	      				<ul class="inline">
-	      					<li><a href="http://devtat001cnc/native/support"><span>Feedback</span></a></li>
-	      						      						<li><a href="http://www.blackberry.com/legal"><span>Legal</span></a></li>
-								      				</ul>
-	      			</div>
-	      			<div class="connect">
-	      				<h2>Follow us on:</h2>
-	      				<ul class="inline">
-	      					<li><a href="http://www.facebook.com/BlackBerryDeveloperCommunity" title="Follow us on Facebook" class="icon-20 facebook"><span class="obfuscated_css">Facebook</span></a></li>
-	      					<li><a href="http://my.blackberry.com" title="My BlackBerry" class="icon-20 my_blackberry"><span class="obfuscated_css">My BlackBerry</span></a></li>
-	      					<li><a href="http://www.youtube.com/user/BlackBerry" title="Catch us on YouTube" class="icon-20 youtube"><span class="obfuscated_css">YouTube</span></a></li>
-	      					<li><a href="http://twitter.com/blackberrydev" title="Hear the BlackBerry tweet" class="icon-20 twitter"><span class="obfuscated_css">Twitter</span></a></li>
-	      					<li><a href="http://blogs.blackberry.com" title="BlackBerry Blogs" class="icon-20 blackberry"><span class="obfuscated_css">BlackBerry Blogs</span></a></li>
-	      				</ul>
-	      			</div>
-	      		</div>
-	      		<div class="copyright_notice">Copyright &copy; 2011 Research In Motion Limited, unless otherwise noted.</div>
-	      	</div>
-      	</div>
-	</div> <!-- End div.site_container -->
+              <div class="inner row">
+                 <div class="column technologies">
+                      <h2>Technologies</h2>
+                      <ul>
+                          <li><a href="/native">Native</a></li>
+                          <li><a href="http://us.blackberry.com/developers/tablet/webworks.jsp">WebWorks</a></li>
+                          <li><a href="http://us.blackberry.com/developers/tablet/adobe.jsp">AIR</a></li>
+                          <li><a href="/android">Android</a></li>
+                      </ul>
+                  </div>
+                  <div class="column programs">
+                      <h2>Programs</h2>
+                      <ul>
+                          <li><a href="https://www.blackberry.com/beta/">Beta Zone</a></li>
+                          <li><a href="https://partners.blackberry.com/web/guest;jsessionid=31C9AEC85AF27B421C9D776E793A6E65">Alliance programs</a></li>
+                          <li><a href="http://us.blackberry.com/ataglance/academic/">Academic programs</a></li>
+                          <li><a href="http://us.blackberry.com/developers/resources/communityprograms/groups.jsp">Developer groups</a></li>
+                      </ul>
+                  </div>
+                  <div class="column support">
+                      <h2>Support</h2>
+                      <ul>
+                          <li><a href="http://supportforums.blackberry.com/t5/General-Support-Forums/ct-p/GeneralSupportForums">Developer forums</a></li>
+                          <li><a href="http://devtat001cnc/native/support/">Give feedback</a></li>
+                        <li><a href="https://www.blackberry.com/jira/secure/Dashboard.jspa">Developer Issue Tracker</a></li>
+                      </ul>
+                  </div>
+                  <div class="column app_store">
+                      <h2>App World</h2>
+                      <ul>
+                          <li><a href="http://devtat001cnc/native/documentation/request_keys_cb_1765912_11.html">Get your signing key</a></li>
+                          <li><a href="#">Submitting your app</a></li>
+                      </ul>
+                  </div>
+                  <div class="column social">
+                      <div class="general">
+                          <ul class="inline">
+                              <li><a href="http://devtat001cnc/native/support"><span>Feedback</span></a></li>
+                                                                <li><a href="http://www.blackberry.com/legal"><span>Legal</span></a></li>
+                                                      </ul>
+                      </div>
+                      <div class="connect">
+                          <h2>Follow us on:</h2>
+                          <ul class="inline">
+                              <li><a href="http://www.facebook.com/BlackBerryDeveloperCommunity" title="Follow us on Facebook" class="icon-20 facebook"><span class="obfuscated_css">Facebook</span></a></li>
+                              <li><a href="http://my.blackberry.com" title="My BlackBerry" class="icon-20 my_blackberry"><span class="obfuscated_css">My BlackBerry</span></a></li>
+                              <li><a href="http://www.youtube.com/user/BlackBerry" title="Catch us on YouTube" class="icon-20 youtube"><span class="obfuscated_css">YouTube</span></a></li>
+                              <li><a href="http://twitter.com/blackberrydev" title="Hear the BlackBerry tweet" class="icon-20 twitter"><span class="obfuscated_css">Twitter</span></a></li>
+                              <li><a href="http://blogs.blackberry.com" title="BlackBerry Blogs" class="icon-20 blackberry"><span class="obfuscated_css">BlackBerry Blogs</span></a></li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="copyright_notice">Copyright &copy; 2011 Research In Motion Limited, unless otherwise noted.</div>
+              </div>
+          </div>
+    </div> <!-- End div.site_container -->
 
 <script type="text/javascript">
 $(document).ready(loadPage());
