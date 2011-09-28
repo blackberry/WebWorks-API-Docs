@@ -301,16 +301,8 @@
 {+subtemplate("subtemplates/functionDetails.tmpl",args)+}  
 
 {!/***********     Class-Wide examples     ***********/!}                
-<if test="!generateDefaultConstructor && data.example.length">
-    <div x-ww-support="{+data.support.supportTag+}">
-        <h2><a name="{+Link.symbolNameToLinkName(data)+}"> </a>Code Example(s)</h2>
-        <hr/>
-        <for each="example" in="data.example">
-            <table>             
-                <tr><td>
-                    <pre>{+example+}</pre>
-                </td></tr>              
-            </table>
-        </for>
-    </div>
+<if test="!generateDefaultConstructor">
+	<div x-ww-support="{+data.support.supportTag+}">
+	{+subtemplate("subtemplates/example.tmpl", {example: data.example, type: "Class"})+}  
+	</div>
 </if>       

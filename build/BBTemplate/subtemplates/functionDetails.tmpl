@@ -147,18 +147,7 @@ var functionParams,
                     </table>
                 </if>
 
-                
-                <if test="member.example.length">
-                    <br/>
-                    <h3>Code Example(s)</h3>
-                    <for each="example" in="member.example">
-                        <table>             
-                            <tr><td>
-                                <pre>{+example+}</pre>
-                            </td></tr>              
-                        </table>
-                    </for>
-                </if>
+                {+subtemplate("subtemplates/example.tmpl", {example: member.example, type: "Function"})+}  
             </div>
         </for>
     </if>
