@@ -25,7 +25,7 @@ blackberry.utils = {
 	/**
 	 * @description Construct a new String by converting the blob using the specified character encoding
 	 * @param {Blob} blob The Blob object to be converted.
-	 * @param {String} [encoding = ISO-8859-1] The name of a supported character encoding.BlackBerry supports the following character encodings: ISO-8859-1, UTF-8, UTF-16BE, US-ASCII. Besides these encodings, Web API supports also supports BASE64 encoding. Support of other encodings depends on the configuration of the BlackBerry PlayBook.
+	 * @param {String} [encoding = ISO-8859-1] The name of a supported character encoding.BlackBerry supports the following character encodings: ISO-8859-1, UTF-8, UTF-16BE, US-ASCII. Besides these encodings, Web API also supports BASE64 encoding. Support of other encodings depends on the configuration of the BlackBerry Smartphone.
 	 * @returns {String} The String result from converting the Blob
 	 * @BB50+
      * @BB50+
@@ -36,14 +36,17 @@ blackberry.utils = {
 	 * @description Convert a document into a Blob. Supported in 5.0.0 only. 
 	 * @param {Document} doc The document to be converted.
 	 * @returns {Blob} The Blob result from converting the Document
+	 * @deprecated This API is deprecated, please use {@link blackberry.utils.stringToBlob} instead.<br/><br/>
+	 * For example:
+	 * <pre>var foo = blackberry.utils.stringToBlob( document.toString() );</pre>
 	 * @BB50
 	 */
 	documentToBlob : function(doc){},
 
 	/**
 	 * @description Convert a string object into a Blob using the specified character encoding.
-	 * @param {Blob} blob The string to be converted.
-	 * @param {String} [encoding = UTF-16BE] The name of a supported character encoding.BlackBerry supports the following character encodings: ISO-8859-1, UTF-8, UTF-16BE, US-ASCII. Besides these encodings, Web API supports also supports BASE64 encoding. Support of other encodings depends on the configuration of the BlackBerry PlayBook.
+	 * @param {String} str The string to be converted.
+	 * @param {String} [encoding = ISO-8859-1] The name of a supported character encoding.BlackBerry supports the following character encodings: ISO-8859-1, UTF-8, UTF-16BE, US-ASCII. Besides these encodings, Web API also supports BASE64 encoding. Support of other encodings depends on the configuration of the BlackBerry Smartphone.
 	 * @returns {Blob} The Blob result from converting the String
 	 * @BB50+
      * @BB50+
