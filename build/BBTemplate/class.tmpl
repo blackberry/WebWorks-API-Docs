@@ -116,39 +116,48 @@
   
 <if test="data.support.supportStrings">
     <h2>Supported Platform(s)</h2>
-    <table>         
-        <tr><td>
-            <for each="item" in="data.support.supportStrings">
-                - {+item+}<br/>
-            </for>
-        </td></tr>
-        <tr><td>
-            <a href="javascript:viewSupportedTable()">View Supported Platform Table</a>
-            <div id="APISupportTable">
-                <table class="apiTable">
-                    {+ BBTag.tableHeader("API") +}
-                    <if test="constructors.length">
-                        <for each="item" in="constructors">
-                            <tr x-ww-support="{+item.support.supportTag+}">
-                                <td>
-                                    {+new Link().toSymbol(item.alias).withText(getSymbolName(item))+}                               
-                                    {+item.support.supportTable+}
-                                </td>
-                            </tr>                               
-                        </for>
-                    </if>
-                    <for each="item" in="allChildren">
-                        <tr x-ww-support="{+item.support.supportTag+}">
-                            <td>
-                                {+new Link().toSymbol(item.alias).withText(getSymbolName(item))+}                               
-                                {+item.support.supportTable+}
-                            </td>
-                        </tr>                               
-                    </for>
-                </table>
-            </div>
-        </td></tr>           
-    </table>
+	{!
+		if(data.support.supportStrings.length) {
+			output += "<pre>";
+		}
+		
+		for (var ll = 0; ll < data.support.supportStrings.length; ll++) {
+			output += "- " + data.support.supportStrings[ll];
+			if (ll != data.support.supportStrings.length - 1) {
+				output += "<br />";
+			}
+		}
+		
+		if(data.support.supportStrings.length) {
+			output += "</pre>";
+		}
+	!}
+	<p>
+		<a href="javascript:viewSupportedTable()">View Supported Platform Table</a>
+	</p>
+	<div id="APISupportTable">
+		<table class="apiTable">
+			{+ BBTag.tableHeader("API") +}
+			<if test="constructors.length">
+				<for each="item" in="constructors">
+					<tr x-ww-support="{+item.support.supportTag+}">
+						<td>
+							{+new Link().toSymbol(item.alias).withText(getSymbolName(item))+}                               
+							{+item.support.supportTable+}
+						</td>
+					</tr>                               
+				</for>
+			</if>
+			<for each="item" in="allChildren">
+				<tr x-ww-support="{+item.support.supportTag+}">
+					<td>
+						{+new Link().toSymbol(item.alias).withText(getSymbolName(item))+}                               
+						{+item.support.supportTable+}
+					</td>
+				</tr>                               
+			</for>
+		</table>
+	</div>
 </if>
 
 {!/***********     Configuration Settings     ***********/!}        
