@@ -46,8 +46,8 @@ BBTag.Support.prototype.resetSupportAttributes = function() {
     this.supportStrings = [];
     this.supportTag = "";
     this.supportTable = "";
-    var tableYes = "<td class=\"apiTd apiYes\">Y</td>";
-    var tableNo = "<td class=\"apiTd apiNo\">&nbsp;</td>";
+    var tableYes = "<td class=\"apiYes\">Y</td>";
+    var tableNo = "<td class=\"apiNo\">&nbsp;</td>";
     
     if(this.bb50 && this.bb60 && this.bb70){
         this.supportStrings.push("BlackBerry OS 5.0+");

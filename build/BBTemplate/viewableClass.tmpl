@@ -156,22 +156,54 @@
     ditaMap = ditaMap.substring(838);
     ditaMap = ditaMap.replace(/^<topicref href\=""(.*?)>([\s\S]*?)( {4}<topicref)/gm,
     "<li class=\"with_children not_open\"><span class=\"item\"><span class=\"opener\">&nbsp;</span><a $1>$2</a><ul class=\"obfuscated_css level_2\">$3");
-    ditaMap = ditaMap.replace(/[\s]*(?:<topicref)(.*)(href=")(.*?)(".*)>/g,"<li class=\"with_children not_open\"><span class=\"item\"><a $1$2$3$4>");
+    ditaMap = ditaMap.replace(/[\s]*(?:<topicref)(.*)(href=")(.*?)(".*)>/g,"<li class=\"no_children\"><span class=\"item\"><span class=\"opener\">&nbsp;</span><a $1$2$3$4>");
     ditaMap = ditaMap.replace(/^<\/topicref>/gm,"</ul><li class=\"seperator\"></li></span></li>");
     ditaMap = ditaMap.replace(/<\/topicref>/g,"</a></span></li>");
 !}
+<section class="page_container guide-section two_columns">
 
-<a href="http://blackberry.github.com/webworks" target="_blank"><img style="position: absolute; top: 100; right: 0; border: 0; z-index:1000;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
-<div class="column grid_4 side-navigation">
-    <ul class="level_1">
-    {+ditaMap+}
-    </ul>
-</div>
-<div class="column grid_8 page-content"><div>
+    <a href="http://blackberry.github.com/webworks" target="_blank"><img style="position: absolute; top: 100; right: 0; border: 0; z-index:1000;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
 
-<div>
-    {+IO.readFile(stringLink)+}
-</div>
+    <div class="row">
+        <div class="column grid_4 side-navigation">
+            <ul class="level_1">
+                {+ditaMap+}
+            </ul>
+        </div>
+        <div class="column grid_8 page-content"><div>
+            <div class="section">
+
+                <p>
+                <a class="indexterm" id="&#10;               ">
+                   <span class="apiname">
+                        <if test="data.toc && data.toc.desc">
+                            {+data.toc.desc+}
+                        <else />
+                            {+data.alias+}
+                        </if>
+                   </span>
+                </a>
+
+                <a class="indexterm" id="processes">processes<a class="indexterm" id="terminating">terminating</a>
+                </a>
+
+                <a class="indexterm" id="&#10;               ">
+                    <span class="uppercase">SIGABRT</span>
+                </a>
+
+                <a class="indexterm" id="signals">signals<a class="indexterm" id="sending">sending<a class="indexterm" id="&#10;                     ">
+                        <span class="uppercase">SIGABRT</span>
+                        </a>
+                    </a>
+                </a>
+                </p>
+            </div>
+
+            {+IO.readFile(stringLink)+}
+        </div></div>
+    </div>
+</section>
+
 
 <script type="text/javascript">
 //initObfuscation();

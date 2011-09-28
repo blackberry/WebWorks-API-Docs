@@ -51,7 +51,7 @@ var functionParams,
                 <br/>
                         
                 <h3>Description</h3>
-                &nbsp;{+resolveLinks(member.desc)+}
+                <p>{+resolveLinks(member.desc)+}</p>
                 <br/>
                         
                 <if test="member.returns.length && member.returns.filter(function($){return !isBlank($.desc);}).length && !isConstructor(member) && !isURIMethod(member)">
