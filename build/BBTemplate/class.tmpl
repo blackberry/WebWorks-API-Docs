@@ -164,8 +164,10 @@
 {!/***********     Configuration Settings     ***********/!}        
 <br/>
 <h2>Configuration Document Settings</h2>
-<p>To use <u>all</u> of the API described for this object, you must ensure the following settings are in your configuration document.You must declare the feature element(s) below in your configuration document:</p>
+<p>To use <u>all</u> of the API described for this object, you must ensure the following settings are in your configuration document:</p>
 <if test="data.featureID">
+    <br/>
+    <p>You must declare the feature element(s) below in your configuration document:</p>
     <table>
          {+ BBTag.tableHeader("Feature ID") +}
          <for each="item" in="data.featureID">
@@ -190,22 +192,24 @@
 
 
 <div x-ww-support="{+BBTag.PlaybookSupport().supportTag+}">
+    <if test="data.permission">
+        {! 
+            mandatoryPermissions = data.permission.filter(function($){return !$.isOptional}).sort(makeSortby("name"));
+            optionalPermissions = data.permission.filter(function($){return $.isOptional}).sort(makeSortby("name"));
+        !}
+        
+        <if test="mandatoryPermissions.length">
+            </br>
+            <p>You must declare the permission element(s) below in your configuration document:</p>
+        </if>
+    </if>
+        
     <table>
         <tr>
             <th>Permission Elements (PlayBook Only)</th>
         </tr>
         <if test="data.permission">
-            {! 
-                mandatoryPermissions = data.permission.filter(function($){return !$.isOptional}).sort(makeSortby("name"));
-                optionalPermissions = data.permission.filter(function($){return $.isOptional}).sort(makeSortby("name"));
-            !}
-        
             <if test="mandatoryPermissions.length">
-                <tr><td>
-                    You must declare the permission element(s) below in your configuration document:
-                </td></tr>
-                <br>
-                
                 <for each="item" in="mandatoryPermissions">
                     <tr><td>
                         - &lt;rim:permit&gt;{+item.name+}&lt;/rim:permit&gt; {+item.desc+}
