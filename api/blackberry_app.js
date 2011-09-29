@@ -83,11 +83,13 @@ blackberry.app ={
 	setHomeScreenName : function(text){},
 	
     /**
-	 * @description This function will show an indicator on the banner.
+	 * @description This function will show an icon on the banner.
+A banner indicator can have an optional numeric value that usually serves as a counter. The value can be negative, 0, or positive. If the indicator is used as a counter then the best practice is to hide it when its value is equal to 0. Some applications may choose to show 0 as a counter value if such information is important to user, for example, the number of financial transactions in the current business day. Due to limited real estate, the indicator value can be truncated if it is very large. In such case the indicator will display '99+' or '999+', which means 'over a hundred' or 'over a thousand'.
+<br/><br/>Indicators are not guaranteed to be displayed. Different factors play a role in whether the indicator is displayed, such as available indicators space, number of registered indicators, and current application preferences. Application indicators have the lowest drawing priority compared to system indicators such as the unread email counter or missed calls indicator.
 	 * @BB50+
 	 * @param {String} icon The name of the icon to show on the banner. The icon must be a local resource and it's size varies from 10x10 up to 32x32 depending on current theme and device screen size.
-	 * @param {Number} [value] The number to show on the banner.
-	 */	 
+	 * @param {Number} [value] Optional parameter to indicate the number to show on the banner.
+	 */		 
 	showBannerIndicator:function( icon, value ){} 
 
     /**
