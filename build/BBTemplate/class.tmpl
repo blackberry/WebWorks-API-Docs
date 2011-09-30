@@ -37,274 +37,284 @@
     allChildren = allChildren.concat(ownMethods, ownURIMethods, ownProperties, ownConstants, ownEvents);
 !}
 
+<section class="page_container guide-section two_columns">
+    <div class="row">
+        <div class="column grid_4 side-navigation">
+        </div>
+        <div class="column grid_8 page-content"><div>
 
-<script type="text/javascript">
 
-    function viewSupportedTable() {
-        var table = document.getElementById('APISupportTable');
-        if (table != null && table.style.display != 'none') {
-            table.style.display = 'none';					
-        }
-        else {
-            table.style.display = 'inline';
-        }
-    }
+        <script type="text/javascript">
 
-</script>        
-    
+            function viewSupportedTable() {
+                var table = document.getElementById('APISupportTable');
+                if (table != null && table.style.display != 'none') {
+                    table.style.display = 'none';					
+                }
+                else {
+                    table.style.display = 'inline';
+                }
+            }
+
+        </script>        
+            
 {!/**********     Class Heading     **********/!}    
-<h1>
-    <if test="data.toc && data.toc.desc">
-        {+data.toc.desc+}
-    <else />
-        {+data.alias+}
-    </if>
-</h1>   
+        <h1>
+            <if test="data.toc && data.toc.desc">
+                {+data.toc.desc+}
+            <else />
+                {+data.alias+}
+            </if>
+        </h1>   
 
 {!/**********     Class Description     **********/!}    
-<if test="data.classDesc">
-    <p>
-        {+resolveLinks(data.classDesc)+}
-    </p>
-</if>    
+        <if test="data.classDesc">
+            <p>
+                {+resolveLinks(data.classDesc)+}
+            </p>
+        </if>    
 
 {!/**********     Notices     **********/!}    
-<if test="data.notice">        
-    <for each="item" in="data.notice">
-        <if test="!(isBlank(item.title) || isBlank(item.desc))">
-            <table class="noticeTable">
-                <tr><td class="noticeTd">
-                    <h3>{+item.title+}</h3>
-                    {+item.desc+}
+        <if test="data.notice">        
+            <for each="item" in="data.notice">
+                <if test="!(isBlank(item.title) || isBlank(item.desc))">
+                    <table class="noticeTable">
+                        <tr><td class="noticeTd">
+                            <h3>{+item.title+}</h3>
+                            {+item.desc+}
+                        </td></tr>
+                    </table>
+                </if>
+            </for>
+            <br/>
+        </if>
+
+{!/***********     Beta Notice     ***********/!}    
+        <if test="data.betaTag">
+            <table class="betaTable">
+                <tr><td class="betaTd">
+                    <h3>Beta Notice:</h3>
+                    This API is considered to be in Beta.
+                    The function and property signatures listed below could change at anytime.
+                    Once the API moves out of Beta it will be distributed as part of the core API.
+                    <br/><br/>
+                    <for each="item" in="data.betaTag">
+                        {+item.desc+}
+                    </for>
+                    <br/><br/>
+                    <i>Last Updated: {+new Date()+}</i>
                 </td></tr>
             </table>
         </if>
-    </for>
-    <br/>
-</if>
-
-{!/***********     Beta Notice     ***********/!}    
-<if test="data.betaTag">
-    <table class="betaTable">
-        <tr><td class="betaTd">
-            <h3>Beta Notice:</h3>
-            This API is considered to be in Beta.
-            The function and property signatures listed below could change at anytime.
-            Once the API moves out of Beta it will be distributed as part of the core API.
-            <br/><br/>
-            <for each="item" in="data.betaTag">
-                {+item.desc+}
-            </for>
-            <br/><br/>
-            <i>Last Updated: {+new Date()+}</i>
-        </td></tr>
-    </table>
-</if>
 
 {!/***********     Learning Resources     ***********/!}    
-<if test="data.learnTag">
-    <table class="learnTable">
-        <h2>Learning Resources:<h2>
-        <for each="item" in="data.learnTag">
-            <tr><td class="learnTd">
-                {!output+="<a href=" + item.name + " target='_new'>" + item.type + "</a>";!}
-                {+item.desc+}
-            </td></tr>
-        </for>
-    </table>
-</if>
+        <if test="data.learnTag">
+            <table class="learnTable">
+                <h2>Learning Resources:<h2>
+                <for each="item" in="data.learnTag">
+                    <tr><td class="learnTd">
+                        {!output+="<a href=" + item.name + " target='_new'>" + item.type + "</a>";!}
+                        {+item.desc+}
+                    </td></tr>
+                </for>
+            </table>
+        </if>
 
 {!/***********     Supported Platforms    ***********/!}      
-<if test="data.support.supportStrings">
-    <h2>Supported Platform(s)</h2>
-	{!
-		if(data.support.supportStrings.length) {
-			output += "<pre>";
-		}
-		
-		for (var ll = 0; ll < data.support.supportStrings.length; ll++) {
-			output += "- " + data.support.supportStrings[ll];
-			if (ll != data.support.supportStrings.length - 1) {
-				output += "<br />";
-			}
-		}
-		
-		if(data.support.supportStrings.length) {
-			output += "</pre>";
-		}
-	!}
-	<p>
-		<a href="javascript:viewSupportedTable()">View Supported Platform Table</a>
-	</p>
-	<div id="APISupportTable">
-		<table class="apiTable">
-			{+ BBTag.tableHeader("API") +}
-			<if test="constructors.length">
-				<for each="item" in="constructors">
-					<tr x-ww-support="{+item.support.supportTag+}">
-						<td>
-							{+new Link().toSymbol(item.alias).withText(getSymbolName(item))+}                               
-							{+item.support.supportTable+}
-						</td>
-					</tr>                               
-				</for>
-			</if>
-			<for each="item" in="allChildren">
-				<tr x-ww-support="{+item.support.supportTag+}">
-					<td>
-						{+new Link().toSymbol(item.alias).withText(getSymbolName(item))+}                               
-						{+item.support.supportTable+}
-					</td>
-				</tr>                               
-			</for>
-		</table>
-	</div>
-</if>
+        <if test="data.support.supportStrings">
+            <h2>Supported Platform(s)</h2>
+            {!
+                if(data.support.supportStrings.length) {
+                    output += "<pre>";
+                }
+                
+                for (var ll = 0; ll < data.support.supportStrings.length; ll++) {
+                    output += "- " + data.support.supportStrings[ll];
+                    if (ll != data.support.supportStrings.length - 1) {
+                        output += "<br />";
+                    }
+                }
+                
+                if(data.support.supportStrings.length) {
+                    output += "</pre>";
+                }
+            !}
+            <p>
+                <a href="javascript:viewSupportedTable()">View Supported Platform Table</a>
+            </p>
+            <div id="APISupportTable">
+                <table class="apiTable">
+                    {+ BBTag.tableHeader("API") +}
+                    <if test="constructors.length">
+                        <for each="item" in="constructors">
+                            <tr x-ww-support="{+item.support.supportTag+}">
+                                <td>
+                                    {+new Link().toSymbol(item.alias).withText(getSymbolName(item))+}                               
+                                    {+item.support.supportTable+}
+                                </td>
+                            </tr>                               
+                        </for>
+                    </if>
+                    <for each="item" in="allChildren">
+                        <tr x-ww-support="{+item.support.supportTag+}">
+                            <td>
+                                {+new Link().toSymbol(item.alias).withText(getSymbolName(item))+}                               
+                                {+item.support.supportTable+}
+                            </td>
+                        </tr>                               
+                    </for>
+                </table>
+            </div>
+        </if>
 
 {!/***********     Configuration Settings     ***********/!}        
-<br/>
-<h2>Configuration Document Settings</h2>
-<p>To use <u>all</u> of the API described for this object, you must ensure the following settings are in your configuration document:</p>
-<if test="data.featureID">
-    <br/>
-    <p>You must declare the feature element(s) below in your configuration document:</p>
-    <table>
-         {+ BBTag.tableHeader("Feature ID") +}
-         <for each="item" in="data.featureID">
-             {! item.support = (new BBTag.Support()); !}
-             <if test="item.type">
-                 {!item.support.populateByString(item.type)!}
-             <else/>
-                 {!item.support.populateBySymbol(data)!}
-             </if>
-             <tr x-ww-support="{+item.support.supportTag+}">
-                 <td>
-                     &lt;feature id="{+item.desc+}" /&gt;                               
-                     {+item.support.supportTable+}
-                 </td>
-             </tr>
-         </for>
-    </table>               
-<else/>
-    This API does not require a &lt;feature&gt; element to be declared in the configuration document of your BlackBerry WebWorks Application.
-    <br/>
-</if>
-
-
-<div x-ww-support="{+BBTag.PlaybookSupport().supportTag+}">
-    <if test="data.permission">
-        {! 
-            mandatoryPermissions = data.permission.filter(function($){return !$.isOptional}).sort(makeSortby("name"));
-            optionalPermissions = data.permission.filter(function($){return $.isOptional}).sort(makeSortby("name"));
-        !}
-        
-        <if test="mandatoryPermissions.length">
-            </br>
-            <p>You must declare the permission element(s) below in your configuration document:</p>
-        </if>
-    </if>
-        
-    <table>
-        <tr>
-            <th>Permission Elements (PlayBook Only)</th>
-        </tr>
-        <if test="data.permission">
-            <if test="mandatoryPermissions.length">
-                <for each="item" in="mandatoryPermissions">
-                    <tr><td>
-                        - &lt;rim:permit&gt;{+item.name+}&lt;/rim:permit&gt; {+item.desc+}
-                    <br>
-                    </td></tr>
-                </for>
-            </if>
-        
-            <if test="optionalPermissions.length">
-                <tr><td>
-                <if test="mandatoryPermissions.length"><br/></if>
-                <i><b>Note:</b> Declaring the permission element(s) below in your configuration document is optional.</i>
-                </br>
-                </td></tr>
-                <br>
-            
-                <for each="item" in="optionalPermissions">
-                    <tr><td>
-                        - &lt;rim:permit&gt;{+item.name+}&lt;/rim:permit&gt; {+item.desc+}
-                    <br>
-                    </td></tr>
-                </for>
-            </if>
+        <br/>
+        <h2>Configuration Document Settings</h2>
+        <p>To use <u>all</u> of the API described for this object, you must ensure the following settings are in your configuration document:</p>
+        <if test="data.featureID">
+            <br/>
+            <p>You must declare the feature element(s) below in your configuration document:</p>
+            <table>
+                 {+ BBTag.tableHeader("Feature ID") +}
+                 <for each="item" in="data.featureID">
+                     {! item.support = (new BBTag.Support()); !}
+                     <if test="item.type">
+                         {!item.support.populateByString(item.type)!}
+                     <else/>
+                         {!item.support.populateBySymbol(data)!}
+                     </if>
+                     <tr x-ww-support="{+item.support.supportTag+}">
+                         <td>
+                             &lt;feature id="{+item.desc+}" /&gt;                               
+                             {+item.support.supportTable+}
+                         </td>
+                     </tr>
+                 </for>
+            </table>               
         <else/>
-            <tr><td>
-                This API does not require a &lt;permission&gt; element to be declared in the configuration document of your BlackBerry WebWorks Application.
-            </td></tr>
+            This API does not require a &lt;feature&gt; element to be declared in the configuration document of your BlackBerry WebWorks Application.
             <br/>
         </if>
-    </table>
-</div>
+
+
+        <div x-ww-support="{+BBTag.PlaybookSupport().supportTag+}">
+            <if test="data.permission">
+                {! 
+                    mandatoryPermissions = data.permission.filter(function($){return !$.isOptional}).sort(makeSortby("name"));
+                    optionalPermissions = data.permission.filter(function($){return $.isOptional}).sort(makeSortby("name"));
+                !}
+                
+                <if test="mandatoryPermissions.length">
+                    </br>
+                    <p>You must declare the permission element(s) below in your configuration document:</p>
+                </if>
+            </if>
+                
+            <table>
+                <tr>
+                    <th>Permission Elements (PlayBook Only)</th>
+                </tr>
+                <if test="data.permission">
+                    <if test="mandatoryPermissions.length">
+                        <for each="item" in="mandatoryPermissions">
+                            <tr><td>
+                                - &lt;rim:permit&gt;{+item.name+}&lt;/rim:permit&gt; {+item.desc+}
+                            <br>
+                            </td></tr>
+                        </for>
+                    </if>
+                
+                    <if test="optionalPermissions.length">
+                        <tr><td>
+                        <if test="mandatoryPermissions.length"><br/></if>
+                        <i><b>Note:</b> Declaring the permission element(s) below in your configuration document is optional.</i>
+                        </br>
+                        </td></tr>
+                        <br>
+                    
+                        <for each="item" in="optionalPermissions">
+                            <tr><td>
+                                - &lt;rim:permit&gt;{+item.name+}&lt;/rim:permit&gt; {+item.desc+}
+                            <br>
+                            </td></tr>
+                        </for>
+                    </if>
+                <else/>
+                    <tr><td>
+                        This API does not require a &lt;permission&gt; element to be declared in the configuration document of your BlackBerry WebWorks Application.
+                    </td></tr>
+                    <br/>
+                </if>
+            </table>
+        </div>
 
 {!/***********     Summary     ***********/!}            
-{!var args = 
-    {
-        ownChildren         : [constructors,
-                               ownMethods,
-                               ownEvents,
-                               ownProperties,
-                               ownConstants,
-                               ownURIMethods ],
-        headerText          : ["Constructors",
-                               "Functions",
-                               "Events",
-                               "Properties",
-                               "Constants",
-                               "URI Functions" ],
-        inheritedChildren   : [[],
-                               data.methods.filter(function($) {return $.memberOf != data.alias && isMethod($)}),
-                               data.events.filter(function($) {return $.memberOf != data.alias && isEvent($)}),
-                               data.properties.filter(function($) {return $.memberOf != data.alias && isProperty($)}), 
-                               data.properties.filter(function($) {return $.memberOf != data.alias && isConstant($)}),
-                               data.methods.filter(function($) {return $.memberOf != data.alias && isURIMethod($)}) ],				
-        supportTags         : [data.support.supportTag,
-                               (new BBTag.Support(data.methods.filter(function($) {return isMethod($)}))).supportTag,
-                               (new BBTag.Support(data.events.filter(function($) {return isEvent($)}))).supportTag,
-                               (new BBTag.Support(data.properties.filter(function($) {return isProperty($)}))).supportTag, 
-                               (new BBTag.Support(data.properties.filter(function($) {return isConstant($)}))).supportTag,
-                               (new BBTag.Support(data.methods.filter(function($) {return isURIMethod($)}))).supportTag ]
-    } 
-!}
-{+subtemplate("subtemplates/summary.tmpl",args)+}
+        {!var args = 
+            {
+                ownChildren         : [constructors,
+                                       ownMethods,
+                                       ownEvents,
+                                       ownProperties,
+                                       ownConstants,
+                                       ownURIMethods ],
+                headerText          : ["Constructors",
+                                       "Functions",
+                                       "Events",
+                                       "Properties",
+                                       "Constants",
+                                       "URI Functions" ],
+                inheritedChildren   : [[],
+                                       data.methods.filter(function($) {return $.memberOf != data.alias && isMethod($)}),
+                                       data.events.filter(function($) {return $.memberOf != data.alias && isEvent($)}),
+                                       data.properties.filter(function($) {return $.memberOf != data.alias && isProperty($)}), 
+                                       data.properties.filter(function($) {return $.memberOf != data.alias && isConstant($)}),
+                                       data.methods.filter(function($) {return $.memberOf != data.alias && isURIMethod($)}) ],				
+                supportTags         : [data.support.supportTag,
+                                       (new BBTag.Support(data.methods.filter(function($) {return isMethod($)}))).supportTag,
+                                       (new BBTag.Support(data.events.filter(function($) {return isEvent($)}))).supportTag,
+                                       (new BBTag.Support(data.properties.filter(function($) {return isProperty($)}))).supportTag, 
+                                       (new BBTag.Support(data.properties.filter(function($) {return isConstant($)}))).supportTag,
+                                       (new BBTag.Support(data.methods.filter(function($) {return isURIMethod($)}))).supportTag ]
+            } 
+        !}
+        {+subtemplate("subtemplates/summary.tmpl",args)+}
 
 {!/***********     Constructor,Functions and Event Details     ***********/!}            
-{!var args = 
-    {
-        ownChildren         : [constructors,
-                               ownMethods,
-                               ownEvents]				
-    } 
-!}
-{+subtemplate("subtemplates/functionDetails.tmpl",args)+}                
+        {!var args = 
+            {
+                ownChildren         : [constructors,
+                                       ownMethods,
+                                       ownEvents]				
+            } 
+        !}
+        {+subtemplate("subtemplates/functionDetails.tmpl",args)+}                
 
 {!/***********     Properties and Constants Details    ***********/!}               
-{!var args = 
-    {
-        ownChildren         : [ownProperties,
-                               ownConstants],
-        headerText          : ["Properties",
-                               "Constants"]
-    } 
-!}
-{+subtemplate("subtemplates/propertyDetails.tmpl",args)+}    
+        {!var args = 
+            {
+                ownChildren         : [ownProperties,
+                                       ownConstants],
+                headerText          : ["Properties",
+                                       "Constants"]
+            } 
+        !}
+        {+subtemplate("subtemplates/propertyDetails.tmpl",args)+}    
 
 {!/***********     URI Function Details     ***********/!}                  
-{!var args = 
-    {
-        ownChildren         : [ownURIMethods]				
-    } 
-!}
-{+subtemplate("subtemplates/functionDetails.tmpl",args)+}  
+        {!var args = 
+            {
+                ownChildren         : [ownURIMethods]				
+            } 
+        !}
+        {+subtemplate("subtemplates/functionDetails.tmpl",args)+}  
 
 {!/***********     Class-Wide examples     ***********/!}                
-<if test="!generateDefaultConstructor">
-	<div x-ww-support="{+data.support.supportTag+}">
-	{+subtemplate("subtemplates/example.tmpl", {example: data.example, type: "Class"})+}  
-	</div>
-</if>       
+        <if test="!generateDefaultConstructor">
+            <div x-ww-support="{+data.support.supportTag+}">
+            {+subtemplate("subtemplates/example.tmpl", {example: data.example, type: "Class"})+}  
+            </div>
+        </if>
+
+
+    </div></div>
+</div>
