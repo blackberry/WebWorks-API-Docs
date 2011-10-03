@@ -146,18 +146,39 @@
             re = new RegExp('^(?:.*<a href=")(.*)(?:")(?:.*)(?:<[//]a>$)');
         return hrefLink.replace(re,'$1');
     };
-
-    var stringLink = new StringLink().toClass(data.alias);
-    stringLink = publish.conf.outDir+publish.conf.srcDir+stringLink;
-
-    var ditaMap = IO.readFile(publish.conf.outDir+publish.conf.srcDir+"toc.ditamap");
+    var ditaMap,
+        re,
+        stringLink,
+        childPage;
+    
+    
+    //Read in and process DitaMap into TOC
+    ditaMap = IO.readFile(publish.conf.outDir+publish.conf.srcDir+"toc.ditamap");
     ditaMap = ditaMap.substring(838);
     ditaMap = ditaMap.replace(/^<topicref href\=""(.*?)>([\s\S]*?)( {4}<topicref)/gm,
-    "<li class=\"with_children not_open\"><span class=\"item\"><span class=\"opener\">&nbsp;</span><a $1>$2</a><ul class=\"obfuscated_css level_2\">$3");
+    "<li class=\"with_children not_open\"><span class=\"item\"><span class=\"opener\">&nbsp;</span><a $1>$2</a></span><ul class=\"obfuscated_css level_2\">$3");
     ditaMap = ditaMap.replace(/[\s]*(?:<topicref)(.*)(href=")(.*?)(".*)>/g,"<li class=\"no_children\"><span class=\"item\"><span class=\"opener\">&nbsp;</span><a $1$2$3$4>");
-    ditaMap = ditaMap.replace(/^<\/topicref>/gm,"</ul><li class=\"seperator\"></li></span></li>");
+    ditaMap = ditaMap.replace(/^<\/topicref>/gm,"</ul><li class=\"seperator\"></li></li>");
     ditaMap = ditaMap.replace(/<\/topicref>/g,"</a></span></li>");
     
+    //Modify TOC for highlighting
+    if(data.toc){
+        if(data.toc.type){
+            re = new RegExp('^<li class\="with_children not_open"><span class\="item">(<span class\="opener">&nbsp;<\/span><a)(.*?)(>)(\n|\r\n)( {4})('+data.toc.type+')','gm');
+            ditaMap = ditaMap.replace(re,"<li class=\"with_children open\"><span class=\"item child_active\">$1$2$3$4$5$6");
+        }
+        if(data.toc.desc){
+            re = new RegExp('<span class\="item">(<span class\="opener">&nbsp;<\/span><a)(.*?)(>)(\n|\r\n)( {8})('+data.toc.desc+')','gm');
+            ditaMap = ditaMap.replace(re,"<span class=\"item active\">$1$2$3$4$5$6");
+        }
+    }
+    
+    
+    
+   
+    
+    var stringLink = new StringLink().toClass(data.alias);
+    stringLink = publish.conf.outDir+publish.conf.srcDir+stringLink;
     var childPage = IO.readFile(stringLink);
     childPage = childPage.replace(/(<div class\="column grid_4 side-navigation">)([\s\S]*?)( {8}<\/div>)/gm,
     "$1$2"+"<ul class=\"level_1\">\n"+ditaMap+"\n</ul>\n$3");
