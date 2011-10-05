@@ -57,7 +57,7 @@ var prevTocType,
                 tocSymbols = data.filter(function($){return $.toc.type == thisClass.toc.type});
                 tocSupport = new BBTag.Support(tocSymbols);
             !}
-<topicref href="" type="concept" x-ww-support="{+tocSupport.supportTag+}">
+<topicref href="index.html" type="concept" x-ww-support="{+tocSupport.supportTag+}">
     {+thisClass.toc.type+}
     <topicref {+new DitaMapLink().toClass(thisClass.alias)+} type="concept" x-ww-support="{+thisClass.support.supportTag+}">
         {+thisClass.toc.desc+}
@@ -67,3 +67,4 @@ var prevTocType,
     </if>
 </for>
 </topicref>
+</map>

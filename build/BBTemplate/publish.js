@@ -127,6 +127,9 @@ function publish(symbolSet) {
 	copyFiles(publish.conf.templatesDir+"/"+publish.conf.imagesDir,publish.conf.outDir+"/"+publish.conf.imagesDir );		
     // JS Files
 	copyFiles(publish.conf.templatesDir+"/"+publish.conf.jsDir,publish.conf.outDir+"/"+publish.conf.jsDir );
+    
+    //Copy Index.html into src directory
+    IO.copyFile(publish.conf.templatesDir+"/"+publish.conf.staticDir+"index.html",publish.conf.outDir + publish.conf.srcDir );
 }
 
 function copyFiles(srcDir, destDir) {
