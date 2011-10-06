@@ -27,7 +27,6 @@ blackberry.phone.Phone.Call = { };
 * Determines whether or not the current call is being held. 
 * @returns {Boolean} Returns true if there the call is on hold.
 * @BB50+
-* @RIPPLE
 * @example
 * &lt;script type=&quot;text/javascript&quot;&gt;
 *   // Check if active call at index specified is on hold
