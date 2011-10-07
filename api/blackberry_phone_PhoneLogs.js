@@ -17,6 +17,7 @@
 /**
 * @toc {Phone} PhoneLogs 
 * @BB50+
+* @RIPPLE
 * @namespace A container to maintain a list of CallLog objects that together represent the call log for phone calls stored in the message list.
 * @featureID blackberry.phone.Find
 * @featureID blackberry.phone.PhoneLogs
@@ -29,6 +30,7 @@ blackberry.phone.PhoneLogs = { };
 * @constant
 * @default 0
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.FOLDER_MISSED_CALLS = 0;
 
@@ -38,6 +40,7 @@ blackberry.phone.PhoneLogs.FOLDER_MISSED_CALLS = 0;
 * @constant
 * @default 1
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.PhoneLogs.FOLDER_NORMAL_CALLS = 1;
 
@@ -46,6 +49,7 @@ blackberry.phone.PhoneLogs.FOLDER_NORMAL_CALLS = 1;
 * @param {Number} folderID ID of the folder to check (one of the FOLDER_* values).
 * @returns {Number} Returns number of calls
 * @BB50+
+* @RIPPLE
 * @example
 * &lt;script type=&quot;text/javascript&quot;&gt;
 *   // Display the number of &apos;missed&apos; call logs
@@ -61,6 +65,7 @@ blackberry.phone.PhoneLogs.numberOfCalls = function(folderID) { };
 * @param {Number} folderID ID of the folder containing the call log to delete (one of the FOLDER_* values).
 * @returns {Boolean} Returns true if the item was successfully deleted
 * @BB50+
+* @RIPPLE
 * @example
 * &lt;script type=&quot;text/javascript&quot;&gt;
 *   //Display if &apos;normal&apos; call log was successfully deleted at index specified
@@ -77,6 +82,7 @@ blackberry.phone.PhoneLogs.deleteCallAt = function(index,folderID) { };
 * @param {Number} folderID ID of the folder from which to retrieve the call, (one of the FOLDER_* constants)
 * @returns {CallLog} Returns the CallLog specified by the index
 * @BB50+
+* @RIPPLE
 * @example
 * &lt;script type=&quot;text/javascript&quot;&gt;
 *   // Display &apos;normal&apos; call log retrieved at index specified
@@ -96,6 +102,7 @@ blackberry.phone.PhoneLogs.callAt = function(index,folderID) { };
 * @param {Boolean} [isAscending] optional &apos;isAscending&apos; parameter specifying whether the sort order is ascending or descending. If not supplied or set to true, the results sorted by the field specified by &apos;orderBy&apos; will be in an ascending order. If set to false, the sort results will be in a descending order. If no &apos;orderBy&apos; value is specified, &apos;isAscending&apos; is neglected.
 * @returns {CallLog[]} The function returns list of CallLogs that match search criteria
 * @BB50+
+* @RIPPLE
 * @example
 * &lt;script type=&quot;text/javascript&quot;&gt;
 *   // Iterating through array of &apos;normal&apos; call logs matching the find criteria
@@ -127,6 +134,7 @@ blackberry.phone.PhoneLogs.find = function(filter,folderID,orderBy,maxReturn,isA
 * @callback {function} onCallLogReset This callback function is triggered when a call log is reset.
 * @returns {Boolean} Returns true if the listener is assigned
 * @BB50+
+* @RIPPLE
 * @example
 * &lt;script type=&quot;text/javascript&quot;&gt;
 *   // Register with phone log listener to be notified with its events

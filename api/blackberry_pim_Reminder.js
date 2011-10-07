@@ -21,6 +21,7 @@
 *     </p></div>
 * @toc {PIM} Reminder 
 * @BB50+
+* @RIPPLE
 * @class The Reminder object is used to represent the reminder rule for an appointment or a task.
 * @featureID blackberry.pim.Reminder
 * @constructor Constructor for a new Reminder object. 
@@ -52,6 +53,7 @@ blackberry.pim.Reminder = function() { };
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Reminder.DATE = 0;
 
@@ -60,6 +62,7 @@ blackberry.pim.Reminder.DATE = 0;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Reminder.RELATIVE = 1;
 
@@ -67,6 +70,7 @@ blackberry.pim.Reminder.RELATIVE = 1;
 * What type of reminder it is, possible values:&bsol;n0 - By Date&bsol;n1 - Relative. 
 * @type Number
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Reminder.prototype.type = { };
 
@@ -74,6 +78,7 @@ blackberry.pim.Reminder.prototype.type = { };
 * Represents the relative timing of the reminder in hours. For example 0.25 would be 15 minutes, where 24 would be the equivalent to 1 day. This is only valid for a type of Relative(1). 
 * @type Number
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Reminder.prototype.relativeHours = { };
 
@@ -81,6 +86,7 @@ blackberry.pim.Reminder.prototype.relativeHours = { };
 * Specifies the exact date when the reminder will fire. This is only valid for a type of By Date(0). 
 * @type Date
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Reminder.prototype.date = { };
 

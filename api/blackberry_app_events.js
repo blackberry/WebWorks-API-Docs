@@ -33,6 +33,7 @@ blackberry.app.event = {
      * in your JavaScript.  If you choose to allow the application to exit, you must call blackberry.app.exit() to terminate the application.
      * @callback {function} onExitCallback Function to be called when the application is about to exit. Expected signature: function onExitCallback().
      * @BB50+
+     * @RIPPLE
      */
     onExit : function(onExitCallback) {},
          
@@ -45,6 +46,7 @@ blackberry.app.event = {
 	 * @callback {function} onBackgroundCallback Function to be called when the application goes to the background. Expected signature: function onBackgroundCallback().
 	 * @PB10 
 	 * @BB50+
+     * @RIPPLE
 	 * @example
 	 * &lt;script type="text/javascript"&gt;
 	 * function onBackgroundCallback() {
@@ -69,6 +71,7 @@ blackberry.app.event = {
 	 * @callback {function} onForegroundCallback Function to be called when the application goes to the foreground. Expected signature: function onForegroundCallback().
 	 * @PB10
 	 * @BB50+
+     * @RIPPLE
 	 */
 	onForeground : function(onForegroundCallback){},
 	
@@ -79,6 +82,7 @@ blackberry.app.event = {
 	 * This event is dispatched when a user swipes down from the top bezel of the BlackBerry PlayBook onto the screen. Only one function can be assigned to this event. To unregister the callback call the onSwipeDown method and pass in null for the callback parameter. 	
 	 * @callback {function} onSwipeDownCallback Function to be called when the swipe down action occurs. Expected signature: function onSwipeDownCallback().
 	 * @PB10
+     * @RIPPLE
 	 */
 	onSwipeDown : function(onSwipeDownCallback) {},
 		/**
@@ -88,6 +92,7 @@ blackberry.app.event = {
 	 * This event is dispatched when the user starts a swipe from the top bezel of the BlackBerry PlayBook. Only one function can be assigned to this event. To unregister the callback call the onSwipeStart method and pass in null for the callback parameter.
 	 * @callback {function} onSwipeStartCallback Function to be called when the user starts a swipe from the top bezel of the PlayBook. Expected signature: function onSwipeStartCallback(). Static="true" returns="void".
 	 * @PB10
+     * @RIPPLE
 	 */
 	onSwipeStart : function(onSwipeStartCallback) {}
     
@@ -101,6 +106,7 @@ blackberry.app.event = {
         in your JavaScript.  If you choose to allow the application to exit, you must call blackberry.app.exit() to terminate the application. </p>
        @callback {function} callback Function to be called when the application is about to exit.  
        @BB50+
+     * @RIPPLE
 	 * @example
      *  function trapExit()
        *       {

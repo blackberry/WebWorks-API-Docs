@@ -22,6 +22,7 @@
 *     </p></div>
 * @toc {PIM} Attendee 
 * @BB50+
+* @RIPPLE
 * @class The Attendee object is used to represent a person who is invited to a calendar appointment.
 * @featureID blackberry.pim.Attendee
 * @constructor Constructor for a new Attendee object. 
@@ -57,6 +58,7 @@ blackberry.pim.Attendee = function() { };
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Attendee.ORGANIZER = 0;
 
@@ -65,6 +67,7 @@ blackberry.pim.Attendee.ORGANIZER = 0;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Attendee.INVITED = 1;
 
@@ -73,6 +76,7 @@ blackberry.pim.Attendee.INVITED = 1;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Attendee.ACCEPTED = 2;
 
@@ -81,6 +85,7 @@ blackberry.pim.Attendee.ACCEPTED = 2;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Attendee.DECLINED = 3;
 
@@ -89,6 +94,7 @@ blackberry.pim.Attendee.DECLINED = 3;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Attendee.TENTATIVE  = 4;
 
@@ -96,6 +102,7 @@ blackberry.pim.Attendee.TENTATIVE  = 4;
 * Indicates the type of a particular attendee. Value can be one of the Attendee types. 
 * @type Number
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Attendee.prototype.type = { };
 
@@ -103,6 +110,7 @@ blackberry.pim.Attendee.prototype.type = { };
 * Contains the email address of a particular attendee. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Attendee.prototype.address = { };
 
