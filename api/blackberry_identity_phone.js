@@ -21,6 +21,7 @@
 *     </p></div>
 * @toc {Identity} Phone 
 * @BB50+
+* @RIPPLE
 * @namespace The Phone Identity object contains information regarding the user&apos;s phone lines on a BlackBerry smartphone.
 * @featureID blackberry.identity.phone
 * @example
@@ -37,6 +38,7 @@ blackberry.identity.phone = { };
 * Returns the id of all the lines registered with the device. 
 * @returns {Number[]}
 * @BB50+
+* @RIPPLE
 */
 blackberry.identity.phone.getLineIds = function() { };
 
@@ -45,6 +47,7 @@ blackberry.identity.phone.getLineIds = function() { };
 * @param {Number} lineId [optional] ID of the line to retrieve the label for.  If not specified the label for the default line is returned.
 * @returns {String}
 * @BB50+
+* @RIPPLE
 */
 blackberry.identity.phone.getLineLabel = function(lineId) { };
 
@@ -53,6 +56,7 @@ blackberry.identity.phone.getLineLabel = function(lineId) { };
 * @param {Number} lineId [optional] ID of the line to retrieve the label for.  If not specified the label for the default line is returned.
 * @returns {Number}
 * @BB50+
+* @RIPPLE
 */
 blackberry.identity.phone.getLineNumber = function(lineId) { };
 
@@ -61,6 +65,7 @@ blackberry.identity.phone.getLineNumber = function(lineId) { };
 * @param {Number} lineId [optional] ID of the line to retrieve the label for.  If not specified the label for the default line is returned.
 * @returns {Number}
 * @BB50+
+* @RIPPLE
 */
 blackberry.identity.phone.getLineType = function(lineId) { };
 

@@ -21,6 +21,7 @@
 *     </p></div>
 * @toc {PIM} Appointment 
 * @BB50+
+* @RIPPLE
 * @class The Appointment object represents an appointment in your calendar.
 * @featureID blackberry.pim.Appointment
 * @featureID blackberry.pim.Attendee
@@ -61,6 +62,7 @@ blackberry.pim.Appointment = function(service) { };
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Appointment.FREE = 0;
 
@@ -69,6 +71,7 @@ blackberry.pim.Appointment.FREE = 0;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Appointment.TENTATIVE = 1;
 
@@ -77,6 +80,7 @@ blackberry.pim.Appointment.TENTATIVE = 1;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Appointment.BUSY = 2;
 
@@ -85,6 +89,7 @@ blackberry.pim.Appointment.BUSY = 2;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Appointment.OUT_OF_OFFICE = 3;
 
@@ -97,6 +102,7 @@ blackberry.pim.Appointment.OUT_OF_OFFICE = 3;
 * @param {Boolean} [isAscending] optional &apos;isAscending&apos; parameter specifying whether the sort order is ascending or descending. If not supplied or set to true, the results sorted by the field specified by &apos;orderBy&apos; will be in an ascending order. If set to false, the sort results will be in a descending order. If no &apos;orderBy&apos; value is specified, &apos;isAscending&apos; is neglected.
 * @returns {Appointment[]}
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Appointment.find = function(filter,orderBy,maxReturn,service,isAscending) { };
 
@@ -104,6 +110,7 @@ blackberry.pim.Appointment.find = function(filter,orderBy,maxReturn,service,isAs
 * Saves the changes made to the Appointment object. 
 * @returns {void}
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Appointment.prototype.save = function() { };
 
@@ -111,6 +118,7 @@ blackberry.pim.Appointment.prototype.save = function() { };
 * Removes an event from the PIM storage. 
 * @returns {void}
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Appointment.prototype.remove = function() { };
 
@@ -118,6 +126,7 @@ blackberry.pim.Appointment.prototype.remove = function() { };
 * Holds the location information for this appointment, for example, a meeting room name. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Appointment.prototype.location = { };
 
@@ -125,6 +134,7 @@ blackberry.pim.Appointment.prototype.location = { };
 * Contains a brief description of the appointment. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Appointment.prototype.summary = { };
 
@@ -132,6 +142,7 @@ blackberry.pim.Appointment.prototype.summary = { };
 * Contains a more complete description than the summary field. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Appointment.prototype.note = { };
 
@@ -139,6 +150,7 @@ blackberry.pim.Appointment.prototype.note = { };
 * The start date for this appointment. 
 * @type Date
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Appointment.prototype.start = { };
 
@@ -146,6 +158,7 @@ blackberry.pim.Appointment.prototype.start = { };
 * The end date for this appointment. 
 * @type Date
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Appointment.prototype.end = { };
 
@@ -153,6 +166,7 @@ blackberry.pim.Appointment.prototype.end = { };
 * This is the rule to store how this appointment should be repeated if any. 
 * @type Recurrence
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Appointment.prototype.recurrence = { };
 
@@ -160,6 +174,7 @@ blackberry.pim.Appointment.prototype.recurrence = { };
 * This is the rule to store how the user should be reminded about the appointment. 
 * @type Reminder
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Appointment.prototype.reminder = { };
 
@@ -167,6 +182,7 @@ blackberry.pim.Appointment.prototype.reminder = { };
 * The list of attendees that will be invited to this appointment. 
 * @type Attendee
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Appointment.prototype.attendees = { };
 
@@ -174,6 +190,7 @@ blackberry.pim.Appointment.prototype.attendees = { };
 * The free&sol;busy status for the appointment. Value can be one of the FreeBusy options. 
 * @type Number
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Appointment.prototype.freeBusy = { };
 
@@ -181,6 +198,7 @@ blackberry.pim.Appointment.prototype.freeBusy = { };
 * Boolean field denoting whether the appointment is an all day event. 
 * @type Boolean
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Appointment.prototype.allDay = { };
 
@@ -189,6 +207,7 @@ blackberry.pim.Appointment.prototype.allDay = { };
 * @type String
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Appointment.prototype.uid = { };
 

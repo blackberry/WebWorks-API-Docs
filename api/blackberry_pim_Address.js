@@ -23,6 +23,7 @@
 *     </p></div>
 * @toc {PIM} Address 
 * @BB50+
+* @RIPPLE
 * @class The Address object represents an address used for a contact or for use with launching the BlackBerry Maps application.
 * @featureID blackberry.pim.Address
 * @constructor Constructor for a new Address object. 
@@ -47,6 +48,7 @@ blackberry.pim.Address = function() { };
 * Contains the country of a particular address. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Address.prototype.country = { };
 
@@ -54,6 +56,7 @@ blackberry.pim.Address.prototype.country = { };
 * Contains the street of a particular address. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Address.prototype.address1 = { };
 
@@ -61,6 +64,7 @@ blackberry.pim.Address.prototype.address1 = { };
 * Contains the extra street information of a particular address. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Address.prototype.address2 = { };
 
@@ -68,6 +72,7 @@ blackberry.pim.Address.prototype.address2 = { };
 * Contains the locality information of a particular address; for example a town, city, or county. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Address.prototype.city = { };
 
@@ -75,6 +80,7 @@ blackberry.pim.Address.prototype.city = { };
 * Contains the postal code or zip code of a pariticular address. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Address.prototype.zipPostal = { };
 
@@ -82,6 +88,7 @@ blackberry.pim.Address.prototype.zipPostal = { };
 * Contains the region information (such as province, state, or territory) of a particular address. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Address.prototype.stateProvince = { };
 

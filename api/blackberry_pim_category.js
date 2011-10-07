@@ -21,6 +21,7 @@
 *     </p></div>
 * @toc {PIM} Category 
 * @BB50+
+* @RIPPLE
 * @namespace The Category object defines APIs necessary to access and manipulate categories in the PIM  database.
 * @featureID blackberry.pim.category
 */
@@ -30,6 +31,7 @@ blackberry.pim.category = { };
 * Returns the categories defined for the PIM database. If there are no categories defined for the PIM database, then a zero length array is returned. 
 * @returns {String[]}
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.category.getCategories = function() { };
 
@@ -38,6 +40,7 @@ blackberry.pim.category.getCategories = function() { };
 * @param {String} categoryName String representing a category.
 * @returns {void}
 * @BB50+
+* @RIPPLE
 * @example
 * &lt;script type=&quot;text&sol;javascript&quot;&gt;
 *   function createNewCategory(newCategoryName) {
@@ -52,6 +55,7 @@ blackberry.pim.category.addCategory = function(categoryName) { };
 * @param {String} categoryName String category.
 * @returns {void}
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.category.deleteCategory = function(categoryName) { };
 

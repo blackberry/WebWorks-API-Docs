@@ -18,6 +18,7 @@
 /**
 * @toc {Phone} Phone 
 * @BB50+
+* @RIPPLE
 * @namespace Phone Object
 * @featureID blackberry.phone.Phone
 */
@@ -29,6 +30,7 @@ blackberry.phone.Phone = { };
 * @constant
 * @default 0
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CB_CALL_INITIATED = 0;
 
@@ -38,6 +40,7 @@ blackberry.phone.Phone.CB_CALL_INITIATED = 0;
 * @constant
 * @default 1
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CB_CALL_WAITING = 1;
 
@@ -47,6 +50,7 @@ blackberry.phone.Phone.CB_CALL_WAITING = 1;
 * @constant
 * @default 2
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CB_CALL_INCOMING = 2;
 
@@ -56,6 +60,7 @@ blackberry.phone.Phone.CB_CALL_INCOMING = 2;
 * @constant
 * @default 3
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CB_CALL_ANSWERED = 3;
 
@@ -65,6 +70,7 @@ blackberry.phone.Phone.CB_CALL_ANSWERED = 3;
 * @constant
 * @default 4
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CB_CALL_CONNECTED = 4;
 
@@ -74,6 +80,7 @@ blackberry.phone.Phone.CB_CALL_CONNECTED = 4;
 * @constant
 * @default 5
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CB_CALL_CONFERENCECALL_ESTABLISHED = 5;
 
@@ -83,6 +90,7 @@ blackberry.phone.Phone.CB_CALL_CONFERENCECALL_ESTABLISHED = 5;
 * @constant
 * @default 6
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CB_CONFERENCECALL_DISCONNECTED = 6;
 
@@ -92,6 +100,7 @@ blackberry.phone.Phone.CB_CONFERENCECALL_DISCONNECTED = 6;
 * @constant
 * @default 7
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CB_CALL_DISCONNECTED = 7;
 
@@ -101,6 +110,7 @@ blackberry.phone.Phone.CB_CALL_DISCONNECTED = 7;
 * @constant
 * @default 8
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CB_CALL_DIRECTCONNECT_CONNECTED = 8;
 
@@ -110,6 +120,7 @@ blackberry.phone.Phone.CB_CALL_DIRECTCONNECT_CONNECTED = 8;
 * @constant
 * @default 9
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CB_CALL_DIRECTCONNECT_DISCONNECTED = 9;
 
@@ -119,6 +130,7 @@ blackberry.phone.Phone.CB_CALL_DIRECTCONNECT_DISCONNECTED = 9;
 * @constant
 * @default 10
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CB_CALL_ENDED_BYUSER = 10;
 
@@ -128,6 +140,7 @@ blackberry.phone.Phone.CB_CALL_ENDED_BYUSER = 10;
 * @constant
 * @default 11
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CB_CALL_FAILED = 11;
 
@@ -137,6 +150,7 @@ blackberry.phone.Phone.CB_CALL_FAILED = 11;
 * @constant
 * @default 12
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CB_CALL_RESUMED = 12;
 
@@ -146,6 +160,7 @@ blackberry.phone.Phone.CB_CALL_RESUMED = 12;
 * @constant
 * @default 13
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CB_CALL_HELD = 13;
 
@@ -155,6 +170,7 @@ blackberry.phone.Phone.CB_CALL_HELD = 13;
 * @constant
 * @default 14
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CB_CALL_ADDED = 14;
 
@@ -164,6 +180,7 @@ blackberry.phone.Phone.CB_CALL_ADDED = 14;
 * @constant
 * @default 15
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CB_CALL_REMOVED = 15;
 
@@ -173,6 +190,7 @@ blackberry.phone.Phone.CB_CALL_REMOVED = 15;
 * @constant
 * @default 1
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_SUBSCRIBER_BUSY = 1;
 
@@ -182,6 +200,7 @@ blackberry.phone.Phone.CALL_ERROR_SUBSCRIBER_BUSY = 1;
 * @constant
 * @default 2
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_CONGESTION = 2;
 
@@ -191,6 +210,7 @@ blackberry.phone.Phone.CALL_ERROR_CONGESTION = 2;
 * @constant
 * @default 3
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_RADIO_PATH_UNAVAILABLE = 3;
 
@@ -200,6 +220,7 @@ blackberry.phone.Phone.CALL_ERROR_RADIO_PATH_UNAVAILABLE = 3;
 * @constant
 * @default 4
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_NUMBER_UNOBTAINABLE = 4;
 
@@ -209,6 +230,7 @@ blackberry.phone.Phone.CALL_ERROR_NUMBER_UNOBTAINABLE = 4;
 * @constant
 * @default 5
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_AUTHORIZATION_FAILURE = 5;
 
@@ -218,6 +240,7 @@ blackberry.phone.Phone.CALL_ERROR_AUTHORIZATION_FAILURE = 5;
 * @constant
 * @default 6
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_EMERGENCY_CALLS_ONLY = 6;
 
@@ -227,6 +250,7 @@ blackberry.phone.Phone.CALL_ERROR_EMERGENCY_CALLS_ONLY = 6;
 * @constant
 * @default 7
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_HOLD_ERROR = 7;
 
@@ -236,6 +260,7 @@ blackberry.phone.Phone.CALL_ERROR_HOLD_ERROR = 7;
 * @constant
 * @default 8
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_OUTGOING_CALLS_BARRED = 8;
 
@@ -245,6 +270,7 @@ blackberry.phone.Phone.CALL_ERROR_OUTGOING_CALLS_BARRED = 8;
 * @constant
 * @default 9
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_GENERAL = 9;
 
@@ -254,6 +280,7 @@ blackberry.phone.Phone.CALL_ERROR_GENERAL = 9;
 * @constant
 * @default 10
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_MAINTENANCE_REQUIRED = 10;
 
@@ -263,6 +290,7 @@ blackberry.phone.Phone.CALL_ERROR_MAINTENANCE_REQUIRED = 10;
 * @constant
 * @default 11
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_SERVICE_NOT_AVAILABLE = 11;
 
@@ -272,6 +300,7 @@ blackberry.phone.Phone.CALL_ERROR_SERVICE_NOT_AVAILABLE = 11;
 * @constant
 * @default 12
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_DUE_TO_FADING = 12;
 
@@ -281,6 +310,7 @@ blackberry.phone.Phone.CALL_ERROR_DUE_TO_FADING = 12;
 * @constant
 * @default 13
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_LOST_DUE_TO_FADING = 13;
 
@@ -290,6 +320,7 @@ blackberry.phone.Phone.CALL_ERROR_LOST_DUE_TO_FADING = 13;
 * @constant
 * @default 14
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_TRY_AGAIN = 14;
 
@@ -299,6 +330,7 @@ blackberry.phone.Phone.CALL_ERROR_TRY_AGAIN = 14;
 * @constant
 * @default 15
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_FDN_MISMATCH = 15;
 
@@ -308,6 +340,7 @@ blackberry.phone.Phone.CALL_ERROR_FDN_MISMATCH = 15;
 * @constant
 * @default 16
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_CONNECTION_DENIED_BY_NETWORK = 16;
 
@@ -317,6 +350,7 @@ blackberry.phone.Phone.CALL_ERROR_CONNECTION_DENIED_BY_NETWORK = 16;
 * @constant
 * @default 17
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_NUMBER_NOT_IN_SERVICE = 17;
 
@@ -326,6 +360,7 @@ blackberry.phone.Phone.CALL_ERROR_NUMBER_NOT_IN_SERVICE = 17;
 * @constant
 * @default 18
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_PLEASE_TRY_LATER = 18;
 
@@ -335,6 +370,7 @@ blackberry.phone.Phone.CALL_ERROR_PLEASE_TRY_LATER = 18;
 * @constant
 * @default 19
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_SERVICE_CONFLICT = 19;
 
@@ -344,6 +380,7 @@ blackberry.phone.Phone.CALL_ERROR_SERVICE_CONFLICT = 19;
 * @constant
 * @default 20
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_SYSTEM_BUSY_TRY_LATER = 20;
 
@@ -353,6 +390,7 @@ blackberry.phone.Phone.CALL_ERROR_SYSTEM_BUSY_TRY_LATER = 20;
 * @constant
 * @default 21
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_USER_BUSY_IN_PRIVATE = 21;
 
@@ -362,6 +400,7 @@ blackberry.phone.Phone.CALL_ERROR_USER_BUSY_IN_PRIVATE = 21;
 * @constant
 * @default 22
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_USER_BUSY_IN_DATA = 22;
 
@@ -371,6 +410,7 @@ blackberry.phone.Phone.CALL_ERROR_USER_BUSY_IN_DATA = 22;
 * @constant
 * @default 23
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_USER_NOT_AUTHORIZED = 23;
 
@@ -380,6 +420,7 @@ blackberry.phone.Phone.CALL_ERROR_USER_NOT_AUTHORIZED = 23;
 * @constant
 * @default 24
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_USER_NOT_AVAILABLE = 24;
 
@@ -389,6 +430,7 @@ blackberry.phone.Phone.CALL_ERROR_USER_NOT_AVAILABLE = 24;
 * @constant
 * @default 25
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_USER_UNKNOWN = 25;
 
@@ -398,6 +440,7 @@ blackberry.phone.Phone.CALL_ERROR_USER_UNKNOWN = 25;
 * @constant
 * @default 26
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_USER_NOT_REACHABLE = 26;
 
@@ -407,6 +450,7 @@ blackberry.phone.Phone.CALL_ERROR_USER_NOT_REACHABLE = 26;
 * @constant
 * @default 27
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_INCOMING_CALL_BARRED = 27;
 
@@ -416,6 +460,7 @@ blackberry.phone.Phone.CALL_ERROR_INCOMING_CALL_BARRED = 27;
 * @constant
 * @default 28
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_CALL_REPLACED_BY_STK = 28;
 
@@ -425,6 +470,7 @@ blackberry.phone.Phone.CALL_ERROR_CALL_REPLACED_BY_STK = 28;
 * @constant
 * @default 29
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.CALL_ERROR_STK_CALL_NOT_ALLOWED = 29;
 
@@ -432,6 +478,7 @@ blackberry.phone.Phone.CALL_ERROR_STK_CALL_NOT_ALLOWED = 29;
 * Determines whether or not the phone is currently in an active call 
 * @returns {Boolean} Returns true if the phone is currently in an active call
 * @BB50+
+* @RIPPLE
 * @example
 * &lt;script type=&quot;text/javascript&quot;&gt;
 *   // Check if in active call
@@ -446,6 +493,7 @@ blackberry.phone.Phone.inActiveCall = function() { };
 * Active calls are tracked when the application is running. When launched, only the current active call might be retrieved.
 * @returns {blackberry.phone.Phone.Call[]} Returns an array of current active calls
 * @BB50+
+* @RIPPLE
 * @example
 * &lt;script type=&quot;text/javascript&quot;&gt;
 *   // Retrieve an array of active calls and display the details of the call at index specified
@@ -483,6 +531,7 @@ blackberry.phone.Phone.activeCalls = function() { };
 * @param {Number} [eventType] One of constants defining phone call event type.
 * @returns {Boolean} Returns true if the listener was successfully assigned
 * @BB50+
+* @RIPPLE
 * @example
 * &lt;script type=&quot;text/javascript&quot;&gt;
 *   // Adding three listeners differ by their type.

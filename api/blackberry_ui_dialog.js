@@ -59,6 +59,7 @@ blackberry.ui.dialog ={
 		 * @param {String[]} [settings.size] Desired size of the dialog.
 		 * @param {String[]} [settings.position] Desired position of the dialog.
 		 * @PB10
+		 * @RIPPLE
 		 * @example
 		 * &lt;script type="text/javascript"&gt;
 		 * 
@@ -118,6 +119,7 @@ blackberry.ui.dialog ={
 		 * @param {String[]} [settings.size] Desired size of the dialog.
 		 * @param {String[]} [settings.position] Desired position of the dialog.
 		 * @PB10
+		 * @RIPPLE
 		 * @example
 		 * &lt;script type="text/javascript"&gt;
 		 * 
@@ -144,6 +146,7 @@ blackberry.ui.dialog ={
 		 * @default 0
 		 * @BB50+
 		 * @PB10
+		 * @RIPPLE
 		 */	
 		D_OK : 0,
 		/**
@@ -153,6 +156,7 @@ blackberry.ui.dialog ={
 		 * @default 1
 		 * @BB50+
 		 * @PB10
+		 * @RIPPLE
 		 */
 		D_SAVE:1,
 		/**
@@ -162,6 +166,7 @@ blackberry.ui.dialog ={
 		 * @default 2
 		 * @BB50+
 		 * @PB10
+		 * @RIPPLE
 		 */
 		D_DELETE:2,
 		/**
@@ -171,6 +176,7 @@ blackberry.ui.dialog ={
 		 * @default 3
 		 * @BB50+
 		 * @PB10
+		 * @RIPPLE
 		 */
 		D_YES_NO:3,
 		/**
@@ -180,6 +186,7 @@ blackberry.ui.dialog ={
 		 * @default 4
 		 * @BB50+
 		 * @PB10
+		 * @RIPPLE
 		 */
 		D_OK_CANCEL:4,
 		
@@ -189,6 +196,7 @@ blackberry.ui.dialog ={
 		 * @description Cancel Choice for us in dialogs
 		 * @default -1
 		 * @BB50+
+		 * @RIPPLE
 		 */
 		C_CANCEL:-1,
 		/**
@@ -197,6 +205,7 @@ blackberry.ui.dialog ={
 		 * @description OK choice for use in dialogs
 		 * @default 0
 		 * @BB50+
+		 * @RIPPLE
 		 */
 		C_OK:0,
 		/**
@@ -205,6 +214,7 @@ blackberry.ui.dialog ={
 		 * @description SAVE choice for use in dialogs
 		 * @default 1
 		 * @BB50+
+		 * @RIPPLE
 		 */
 		C_SAVE:1,
 		/**
@@ -213,6 +223,7 @@ blackberry.ui.dialog ={
 		 * @description DISCARD choice for use in dialogs
 		 * @default 2
 		 * @BB50+
+		 * @RIPPLE
 		 */
 		C_DISCARD:2,
 		/**
@@ -221,6 +232,7 @@ blackberry.ui.dialog ={
 		 * @description DELETE choice for use in dialogs
 		 * @default 3
 		 * @BB50+
+		 * @RIPPLE
 		 */
 		C_DELETE:3,
 		/**
@@ -229,6 +241,7 @@ blackberry.ui.dialog ={
 		 * @description YES choice for use in dialogs
 		 * @default 4
 		 * @BB50+
+		 * @RIPPLE
 		 */
 		C_YES:4,
 		/**
@@ -237,6 +250,7 @@ blackberry.ui.dialog ={
 		 * @description NO choice for use in dialogs
 		 * @default -1
 		 * @BB50+
+		 * @RIPPLE
 		 */
 		C_NO:-1,
 		/**
@@ -245,6 +259,7 @@ blackberry.ui.dialog ={
 		 * @description Bottom located dialog
 		 * @default "bottomCenter"
 		 * @PB10
+		 * @RIPPLE
 		 */
 		BOTTOM : "bottomCenter",
 		/**
@@ -253,6 +268,7 @@ blackberry.ui.dialog ={
 		 * @description Center located dialog
 		 * @default "middleCenter"
 		 * @PB10
+		 * @RIPPLE
 		 */
 		CENTER : "middleCenter",
 		/**
@@ -261,6 +277,7 @@ blackberry.ui.dialog ={
 		 * @description Top located dialog
 		 * @default "topCenter"
 		 * @PB10
+		 * @RIPPLE
 		 */
 		TOP : "topCenter",
 		/**
@@ -269,6 +286,7 @@ blackberry.ui.dialog ={
 		 * @description Full size dialog
 		 * @default "full"
 		 * @PB10
+		 * @RIPPLE
 		 */
 		SIZE_FULL : null,
 		/**
@@ -277,6 +295,7 @@ blackberry.ui.dialog ={
 		 * @description Large size dialog
 		 * @default "large"
 		 * @PB10
+		 * @RIPPLE
 		 */
 		SIZE_LARGE : null,
 		/**
@@ -285,6 +304,7 @@ blackberry.ui.dialog ={
 		 * @description Medium size dialog
 		 * @default "medium"
 		 * @PB10
+		 * @RIPPLE
 		 */
 		SIZE_MEDIUM : null,
 		/**
@@ -293,6 +313,7 @@ blackberry.ui.dialog ={
 		 * @description Small size dialog
 		 * @default "small"
 		 * @PB10
+		 * @RIPPLE
 		 */
 		SIZE_SMALL : null,
 		/**
@@ -301,6 +322,7 @@ blackberry.ui.dialog ={
 		 * @description Tall size dialog
 		 * @default "tall"
 		 * @PB10
+		 * @RIPPLE
 		 */
 		SIZE_TALL : null			
 };

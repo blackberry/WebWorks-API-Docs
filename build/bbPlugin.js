@@ -34,6 +34,7 @@ BBTag.Support.prototype.init = function() {
     this.bb60 = false;
     this.bb70 = false;
     this.pb10 = false;
+	this.ripple = false;
     this.common = false;
     this.resetSupportAttributes();
 };
@@ -79,17 +80,29 @@ BBTag.Support.prototype.resetSupportAttributes = function() {
     }else{
         this.supportTable += tableNo;
     }
+	
+	if(this.ripple){
+        this.supportStrings.push("Ripple Emulator");
+        if(this.supportTag.length){
+            this.supportTag += "|";
+        }
+        this.supportTag += "ripple";
+        this.supportTable += tableYes;
+    }else{
+        this.supportTable += tableNo;
+    }
     
     if(this.common){
         this.supportTag += "|common";
     }
 }
 
-BBTag.Support.prototype.populateByBools = function(bb50, bb60, bb70, pb10) {
+BBTag.Support.prototype.populateByBools = function(bb50, bb60, bb70, pb10, ripple) {
     this.bb50 |= bb50;
     this.bb60 |= bb60;
     this.bb70 |= bb70;
     this.pb10 |= pb10;
+	this.ripple |= ripple;
     this.common |= bb50 && bb60 && bb70 && pb10;
     this.resetSupportAttributes();
 };
@@ -108,11 +121,12 @@ BBTag.Support.prototype.populateBySymbol = function(symbol) {
             var BB70P = symbol.comment.getTag("BB70+").length;
             var PB10 = symbol.comment.getTag("PB10").length;
             var PB10P = symbol.comment.getTag("PB10+").length;
+			var RIPPLE = symbol.comment.getTag("RIPPLE").length;
 
             symbol.support = new BBTag.Support();
             symbol.support.populateByBools((BB50 || BB50P), 
 		(BB50P || BB60P || BB60), (BB50P || BB60P || BB60 || BB70P || BB70), 
-		(PB10 || PB10P));
+		(PB10 || PB10P), RIPPLE);
             this.populateBySupport(symbol.support);
         }
     }
@@ -129,9 +143,10 @@ BBTag.Support.prototype.populateByString = function(string) {
         var BB70P = string.equals("BB70+");
         var PB10 = string.equals("PB10");
         var PB10P = string.equals("PB10+");
+		var RIPPLE = string.equals("RIPPLE");
 
         this.populateByBools((BB50 || BB50P), (BB50P || BB60P || BB60), 
-		(BB50P || BB60P || BB60 || BB70P || BB70), (PB10 || PB10P));
+		(BB50P || BB60P || BB60 || BB70P || BB70), (PB10 || PB10P), RIPPLE);
     }
 };
 
@@ -141,6 +156,7 @@ BBTag.Support.prototype.populateBySupport = function(support) {
     this.bb60 |= support.bb60;
     this.bb70 |= support.bb70;
     this.pb10 |= support.pb10;
+	this.ripple |= support.ripple;
     this.common |= support.common;
     this.resetSupportAttributes();
 };
