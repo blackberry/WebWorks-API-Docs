@@ -21,6 +21,7 @@
 *     </p></div>
 * @toc {Invoke} SearchArguments 
 * @BB50+
+* @RIPPLE
 * @class The SearchArguments object is an instance object, and is used as a parameter to the invoke() method when invoking the Search application.
 * @featureID blackberry.invoke
 * @featureID blackberry.invoke.SearchArguments
@@ -37,6 +38,7 @@ blackberry.invoke.SearchArguments = function() { };
 * @constructedBy blackberry.invoke.SearchArguments
 * @description Build a SearchArguments object from string arguments
 * @BB50+
+* @RIPPLE
 * @function
 * @param {String} text The text string to pass to the Search application
 * @param {String} name The name string to pass to the Search application

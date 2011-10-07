@@ -18,6 +18,7 @@
 /**
 * @toc {Media} Audio 
 * @BB50+
+* @RIPPLE
 * @namespace The audio object provides information about supported audio functionality on the device.
 * @featureID blackberry.audio
 * @featureID blackberry.audio.Player
@@ -29,6 +30,7 @@ blackberry.audio = {
 	* @param {String} protocol The input protocol for the supported content types.
 	* @returns {String[]} The list of supported content types for the protocol provided
 	* @BB50+
+    * @RIPPLE
 	* @example
 	* &lt;script type=&quot;text/javascript&quot;&gt;
 	*   // Display supported content types for specified protocol 
@@ -52,6 +54,7 @@ blackberry.audio = {
 	* @param {String} content_type The content type for the supported protocols.
 	* @returns {String[]} The list of supported protocols for the content type provided
 	* @BB50+
+    * @RIPPLE
 	* @example
 	* &lt;script type=&quot;text/javascript&quot;&gt;
 	*   // Display all supported protocols

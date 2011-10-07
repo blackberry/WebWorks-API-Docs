@@ -21,6 +21,7 @@
 *     </p></div>
 * @toc {Identity} Transport 
 * @BB50+
+* @RIPPLE
 * @namespace Transport objects are used to store information about BlackBerry connections such as BES, BIS-B, Unite and Hotspots.
 * @featureID blackberry.identity
 * @example
@@ -41,6 +42,7 @@ blackberry.identity.Transport = { };
 * @type String
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.identity.Transport.prototype.name = { };
 
@@ -49,6 +51,7 @@ blackberry.identity.Transport.prototype.name = { };
 * @type String
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.identity.Transport.prototype.type = { };
 

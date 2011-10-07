@@ -21,6 +21,7 @@
 *     </p></div>
 * @toc {PIM} Memo 
 * @BB50+
+* @RIPPLE
 * @class The Memo object is used to represent an entry in the MemoPad application.
 * @featureID blackberry.pim.Memo
 * @featureID blackberry.find
@@ -44,6 +45,7 @@ blackberry.pim.Memo = function() { };
 * @param {Boolean} [isAscending] Optional&apos;isAscending&apos; parameter specifying whether the sort order is ascending or descending. If not supplied or set to true, the results sorted by the field specified by &apos;orderBy&apos; will be in an ascending order. If set to false, the sort results will be in a descending order. If no &apos;orderBy&apos; value is specified, &apos;isAscending&apos; is neglected.
 * @returns {Memo[]}
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Memo.find = function(filter,orderBy,maxReturn,isAscending) { };
 
@@ -51,6 +53,7 @@ blackberry.pim.Memo.find = function(filter,orderBy,maxReturn,isAscending) { };
 * This method will save the changes made to the memo object. 
 * @returns {void}
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Memo.prototype.save = function() { };
 
@@ -58,6 +61,7 @@ blackberry.pim.Memo.prototype.save = function() { };
 * This method will remove a memo from the PIM storage. 
 * @returns {void}
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Memo.prototype.remove = function() { };
 
@@ -65,6 +69,7 @@ blackberry.pim.Memo.prototype.remove = function() { };
 * The title of the memo. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Memo.prototype.title = { };
 
@@ -72,6 +77,7 @@ blackberry.pim.Memo.prototype.title = { };
 * The body text of the memo. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Memo.prototype.note = { };
 
@@ -80,6 +86,7 @@ blackberry.pim.Memo.prototype.note = { };
 * @type Number
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Memo.prototype.uid = { };
 
@@ -87,6 +94,7 @@ blackberry.pim.Memo.prototype.uid = { };
 * The list of categories associated to the memo. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Memo.prototype.categories = { };
 

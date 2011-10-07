@@ -21,6 +21,7 @@
 *     </p></div>
 * @toc {PIM} Recurrence 
 * @BB50+
+* @RIPPLE
 * @class The Recurrence object is used to represent the repetition rules for an appointment or a task.
 * @featureID blackberry.pim.Recurrence
 * @constructor Constructor for a new Recurrence object 
@@ -45,6 +46,7 @@ blackberry.pim.Recurrence = function() { };
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.NO_REPEAT = 0;
 
@@ -53,6 +55,7 @@ blackberry.pim.Recurrence.NO_REPEAT = 0;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.DAILY = 1;
 
@@ -61,6 +64,7 @@ blackberry.pim.Recurrence.DAILY = 1;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.WEEKLY = 2;
 
@@ -69,6 +73,7 @@ blackberry.pim.Recurrence.WEEKLY = 2;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.MONTHLY = 3;
 
@@ -77,6 +82,7 @@ blackberry.pim.Recurrence.MONTHLY = 3;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.YEARLY = 4;
 
@@ -85,6 +91,7 @@ blackberry.pim.Recurrence.YEARLY = 4;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.JANUARY = 0x20000;
 
@@ -93,6 +100,7 @@ blackberry.pim.Recurrence.JANUARY = 0x20000;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.FEBRUARY = 0x40000;
 
@@ -101,6 +109,7 @@ blackberry.pim.Recurrence.FEBRUARY = 0x40000;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.MARCH = 0x80000;
 
@@ -109,6 +118,7 @@ blackberry.pim.Recurrence.MARCH = 0x80000;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.APRIL = 0x100000;
 
@@ -117,6 +127,7 @@ blackberry.pim.Recurrence.APRIL = 0x100000;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.MAY = 0x200000;
 
@@ -125,6 +136,7 @@ blackberry.pim.Recurrence.MAY = 0x200000;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.JUNE = 0x400000;
 
@@ -133,6 +145,7 @@ blackberry.pim.Recurrence.JUNE = 0x400000;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.JULY = 0x800000;
 
@@ -141,6 +154,7 @@ blackberry.pim.Recurrence.JULY = 0x800000;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.AUGUST = 0x1000000;
 
@@ -149,6 +163,7 @@ blackberry.pim.Recurrence.AUGUST = 0x1000000;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.SEPTEMBER = 0x2000000;
 
@@ -157,6 +172,7 @@ blackberry.pim.Recurrence.SEPTEMBER = 0x2000000;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.OCTOBER = 0x4000000;
 
@@ -165,6 +181,7 @@ blackberry.pim.Recurrence.OCTOBER = 0x4000000;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.NOVEMBER = 0x8000000;
 
@@ -173,6 +190,7 @@ blackberry.pim.Recurrence.NOVEMBER = 0x8000000;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.DECEMBER = 0x10000000;
 
@@ -181,6 +199,7 @@ blackberry.pim.Recurrence.DECEMBER = 0x10000000;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.FIRST = 0x1;
 
@@ -189,6 +208,7 @@ blackberry.pim.Recurrence.FIRST = 0x1;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.SECOND = 0x2;
 
@@ -197,6 +217,7 @@ blackberry.pim.Recurrence.SECOND = 0x2;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.THIRD = 0x4;
 
@@ -205,6 +226,7 @@ blackberry.pim.Recurrence.THIRD = 0x4;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.FOURTH = 0x8;
 
@@ -213,6 +235,7 @@ blackberry.pim.Recurrence.FOURTH = 0x8;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.FIFTH = 0x10;
 
@@ -221,6 +244,7 @@ blackberry.pim.Recurrence.FIFTH = 0x10;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.LAST = 0x20;
 
@@ -229,6 +253,7 @@ blackberry.pim.Recurrence.LAST = 0x20;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.SECONDLAST = 0x40;
 
@@ -237,6 +262,7 @@ blackberry.pim.Recurrence.SECONDLAST = 0x40;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.THIRDLAST = 0x80;
 
@@ -245,6 +271,7 @@ blackberry.pim.Recurrence.THIRDLAST = 0x80;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.FOURTHLAST = 0x100;
 
@@ -253,6 +280,7 @@ blackberry.pim.Recurrence.FOURTHLAST = 0x100;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.FIFTHLAST = 0x200;
 
@@ -261,6 +289,7 @@ blackberry.pim.Recurrence.FIFTHLAST = 0x200;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.SUNDAY = 0x10000;
 
@@ -269,6 +298,7 @@ blackberry.pim.Recurrence.SUNDAY = 0x10000;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.MONDAY = 0x8000;
 
@@ -277,6 +307,7 @@ blackberry.pim.Recurrence.MONDAY = 0x8000;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.TUESDAY = 0x4000;
 
@@ -285,6 +316,7 @@ blackberry.pim.Recurrence.TUESDAY = 0x4000;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.WEDNESDAY = 0x2000;
 
@@ -293,6 +325,7 @@ blackberry.pim.Recurrence.WEDNESDAY = 0x2000;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.THURSDAY = 0x1000;
 
@@ -301,6 +334,7 @@ blackberry.pim.Recurrence.THURSDAY = 0x1000;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.FRIDAY = 0x800;
 
@@ -309,6 +343,7 @@ blackberry.pim.Recurrence.FRIDAY = 0x800;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.SATURDAY = 0x400;
 
@@ -316,6 +351,7 @@ blackberry.pim.Recurrence.SATURDAY = 0x400;
 * Specifies the frequency of the event repetition. Value can be: 
 * @type Number
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.prototype.frequency = { };
 
@@ -323,6 +359,7 @@ blackberry.pim.Recurrence.prototype.frequency = { };
 * Specifies the number of times this event repeats including the first time, starting from the first time the event starts (derived from the &apos;start&apos; property of the event) and continuing to the last date of the repeat (defined by the &apos;end&apos; property).  
 * @type Number
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.prototype.count = { };
 
@@ -330,6 +367,7 @@ blackberry.pim.Recurrence.prototype.count = { };
 * Specifies the number of iterations of the frequency between occurring dates, or how often the frequency repeats. 
 * @type Number
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.prototype.interval = { };
 
@@ -337,6 +375,7 @@ blackberry.pim.Recurrence.prototype.interval = { };
 * Specifies the date when the event repetition would end. 
 * @type Date
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.prototype.end = { };
 
@@ -344,6 +383,7 @@ blackberry.pim.Recurrence.prototype.end = { };
 * Specifies the month in which an event occurs. Value can be one of the &apos;MONTH&apos; constants.  
 * @type Number
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.prototype.monthInYear = { };
 
@@ -351,6 +391,7 @@ blackberry.pim.Recurrence.prototype.monthInYear = { };
 * Specifies which week in a month a particular event occurs. Value can be one of the &apos;WEEK&apos; constants.  
 * @type Number
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.prototype.weekInMonth = { };
 
@@ -358,6 +399,7 @@ blackberry.pim.Recurrence.prototype.weekInMonth = { };
 * Specifies the days of the week an event occurs. Value can be one of the &apos;DAY&apos; constants.  
 * @type Number
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.prototype.dayInWeek = { };
 
@@ -365,6 +407,7 @@ blackberry.pim.Recurrence.prototype.dayInWeek = { };
 * Specifies the day of the month an event occurs. Value can be 1-31. 
 * @type Number
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.prototype.dayInMonth = { };
 
@@ -372,6 +415,7 @@ blackberry.pim.Recurrence.prototype.dayInMonth = { };
 * Specifies the day of the year an event occurs. Value can be 1-366. 
 * @type Number
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Recurrence.prototype.dayInYear = { };
 

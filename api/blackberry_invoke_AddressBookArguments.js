@@ -20,6 +20,7 @@
 *     </p></div>
 * @toc {Invoke} AddressBookArguments 
 * @BB50+
+* @RIPPLE
 * @class The AddressBookArguments object is an instance object, and is used as a parameter to the invoke() method when invoking the Address Book application.
 * @featureID blackberry.invoke
 * @featureID blackberry.invoke.AddressBookArguments
@@ -45,6 +46,7 @@ blackberry.invoke.AddressBookArguments = function(contact) { };
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.AddressBookArguments.VIEW_NEW = 0;
 
@@ -53,6 +55,7 @@ blackberry.invoke.AddressBookArguments.VIEW_NEW = 0;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.AddressBookArguments.VIEW_COMPOSE = 1;
 
@@ -61,6 +64,7 @@ blackberry.invoke.AddressBookArguments.VIEW_COMPOSE = 1;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.AddressBookArguments.VIEW_DISPLAY = 2;
 
@@ -68,6 +72,7 @@ blackberry.invoke.AddressBookArguments.VIEW_DISPLAY = 2;
 * Value that specifies what kind of view you want to view the contact. 
 * @type Number
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.AddressBookArguments.prototype.view = { };
 

@@ -55,6 +55,7 @@ blackberry.system ={
 		 * @returns {Boolean} Returns true if the device is capable of the given service.
 		 * @BB50+
 		 * @PB10
+		 * @RIPPLE
 		 */
 		hasCapability : function(capability){},
 
@@ -64,6 +65,7 @@ blackberry.system ={
 		 * @returns {Boolean} Returns true if the BlackBerry PlayBook or the BlackBerry Smartphone device has any network interface active.
 		 * @BB50+
 		 * @PB10
+		 * @RIPPLE
 		 */
 		hasDataCoverage : function(){},
 
@@ -72,6 +74,7 @@ blackberry.system ={
 		 * @description  Set the image that appears as the background of the Home screen on a BlackBerry device.
 		 * @param {String} uri URI path to an image file that resides in flash memory or a microSD Card.
 		 * @BB50+
+		 * @RIPPLE
 		 */
 		setHomeScreenBackground : function(uri){},
 
@@ -81,6 +84,7 @@ blackberry.system ={
 		 * @returns {Number} The possible return values: 0 - ALLOW 1 - DENY
 		 * @BB50+
 		 * @PB10
+		 * @RIPPLE
 		 */
 		hasPermission : function(module){},
 
@@ -89,6 +93,7 @@ blackberry.system ={
 		 * @returns {Boolean} Always returns false on the BlackBerry PlayBook since Mass Storage Mode is not supported. All memory is presented as a network share when connected by USB and is not blocked.
 		 * @BB50+
 		 * @PB10
+		 * @RIPPLE
 		 */
 		isMassStorageActive : function(){},
 
@@ -163,6 +168,7 @@ blackberry.system ={
 		 * @readOnly
 		 * @BB50+
 		 * @PB10
+		 * @RIPPLE
 		 */
 		model: null,
 
@@ -172,6 +178,7 @@ blackberry.system ={
 		 * @readOnly
 		 * @BB50+
 		 * @PB10
+		 * @RIPPLE
 		 */
 		scriptApiVersion:null,
 
@@ -181,6 +188,7 @@ blackberry.system ={
 		 * @readOnly
 		 * @BB50+
 		 * @PB10
+		 * @RIPPLE
 		 */
 		softwareVersion:null,
 
@@ -191,6 +199,7 @@ blackberry.system ={
 		 * @default 0
 		 * @BB50+
 		 * @PB10
+		 * @RIPPLE
 		 */
 		ALLOW : 0,
 		/**
@@ -200,6 +209,7 @@ blackberry.system ={
 		 * @default 1
 		 * @BB50+
 		 * @PB10
+		 * @RIPPLE
 		 */
 		DENY:1
 };

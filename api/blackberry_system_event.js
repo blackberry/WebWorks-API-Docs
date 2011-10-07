@@ -23,6 +23,7 @@
 * @toc {System} System Event
 * @featureID blackberry.system.event
 * @BB50+
+* @RIPPLE
 * @namespace The System Event object allows you to get access to events triggered by system events on the BlackBerry device.
 * @example
 * // This example is for BlackBerry OS 5.0+
@@ -112,6 +113,7 @@ blackberry.system.event = { };
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.system.event.KEY_BACK = 0;
 
@@ -120,6 +122,7 @@ blackberry.system.event.KEY_BACK = 0;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.system.event.KEY_MENU = 1;
 
@@ -128,6 +131,7 @@ blackberry.system.event.KEY_MENU = 1;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.system.event.KEY_CONVENIENCE_1 = 2;
 
@@ -136,6 +140,7 @@ blackberry.system.event.KEY_CONVENIENCE_1 = 2;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.system.event.KEY_CONVENIENCE_2 = 3;
 
@@ -144,6 +149,7 @@ blackberry.system.event.KEY_CONVENIENCE_2 = 3;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.system.event.KEY_STARTCALL = 4;
 
@@ -152,6 +158,7 @@ blackberry.system.event.KEY_STARTCALL = 4;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.system.event.KEY_ENDCALL = 5;
 
@@ -160,6 +167,7 @@ blackberry.system.event.KEY_ENDCALL = 5;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.system.event.KEY_VOLUMEDOWN = 6;
 
@@ -168,6 +176,7 @@ blackberry.system.event.KEY_VOLUMEDOWN = 6;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.system.event.KEY_VOLUMEUP = 7;
 
@@ -202,6 +211,7 @@ blackberry.system.event.KEY_VOLUMEUP = 7;
 *    }
 * }
 * @BB50+
+* @RIPPLE
 * @uri
 * @function
 */
@@ -212,6 +222,7 @@ blackberry.system.event.onHardwareKey = function(key,onSystemEvent) { };
 * @description Assigns a listener for when the coverage status changes.
 * @callback {function} onSystemEvent Function to be called when coverage changes.  Only one function can be assigned to this event. To unregister the callback, call the onCoverageChange method and pass in null for the callback parameter.
 * @BB50+
+* @RIPPLE
 * @function
 */
 /**
@@ -237,6 +248,7 @@ blackberry.system.event.onCoverageChange = function(onSystemEvent) { };
  * @callback {function} onBatteryLevelChange Function to be called when the battery level changes. The level is passed as its only argument.
  * @callback {Number} onBatteryLevelChange.level battery level of the device ranging from 0 to 100
  * @PB10
+ * @RIPPLE
  * @example
  * &lt;script type="text/javascript"&gt;
  *  function onBatteryLevelChange(level) {
@@ -264,5 +276,6 @@ blackberry.system.event.deviceBatteryLevelChange =  function(onBatteryLevelChang
  * @callback {function} onBatteryStateChange Function to be called when the battery charge state changes. The new state is passed as its only argument.
  * @callback {Number} onBatteryStateChange.state battery state of the device
  * @PB10
+ * @RIPPLE
  */
 blackberry.system.event.deviceBatteryStateChange = function(onBatteryStateChange){};
