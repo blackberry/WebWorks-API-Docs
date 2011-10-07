@@ -23,6 +23,7 @@
 *     </p></div>
 * @toc {Identity} Service 
 * @BB50+
+* @RIPPLE
 * @namespace The Service object represents a service entry that describes specifics for a service on a BlackBerry smartphone.
 * @featureID blackberry.identity
 * @example
@@ -43,6 +44,7 @@ blackberry.identity.Service = { };
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.identity.Service.TYPE_EMAIL = 0;
 
@@ -51,6 +53,7 @@ blackberry.identity.Service.TYPE_EMAIL = 0;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.identity.Service.TYPE_CALENDAR = 1;
 
@@ -59,6 +62,7 @@ blackberry.identity.Service.TYPE_CALENDAR = 1;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.identity.Service.TYPE_CONTACT = 2;
 
@@ -67,6 +71,7 @@ blackberry.identity.Service.TYPE_CONTACT = 2;
 * @type String
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.identity.Service.prototype.emailAddress = { };
 
@@ -75,6 +80,7 @@ blackberry.identity.Service.prototype.emailAddress = { };
 * @type String
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.identity.Service.prototype.name = { };
 
@@ -83,6 +89,7 @@ blackberry.identity.Service.prototype.name = { };
 * @type Number
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.identity.Service.prototype.type = { };
 

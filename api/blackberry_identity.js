@@ -17,6 +17,7 @@
 /**
 * @toc {Identity} Identity 
 * @BB50+
+* @RIPPLE
 * @namespace The Identity object contains information regarding the user&apos;s identity and accounts on a BlackBerry smartphone.
 * @featureID blackberry.identity
 * @featureID blackberry.identity.phone
@@ -72,6 +73,7 @@ get: function(){}
 * Returns the list of Service objects that describe each of the services that the user has for their device. 
 * @returns {Service[]}
 * @BB50+
+* @RIPPLE
 */
 blackberry.identity.getServiceList = function() { };
 
@@ -79,6 +81,7 @@ blackberry.identity.getServiceList = function() { };
 * Returns a list of possible communications transports that can be used. 
 * @returns {Transport[]}
 * @BB50+
+* @RIPPLE
 * @example
 * &lt;script type=&quot;text&sol;javascript&quot;&gt;
 *   var transportList = blackberry.identity.getTransportList();
@@ -95,6 +98,7 @@ blackberry.identity.getTransportList = function() { };
 * @static
 * @readOnly
 * @BB50+
+* @RIPPLE
 * @PB10
 */
 blackberry.identity.PIN = { };
@@ -105,6 +109,7 @@ blackberry.identity.PIN = { };
 * @static
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.identity.IMSI = { };
 
@@ -114,6 +119,7 @@ blackberry.identity.IMSI = { };
 * @static
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.identity.IMEI = { };
 

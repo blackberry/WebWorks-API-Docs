@@ -21,6 +21,7 @@
 *     </p></div>
 * @toc {PIM} Contact 
 * @BB50+
+* @RIPPLE
 * @class The Contact object represents a contact in the BlackBerry PIM. This object can be created to be used when launching the new contact screen using the invoke API or for direct interaction with the PIM storage itself.
 * @featureID blackberry.pim.Contact
 * @featureID blackberry.pim.Address
@@ -49,6 +50,7 @@ blackberry.pim.Contact = function(service) { };
 * @param {Boolean} [isAscending] optional &apos;isAscending&apos; parameter specifying whether the sort order is ascending or descending. If not supplied or set to true, the results sorted by the field specified by &apos;orderBy&apos; will be in an ascending order. If set to false, the sort results will be in a descending order. If no &apos;orderBy&apos; value is specified, &apos;isAscending&apos; is neglected.
 * @returns {Contact[]}
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.find = function(fieldFilter,orderBy,maxReturn,service,isAscending) { };
 
@@ -57,6 +59,7 @@ blackberry.pim.Contact.find = function(fieldFilter,orderBy,maxReturn,service,isA
 * @param {Blob} picture The blob object represents the image.
 * @returns {void}
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.setPicture = function(picture) { };
 
@@ -64,6 +67,7 @@ blackberry.pim.Contact.prototype.setPicture = function(picture) { };
 * This method will save the changes made to the contact object. 
 * @returns {void}
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.save = function() { };
 
@@ -71,6 +75,7 @@ blackberry.pim.Contact.prototype.save = function() { };
 * This method will remove a contact from the PIM storage. 
 * @returns {void}
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.remove = function() { };
 
@@ -78,6 +83,7 @@ blackberry.pim.Contact.prototype.remove = function() { };
 * Contains the title of the contact. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.title = { };
 
@@ -85,6 +91,7 @@ blackberry.pim.Contact.prototype.title = { };
 * Contains the first name of the contact. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.firstName = { };
 
@@ -92,6 +99,7 @@ blackberry.pim.Contact.prototype.firstName = { };
 * Contains the last name of the contact. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.lastName = { };
 
@@ -99,6 +107,7 @@ blackberry.pim.Contact.prototype.lastName = { };
 * Contains the home address of the contact. 
 * @type Address
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.homeAddress = { };
 
@@ -106,6 +115,7 @@ blackberry.pim.Contact.prototype.homeAddress = { };
 * Contains the work address of the contact. 
 * @type Address
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.workAddress = { };
 
@@ -113,6 +123,7 @@ blackberry.pim.Contact.prototype.workAddress = { };
 * Contains the first email of the contact. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.email1 = { };
 
@@ -120,6 +131,7 @@ blackberry.pim.Contact.prototype.email1 = { };
 * Contains the second email of the contact. After save() is called, if there is no email1 specified, email2 will replace email1 and email2 will be empty. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.email2 = { };
 
@@ -127,6 +139,7 @@ blackberry.pim.Contact.prototype.email2 = { };
 * Contains the third email for the contact. After save() is called, if there is no email1 or email2 specified, email3 will replace email1 or email2 and email3 will be empty. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.email3 = { };
 
@@ -134,6 +147,7 @@ blackberry.pim.Contact.prototype.email3 = { };
 * Contains the company name of the contact. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.company = { };
 
@@ -141,6 +155,7 @@ blackberry.pim.Contact.prototype.company = { };
 * Contains the job title of the contact. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.jobTitle = { };
 
@@ -148,6 +163,7 @@ blackberry.pim.Contact.prototype.jobTitle = { };
 * Contains the home telephone number of the contact. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.homePhone = { };
 
@@ -155,6 +171,7 @@ blackberry.pim.Contact.prototype.homePhone = { };
 * Contains the second home telephone number of the contact. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.homePhone2 = { };
 
@@ -162,6 +179,7 @@ blackberry.pim.Contact.prototype.homePhone2 = { };
 * Contains the work telephone number of the contact. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.workPhone = { };
 
@@ -169,6 +187,7 @@ blackberry.pim.Contact.prototype.workPhone = { };
 * Contains the second work telephone number of the contact. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.workPhone2 = { };
 
@@ -176,6 +195,7 @@ blackberry.pim.Contact.prototype.workPhone2 = { };
 * Contains the mobile telephone number of the contact. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.mobilePhone = { };
 
@@ -183,6 +203,7 @@ blackberry.pim.Contact.prototype.mobilePhone = { };
 * Contains the fax number of the contact. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.faxPhone = { };
 
@@ -190,6 +211,7 @@ blackberry.pim.Contact.prototype.faxPhone = { };
 * Contains the pager number of the contact. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.pagerPhone = { };
 
@@ -197,6 +219,7 @@ blackberry.pim.Contact.prototype.pagerPhone = { };
 * Contains other telephone number of the contact. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.otherPhone = { };
 
@@ -204,6 +227,7 @@ blackberry.pim.Contact.prototype.otherPhone = { };
 * Contains any note or description related to the contact. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.note = { };
 
@@ -211,6 +235,7 @@ blackberry.pim.Contact.prototype.note = { };
 * Contains the web page URL of the contact. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.webpage = { };
 
@@ -218,6 +243,7 @@ blackberry.pim.Contact.prototype.webpage = { };
 * The date of the contact&apos;s birthday. 
 * @type Date
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.birthday = { };
 
@@ -225,6 +251,7 @@ blackberry.pim.Contact.prototype.birthday = { };
 * The date of the contact&apos;s anniversary. 
 * @type Date
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.anniversary = { };
 
@@ -232,6 +259,7 @@ blackberry.pim.Contact.prototype.anniversary = { };
 * The first user-defined field that contains extra information for the contact. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.user1 = { };
 
@@ -239,6 +267,7 @@ blackberry.pim.Contact.prototype.user1 = { };
 * The second user-defined field that contains extra information for the contact. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.user2 = { };
 
@@ -246,6 +275,7 @@ blackberry.pim.Contact.prototype.user2 = { };
 * The third user-defined field that contains extra information for the contact. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.user3 = { };
 
@@ -253,6 +283,7 @@ blackberry.pim.Contact.prototype.user3 = { };
 * The fourth user-defined field that contains extra information for the contact. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.user4 = { };
 
@@ -260,6 +291,7 @@ blackberry.pim.Contact.prototype.user4 = { };
 * The contact&apos;s device PIN. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.pin = { };
 
@@ -268,6 +300,7 @@ blackberry.pim.Contact.prototype.pin = { };
 * @type String
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.uid = { };
 
@@ -276,6 +309,7 @@ blackberry.pim.Contact.prototype.uid = { };
 * @type String
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.picture = { };
 
@@ -283,6 +317,7 @@ blackberry.pim.Contact.prototype.picture = { };
 * The list of categories associated to the contact. 
 * @type {String[]}
 * @BB50+
+* @RIPPLE
 */
 blackberry.pim.Contact.prototype.categories = { };
 

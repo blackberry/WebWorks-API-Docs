@@ -17,6 +17,7 @@
 /**
 * @toc {Phone} Call 
 * @BB50+
+* @RIPPLE
 * @namespace Represents an active phone call.
 * @featureID blackberry.phone.Phone
 */
@@ -43,6 +44,7 @@ blackberry.phone.Phone.Call.prototype.isOnHold = function() { };
 * @type Boolean
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.Call.prototype.outgoing = { };
 
@@ -51,6 +53,7 @@ blackberry.phone.Phone.Call.prototype.outgoing = { };
 * @type String
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.Call.prototype.recipientName = { };
 
@@ -59,6 +62,7 @@ blackberry.phone.Phone.Call.prototype.recipientName = { };
 * @type String
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.phone.Phone.Call.prototype.recipientNumber = { };
 

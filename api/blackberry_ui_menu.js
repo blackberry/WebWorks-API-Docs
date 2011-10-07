@@ -23,6 +23,7 @@
 * @toc {User Interface} Menu
 * @featureID blackberry.ui.menu
 * @BB50+
+* @RIPPLE
 * @namespace The Menu object contains functionality for manipulating menu items for the application.
 * @learns {Sample - Menu Items} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Adding-Menu-Items-using-the-BlackBerry-WebWorks-SDK/ta-p/516885 Example that demonstrates how to use the Menu API to 
 * create a custom application menu in a BlackBerry WebWorks application [BlackBerry Developer Resource Center].
@@ -34,6 +35,7 @@ blackberry.ui.menu = { };
 * @param {blackberry.ui.menu.MenuItem} item The menu item to set as the default.
 * @returns {void}
 * @BB50+
+* @RIPPLE
 */
 blackberry.ui.menu.setDefaultMenuItem = function(item) { };
 
@@ -41,6 +43,7 @@ blackberry.ui.menu.setDefaultMenuItem = function(item) { };
 * This method will return an array representing the menu items for the screen. 
 * @returns {blackberry.ui.menu.MenuItem[]}
 * @BB50+
+* @RIPPLE
 */
 blackberry.ui.menu.getMenuItems = function() { };
 
@@ -48,6 +51,7 @@ blackberry.ui.menu.getMenuItems = function() { };
 * Opens the current screen&apos;s menu. 
 * @returns {void}
 * @BB50+
+* @RIPPLE
 */
 blackberry.ui.menu.open = function() { };
 
@@ -55,6 +59,7 @@ blackberry.ui.menu.open = function() { };
 * Removes all menu items from the current menu. 
 * @returns {void}
 * @BB50+
+* @RIPPLE
 */
 blackberry.ui.menu.clearMenuItems = function() { };
 
@@ -63,6 +68,7 @@ blackberry.ui.menu.clearMenuItems = function() { };
 * @param {blackberry.ui.menu.MenuItem} item The menu item to remove.
 * @returns {void}
 * @BB50+
+* @RIPPLE
 */
 blackberry.ui.menu.removeMenuItem = function(item) { };
 
@@ -71,6 +77,7 @@ blackberry.ui.menu.removeMenuItem = function(item) { };
 * @param {blackberry.ui.menu.MenuItem} item The menu item to add.
 * @returns {void}
 * @BB50+
+* @RIPPLE
 * @example
 * &lt;script type=&quot;text/javascript&quot;&gt;
 *   function loadCustomMenuItemsForPage() {
@@ -94,6 +101,7 @@ blackberry.ui.menu.addMenuItem = function(item) { };
 * @param {blackberry.ui.menu.MenuItem} item The menu item to be checked.
 * @returns {Boolean}
 * @BB50+
+* @RIPPLE
 */
 blackberry.ui.menu.hasMenuItem = function(item) { };
 

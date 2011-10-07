@@ -20,6 +20,7 @@
 *     </p></div>
 * @toc {Invoke} MapsArguments 
 * @BB50+
+* @RIPPLE
 * @class The MapsArguments object is an instance object, and is used as a parameter to the invoke() method when invoking the Maps application.
 * @featureID blackberry.invoke
 * @featureID blackberry.invoke.MapsArguments
@@ -39,6 +40,7 @@ blackberry.invoke.MapsArguments = {
      * @function
      * @constructedBy blackberry.invoke.MapsArguments
      * @BB50+
+     * @RIPPLE
      * @description Creates a new MapsArguments object.
      * @param {blackberry.pim.Address} address The address for the BlackBerry Maps Application to startup with.
      */
@@ -48,6 +50,7 @@ blackberry.invoke.MapsArguments = {
      * @function
      * @constructedBy blackberry.invoke.MapsArguments
      * @BB50+
+     * @RIPPLE
      * @description Creates a new MapsArguments object.
      * @param {String} locationDocument The location for the BlackBerry Maps Application to startup with.
      */
@@ -57,6 +60,7 @@ blackberry.invoke.MapsArguments = {
      * @function
      * @constructedBy blackberry.invoke.MapsArguments
      * @BB50
+     * @RIPPLE
      * @description Creates a new MapsArguments object.
      * @param {Document} locationDocument The location for the BlackBerry Maps Application to startup with.
      */

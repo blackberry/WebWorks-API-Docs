@@ -18,6 +18,7 @@
 /**
  * @toc {Push} Push 
  * @BB50+
+ * @RIPPLE
  * @namespace The Push object allows you to leverage the BlackBerry push architecture to receive push data in your application.
  * <br/><br/>
  * Since the state for JavaScript for a web page is only as long as the web page is being viewed, there is a need for 
@@ -56,6 +57,7 @@ blackberry.push = {
 	* @param {blackberry.identity.Transport} [transport] Optional parameter where you can choose which communications transport you wish to listen on.
 	* @param {Number} [maxQueueCap] Optional parameter that specifies how many messages the app should queue if the port was not closed, but a function handler was lost (for example, during a page transition).
 	* @BB50+
+    * @RIPPLE
 	* @example
 	* &lt;script  type=&quot;text/javascript&quot;&gt;
 	*   var port = 1234; 
@@ -96,6 +98,7 @@ blackberry.push = {
 	* When this method is called, it will stop listening for incoming data on the push port.
 	* @param {Number} [port] The port used in the open push method. If port is not specified, all open ports will be closed.
 	* @BB50+
+    * @RIPPLE
 	* @example
 	* &lt;script type=&quot;text/javascript&quot;&gt;
 	*   function cancelSubscription() {
