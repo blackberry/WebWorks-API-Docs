@@ -39,7 +39,7 @@
                         </td>
                         <td>
                             <if test="member.isStatic && !isConstant(member)">
-                                Static<br/>
+                                Static<br />
                             </if>
                             <if test="member.isCallback && !isConstant(member)">
                                 {+ ((member.type)?(new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')) : "") + makeCallbackSignature(member.params) +}
@@ -50,15 +50,15 @@
                                 {+" = " +resolveLinks(member.defaultValue)+}
                             </if>
                             <if test="member.readOnly && !isConstant(member)">
-                                <br/>readonly
+                                <br />readonly
                             </if>
                         </td>
                         
                         <td>{+resolveLinks(member.desc)+}
                             <if test="member.params">
-                                <br/>
+                                <br />
                                 <for each="subItem" in="member.params">
-                                    <br/>
+                                    <br />
                                     <b>{+subItem.name+":"+}</b>
                                     {+resolveLinks(subItem.desc)+}
                                 </for>
@@ -78,7 +78,7 @@
                             <if test="member.support.supportStrings">              
                                 <for each="item" in="member.support.supportStrings">
                                     &nbsp;- {+item+}
-                                    <br/>
+                                    <br />
                                 </for>                  
                             </if>
                         </td>

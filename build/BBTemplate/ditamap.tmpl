@@ -35,18 +35,17 @@ var prevTocType,
 !}
 
 <!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "http://www.qnx.com/dita/xml/1.2/map.dtd">
-<map id="com.qnx.doc.neutrino.sys_arch" title="System Architecture" xml:lang="en-us"
-  anchorref="../com.qnx.doc.neutrino/main.xml#sys_arch">
+<map title="WebWorks APIs" xml:lang="en-us">
 
 {!/*Don't know if the index is needed for the Ditamap and if so how?
-    <topicref {+new DitaMapLink().toFile("index.html").withText("API Reference")+} type="concept">
+    <topicref {+new DitaMapLink().toFile("index.html").withText("API Reference")+} format="html">
     </topicref>
 */!}    
 
 <for each="thisClass" in="data">
     <if test="thisClass.toc">
         <if test="(prevTocType && prevTocType == thisClass.toc.type)">
-    <topicref {+new DitaMapLink().toClass(thisClass.alias)+} type="concept" x-ww-support="{+thisClass.support.supportTag+}">
+    <topicref {+new DitaMapLink().toClass(thisClass.alias)+} format="html" x-ww-support="{+thisClass.support.supportTag+}">
         {+thisClass.toc.desc+}
     </topicref>
         <else />
@@ -57,9 +56,9 @@ var prevTocType,
                 tocSymbols = data.filter(function($){return $.toc.type == thisClass.toc.type});
                 tocSupport = new BBTag.Support(tocSymbols);
             !}
-<topicref href="index.html" type="concept" x-ww-support="{+tocSupport.supportTag+}">
+<topicref href="index1.html" format="html" x-ww-support="{+tocSupport.supportTag+}">
     {+thisClass.toc.type+}
-    <topicref {+new DitaMapLink().toClass(thisClass.alias)+} type="concept" x-ww-support="{+thisClass.support.supportTag+}">
+    <topicref {+new DitaMapLink().toClass(thisClass.alias)+} format="html" x-ww-support="{+thisClass.support.supportTag+}">
         {+thisClass.toc.desc+}
     </topicref>
             {!prevTocType = thisClass.toc.type;!}
