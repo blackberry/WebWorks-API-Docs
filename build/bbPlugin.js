@@ -22,7 +22,7 @@
 
 BBTag = {
     tableHeader : function(firstColumnName){
-        return "<thead><tr><th>"+firstColumnName+"</th><th>OS 5.0</th><th>OS 6.0</th><th>OS 7.0</th><th>PlayBook</th></tr></thead>";
+        return "<thead><tr><th>"+firstColumnName+"</th><th>OS 5.0</th><th>OS 6.0</th><th>OS 7.0</th><th>PlayBook</th><th>Ripple</th></tr></thead>";
     }
 };
 
@@ -121,7 +121,7 @@ BBTag.Support.prototype.populateBySymbol = function(symbol) {
             var BB50P = symbol.comment.getTag("BB50+").length;
             var BB60 = symbol.comment.getTag("BB60").length;
             var BB60P = symbol.comment.getTag("BB60+").length;
-	    var BB70 = symbol.comment.getTag("BB70").length;
+            var BB70 = symbol.comment.getTag("BB70").length;
             var BB70P = symbol.comment.getTag("BB70+").length;
             var PB10 = symbol.comment.getTag("PB10").length;
             var PB10P = symbol.comment.getTag("PB10+").length;
@@ -143,7 +143,7 @@ BBTag.Support.prototype.populateByString = function(string) {
         var BB50P = string.equals("BB50+");
         var BB60 = string.equals("BB60");
         var BB60P = string.equals("BB60+");
-	var BB70 = string.equals("BB70");
+        var BB70 = string.equals("BB70");
         var BB70P = string.equals("BB70+");
         var PB10 = string.equals("PB10");
         var PB10P = string.equals("PB10+");
@@ -173,7 +173,7 @@ BBTag.Support.prototype.populateBySymbolArray = function(symbolArray) {
 
 BBTag.PlaybookSupport = function(){
     var pbSupport = new BBTag.Support();
-    pbSupport.populateByBools(false, false, false, true);
+    pbSupport.populateByBools(false, false, false, true, false);
     return pbSupport;
 }
 
