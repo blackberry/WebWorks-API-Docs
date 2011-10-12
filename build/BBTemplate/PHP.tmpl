@@ -39,7 +39,7 @@ var prevTocType,
 <for each="thisClass" in="data">
     <if test="thisClass.toc">
         <if test="(prevTocType && prevTocType == thisClass.toc.type)">    
-    ,array('title'=>'{+thisClass.toc.desc+}','link'=>'{+new TextLink().toClass(thisClass.alias)+}','id'=>'{+thisClass.toc.desc+}','children'=>array())
+    ,array('title'=>'{+thisClass.toc.desc+}','link'=>'/html5/apis/{+new TextLink().toClass(thisClass.alias)+}','id'=>'{+thisClass.toc.desc+}','children'=>array())
         <else />
             <if test="prevTocType">
 )),
@@ -48,8 +48,8 @@ var prevTocType,
                 tocSymbols = data.filter(function($){return $.toc.type == thisClass.toc.type}); 
                 tocSupport = new BBTag.Support(tocSymbols); 
             !}
-array('title'=>'{+thisClass.toc.type+}','link'=>'{+new TextLink().toClass(thisClass.alias)+}','id'=>'{+thisClass.toc.type+}','children'=>array(
-    array('title'=>'{+thisClass.toc.desc+}','link'=>'{+new TextLink().toClass(thisClass.alias)+}','id'=>'{+thisClass.toc.desc+}','children'=>array())
+array('title'=>'{+thisClass.toc.type+}','link'=>'/html5/apis/{+new TextLink().toClass(thisClass.alias)+}','id'=>'{+thisClass.toc.type+}','children'=>array(
+    array('title'=>'{+thisClass.toc.desc+}','link'=>'/html5/apis/{+new TextLink().toClass(thisClass.alias)+}','id'=>'{+thisClass.toc.desc+}','children'=>array())
             {!prevTocType = thisClass.toc.type;!}
         </if>
     </if>

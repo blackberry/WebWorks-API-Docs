@@ -111,10 +111,10 @@ function publish(symbolSet) {
     IO.saveFile(publish.conf.outDir, "toc.ditamap", processedDitamap);
     
     var processedJSON = JSONTemplate.process(classes);
-    IO.saveFile(publish.conf.outDir, "menu-docs.php.json", processedJSON);
+    IO.saveFile(publish.conf.outDir, "menu-apis.php.json", processedJSON);
     
     var processedPHP = PHPTemplate.process(classes);
-    IO.saveFile(publish.conf.outDir, "menu-docs.php", processedPHP);
+    IO.saveFile(publish.conf.outDir, "menu-apis.php", processedPHP);
 
     // COPY FILES
     // CSS files

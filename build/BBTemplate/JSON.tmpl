@@ -38,7 +38,7 @@ var prevTocType,
 <for each="thisClass" in="data">
     <if test="thisClass.toc">
         <if test="(prevTocType && prevTocType == thisClass.toc.type)">
-    ,{ "title":"{+thisClass.toc.desc+}", "id":"{+thisClass.toc.desc+}", "link":"{+new TextLink().toClass(thisClass.alias)+}", "children":[]}
+    ,{ "title":"{+thisClass.toc.desc+}", "id":"{+thisClass.toc.desc+}", "link":"/html5/apis/{+new TextLink().toClass(thisClass.alias)+}", "children":[]}
         <else />
             <if test="prevTocType">
 ]},
@@ -47,8 +47,8 @@ var prevTocType,
                 tocSymbols = data.filter(function($){return $.toc.type == thisClass.toc.type}); 
                 tocSupport = new BBTag.Support(tocSymbols); 
             !}
-{ "title":"{+thisClass.toc.type+}", "id":"{+thisClass.toc.type+}", "link":"index1.html", "children":[    
-    { "title":"{+thisClass.toc.desc+}", "id":"{+thisClass.toc.desc+}", "link":"{+new TextLink().toClass(thisClass.alias)+}", "children":[]}
+{ "title":"{+thisClass.toc.type+}", "id":"{+thisClass.toc.type+}", "link":"/html5/apis/index1.html", "children":[    
+    { "title":"{+thisClass.toc.desc+}", "id":"{+thisClass.toc.desc+}", "link":"/html5/apis/{+new TextLink().toClass(thisClass.alias)+}", "children":[]}
             {!prevTocType = thisClass.toc.type;!}
         </if>
     </if>
