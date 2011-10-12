@@ -20,6 +20,7 @@
  *     </p></div>
  * @toc {Phone} Find FilterExpression
  * @BB50+
+ * @RIPPLE
  * @class The FilterExpression object represents the expression that is used to find an item that matches its defined condition.
  * @featureID blackberry.phone.Find
  * @constructor Constructor for a new FilterExpression object.
@@ -62,6 +63,7 @@ blackberry.phone.Find.FilterExpression = function(leftField ,operator ,rightFiel
 
  * @readOnly
  * @BB50+
+ * @RIPPLE
  */
 blackberry.phone.Find.FilterExpression.prototype.leftField = { };
  
@@ -89,6 +91,7 @@ blackberry.phone.Find.FilterExpression.prototype.leftField = { };
      * 32, "CONTAINS" - CONTAINS
      * @readOnly
      * @BB50+
+     * @RIPPLE
      */
 blackberry.phone.Find.FilterExpression.prototype.operator = { };
 
@@ -100,6 +103,7 @@ blackberry.phone.Find.FilterExpression.prototype.operator = { };
  * 2. (Or) contains another FilterExpression object to be combined with "leftField."
  * @readOnly
  * @BB50+
+ * @RIPPLE
  */
 blackberry.phone.Find.FilterExpression.prototype.rightField = { };
 
@@ -109,5 +113,6 @@ blackberry.phone.Find.FilterExpression.prototype.rightField = { };
  * The Boolean flag that indicates whether the condition of the FilterExpression object should be evaluated negatively.  This should only be used when you have nested expressions.  On regular field&sol;value comparisons, negate isn&apos;t necessary as the != is sufficient.
  * @readOnly
  * @BB50+
+ * @RIPPLE
  */
 blackberry.phone.Find.FilterExpression.prototype.negate = { };

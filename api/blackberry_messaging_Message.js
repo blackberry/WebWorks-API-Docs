@@ -21,6 +21,7 @@
 *     </p></div>
 * @toc {Message} Message 
 * @BB50+
+* @RIPPLE
 * @class The Email Message object represents a message on the BlackBerry device. This class can be created and used when launching the new message screen using the invoke API or for direct interaction with the message list storage function.
 * @featureID blackberry.message
 * @featureID blackberry.identity
@@ -43,6 +44,7 @@ blackberry.message.Message = function(service) { };
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.STATUS_UNKNOWN = -1;
 
@@ -51,6 +53,7 @@ blackberry.message.Message.STATUS_UNKNOWN = -1;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.STATUS_SAVED = 0;
 
@@ -59,6 +62,7 @@ blackberry.message.Message.STATUS_SAVED = 0;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.STATUS_DRAFT = 1;
 
@@ -67,6 +71,7 @@ blackberry.message.Message.STATUS_DRAFT = 1;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.STATUS_SENT = 2;
 
@@ -75,6 +80,7 @@ blackberry.message.Message.STATUS_SENT = 2;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.STATUS_ERROR_OCCURED = 3;
 
@@ -83,6 +89,7 @@ blackberry.message.Message.STATUS_ERROR_OCCURED = 3;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.PRIORITY_HIGH = 0;
 
@@ -91,6 +98,7 @@ blackberry.message.Message.PRIORITY_HIGH = 0;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.PRIORITY_MEDIUM = 1;
 
@@ -99,6 +107,7 @@ blackberry.message.Message.PRIORITY_MEDIUM = 1;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.PRIORITY_LOW = 2;
 
@@ -107,6 +116,7 @@ blackberry.message.Message.PRIORITY_LOW = 2;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.FOLDER_INBOX = 0;
 
@@ -115,6 +125,7 @@ blackberry.message.Message.FOLDER_INBOX = 0;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.FOLDER_SENT = 1;
 
@@ -123,6 +134,7 @@ blackberry.message.Message.FOLDER_SENT = 1;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.FOLDER_DRAFT = 2;
 
@@ -131,6 +143,7 @@ blackberry.message.Message.FOLDER_DRAFT = 2;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.FOLDER_OUTBOX = 3;
 
@@ -139,6 +152,7 @@ blackberry.message.Message.FOLDER_OUTBOX = 3;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.FOLDER_DELETED = 4;
 
@@ -147,6 +161,7 @@ blackberry.message.Message.FOLDER_DELETED = 4;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.FOLDER_OTHER = 5;
 
@@ -157,6 +172,7 @@ blackberry.message.Message.FOLDER_OTHER = 5;
 * @param {blackberry.identity.Service} [service] optional parameter to define which service you wish to search for your messages. If not provided the default service for messages will be used.
 * @returns {Message[]}
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.find = function(filter,maxReturn,service) { };
 
@@ -164,6 +180,7 @@ blackberry.message.Message.find = function(filter,maxReturn,service) { };
 * This method will save the changes made to the message object. 
 * @returns {void}
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.prototype.save = function() { };
 
@@ -171,6 +188,7 @@ blackberry.message.Message.prototype.save = function() { };
 * This method will send the message to its recipients. 
 * @returns {void}
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.prototype.send = function() { };
 
@@ -178,6 +196,7 @@ blackberry.message.Message.prototype.send = function() { };
 * This method will remove a message from the PIM storage. 
 * @returns {void}
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.prototype.remove = function() { };
 
@@ -185,6 +204,7 @@ blackberry.message.Message.prototype.remove = function() { };
 * Contains a list of the addresses that this message should be sent to. The list of addresses is delimited by white spaces (for example, space or &apos;&bsol;n&apos;), a semicolon, or a comma. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.prototype.toRecipients = { };
 
@@ -192,6 +212,7 @@ blackberry.message.Message.prototype.toRecipients = { };
 * Contains a list of the addresses that this message should be cc&apos;d to; they are delimited by white spaces (for example, space or &apos;&bsol;n&apos;), a semicolon, or a comma. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.prototype.ccRecipients = { };
 
@@ -199,6 +220,7 @@ blackberry.message.Message.prototype.ccRecipients = { };
 * Contains a list of the addresses that this message should be bcc&apos;d to; they are delimited by white spaces (for example, space or &apos;&bsol;n&apos;), a semicolon, or a comma. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.prototype.bccRecipients = { };
 
@@ -206,6 +228,7 @@ blackberry.message.Message.prototype.bccRecipients = { };
 * Contains the subject of the message. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.prototype.subject = { };
 
@@ -213,6 +236,7 @@ blackberry.message.Message.prototype.subject = { };
 * Contains the body of the message. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.prototype.body = { };
 
@@ -221,6 +245,7 @@ blackberry.message.Message.prototype.body = { };
 * @type String
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.prototype.from = { };
 
@@ -229,6 +254,7 @@ blackberry.message.Message.prototype.from = { };
 * @type String
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.prototype.replyTo = { };
 
@@ -236,6 +262,7 @@ blackberry.message.Message.prototype.replyTo = { };
 * Specifies which folder this message is in. This field is read-only. Created messages that are sent are put in the Sent folder. Can be one of the the FOLDER_* constants. 
 * @type Number
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.prototype.folder = { };
 
@@ -243,6 +270,7 @@ blackberry.message.Message.prototype.folder = { };
 * Specifies the priority of the message. Can be one of the PRIORITY_* constants. 
 * @type Number
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.prototype.priority = { };
 
@@ -251,6 +279,7 @@ blackberry.message.Message.prototype.priority = { };
 * @type Number
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.prototype.status = { };
 
@@ -259,6 +288,7 @@ blackberry.message.Message.prototype.status = { };
 * @type Number
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.message.Message.prototype.uid = { };
 

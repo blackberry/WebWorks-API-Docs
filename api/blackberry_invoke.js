@@ -45,6 +45,7 @@ blackberry.invoke = {
 		 * @throws {Exception} If values supplied are not correct. 
 		 * @BB50+
 		 * @PB10
+		 * @RIPPLE
 		 */
 		invoke : function(appType, args){},
 		
@@ -53,6 +54,7 @@ blackberry.invoke = {
 		 * @type Number
 		 * @constant
 		 * @BB50+
+		 * @RIPPLE
 		 * @description Constant used to invoke the Address Book.
 		 */
 
@@ -62,6 +64,7 @@ blackberry.invoke = {
 		 * @type Number
 		 * @constant
 		 * @BB50+
+		 * @RIPPLE
 		 * @description Constant used to invoke the Bluetooth Configuration.
 		 */
 
@@ -71,6 +74,7 @@ blackberry.invoke = {
 		 * @type Number
 		 * @constant
 		 * @BB50+
+		 * @RIPPLE
 		 * @description Constant used to invoke the Calculator.
 		 */
 
@@ -80,6 +84,7 @@ blackberry.invoke = {
 		 * @type Number
 		 * @constant
 		 * @BB50+
+		 * @RIPPLE
 		 * @description Calendar.
 		 */
 
@@ -90,6 +95,7 @@ blackberry.invoke = {
 		 * @constant
 		 * @BB50+
 		 * @PB10
+		 * @RIPPLE
 		 * @description Camera.
 		 */
 
@@ -100,6 +106,7 @@ blackberry.invoke = {
 		 * @constant
 		 * @BB50+
 		 * @PB10
+		 * @RIPPLE
 		 * @description Maps.
 		 */
 		APP_MAPS : 5,
@@ -108,6 +115,7 @@ blackberry.invoke = {
 		 * @type Number
 		 * @constant
 		 * @BB50+
+		 * @RIPPLE
 		 * @description Constant used to invoke the Memopad.
 		 */
 
@@ -117,6 +125,7 @@ blackberry.invoke = {
 		 * @type Number
 		 * @constant
 		 * @BB50+
+		 * @RIPPLE
 		 * @description Constant used to invoke the Messages Application.
 		 */
 
@@ -126,6 +135,7 @@ blackberry.invoke = {
 		 * @type Number
 		 * @constant
 		 * @BB50+
+		 * @RIPPLE
 		 * @description Constant used to invoke the Phone.
 		 */
 
@@ -135,6 +145,7 @@ blackberry.invoke = {
 		 * @type Number
 		 * @constant
 		 * @BB50+
+		 * @RIPPLE
 		 * @description Constant used to invoke the Search.
 		 */
 
@@ -144,6 +155,7 @@ blackberry.invoke = {
 		 * @type Number
 		 * @constant
 		 * @BB50+
+		 * @RIPPLE
 		 * @description Constant used to invoke the Tasks.
 		 */
 		APP_TASKS : 10,
@@ -153,6 +165,7 @@ blackberry.invoke = {
 		 * @constant
 		 * @BB50+
 		 * @PB10
+		 * @RIPPLE
 		 * @description Browser.
 		 */
 		APP_BROWSER : 11,
@@ -161,6 +174,7 @@ blackberry.invoke = {
 		 * @type Number
 		 * @constant
 		 * @BB50+
+		 * @RIPPLE
 		 * @description Constant used to invoke a Java Application.
 		 */
 		APP_JAVA : 12,
@@ -169,6 +183,7 @@ blackberry.invoke = {
 		 * @type Number
 		 * @constant
 		 * @PB10
+		 * @RIPPLE
 		 * @description Music Application.
 		 */
 		APP_MUSIC : 13,
@@ -177,6 +192,7 @@ blackberry.invoke = {
 		 * @type Number
 		 * @constant
 		 * @PB10
+		 * @RIPPLE
 		 * @description Photos Application.
 		 */
 		APP_PHOTOS : 14,
@@ -185,6 +201,7 @@ blackberry.invoke = {
 		 * @type Number
 		 * @constant
 		 * @PB10
+		 * @RIPPLE
 		 * @description Videos Application.
 		 */
 		APP_VIDEOS : 15,
@@ -193,6 +210,7 @@ blackberry.invoke = {
 		 * @type Number
 		 * @constant
 		 * @PB10
+		 * @RIPPLE
 		 * @description App World Application.
 		 */
 		APP_APPWORLD : 16

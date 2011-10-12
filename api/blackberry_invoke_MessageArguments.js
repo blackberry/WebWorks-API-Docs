@@ -20,6 +20,7 @@
 *     </p></div>
 * @toc {Invoke} MessageArguments 
 * @BB50+
+* @RIPPLE
 * @class The MessageArguments object is an instance object, and is used as a parameter to the invoke() method when invoking the Messaging application.
 * @featureID blackberry.invoke
 * @featureID blackberry.invoke.MessageArguments
@@ -39,6 +40,7 @@ blackberry.invoke.MessageArguments = function() { };
 * @constructedBy blackberry.invoke.MessageArguments
 * @description Build a MessageArguments object from a {blackberry.message.Message} object
 * @BB50+
+* @RIPPLE
 * @function
 * @param {blackberry.message.Message} message The Message object used to construct the MessageArguments
 */
@@ -48,6 +50,7 @@ blackberry.invoke.MessageArguments.const1 = function() { };
 * @constructedBy blackberry.invoke.MessageArguments
 * @description Build a MessageArguments object from string arguments
 * @BB50+
+* @RIPPLE
 * @function
 * @param {String} to The recipient's email address
 * @param {String} subject The message's subject line
@@ -60,6 +63,7 @@ blackberry.invoke.MessageArguments.const2 = function() { };
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.MessageArguments.VIEW_NEW = 0;
 
@@ -68,6 +72,7 @@ blackberry.invoke.MessageArguments.VIEW_NEW = 0;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.MessageArguments.VIEW_DEFAULT = 1;
 
@@ -76,6 +81,7 @@ blackberry.invoke.MessageArguments.VIEW_DEFAULT = 1;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.MessageArguments.VIEW_SAVED = 2;
 
@@ -84,6 +90,7 @@ blackberry.invoke.MessageArguments.VIEW_SAVED = 2;
 * @type Number
 * @constant
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.MessageArguments.VIEW_SEARCH = 3;
 
@@ -91,6 +98,7 @@ blackberry.invoke.MessageArguments.VIEW_SEARCH = 3;
 * Value that specifies what kind of view you want to view in Messages application. If MessageArguments object is created with a Message object or &apos;to&apos;,&apos;subject&apos;,&apos;body&apos; values, the view is &apos;VIEW_NEW&apos; regardless if any other value is assigned. 
 * @type Number
 * @BB50+
+* @RIPPLE
 */
 blackberry.invoke.MessageArguments.prototype.view = { };
 

@@ -19,6 +19,7 @@
 * @featureID blackberry.ui.menu
 * @toc {User Interface} MenuItem 
 * @BB50+
+* @RIPPLE
 * @class The MenuItem object represents a menu item for the screen.
 * @constructs  
 * @param {Boolean} isSeparator If set to true the MenuItem will be created as a separator.
@@ -46,6 +47,7 @@ blackberry.ui.menu.MenuItem = function(isSeparator,ordinal,caption,onClick) { };
 * Contains the caption for the menu item. 
 * @type String
 * @BB50+
+* @RIPPLE
 */
 blackberry.ui.menu.MenuItem.prototype.caption = { };
 
@@ -53,6 +55,7 @@ blackberry.ui.menu.MenuItem.prototype.caption = { };
 * Each MenuItem has an ordinal specifying the sort order within the menu. MenuItems with a lower ordinal will have higher positions on the menu than the MenuItems with higher ordinal. A separator will be automatically inserted between adjacent items whose ordinals differ by at least 0x00010000. 
 * @type Number
 * @BB50+
+* @RIPPLE
 */
 blackberry.ui.menu.MenuItem.prototype.ordinal = { };
 
@@ -61,6 +64,7 @@ blackberry.ui.menu.MenuItem.prototype.ordinal = { };
 * @type Boolean
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.ui.menu.MenuItem.prototype.isSeparator = { };
 
@@ -69,6 +73,7 @@ blackberry.ui.menu.MenuItem.prototype.isSeparator = { };
 * @type Boolean
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.ui.menu.MenuItem.prototype.isDefault = { };
 

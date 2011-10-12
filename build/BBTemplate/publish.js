@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2011 Research In Motion Limited.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -65,7 +65,7 @@ function publish(symbolSet) {
 	function hasNoParent($) {return ($.memberOf == "");};
 	function isaFile($) {return ($.is("FILE"));};
 	function isaClass($) {return ($.is("CONSTRUCTOR") || $.isNamespace) && !($.alias == "_global_");};
-	
+
     // get an array version of the symbolset, useful for filtering
     var symbols = symbolSet.toArray();
 
@@ -82,7 +82,7 @@ function publish(symbolSet) {
 			if (!filemapCounts[lcAlias]) filemapCounts[lcAlias] = 1;
 			else filemapCounts[lcAlias]++;
 
-			Link.filemap[classes[i].alias] = 
+			Link.filemap[classes[i].alias] =
 				(filemapCounts[lcAlias] > 1)?
 				lcAlias+"_"+filemapCounts[lcAlias] : lcAlias;
         }
@@ -272,9 +272,9 @@ function makeSignature(params) {
 
 /** Build output for displaying Callback function parameters.
  *  These differ because
- *  	callbacks only have subParams (will not be filtered), 
+ *  	callbacks only have subParams (will not be filtered),
  *  	the names of the params are sliced
- *		the type is a link to the actual type  	
+ *		the type is a link to the actual type
  **/
 function makeCallbackSignature(params) {
 	if (!params) return "()";
@@ -298,7 +298,7 @@ function makeCallbackSignature(params) {
 
 /** Find symbol {@link ...} strings in text and turn into html links */
 function resolveLinks(str, from) {
-    str = str.replace(/\{@link ([^} ]+) ?\}/gi, 
+    str = str.replace(/\{@link ([^} ]+) ?\}/gi,
         function(match, symbolName) {
             var symbol = JSDOC.Parser.symbols.getSymbol(symbolName);
             var textSymbolName = symbol ? getSymbolName(symbol) : symbolName;
@@ -333,7 +333,7 @@ function getSymbolName(symbol, forSummary) {
     }else if (symbol.squareAccessor) {
         return "[]";
     } else if (symbol.uri) {
-        return "webworks://" + symbol.alias.replace(/\./g, "/").replace("[\^][\d]", '');
+        return "http://localhost:8472/" + symbol.alias.replace(/\./g, "/").replace("[\^][\d]", '');
     } else if (symbol.isStatic && !forSummary) {
         return symbol.memberOf + "." + symbol.name.replace(/\^\d+$/, '').replace("[\^][\d]", '');
     } else {
