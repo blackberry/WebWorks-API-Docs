@@ -52,6 +52,8 @@ function publish(symbolSet) {
     try {
 		var classTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"class.tmpl");
         var ditamapTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"ditamap.tmpl");
+        var JSONTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"JSON.tmpl");
+        var PHPTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"PHP.tmpl");
         // var viewableClassTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"viewableClass.tmpl");
 	}
 	catch(e) {
@@ -107,6 +109,12 @@ function publish(symbolSet) {
     
     var processedDitamap = ditamapTemplate.process(classes);
     IO.saveFile(publish.conf.outDir, "toc.ditamap", processedDitamap);
+    
+    var processedJSON = JSONTemplate.process(classes);
+    IO.saveFile(publish.conf.outDir, "menu-docs.php.json", processedJSON);
+    
+    var processedPHP = PHPTemplate.process(classes);
+    IO.saveFile(publish.conf.outDir, "menu-docs.php", processedPHP);
 
     // COPY FILES
     // CSS files
