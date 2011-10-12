@@ -18,6 +18,8 @@
 * @toc {Identity} Identity 
 * @BB50+
 * @RIPPLE
+* @notice {Warning ( Playbook 1.0 Notice):}
+* For URI based APIs, webworks:// has been deprecated and replaced with http://localhost:8472. This change does not affect the procedural APIs.
 * @namespace The Identity object contains information regarding the user&apos;s identity and accounts on a BlackBerry smartphone.
 * @featureID blackberry.identity
 * @featureID blackberry.identity.phone
@@ -46,7 +48,7 @@ blackberry.identity = {
  *	function getIdentityData(){
  *		$.ajax({
  *		    type: "get",
- *		    url: "webworks://blackberry/identity/get",
+ *		    url: "http://localhost:8472/blackberry/identity/get",
  *		    success: function(msg){
  *		      $('#myIdentityDiv').populate(JSON.parse(msg).data);
  *		    }
