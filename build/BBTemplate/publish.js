@@ -38,11 +38,13 @@ function publish(symbolSet) {
     }
 
     // create the folders and subfolders to hold the output
-    IO.mkPath((publish.conf.outDir + publish.conf.cssDir));
     IO.mkPath((publish.conf.outDir + publish.conf.imagesDir));
+    /* These paths are no longer used
+    IO.mkPath((publish.conf.outDir + publish.conf.cssDir));    
     IO.mkPath((publish.conf.outDir + publish.conf.jsDir));
     IO.mkPath((publish.conf.outDir + publish.conf.srcDir));
-
+    */
+    
     // used to allow Link to check the details of things being linked to
     Link.symbolSet = symbolSet;
 
@@ -50,7 +52,7 @@ function publish(symbolSet) {
     try {
 		var classTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"class.tmpl");
         var ditamapTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"ditamap.tmpl");
-        var viewableClassTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"viewableClass.tmpl");
+        // var viewableClassTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"viewableClass.tmpl");
 	}
 	catch(e) {
         print("Couldn't create the required templates: " + e);
@@ -64,15 +66,6 @@ function publish(symbolSet) {
 	
     // get an array version of the symbolset, useful for filtering
     var symbols = symbolSet.toArray();
-
-	/* create the hilited source code files
-	var files = JSDOC.opt.srcFiles;
- 	for (var i = 0, l = files.length; i < l; i++) {
- 		var file = files[i];
- 		var srcDir = publish.conf.outDir +publish.conf.srcDir;
-		makeSrcFile(file, srcDir);
- 	}
-     */
 
     // get a list of all the classes in the symbolset
     var classes = symbols.filter(isaClass).sort(makeSortby("name"));
@@ -104,32 +97,27 @@ function publish(symbolSet) {
         Link.base="";
         
         var output = classTemplate.process(symbol);
-		IO.saveFile(publish.conf.outDir+"/"+publish.conf.symbolsDir+publish.conf.srcDir, ((JSDOC.opt.u)? Link.filemap[symbol.alias] : symbol.alias) + publish.conf.ext, output);
-        
-        var output2 = viewableClassTemplate.process(symbol);
-        IO.saveFile(publish.conf.outDir, ((JSDOC.opt.u)? Link.filemap[symbol.alias] : symbol.alias) + publish.conf.ext, output2);
+		IO.saveFile(publish.conf.outDir, ((JSDOC.opt.u)? Link.filemap[symbol.alias] : symbol.alias) + publish.conf.ext, output);        
     }
 
     // Generate the toc page
     Link.base = "";
-	function hasTOC($) {return ($.toc)}
-    var classes = classes.filter(hasTOC).sort(makeTocSort());
+	
+    var classes = classes.filter(function ($) {return ($.toc)} ).sort(makeTocSort());
     
     var processedDitamap = ditamapTemplate.process(classes);
-    IO.saveFile(publish.conf.outDir+"/"+publish.conf.srcDir, "toc.ditamap", processedDitamap);
+    IO.saveFile(publish.conf.outDir, "toc.ditamap", processedDitamap);
 
     // COPY FILES
     // CSS files
-	copyFiles(publish.conf.templatesDir+"/"+publish.conf.cssDir,publish.conf.outDir+"/"+publish.conf.cssDir );
+	// copyFiles(publish.conf.templatesDir+"/"+publish.conf.cssDir,publish.conf.outDir+"/"+publish.conf.cssDir );
     // Static files
 	copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir );
     // Image Files
-	copyFiles(publish.conf.templatesDir+"/"+publish.conf.imagesDir,publish.conf.outDir+"/"+publish.conf.imagesDir );		
+	// copyFiles(publish.conf.templatesDir+"/"+publish.conf.imagesDir,publish.conf.outDir+"/"+publish.conf.imagesDir );		
     // JS Files
-	copyFiles(publish.conf.templatesDir+"/"+publish.conf.jsDir,publish.conf.outDir+"/"+publish.conf.jsDir );
-    
-    //Copy Index.html into src directory
-    IO.copyFile(publish.conf.templatesDir+"/"+publish.conf.staticDir+"index.html",publish.conf.outDir + publish.conf.srcDir );
+	// copyFiles(publish.conf.templatesDir+"/"+publish.conf.jsDir,publish.conf.outDir+"/"+publish.conf.jsDir );
+
 }
 
 function copyFiles(srcDir, destDir) {
