@@ -35,7 +35,7 @@ blackberry.payment = {
      * @description Retrieves the previous successful purchases made by the user from within the calling application.
      * @param {Boolean} [refresh]  True if the BlackBerry should be allowed to refresh the list of purchases from the Payment Service server. False if the current list of cached purchases should be returned immediately.
      * @callback {function} callbackOnSuccess Function to be invoked on successful call.
-     * @callback {String} callbackOnSuccess.data A String representation of a JSONArray of purchases is passed as a parameter in the form below.
+     * @callback {String} callbackOnSuccess.data A string representing a literal array of {@link Purchase} items is passed as a parameter in the form below:
      * <pre>[{
      * "transactionID": "00000001",
      * "digitalGoodID": "123",
@@ -79,7 +79,7 @@ blackberry.payment = {
      * @callback {String} args.purchaseAppName Name of the application requesting the purchase.
      * @callback {String} args.purchaseAppIcon Icon of the application requesting the purchase.
      * @callback {function} callbackOnSuccess Function to be called when the payment is successful.
-     * @callback {String} callbackOnSuccess.data An String representation of a JSONObject of a purchase is passed as a parameter in the form below.
+     * @callback {String} callbackOnSuccess.data A string representing a {@link Purchase} object literal.
      * @callback {function} [callbackOnFailure] Function to be called when an error occurs.
      * @callback {String} callbackOnFailure.errorText Retrieves the message set for an error. In addition to descriptive text, error code may appear at the end of the message. 
      * @callback {Number} callbackOnFailure.errorID Contains the reference number associated with the specific error in corresponding to the following values.
@@ -110,11 +110,15 @@ blackberry.payment = {
      *  }
      *
      *  function success(purchase) {
-     *    alert ("success called: " + purchase);
-     *   }
+     *    var purchasedItem = JSON.parse(purchase);
+     *    var transId = purchasedItem.transactionID;
+     *    var sku = purchasedItem.digitalGoodSKU;
+     *    var dgId = purchasedItem.digitalGoodID;
+     *    alert("Purchased Item: " + transId + "," + sku +  "," + dgId);
+     *  }
      *
-     *  function failure(error) {
-     *    alert ("failure called with error code: " + error);
+     *  function failure(errorText, errorId) {
+     *    alert("Error occured: " + errorText + ", " + errorId);
      *  }
      * &lt;/script&gt;
      */
