@@ -1,0 +1,14 @@
+
+{!/***********     Examples     ***********/!}                
+<if test="data.example.length">
+	{!
+		if(data.type==='Function' || data.type==='Property') {
+			output += "<br /><h3>Code Example(s)</h3>";
+		} else if (data.type==='Class') {
+			output += "<h2>Code Example(s)</h2><hr/>";
+		}
+	!}
+	<for each="example" in="data.example">
+		<pre>{+example+}</pre>
+	</for>
+</if>  

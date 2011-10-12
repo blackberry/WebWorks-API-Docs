@@ -1,0 +1,156 @@
+{!
+var functionParams,
+    subParams;
+!}
+<for each="children" in="data.ownChildren">
+    <if test="children && children.length">
+        <for each="member" in="children">
+            <div x-ww-support="{+member.support.supportTag+}">
+                <h2>
+                    <a name="{+Link.symbolNameToLinkName(member)+}"></a>
+                    {+getSymbolName(member)+}
+                </h2>
+                <hr/>
+                 
+                <if test="!isURIMethod(member)">
+                    <table>
+                        <tr><td>
+                            <if test="isConstructor(member)">
+                                {+getSymbolName(member,true)+}
+                                <if test="!member.is('OBJECT')">
+                                    {+makeSignature(member.params)+}
+                                </if>
+                            <else/>
+                                <if test="member.isStatic">static</if>              
+                                <if test="member.type">{+new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')+}<else/>void</if>
+                                <if test="member.squareAccessor">
+                                    [{+makeSignature(member.params).slice(1,-1)+}]
+                                <else />
+                                    {+getSymbolName(member,true)+}{+makeSignature(member.params)+}
+                                </if>                          
+                            </if>
+                        </td></tr>
+                    </table>
+                    <br />
+                </if>
+                        
+                <if test="member.deprecated">
+                    <table>
+                        <tr><td>
+                            <h3>Deprecation Notice:</h3>
+                            {+ resolveLinks(member.deprecated) +}
+                        </td></tr>
+                    </table>                
+                </if>           
+                        
+                <if test="member.support.supportStrings">              
+                    <h3>Supported Platform(s)</h3>      
+                    <for each="item" in="member.support.supportStrings">
+                        &nbsp;- {+item+}
+                        <br />
+                    </for>              
+                </if>                   
+                <br />
+                        
+                <h3>Description</h3>
+                <p>{+resolveLinks(member.desc)+}</p>
+                <br />
+                        
+                <if test="member.returns.length && member.returns.filter(function($){return !isBlank($.desc);}).length && !isConstructor(member) && !isURIMethod(member)">
+                    <br />
+                    <h3>Returns</h3>
+                    <for each="item" in="member.returns">
+                        {+resolveLinks(item.desc)+}
+                    </for>
+                    <br />
+                </if>
+                        
+                <if test="member.params.length || member.callbacks">
+                    <br />
+                    <table>
+                        <thead><tr>
+                            <th>
+                               Parameter
+                               
+                            </th>
+                            <th>
+                               Type
+                               
+                            </th>
+                            <th>
+                               Description
+                               
+                            </th>
+                        </tr></thead>
+                        {!functionParams = member.params.filter(function($){return $.name.indexOf(".") == -1});!}               
+                        <for each="item" in="functionParams">
+                            {!subParams = member.params.filter(function($){return $.name.indexOf(item.name+".") != -1});!}
+                            <tr>
+                                <td><b>{+item.name+}</b></td>
+                                <td>
+                                    <if test="item.isCallback">
+                                        {+ ((item.type)?(new Link().toSymbol(item.type).toString().replace(/\|/g, ' | ')) : "") + makeCallbackSignature(subParams) +}
+                                    <else/>
+                                        {+((item.type)?(new Link().toSymbol(item.type).toString().replace(/\|/g, ' | ')) : "")+}
+                                    </if>
+                                    <if test="item.isOptional"><br /><i>Optional</i></if>                                                    
+                                </td>
+                                <td>
+                                    <if test="item.defaultValue"><i>[Default Value: {+item.defaultValue+}]</i><p/></if>
+                                    {+resolveLinks(item.desc)+}                         
+                                    <if test="subParams.length">
+                                        <br />
+                                        <for each="subItem" in="subParams">
+                                            <br />
+                                            <b>{+subItem.name.slice(subItem.name.indexOf(".")+1,subItem.name.length)+":"+}</b> {+resolveLinks(subItem.desc)+}
+                                        </for>
+                                    </if>
+                                </td>
+                            </tr>
+                        </for>              
+                    </table>
+                </if>                   
+                        
+                <if test="member.exceptions.length">
+                    <br />
+                    <table>
+                        <thead><tr>
+                            <th>
+                               <if test="isURIMethod(member)">Error Code<else/>Throws</if>
+                               
+                            </th>
+                            <th>
+                               Description
+                               
+                            </th>
+                        </tr></thead>
+                        <for each="item" in="member.exceptions">
+                            <tr>
+                                <td>
+                                    {+((item.type)?(new Link().toSymbol(item.type).toString().replace(/\|/g, ' | ')) : "")+}                                                
+                                </td>
+                                <td>
+                                    {+resolveLinks(item.desc)+}
+                                </td>
+                            </tr>
+                        </for>
+                    </table>
+                </if>
+
+                <if test="member.returns.length && isURIMethod(member)">
+                    <br />
+                    <h3>Returns</h3>
+                    <table>
+                        <for each="item" in="member.returns">
+                            <tr><td>
+                                <pre>{+resolveLinks(item.desc)+}</pre>
+                            </td></tr>
+                        </for>
+                    </table>
+                </if>
+
+                {+subtemplate("subtemplates/example.tmpl", {example: member.example, type: "Function"})+}  
+            </div>
+        </for>
+    </if>
+</for>
