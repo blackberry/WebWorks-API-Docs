@@ -1,4 +1,4 @@
-﻿/*
+/*
 * Copyright 2010-2011 Research In Motion Limited.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -40,11 +40,11 @@ function publish(symbolSet) {
     // create the folders and subfolders to hold the output
     IO.mkPath((publish.conf.outDir + publish.conf.imagesDir));
     /* These paths are no longer used
-    IO.mkPath((publish.conf.outDir + publish.conf.cssDir));    
+    IO.mkPath((publish.conf.outDir + publish.conf.cssDir));
     IO.mkPath((publish.conf.outDir + publish.conf.jsDir));
     IO.mkPath((publish.conf.outDir + publish.conf.srcDir));
     */
-    
+
     // used to allow Link to check the details of things being linked to
     Link.symbolSet = symbolSet;
 
@@ -97,22 +97,22 @@ function publish(symbolSet) {
 
         Link.currentSymbol = symbol;
         Link.base="";
-        
+
         var output = classTemplate.process(symbol);
-		IO.saveFile(publish.conf.outDir, ((JSDOC.opt.u)? Link.filemap[symbol.alias] : symbol.alias) + publish.conf.ext, output);        
+		IO.saveFile(publish.conf.outDir, ((JSDOC.opt.u)? Link.filemap[symbol.alias] : symbol.alias) + publish.conf.ext, output);
     }
 
     // Generate the toc page
     Link.base = "";
-	
+
     var classes = classes.filter(function ($) {return ($.toc)} ).sort(makeTocSort());
-    
+
     // var processedDitamap = ditamapTemplate.process(classes);
     // IO.saveFile(publish.conf.outDir, "toc.ditamap", processedDitamap);
-    
+
     var processedJSON = JSONTemplate.process(classes);
     IO.saveFile(publish.conf.outDir, "menu-apis.php.json", processedJSON);
-    
+
     var processedPHP = PHPTemplate.process(classes);
     IO.saveFile(publish.conf.outDir, "menu-apis.php", processedPHP);
 
@@ -122,7 +122,7 @@ function publish(symbolSet) {
     // Static files
 	copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir );
     // Image Files
-	// copyFiles(publish.conf.templatesDir+"/"+publish.conf.imagesDir,publish.conf.outDir+"/"+publish.conf.imagesDir );		
+	// copyFiles(publish.conf.templatesDir+"/"+publish.conf.imagesDir,publish.conf.outDir+"/"+publish.conf.imagesDir );
     // JS Files
 	// copyFiles(publish.conf.templatesDir+"/"+publish.conf.jsDir,publish.conf.outDir+"/"+publish.conf.jsDir );
 
