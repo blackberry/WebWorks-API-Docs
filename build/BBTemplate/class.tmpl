@@ -52,6 +52,21 @@
         }
 
     </script>
+    
+    <style type="text/css">
+
+        .apiYes {
+            background-color: #D1F8FB;
+        }
+        
+        .tdNoWrap {
+            white-space:nowrap;
+        }
+        
+        .APISupportTable {
+            display:none;
+        }
+    </style>
 
     <div>
 
@@ -135,7 +150,7 @@
             <p>
                 <a href="javascript:viewSupportedTable()">View Supported Platform Table</a>
             </p>
-            <div id="APISupportTable">
+            <div class="APISupportTable" id="APISupportTable">
                 <table class="apiTable">
                     {+ BBTag.tableHeader("API") +}
                     <if test="constructors.length">
