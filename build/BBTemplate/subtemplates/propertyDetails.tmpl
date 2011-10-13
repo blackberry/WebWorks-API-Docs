@@ -1,0 +1,94 @@
+{!
+    var childrenSupport,
+        i=-1;
+
+!}
+
+<for each="children" in="data.ownChildren">
+    {!i++;!}
+    <if test="children && children.length">
+       {!childrenSupport = new BBTag.Support(children)!}
+        <div x-ww-support="{+childrenSupport.supportTag+}">
+            <h2>{+data.headerText[i]+}:</h2>
+            <hr/>
+          
+            <table>
+                <thead><tr>
+                    <th>
+                    Property
+                   
+                    </th>
+                    <th>
+                       Type
+                       
+                    </th>
+                    <th>
+                       Description
+                       
+                    </th>
+                    <th>
+                       Supported Platform(s)
+                       
+                    </th>
+                </tr></thead>
+                
+                <for each="member" in="children">
+                    <tr x-ww-support="{+member.support.supportTag+}">
+                        <td>
+                            <a name="{+Link.symbolNameToLinkName(member)+}">{+getSymbolName(member)+}</a>
+                        </td>
+                        <td>
+                            <if test="member.isStatic && !isConstant(member)">
+                                Static<br />
+                            </if>
+                            <if test="member.isCallback && !isConstant(member)">
+                                {+ ((member.type)?(new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')) : "") + makeCallbackSignature(member.params) +}
+                            <else/>
+                                {+((member.type)?(new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')) : "")+}
+                            </if>
+                            <if test="member.defaultValue">
+                                {+" = " +resolveLinks(member.defaultValue)+}
+                            </if>
+                            <if test="member.readOnly && !isConstant(member)">
+                                <br />readonly
+                            </if>
+                        </td>
+                        
+                        <td>{+resolveLinks(member.desc)+}
+                            <if test="member.params">
+                                <br />
+                                <for each="subItem" in="member.params">
+                                    <br />
+                                    <b>{+subItem.name+":"+}</b>
+                                    {+resolveLinks(subItem.desc)+}
+                                </for>
+                            </if>
+                            <if test="member.deprecated">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <i>{+ resolveLinks(member.deprecated) +}</i>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </if>               
+                        </td>
+                        
+                        <td class="tdNoWrap">
+                            <if test="member.support.supportStrings">              
+                                <for each="item" in="member.support.supportStrings">
+                                    &nbsp;- {+item+}
+                                    <br />
+                                </for>                  
+                            </if>
+                        </td>
+                    </tr>
+                </for>
+            </table>
+            
+            <for each="member" in="children">
+				{+subtemplate("subtemplates/example.tmpl", {example: member.example, type: "Property"})+}  
+            </for>
+        </div>
+    </if>
+</for>

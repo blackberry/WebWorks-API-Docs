@@ -17,23 +17,25 @@
 /**
  * @toc {System} System
  * @featureID blackberry.system
+ * @notice {Warning ( Playbook 1.0 Notice):}
+ * For URI based APIs, webworks:// has been deprecated and replaced with http://localhost:8472. This change does not affect the procedural APIs.
  * @namespace The System object allows you to get access to system level functions and attributes of the BlackBerry PlayBook.<br>
  * <br> The System object is static; all of its functions and properties are used directly from the object.
  * @example
  * &lt;script type="text/javascript"&gt;
- * // See if we are in coverage 
+ * // See if we are in coverage
  *	if (!blackberry.system.hasDataCoverage()) {
  *		alert("You are not in coverage, we will attempt to send later");
  *	}
  *
- *	// Check if we have GPS capability 
+ *	// Check if we have GPS capability
  *	if (blackberry.system.hasCapability("location.gps")) {
  *		alert("This PlayBook has a GPS.");
  *	}
  * &lt;/script&gt;
  */
 blackberry.system ={
-		
+
 		/**
 		 * @param {String} capability The capability being checked for.
 		 * @description This method will determine if the BlackBerry PlayBook or the BlackBerry Smartphone device is capable of the given service.<br>
@@ -60,7 +62,7 @@ blackberry.system ={
 		hasCapability : function(capability){},
 
 		/**
-         * @function 
+         * @function
 		 * @description Returns true if the device is in coverage, otherwise returns false. This can be used in conjunction with the blackberry.network property to find out what kind of coverage it is in.
 		 * @returns {Boolean} Returns true if the BlackBerry PlayBook or the BlackBerry Smartphone device has any network interface active.
 		 * @BB50+
@@ -68,26 +70,26 @@ blackberry.system ={
 		 * @RIPPLE
 		 */
 		hasDataCoverage : function(){},
-		
+
 		/**
-         * @function 
+         * @function
 		 * @description  Set the image that appears as the background of the Home screen on a BlackBerry device.
 		 * @param {String} uri URI path to an image file that resides in flash memory or a microSD Card.
 		 * @BB50+
 		 * @RIPPLE
 		 */
 		setHomeScreenBackground : function(uri){},
-		
+
 		/**
 		 * @param {String} module The BlackBerry WebWorks namespace or class to check for access. For example blackberry.system, blackberry.app.
 		 * @description Determines the level of access to the requested module.
-		 * @returns {Number} The possible return values: 0 - ALLOW 1 - DENY 
+		 * @returns {Number} The possible return values: 0 - ALLOW 1 - DENY
 		 * @BB50+
 		 * @PB10
 		 * @RIPPLE
 		 */
 		hasPermission : function(module){},
-		
+
 		/**
 		 * @description Returns whether USB MassStorage mode is active.
 		 * @returns {Boolean} Always returns false on the BlackBerry PlayBook since Mass Storage Mode is not supported. All memory is presented as a network share when connected by USB and is not blocked.
@@ -96,9 +98,10 @@ blackberry.system ={
 		 * @RIPPLE
 		 */
 		isMassStorageActive : function(){},
-		
+
 		/**
-		 * @uri 
+		 * @uri
+		 * @BB50+
 		 * @PB10
 		 * @description The objects in hasPermission will always be ALLOW (0). They will correspond to all the entries in the whitelist. If they are not whitelisted, they are omitted from the list. Similarly, all of the objects in hasCapability will be true, otherwise they will be omitted.
 		 * @returns {JSON of all the properties}
@@ -128,25 +131,25 @@ blackberry.system ={
 		 *         "isMassStorageActive":false
 		 *     }
 		 * }
-		 * @example 
+		 * @example
 		 * &lt;html&gt;
 		 * &lt;head&gt;
 		 *     &lt;script type="text/javascript" src="js/jquery-1.4.2.js" &gt;&lt;/script&gt;
 		 *     &lt;script type="text/javascript" src="js/jquery.form.js" &gt;&lt;/script&gt;
 		 *     &lt;script type="text/javascript" src="js/jquery.populate.js" &gt;&lt;/script&gt;
-		 *  
+		 *
 		 *     &lt;script type="text/javascript"&gt;
 		 *          function getSystemData(){
 		 *              $.ajax({
 		 *                  type: "get",
-		 *                  url: "webworks://blackberry/system/get",
+		 *                  url: "http://localhost:8472/blackberry/system/get",
 		 *                  success: function(msg){
 		 *                      $('#mySystemDiv').populate(JSON.parse(msg).data);
 		 *                  }
 		 *               });
 		 *           }
 		 *      &lt;/script&gt;
-		 *      
+		 *
 		 *&lt;/head&gt;
 		 *&lt;body&gt;
 		 *
@@ -155,12 +158,12 @@ blackberry.system ={
 		 *        Software Version: &lt;span id="softwareVersion"&gt;&lt;/span&gt;&lt;br/&gt;
 		 *        Mass Storage Active: &lt;span id="isMassStorageActive"&gt;&lt;/span&gt;
 		 *    &lt;/div&gt;
-		 *    
+		 *
 		 *&lt;/body&gt;
 		 *&lt;/html&gt;
 		 */
 		get: function(){},
-		
+
 		/**
 		 * @type String
 		 * @description Returns the model number of the BlackBerry PlayBook or the BlackBerry Smartphone device.
@@ -170,7 +173,7 @@ blackberry.system ={
 		 * @RIPPLE
 		 */
 		model: null,
-		
+
 		/**
 		 * @type String
 		 * @description Returns the current version of the WebWorks library being used.
@@ -180,7 +183,7 @@ blackberry.system ={
 		 * @RIPPLE
 		 */
 		scriptApiVersion:null,
-		
+
 		/**
 		 * @type String
 		 * @description Returns the current version of the operating system, for example, 1.0.0.0.
@@ -190,7 +193,7 @@ blackberry.system ={
 		 * @RIPPLE
 		 */
 		softwareVersion:null,
-		
+
 		/**
 		 * @constant
 		 * @type Number
