@@ -29,6 +29,7 @@ blackberry.io.file = {
     * @param {String} path local storage file path to the file
     * @returns {blackberry.io.file.FileProperties}
     * @BB50+
+    * @RIPPLE
     * @PB10
     */
     getFileProperties : function(path) { },
@@ -40,6 +41,7 @@ blackberry.io.file = {
      * @param {String} path local storage file path to the file
      * @returns {Boolean}
      * @BB50+
+     * @RIPPLE
      * @PB10
      */
     /**
@@ -54,6 +56,7 @@ blackberry.io.file = {
      *   }
      * }
      * @PB10
+     * @RIPPLE
      * @uri
      * @function     
      */    
@@ -80,6 +83,7 @@ blackberry.io.file = {
      * }
      * @type {Boolean}
      * @PB10
+     * @RIPPLE
      * @uri
      * @function
      */        
@@ -93,6 +97,7 @@ blackberry.io.file = {
     * @param {String} newFileName the new file name.
     * @returns {void}
     * @BB50+
+    * @RIPPLE
     * @PB10
     */
     /**
@@ -108,6 +113,7 @@ blackberry.io.file = {
      *   }
      * }
      * @PB10
+     * @RIPPLE
      * @uri
      * @function
      */    
@@ -121,6 +127,7 @@ blackberry.io.file = {
     * @param {String} targetPath local storage file path to the new copied file. The name of the copied file should be specified at the end of the targetPath.
     * @returns {void}
     * @BB50+
+    * @RIPPLE
     * @PB10
     */
     /**
@@ -136,6 +143,7 @@ blackberry.io.file = {
      *   }
      * }
      * @PB10
+     * @RIPPLE
      * @uri
      * @function
      */
@@ -147,6 +155,7 @@ blackberry.io.file = {
     * @returns {void}
     * @BB50+
     * @PB10
+    * @RIPPLE
     */
     deleteFile : function(path) { },
     
@@ -158,6 +167,7 @@ blackberry.io.file = {
     * @param {Blob} data The Blob to be saved.
     * @returns {void}
     * @BB50+
+    * @RIPPLE
     * @PB10 
     * @example
     * &lt;script type=&quot;text&sol;javascript&quot;&gt;
@@ -190,6 +200,7 @@ blackberry.io.file = {
     * @param {Boolean} [async] a flag specifying if the call to read should be asynchronous or synchronous.  If this parameter is not supplied the default of true will be used.
     * @returns {void}
     * @BB50+
+    * @RIPPLE
     * @PB10 
     */
     readFile : function(path,onFileOpened,async) { },
@@ -205,6 +216,7 @@ blackberry.io.file = {
      *   }
      * }
      * @PB10
+     * @RIPPLE
      * @uri
      * @function
      */
