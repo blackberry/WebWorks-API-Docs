@@ -46,13 +46,13 @@
 
       <![endif]-->
 
-			<!--[if lte IE 9]>
+            <!--[if lte IE 9]>
 
-				<link rel="stylesheet" type="text/css" href="https://bdsc.webapps.blackberry.com/html5/webroot/css/main-ie.min.css" />
+                <link rel="stylesheet" type="text/css" href="https://bdsc.webapps.blackberry.com/html5/webroot/css/main-ie.min.css" />
 
-			<![endif]-->
+            <![endif]-->
 
-			<!--[if IE 9]>
+            <!--[if IE 9]>
 
         <style type="text/css">
 
@@ -106,7 +106,7 @@
 
 <body>
     <div class="site_container clearfix guide-container">
-        
+
 {!
 
     var toc,
@@ -122,61 +122,61 @@
         jsonTocElemChildName,
         prefix = '/html5/apis/',
         htmlFragment;
-    
-    
+
+
     //Read in and process DitaMap into TOC
-    toc = IO.readFile(publish.conf.outDir+"menu-apis.php.json");
+    toc = IO.readFile(publish.conf.outDir + "menu-apis.php.json");
     //jsonToc = JSON.parse(toc); no JSON :(
-    eval('jsonToc = ' + toc);    
-    
+    eval('jsonToc = ' + toc);
+
     htmlOutput = "<div class=\"column grid_4 side-navigation\"><ul class=\"level_1\">";
-    for(i=0;i<jsonToc.length;i++){
+    for (i = 0; i < jsonToc.length; i++) {
         jsonTocElem = jsonToc[i];
         jsonTocElemLink = jsonTocElem.link.slice(prefix.length);
         jsonTocElemName = jsonTocElem.title;
-        if(data.toc && data.toc.type === jsonTocElemName){
+        if (data.toc && data.toc.type === jsonTocElemName) {
             htmlOutput += "<li class=\"with_children open\"><span class=\"item active\">";
-        }else{            
+        } else {
             htmlOutput += "<li class=\"with_children not_open\"><span class=\"item\">";
         }
-        htmlOutput += "<span class=\"opener\">&nbsp;</span><a href=\""+jsonTocElemLink+"\">"+jsonTocElemName+"</a></span>";
-        if(jsonTocElem.children.length){
+        htmlOutput += "<span class=\"opener\">&nbsp;</span><a href=\"" + jsonTocElemLink + "\">" + jsonTocElemName + "</a></span>";
+        if (jsonTocElem.children.length) {
             htmlOutput += "<ul class=\"obfuscated_css level_2\">";
-            for(j=0;j<jsonTocElem.children.length;j++){
+            for (j = 0; j < jsonTocElem.children.length; j++) {
                 jsonTocElemChild = jsonTocElem.children[j];
                 jsonTocElemChildLink = jsonTocElemChild.link.slice(prefix.length);
                 jsonTocElemChildName = jsonTocElemChild.title;
                 htmlOutput += "<li class=\"no_children\">";
-                if(data.toc && data.toc.desc === jsonTocElemChildName){
+                if (data.toc && data.toc.desc === jsonTocElemChildName) {
                     htmlOutput += "<span class=\"item active\">";
-                }else{
+                } else {
                     htmlOutput += "<span class=\"item\">";
-                }                               
-                htmlOutput += "<span class=\"opener\">&nbsp;</span><a href=\""+jsonTocElemChildLink+"\">"+jsonTocElemChildName+"</a></span></li>";
+                }
+                htmlOutput += "<span class=\"opener\">&nbsp;</span><a href=\"" + jsonTocElemChildLink + "\">" + jsonTocElemChildName + "</a></span></li>";
             }
             htmlOutput += "</ul>";
         }
-        htmlOutput += "</li><li class=\"seperator\"></li>";    
-    }    
+        htmlOutput += "</li><li class=\"seperator\"></li>";
+    }
     htmlOutput += "</ul></div>";
-        
-    htmlOutput += "\n\n        "; 
 
-    htmlOutput +="<div class=\"column grid_8 page-content\">";
+    htmlOutput += "\n\n        ";
+
+    htmlOutput += "<div class=\"column grid_8 page-content\">";
     htmlFragment = IO.readFile(publish.conf.outDir + data.alias + publish.conf.ext);
-    htmlOutput += htmlFragment;    
+    htmlOutput += htmlFragment;
     htmlOutput += "</div>";
-    
+
 !}
 
 <section class="page_container guide-section two_columns">
 
-	<div class="row clearfix">
+    <div class="row clearfix">
 
         {+htmlOutput+}
 
     </div>
-    
+
 </section>
 
 <script type="text/javascript">
@@ -185,17 +185,17 @@ initSidebarMenuEventHandlers();
 
 function getPackage() {
 
-	pathname = document.location.pathname;
+    pathname = document.location.pathname;
 
-	g = '/apis/'
+    g = '/apis/'
 
-	guideposition = pathname.lastIndexOf(g);
+    guideposition = pathname.lastIndexOf(g);
 
-	sub = pathname.substr(guideposition+g.length);
+    sub = pathname.substr(guideposition+g.length);
 
-	sub2 = sub.substr(0, sub.indexOf('/'));
+    sub2 = sub.substr(0, sub.indexOf('/'));
 
-	return sub2;
+    return sub2;
 
 }
 
@@ -205,19 +205,19 @@ pkg = getPackage();
 
 images.each(function() {
 
-	srcAttr = $(this).attr('src');
+    srcAttr = $(this).attr('src');
 
-	if (pkg != '') {
+    if (pkg != '') {
 
-		src = '/html5/files/apis/'+pkg+'/'+src;
+        src = '/html5/files/apis/'+pkg+'/'+src;
 
-		$(this).attr('src', src);
+        $(this).attr('src', src);
 
-	} else {
+    } else {
 
-		$(this).attr('src','/html5/files/apis/'+srcAttr);
+        $(this).attr('src','/html5/files/apis/'+srcAttr);
 
-	}
+    }
 
 });
 
