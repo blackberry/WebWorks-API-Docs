@@ -22,7 +22,7 @@ Database = {
                 
         /**
          * @function
-         * @constructedBy Window.openDatabase
+         * @constructedBy window.openDatabase
          * @description Creates a new databse object. 
          * If the database already exists, the existing database will be returned and the creation callback will not be invoked.
          * @param {String} name The name of the database to be created
@@ -33,9 +33,10 @@ Database = {
          * @callback {Database} creationCallback.database The newly created database
          * @returns {Database} The database object that has been opened.
          * @example
-         * Database db=Window.openDatabase('documents', '1.0', 'Offline document storage', 5*1024*1024, null);
+         * Database db=window.openDatabase('documents', '1.0', 'Offline document storage', 5*1024*1024, null);
          * @PB10
          * @BB50+
+         * @RIPPLE
          */
         openDatabase : undefined
 };
@@ -47,6 +48,7 @@ Database = {
 		 * @type String
 		 * @PB10
 		 * @BB50+
+		 * @RIPPLE
 		 */
         Database.prototype.version = "";
 		
@@ -59,6 +61,7 @@ Database = {
 		 * @callback {function} [successCallback] Function to be called when SQL statement is executed successfully.
 		 * @PB10
 		 * @BB50+
+		 * @RIPPLE
 		 */
         Database.prototype.transaction = function(callback, errorCallback, successCallback){};
 		
@@ -71,6 +74,7 @@ Database = {
 		 * @callback {function} [successCallback] Function to be called when SQL statement is executed successfully.
 		 * @PB10
 		 * @BB50+
+		 * @RIPPLE
 		 * @example
 		 * function showDocCount(db, span) {
   		 *	db.<b>readTransaction</b>(
@@ -102,6 +106,7 @@ Database = {
          * @callback {function} [successCallback] Function to be called when SQL statement is executed successfully.
 		 * @PB10
 		 * @BB50+
+		 * @RIPPLE
 		 * @example
 		 * db.<b>changeVersion</b>('', '1.0', function (t) {...});
 		 * 
@@ -126,6 +131,7 @@ SQLTransaction = {};
 		 * @callback {SQLError} errorCallback.error The {@link SQLError} object describing the SQL error that occurred.
 		 * @PB10
 		 * @BB50+
+		 * @RIPPLE
 		 * @example
 		 * function showDocCount(db, span) {
   		 *	db.readTransaction(
@@ -158,6 +164,7 @@ SQLResultSet = {};
 		 * @type Number
 		 * @PB10
 		 * @BB50+
+		 * @RIPPLE
 		 */
         SQLResultSet.prototype.insertId = 0;
 		
@@ -167,6 +174,7 @@ SQLResultSet = {};
 		 * @type Number
 		 * @PB10
 		 * @BB50+
+		 * @RIPPLE
 		 */
         SQLResultSet.prototype.rowsAffected = 0;
 
@@ -176,6 +184,7 @@ SQLResultSet = {};
 		 * @type SQLResultSetRowList
 		 * @PB10
 		 * @BB50+
+		 * @RIPPLE
 		 */
         SQLResultSet.prototype.rows = null;
 		
@@ -192,6 +201,7 @@ SQLResultSetRowList = {};
 		 * @type Number
 		 * @PB10
 		 * @BB50+
+		 * @RIPPLE
 		 */
         SQLResultSetRowList.prototype.length = 0;
 		
@@ -201,6 +211,7 @@ SQLResultSetRowList = {};
 		 * @returns {Object} the row with the given index. If there is no such row, return null.
 		 * @PB10
 		 * @BB50+
+		 * @RIPPLE
 		 */
         SQLResultSetRowList.prototype.item = function(index) {};
 
@@ -216,6 +227,7 @@ SQLError = {
 		 * @description The transaction failed for reasons unrelated to the database itself and not covered by any other error code. 
 		 * @PB10
 		 * @BB50+
+		 * @RIPPLE
 		 * @default 0
 		 */
 		UNKNOWN_ERR : 0,
@@ -226,6 +238,7 @@ SQLError = {
 		 * @description The statement failed for database reasons not covered by any other error code. 
 		 * @PB10
 		 * @BB50+
+		 * @RIPPLE
 		 * @default 1
 		 */
 		DATABASE_ERR : 1,
@@ -236,6 +249,7 @@ SQLError = {
 		 * @description The operation failed because the actual database version was not what it should be. 
 		 * @PB10
 		 * @BB50+
+		 * @RIPPLE
 		 * @default 2
 		 */
 		VERSION_ERR : 2,
@@ -246,6 +260,7 @@ SQLError = {
 		 * @description The statement failed because the data returned from the database was too large. The SQL "LIMIT" modifier might be useful to reduce the size of the result set. 
 		 * @PB10
 		 * @BB50+
+		 * @RIPPLE
 		 * @default 3
 		 */
 		TOO_LARGE_ERR : 3,
@@ -256,6 +271,7 @@ SQLError = {
 		 * @description The statement failed because there was not enough remaining storage space, or the storage quota was reached and the user declined to give more space to the database. 
 		 * @PB10
 		 * @BB50+
+		 * @RIPPLE
 		 * @default 4
 		 */
 		QUOTA_ERR : 4,
@@ -266,6 +282,7 @@ SQLError = {
 		 * @description The statement failed because of a syntax error, or the number of arguments did not match the number of ? placeholders in the statement, or the statement tried to use a statement that is not allowed, such as <b>BEGIN</b>, <b>COMMIT</b>, or <b>ROLLBACK</b>, or the statement tried to use a verb that could modify the database but the transaction was read-only. 
 		 * @PB10
 		 * @BB50+
+		 * @RIPPLE
 		 * @default 5
 		 */
 		SYNTAX_ERR : 5,
@@ -276,6 +293,7 @@ SQLError = {
 		 * @description An <b>INSERT</b>, <b>UPDATE</b>, or <b>REPLACE</b> statement failed due to a constraint failure. For example, because a row was being inserted and the value given for the primary key column duplicated the value of an existing row. 
 		 * @PB10
 		 * @BB50+
+		 * @RIPPLE
 		 * @default 6
 		 */
 		CONSTRAINT_ERR : 6,
@@ -286,6 +304,7 @@ SQLError = {
 		 * @description A lock for the transaction could not be obtained in a reasonable time. 
 		 * @PB10
 		 * @BB50+
+		 * @RIPPLE
 		 * @default 7
 		 */
 		TIMEOUT_ERR : 7
@@ -297,6 +316,7 @@ SQLError = {
 		 * @type Number
 		 * @PB10
 		 * @BB50+
+		 * @RIPPLE
 		 */
         SQLError.prototype.code = 0;
 
@@ -306,6 +326,7 @@ SQLError = {
 		 * @type String
 		 * @PB10
 		 * @BB50+
+		 * @RIPPLE
 		 */
         SQLError.prototype.message = "";
 
