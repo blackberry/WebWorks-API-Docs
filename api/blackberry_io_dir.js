@@ -33,6 +33,7 @@ blackberry.io.dir = {
     *
     * @type Object
     * @readOnly
+    * @RIPPLE
     * @PB10
     * @example
     * &lt;script type=&quot;text&sol;javascript&quot;&gt;
@@ -102,7 +103,6 @@ blackberry.io.dir = {
     *   }
     * }
     * @PB10
-    * @RIPPLE
     * @uri
     * @function
     */	
@@ -151,7 +151,6 @@ blackberry.io.dir = {
     *   }
     * }
     * @PB10
-    * @RIPPLE
     * @uri
     * @function     
     */	
@@ -181,7 +180,6 @@ blackberry.io.dir = {
     *   }
     * }
     * @PB10
-    * @RIPPLE
     * @uri
     * @function
     */ 	

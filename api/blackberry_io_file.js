@@ -56,7 +56,6 @@ blackberry.io.file = {
      *   }
      * }
      * @PB10
-     * @RIPPLE
      * @uri
      * @function     
      */    
@@ -69,6 +68,7 @@ blackberry.io.file = {
      * @param {String} path file path to the file to be opened.
      * @returns {Boolean}
      * @BB50+
+     * @RIPPLE
      * @PB10
      */
     /**
@@ -83,7 +83,6 @@ blackberry.io.file = {
      * }
      * @type {Boolean}
      * @PB10
-     * @RIPPLE
      * @uri
      * @function
      */        
@@ -113,7 +112,6 @@ blackberry.io.file = {
      *   }
      * }
      * @PB10
-     * @RIPPLE
      * @uri
      * @function
      */    
@@ -143,7 +141,6 @@ blackberry.io.file = {
      *   }
      * }
      * @PB10
-     * @RIPPLE
      * @uri
      * @function
      */
@@ -216,7 +213,6 @@ blackberry.io.file = {
      *   }
      * }
      * @PB10
-     * @RIPPLE
      * @uri
      * @function
      */
