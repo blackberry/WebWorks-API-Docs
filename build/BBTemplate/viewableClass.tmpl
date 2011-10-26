@@ -135,7 +135,7 @@
         jsonTocElemLink = jsonTocElem.link.slice(prefix.length);
         jsonTocElemName = jsonTocElem.title;
         if (data.toc && data.toc.type === jsonTocElemName) {
-            htmlOutput += "<li class=\"with_children open\"><span class=\"item active\">";
+            htmlOutput += "<li class=\"with_children open\"><span class=\"item child_active\">";
         } else {
             htmlOutput += "<li class=\"with_children not_open\"><span class=\"item\">";
         }
