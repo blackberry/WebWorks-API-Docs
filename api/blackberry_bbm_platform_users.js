@@ -29,13 +29,14 @@
  * avoided in {@link blackberry.bbm.platform.users.sendFile} and {@link blackberry.bbm.platform.users.startBBMChat}
  * by providing a {@link blackberry.bbm.platform.users.BBMPlatformUser} in the method call.
  * 
- * <h3>File Transfer, Invite to Download, and Starting a BBM Chat</h3>
- * <p>The current user can send files, start a chat in BBM, and invite others to download the
- * application using the following methods:
+ * <h3>File Transfer, Invite to Download, Starting a BBM Chat, and Sharing Content</h3>
+ * <p>The current user can send files, start a chat in BBM, invite others to download the
+ * application, and share content using the following methods:
  * <ul>
  * <li>{@link blackberry.bbm.platform.users.sendFile}
  * <li>{@link blackberry.bbm.platform.users.startBBMChat}
  * <li>{@link blackberry.bbm.platform.users.inviteToDownload}
+ * <li>{@link blackberry.bbm.platform.users.shareContent}
  * </ul>
  * </p>
  * 
@@ -303,5 +304,67 @@ blackberry.bbm.platform.users = {
      * @BB50+
      */
     inviteToBBMFromConnections: function() {
+    },
+    
+    /**
+     * @description Shares content with a contact. A Contact Picker dialog will be shown allowing
+     * the user to select recipients of the content.
+     * 
+     * <p>The content will not appear in BBM but is received by the application. On the recipient
+     * side, the application's icon will be splatted to notify the user of the new content. Once
+     * the application is launched and registered with BBM Social Platform, the callback
+     * {@link blackberry.bbm.platform.users.event:onsharecontent} will be invoked for the
+     * application to handle the content.
+     * 
+     * <p>Recipients may or may not currently have the application or BBM 6.0.1 (or later) installed.
+     * <ul>
+     * <li>If the recipient does not have BBM 6.0.1 installed, then the user will be prompted to
+     * upgrade to the latest BBM.
+     * <li>If the recipient does not have the application installed, then the user will be prompted
+     * to download the application from App World.
+     * <li>Once the recipient has both BBM 6.0.1 and the application installed, the application will
+     * be passed the content after registering with BBM Social Platform.
+     * </ul>
+     * <p>Splatting of the application icon can be disabled by adding the property
+     * <code>shareContentSplat: false</code> to the options object passed into {@link blackberry.bbm.platform.register}.
+     * @param {String} description A short description of the content.
+     * @param {String} content The content to be shared.
+     * @param {Function} onComplete Invoked when the user has finished selecting content recipients.
+     * @param {blackberry.bbm.platform.users.BBMPlatformUser[]} [users] Users shown in the
+     * dialog. If not provided then all contacts are shown in the dialog.
+     * 
+     * @example
+     * &lt;script type="text/javascript"&gt;
+     * 
+     * // Disabling splatting of the icon when shared content is received
+     * blackberry.bbm.platform.register({
+     *     uuid: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", // Randomly generated UUID
+     *     
+     *     shareContentSplat: false
+     * });
+     * 
+     * &lt;/script&gt;
+     * 
+     * @BB50+
+     */
+    shareContent: function(description, content, onComplete, users) {
+    	
+    },
+    
+    /**
+     * @description Invoked when shared content arrives at the recipient. If the application is not
+     * running when content is received, then this will be invoked after the application starts and
+     * is registered with BBM Social Platform.
+     * <p>This callback must be assigned <b>before</b> the call to {@link blackberry.bbm.platform.register}.
+     * <p>See {@link blackberry.bbm.platform.users.shareContent}
+     * @param {blackberry.bbm.platform.users.BBMPlatformUser} sender The user who shared the content.
+     * @param {String} description The content description.
+     * @param {String} content The content data.
+     * @param {Number} timestamp Timestamp when the content was received, in ms.
+     * @event
+     * @BB50+
+     */
+    onsharecontent: function(sender, description, content, timestamp) {
+    	
     }
 };
