@@ -18,7 +18,7 @@ blackberry.bbm.platform.settings = {
     
     /**
      * @description Whether a prompt is shown when hosting a public connection or requesting to join a public connection.
-     * <p><code>"enabled"</code> if the prompt is never shown, <code>"disabled"</code> if the prompt is always shown.
+     * <p><code>"enabled"</code> if the prompt is never shown, <code>"prompt"</code> if the prompt is always shown.
      * <p>See {@link blackberry.bbm.platform.io.host} and {@link blackberry.bbm.platform.io.joinHost}
      * @type String
      * @readOnly
