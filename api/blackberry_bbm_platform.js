@@ -120,7 +120,7 @@ blackberry.bbm.platform = {
      * @example
      * &lt;script type="text/javascript"&gt;
      * 
-     * blackberry.bbm.platform.requestAppSettings(function() {
+     * blackberry.bbm.platform.showBBMAppOptions(function() {
      *     // User exited the BBM options screen
      * });
      * 
