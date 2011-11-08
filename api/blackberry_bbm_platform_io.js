@@ -42,7 +42,7 @@
  * <pre>
  * var conn;
  * 
- * blackberry.bbm.platform.io.onconnectionaccepted = function(type, connection, cookie) {
+ * blackberry.bbm.platform.io.onconnectionaccepted = function(type, connection) {
  *     // Save the connection and set the callbacks
  *     conn = connection;
  *     setConnectionCallbacks(conn, type);
@@ -132,11 +132,10 @@ blackberry.bbm.platform.io = {
      * <p><b>The application should assign callbacks to the connection in this method.</b></p>
      * @param {String} connectionType The type of connection: <code>"channel"</code> or <code>"session"</code>.
      * @param {blackberry.bbm.platform.io.Channel|blackberry.bbm.platform.io.Session} connection The connection.
-     * @param {String} cookie The cookie sent with the invitation. May be <code>null</code>.
      * @event
      * @BB50+
      */
-    onconnectionaccepted: function(connectionType, connection, cookie) {
+    onconnectionaccepted: function(connectionType, connection) {
     },
     
     ////////////////////////////////////
