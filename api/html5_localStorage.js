@@ -27,6 +27,7 @@
 localStorage ={
 		/**
 		 * @PB10
+		 * @RIPPLE
 		 * @description The number of key/value pairs currently present in the list associated with the object.
 		 * @readOnly
 		 * @type Number
@@ -35,6 +36,7 @@ localStorage ={
 		
 		/**
 		 * @PB10
+		 * @RIPPLE
 		 * @description Return the name of the nth key in the list. The order of keys is user-agent defined, but must be consistent within an object so long as the number of keys doesn't change.
 		 * @param {Number} index the nth key in the list
 		 * @returns {String} the name of the nth key in the list. If index is greater than or equal to the number of key/value pairs in the object, then this method must return null.
@@ -43,6 +45,7 @@ localStorage ={
 		
 		/**
 		 * @PB10
+		 * @RIPPLE
 		 * @description Return a structured clone of the current value associated with the given key.
 		 * @param {String} key the key for the key/value pair 
 		 * @returns {Object} the value associated with the given key. If the given key does not exist, this method return null.
@@ -53,6 +56,7 @@ localStorage ={
 		
 		/**
 		 * @PB10
+		 * @RIPPLE
 		 * @description This method first create a structured clone of the given value. 
 		 * If this raises an exception, then the exception must be thrown and the list associated with the object is left unchanged. 
 		 * If constructing the structured clone would involve constructing a new <b>ImageData</b> object, then throw a <b>NOT_SUPPORTED_ERR</b> exception instead.
@@ -71,6 +75,7 @@ localStorage ={
 
 		/**
 		 * @PB10
+		 * @RIPPLE
 		 * @description This method causes the key/value pair with the given key to be removed from the list associated with the object, if it exists. If no item with that key exists, the method do nothing.
 		 * @param  {String} key the key for the key/value pair
 		 * @example
@@ -80,6 +85,7 @@ localStorage ={
 
 		/**
 		 * @PB10
+		 * @RIPPLE
 		 * @description This method atomically causes the list associated with the object to be emptied of all key/value pairs, if there are any. If there are none, then the method do nothing.
 		 */
 		clear : function(){}

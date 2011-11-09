@@ -39,6 +39,7 @@
 		 * @type pixels 
 		 * @BB60+
 		 * @PB10
+		 * @RIPPLE
 		 * @example
 		 * &#60canvas id="myCanvas" width="200" height="100"&#62&#60/canvas&#62
 		 */
@@ -56,6 +57,7 @@
 		 * @type pixels 
 		 * @BB60+
 		 * @PB10
+		 * @RIPPLE
 		 */
 		width :,
 		
@@ -68,6 +70,7 @@
 		 * context type (e.g. trying to get a "2d" context after getting a "webgl" context).
 		 * @BB60+
 		 * @PB10
+		 * @RIPPLE
 		 * @example
 		 * &#60script type="text/javascript"&#62
 		 *   var c=document.getElementById("myCanvas");
@@ -89,6 +92,7 @@
 		 * or even maybe image/svg+xml if the implementation actually keeps enough information to reliably render an SVG image from the canvas.
 		 * @BB60+
 		 * @PB10
+		 * @RIPPLE
 		 * @example
 		 * &#60script&#62
 		 *   var img1=new Image();

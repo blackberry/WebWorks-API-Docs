@@ -29,7 +29,7 @@ Worker = function() {};
     * @param {Object} message A message to post when worker is created.
     * @PB10
     * @BB50+
-	* @RIPPLE
+    * @RIPPLE
     * @example
     * Main script:
     *
@@ -58,7 +58,7 @@ Worker = function() {};
     * @param {String} [senderId] sender ID.
     * @param {Object} [messageObject] message object when send.
     * @PB10
-	* @RIPPLE
+    * @RIPPLE
     * @BB50+  	
     */
     Worker.prototype.onmessage = function(messageText, senderId, messageObject) {};
@@ -68,7 +68,7 @@ Worker = function() {};
      * @description The ApplicationCache object associated with this worker
      * @type ApplicationCache
      * @PB10
-	 * @RIPPLE
+     * @RIPPLE
      * @BB60+
      */
     Worker.prototype.applicationCache = undefined;
