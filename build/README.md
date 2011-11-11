@@ -4,6 +4,7 @@
 
 ## Windows
 Run genDoc.bat _**&lt;jsdoc-location&gt;**_
+For example genDoc.bat c:\Progra~1\JSDoc\jsdoc_toolkit-2.4.0\jsdoc-toolkit
 
 ## Mac
 Run genDoc _**&lt;jsdoc-location&gt;**_
