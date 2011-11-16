@@ -115,7 +115,7 @@ function publish(symbolSet) {
     var processedPHP = PHPTemplate.process(tocClasses);
     IO.saveFile(publish.conf.outDir, "menu-apis.php", processedPHP);
     
-    // create each of the class pages
+    // create each of the viewable class pages
     for ( var i = 0, l = classes.length; i < l; i++) {
         symbol = classes[i];
 
@@ -124,14 +124,16 @@ function publish(symbolSet) {
     }
 
     // COPY FILES
-
     // Copy Static files for microsite
 	copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir );
     // Copy Static files for viewable HTML
-	copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir + publish.conf.viewDir);
+	copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir + publish.conf.viewDir);    
     // Copy Image files for viewable HTML (already copied for microsite by @image tags)
     copyFiles(publish.conf.outDir + publish.conf.imagesDir, publish.conf.outDir + publish.conf.viewDir + publish.conf.imagesDir);
 
+    // create a viewable version of the index.html
+    output = viewableClassTemplate.process({alias : 'index'});
+    IO.saveFile(publish.conf.outDir+publish.conf.viewDir, 'index' + publish.conf.ext, output);
 
 }
 
