@@ -341,7 +341,7 @@ function getSymbolName(symbol, forSummary) {
         return "[]";
     } else if (symbol.uri) {
         return "http://localhost:8472/" + symbol.alias.replace(/\./g, "/").replace("[\^][\d]", '');
-    } else if (symbol.isStatic && !forSummary) {
+    } else if (symbol.isStatic && !forSummary && !isProperty(symbol) & !isConstant(symbol)) {
         return symbol.memberOf + "." + symbol.name.replace(/\^\d+$/, '').replace("[\^][\d]", '');
     } else {
         return symbol.name.replace(/\^\d+$/, '').replace("[\^][\d]", '');

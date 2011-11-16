@@ -27,7 +27,7 @@
                        
                     </th>
                     <th>
-                       Supported Platform(s)
+                       Supported Platform(s)            
                        
                     </th>
                 </tr></thead>
@@ -36,7 +36,11 @@
                     <tr x-ww-support="{+member.support.supportTag+}">
                         <td>
                             <a name="{+Link.symbolNameToLinkName(member)+}">{+getSymbolName(member)+}</a>
+                            <if test="member.defaultValue">
+                                <b>{+"default: " +resolveLinks(member.defaultValue)+}</b>
+                            </if>
                         </td>
+                        
                         <td>
                             <if test="member.isStatic && !isConstant(member)">
                                 Static<br />
@@ -46,15 +50,13 @@
                             <else/>
                                 {+((member.type)?(new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')) : "")+}
                             </if>
-                            <if test="member.defaultValue">
-                                {+" = " +resolveLinks(member.defaultValue)+}
-                            </if>
                             <if test="member.readOnly && !isConstant(member)">
                                 <br />readonly
                             </if>
                         </td>
                         
-                        <td>{+resolveLinks(member.desc)+}
+                        <td >
+                            {+resolveLinks(member.desc)+}
                             <if test="member.params">
                                 <br />
                                 <for each="subItem" in="member.params">
@@ -75,7 +77,7 @@
                         </td>
                         
                         <td class="tdNoWrap">
-                            <if test="member.support.supportStrings">              
+                            <if test="member.support.supportStrings">
                                 <for each="item" in="member.support.supportStrings">
                                     &nbsp;- {+item+}
                                     <br />
