@@ -327,8 +327,8 @@ blackberry.bbm.platform.users = {
      * </ul>
      * <p>Splatting of the application icon can be disabled by adding the property
      * <code>shareContentSplat: false</code> to the options object passed into {@link blackberry.bbm.platform.register}.
-     * @param {String} description A short description of the content.
      * @param {String} content The content to be shared.
+     * @param {String} description A short description of the content.
      * @param {Function} onComplete Invoked when the user has finished selecting content recipients.
      * @param {blackberry.bbm.platform.users.BBMPlatformUser[]} [users] Users shown in the
      * dialog. If not provided then all contacts are shown in the dialog.
@@ -347,7 +347,7 @@ blackberry.bbm.platform.users = {
      * 
      * @BB50+
      */
-    shareContent: function(description, content, onComplete, users) {
+    shareContent: function(content, description, onComplete, users) {
     	
     },
     
