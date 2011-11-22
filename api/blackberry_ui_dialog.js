@@ -140,11 +140,11 @@ blackberry.ui.dialog ={
 		standardAskAsync : function(message,type,onOptionSelected,settings){},
 
 		/**
-		 * @description Creates an asynchronous dialog to allow user to select single more multiple choices.
+		 * @description Creates an asynchronous dialog to allow user to select one or many items in a list.
 		 * <p/>The function is an asynchronous call and will not block JavaScript execution. It will return array of indexes that user selected.
 		 * @param {Boolean} allowMultiple If true, the dialog will allow multiple selection.
 		 * @param {SelectOption[]} options Array of objects representing the select items and their states. See {@link SelectOption}.
-		 * @callback {String} onSelected A string containing the fully qualified name of a globally-accessible callback function. It will be invoke with the user's choices from the native UI. 
+		 * @callback {String} onSelected A string containing the fully qualified name of a globally-accessible callback function. It will be invoked with the user's choices from the native UI. 
 		 * @callback {Number[]} onSelected.indices The indices of the user's selections.
 		 * @BB50+
 		 * @example
@@ -157,10 +157,11 @@ blackberry.ui.dialog ={
 		 * function selectAsync() {
 		 *   try {
 		 *     blackberry.ui.dialog.selectAsync(false, 
-         *                                      [ { name : "cat", selected : true, enabled : true},
-         *                                        { name : "dog", selected : false, enabled : true},
-         *                                        { name : "mouse", selected : false, enabled : true},
-         *                                        { name : "raccoon", selected : false, enabled : true}
+         *                                      [ { name : "Animals", selected : false, enabled : false, type : "group"},
+                                                  { name : "cat", selected : true, enabled : true, type : "option"},
+         *                                        { name : "dog", selected : false, enabled : true}, type : "option",
+         *                                        { name : "mouse", selected : false, enabled : true, type : "option"},
+         *                                        { name : "raccoon", selected : false, enabled : true, type : "option"}
          *                                      ], 
          *                                      "window.onSelected");
 		 *   }catch (e) {
@@ -173,22 +174,30 @@ blackberry.ui.dialog ={
 		selectAsync : function(allowMultiple, options, onSelected){},
 
 		/**
-		 * @description Creates an asynchronous dialog to allow user to select a date/time.
-		 * <p/>The function is an asynchronous call and will not block execution. It will return the date/time that user selected.
-		 * @param {String} type The input type: "date", "month", "week", "datetime", "datetime-local".
-		 * @callback {function} onSelected The callback function that will be invoked when the user makes a selection.
-		 * @callback {Date} onSelected.data The date/time user user has selected.
+		 * @description Creates an asynchronous dialog to allow user to select a date/time for an HTML 5 input of types: date, datetime, datetime-local, month, time
+		 * <p/>The function is an asynchronous call and will not block execution. It will return the value selected by the user.
+		 * @param {String} type One of: "date", "datetime", "datetime-local", "month", "time".
+		 * @param {DateTimeOptions} options The current state of the input control. See {@link DateTimeOptions}
+		 * @callback {function} onDateTimeSelected A string containing the fully qualified name of a globally-accessible callback function. It will be invoked with the user's choices from the native UI.
+		 * @callback {String} onSelected.datetime The date/time user user has selected.
 		 * @BB50+
 		 * @example
 		 * &lt;script type="text/javascript"&gt;
 		 * 
-		 * function onSelected(data){
-		 *   alert(data);
+		 * function onDateTimeSelected(datetime){
+		 *   alert(datetime);
 		 * }  
 		 * 
-		 * function dateTimeAsync() {
+         * //Input argument is a reference to an input control of type: date, datetime, datetime-local, month, time 
+		 * function dateTimeAsync(htmlDateTimeInput) {
 		 *   try {
-		 *     blackberry.ui.dialog.dateTimeAsync("date", onSelected);
+         *     var opts = { "value" : htmlDateTimeInput.value,
+         *                   "min"   : htmlDateTimeInput.min || "",
+         *                   "max"   : htmlDateTimeInput.max || "", 
+         *                   "step"  : htmlDateTimeInput.step || 1
+         *     };
+         *      
+		 *     blackberry.ui.dialog.dateTimeAsync("date", opts, "window.onDateTimeSelected");
 		 *   }catch (e) {
 		 *     alert("Exception in dateTimeAsync: " + e);
 		 *   }
@@ -430,7 +439,40 @@ blackberry.ui.dialog ={
              * @BB50+
              * @type Boolean
              */
-            enabled : true
+            enabled : true,
+            /**
+             * @description Can be either "group" or "option" to indicate whether an item is a group header or an option
+             * @BB50+
+             * @type String
+             */
+            type : ""
+        },
+        
+        DateTimeOptions : {
+            /**
+             * @description String representation of the current date/time displayed in the field
+             * @BB50+
+             * @type String
+             */
+            value : "",
+            /**
+             * @description String representation of the minimum date/time allowed in the field
+             * @BB50+
+             * @type String
+             */
+            min : "",
+            /**
+             * @description String representation of the maximum date/time allowed in the field
+             * @BB50+
+             * @type String
+             */
+            max : "",
+            /**
+             * @description Increment by which to increase the value in the field
+             * @BB50+
+             * @type Number
+             */
+            step : 1
         }
 };
 
