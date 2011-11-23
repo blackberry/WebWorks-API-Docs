@@ -186,7 +186,7 @@ blackberry.ui.dialog ={
          * @param {String} options.min String representation of the minimum date/time allowed in the field
          * @param {String} options.max String representation of the maximum date/time allowed in the field
          * @param {String} options.step Increment by which to increase the value in the field
-		 * @callback {function} onDateTimeSelected A string containing the fully qualified name of a globally-accessible callback function. It will be invoked with the user's choices from the native UI.
+		 * @callback {String} onDateTimeSelected A string containing the fully qualified name of a globally-accessible callback function. It will be invoked with the user's choices from the native UI.
 		 * @callback {String} onSelected.datetime The date/time user user has selected.
 		 * @BB50+
 		 * @example
@@ -213,7 +213,7 @@ blackberry.ui.dialog ={
 		 * 
 		 * &lt;/script&gt;
 		 */
-		dateTimeAsync : function(type,onSelected){},
+		dateTimeAsync : function(type, options, onSelected){},
 		
 		/**
 		 * @description Creates an asynchronous dialog to allow user to select a color.
