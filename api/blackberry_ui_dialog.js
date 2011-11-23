@@ -231,7 +231,7 @@ blackberry.ui.dialog ={
 		 * 
 		 * function colorPicker() {
 		 *   try {
-		 *     blackberry.ui.dialog.colorPickerAsync("0x000000", "window.onColorSelected");
+		 *     blackberry.ui.dialog.colorPickerAsync("000000", "window.onColorSelected");
 		 *   } catch (e) {
 		 *     alert("Exception in colorPickerAsync: " + e);
 		 *   }
