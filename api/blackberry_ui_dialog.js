@@ -185,7 +185,6 @@ blackberry.ui.dialog ={
          * @param {String} options.value String representation of the current date/time displayed in the field
          * @param {String} options.min String representation of the minimum date/time allowed in the field
          * @param {String} options.max String representation of the maximum date/time allowed in the field
-         * @param {String} options.step Increment by which to increase the value in the field
 		 * @callback {String} onDateTimeSelected A string containing the fully qualified name of a globally-accessible callback function. It will be invoked with the user's choices from the native UI.
 		 * @callback {String} onSelected.datetime The date/time user user has selected.
 		 * @BB50+
@@ -201,8 +200,7 @@ blackberry.ui.dialog ={
 		 *   try {
          *     var opts = { "value" : htmlDateTimeInput.value,
          *                   "min"   : htmlDateTimeInput.min || "",
-         *                   "max"   : htmlDateTimeInput.max || "", 
-         *                   "step"  : htmlDateTimeInput.step || 1
+         *                   "max"   : htmlDateTimeInput.max || ""
          *     };
          *      
 		 *     blackberry.ui.dialog.dateTimeAsync("date", opts, "window.onDateTimeSelected");
