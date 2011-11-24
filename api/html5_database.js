@@ -34,7 +34,7 @@ Database = {
          * @returns {Database} The database object that has been opened.
          * @example
          * Database db=window.openDatabase('documents', '1.0', 'Offline document storage', 5*1024*1024, null);
-         * @PB10
+         * @PB10+
          * @BB50+
          * @RIPPLE
          */
@@ -46,7 +46,7 @@ Database = {
 		 * @description The current version of the database.
 		 * @readOnly
 		 * @type String
-		 * @PB10
+		 * @PB10+
 		 * @BB50+
 		 * @RIPPLE
 		 */
@@ -59,7 +59,7 @@ Database = {
          * @callback {function} [errorCallback] Function to be called when an SQL error occurs.
          * @callback {SQLError} errorCallback.error The {@link SQLError} object describing the SQL error that occurred.
 		 * @callback {function} [successCallback] Function to be called when SQL statement is executed successfully.
-		 * @PB10
+		 * @PB10+
 		 * @BB50+
 		 * @RIPPLE
 		 */
@@ -72,7 +72,7 @@ Database = {
          * @callback {function} [errorCallback] Function to be called when an SQL error occurs.
          * @callback {SQLError} errorCallback.error The {@link SQLError} object describing the SQL error that occurred.
 		 * @callback {function} [successCallback] Function to be called when SQL statement is executed successfully.
-		 * @PB10
+		 * @PB10+
 		 * @BB50+
 		 * @RIPPLE
 		 * @example
@@ -104,7 +104,7 @@ Database = {
          * @callback {function} [errorCallback] Function to be called when an SQL error occurs.
          * @callback {SQLError} errorCallback.error The {@link SQLError} object describing the SQL error that occurred.
          * @callback {function} [successCallback] Function to be called when SQL statement is executed successfully.
-		 * @PB10
+		 * @PB10+
 		 * @BB50+
 		 * @RIPPLE
 		 * @example
@@ -129,7 +129,7 @@ SQLTransaction = {};
 		 * @callback {function} [errorCallback] Function to be called when an SQL error occurs.
 		 * @callback {SQLTransaction} errorCallback.transaction The {@link SQLTransaction} object that executed this transaction.
 		 * @callback {SQLError} errorCallback.error The {@link SQLError} object describing the SQL error that occurred.
-		 * @PB10
+		 * @PB10+
 		 * @BB50+
 		 * @RIPPLE
 		 * @example
@@ -162,7 +162,7 @@ SQLResultSet = {};
 		 * @description If the SQL statement inserted a row, this attribute returns the row ID of the row that the SQLResultSet object's SQL statement inserted into the database. If the SQL statement inserted multiple rows, this attribute returns the the ID of the last row. 
 		 * @readOnly
 		 * @type Number
-		 * @PB10
+		 * @PB10+
 		 * @BB50+
 		 * @RIPPLE
 		 */
@@ -172,7 +172,7 @@ SQLResultSet = {};
 		 * @description This attribute returns the number of rows that were changed by the SQL statement. If the statement did not affected any rows, 0 is returned.
 		 * @readOnly
 		 * @type Number
-		 * @PB10
+		 * @PB10+
 		 * @BB50+
 		 * @RIPPLE
 		 */
@@ -182,7 +182,7 @@ SQLResultSet = {};
 		 * @description This attribute represents the rows returned in the order returned by the database.If no rows were returned, then the object will be empty (its <i>length</i> will be zero).
 		 * @readOnly
 		 * @type SQLResultSetRowList
-		 * @PB10
+		 * @PB10+
 		 * @BB50+
 		 * @RIPPLE
 		 */
@@ -199,7 +199,7 @@ SQLResultSetRowList = {};
 		 * @description The number of rows returned by the database.
 		 * @readOnly
 		 * @type Number
-		 * @PB10
+		 * @PB10+
 		 * @BB50+
 		 * @RIPPLE
 		 */
@@ -209,7 +209,7 @@ SQLResultSetRowList = {};
 		 * @description Return the row with the given index.
 		 * @param {Number} index the index
 		 * @returns {Object} the row with the given index. If there is no such row, return null.
-		 * @PB10
+		 * @PB10+
 		 * @BB50+
 		 * @RIPPLE
 		 */
@@ -225,7 +225,7 @@ SQLError = {
 		 * @constant
 		 * @type Number
 		 * @description The transaction failed for reasons unrelated to the database itself and not covered by any other error code. 
-		 * @PB10
+		 * @PB10+
 		 * @BB50+
 		 * @RIPPLE
 		 * @default 0
@@ -236,7 +236,7 @@ SQLError = {
 		 * @constant
 		 * @type Number
 		 * @description The statement failed for database reasons not covered by any other error code. 
-		 * @PB10
+		 * @PB10+
 		 * @BB50+
 		 * @RIPPLE
 		 * @default 1
@@ -247,7 +247,7 @@ SQLError = {
 		 * @constant
 		 * @type Number
 		 * @description The operation failed because the actual database version was not what it should be. 
-		 * @PB10
+		 * @PB10+
 		 * @BB50+
 		 * @RIPPLE
 		 * @default 2
@@ -258,7 +258,7 @@ SQLError = {
 		 * @constant
 		 * @type Number
 		 * @description The statement failed because the data returned from the database was too large. The SQL "LIMIT" modifier might be useful to reduce the size of the result set. 
-		 * @PB10
+		 * @PB10+
 		 * @BB50+
 		 * @RIPPLE
 		 * @default 3
@@ -269,7 +269,7 @@ SQLError = {
 		 * @constant
 		 * @type Number
 		 * @description The statement failed because there was not enough remaining storage space, or the storage quota was reached and the user declined to give more space to the database. 
-		 * @PB10
+		 * @PB10+
 		 * @BB50+
 		 * @RIPPLE
 		 * @default 4
@@ -280,7 +280,7 @@ SQLError = {
 		 * @constant
 		 * @type Number
 		 * @description The statement failed because of a syntax error, or the number of arguments did not match the number of ? placeholders in the statement, or the statement tried to use a statement that is not allowed, such as <b>BEGIN</b>, <b>COMMIT</b>, or <b>ROLLBACK</b>, or the statement tried to use a verb that could modify the database but the transaction was read-only. 
-		 * @PB10
+		 * @PB10+
 		 * @BB50+
 		 * @RIPPLE
 		 * @default 5
@@ -291,7 +291,7 @@ SQLError = {
 		 * @constant
 		 * @type Number
 		 * @description An <b>INSERT</b>, <b>UPDATE</b>, or <b>REPLACE</b> statement failed due to a constraint failure. For example, because a row was being inserted and the value given for the primary key column duplicated the value of an existing row. 
-		 * @PB10
+		 * @PB10+
 		 * @BB50+
 		 * @RIPPLE
 		 * @default 6
@@ -302,7 +302,7 @@ SQLError = {
 		 * @constant
 		 * @type Number
 		 * @description A lock for the transaction could not be obtained in a reasonable time. 
-		 * @PB10
+		 * @PB10+
 		 * @BB50+
 		 * @RIPPLE
 		 * @default 7
@@ -314,7 +314,7 @@ SQLError = {
 		 * @description The most appropriate error code. 
 		 * @readOnly
 		 * @type Number
-		 * @PB10
+		 * @PB10+
 		 * @BB50+
 		 * @RIPPLE
 		 */
@@ -324,7 +324,7 @@ SQLError = {
 		 * @description An error message describing the error encountered. The message should be localized to the user's language.
 		 * @readOnly
 		 * @type String
-		 * @PB10
+		 * @PB10+
 		 * @BB50+
 		 * @RIPPLE
 		 */

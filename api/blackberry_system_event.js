@@ -136,7 +136,7 @@ blackberry.system.event.onCoverageChange = function(onSystemEvent) { };
  * Battery level is a percentage value.
  * @callback {function} onBatteryLevelChange Function to be called when the battery level changes. The level is passed as its only argument.
  * @callback {Number} onBatteryLevelChange.level battery level of the device ranging from 0 to 100
- * @PB10
+ * @PB10+
  * @RIPPLE
  * @example
  * &lt;script type="text/javascript"&gt;
@@ -164,7 +164,7 @@ blackberry.system.event.deviceBatteryLevelChange =  function(onBatteryLevelChang
  * <br>UNPLUGGED	= 3;
  * @callback {function} onBatteryStateChange Function to be called when the battery charge state changes. The new state is passed as its only argument.
  * @callback {Number} onBatteryStateChange.state battery state of the device
- * @PB10
+ * @PB10+
  * @RIPPLE
  */
 blackberry.system.event.deviceBatteryStateChange = function(onBatteryStateChange){};

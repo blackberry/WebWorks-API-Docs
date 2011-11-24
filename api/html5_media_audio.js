@@ -22,7 +22,7 @@
 /**
 * @namespace
 * An audio element represents a sound or audio stream.
-* @PB10
+* @PB10+
 * @BB60+
 * @toc {Media} HTML5 Audio
 * @extends HTMLMediaElement
@@ -38,7 +38,7 @@ HTMLAudioElement = {
          * audio.src = 'audio.wav';
          * audio.controls = true;
          * document.body.appendChild(audio);
-         * @PB10
+         * @PB10+
          * @BB60+
          */
         documentConstructor : undefined
@@ -53,7 +53,7 @@ HTMLAudioElement = {
          * audio.src = 'audio.wav';
          * @example
          * var audio = new Audio('audio.wav');
-         * @PB10
+         * @PB10+
          * @BB60+
          */
         audioConstructor : undefined

@@ -46,7 +46,7 @@ blackberry.io.file.FileProperties.prototype.isReadonly = { };
 * @type Boolean
 * @readOnly
 * @BB50+
-* @PB10
+* @PB10+
 */
 blackberry.io.file.FileProperties.prototype.isHidden = { };
 
@@ -55,7 +55,7 @@ blackberry.io.file.FileProperties.prototype.isHidden = { };
 * @type Number
 * @readOnly
 * @BB50+
-* @PB10
+* @PB10+
 */
 blackberry.io.file.FileProperties.prototype.size = { };
 
@@ -63,7 +63,7 @@ blackberry.io.file.FileProperties.prototype.size = { };
 * File creation date 
 * @type Date
 * @readOnly
-* @PB10
+* @PB10+
 */
 blackberry.io.file.FileProperties.prototype.dateCreated = { };
 
@@ -72,7 +72,7 @@ blackberry.io.file.FileProperties.prototype.dateCreated = { };
 * @type Date
 * @readOnly
 * @BB50+
-* @PB10
+* @PB10+
 */
 blackberry.io.file.FileProperties.prototype.dateModified = { };
 
@@ -81,7 +81,7 @@ blackberry.io.file.FileProperties.prototype.dateModified = { };
 * @type String
 * @readOnly
 * @BB50+
-* @PB10
+* @PB10+
 */
 blackberry.io.file.FileProperties.prototype.fileExtension = { };
 
@@ -90,7 +90,7 @@ blackberry.io.file.FileProperties.prototype.fileExtension = { };
 * @type String
 * @readOnly
 * @BB50+
-* @PB10
+* @PB10+
 */
 blackberry.io.file.FileProperties.prototype.directory = { };
 

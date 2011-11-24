@@ -151,7 +151,7 @@ blackberry.media.microphone = {
         * @callback {Number} onError.errorCode The error code for the error.
         * @callback {String} onError.errorMsg The error message for the error.
         * @returns {void}
-        * @PB10
+        * @PB10+
         * @BB50+
         */
         record : function(filePath, onCaptured, onError) {},
@@ -160,7 +160,7 @@ blackberry.media.microphone = {
         * Pauses/resumes recording.<br><br>If the microphone is in recording mode, calling pause() would cause recording to
         * pause. If the microphone is paused, calling pause() would cause recording to resume.<br><br>
         * @returns {void}
-        * @PB10
+        * @PB10+
         * @BB50+
         */
         pause : function() {},
@@ -169,7 +169,7 @@ blackberry.media.microphone = {
         * Stops recording, this causes the recorded audio data to be saved to the file. The onCaptured callback function passed in record will be
         * invoked when the audio file has been saved to disk.
         * @returns {void}
-        * @PB10
+        * @PB10+
         * @BB50+
         */
         stop : function() {}

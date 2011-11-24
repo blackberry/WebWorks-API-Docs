@@ -16,8 +16,6 @@
 
 /**
 * @toc {IO} File
-* @notice {Warning ( Playbook 1.0 Notice):}
-* For URI based APIs, webworks:// has been deprecated and replaced with http://localhost:8472. This change does not affect the procedural APIs.
 * @namespace The File object provides functions for interacting with the file system.<br><br>
 * See also {@link blackberry.io.dir}
 * @featureID blackberry.io.file
@@ -29,7 +27,7 @@ blackberry.io.file = {
     * @param {String} path local storage file path to the file
     * @returns {blackberry.io.file.FileProperties}
     * @BB50+
-    * @PB10
+    * @PB10+
     */
     getFileProperties : function(path) { },
     
@@ -40,7 +38,7 @@ blackberry.io.file = {
      * @param {String} path local storage file path to the file
      * @returns {Boolean}
      * @BB50+
-     * @PB10
+     * @PB10+
      */
     /**
      * @name blackberry.io.file.exists
@@ -53,7 +51,7 @@ blackberry.io.file = {
      *     "exists" : true if the path exists and points to a file, false otherwise
      *   }
      * }
-     * @PB10
+     * @PB10+
      * @uri
      * @function     
      */    
@@ -66,7 +64,7 @@ blackberry.io.file = {
      * @param {String} path file path to the file to be opened.
      * @returns {Boolean}
      * @BB50+
-     * @PB10
+     * @PB10+
      */
     /**
      * @name blackberry.io.file.open
@@ -79,7 +77,7 @@ blackberry.io.file = {
      *   }
      * }
      * @type {Boolean}
-     * @PB10
+     * @PB10+
      * @uri
      * @function
      */        
@@ -93,7 +91,7 @@ blackberry.io.file = {
     * @param {String} newFileName the new file name.
     * @returns {void}
     * @BB50+
-    * @PB10
+    * @PB10+
     */
     /**
      * @name blackberry.io.file.rename
@@ -107,7 +105,7 @@ blackberry.io.file = {
      *     "newFileName" : "&lt;newFileName that was passed&gt;"
      *   }
      * }
-     * @PB10
+     * @PB10+
      * @uri
      * @function
      */    
@@ -121,7 +119,7 @@ blackberry.io.file = {
     * @param {String} targetPath local storage file path to the new copied file. The name of the copied file should be specified at the end of the targetPath.
     * @returns {void}
     * @BB50+
-    * @PB10
+    * @PB10+
     */
     /**
      * @name blackberry.io.file.copy
@@ -135,7 +133,7 @@ blackberry.io.file = {
      *     "targetPath" : "&lt;targetPath that was passed&gt;"
      *   }
      * }
-     * @PB10
+     * @PB10+
      * @uri
      * @function
      */
@@ -146,7 +144,7 @@ blackberry.io.file = {
     * @param {String} path local storage file path to the file to be deleted
     * @returns {void}
     * @BB50+
-    * @PB10
+    * @PB10+
     */
     deleteFile : function(path) { },
     
@@ -158,7 +156,7 @@ blackberry.io.file = {
     * @param {Blob} data The Blob to be saved.
     * @returns {void}
     * @BB50+
-    * @PB10 
+    * @PB10+ 
     * @example
     * &lt;script type=&quot;text&sol;javascript&quot;&gt;
     *   var xmlString = &quot;&lt;test&gt;IO functions&lt;&sol;test&gt;&quot;;
@@ -190,7 +188,7 @@ blackberry.io.file = {
     * @param {Boolean} [async] a flag specifying if the call to read should be asynchronous or synchronous.  If this parameter is not supplied the default of true will be used.
     * @returns {void}
     * @BB50+
-    * @PB10 
+    * @PB10+ 
     */
     readFile : function(path,onFileOpened,async) { },
     
@@ -204,7 +202,7 @@ blackberry.io.file = {
      *     "path" : "&lt;path that was passed&gt;"
      *   }
      * }
-     * @PB10
+     * @PB10+
      * @uri
      * @function
      */
@@ -225,7 +223,7 @@ blackberry.io.file = {
      *     "size" : &lt;file size in bytes&gt; // only defined if "code" is 0
      *   }
      * }
-     * @PB10
+     * @PB10+
      * @uri
      * @example
      * &lt;script type="text/javascript" src="js/jquery-1.4.2.js"&gt;&lt;/script&gt;
