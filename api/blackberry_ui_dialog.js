@@ -217,8 +217,8 @@ blackberry.ui.dialog ={
 		 * @description Creates an asynchronous dialog to allow user to select a color.
 		 * <p/>The function is an asynchronous call and will not block execution. It will return the value selected by the user.
 		 * @param {String} initialColor Color that will first be selected when the color picker dialog appears in hexadecimal format.
-		 * @callback {String} onColorSelected A string containing the fully qualified name of a globally-accessible callback function. It will be invoked with the user's choices from the native UI.
-		 * @callback {String} onColorSelected.color The color user user has selected in hexadecimal format.
+		 * @callback {function} onColorSelected Callback function that will be invoked when the user makes a selection. It will be invoked with the user's choice from the native UI.
+		 * @callback {String} onColorSelected.color The color user has selected in hexadecimal format.
 		 * @BB50+
 		 * @example
 		 * &lt;script type="text/javascript"&gt;
@@ -229,7 +229,7 @@ blackberry.ui.dialog ={
 		 * 
 		 * function colorPicker() {
 		 *   try {
-		 *     blackberry.ui.dialog.colorPickerAsync("000000", "window.onColorSelected");
+		 *     blackberry.ui.dialog.colorPickerAsync("000000", onColorSelected);
 		 *   } catch (e) {
 		 *     alert("Exception in colorPickerAsync: " + e);
 		 *   }
