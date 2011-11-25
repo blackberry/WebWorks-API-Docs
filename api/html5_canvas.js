@@ -22,7 +22,7 @@
  * The canvas element has several methods for drawing paths, boxes, circles, characters, and adding images. 
  * Any text inside the between <strong>&#60canvas&#62</strong> tags will be displayed in browsers that do not support the canvas element.
  * @BB60+
- * @PB10++
+ * @PB10+
  */
 
  canvas ={

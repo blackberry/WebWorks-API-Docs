@@ -67,35 +67,39 @@ WebGLRenderingContext.documentConstructor = undefined;
 WebGLContextAttributes = { };
 
 /**
-* Default: true. If the value is true, the drawing buffer has a depth buffer of at least 16 bits. If the value is false, no depth buffer is available
+* If the value is true, the drawing buffer has a depth buffer of at least 16 bits. If the value is false, no depth buffer is available
 * @type boolean
+* @default true
 * @PB20
 * @RIPPLE
 */
 WebGLContextAttributes.prototype.depth = { };
 
 /**
-* Default: false. If the value is true, the drawing buffer has a stencil buffer of at least 8 bits. If the value is false, no stencil buffer is available
+* If the value is true, the drawing buffer has a stencil buffer of at least 8 bits. If the value is false, no stencil buffer is available
 * @type boolean
+* @default false
 * @PB20
 * @RIPPLE
 */
 WebGLContextAttributes.prototype.stencil = { };
 
 /**
-* Default: true. If the value is true and the implementation supports antialiasing the drawing buffer will perform antialiasing using its choice of
+* If the value is true and the implementation supports antialiasing the drawing buffer will perform antialiasing using its choice of
 * technique (multisample/supersample) and quality. If the value is false or the implementation does not support antialiasing, no antialiasing is
 * performed
 * @type boolean
+* @default true
 * @PB20
 * @RIPPLE
 */
 WebGLContextAttributes.prototype.antialias = { };
 
 /**
-* Default: true. If the value is true the page compositor will assume the drawing buffer contains colors with premultiplied alpha. If the value is false 
+* If the value is true the page compositor will assume the drawing buffer contains colors with premultiplied alpha. If the value is false 
 * the page compositor will assume that colors in the drawing buffer are not premultiplied
 * @type boolean
+* @default true
 * @PB20
 * @RIPPLE
 */
