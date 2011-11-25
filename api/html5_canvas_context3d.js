@@ -183,6 +183,36 @@ WebGLUniformLocation = { };
 * @RIPPLE
 */
 WebGLActiveInfo = { };
+
+
+/**
+* The size of the requested variable
+* @type GLint
+* @readOnly
+* @PB20
+* @RIPPLE
+*/
+WebGLActiveInfo.prototype.size = { };
+
+/**
+* The data type of the requested variable.
+* @type GLenum
+* @readOnly
+* @PB20
+* @RIPPLE
+*/
+WebGLActiveInfo.prototype.type = { };
+
+/**
+* The data type of the requested variable.
+* @type String
+* @readOnly
+* @PB20
+* @RIPPLE
+*/
+WebGLActiveInfo.prototype.name = { };
+
+
 /**
 * @type GLenum
 * @constant
@@ -2602,7 +2632,7 @@ WebGLRenderingContext.prototype.isContextLost = function() { };
 
 /**
 * Returns an array of all the supported extension strings
-* @return {DOMString[]} an array of all the supported extension strings
+* @return {String[]} an array of all the supported extension strings
 * @PB20
 * @RIPPLE
 */
@@ -2612,7 +2642,7 @@ WebGLRenderingContext.prototype.getSupportedExtensions = function() { };
 * Returns an object if the passed extension is supported. The object returned from getExtension contains any constants or functions used by the 
 * extension, if any. A returned object may have no constants or functions if the extension does not define any, but a unique object must still be 
 * returned. That object is used to indicate that the extension has been enabled
-* @param {DOMString} name name of extension
+* @param {String} name name of extension
 * @return {object} an object if the passed extension is supported, or null if not
 * @PB20
 * @RIPPLE
@@ -2640,7 +2670,7 @@ WebGLRenderingContext.prototype.attachShader = function(program, shader) { };
 * Associate a generic vertex attribute index with a named attribute variable
 * @param {WebGLProgram} program Specifies the handle of the program object in which the association is to be made.
 * @param {GLuint} index Specifies the index of the generic vertex attribute to be bound.
-* @param {DOMString} name Specifies a null terminated string containing the name of the vertex shader attribute variable to which index is to be bound.
+* @param {String} name Specifies a null terminated string containing the name of the vertex shader attribute variable to which index is to be bound.
 * @PB20
 * @RIPPLE
 */
@@ -2731,9 +2761,9 @@ WebGLRenderingContext.prototype.blendFunc = function(sfactor, dfactor) { };
 WebGLRenderingContext.prototype.blendFuncSeparate = function(srcRGB, dstRGB, srcAlpha, dstAlpha) { };
 
 /**
-* Create and initialize a buffer object's data store
+* Set the size of the currently bound WebGLBuffer object for the passed target. The buffer is initialized to 0.
 * @param {GLenum} target  Specifies the target buffer object. The symbolic constant must be ARRAY_BUFFER or ELEMENT_ARRAY_BUFFER. 
-* @param {GLsizeiptr/ArrayBufferView/ArrayBuffer} size  Specifies the size in bytes of the buffer object's new data store. 
+* @param {GLsizeiptr} size  Specifies the size in bytes of the buffer object's new data store. 
 * @param {GLenum} usage  Specifies a pointer to data that will be copied into the data store for initialization, or NULL if no data is to be copied. 
 * @PB20
 * @RIPPLE
@@ -2741,10 +2771,48 @@ WebGLRenderingContext.prototype.blendFuncSeparate = function(srcRGB, dstRGB, src
 WebGLRenderingContext.prototype.bufferData = function(target, size, usage) { };
 
 /**
+* Set the size of the currently bound WebGLBuffer object for the passed target to the size of the passed data, then write the contents of data to the buffer object.
+* @name WebGLRenderingContext.prototype.bufferData^2
+* @function
+* @param {GLenum} target  Specifies the target buffer object. The symbolic constant must be ARRAY_BUFFER or ELEMENT_ARRAY_BUFFER. 
+* @param {ArrayBufferView} data  Buffer to measure
+* @param {GLenum} usage  Specifies a pointer to data that will be copied into the data store for initialization, or NULL if no data is to be copied. 
+* @PB20
+* @RIPPLE
+*/
+WebGLRenderingContext.prototype.bufferData = function(target, data, usage) { };
+
+
+/**
+* Set the size of the currently bound WebGLBuffer object for the passed target to the size of the passed data, then write the contents of data to the buffer object.
+* @name WebGLRenderingContext.prototype.bufferData^3
+* @function
+* @param {GLenum} target  Specifies the target buffer object. The symbolic constant must be ARRAY_BUFFER or ELEMENT_ARRAY_BUFFER. 
+* @param {ArrayBuffer} data  Buffer to measure
+* @param {GLenum} usage  Specifies a pointer to data that will be copied into the data store for initialization, or NULL if no data is to be copied. 
+* @PB20
+* @RIPPLE
+*/
+WebGLRenderingContext.prototype.bufferData = function(target, data, usage) { };
+
+
+/**
 * Update a subset of a buffer object's data store
 * @param {GLenum} target  Specifies the target buffer object. The symbolic constant must be ARRAY_BUFFER or ELEMENT_ARRAY_BUFFER. 
 * @param {GLintptr} offset  Specifies the offset into the buffer object's data store where data replacement will begin, measured in bytes. 
-* @param {ArrayBufferView/ArrayBuffer} data  Specifies the size in bytes of the data store region being replaced. 
+* @param {ArrayBufferView} data  Specifies the size in bytes of the data store region being replaced. 
+* @PB20
+* @RIPPLE
+*/
+WebGLRenderingContext.prototype.bufferSubData = function(target, offset, data) { };
+
+/**
+* Update a subset of a buffer object's data store
+* @name WebGLRenderingContext.prototype.bufferSubData^2
+* @function
+* @param {GLenum} target  Specifies the target buffer object. The symbolic constant must be ARRAY_BUFFER or ELEMENT_ARRAY_BUFFER. 
+* @param {GLintptr} offset  Specifies the offset into the buffer object's data store where data replacement will begin, measured in bytes. 
+* @param {ArrayBuffer} data  Specifies the size in bytes of the data store region being replaced. 
 * @PB20
 * @RIPPLE
 */
@@ -3132,7 +3200,7 @@ WebGLRenderingContext.prototype.getAttachedShaders = function(program) { };
 /**
 * Return the location of an attribute variable
 * @param {WebGLProgram} program Specifies the program object to be queried.
-* @param {DOMString} name Points to a null terminated string containing the name of the attribute variable whose location is to be queried.
+* @param {String} name Points to a null terminated string containing the name of the attribute variable whose location is to be queried.
 * @return {GLint} the index of the generic vertex attribute that is bound to that attribute variable.
 * @PB20
 * @RIPPLE
@@ -3143,7 +3211,7 @@ WebGLRenderingContext.prototype.getAttribLocation = function(program, name) { };
 * Return the value or values of a selected parameter
 * @param {GLenum} pname Specifies the parameter value to be returned.
 * @return {any} the value for the passed pname. The type returned is the natural type for the requested pname, as given in the following table:
-*    <table style="background-color:#ffffff;border:1px solid #c3c3c3;border-collapse:collapse;padding:3px;"> 
+*    <table> 
 *        <tr><th>pname</th><th>returned type</th></tr> 
 *        <tr><td>ACTIVE_TEXTURE</td><td>unsigned long</td></tr> 
 *        <tr><td>ALIASED_LINE_WIDTH_RANGE</td><td>Float32Array (with 2 elements)</td></tr> 
@@ -3196,14 +3264,14 @@ WebGLRenderingContext.prototype.getAttribLocation = function(program, name) { };
 *        <tr><td>POLYGON_OFFSET_UNITS</td><td>float</td></tr> 
 *        <tr><td>RED_BITS</td><td>long</td></tr> 
 *        <tr><td>RENDERBUFFER_BINDING</td><td>WebGLRenderbuffer</td></tr> 
-*        <tr><td>RENDERER</td><td>DOMString</td></tr> 
+*        <tr><td>RENDERER</td><td>String</td></tr> 
 *        <tr><td>SAMPLE_BUFFERS</td><td>long</td></tr> 
 *        <tr><td>SAMPLE_COVERAGE_INVERT</td><td>boolean</td></tr> 
 *        <tr><td>SAMPLE_COVERAGE_VALUE</td><td>float</td></tr> 
 *        <tr><td>SAMPLES</td><td>long</td></tr> 
 *        <tr><td>SCISSOR_BOX</td><td>Int32Array (with 4 elements)</td></tr> 
 *        <tr><td>SCISSOR_TEST</td><td>boolean</td></tr> 
-*        <tr><td>SHADING_LANGUAGE_VERSION</td><td>DOMString</td></tr> 
+*        <tr><td>SHADING_LANGUAGE_VERSION</td><td>String</td></tr> 
 *        <tr><td>STENCIL_BACK_FAIL</td><td>unsigned long</td></tr> 
 *        <tr><td>STENCIL_BACK_FUNC</td><td>unsigned long</td></tr> 
 *        <tr><td>STENCIL_BACK_PASS_DEPTH_FAIL</td><td>unsigned long</td></tr> 
@@ -3228,8 +3296,8 @@ WebGLRenderingContext.prototype.getAttribLocation = function(program, name) { };
 *        <tr><td>UNPACK_COLORSPACE_CONVERSION_WEBGL</td><td>unsigned long</td></tr> 
 *        <tr><td>UNPACK_FLIP_Y_WEBGL</td><td>boolean</td></tr> 
 *        <tr><td>UNPACK_PREMULTIPLY_ALPHA_WEBGL</td><td>boolean</td></tr> 
-*        <tr><td>VENDOR</td><td>DOMString</td></tr> 
-*        <tr><td>VERSION</td><td>DOMString</td></tr> 
+*        <tr><td>VENDOR</td><td>String</td></tr> 
+*        <tr><td>VERSION</td><td>String</td></tr> 
 *        <tr><td>VIEWPORT</td><td>Int32Array (with 4 elements)</td></tr> 
 *    </table>
 * @PB20
@@ -3288,7 +3356,7 @@ WebGLRenderingContext.prototype.getProgramParameter = function(program, pname) {
 /**
 * Return the information log for a program object
 * @param {WebGLProgram} program Specifies the program object whose information log is to be queried.
-* @return {DOMString} the information log for the specified program object.
+* @return {String} the information log for the specified program object.
 * @PB20
 * @RIPPLE
 */
@@ -3317,7 +3385,7 @@ WebGLRenderingContext.prototype.getShaderParameter = function(shader, pname) { }
 /**
 * Return the information log for a shader object
 * @param {WebGLShader} shader Specifies the shader object whose information log is to be queried.
-* @return {DOMString} the information log for the specified shader object.
+* @return {String} the information log for the specified shader object.
 * @PB20
 * @RIPPLE
 */
@@ -3326,7 +3394,7 @@ WebGLRenderingContext.prototype.getShaderInfoLog = function(shader) { };
 /**
 * Return the source code string from a shader object
 * @param {WebGLShader} shader Specifies the shader object to be queried.
-* @return {DOMString} the concatenation of the source code strings from the shader object specified by shader.
+* @return {String} the concatenation of the source code strings from the shader object specified by shader.
 * @PB20
 * @RIPPLE
 */
@@ -3347,7 +3415,7 @@ WebGLRenderingContext.prototype.getTexParameter = function(target, pname) { };
 * @param {WebGLProgram} program Specifies the program object to be queried.
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be queried.
 * @return {any} the uniform value at the passed location in the passed program. The type returned is dependent on the uniform type, as shown in the following table:
-*    <table style="background-color:#ffffff;border:1px solid #c3c3c3;border-collapse:collapse;padding:3px;"> 
+*    <table> 
 *        <tr><th>uniform type</th><th>returned type</th></tr> 
 *        <tr><td>boolean</td><td>boolean</td></tr> 
 *        <tr><td>int</td><td>long</td></tr> 
@@ -3373,7 +3441,7 @@ WebGLRenderingContext.prototype.getUniform = function(program, location) { };
 /**
 * Return the location of a uniform variable
 * @param {WebGLProgram} program Specifies the program object to be queried.
-* @param {DOMString} name Points to a null terminated string containing the name of the uniform variable whose location is to be queried.
+* @param {String} name Points to a null terminated string containing the name of the uniform variable whose location is to be queried.
 * @return {WebGLUniformLocation} an integer that represents the location of a specific uniform variable within a program object.
 * @PB20
 * @RIPPLE
@@ -3422,48 +3490,19 @@ WebGLRenderingContext.prototype.isBuffer = function(buffer) { };
 * Test whether a capability is enabled
 * @param {GLenum} cap  Specifies a symbolic constant indicating a GL capability. 
 * @return {GLboolean} returns WebGLRenderingContext.TRUE if cap is an enabled capability and returns WebGLRenderingContext.FALSE otherwise. Initially all capabilities except DITHER are disabled; DITHER is initially enabled. The following capabilities are accepted for cap:
-*    <table style="background-color:#ffffff;border:1px solid #c3c3c3;border-collapse:collapse;padding:3px;">
-*        <colgroup><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span><strong> 
-*        Constant
-*        </strong></span></th><th align="left"><span><strong> 
-*        See
-*        </strong></span></th></tr></thead><tbody><tr><td align="left"> 
-*        <code>BLEND</code> 
-*        </td><td align="left"> 
-*        {@link #blendFunc}</a> 
-*        </td></tr><tr><td align="left"> 
-*        <code>CULL_FACE</code> 
-*        </td><td align="left"> 
-*        {@link #cullFace}</a> 
-*        </td></tr><tr><td align="left"> 
-*        <code>DEPTH_TEST</code> 
-*        </td><td align="left"> 
-*        {@link #depthFunc}</a>, {@link #depthRange}</a> 
-*        </td></tr><tr><td align="left"> 
-*        <code>DITHER</code> 
-*        </td><td align="left"> 
-*        {@link #enable}</a> 
-*        </td></tr><tr><td align="left"> 
-*        <code>POLYGON_OFFSET_FILL</code> 
-*        </td><td align="left"> 
-*        {@link #polygonOffset}</a> 
-*        </td></tr><tr><td align="left"> 
-*        <code>SAMPLE_ALPHA_TO_COVERAGE</code> 
-*        </td><td align="left"> 
-*        {@link #sampleCoverage}</a> 
-*        </td></tr><tr><td align="left"> 
-*        <code>SAMPLE_COVERAGE</code> 
-*        </td><td align="left"> 
-*        {@link #sampleCoverage}</a> 
-*        </td></tr><tr><td align="left"> 
-*        <code>SCISSOR_TEST</code> 
-*        </td><td align="left"> 
-*        {@link #scissor}</a> 
-*        </td></tr><tr><td align="left"> 
-*        <code>STENCIL_TEST</code> 
-*        </td><td align="left"> 
-*        {@link #stencilFunc}</a>, {@link #stencilOp}</a> 
-*        </td></tr></tbody>
+*    <table>
+*        <tr><th>Constant</th><th>See</th></tr> 
+*		 <tbody>
+*		 <tr><td>BLEND</td><td>{@link #blendFunc}</a></td></tr>
+*		 <tr><td>CULL_FACE</td><td>{@link #cullFace}</a></td></tr>
+*		 <tr><td>DEPTH_TEST</td><td>{@link #depthFunc}</a>, {@link #depthRange}</a></td></tr>
+*		 <tr><td>DITHER</td><td>{@link #enable}</a></td></tr>
+*		 <tr><td>POLYGON_OFFSET_FILL</td><td>{@link #polygonOffset}</a></td></tr>
+*		 <tr><td>SAMPLE_ALPHA_TO_COVERAGE</td><td>{@link #sampleCoverage}</a></td></tr>
+*		 <tr><td>SAMPLE_COVERAGE</td><td>{@link #sampleCoverage}</a></td></tr>
+*		 <tr><td>SCISSOR_TEST</td><td>{@link #scissor}</a></td></tr>
+*		 <tr><td>STENCIL_TEST</td><td>{@link #stencilFunc}</a>, {@link #stencilOp}</a></td></tr>
+*		 </tbody>
 *    </table>
 * @PB20
 * @RIPPLE
@@ -3597,7 +3636,7 @@ WebGLRenderingContext.prototype.scissor = function(x, y, width, height) { };
 /**
 * Replace the source code in a shader object
 * @param {WebGLShader} shader Specifies the handle of the shader object whose source code is to be replaced.
-* @param {DOMString} source Specifies the number of elements in the string and length arrays.
+* @param {String} source Specifies the number of elements in the string and length arrays.
 * @PB20
 * @RIPPLE
 */
@@ -3680,6 +3719,8 @@ WebGLRenderingContext.prototype.texImage2D = function(target, level, internalfor
 
 /**
 * Specify a two-dimensional texture image
+* @name WebGLRenderingContext.prototype.texImage2D^2
+* @function
 * @param {GLenum} target  Specifies the target texture of the active texture unit. Must be TEXTURE_2D, TEXTURE_CUBE_MAP_POSITIVE_X, TEXTURE_CUBE_MAP_NEGATIVE_X, TEXTURE_CUBE_MAP_POSITIVE_Y, TEXTURE_CUBE_MAP_NEGATIVE_Y, TEXTURE_CUBE_MAP_POSITIVE_Z, or TEXTURE_CUBE_MAP_NEGATIVE_Z. 
 * @param {GLint} level  Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image. 
 * @param {GLenum} internalformat  Specifies the internal format of the texture. Must be one of the following symbolic constants: ALPHA, LUMINANCE, LUMINANCE_ALPHA, RGB, RGBA. 
@@ -3693,6 +3734,8 @@ WebGLRenderingContext.prototype.texImage2D = function(target, level, internalfor
 
 /**
 * Specify a two-dimensional texture image
+* @name WebGLRenderingContext.prototype.texImage2D^3
+* @function
 * @param {GLenum} target  Specifies the target texture of the active texture unit. Must be TEXTURE_2D, TEXTURE_CUBE_MAP_POSITIVE_X, TEXTURE_CUBE_MAP_NEGATIVE_X, TEXTURE_CUBE_MAP_POSITIVE_Y, TEXTURE_CUBE_MAP_NEGATIVE_Y, TEXTURE_CUBE_MAP_POSITIVE_Z, or TEXTURE_CUBE_MAP_NEGATIVE_Z. 
 * @param {GLint} level  Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image. 
 * @param {GLenum} internalformat  Specifies the internal format of the texture. Must be one of the following symbolic constants: ALPHA, LUMINANCE, LUMINANCE_ALPHA, RGB, RGBA. 
@@ -3706,6 +3749,8 @@ WebGLRenderingContext.prototype.texImage2D = function(target, level, internalfor
 
 /**
 * Specify a two-dimensional texture image
+* @name WebGLRenderingContext.prototype.texImage2D^4
+* @function
 * @param {GLenum} target  Specifies the target texture of the active texture unit. Must be TEXTURE_2D, TEXTURE_CUBE_MAP_POSITIVE_X, TEXTURE_CUBE_MAP_NEGATIVE_X, TEXTURE_CUBE_MAP_POSITIVE_Y, TEXTURE_CUBE_MAP_NEGATIVE_Y, TEXTURE_CUBE_MAP_POSITIVE_Z, or TEXTURE_CUBE_MAP_NEGATIVE_Z. 
 * @param {GLint} level  Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image. 
 * @param {GLenum} internalformat  Specifies the internal format of the texture. Must be one of the following symbolic constants: ALPHA, LUMINANCE, LUMINANCE_ALPHA, RGB, RGBA. 
@@ -3719,6 +3764,8 @@ WebGLRenderingContext.prototype.texImage2D = function(target, level, internalfor
 
 /**
 * Specify a two-dimensional texture image
+* @name WebGLRenderingContext.prototype.texImage2D^5
+* @function
 * @param {GLenum} target  Specifies the target texture of the active texture unit. Must be TEXTURE_2D, TEXTURE_CUBE_MAP_POSITIVE_X, TEXTURE_CUBE_MAP_NEGATIVE_X, TEXTURE_CUBE_MAP_POSITIVE_Y, TEXTURE_CUBE_MAP_NEGATIVE_Y, TEXTURE_CUBE_MAP_POSITIVE_Z, or TEXTURE_CUBE_MAP_NEGATIVE_Z. 
 * @param {GLint} level  Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image. 
 * @param {GLenum} internalformat  Specifies the internal format of the texture. Must be one of the following symbolic constants: ALPHA, LUMINANCE, LUMINANCE_ALPHA, RGB, RGBA. 
@@ -3768,6 +3815,8 @@ WebGLRenderingContext.prototype.texSubImage2D = function(target, level, xoffset,
 
 /**
 * Specify a two-dimensional texture subimage
+* @name WebGLRenderingContext.prototype.texSubImage2D^2
+* @function
 * @param {GLenum} target  Specifies the target texture of the active texture unit. Must be TEXTURE_2D, TEXTURE_CUBE_MAP_POSITIVE_X, TEXTURE_CUBE_MAP_NEGATIVE_X, TEXTURE_CUBE_MAP_POSITIVE_Y, TEXTURE_CUBE_MAP_NEGATIVE_Y, TEXTURE_CUBE_MAP_POSITIVE_Z, or TEXTURE_CUBE_MAP_NEGATIVE_Z. 
 * @param {GLint} level  Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image. 
 * @param {GLint} xoffset  Specifies a texel offset in the x direction within the texture array. 
@@ -3782,6 +3831,8 @@ WebGLRenderingContext.prototype.texSubImage2D = function(target, level, xoffset,
 
 /**
 * Specify a two-dimensional texture subimage
+* @name WebGLRenderingContext.prototype.texSubImage2D^3
+* @function
 * @param {GLenum} target  Specifies the target texture of the active texture unit. Must be TEXTURE_2D, TEXTURE_CUBE_MAP_POSITIVE_X, TEXTURE_CUBE_MAP_NEGATIVE_X, TEXTURE_CUBE_MAP_POSITIVE_Y, TEXTURE_CUBE_MAP_NEGATIVE_Y, TEXTURE_CUBE_MAP_POSITIVE_Z, or TEXTURE_CUBE_MAP_NEGATIVE_Z. 
 * @param {GLint} level  Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image. 
 * @param {GLint} xoffset  Specifies a texel offset in the x direction within the texture array. 
@@ -3796,6 +3847,8 @@ WebGLRenderingContext.prototype.texSubImage2D = function(target, level, xoffset,
 
 /**
 * Specify a two-dimensional texture subimage
+* @name WebGLRenderingContext.prototype.texSubImage2D^4
+* @function
 * @param {GLenum} target  Specifies the target texture of the active texture unit. Must be TEXTURE_2D, TEXTURE_CUBE_MAP_POSITIVE_X, TEXTURE_CUBE_MAP_NEGATIVE_X, TEXTURE_CUBE_MAP_POSITIVE_Y, TEXTURE_CUBE_MAP_NEGATIVE_Y, TEXTURE_CUBE_MAP_POSITIVE_Z, or TEXTURE_CUBE_MAP_NEGATIVE_Z. 
 * @param {GLint} level  Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image. 
 * @param {GLint} xoffset  Specifies a texel offset in the x direction within the texture array. 
@@ -3810,6 +3863,8 @@ WebGLRenderingContext.prototype.texSubImage2D = function(target, level, xoffset,
 
 /**
 * Specify a two-dimensional texture subimage
+* @name WebGLRenderingContext.prototype.texSubImage2D^5
+* @function
 * @param {GLenum} target  Specifies the target texture of the active texture unit. Must be TEXTURE_2D, TEXTURE_CUBE_MAP_POSITIVE_X, TEXTURE_CUBE_MAP_NEGATIVE_X, TEXTURE_CUBE_MAP_POSITIVE_Y, TEXTURE_CUBE_MAP_NEGATIVE_Y, TEXTURE_CUBE_MAP_POSITIVE_Z, or TEXTURE_CUBE_MAP_NEGATIVE_Z. 
 * @param {GLint} level  Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image. 
 * @param {GLint} xoffset  Specifies a texel offset in the x direction within the texture array. 
@@ -3842,6 +3897,8 @@ WebGLRenderingContext.prototype.uniform1fv = function(location, v) { };
 
 /**
 * Specify the value of a uniform variable for the current program object
+* @name WebGLRenderingContext.prototype.uniform1fv^2
+* @function
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {sequence<float>} v Specifies the new values to be used for the specified uniform variable.
 * @PB20
@@ -3869,6 +3926,8 @@ WebGLRenderingContext.prototype.uniform1iv = function(location, v) { };
 
 /**
 * Specify the value of a uniform variable for the current program object
+* @name WebGLRenderingContext.prototype.uniform1iv^2
+* @function
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {sequence<long>} v Specifies the new values to be used for the specified uniform variable.
 * @PB20
@@ -3897,6 +3956,8 @@ WebGLRenderingContext.prototype.uniform2fv = function(location, v) { };
 
 /**
 * Specify the value of a uniform variable for the current program object
+* @name WebGLRenderingContext.prototype.uniform2fv^2
+* @function
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {sequence<float>} v Specifies the new values to be used for the specified uniform variable.
 * @PB20
@@ -3925,6 +3986,8 @@ WebGLRenderingContext.prototype.uniform2iv = function(location, v) { };
 
 /**
 * Specify the value of a uniform variable for the current program object
+* @name WebGLRenderingContext.prototype.uniform2iv^2
+* @function
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {sequence<long>} v Specifies the new values to be used for the specified uniform variable.
 * @PB20
@@ -3954,6 +4017,8 @@ WebGLRenderingContext.prototype.uniform3fv = function(location, v) { };
 
 /**
 * Specify the value of a uniform variable for the current program object
+* @name WebGLRenderingContext.prototype.uniform3fv^2
+* @function
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {sequence<float>} v Specifies the new values to be used for the specified uniform variable.
 * @PB20
@@ -3983,6 +4048,8 @@ WebGLRenderingContext.prototype.uniform3iv = function(location, v) { };
 
 /**
 * Specify the value of a uniform variable for the current program object
+* @name WebGLRenderingContext.prototype.uniform3iv^2
+* @function
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {sequence<long>} v Specifies the new values to be used for the specified uniform variable.
 * @PB20
@@ -4013,6 +4080,8 @@ WebGLRenderingContext.prototype.uniform4fv = function(location, v) { };
 
 /**
 * Specify the value of a uniform variable for the current program object
+* @name WebGLRenderingContext.prototype.uniform4fv^2
+* @function
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {sequence<float>} v Specifies the new values to be used for the specified uniform variable.
 * @PB20
@@ -4043,6 +4112,8 @@ WebGLRenderingContext.prototype.uniform4iv = function(location, v) { };
 
 /**
 * Specify the value of a uniform variable for the current program object
+* @name WebGLRenderingContext.prototype.uniform4iv^2
+* @function
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {sequence<long>} v Specifies the new values to be used for the specified uniform variable.
 * @PB20
@@ -4062,6 +4133,8 @@ WebGLRenderingContext.prototype.uniformMatrix2fv = function(location, transpose,
 
 /**
 * Specify the value of a uniform matrix for the current program object
+* @name WebGLRenderingContext.prototype.uniformMatrix2fv^2
+* @function
 * @param {WebGLUniformLocation} location Specifies the location of the uniform value to be modified.
 * @param {GLboolean} transpose Specifies whether to transpose the matrix as the values are loaded into the uniform variable. Must be FALSE.
 * @param {sequence<float>} value Specifies a pointer to an array of values that will be used to update the specified uniform matrix.
@@ -4082,6 +4155,8 @@ WebGLRenderingContext.prototype.uniformMatrix3fv = function(location, transpose,
 
 /**
 * Specify the value of a uniform matrix for the current program object
+* @name WebGLRenderingContext.prototype.uniformMatrix3fv^2
+* @function
 * @param {WebGLUniformLocation} location Specifies the location of the uniform value to be modified.
 * @param {GLboolean} transpose Specifies whether to transpose the matrix as the values are loaded into the uniform variable. Must be FALSE.
 * @param {sequence<float>} value Specifies a pointer to an array of values that will be used to update the specified uniform matrix.
@@ -4102,6 +4177,8 @@ WebGLRenderingContext.prototype.uniformMatrix4fv = function(location, transpose,
 
 /**
 * Specify the value of a uniform matrix for the current program object
+* @name WebGLRenderingContext.prototype.uniformMatrix4fv^2
+* @function
 * @param {WebGLUniformLocation} location Specifies the location of the uniform value to be modified.
 * @param {GLboolean} transpose Specifies whether to transpose the matrix as the values are loaded into the uniform variable. Must be FALSE.
 * @param {sequence<float>} value Specifies a pointer to an array of values that will be used to update the specified uniform matrix.
@@ -4146,6 +4223,8 @@ WebGLRenderingContext.prototype.vertexAttrib1fv = function(indx, values) { };
 
 /**
 * Specify the value of a generic vertex attribute
+* @name WebGLRenderingContext.prototype.vertexAttrib1fv^2
+* @function
 * @param {GLuint} indx Specifies the index of the generic vertex attribute to be modified.
 * @param {sequence<float>} values Specifies the new values to be used for the specified vertex attribute.
 * @PB20
@@ -4174,6 +4253,8 @@ WebGLRenderingContext.prototype.vertexAttrib2fv = function(indx, values) { };
 
 /**
 * Specify the value of a generic vertex attribute
+* @name WebGLRenderingContext.prototype.vertexAttrib2fv^2
+* @function
 * @param {GLuint} indx Specifies the index of the generic vertex attribute to be modified.
 * @param {sequence<float>} values Specifies the new values to be used for the specified vertex attribute.
 * @PB20
@@ -4203,6 +4284,8 @@ WebGLRenderingContext.prototype.vertexAttrib3fv = function(indx, values) { };
 
 /**
 * Specify the value of a generic vertex attribute
+* @name WebGLRenderingContext.prototype.vertexAttrib3fv^2
+* @function
 * @param {GLuint} indx Specifies the index of the generic vertex attribute to be modified.
 * @param {sequence<float>} values Specifies the new values to be used for the specified vertex attribute.
 * @PB20
@@ -4233,6 +4316,8 @@ WebGLRenderingContext.prototype.vertexAttrib4fv = function(indx, values) { };
 
 /**
 * Specify the value of a generic vertex attribute
+* @name WebGLRenderingContext.prototype.vertexAttrib4fv^2
+* @function
 * @param {GLuint} indx Specifies the index of the generic vertex attribute to be modified.
 * @param {sequence<float>} values Specifies the new values to be used for the specified vertex attribute.
 * @PB20
