@@ -110,8 +110,7 @@ TimeRanges = function() { }
 
 
 /**
-* Returns a MediaError object representing the current error state of the element.
-* Returns null if there is no error.
+* Return the number of ranges represented by the object.
 * @type Number
 * @readOnly
 * @BB60+
@@ -121,8 +120,9 @@ TimeRanges = function() { }
 TimeRanges.prototype.length = { };
 
 /**
-* Returns the time for the start of the range with the given index.
-* @param {Number} index
+* Return the position of the start of the indexth range represented by the object, in seconds measured from the start of the timeline that the object covers
+* @param {Number} index Indexth range represented by the object
+* @returns {Number} Returns the time for the start of the range with the given index.
 * @BB60+
 * @PB10+
 * @RIPPLE
@@ -130,8 +130,9 @@ TimeRanges.prototype.length = { };
 TimeRanges.prototype.start = function(index) { };
 
 /**
-* Returns the time for the end of the range with the given ind
-* @param {Number} index
+* Returns the position of the end of the indexth range represented by the object, in seconds measured from the start of the timeline that the object covers
+* @param {Number} index Indexth range represented by the object
+* @returns {Number} Returns the time for the end of the range with the given index.
 * @BB60+
 * @PB10+
 * @RIPPLE
@@ -314,6 +315,7 @@ HTMLMediaElement.prototype.load = function () { };
 * "probably" based on how confident the user agent is that it can 
 * play media resources of the given type.
 * @param {String} type The media type you are trying to play, for example: "application/octet-stream;codecs=theora" would return an empty string.
+* @returns {String} A string indicating the likelyhood of being able to play the type
 * @BB60+
 * @PB10+
 * @RIPPLE
@@ -746,7 +748,7 @@ TextTrackCueList.prototype.length = { };
 /**
 * Returns the number of cues in the list.
 * @param {String} id Returns the first text track cue (in text track cue order) with text track cue identifier id. Returns null if none of the cues have the given identifier or if the argument is the empty string.
-* @returns TextTrackCue
+* @returns {TextTrackCue} The TexTrackCue that matches the supplied id
 * @BB60+
 * @PB10+
 * @RIPPLE
