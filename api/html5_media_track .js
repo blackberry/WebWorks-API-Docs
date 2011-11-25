@@ -34,6 +34,7 @@
 * @extends HTMLElement
 * @BB60+
 * @PB10+
+* @RIPPLE
 * @example
 * &lt;video src=\&quot;brave.webm\&quot;&gt;
 *  &lt;track kind=subtitles src=brave.en.vtt srclang=en label=\&quot;English\&quot;&gt;
@@ -53,6 +54,7 @@ HTMLTrackElement = function() { };
  * var track = document.createElement("track");
  * @PB10+
  * @BB60+
+ * @RIPPLE
  */
 HTMLTrackElement.documentConstructor = undefined;
 
@@ -62,6 +64,7 @@ HTMLTrackElement.documentConstructor = undefined;
 * @type String
 * @BB60+
 * @PB10+
+* @RIPPLE
 */
 HTMLTrackElement.prototype.kind = { };
 
@@ -73,6 +76,7 @@ HTMLTrackElement.prototype.kind = { };
 * @type String
 * @BB60+
 * @PB10+
+* @RIPPLE
 */
 HTMLTrackElement.prototype.src = { };
 
@@ -84,6 +88,7 @@ HTMLTrackElement.prototype.src = { };
 * @type String
 * @BB60+
 * @PB10+
+* @RIPPLE
 */
 HTMLTrackElement.prototype.srclang = { };
 
@@ -98,6 +103,7 @@ HTMLTrackElement.prototype.srclang = { };
 * @type String
 * @BB60+
 * @PB10+
+* @RIPPLE
 */
 HTMLTrackElement.prototype.label = { };
 
@@ -111,6 +117,7 @@ HTMLTrackElement.prototype.label = { };
 * @type Boolean
 * @BB60+
 * @PB10+
+* @RIPPLE
 */
 HTMLTrackElement.prototype.default = { };
 
@@ -121,6 +128,7 @@ HTMLTrackElement.prototype.default = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @RIPPLE
 */
 HTMLSourceElement.prototype.track = { };
 

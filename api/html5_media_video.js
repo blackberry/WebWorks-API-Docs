@@ -26,6 +26,7 @@
 * @toc {Media} HTML5 Video
 * @PB10+
 * @BB70+
+* @extends HTMLMediaElement
 * @RIPPLE
 */
 HTMLVideoElement = function() { };
