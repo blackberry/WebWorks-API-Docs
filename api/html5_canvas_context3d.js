@@ -25,7 +25,2700 @@
 * @PB20
 * @RIPPLE
 */
-WebGLRenderingContext = { };
+WebGLRenderingContext = { 
+		/**
+		* @type GLenum 
+		* @constant
+		* @default 0x00000400
+		* @PB20
+		* @RIPPLE
+		*/
+		STENCIL_BUFFER_BIT : 0x00000400,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x00004000
+		* @PB20
+		* @RIPPLE
+		*/
+		COLOR_BUFFER_BIT : 0x00004000,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0000
+		* @PB20
+		* @RIPPLE
+		*/
+		POINTS : 0x0000,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0001
+		* @PB20
+		* @RIPPLE
+		*/
+		LINES : 0x0001,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0002
+		* @PB20
+		* @RIPPLE
+		*/
+		LINE_LOOP : 0x0002,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0003
+		* @PB20
+		* @RIPPLE
+		*/
+		LINE_STRIP : 0x0003,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0004
+		* @PB20
+		* @RIPPLE
+		*/
+		TRIANGLES : 0x0004,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0005
+		* @PB20
+		* @RIPPLE
+		*/
+		TRIANGLE_STRIP : 0x0005,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0006
+		* @PB20
+		* @RIPPLE
+		*/
+		TRIANGLE_FAN : 0x0006,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0
+		* @PB20
+		* @RIPPLE
+		*/
+		ZERO : 0,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 1
+		* @PB20
+		* @RIPPLE
+		*/
+		ONE : 1,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0300
+		* @PB20
+		* @RIPPLE
+		*/
+		SRC_COLOR : 0x0300,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0301
+		* @PB20
+		* @RIPPLE
+		*/
+		ONE_MINUS_SRC_COLOR : 0x0301,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0302
+		* @PB20
+		* @RIPPLE
+		*/
+		SRC_ALPHA : 0x0302,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0303
+		* @PB20
+		* @RIPPLE
+		*/
+		ONE_MINUS_SRC_ALPHA : 0x0303,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0304
+		* @PB20
+		* @RIPPLE
+		*/
+		DST_ALPHA : 0x0304,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0305
+		* @PB20
+		* @RIPPLE
+		*/
+		ONE_MINUS_DST_ALPHA : 0x0305,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0306
+		* @PB20
+		* @RIPPLE
+		*/
+		DST_COLOR : 0x0306,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0307
+		* @PB20
+		* @RIPPLE
+		*/
+		ONE_MINUS_DST_COLOR : 0x0307,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0308
+		* @PB20
+		* @RIPPLE
+		*/
+		SRC_ALPHA_SATURATE : 0x0308,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8006
+		* @PB20
+		* @RIPPLE
+		*/
+		FUNC_ADD : 0x8006,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8009
+		* @PB20
+		* @RIPPLE
+		*/
+		BLEND_EQUATION : 0x8009,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8009
+		* @PB20
+		* @RIPPLE
+		*/
+		BLEND_EQUATION_RGB : 0x8009,   /* same as BLEND_EQUATION */
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x883D
+		* @PB20
+		* @RIPPLE
+		*/
+		BLEND_EQUATION_ALPHA : 0x883D,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x800A
+		* @PB20
+		* @RIPPLE
+		*/
+		FUNC_SUBTRACT : 0x800A,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x800B
+		* @PB20
+		* @RIPPLE
+		*/
+		FUNC_REVERSE_SUBTRACT : 0x800B,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x80C8
+		* @PB20
+		* @RIPPLE
+		*/
+		BLEND_DST_RGB : 0x80C8,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x80C9
+		* @PB20
+		* @RIPPLE
+		*/
+		BLEND_SRC_RGB : 0x80C9,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x80CA
+		* @PB20
+		* @RIPPLE
+		*/
+		BLEND_DST_ALPHA : 0x80CA,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x80CB
+		* @PB20
+		* @RIPPLE
+		*/
+		BLEND_SRC_ALPHA : 0x80CB,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8001
+		* @PB20
+		* @RIPPLE
+		*/
+		CONSTANT_COLOR : 0x8001,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8002
+		* @PB20
+		* @RIPPLE
+		*/
+		ONE_MINUS_CONSTANT_COLOR : 0x8002,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8003
+		* @PB20
+		* @RIPPLE
+		*/
+		CONSTANT_ALPHA : 0x8003,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8004
+		* @PB20
+		* @RIPPLE
+		*/
+		ONE_MINUS_CONSTANT_ALPHA : 0x8004,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8005
+		* @PB20
+		* @RIPPLE
+		*/
+		BLEND_COLOR : 0x8005,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8892
+		* @PB20
+		* @RIPPLE
+		*/
+		ARRAY_BUFFER : 0x8892,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8893
+		* @PB20
+		* @RIPPLE
+		*/
+		ELEMENT_ARRAY_BUFFER : 0x8893,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8894
+		* @PB20
+		* @RIPPLE
+		*/
+		ARRAY_BUFFER_BINDING : 0x8894,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8895
+		* @PB20
+		* @RIPPLE
+		*/
+		ELEMENT_ARRAY_BUFFER_BINDING : 0x8895,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x88E0
+		* @PB20
+		* @RIPPLE
+		*/
+		STREAM_DRAW : 0x88E0,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x88E4
+		* @PB20
+		* @RIPPLE
+		*/
+		STATIC_DRAW : 0x88E4,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x88E8
+		* @PB20
+		* @RIPPLE
+		*/
+		DYNAMIC_DRAW : 0x88E8,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8764
+		* @PB20
+		* @RIPPLE
+		*/
+		BUFFER_SIZE : 0x8764,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8765
+		* @PB20
+		* @RIPPLE
+		*/
+		BUFFER_USAGE : 0x8765,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8626
+		* @PB20
+		* @RIPPLE
+		*/
+		CURRENT_VERTEX_ATTRIB : 0x8626,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0404
+		* @PB20
+		* @RIPPLE
+		*/
+		FRONT : 0x0404,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0405
+		* @PB20
+		* @RIPPLE
+		*/
+		BACK : 0x0405,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0408
+		* @PB20
+		* @RIPPLE
+		*/
+		FRONT_AND_BACK : 0x0408,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0DE1
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE_2D : 0x0DE1,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0B44
+		* @PB20
+		* @RIPPLE
+		*/
+		CULL_FACE : 0x0B44,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0BE2
+		* @PB20
+		* @RIPPLE
+		*/
+		BLEND : 0x0BE2,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0BD0
+		* @PB20
+		* @RIPPLE
+		*/
+		DITHER : 0x0BD0,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0B90
+		* @PB20
+		* @RIPPLE
+		*/
+		STENCIL_TEST : 0x0B90,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0B71
+		* @PB20
+		* @RIPPLE
+		*/
+		DEPTH_TEST : 0x0B71,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0C11
+		* @PB20
+		* @RIPPLE
+		*/
+		SCISSOR_TEST : 0x0C11,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8037
+		* @PB20
+		* @RIPPLE
+		*/
+		POLYGON_OFFSET_FILL : 0x8037,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x809E
+		* @PB20
+		* @RIPPLE
+		*/
+		SAMPLE_ALPHA_TO_COVERAGE : 0x809E,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x80A0
+		* @PB20
+		* @RIPPLE
+		*/
+		SAMPLE_COVERAGE : 0x80A0,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0
+		* @PB20
+		* @RIPPLE
+		*/
+		NO_ERROR : 0,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0500
+		* @PB20
+		* @RIPPLE
+		*/
+		INVALID_ENUM : 0x0500,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0501
+		* @PB20
+		* @RIPPLE
+		*/
+		INVALID_VALUE : 0x0501,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0502
+		* @PB20
+		* @RIPPLE
+		*/
+		INVALID_OPERATION : 0x0502,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0505
+		* @PB20
+		* @RIPPLE
+		*/
+		OUT_OF_MEMORY : 0x0505,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0900
+		* @PB20
+		* @RIPPLE
+		*/
+		CW : 0x0900,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0901
+		* @PB20
+		* @RIPPLE
+		*/
+		CCW : 0x0901,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0B21
+		* @PB20
+		* @RIPPLE
+		*/
+		LINE_WIDTH : 0x0B21,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x846D
+		* @PB20
+		* @RIPPLE
+		*/
+		ALIASED_POINT_SIZE_RANGE : 0x846D,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x846E
+		* @PB20
+		* @RIPPLE
+		*/
+		ALIASED_LINE_WIDTH_RANGE : 0x846E,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0B45
+		* @PB20
+		* @RIPPLE
+		*/
+		CULL_FACE_MODE : 0x0B45,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0B46
+		* @PB20
+		* @RIPPLE
+		*/
+		FRONT_FACE : 0x0B46,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0B70
+		* @PB20
+		* @RIPPLE
+		*/
+		DEPTH_RANGE : 0x0B70,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0B72
+		* @PB20
+		* @RIPPLE
+		*/
+		DEPTH_WRITEMASK : 0x0B72,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0B73
+		* @PB20
+		* @RIPPLE
+		*/
+		DEPTH_CLEAR_VALUE : 0x0B73,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0B74
+		* @PB20
+		* @RIPPLE
+		*/
+		DEPTH_FUNC : 0x0B74,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0B91
+		* @PB20
+		* @RIPPLE
+		*/
+		STENCIL_CLEAR_VALUE : 0x0B91,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0B92
+		* @PB20
+		* @RIPPLE
+		*/
+		STENCIL_FUNC : 0x0B92,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0B94
+		* @PB20
+		* @RIPPLE
+		*/
+		STENCIL_FAIL : 0x0B94,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0B95
+		* @PB20
+		* @RIPPLE
+		*/
+		STENCIL_PASS_DEPTH_FAIL : 0x0B95,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0B96
+		* @PB20
+		* @RIPPLE
+		*/
+		STENCIL_PASS_DEPTH_PASS : 0x0B96,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0B97
+		* @PB20
+		* @RIPPLE
+		*/
+		STENCIL_REF : 0x0B97,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0B93
+		* @PB20
+		* @RIPPLE
+		*/
+		STENCIL_VALUE_MASK : 0x0B93,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0B98
+		* @PB20
+		* @RIPPLE
+		*/
+		STENCIL_WRITEMASK : 0x0B98,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8800
+		* @PB20
+		* @RIPPLE
+		*/
+		STENCIL_BACK_FUNC : 0x8800,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8801
+		* @PB20
+		* @RIPPLE
+		*/
+		STENCIL_BACK_FAIL : 0x8801,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8802
+		* @PB20
+		* @RIPPLE
+		*/
+		STENCIL_BACK_PASS_DEPTH_FAIL : 0x8802,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8803
+		* @PB20
+		* @RIPPLE
+		*/
+		STENCIL_BACK_PASS_DEPTH_PASS : 0x8803,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8CA3
+		* @PB20
+		* @RIPPLE
+		*/
+		STENCIL_BACK_REF : 0x8CA3,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8CA4
+		* @PB20
+		* @RIPPLE
+		*/
+		STENCIL_BACK_VALUE_MASK : 0x8CA4,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8CA5
+		* @PB20
+		* @RIPPLE
+		*/
+		STENCIL_BACK_WRITEMASK : 0x8CA5,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0BA2
+		* @PB20
+		* @RIPPLE
+		*/
+		VIEWPORT : 0x0BA2,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0C10
+		* @PB20
+		* @RIPPLE
+		*/
+		SCISSOR_BOX : 0x0C10,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0C22
+		* @PB20
+		* @RIPPLE
+		*/
+		COLOR_CLEAR_VALUE : 0x0C22,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0C23
+		* @PB20
+		* @RIPPLE
+		*/
+		COLOR_WRITEMASK : 0x0C23,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0CF5
+		* @PB20
+		* @RIPPLE
+		*/
+		UNPACK_ALIGNMENT : 0x0CF5,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0D05
+		* @PB20
+		* @RIPPLE
+		*/
+		PACK_ALIGNMENT : 0x0D05,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0D33
+		* @PB20
+		* @RIPPLE
+		*/
+		MAX_TEXTURE_SIZE : 0x0D33,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0D3A
+		* @PB20
+		* @RIPPLE
+		*/
+		MAX_VIEWPORT_DIMS : 0x0D3A,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0D50
+		* @PB20
+		* @RIPPLE
+		*/
+		SUBPIXEL_BITS : 0x0D50,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0D52
+		* @PB20
+		* @RIPPLE
+		*/
+		RED_BITS : 0x0D52,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0D53
+		* @PB20
+		* @RIPPLE
+		*/
+		GREEN_BITS : 0x0D53,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0D54
+		* @PB20
+		* @RIPPLE
+		*/
+		BLUE_BITS : 0x0D54,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0D55
+		* @PB20
+		* @RIPPLE
+		*/
+		ALPHA_BITS : 0x0D55,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0D56
+		* @PB20
+		* @RIPPLE
+		*/
+		DEPTH_BITS : 0x0D56,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0D57
+		* @PB20
+		* @RIPPLE
+		*/
+		STENCIL_BITS : 0x0D57,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x2A00
+		* @PB20
+		* @RIPPLE
+		*/
+		POLYGON_OFFSET_UNITS : 0x2A00,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8038
+		* @PB20
+		* @RIPPLE
+		*/
+		POLYGON_OFFSET_FACTOR : 0x8038,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8069
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE_BINDING_2D : 0x8069,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x80A8
+		* @PB20
+		* @RIPPLE
+		*/
+		SAMPLE_BUFFERS : 0x80A8,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x80A9
+		* @PB20
+		* @RIPPLE
+		*/
+		SAMPLES : 0x80A9,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x80AA
+		* @PB20
+		* @RIPPLE
+		*/
+		SAMPLE_COVERAGE_VALUE : 0x80AA,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x80AB
+		* @PB20
+		* @RIPPLE
+		*/
+		SAMPLE_COVERAGE_INVERT : 0x80AB,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x86A2
+		* @PB20
+		* @RIPPLE
+		*/
+		NUM_COMPRESSED_TEXTURE_FORMATS : 0x86A2,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x86A3
+		* @PB20
+		* @RIPPLE
+		*/
+		COMPRESSED_TEXTURE_FORMATS : 0x86A3,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x1100
+		* @PB20
+		* @RIPPLE
+		*/
+		DONT_CARE : 0x1100,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x1101
+		* @PB20
+		* @RIPPLE
+		*/
+		FASTEST : 0x1101,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x1102
+		* @PB20
+		* @RIPPLE
+		*/
+		NICEST : 0x1102,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8192
+		* @PB20
+		* @RIPPLE
+		*/
+		GENERATE_MIPMAP_HINT : 0x8192,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x1400
+		* @PB20
+		* @RIPPLE
+		*/
+		BYTE : 0x1400,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x1401
+		* @PB20
+		* @RIPPLE
+		*/
+		UNSIGNED_BYTE : 0x1401,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x1402
+		* @PB20
+		* @RIPPLE
+		*/
+		SHORT : 0x1402,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x1403
+		* @PB20
+		* @RIPPLE
+		*/
+		UNSIGNED_SHORT : 0x1403,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x1404
+		* @PB20
+		* @RIPPLE
+		*/
+		INT : 0x1404,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x1405
+		* @PB20
+		* @RIPPLE
+		*/
+		UNSIGNED_INT : 0x1405,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x1406
+		* @PB20
+		* @RIPPLE
+		*/
+		FLOAT : 0x1406,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x1902
+		* @PB20
+		* @RIPPLE
+		*/
+		DEPTH_COMPONENT : 0x1902,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x1906
+		* @PB20
+		* @RIPPLE
+		*/
+		ALPHA : 0x1906,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x1907
+		* @PB20
+		* @RIPPLE
+		*/
+		RGB : 0x1907,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x1908
+		* @PB20
+		* @RIPPLE
+		*/
+		RGBA : 0x1908,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x1909
+		* @PB20
+		* @RIPPLE
+		*/
+		LUMINANCE : 0x1909,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x190A
+		* @PB20
+		* @RIPPLE
+		*/
+		LUMINANCE_ALPHA : 0x190A,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8033
+		* @PB20
+		* @RIPPLE
+		*/
+		UNSIGNED_SHORT_4_4_4_4 : 0x8033,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8034
+		* @PB20
+		* @RIPPLE
+		*/
+		UNSIGNED_SHORT_5_5_5_1 : 0x8034,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8363
+		* @PB20
+		* @RIPPLE
+		*/
+		UNSIGNED_SHORT_5_6_5 : 0x8363,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B30
+		* @PB20
+		* @RIPPLE
+		*/
+		FRAGMENT_SHADER : 0x8B30,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B31
+		* @PB20
+		* @RIPPLE
+		*/
+		VERTEX_SHADER : 0x8B31,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8869
+		* @PB20
+		* @RIPPLE
+		*/
+		MAX_VERTEX_ATTRIBS : 0x8869,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8DFB
+		* @PB20
+		* @RIPPLE
+		*/
+		MAX_VERTEX_UNIFORM_VECTORS : 0x8DFB,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8DFC
+		* @PB20
+		* @RIPPLE
+		*/
+		MAX_VARYING_VECTORS : 0x8DFC,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B4D
+		* @PB20
+		* @RIPPLE
+		*/
+		MAX_COMBINED_TEXTURE_IMAGE_UNITS : 0x8B4D,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B4C
+		* @PB20
+		* @RIPPLE
+		*/
+		MAX_VERTEX_TEXTURE_IMAGE_UNITS : 0x8B4C,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8872
+		* @PB20
+		* @RIPPLE
+		*/
+		MAX_TEXTURE_IMAGE_UNITS : 0x8872,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8DFD
+		* @PB20
+		* @RIPPLE
+		*/
+		MAX_FRAGMENT_UNIFORM_VECTORS : 0x8DFD,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B4F
+		* @PB20
+		* @RIPPLE
+		*/
+		SHADER_TYPE : 0x8B4F,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B80
+		* @PB20
+		* @RIPPLE
+		*/
+		DELETE_STATUS : 0x8B80,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B82
+		* @PB20
+		* @RIPPLE
+		*/
+		LINK_STATUS : 0x8B82,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B83
+		* @PB20
+		* @RIPPLE
+		*/
+		VALIDATE_STATUS : 0x8B83,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B85
+		* @PB20
+		* @RIPPLE
+		*/
+		ATTACHED_SHADERS : 0x8B85,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B86
+		* @PB20
+		* @RIPPLE
+		*/
+		ACTIVE_UNIFORMS : 0x8B86,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B87
+		* @PB20
+		* @RIPPLE
+		*/
+		ACTIVE_UNIFORM_MAX_LENGTH : 0x8B87,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B89
+		* @PB20
+		* @RIPPLE
+		*/
+		ACTIVE_ATTRIBUTES : 0x8B89,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B8A
+		* @PB20
+		* @RIPPLE
+		*/
+		ACTIVE_ATTRIBUTE_MAX_LENGTH : 0x8B8A,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B8C
+		* @PB20
+		* @RIPPLE
+		*/
+		SHADING_LANGUAGE_VERSION : 0x8B8C,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B8D
+		* @PB20
+		* @RIPPLE
+		*/
+		CURRENT_PROGRAM : 0x8B8D,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0200
+		* @PB20
+		* @RIPPLE
+		*/
+		NEVER : 0x0200,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0201
+		* @PB20
+		* @RIPPLE
+		*/
+		LESS : 0x0201,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0202
+		* @PB20
+		* @RIPPLE
+		*/
+		EQUAL : 0x0202,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0203
+		* @PB20
+		* @RIPPLE
+		*/
+		LEQUAL : 0x0203,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0204
+		* @PB20
+		* @RIPPLE
+		*/
+		GREATER : 0x0204,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0205
+		* @PB20
+		* @RIPPLE
+		*/
+		NOTEQUAL : 0x0205,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0206
+		* @PB20
+		* @RIPPLE
+		*/
+		GEQUAL : 0x0206,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0207
+		* @PB20
+		* @RIPPLE
+		*/
+		ALWAYS : 0x0207,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x1E00
+		* @PB20
+		* @RIPPLE
+		*/
+		KEEP : 0x1E00,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x1E01
+		* @PB20
+		* @RIPPLE
+		*/
+		REPLACE : 0x1E01,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x1E02
+		* @PB20
+		* @RIPPLE
+		*/
+		INCR : 0x1E02,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x1E03
+		* @PB20
+		* @RIPPLE
+		*/
+		DECR : 0x1E03,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x150A
+		* @PB20
+		* @RIPPLE
+		*/
+		INVERT : 0x150A,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8507
+		* @PB20
+		* @RIPPLE
+		*/
+		INCR_WRAP : 0x8507,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8508
+		* @PB20
+		* @RIPPLE
+		*/
+		DECR_WRAP : 0x8508,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x1F00
+		* @PB20
+		* @RIPPLE
+		*/
+		VENDOR : 0x1F00,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x1F01
+		* @PB20
+		* @RIPPLE
+		*/
+		RENDERER : 0x1F01,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x1F02
+		* @PB20
+		* @RIPPLE
+		*/
+		VERSION : 0x1F02,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x2600
+		* @PB20
+		* @RIPPLE
+		*/
+		NEAREST : 0x2600,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x2601
+		* @PB20
+		* @RIPPLE
+		*/
+		LINEAR : 0x2601,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x2700
+		* @PB20
+		* @RIPPLE
+		*/
+		NEAREST_MIPMAP_NEAREST : 0x2700,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x2701
+		* @PB20
+		* @RIPPLE
+		*/
+		LINEAR_MIPMAP_NEAREST : 0x2701,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x2702
+		* @PB20
+		* @RIPPLE
+		*/
+		NEAREST_MIPMAP_LINEAR : 0x2702,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x2703
+		* @PB20
+		* @RIPPLE
+		*/
+		LINEAR_MIPMAP_LINEAR : 0x2703,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x2800
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE_MAG_FILTER : 0x2800,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x2801
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE_MIN_FILTER : 0x2801,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x2802
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE_WRAP_S : 0x2802,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x2803
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE_WRAP_T : 0x2803,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x1702
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE : 0x1702,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8513
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE_CUBE_MAP : 0x8513,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8514
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE_BINDING_CUBE_MAP : 0x8514,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8515
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE_CUBE_MAP_POSITIVE_X : 0x8515,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8516
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE_CUBE_MAP_NEGATIVE_X : 0x8516,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8517
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE_CUBE_MAP_POSITIVE_Y : 0x8517,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8518
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE_CUBE_MAP_NEGATIVE_Y : 0x8518,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8519
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE_CUBE_MAP_POSITIVE_Z : 0x8519,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x851A
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE_CUBE_MAP_NEGATIVE_Z : 0x851A,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x851C
+		* @PB20
+		* @RIPPLE
+		*/
+		MAX_CUBE_MAP_TEXTURE_SIZE : 0x851C,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84C0
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE0 : 0x84C0,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84C1
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE1 : 0x84C1,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84C2
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE2 : 0x84C2,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84C3
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE3 : 0x84C3,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84C4
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE4 : 0x84C4,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84C5
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE5 : 0x84C5,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84C6
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE6 : 0x84C6,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84C7
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE7 : 0x84C7,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84C8
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE8 : 0x84C8,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84C9
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE9 : 0x84C9,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84CA
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE10 : 0x84CA,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84CB
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE11 : 0x84CB,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84CC
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE12 : 0x84CC,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84CD
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE13 : 0x84CD,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84CE
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE14 : 0x84CE,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84CF
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE15 : 0x84CF,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84D0
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE16 : 0x84D0,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84D1
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE17 : 0x84D1,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84D2
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE18 : 0x84D2,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84D3
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE19 : 0x84D3,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84D4
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE20 : 0x84D4,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84D5
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE21 : 0x84D5,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84D6
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE22 : 0x84D6,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84D7
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE23 : 0x84D7,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84D8
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE24 : 0x84D8,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84D9
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE25 : 0x84D9,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84DA
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE26 : 0x84DA,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84DB
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE27 : 0x84DB,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84DC
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE28 : 0x84DC,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84DD
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE29 : 0x84DD,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84DE
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE30 : 0x84DE,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84DF
+		* @PB20
+		* @RIPPLE
+		*/
+		TEXTURE31 : 0x84DF,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84E0
+		* @PB20
+		* @RIPPLE
+		*/
+		ACTIVE_TEXTURE : 0x84E0,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x2901
+		* @PB20
+		* @RIPPLE
+		*/
+		REPEAT : 0x2901,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x812F
+		* @PB20
+		* @RIPPLE
+		*/
+		CLAMP_TO_EDGE : 0x812F,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8370
+		* @PB20
+		* @RIPPLE
+		*/
+		MIRRORED_REPEAT : 0x8370,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B50
+		* @PB20
+		* @RIPPLE
+		*/
+		FLOAT_VEC2 : 0x8B50,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B51
+		* @PB20
+		* @RIPPLE
+		*/
+		FLOAT_VEC3 : 0x8B51,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B52
+		* @PB20
+		* @RIPPLE
+		*/
+		FLOAT_VEC4 : 0x8B52,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B53
+		* @PB20
+		* @RIPPLE
+		*/
+		INT_VEC2 : 0x8B53,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B54
+		* @PB20
+		* @RIPPLE
+		*/
+		INT_VEC3 : 0x8B54,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B55
+		* @PB20
+		* @RIPPLE
+		*/
+		INT_VEC4 : 0x8B55,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B56
+		* @PB20
+		* @RIPPLE
+		*/
+		BOOL : 0x8B56,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B57
+		* @PB20
+		* @RIPPLE
+		*/
+		BOOL_VEC2 : 0x8B57,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B58
+		* @PB20
+		* @RIPPLE
+		*/
+		BOOL_VEC3 : 0x8B58,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B59
+		* @PB20
+		* @RIPPLE
+		*/
+		BOOL_VEC4 : 0x8B59,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B5A
+		* @PB20
+		* @RIPPLE
+		*/
+		FLOAT_MAT2 : 0x8B5A,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B5B
+		* @PB20
+		* @RIPPLE
+		*/
+		FLOAT_MAT3 : 0x8B5B,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B5C
+		* @PB20
+		* @RIPPLE
+		*/
+		FLOAT_MAT4 : 0x8B5C,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B5E
+		* @PB20
+		* @RIPPLE
+		*/
+		SAMPLER_2D : 0x8B5E,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B60
+		* @PB20
+		* @RIPPLE
+		*/
+		SAMPLER_CUBE : 0x8B60,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8622
+		* @PB20
+		* @RIPPLE
+		*/
+		VERTEX_ATTRIB_ARRAY_ENABLED : 0x8622,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8623
+		* @PB20
+		* @RIPPLE
+		*/
+		VERTEX_ATTRIB_ARRAY_SIZE : 0x8623,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8624
+		* @PB20
+		* @RIPPLE
+		*/
+		VERTEX_ATTRIB_ARRAY_STRIDE : 0x8624,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8625
+		* @PB20
+		* @RIPPLE
+		*/
+		VERTEX_ATTRIB_ARRAY_TYPE : 0x8625,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x886A
+		* @PB20
+		* @RIPPLE
+		*/
+		VERTEX_ATTRIB_ARRAY_NORMALIZED : 0x886A,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8645
+		* @PB20
+		* @RIPPLE
+		*/
+		VERTEX_ATTRIB_ARRAY_POINTER : 0x8645,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x889F
+		* @PB20
+		* @RIPPLE
+		*/
+		VERTEX_ATTRIB_ARRAY_BUFFER_BINDING : 0x889F,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B81
+		* @PB20
+		* @RIPPLE
+		*/
+		COMPILE_STATUS : 0x8B81,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B84
+		* @PB20
+		* @RIPPLE
+		*/
+		INFO_LOG_LENGTH : 0x8B84,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8B88
+		* @PB20
+		* @RIPPLE
+		*/
+		SHADER_SOURCE_LENGTH : 0x8B88,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8DF0
+		* @PB20
+		* @RIPPLE
+		*/
+		LOW_FLOAT : 0x8DF0,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8DF1
+		* @PB20
+		* @RIPPLE
+		*/
+		MEDIUM_FLOAT : 0x8DF1,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8DF2
+		* @PB20
+		* @RIPPLE
+		*/
+		HIGH_FLOAT : 0x8DF2,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8DF3
+		* @PB20
+		* @RIPPLE
+		*/
+		LOW_INT : 0x8DF3,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8DF4
+		* @PB20
+		* @RIPPLE
+		*/
+		MEDIUM_INT : 0x8DF4,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8DF5
+		* @PB20
+		* @RIPPLE
+		*/
+		HIGH_INT : 0x8DF5,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8D40
+		* @PB20
+		* @RIPPLE
+		*/
+		FRAMEBUFFER : 0x8D40,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8D41
+		* @PB20
+		* @RIPPLE
+		*/
+		RENDERBUFFER : 0x8D41,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8056
+		* @PB20
+		* @RIPPLE
+		*/
+		RGBA4 : 0x8056,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8057
+		* @PB20
+		* @RIPPLE
+		*/
+		RGB5_A1 : 0x8057,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8D62
+		* @PB20
+		* @RIPPLE
+		*/
+		RGB565 : 0x8D62,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x81A5
+		* @PB20
+		* @RIPPLE
+		*/
+		DEPTH_COMPONENT16 : 0x81A5,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x1901
+		* @PB20
+		* @RIPPLE
+		*/
+		STENCIL_INDEX : 0x1901,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8D48
+		* @PB20
+		* @RIPPLE
+		*/
+		STENCIL_INDEX8 : 0x8D48,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84F9
+		* @PB20
+		* @RIPPLE
+		*/
+		DEPTH_STENCIL : 0x84F9,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8D42
+		* @PB20
+		* @RIPPLE
+		*/
+		RENDERBUFFER_WIDTH : 0x8D42,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8D43
+		* @PB20
+		* @RIPPLE
+		*/
+		RENDERBUFFER_HEIGHT : 0x8D43,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8D44
+		* @PB20
+		* @RIPPLE
+		*/
+		RENDERBUFFER_INTERNAL_FORMAT : 0x8D44,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8D50
+		* @PB20
+		* @RIPPLE
+		*/
+		RENDERBUFFER_RED_SIZE : 0x8D50,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8D51
+		* @PB20
+		* @RIPPLE
+		*/
+		RENDERBUFFER_GREEN_SIZE : 0x8D51,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8D52
+		* @PB20
+		* @RIPPLE
+		*/
+		RENDERBUFFER_BLUE_SIZE : 0x8D52,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8D53
+		* @PB20
+		* @RIPPLE
+		*/
+		RENDERBUFFER_ALPHA_SIZE : 0x8D53,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8D54
+		* @PB20
+		* @RIPPLE
+		*/
+		RENDERBUFFER_DEPTH_SIZE : 0x8D54,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8D55
+		* @PB20
+		* @RIPPLE
+		*/
+		RENDERBUFFER_STENCIL_SIZE : 0x8D55,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8CD0
+		* @PB20
+		* @RIPPLE
+		*/
+		FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE : 0x8CD0,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8CD1
+		* @PB20
+		* @RIPPLE
+		*/
+		FRAMEBUFFER_ATTACHMENT_OBJECT_NAME : 0x8CD1,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8CD2
+		* @PB20
+		* @RIPPLE
+		*/
+		FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL : 0x8CD2,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8CD3
+		* @PB20
+		* @RIPPLE
+		*/
+		FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE : 0x8CD3,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8CE0
+		* @PB20
+		* @RIPPLE
+		*/
+		COLOR_ATTACHMENT0 : 0x8CE0,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8D00
+		* @PB20
+		* @RIPPLE
+		*/
+		DEPTH_ATTACHMENT : 0x8D00,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8D20
+		* @PB20
+		* @RIPPLE
+		*/
+		STENCIL_ATTACHMENT : 0x8D20,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x821A
+		* @PB20
+		* @RIPPLE
+		*/
+		DEPTH_STENCIL_ATTACHMENT : 0x821A,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0
+		* @PB20
+		* @RIPPLE
+		*/
+		NONE : 0,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8CD5
+		* @PB20
+		* @RIPPLE
+		*/
+		FRAMEBUFFER_COMPLETE : 0x8CD5,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8CD6
+		* @PB20
+		* @RIPPLE
+		*/
+		FRAMEBUFFER_INCOMPLETE_ATTACHMENT : 0x8CD6,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8CD7
+		* @PB20
+		* @RIPPLE
+		*/
+		FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT : 0x8CD7,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8CD9
+		* @PB20
+		* @RIPPLE
+		*/
+		FRAMEBUFFER_INCOMPLETE_DIMENSIONS : 0x8CD9,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8CDD
+		* @PB20
+		* @RIPPLE
+		*/
+		FRAMEBUFFER_UNSUPPORTED : 0x8CDD,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8CA6
+		* @PB20
+		* @RIPPLE
+		*/
+		FRAMEBUFFER_BINDING : 0x8CA6,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x8CA7
+		* @PB20
+		* @RIPPLE
+		*/
+		RENDERBUFFER_BINDING : 0x8CA7,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x84E8
+		* @PB20
+		* @RIPPLE
+		*/
+		MAX_RENDERBUFFER_SIZE : 0x84E8,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x0506
+		* @PB20
+		* @RIPPLE
+		*/
+		INVALID_FRAMEBUFFER_OPERATION : 0x0506,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x9240
+		* @PB20
+		* @RIPPLE
+		*/
+		UNPACK_FLIP_Y_WEBGL : 0x9240,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x9241
+		* @PB20
+		* @RIPPLE
+		*/
+		UNPACK_PREMULTIPLY_ALPHA_WEBGL : 0x9241,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x9242
+		* @PB20
+		* @RIPPLE
+		*/
+		CONTEXT_LOST_WEBGL : 0x9242,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x9243
+		* @PB20
+		* @RIPPLE
+		*/
+		UNPACK_COLORSPACE_CONVERSION_WEBGL : 0x9243,
+
+		/**
+		* @type GLenum
+		* @constant
+		* @default 0x9244
+		* @PB20
+		* @RIPPLE
+		*/
+		BROWSER_DEFAULT_WEBGL : 0x9244,
+
+
+};
 
 /**
 * @field
@@ -208,2406 +2901,13 @@ WebGLActiveInfo.prototype.size = { };
 WebGLActiveInfo.prototype.type = { };
 
 /**
-* The data type of the requested variable.
+* The name of the requested variable.
 * @type String
 * @readOnly
 * @PB20
 * @RIPPLE
 */
 WebGLActiveInfo.prototype.name = { };
-
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.STENCIL_BUFFER_BIT = 0x00000400;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.COLOR_BUFFER_BIT = 0x00004000;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.POINTS = 0x0000;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.LINES = 0x0001;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.LINE_LOOP = 0x0002;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.LINE_STRIP = 0x0003;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TRIANGLES = 0x0004;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TRIANGLE_STRIP = 0x0005;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TRIANGLE_FAN = 0x0006;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.ZERO = 0;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.ONE = 1;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.SRC_COLOR = 0x0300;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.ONE_MINUS_SRC_COLOR = 0x0301;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.SRC_ALPHA = 0x0302;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.ONE_MINUS_SRC_ALPHA = 0x0303;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.DST_ALPHA = 0x0304;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.ONE_MINUS_DST_ALPHA = 0x0305;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.DST_COLOR = 0x0306;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.ONE_MINUS_DST_COLOR = 0x0307;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.SRC_ALPHA_SATURATE = 0x0308;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FUNC_ADD = 0x8006;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.BLEND_EQUATION = 0x8009;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.BLEND_EQUATION_RGB = 0x8009;   /* same as BLEND_EQUATION */
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.BLEND_EQUATION_ALPHA = 0x883D;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FUNC_SUBTRACT = 0x800A;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FUNC_REVERSE_SUBTRACT = 0x800B;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.BLEND_DST_RGB = 0x80C8;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.BLEND_SRC_RGB = 0x80C9;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.BLEND_DST_ALPHA = 0x80CA;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.BLEND_SRC_ALPHA = 0x80CB;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.CONSTANT_COLOR = 0x8001;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.ONE_MINUS_CONSTANT_COLOR = 0x8002;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.CONSTANT_ALPHA = 0x8003;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.ONE_MINUS_CONSTANT_ALPHA = 0x8004;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.BLEND_COLOR = 0x8005;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.ARRAY_BUFFER = 0x8892;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.ELEMENT_ARRAY_BUFFER = 0x8893;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.ARRAY_BUFFER_BINDING = 0x8894;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.ELEMENT_ARRAY_BUFFER_BINDING = 0x8895;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.STREAM_DRAW = 0x88E0;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.STATIC_DRAW = 0x88E4;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.DYNAMIC_DRAW = 0x88E8;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.BUFFER_SIZE = 0x8764;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.BUFFER_USAGE = 0x8765;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.CURRENT_VERTEX_ATTRIB = 0x8626;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FRONT = 0x0404;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.BACK = 0x0405;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FRONT_AND_BACK = 0x0408;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE_2D = 0x0DE1;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.CULL_FACE = 0x0B44;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.BLEND = 0x0BE2;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.DITHER = 0x0BD0;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.STENCIL_TEST = 0x0B90;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.DEPTH_TEST = 0x0B71;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.SCISSOR_TEST = 0x0C11;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.POLYGON_OFFSET_FILL = 0x8037;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.SAMPLE_ALPHA_TO_COVERAGE = 0x809E;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.SAMPLE_COVERAGE = 0x80A0;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.NO_ERROR = 0;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.INVALID_ENUM = 0x0500;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.INVALID_VALUE = 0x0501;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.INVALID_OPERATION = 0x0502;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.OUT_OF_MEMORY = 0x0505;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.CW = 0x0900;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.CCW = 0x0901;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.LINE_WIDTH = 0x0B21;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.ALIASED_POINT_SIZE_RANGE = 0x846D;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.ALIASED_LINE_WIDTH_RANGE = 0x846E;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.CULL_FACE_MODE = 0x0B45;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FRONT_FACE = 0x0B46;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.DEPTH_RANGE = 0x0B70;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.DEPTH_WRITEMASK = 0x0B72;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.DEPTH_CLEAR_VALUE = 0x0B73;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.DEPTH_FUNC = 0x0B74;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.STENCIL_CLEAR_VALUE = 0x0B91;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.STENCIL_FUNC = 0x0B92;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.STENCIL_FAIL = 0x0B94;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.STENCIL_PASS_DEPTH_FAIL = 0x0B95;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.STENCIL_PASS_DEPTH_PASS = 0x0B96;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.STENCIL_REF = 0x0B97;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.STENCIL_VALUE_MASK = 0x0B93;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.STENCIL_WRITEMASK = 0x0B98;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.STENCIL_BACK_FUNC = 0x8800;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.STENCIL_BACK_FAIL = 0x8801;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.STENCIL_BACK_PASS_DEPTH_FAIL = 0x8802;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.STENCIL_BACK_PASS_DEPTH_PASS = 0x8803;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.STENCIL_BACK_REF = 0x8CA3;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.STENCIL_BACK_VALUE_MASK = 0x8CA4;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.STENCIL_BACK_WRITEMASK = 0x8CA5;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.VIEWPORT = 0x0BA2;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.SCISSOR_BOX = 0x0C10;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.COLOR_CLEAR_VALUE = 0x0C22;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.COLOR_WRITEMASK = 0x0C23;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.UNPACK_ALIGNMENT = 0x0CF5;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.PACK_ALIGNMENT = 0x0D05;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.MAX_TEXTURE_SIZE = 0x0D33;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.MAX_VIEWPORT_DIMS = 0x0D3A;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.SUBPIXEL_BITS = 0x0D50;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.RED_BITS = 0x0D52;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.GREEN_BITS = 0x0D53;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.BLUE_BITS = 0x0D54;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.ALPHA_BITS = 0x0D55;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.DEPTH_BITS = 0x0D56;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.STENCIL_BITS = 0x0D57;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.POLYGON_OFFSET_UNITS = 0x2A00;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.POLYGON_OFFSET_FACTOR = 0x8038;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE_BINDING_2D = 0x8069;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.SAMPLE_BUFFERS = 0x80A8;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.SAMPLES = 0x80A9;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.SAMPLE_COVERAGE_VALUE = 0x80AA;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.SAMPLE_COVERAGE_INVERT = 0x80AB;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.NUM_COMPRESSED_TEXTURE_FORMATS = 0x86A2;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.COMPRESSED_TEXTURE_FORMATS = 0x86A3;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.DONT_CARE = 0x1100;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FASTEST = 0x1101;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.NICEST = 0x1102;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.GENERATE_MIPMAP_HINT = 0x8192;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.BYTE = 0x1400;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.UNSIGNED_BYTE = 0x1401;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.SHORT = 0x1402;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.UNSIGNED_SHORT = 0x1403;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.INT = 0x1404;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.UNSIGNED_INT = 0x1405;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FLOAT = 0x1406;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.DEPTH_COMPONENT = 0x1902;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.ALPHA = 0x1906;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.RGB = 0x1907;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.RGBA = 0x1908;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.LUMINANCE = 0x1909;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.LUMINANCE_ALPHA = 0x190A;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.UNSIGNED_SHORT_4_4_4_4 = 0x8033;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.UNSIGNED_SHORT_5_5_5_1 = 0x8034;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.UNSIGNED_SHORT_5_6_5 = 0x8363;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FRAGMENT_SHADER = 0x8B30;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.VERTEX_SHADER = 0x8B31;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.MAX_VERTEX_ATTRIBS = 0x8869;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.MAX_VERTEX_UNIFORM_VECTORS = 0x8DFB;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.MAX_VARYING_VECTORS = 0x8DFC;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.MAX_COMBINED_TEXTURE_IMAGE_UNITS = 0x8B4D;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.MAX_VERTEX_TEXTURE_IMAGE_UNITS = 0x8B4C;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.MAX_TEXTURE_IMAGE_UNITS = 0x8872;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.MAX_FRAGMENT_UNIFORM_VECTORS = 0x8DFD;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.SHADER_TYPE = 0x8B4F;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.DELETE_STATUS = 0x8B80;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.LINK_STATUS = 0x8B82;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.VALIDATE_STATUS = 0x8B83;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.ATTACHED_SHADERS = 0x8B85;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.ACTIVE_UNIFORMS = 0x8B86;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.ACTIVE_UNIFORM_MAX_LENGTH = 0x8B87;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.ACTIVE_ATTRIBUTES = 0x8B89;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.ACTIVE_ATTRIBUTE_MAX_LENGTH = 0x8B8A;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.SHADING_LANGUAGE_VERSION = 0x8B8C;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.CURRENT_PROGRAM = 0x8B8D;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.NEVER = 0x0200;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.LESS = 0x0201;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.EQUAL = 0x0202;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.LEQUAL = 0x0203;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.GREATER = 0x0204;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.NOTEQUAL = 0x0205;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.GEQUAL = 0x0206;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.ALWAYS = 0x0207;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.KEEP = 0x1E00;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.REPLACE = 0x1E01;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.INCR = 0x1E02;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.DECR = 0x1E03;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.INVERT = 0x150A;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.INCR_WRAP = 0x8507;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.DECR_WRAP = 0x8508;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.VENDOR = 0x1F00;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.RENDERER = 0x1F01;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.VERSION = 0x1F02;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.NEAREST = 0x2600;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.LINEAR = 0x2601;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.NEAREST_MIPMAP_NEAREST = 0x2700;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.LINEAR_MIPMAP_NEAREST = 0x2701;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.NEAREST_MIPMAP_LINEAR = 0x2702;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.LINEAR_MIPMAP_LINEAR = 0x2703;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE_MAG_FILTER = 0x2800;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE_MIN_FILTER = 0x2801;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE_WRAP_S = 0x2802;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE_WRAP_T = 0x2803;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE = 0x1702;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE_CUBE_MAP = 0x8513;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE_BINDING_CUBE_MAP = 0x8514;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE_CUBE_MAP_POSITIVE_X = 0x8515;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE_CUBE_MAP_NEGATIVE_X = 0x8516;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE_CUBE_MAP_POSITIVE_Y = 0x8517;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE_CUBE_MAP_NEGATIVE_Y = 0x8518;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE_CUBE_MAP_POSITIVE_Z = 0x8519;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE_CUBE_MAP_NEGATIVE_Z = 0x851A;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.MAX_CUBE_MAP_TEXTURE_SIZE = 0x851C;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE0 = 0x84C0;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE1 = 0x84C1;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE2 = 0x84C2;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE3 = 0x84C3;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE4 = 0x84C4;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE5 = 0x84C5;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE6 = 0x84C6;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE7 = 0x84C7;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE8 = 0x84C8;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE9 = 0x84C9;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE10 = 0x84CA;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE11 = 0x84CB;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE12 = 0x84CC;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE13 = 0x84CD;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE14 = 0x84CE;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE15 = 0x84CF;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE16 = 0x84D0;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE17 = 0x84D1;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE18 = 0x84D2;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE19 = 0x84D3;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE20 = 0x84D4;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE21 = 0x84D5;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE22 = 0x84D6;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE23 = 0x84D7;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE24 = 0x84D8;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE25 = 0x84D9;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE26 = 0x84DA;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE27 = 0x84DB;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE28 = 0x84DC;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE29 = 0x84DD;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE30 = 0x84DE;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.TEXTURE31 = 0x84DF;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.ACTIVE_TEXTURE = 0x84E0;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.REPEAT = 0x2901;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.CLAMP_TO_EDGE = 0x812F;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.MIRRORED_REPEAT = 0x8370;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FLOAT_VEC2 = 0x8B50;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FLOAT_VEC3 = 0x8B51;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FLOAT_VEC4 = 0x8B52;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.INT_VEC2 = 0x8B53;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.INT_VEC3 = 0x8B54;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.INT_VEC4 = 0x8B55;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.BOOL = 0x8B56;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.BOOL_VEC2 = 0x8B57;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.BOOL_VEC3 = 0x8B58;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.BOOL_VEC4 = 0x8B59;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FLOAT_MAT2 = 0x8B5A;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FLOAT_MAT3 = 0x8B5B;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FLOAT_MAT4 = 0x8B5C;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.SAMPLER_2D = 0x8B5E;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.SAMPLER_CUBE = 0x8B60;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.VERTEX_ATTRIB_ARRAY_ENABLED = 0x8622;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.VERTEX_ATTRIB_ARRAY_SIZE = 0x8623;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.VERTEX_ATTRIB_ARRAY_STRIDE = 0x8624;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.VERTEX_ATTRIB_ARRAY_TYPE = 0x8625;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.VERTEX_ATTRIB_ARRAY_NORMALIZED = 0x886A;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.VERTEX_ATTRIB_ARRAY_POINTER = 0x8645;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.VERTEX_ATTRIB_ARRAY_BUFFER_BINDING = 0x889F;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.COMPILE_STATUS = 0x8B81;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.INFO_LOG_LENGTH = 0x8B84;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.SHADER_SOURCE_LENGTH = 0x8B88;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.LOW_FLOAT = 0x8DF0;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.MEDIUM_FLOAT = 0x8DF1;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.HIGH_FLOAT = 0x8DF2;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.LOW_INT = 0x8DF3;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.MEDIUM_INT = 0x8DF4;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.HIGH_INT = 0x8DF5;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FRAMEBUFFER = 0x8D40;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.RENDERBUFFER = 0x8D41;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.RGBA4 = 0x8056;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.RGB5_A1 = 0x8057;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.RGB565 = 0x8D62;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.DEPTH_COMPONENT16 = 0x81A5;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.STENCIL_INDEX = 0x1901;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.STENCIL_INDEX8 = 0x8D48;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.DEPTH_STENCIL = 0x84F9;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.RENDERBUFFER_WIDTH = 0x8D42;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.RENDERBUFFER_HEIGHT = 0x8D43;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.RENDERBUFFER_INTERNAL_FORMAT = 0x8D44;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.RENDERBUFFER_RED_SIZE = 0x8D50;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.RENDERBUFFER_GREEN_SIZE = 0x8D51;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.RENDERBUFFER_BLUE_SIZE = 0x8D52;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.RENDERBUFFER_ALPHA_SIZE = 0x8D53;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.RENDERBUFFER_DEPTH_SIZE = 0x8D54;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.RENDERBUFFER_STENCIL_SIZE = 0x8D55;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE = 0x8CD0;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FRAMEBUFFER_ATTACHMENT_OBJECT_NAME = 0x8CD1;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL = 0x8CD2;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE = 0x8CD3;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.COLOR_ATTACHMENT0 = 0x8CE0;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.DEPTH_ATTACHMENT = 0x8D00;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.STENCIL_ATTACHMENT = 0x8D20;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.DEPTH_STENCIL_ATTACHMENT = 0x821A;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.NONE = 0;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FRAMEBUFFER_COMPLETE = 0x8CD5;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FRAMEBUFFER_INCOMPLETE_ATTACHMENT = 0x8CD6;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT = 0x8CD7;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FRAMEBUFFER_INCOMPLETE_DIMENSIONS = 0x8CD9;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FRAMEBUFFER_UNSUPPORTED = 0x8CDD;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.FRAMEBUFFER_BINDING = 0x8CA6;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.RENDERBUFFER_BINDING = 0x8CA7;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.MAX_RENDERBUFFER_SIZE = 0x84E8;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.INVALID_FRAMEBUFFER_OPERATION = 0x0506;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.UNPACK_FLIP_Y_WEBGL = 0x9240;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.UNPACK_PREMULTIPLY_ALPHA_WEBGL = 0x9241;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.CONTEXT_LOST_WEBGL = 0x9242;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.UNPACK_COLORSPACE_CONVERSION_WEBGL = 0x9243;
-
-/**
-* @type GLenum
-* @constant
-* @PB20
-* @RIPPLE
-*/
-WebGLRenderingContext.BROWSER_DEFAULT_WEBGL = 0x9244;
 
 /**
 * Return the canvas interface element that the context paints on
