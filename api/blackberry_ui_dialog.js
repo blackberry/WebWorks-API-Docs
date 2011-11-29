@@ -148,7 +148,7 @@ blackberry.ui.dialog ={
          * @param {Boolean} options.selected Flag that indicates whether an item should be rendered as currently selected
          * @param {Boolean} options.enabled Flag that indicates whether an item should be enabled for selection
          * @param {String} options.type Can be either "group" or "option" to indicate whether an item is a group header or an option
-		 * @callback {String} onSelected A string containing the fully qualified name of a globally-accessible callback function. It will be invoked with the user's choices from the native UI. 
+		 * @callback {function} onSelected A callback that will be invoked with the user's choices from the native UI. 
 		 * @callback {Number[]} onSelected.indices The indices of the user's selections.
 		 * @BB50+
 		 * @example
@@ -185,7 +185,7 @@ blackberry.ui.dialog ={
          * @param {String} options.value String representation of the current date/time displayed in the field
          * @param {String} options.min String representation of the minimum date/time allowed in the field
          * @param {String} options.max String representation of the maximum date/time allowed in the field
-		 * @callback {String} onDateTimeSelected A string containing the fully qualified name of a globally-accessible callback function. It will be invoked with the user's choices from the native UI.
+		 * @callback {function} onDateTimeSelected A callback that will be invoked with the user's choices from the native UI.
 		 * @callback {String} onSelected.datetime The date/time user user has selected.
 		 * @BB50+
 		 * @example
