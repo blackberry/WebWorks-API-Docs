@@ -21,7 +21,7 @@
  * 
  * <h1>Required BBM Version</h1>
  * 
- * BBM Social Platform APIs come with BBM6 and later. BBM6 is supported on BlackBerry OS 5, 6, and 7.
+ * BBM Social Platform APIs come with BBM 6.1.0 and later. BBM 6.1.0 is supported on BlackBerry OS 5, 6, and 7.
  * 
  * <h1>Authorization</h1>
  * 
@@ -165,19 +165,15 @@ blackberry.bbm.platform = {
      * <p>This callback is optional. Applications are not required to handle this type of event. 
      * 
      * @param {String} reason The reason that the application was invoked.
-     * <h4>Supported from BBM SDK 1.0</h4>
      * <ul>
      * <li><code>"profilebox"</code>: A user's profile box item was clicked. <code>param</code> is the {@link blackberry.bbm.platform.self.profilebox.ProfileBoxItem} that was clicked. See {@link blackberry.bbm.platform.self.profilebox}.
-     * </ul>
-     * <h4>Supported from BBM SDK 1.3</h4>
-     * <ul>
      * <li><code>"profileboxtitle"</code>: A user's profile box title was clicked. <code>param</code> is <code>undefined</code>. See {@link blackberry.bbm.platform.self.profilebox}.
      * <li><code>"personalmessage"</code>: A user's personal message app link was clicked. <code>param</code> is the personal message, excluding the app link. See {@link blackberry.bbm.platform.self.setPersonalMessage}.
      * <li><code>"chatmessage"</code>: A user's chat message app link was clicked. <code>param</code> is <code>undefined</code>. See {@link blackberry.bbm.platform.users.startBBMChat}.
      * </ul>
      * @param {void} param The parameter associated with <code>reason</code>. May be <code>undefined</code>
      * @param {blackberry.bbm.platform.users.BBMPlatformUser | blackberry.bbm.platform.self} user The
-     * user whose personal message/profile box/etc. was clicked. May be <code>undefined</code>. Always <code>undefined</code> prior to BBM SDK 1.3.
+     * user whose personal message/profile box/etc. was clicked. May be <code>undefined</code>.
      * @example
      * &lt;script type="text/javascript"&gt;
      * 

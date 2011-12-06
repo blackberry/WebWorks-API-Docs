@@ -307,47 +307,64 @@ blackberry.bbm.platform.users = {
     },
     
     /**
-     * @description Shares content with a contact. A Contact Picker dialog will be shown allowing
+     * @description Shares content with a one or more contacts. A Contact Picker dialog will be shown allowing
      * the user to select recipients of the content.
      * 
-     * <p>The content will not appear in BBM but is received by the application. On the recipient
-     * side, the application's icon will be splatted to notify the user of the new content. Once
+     * <p>The content will not appear in BBM but is received by the recipient's application. The
+     * application does not need to be running in order to receive shared content. Once
      * the application is launched and registered with BBM Social Platform, the callback
      * {@link blackberry.bbm.platform.users.event:onsharecontent} will be invoked for the
      * application to handle the content.
      * 
-     * <p>Recipients may or may not currently have the application or BBM 6.0.1 (or later) installed.
+     * <h3>Users without BBM 6.1.0 or the application installed</h3>
+     * <p>Recipients also do not need to have BBM 6.1.0 (or later) or the application installed:
      * <ul>
-     * <li>If the recipient does not have BBM 6.0.1 installed, then the user will be prompted to
-     * upgrade to the latest BBM.
-     * <li>If the recipient does not have the application installed, then the user will be prompted
-     * to download the application from App World.
-     * <li>Once the recipient has both BBM 6.0.1 and the application installed, the application will
-     * be passed the content after registering with BBM Social Platform.
+     * <li>Recipients without BBM 6.1.0 will be prompted to download the latest version of BBM.
+     * <li>Recipients without the application installed will receive a download invitation to download
+     * the application from App World.
      * </ul>
-     * <p>Splatting of the application icon can be disabled by adding the property
-     * <code>shareContentSplat: false</code> to the options object passed into {@link blackberry.bbm.platform.register}.
+     * Once a recipient has both BBM 6.1.0 and the application installed, the application will
+     * be passed the content after registering with BBM Social Platform.
+     * 
+     * <h3>Application icon splat when shared content is received</h3>
+     * <p>Applications can enable their icon to be splatted when shared content is received, in
+     * order to notify the user of the new content. To enable splatting, add the property
+     * <code>shareContentSplat: true</code> to the options object passed into {@link blackberry.bbm.platform.register}.
      * @param {String} content The content to be shared.
      * @param {String} description A short description of the content.
      * @param {Function} onComplete Invoked when the user has finished selecting content recipients.
-     * @param {blackberry.bbm.platform.users.BBMPlatformUser[]} [users] Users shown in the
-     * dialog. If not provided then all contacts are shown in the dialog.
+     * @param {Object} [options] Object containing share content options.
+     * @param {String} [options.title] Title of the Contact Picker. If not provided then the default title is used.
+     * dialog.
+     * @param {blackberry.bbm.platform.users.BBMPlatformUser[]} [options.users] Users shown in the
+     * dialog. If not provided then all contacts are shown in the dialog.  
+     * @throws {IllegalArgumentException} if <code>description</code> is <code>null</code> or greater than 128 characters.
+     * @throws {IllegalArgumentException} if <code>content</code> is greater than 61440 characters.
+     * @example
+     * &lt;script type="text/javascript"&gt;
+     * 
+     * // Share content
+     * blackberry.bbm.platform.users.shareContent("A spoon full of sugar", "Mary's Recipe", function() {
+     * 				// User finished sharing...
+     * }, { title: "Choose Recipe Recipients" });
+     * 
+     * &lt;/script&gt;
      * 
      * @example
      * &lt;script type="text/javascript"&gt;
      * 
-     * // Disabling splatting of the icon when shared content is received
+     * // Enable splatting of the icon when shared content is received
      * blackberry.bbm.platform.register({
      *     uuid: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", // Randomly generated UUID
      *     
-     *     shareContentSplat: false
+     *     shareContentSplat: true
      * });
      * 
      * &lt;/script&gt;
      * 
      * @BB50+
      */
-    shareContent: function(content, description, onComplete, users) {
+    shareContent: function(content, description, onComplete, options) {
     	
     },
     
@@ -358,13 +375,13 @@ blackberry.bbm.platform.users = {
      * <p>This callback must be assigned <b>before</b> the call to {@link blackberry.bbm.platform.register}.
      * <p>See {@link blackberry.bbm.platform.users.shareContent}
      * @param {blackberry.bbm.platform.users.BBMPlatformUser} sender The user who shared the content.
-     * @param {String} description The content description.
      * @param {String} content The content data.
-     * @param {Number} timestamp Timestamp when the content was received, in ms.
+     * @param {String} description The content description.
+     * @param {Date} timestamp Timestamp when the content was received.
      * @event
      * @BB50+
      */
-    onsharecontent: function(sender, description, content, timestamp) {
+    onsharecontent: function(sender, content, description, timestamp) {
     	
     }
 };
