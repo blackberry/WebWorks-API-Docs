@@ -28,7 +28,7 @@
  * <h2>Permission Model</h2>
  * The user must manually show the profile box via the "activities" option in the BBM options screen
  * for the application. The application can add items whether or not this option is enabled.
- * <p>The application can read {@link blackberry.bbm.platform.settings.profilebox} to determine if
+ * <p>The application can read {@link blackberry.bbm.platform.settings.profileboxEnabled} to determine if
  * the user is showing the profile box, and prompt them to enable it with {@link blackberry.bbm.platform.showBBMAppOptions}.
  * 
  * <h2>Icon recommendations</h2>
