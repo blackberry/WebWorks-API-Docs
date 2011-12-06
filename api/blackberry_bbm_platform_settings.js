@@ -7,22 +7,21 @@
 blackberry.bbm.platform.settings = {
 
     /**
-     * @description Whether the application appears in the current user's BBM profile.
-     * <p><code>"enabled"</code> if the application appears in the BBM profile; <code>"disabled"</code> otherwise.
+     * @description Whether the application profile box appears in the current user's BBM profile.
      * <p>See {@link blackberry.bbm.platform.self.profilebox}
-     * @type String
+     * @type Boolean
      * @readOnly
      * @BB50+
      */
-    profilebox: "",
+    profileboxEnabled: false,
     
     /**
      * @description Whether a prompt is shown when hosting a public connection or requesting to join a public connection.
-     * <p><code>"enabled"</code> if the prompt is never shown, <code>"prompt"</code> if the prompt is always shown.
+     * <p><code>true</code> if the prompt is never shown; <code>false</code> otherwise.
      * <p>See {@link blackberry.bbm.platform.io.host} and {@link blackberry.bbm.platform.io.joinHost}
-     * @type String
+     * @type Boolean
      * @readOnly
      * @BB50+
      */
-    alwaysAllowPublicConns: ""
+    alwaysAllowPublicConns: false
 };
