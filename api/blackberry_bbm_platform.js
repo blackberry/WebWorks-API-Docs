@@ -166,10 +166,18 @@ blackberry.bbm.platform = {
      * 
      * @param {String} reason The reason that the application was invoked.
      * <ul>
-     * <li><code>"profilebox"</code>: A user's profile box item was clicked. <code>param</code> is the {@link blackberry.bbm.platform.self.profilebox.ProfileBoxItem} that was clicked. See {@link blackberry.bbm.platform.self.profilebox}.
-     * <li><code>"profileboxtitle"</code>: A user's profile box title was clicked. <code>param</code> is <code>undefined</code>. See {@link blackberry.bbm.platform.self.profilebox}.
-     * <li><code>"personalmessage"</code>: A user's personal message app link was clicked. <code>param</code> is the personal message, excluding the app link. See {@link blackberry.bbm.platform.self.setPersonalMessage}.
-     * <li><code>"chatmessage"</code>: A user's chat message app link was clicked. <code>param</code> is <code>undefined</code>. See {@link blackberry.bbm.platform.users.startBBMChat}.
+     * <li><code>"profilebox"</code>: A user's profile box item was clicked.
+     * <br/><br/><code>param</code> is the {@link blackberry.bbm.platform.self.profilebox.ProfileBoxItem} that was clicked.
+     * <br/><br/>See {@link blackberry.bbm.platform.self.profilebox}.
+     * <li><code>"profileboxtitle"</code>: A user's profile box title was clicked.
+     * <br/><br/><code>param</code> is <code>undefined</code>.
+     * <br/><br/>See {@link blackberry.bbm.platform.self.profilebox}.
+     * <li><code>"personalmessage"</code>: A user's personal message app link was clicked.
+     * <br/><br/><code>param</code> is the personal message, excluding the app link.
+     * <br/><br/>See {@link blackberry.bbm.platform.self.setPersonalMessage}.
+     * <li><code>"chatmessage"</code>: A user's chat message app link was clicked.
+     * <br/><br/><code>param</code> is <code>undefined</code>. 
+     * <br/><br/>See {@link blackberry.bbm.platform.users.startBBMChat}.
      * </ul>
      * @param {void} param The parameter associated with <code>reason</code>. May be <code>undefined</code>
      * @param {blackberry.bbm.platform.users.BBMPlatformUser | blackberry.bbm.platform.self} user The

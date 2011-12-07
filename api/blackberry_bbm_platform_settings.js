@@ -8,6 +8,7 @@ blackberry.bbm.platform.settings = {
 
     /**
      * @description Whether the application profile box appears in the current user's BBM profile.
+     * <p><code>true</code> if the profile box appears; <code>false</code> otherwise.
      * <p>See {@link blackberry.bbm.platform.self.profilebox}
      * @type Boolean
      * @readOnly
