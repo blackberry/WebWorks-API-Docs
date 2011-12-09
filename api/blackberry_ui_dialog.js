@@ -154,20 +154,23 @@ blackberry.ui.dialog ={
 		 * @example
 		 * &lt;script type="text/javascript"&gt;
 		 * 
-		 * function onSelected(indices){
-		 *   alert(indices.join(','));
+		 * function onSelected(indices) {
+         *   var i; 
+         *   for(i = 0; i < indices.length; i++) {
+		 *     alert("Item selected: " + indices[i]);
+         *   }
 		 * }  
 		 * 
 		 * function selectAsync() {
 		 *   try {
 		 *     blackberry.ui.dialog.selectAsync(false, 
          *                                      [ { label : "Animals", selected : false, enabled : false, type : "group"},
-                                                  { label : "cat", selected : true, enabled : true, type : "option"},
+         *                                        { label : "cat", selected : true, enabled : true, type : "option"},
          *                                        { label : "dog", selected : false, enabled : true}, type : "option",
          *                                        { label : "mouse", selected : false, enabled : true, type : "option"},
          *                                        { label : "raccoon", selected : false, enabled : true, type : "option"}
          *                                      ], 
-         *                                      "window.onSelected");
+         *                                      window.onSelected);
 		 *   }catch (e) {
 		 *     alert("Exception in selectAsync: " + e);
 		 *   }
@@ -203,7 +206,7 @@ blackberry.ui.dialog ={
          *                   "max"   : htmlDateTimeInput.max || ""
          *     };
          *      
-		 *     blackberry.ui.dialog.dateTimeAsync("date", opts, "window.onDateTimeSelected");
+		 *     blackberry.ui.dialog.dateTimeAsync("date", opts, window.onDateTimeSelected);
 		 *   }catch (e) {
 		 *     alert("Exception in dateTimeAsync: " + e);
 		 *   }
