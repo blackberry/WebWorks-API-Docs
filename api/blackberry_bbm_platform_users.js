@@ -338,8 +338,8 @@ blackberry.bbm.platform.users = {
      * dialog.
      * @param {blackberry.bbm.platform.users.BBMPlatformUser[]} [options.users] Users shown in the
      * dialog. If not provided then all contacts are shown in the dialog.  
-     * @throws {IllegalArgumentException} if <code>description</code> is <code>null</code> or greater than 128 characters.
-     * @throws {IllegalArgumentException} if <code>content</code> is greater than 61440 characters.
+     * @throws {Exception} if <code>description</code> is <code>null</code> or greater than 128 characters.
+     * @throws {Exception} if <code>content</code> is greater than 61440 characters.
      * @example
      * &lt;script type="text/javascript"&gt;
      * 
