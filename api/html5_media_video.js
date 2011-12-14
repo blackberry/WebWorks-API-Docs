@@ -14,7 +14,7 @@
 * limitations under the License.
 */
 
- 
+
 /*
 * Taken from:
 * http://www.w3.org/TR/html5/video.html
@@ -45,6 +45,7 @@ HTMLVideoElement = function() { };
  * document.body.appendChild(video);
  * @PB10
  * @BB60+
+ * @RIPPLE
  */
 HTMLVideoElement.documentConstructor = undefined;
 
@@ -54,6 +55,7 @@ HTMLVideoElement.documentConstructor = undefined;
 * @type Number
 * @BB60+
 * @PB10
+* @RIPPLE
 */
 
 HTMLVideoElement.prototype.width = { };
@@ -63,42 +65,46 @@ HTMLVideoElement.prototype.width = { };
 * @type Number
 * @BB60+
 * @PB10
+* @RIPPLE
 */
 
 HTMLVideoElement.prototype.height = { };
 
 /**
-* videoWidth must return the intrinsic width of the video in CSS 
+* videoWidth must return the intrinsic width of the video in CSS
 * pixels.
 * @type Number
 * @readOnly
 * @BB60+
 * @PB10
+* @RIPPLE
 */
 
 HTMLVideoElement.prototype.videoWidth = { };
 
 /**
-* videoHeight must return the intrinsic height of the video in CSS 
+* videoHeight must return the intrinsic height of the video in CSS
 * pixels.
 * @type Number
 * @readOnly
 * @BB60+
 * @PB10
+* @RIPPLE
 */
 
 HTMLVideoElement.prototype.videoHeight = { };
 
 /**
-* The address of an image file that the user agent can show while no 
-* video data is available.  If present, must contain a valid 
+* The address of an image file that the user agent can show while no
+* video data is available.  If present, must contain a valid
 * non-empty URL potentially surrounded by spaces.
 * @type String
 * @BB60+
 * @PB10
+* @RIPPLE
 */
 
 HTMLVideoElement.prototype.poster = { };
- 
- 
+
+
  
