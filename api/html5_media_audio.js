@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2011 Research In Motion Limited.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -28,8 +28,8 @@
 * @toc {Media} HTML5 Audio
 * @extends HTMLMediaElement
 */
-HTMLAudioElement = {         
-        
+HTMLAudioElement = {
+
         /**
          * @field
          * @constructedBy document.createElement("audio")
@@ -41,14 +41,14 @@ HTMLAudioElement = {
          * document.body.appendChild(audio);
          * @PB10+
          * @BB60+
-		 * @RIPPLE
+         * @RIPPLE
          */
         documentConstructor : undefined
-        
+
         /**
          * @field
          * @constructedBy new Audio([String: url])
-         * @description An HTMLAudioElement can also be created using the named constructor Audio(). 
+         * @description An HTMLAudioElement can also be created using the named constructor Audio().
          * @param {String} [url] URL of the source
          * @example
          * var audio = new Audio();
@@ -57,7 +57,7 @@ HTMLAudioElement = {
          * var audio = new Audio('audio.wav');
          * @PB10+
          * @BB60+
-		 * @RIPPLE
+         * @RIPPLE
          */
         audioConstructor : undefined
 };

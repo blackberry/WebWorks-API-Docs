@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2011 Research In Motion Limited.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +14,7 @@
 * limitations under the License.
 */
 
- 
+
 /*
 * Taken from:
 * http://www.w3.org/TR/html5/video.html
@@ -68,7 +68,7 @@ HTMLVideoElement.prototype.width = { };
 HTMLVideoElement.prototype.height = { };
 
 /**
-* videoWidth must return the intrinsic width of the video in CSS 
+* videoWidth must return the intrinsic width of the video in CSS
 * pixels.
 * @type Number
 * @readOnly
@@ -80,7 +80,7 @@ HTMLVideoElement.prototype.height = { };
 HTMLVideoElement.prototype.videoWidth = { };
 
 /**
-* videoHeight must return the intrinsic height of the video in CSS 
+* videoHeight must return the intrinsic height of the video in CSS
 * pixels.
 * @type Number
 * @readOnly
@@ -92,8 +92,8 @@ HTMLVideoElement.prototype.videoWidth = { };
 HTMLVideoElement.prototype.videoHeight = { };
 
 /**
-* The address of an image file that the user agent can show while no 
-* video data is available.  If present, must contain a valid 
+* The address of an image file that the user agent can show while no
+* video data is available.  If present, must contain a valid
 * non-empty URL potentially surrounded by spaces.
 * @type String
 * @BB70+
@@ -102,6 +102,6 @@ HTMLVideoElement.prototype.videoHeight = { };
 */
 
 HTMLVideoElement.prototype.poster = { };
- 
- 
+
+
  

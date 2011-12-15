@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2011 Research In Motion Limited.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -31,6 +31,7 @@ blackberry.io.dir = {
     *
     * @type Object
     * @readOnly
+    * @RIPPLE
     * @PB10+
     * @example
     * &lt;script type=&quot;text&sol;javascript&quot;&gt;
@@ -110,6 +111,7 @@ blackberry.io.dir = {
     * @param {String} path Path location of the directory.
     * @returns {String[]}
     * @BB50+
+    * @RIPPLE
     * @PB10+
     */
     listFiles : function(path) { },
@@ -119,6 +121,7 @@ blackberry.io.dir = {
     * @param {String} path path location of the directory.
     * @returns {String[]}
     * @BB50+
+    * @RIPPLE
     * @PB10+
     */
     listDirectories : function(path) { },
@@ -131,6 +134,7 @@ blackberry.io.dir = {
     * @param {String} path path location of the directory.
     * @returns {Boolean}
     * @BB50+
+    * @RIPPLE
     * @PB10+
     */
    /**
@@ -158,6 +162,7 @@ blackberry.io.dir = {
     * @param {String} newDirectoryName the new name for the directory.
     * @returns {void}
     * @BB50+
+    * @RIPPLE
     * @PB10+
     */
    /**
@@ -184,6 +189,7 @@ blackberry.io.dir = {
     * @param {Boolean} [recursive] flag to decide if all contents should be deleted
     * @returns {void}
     * @BB50+
+    * @RIPPLE
     * @PB10+
     */
     deleteDirectory : function(path, recursive) { },	
@@ -193,6 +199,7 @@ blackberry.io.dir = {
     * @param {String} path Path of the directory or file.
     * @returns {String}
     * @BB50+
+    * @RIPPLE
     * @PB10+
     */
     getParentDirectory : function(path) { },
@@ -202,6 +209,7 @@ blackberry.io.dir = {
     * @param {String} path path location of the new directory. The name of the new directory should be included as parts of the path.
     * @returns {void}
     * @BB50+
+    * @RIPPLE
     * @PB10+
     */
     createNewDir : function(path) { },
@@ -210,6 +218,7 @@ blackberry.io.dir = {
     * Get a list of root directories. 
     * @returns {String[]}
     * @BB50+
+    * @RIPPLE
     * @example
     * &lt;script type=&quot;text&sol;javascript&quot;&gt;
     *   var i;
@@ -232,6 +241,7 @@ blackberry.io.dir = {
     * @param {String} rootPath Root path location to determine free space for.
     * @returns {Number} The amound of free space availalble in the specified root.
     * @BB50+
+    * @RIPPLE
     */
     getFreeSpaceForRoot : function(rootPath) { },	
 	
