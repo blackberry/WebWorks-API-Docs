@@ -31,9 +31,44 @@ Database = {
          * @param {Number} estimatedSize The estimated size in bytes of the database
          * @callback {function} creationCallback The callback will be invoked when the database is first created.
          * @callback {Database} creationCallback.database The newly created database
-         * @returns {Database} The database object that has been opened.
+         * @returns {Database} The database object that has been opened or null if the database has not been created.
          * @example
-         * Database db=window.openDatabase('documents', '1.0', 'Offline document storage', 5*1024*1024, null);
+         * Database db = window.openDatabase('documents', '1.0', 'Offline document storage', 5*1024*1024);
+         * @example
+         * /**
+         *
+         * //Create a namespace to hold our database variable
+         * if (typeof mynamespace === 'undefined') {
+         *     mynamespace = {};
+         * }
+         * 
+         * (function () {
+         * 
+         *     //This method is only called once (the first time the database is created)
+         *     function onDBCreate(database) {
+         *         //Attach the database because "window.openDatabase" would not have returned it
+         *         mynamespace.db = database;
+         *         //Create the table in the database
+         *         database.transaction(
+         *             function (tx) {tx.executeSql('CREATE TABLE tbl_name (key int unique, name text)',
+         *                 [],
+         *                 function (tx, res) {
+         *                     alert("Table Created Successfully");
+         *                 },
+         *                 function (tx, err) {
+         *                     alert("ERROR - Table creation failed - code: " + err.code + ", message: " + err.message);
+         *                 });
+         *             }
+         *         );
+         *     }
+         * 
+         *     if (window.openDatabase) {
+         *         //Will either return the existing database or null and call our creation callback onDBCreate
+         *         mynamespace.db = window.openDatabase('awesome', '1.0', 'The most awesome database ever', 5 * 1024 * 1024, onDBCreate);
+         *     } else {
+         *         alert("This device does not have HTML5 Database support");
+         *     }
+         * }());
          * @PB10+
          * @BB50+
          * @RIPPLE
