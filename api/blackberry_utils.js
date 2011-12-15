@@ -102,7 +102,7 @@ blackberry.utils = {
 		 * @PB10+
          * @RIPPLE
 		 */
-		getURLParameter:function(key){},
+		prototype.getURLParameter:function(key){},
 		
 		/**
 		 * @description Obtain the value of a parameter by index. The values are stored in the order they appear in the URL string.
@@ -112,7 +112,7 @@ blackberry.utils = {
 		 * @PB10+
          * @RIPPLE
 		 */
-		getURLParameterByIndex:function(index){},
+		prototype.getURLParameterByIndex:function(index){},
 		
 		/**
 		 * @readOnly
@@ -122,7 +122,7 @@ blackberry.utils = {
          * @RIPPLE
 		 * @description Host address in the URL string.
 		 */
-		host:null,
+		prototype.host:null,
 		/**
 		 * @readOnly
 		 * @type Number
@@ -131,6 +131,6 @@ blackberry.utils = {
          * @RIPPLE
 		 * @description Port number in the URL string.
 		 */
-		port:null
+		prototype.port:null
 	}
 };
