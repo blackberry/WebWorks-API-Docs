@@ -31,7 +31,7 @@ Database = {
          * @param {Number} estimatedSize The estimated size in bytes of the database
          * @callback {function} creationCallback The callback will be invoked when the database is first created.
          * @callback {Database} creationCallback.database The newly created database
-         * @returns {Database} The database object that has been opened.
+         * @returns {Database} The database object that has been opened or null if the database has not been created.
          * @example
          * Database db = window.openDatabase('documents', '1.0', 'Offline document storage', 5*1024*1024);
          * @example
@@ -63,7 +63,7 @@ Database = {
          *     }
          * 
          *     if (window.openDatabase) {
-         *         //Will either return the existing database or call our callback onDBCreate
+         *         //Will either return the existing database or null and call our creation callback onDBCreate
          *         mynamespace.db = window.openDatabase('awesome', '1.0', 'The most awesome database ever', 5 * 1024 * 1024, onDBCreate);
          *     } else {
          *         alert("This device does not have HTML5 Database support");
