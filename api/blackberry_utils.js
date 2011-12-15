@@ -122,7 +122,7 @@ blackberry.utils = {
          * @RIPPLE
 		 * @description Host address in the URL string.
 		 */
-		host:null,
+		prototype.host:null,
 		/**
 		 * @readOnly
 		 * @type Number
@@ -131,6 +131,6 @@ blackberry.utils = {
          * @RIPPLE
 		 * @description Port number in the URL string.
 		 */
-		port:null
+		prototype.port:null
 	}
 };
