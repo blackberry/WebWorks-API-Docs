@@ -61,8 +61,8 @@ blackberry.system ={
 
 		/**
          * @function
-		 * @description Returns true if the device is in coverage, otherwise returns false. This can be used in conjunction with the blackberry.network property to find out what kind of coverage it is in.
-		 * @returns {Boolean} Returns true if the BlackBerry PlayBook or the BlackBerry Smartphone device has any network interface active.
+		 * @description This method returns true so long as the device is connected to any network. This can be used in conjunction with the {@link blackberry.network} property to find out what kind of coverage it is in. On the smartphone this can be used in conjunction with {@link blackberry.system.event.onCoverageChange} to track changes.
+		 * @returns {Boolean} Returns true if the BlackBerry PlayBook or the BlackBerry Smartphone device has any network interface active, otherwise returns false. Always returns true on the PlayBook simulator. Please note, that on the PlayBook device, there might be a small delay of 2-3 seconds between the time the device connects until the method returns true.
 		 * @BB50+
 		 * @PB10+
 		 * @RIPPLE
