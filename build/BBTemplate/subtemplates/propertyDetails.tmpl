@@ -37,7 +37,13 @@
                         <td>
                             <a name="{+Link.symbolNameToLinkName(member)+}">{+getSymbolName(member)+}</a>
                             <if test="member.defaultValue">
-                                <b>{+"default: " +resolveLinks(member.defaultValue)+}</b>
+                                <if test="isConstant(member)">
+                                    {+ " = " + resolveLinks(member.defaultValue) +}
+                                </if>
+                                <if test="isProperty(member)">
+                                    <br/>
+                                    <b>{+"default: " +resolveLinks(member.defaultValue)+}</b>
+                                </if>
                             </if>
                         </td>
                         
