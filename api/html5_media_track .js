@@ -33,7 +33,8 @@
 * missing or both have the same value.
 * @extends HTMLElement
 * @BB60+
-* @PB10
+* @PB10+
+* @RIPPLE
 * @example
 * &lt;video src=\&quot;brave.webm\&quot;&gt;
 *  &lt;track kind=subtitles src=brave.en.vtt srclang=en label=\&quot;English\&quot;&gt;
@@ -51,8 +52,9 @@ HTMLTrackElement = function() { };
  * @description Creates an HTMLTrackElement
  * @example 
  * var track = document.createElement("track");
- * @PB10
+ * @PB10+
  * @BB60+
+ * @RIPPLE
  */
 HTMLTrackElement.documentConstructor = undefined;
 
@@ -61,7 +63,8 @@ HTMLTrackElement.documentConstructor = undefined;
 * "descriptions", "chapters", "metadata"
 * @type String
 * @BB60+
-* @PB10
+* @PB10+
+* @RIPPLE
 */
 HTMLTrackElement.prototype.kind = { };
 
@@ -72,7 +75,8 @@ HTMLTrackElement.prototype.kind = { };
 * spaces. This attribute must be presen
 * @type String
 * @BB60+
-* @PB10
+* @PB10+
+* @RIPPLE
 */
 HTMLTrackElement.prototype.src = { };
 
@@ -83,7 +87,8 @@ HTMLTrackElement.prototype.src = { };
 * be present if the element's kind attribute is in the subtitles state.
 * @type String
 * @BB60+
-* @PB10
+* @PB10+
+* @RIPPLE
 */
 HTMLTrackElement.prototype.srclang = { };
 
@@ -97,7 +102,8 @@ HTMLTrackElement.prototype.srclang = { };
 * must not be the empty string.
 * @type String
 * @BB60+
-* @PB10
+* @PB10+
+* @RIPPLE
 */
 HTMLTrackElement.prototype.label = { };
 
@@ -110,7 +116,8 @@ HTMLTrackElement.prototype.label = { };
 * attribute specified.
 * @type Boolean
 * @BB60+
-* @PB10
+* @PB10+
+* @RIPPLE
 */
 HTMLTrackElement.prototype.default = { };
 
@@ -120,7 +127,8 @@ HTMLTrackElement.prototype.default = { };
 * @type TextTrack
 * @readOnly
 * @BB60+
-* @PB10
+* @PB10+
+* @RIPPLE
 */
 HTMLSourceElement.prototype.track = { };
 

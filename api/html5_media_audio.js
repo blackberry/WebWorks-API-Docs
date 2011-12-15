@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2011 Research In Motion Limited.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,7 +22,7 @@
 /**
 * @namespace
 * An audio element represents a sound or audio stream.
-* @PB10
+* @PB10+
 * @BB60+
 * @RIPPLE
 * @toc {Media} HTML5 Audio
@@ -39,7 +39,7 @@ HTMLAudioElement = {
          * audio.src = 'audio.wav';
          * audio.controls = true;
          * document.body.appendChild(audio);
-         * @PB10
+         * @PB10+
          * @BB60+
          * @RIPPLE
          */
@@ -55,7 +55,7 @@ HTMLAudioElement = {
          * audio.src = 'audio.wav';
          * @example
          * var audio = new Audio('audio.wav');
-         * @PB10
+         * @PB10+
          * @BB60+
          * @RIPPLE
          */

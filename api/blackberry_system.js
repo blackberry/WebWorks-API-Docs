@@ -17,8 +17,6 @@
 /**
  * @toc {System} System
  * @featureID blackberry.system
- * @notice {Warning ( Playbook 1.0 Notice):}
- * For URI based APIs, webworks:// has been deprecated and replaced with http://localhost:8472. This change does not affect the procedural APIs.
  * @namespace The System object allows you to get access to system level functions and attributes of the BlackBerry PlayBook.<br>
  * <br> The System object is static; all of its functions and properties are used directly from the object.
  * @example
@@ -56,7 +54,7 @@ blackberry.system ={
 		 * <br>and network.iden.
 		 * @returns {Boolean} Returns true if the device is capable of the given service.
 		 * @BB50+
-		 * @PB10
+		 * @PB10+
 		 * @RIPPLE
 		 */
 		hasCapability : function(capability){},
@@ -66,7 +64,7 @@ blackberry.system ={
 		 * @description Returns true if the device is in coverage, otherwise returns false. This can be used in conjunction with the blackberry.network property to find out what kind of coverage it is in.
 		 * @returns {Boolean} Returns true if the BlackBerry PlayBook or the BlackBerry Smartphone device has any network interface active.
 		 * @BB50+
-		 * @PB10
+		 * @PB10+
 		 * @RIPPLE
 		 */
 		hasDataCoverage : function(){},
@@ -85,7 +83,7 @@ blackberry.system ={
 		 * @description Determines the level of access to the requested module.
 		 * @returns {Number} The possible return values: 0 - ALLOW 1 - DENY
 		 * @BB50+
-		 * @PB10
+		 * @PB10+
 		 * @RIPPLE
 		 */
 		hasPermission : function(module){},
@@ -94,7 +92,7 @@ blackberry.system ={
 		 * @description Returns whether USB MassStorage mode is active.
 		 * @returns {Boolean} Always returns false on the BlackBerry PlayBook since Mass Storage Mode is not supported. All memory is presented as a network share when connected by USB and is not blocked.
 		 * @BB50+
-		 * @PB10
+		 * @PB10+
 		 * @RIPPLE
 		 */
 		isMassStorageActive : function(){},
@@ -102,7 +100,7 @@ blackberry.system ={
 		/**
 		 * @uri
 		 * @BB50+
-		 * @PB10
+		 * @PB10+
 		 * @description The objects in hasPermission will always be ALLOW (0). They will correspond to all the entries in the whitelist. If they are not whitelisted, they are omitted from the list. Similarly, all of the objects in hasCapability will be true, otherwise they will be omitted.
 		 * @returns {JSON of all the properties}
 		 * {
@@ -169,7 +167,7 @@ blackberry.system ={
 		 * @description Returns the model number of the BlackBerry PlayBook or the BlackBerry Smartphone device.
 		 * @readOnly
 		 * @BB50+
-		 * @PB10
+		 * @PB10+
 		 * @RIPPLE
 		 */
 		model: null,
@@ -179,7 +177,7 @@ blackberry.system ={
 		 * @description Returns the current version of the WebWorks library being used.
 		 * @readOnly
 		 * @BB50+
-		 * @PB10
+		 * @PB10+
 		 * @RIPPLE
 		 */
 		scriptApiVersion:null,
@@ -189,7 +187,7 @@ blackberry.system ={
 		 * @description Returns the current version of the operating system, for example, 1.0.0.0.
 		 * @readOnly
 		 * @BB50+
-		 * @PB10
+		 * @PB10+
 		 * @RIPPLE
 		 */
 		softwareVersion:null,
@@ -200,7 +198,7 @@ blackberry.system ={
 		 * @description Returned by hasPermission() indicating that the module requested is accessible.
 		 * @default 0
 		 * @BB50+
-		 * @PB10
+		 * @PB10+
 		 * @RIPPLE
 		 */
 		ALLOW : 0,
@@ -210,7 +208,7 @@ blackberry.system ={
 		 * @description Returned by hasPermission() indicating that the module is not accessible.
 		 * @default 1
 		 * @BB50+
-		 * @PB10
+		 * @PB10+
 		 * @RIPPLE
 		 */
 		DENY:1

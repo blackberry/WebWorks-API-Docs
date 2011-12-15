@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2011 Research In Motion Limited.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,15 +22,12 @@
 
 /**
 * @namespace
-* An audio element represents a sound or audio stream.
+* A video element represents a video or video stream.
 * @toc {Media} HTML5 Video
+* @PB10+
+* @BB70+
 * @extends HTMLMediaElement
-* @example
-* Test if user can play H.264:
-* function canPlayH264() {
-*     var v = document.createElement(\&#039;video\&#039;);
-*     return !!(v.canPlayType &amp;&amp; v.canPlayType(\&#039;video/mp4; codecs=\&quot;avc1.42E01E, mp4a.40.2\&quot;\&#039;).replace(/no/, \&#039;\&#039;));
-* }
+* @RIPPLE
 */
 HTMLVideoElement = function() { };
 
@@ -43,8 +40,8 @@ HTMLVideoElement = function() { };
  * video.src = 'video.avi';
  * video.controls = true;
  * document.body.appendChild(video);
- * @PB10
- * @BB60+
+ * @PB10+
+ * @BB70+
  * @RIPPLE
  */
 HTMLVideoElement.documentConstructor = undefined;
@@ -53,8 +50,8 @@ HTMLVideoElement.documentConstructor = undefined;
 /**
 * Width of the video area.
 * @type Number
-* @BB60+
-* @PB10
+* @BB70+
+* @PB10+
 * @RIPPLE
 */
 
@@ -63,8 +60,8 @@ HTMLVideoElement.prototype.width = { };
 /**
 * Height of the video area.
 * @type Number
-* @BB60+
-* @PB10
+* @BB70+
+* @PB10+
 * @RIPPLE
 */
 
@@ -75,8 +72,8 @@ HTMLVideoElement.prototype.height = { };
 * pixels.
 * @type Number
 * @readOnly
-* @BB60+
-* @PB10
+* @BB70+
+* @PB10+
 * @RIPPLE
 */
 
@@ -87,8 +84,8 @@ HTMLVideoElement.prototype.videoWidth = { };
 * pixels.
 * @type Number
 * @readOnly
-* @BB60+
-* @PB10
+* @BB70+
+* @PB10+
 * @RIPPLE
 */
 
@@ -99,8 +96,8 @@ HTMLVideoElement.prototype.videoHeight = { };
 * video data is available.  If present, must contain a valid
 * non-empty URL potentially surrounded by spaces.
 * @type String
-* @BB60+
-* @PB10
+* @BB70+
+* @PB10+
 * @RIPPLE
 */
 

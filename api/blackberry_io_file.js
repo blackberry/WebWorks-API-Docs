@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2011 Research In Motion Limited.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,8 +16,6 @@
 
 /**
 * @toc {IO} File
-* @notice {Warning ( Playbook 1.0 Notice):}
-* For URI based APIs, webworks:// has been deprecated and replaced with http://localhost:8472. This change does not affect the procedural APIs.
 * @namespace The File object provides functions for interacting with the file system.<br><br>
 * See also {@link blackberry.io.dir}
 * @featureID blackberry.io.file
@@ -30,7 +28,7 @@ blackberry.io.file = {
     * @returns {blackberry.io.file.FileProperties}
     * @BB50+
     * @RIPPLE
-    * @PB10
+    * @PB10+
     */
     getFileProperties : function(path) { },
     
@@ -42,7 +40,7 @@ blackberry.io.file = {
      * @returns {Boolean}
      * @BB50+
      * @RIPPLE
-     * @PB10
+     * @PB10+
      */
     /**
      * @name blackberry.io.file.exists
@@ -55,7 +53,7 @@ blackberry.io.file = {
      *     "exists" : true if the path exists and points to a file, false otherwise
      *   }
      * }
-     * @PB10
+     * @PB10+
      * @uri
      * @function     
      */    
@@ -69,7 +67,7 @@ blackberry.io.file = {
      * @returns {Boolean}
      * @BB50+
      * @RIPPLE
-     * @PB10
+     * @PB10+
      */
     /**
      * @name blackberry.io.file.open
@@ -82,7 +80,7 @@ blackberry.io.file = {
      *   }
      * }
      * @type {Boolean}
-     * @PB10
+     * @PB10+
      * @uri
      * @function
      */        
@@ -97,7 +95,7 @@ blackberry.io.file = {
     * @returns {void}
     * @BB50+
     * @RIPPLE
-    * @PB10
+    * @PB10+
     */
     /**
      * @name blackberry.io.file.rename
@@ -111,7 +109,7 @@ blackberry.io.file = {
      *     "newFileName" : "&lt;newFileName that was passed&gt;"
      *   }
      * }
-     * @PB10
+     * @PB10+
      * @uri
      * @function
      */    
@@ -126,7 +124,7 @@ blackberry.io.file = {
     * @returns {void}
     * @BB50+
     * @RIPPLE
-    * @PB10
+    * @PB10+
     */
     /**
      * @name blackberry.io.file.copy
@@ -140,7 +138,7 @@ blackberry.io.file = {
      *     "targetPath" : "&lt;targetPath that was passed&gt;"
      *   }
      * }
-     * @PB10
+     * @PB10+
      * @uri
      * @function
      */
@@ -151,7 +149,7 @@ blackberry.io.file = {
     * @param {String} path local storage file path to the file to be deleted
     * @returns {void}
     * @BB50+
-    * @PB10
+    * @PB10+
     * @RIPPLE
     */
     deleteFile : function(path) { },
@@ -165,7 +163,7 @@ blackberry.io.file = {
     * @returns {void}
     * @BB50+
     * @RIPPLE
-    * @PB10 
+    * @PB10+
     * @example
     * &lt;script type=&quot;text&sol;javascript&quot;&gt;
     *   var xmlString = &quot;&lt;test&gt;IO functions&lt;&sol;test&gt;&quot;;
@@ -198,7 +196,7 @@ blackberry.io.file = {
     * @returns {void}
     * @BB50+
     * @RIPPLE
-    * @PB10 
+    * @PB10+
     */
     readFile : function(path,onFileOpened,async) { },
     
@@ -212,7 +210,7 @@ blackberry.io.file = {
      *     "path" : "&lt;path that was passed&gt;"
      *   }
      * }
-     * @PB10
+     * @PB10+
      * @uri
      * @function
      */
@@ -233,7 +231,7 @@ blackberry.io.file = {
      *     "size" : &lt;file size in bytes&gt; // only defined if "code" is 0
      *   }
      * }
-     * @PB10
+     * @PB10+
      * @uri
      * @example
      * &lt;script type="text/javascript" src="js/jquery-1.4.2.js"&gt;&lt;/script&gt;
