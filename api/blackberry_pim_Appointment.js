@@ -41,7 +41,8 @@
 *   &sol;&sol; Create our hour time slot
 *   var start = new Date();
 *   newAppt.start = start;
-*   var end = start.setHours(start.getHours() + 1);
+*   var end = new Date();
+*   end.setHours(start.getHours() + 1);
 *   newAppt.end = end;
 * 
 *   &sol;&sol; Create Attendee

@@ -22,7 +22,7 @@
 
 BBTag = {
     tableHeader : function(firstColumnName){
-        return "<thead><tr><th>"+firstColumnName+"</th><th>OS 5.0</th><th>OS 6.0</th><th>OS 7.0</th><th>PlayBook</th><th>Ripple</th></tr></thead>";
+        return "<thead><tr><th>"+firstColumnName+"</th><th>BB5.0</th><th>BB6.0</th><th>BB7.0</th><th>PB1.0</th><th>PB2.0</th><th>Ripple</th></tr></thead>";
     }
 };
 
@@ -38,6 +38,7 @@ BBTag.Support.prototype.init = function() {
     this.bb60 = false;
     this.bb70 = false;
     this.pb10 = false;
+	this.pb20 = false;
 	this.ripple = false;
     this.common = false;
     this.resetSupportAttributes();
@@ -74,15 +75,31 @@ BBTag.Support.prototype.resetSupportAttributes = function() {
         this.supportTable = tableNo + "\n" + tableNo + "\n" + tableNo + "\n"; 
     }
     
-    if(this.pb10){
-        this.supportStrings.push("BlackBerry PlayBook");
+	
+    
+    if(this.pb10 && this.pb20){
+        this.supportStrings.push("BlackBerry PlayBook 1.0+");
+        if(this.supportTag.length){
+            this.supportTag += "|";
+        }
+        this.supportTag += "pb1.0|pb2.0";
+        this.supportTable += tableYes + "\n" + tableYes + "\n";
+    } else if(this.pb20){
+        this.supportStrings.push("BlackBerry PlayBook 2.0");
+        if(this.supportTag.length){
+            this.supportTag += "|";
+        }
+        this.supportTag += "pb2.0";
+        this.supportTable += tableNo+ "\n" + tableYes + "\n";;
+	} else if(this.pb10){
+        this.supportStrings.push("BlackBerry PlayBook 1.0");
         if(this.supportTag.length){
             this.supportTag += "|";
         }
         this.supportTag += "pb1.0";
-        this.supportTable += tableYes;
+        this.supportTable += tableYes + "\n" + tableNo + "\n";;
     }else{
-        this.supportTable += tableNo;
+        this.supportTable += tableNo + "\n" + tableNo + "\n";;
     }
 	
 	if(this.ripple){
@@ -101,13 +118,14 @@ BBTag.Support.prototype.resetSupportAttributes = function() {
     }
 }
 
-BBTag.Support.prototype.populateByBools = function(bb50, bb60, bb70, pb10, ripple) {
+BBTag.Support.prototype.populateByBools = function(bb50, bb60, bb70, pb10, pb20, ripple) {
     this.bb50 |= bb50;
     this.bb60 |= bb60;
     this.bb70 |= bb70;
     this.pb10 |= pb10;
+	this.pb20 |= pb20;
 	this.ripple |= ripple;
-    this.common |= bb50 && bb60 && bb70 && pb10;
+    this.common |= bb50 && bb60 && bb70 && pb10 && pb20;
     this.resetSupportAttributes();
 };
 
@@ -124,13 +142,14 @@ BBTag.Support.prototype.populateBySymbol = function(symbol) {
             var BB70 = symbol.comment.getTag("BB70").length;
             var BB70P = symbol.comment.getTag("BB70+").length;
             var PB10 = symbol.comment.getTag("PB10").length;
+			var PB20 = symbol.comment.getTag("PB20").length;
             var PB10P = symbol.comment.getTag("PB10+").length;
 			var RIPPLE = symbol.comment.getTag("RIPPLE").length;
 
             symbol.support = new BBTag.Support();
             symbol.support.populateByBools((BB50 || BB50P), 
 		(BB50P || BB60P || BB60), (BB50P || BB60P || BB60 || BB70P || BB70), 
-		(PB10 || PB10P), RIPPLE);
+		(PB10 || PB10P), (PB20 || PB10P), RIPPLE);
             this.populateBySupport(symbol.support);
         }
     }
@@ -147,10 +166,11 @@ BBTag.Support.prototype.populateByString = function(string) {
         var BB70P = string.equals("BB70+");
         var PB10 = string.equals("PB10");
         var PB10P = string.equals("PB10+");
+		var PB20 = string.equals("PB20");
 		var RIPPLE = string.equals("RIPPLE");
 
         this.populateByBools((BB50 || BB50P), (BB50P || BB60P || BB60), 
-		(BB50P || BB60P || BB60 || BB70P || BB70), (PB10 || PB10P), RIPPLE);
+		(BB50P || BB60P || BB60 || BB70P || BB70), (PB10 || PB10P),(PB20 || PB10P), RIPPLE);
     }
 };
 
@@ -159,6 +179,7 @@ BBTag.Support.prototype.populateBySupport = function(support) {
     this.bb60 |= support.bb60;
     this.bb70 |= support.bb70;
     this.pb10 |= support.pb10;
+	this.pb20 |= support.pb20;
 	this.ripple |= support.ripple;
     this.common |= support.common;
     this.resetSupportAttributes();

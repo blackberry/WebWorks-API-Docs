@@ -32,7 +32,7 @@ ApplicationCache ={
          *   var appCache = window.applicationCache;
          * &lt;/script&gt;
          * @BB60+
-         * @PB10
+         * @PB10+
          * @RIPPLE
          */
         windowConstructor : undefined,
@@ -50,7 +50,7 @@ ApplicationCache ={
          *
          *   var appCache = self.applicationCache()
          * @BB60+
-         * @PB10
+         * @PB10+
          * @RIPPLE
          */
         workerConstructor : undefined,
@@ -61,7 +61,7 @@ ApplicationCache ={
 		* @description The ApplicationCache object's cache host is not associated with an application cache at this time.
 		* @type Number
 		* @BB60+
-		* @PB10
+		* @PB10+
 		* @RIPPLE
 		*/ 
 		UNCACHED: 0,
@@ -75,7 +75,7 @@ ApplicationCache ={
 		* and the application cache group is not marked as obsolete.
 		* @type Number
 		* @BB60+
-		* @PB10
+		* @PB10+
 		* @RIPPLE
 		*/ 
 		IDLE: 1,
@@ -87,7 +87,7 @@ ApplicationCache ={
 		* whose application cache group's update status is checking.
 		* @type Number
 		* @BB60+
-		* @PB10
+		* @PB10+
 		* @RIPPLE
 		*/ 
 		CHECKING: 2,
@@ -99,7 +99,7 @@ ApplicationCache ={
 		* whose application cache group's update status is downloading.
 		* @type Number
 		* @BB60+
-		* @PB10
+		* @PB10+
 		* @RIPPLE
 		*/ 
 		DOWNLOADING: 3,
@@ -112,7 +112,7 @@ ApplicationCache ={
 		* is not marked as obsolete, but that application cache is not the newest cache in its group.
 		* @type Number
 		* @BB60+
-		* @PB10
+		* @PB10+
 		* @RIPPLE
 		*/ 
 		UPDATEREADY: 4,
@@ -124,7 +124,7 @@ ApplicationCache ={
 		* whose application cache group is marked as obsolete.
 		* @type Number
 		* @BB60+
-		* @PB10
+		* @PB10+
 		* @RIPPLE
 		*/ 
 		OBSOLETE: 5
@@ -143,7 +143,7 @@ ApplicationCache ={
  * @readonly
  * @type Number
  * @BB60+
- * @PB10
+ * @PB10+
  * @RIPPLE
  * @example
  * var appCache = window.applicationCache;
@@ -178,7 +178,7 @@ ApplicationCache.prototype.status = undefined;
  * @description  Invokes the application cache download process.
  * <br>Throws an INVALID_STATE_ERR exception if there is no application cache to update.<br>
  * @BB60+
- * @PB10
+ * @PB10+
  * @RIPPLE
  * @example
  * var appCache = window.applicationCache;
@@ -198,7 +198,7 @@ ApplicationCache.prototype.update = undefined;
  * The only change is that subsequent requests for cached resources will obtain the newer copies.<br>
  * @throws {INVALID_STATE_ERR} If the current app cache is the most recent
  * @BB60+
- * @PB10
+ * @PB10+
  * @RIPPLE
  * @example
  * var appCache = window.applicationCache;
@@ -213,7 +213,7 @@ ApplicationCache.prototype.swapCache = undefined;
 /**@event
  * @description  Sent when the cache update process begins.<br>
  * @BB60+
- * @PB10
+ * @PB10+
  * @RIPPLE
  * @example 
  * function handleCacheEvent(e) {
@@ -228,7 +228,7 @@ ApplicationCache.prototype.checking = undefined;
  * @event
  * @description  Sent when an error occurs.<br>
  * @BB60+
- * @PB10
+ * @PB10+
  * @RIPPLE
  * @example 
  * function handleCacheErro(e) {
@@ -244,7 +244,7 @@ ApplicationCache.prototype.error = undefined;
  * @event
  * @description  Sent when the update process finishes but the manifest file does not change.<br>
  * @BB60+
- * @PB10
+ * @PB10+
  * @RIPPLE
  * @example 
  * function handleCacheEvent(e) {
@@ -259,7 +259,7 @@ ApplicationCache.prototype.noupdate = undefined;
  * @event
  * @description  Sent when the update process begins downloading resources in the manifest file.<br>
  * @BB60+
- * @PB10
+ * @PB10+
  * @RIPPLE
  * @example 
  * function handleCacheEvent(e) {
@@ -274,7 +274,7 @@ ApplicationCache.prototype.downloading = undefined;
  * @event
  * @description  Sent when each resource in the manifest file begins to download.<br>
  * @BB60+
- * @PB10
+ * @PB10+
  * @RIPPLE
  * @example 
  * function handleCacheEvent(e) {
@@ -290,7 +290,7 @@ ApplicationCache.prototype.progress = undefined;
  * @description  Sent when there is an existing application cache, the update process finishes,
  * and there is a new application cache ready for use.<br>
  * @BB60+
- * @PB10
+ * @PB10+
  * @RIPPLE
  * @example 
  * function handleCacheEvent(e) {
@@ -306,7 +306,7 @@ ApplicationCache.prototype.updateready = undefined;
  * @description  Sent when the resources listed in the manifest have been downloaded, 
  * and the application is now cached.<br>
  * @BB60+
- * @PB10
+ * @PB10+
  * @RIPPLE
  * @example 
  * function handleCacheEvent(e) {
@@ -322,7 +322,7 @@ ApplicationCache.prototype.cached = undefined;
  * @description  Sent when the manifest was found to have become a 404 or 410 page, 
  * so the application cache is being deleted.<br>
  * @BB60+
- * @PB10
+ * @PB10+
  * @RIPPLE
  * @example 
  * function handleCacheEvent(e) {

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2011 Research In Motion Limited.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,8 +16,6 @@
 
 /**
 * @toc {IO} Directory 
-* @notice {Warning ( Playbook 1.0 Notice):}
-* For URI based APIs, webworks:// has been deprecated and replaced with http://localhost:8472. This change does not affect the procedural APIs.
 * @namespace The Directory object provides functions for interacting with directories on the file system.<br><br>
 * See also {@link blackberry.io.file}
 * @featureID blackberry.io.dir
@@ -33,7 +31,8 @@ blackberry.io.dir = {
     *
     * @type Object
     * @readOnly
-    * @PB10
+    * @RIPPLE
+    * @PB10+
     * @example
     * &lt;script type=&quot;text&sol;javascript&quot;&gt;
     *   var dirs = blackberry.io.dir.appDirs;
@@ -101,7 +100,7 @@ blackberry.io.dir = {
     *     }
     *   }
     * }
-    * @PB10
+    * @PB10+
     * @uri
     * @function
     */	
@@ -112,7 +111,8 @@ blackberry.io.dir = {
     * @param {String} path Path location of the directory.
     * @returns {String[]}
     * @BB50+
-    * @PB10
+    * @RIPPLE
+    * @PB10+
     */
     listFiles : function(path) { },
 	
@@ -121,7 +121,8 @@ blackberry.io.dir = {
     * @param {String} path path location of the directory.
     * @returns {String[]}
     * @BB50+
-    * @PB10
+    * @RIPPLE
+    * @PB10+
     */
     listDirectories : function(path) { },
 	
@@ -133,7 +134,8 @@ blackberry.io.dir = {
     * @param {String} path path location of the directory.
     * @returns {Boolean}
     * @BB50+
-    * @PB10
+    * @RIPPLE
+    * @PB10+
     */
    /**
     * @name blackberry.io.dir.exists
@@ -146,7 +148,7 @@ blackberry.io.dir = {
     *     "exists" : true if the path exists and points to a directory, false otherwise
     *   }
     * }
-    * @PB10
+    * @PB10+
     * @uri
     * @function     
     */	
@@ -160,7 +162,8 @@ blackberry.io.dir = {
     * @param {String} newDirectoryName the new name for the directory.
     * @returns {void}
     * @BB50+
-    * @PB10
+    * @RIPPLE
+    * @PB10+
     */
    /**
     * @name blackberry.io.dir.rename
@@ -174,7 +177,7 @@ blackberry.io.dir = {
     *     "newDirectoryName" : "&lt;newDirectoryName that was passed&gt;"
     *   }
     * }
-    * @PB10
+    * @PB10+
     * @uri
     * @function
     */ 	
@@ -186,7 +189,8 @@ blackberry.io.dir = {
     * @param {Boolean} [recursive] flag to decide if all contents should be deleted
     * @returns {void}
     * @BB50+
-    * @PB10
+    * @RIPPLE
+    * @PB10+
     */
     deleteDirectory : function(path, recursive) { },	
 	
@@ -195,7 +199,8 @@ blackberry.io.dir = {
     * @param {String} path Path of the directory or file.
     * @returns {String}
     * @BB50+
-    * @PB10
+    * @RIPPLE
+    * @PB10+
     */
     getParentDirectory : function(path) { },
 	
@@ -204,7 +209,8 @@ blackberry.io.dir = {
     * @param {String} path path location of the new directory. The name of the new directory should be included as parts of the path.
     * @returns {void}
     * @BB50+
-    * @PB10
+    * @RIPPLE
+    * @PB10+
     */
     createNewDir : function(path) { },
 	
@@ -212,6 +218,7 @@ blackberry.io.dir = {
     * Get a list of root directories. 
     * @returns {String[]}
     * @BB50+
+    * @RIPPLE
     * @example
     * &lt;script type=&quot;text&sol;javascript&quot;&gt;
     *   var i;
@@ -234,6 +241,7 @@ blackberry.io.dir = {
     * @param {String} rootPath Root path location to determine free space for.
     * @returns {Number} The amound of free space availalble in the specified root.
     * @BB50+
+    * @RIPPLE
     */
     getFreeSpaceForRoot : function(rootPath) { },	
 	
@@ -246,7 +254,7 @@ blackberry.io.dir = {
     *     "path": "&lt;path that was passed&gt;"
     *   }
     * }
-    * @PB10
+    * @PB10+
     * @uri
     */
     create : function(path) {},
@@ -263,7 +271,7 @@ blackberry.io.dir = {
     *     "recursive" : the boolean that was passed (false if "recursive" was not specified)
     *   }
     * }
-    * @PB10
+    * @PB10+
     * @uri
     * @function	 
     */
@@ -281,7 +289,7 @@ blackberry.io.dir = {
     *     "isEmpty": true (if directory does not contain files or sub-directories) or false (if directory contains files or sub-directories), // only defined if "code" is 0
     *   }
     * }
-    * @PB10
+    * @PB10+
     * @uri
     */
     get : function(path) {},
@@ -296,7 +304,7 @@ blackberry.io.dir = {
     *     "directory" : "&lt;parent directory&gt;" // only defined if "code" is 0
     *   }
     * }
-    * @PB10
+    * @PB10+
     * @uri
     */
     parent : function(path) {},
@@ -343,7 +351,7 @@ blackberry.io.dir = {
     *      }
     *   });
     * &lt;&sol;script&gt;
-    * @PB10
+    * @PB10+
     * @uri
     */
     list : function(path) {}

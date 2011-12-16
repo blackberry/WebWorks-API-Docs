@@ -1,3 +1,19 @@
+{!/*
+* Copyright 2010-2011 Research In Motion Limited.
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/!}
+
 {!
     var childrenSupport,
         i=-1;
@@ -36,22 +52,31 @@
                     <tr x-ww-support="{+member.support.supportTag+}">
                         <td>
                             <a name="{+Link.symbolNameToLinkName(member)+}">{+getSymbolName(member)+}</a>
+{!/****************** New Types MUST Handle the display of Default Values HERE ************************************************/!}
                             <if test="member.defaultValue">
-                                <b>{+"default: " +resolveLinks(member.defaultValue)+}</b>
+                                <if test="isConstant(member)">
+                                    {+ " = " + resolveLinks(member.defaultValue) +}
+                                </if>
+                                <if test="isProperty(member)">
+                                    <br/>
+                                    <b>{+"default: " +resolveLinks(member.defaultValue)+}</b>
+                                </if>
                             </if>
                         </td>
-                        
                         <td>
-                            <if test="member.isStatic && !isConstant(member)">
-                                Static<br />
-                            </if>
                             <if test="member.isCallback && !isConstant(member)">
                                 {+ ((member.type)?(new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')) : "") + makeCallbackSignature(member.params) +}
                             <else/>
                                 {+((member.type)?(new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')) : "")+}
                             </if>
-                            <if test="member.readOnly && !isConstant(member)">
-                                <br />readonly
+{!/******************  New Types MUST Handle the display of Type Modifiers here ************************************************/!}                            
+                            <if test="isProperty(member)">
+                                <if test="member.isStatic">
+                                    <br /> Static
+                                </if>
+                                <if test="member.readOnly">
+                                    <br /> Readonly
+                                </if>
                             </if>
                         </td>
                         
