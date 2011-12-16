@@ -16,16 +16,17 @@
 
 
 /**
-* <div><p>
-*       The SearchArguments object must be created as an instance using the new keyword.
-*     </p></div>
 * @toc {Invoke} SearchArguments 
 * @BB50+
 * @RIPPLE
-* @class The SearchArguments object is an instance object, and is used as a parameter to the invoke() method when invoking the Search application.
 * @featureID blackberry.invoke
 * @featureID blackberry.invoke.SearchArguments
-* @constructor Constructor for a new SearchArguments object. 
+*
+* @constructor Constructor for a new SearchArguments object.
+* @description The SearchArguments object must be created as an instance using the new keyword.
+* @class The SearchArguments object is an instance object, and is used as a parameter to the invoke() method when invoking the Search application.
+* @param {String} [text] The text string to pass to the Search application.
+* @param {String} [name] The name string to pass to the Search application.
 * @example
 * &lt;script type=&quot;text&sol;javascript&quot;&gt;
 *   var args = new blackberry.invoke.SearchArguments(&apos;build&apos;, &apos;Tim&apos;);
@@ -34,13 +35,3 @@
 */
 blackberry.invoke.SearchArguments = function() { };
 
-/**
-* @constructedBy blackberry.invoke.SearchArguments
-* @description Build a SearchArguments object from string arguments
-* @BB50+
-* @RIPPLE
-* @function
-* @param {String} text The text string to pass to the Search application
-* @param {String} name The name string to pass to the Search application
-*/
-blackberry.invoke.SearchArguments.const1 = function() { };

@@ -43,8 +43,9 @@ HTMLSourceElement = function() { };
  * @description Creates an HTMLSourceElement
  * @example
  * var source = document.createElement("source");
- * @PB10
+ * @PB10+
  * @BB60+
+ * @RIPPLE
  */
 HTMLSourceElement.documentConstructor = undefined;
 
@@ -54,7 +55,8 @@ HTMLSourceElement.documentConstructor = undefined;
 * attribute must be present.
 * @type String
 * @BB60+
-* @PB10
+* @PB10+
+* @RIPPLE
 */
 HTMLSourceElement.prototype.src = { };
 
@@ -62,7 +64,8 @@ HTMLSourceElement.prototype.src = { };
 * 
 * @type String
 * @BB60+
-* @PB10
+* @PB10+
+* @RIPPLE
 */
 HTMLSourceElement.prototype.type = { };
 
@@ -70,7 +73,8 @@ HTMLSourceElement.prototype.type = { };
 * 
 * @type String
 * @BB60+
-* @PB10
+* @PB10+
+* @RIPPLE
 */
 HTMLSourceElement.prototype.media = { };
 

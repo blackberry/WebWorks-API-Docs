@@ -31,9 +31,7 @@ This project is Open Sourced under the Apache 2.0 license
 `java -jar jsrun.jar app/run.js -a "<webworks-apidocs-location>/api" -t=templates/BBTemplate -d="<some-output-folder>"`
 
 ## Viewing the Documentation
-After you have generated the documentation you will find all the HTML for the API docs in your _**&lt;some-output-folder&gt;**_.  The default main page is _**index.html**_.  Some browsers don't like viewing content from a **_file://_** uri that contains JavaScript.  In-fact, typically only Firefox allows this by default.  If your default browser isn't Firefox, don't be surprised when you double click the file and it doesn't display properly in your browser!
-
-If you copy the contents of your _**&lt;some-output-folder&gt;**_ to a local web server you can then view the content in a browser of your choice.  But if you are viewing it directly from your file system, you will need to use Firefox or find a way to configure your browser of choice to allow JavaScript on content from the **_file://_** origin.
+After you have generated the documentation you will find all the HTML for the API docs in your _**&lt;some-output-folder&gt;/view**_.  The default main page is _**index.html**_.  
 
 ## Additional Information
 

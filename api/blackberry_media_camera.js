@@ -54,7 +54,7 @@ blackberry.media.camera = {
      * @callback {function} [onError] Method will be invoked when an error occurs. <br/>Expected signature: <code>function onError(e)</code>
 	 * @callback {String} [onError.e] Error message
      * @BB50+
-     * @PB10
+     * @PB10+
      */
     takePicture: function(onCaptured, onCameraClosed, onError) {
     },
@@ -67,7 +67,7 @@ blackberry.media.camera = {
      * @callback {function} [onError] Method will be invoked when an error occurs. <br/>Expected signature: <code>function onError(e)</code>
 	 * @callback {String} [onError.e] Error message
      * @BB50+
-     * @PB10
+     * @PB10+
      * @example
      * function takeVideo() {
      *   try {
