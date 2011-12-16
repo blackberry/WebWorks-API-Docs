@@ -60,7 +60,7 @@ var functionParams,
                     <br />
                     <h3>Returns</h3>
                     <for each="item" in="member.returns">
-                        {+resolveLinks(item.desc)+}
+                        <p> {+resolveLinks(item.desc)+} </p>
                     </for>
                     <br />
                 </if>
@@ -140,13 +140,11 @@ var functionParams,
                 <if test="member.returns.length && isURIMethod(member)">
                     <br />
                     <h3>Returns</h3>
-                    <table>
-                        <for each="item" in="member.returns">
-                            <tr><td>
-                                <pre>{+resolveLinks(item.desc)+}</pre>
-                            </td></tr>
-                        </for>
-                    </table>
+                    <for each="item" in="member.returns">
+                        <tr><td>
+                            <pre>{+resolveLinks(item.desc)+}</pre>
+                        </td></tr>
+                    </for>
                 </if>
 
                 {+subtemplate("subtemplates/example.tmpl", {example: member.example, type: "Function"})+}  

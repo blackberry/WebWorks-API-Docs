@@ -44,7 +44,7 @@ blackberry.app.event = {
 	 * This event is dispatched whenever the application goes to the background, but has not ended. Only one function can be assigned to this event. To unregister the callback, call the onBackground method and pass in null for the callback parameter.
 	 * <p/>Note: The BlackBerry PlayBook's "Application Behavior" setting has an impact on when onBackground gets dispatched. When "Application Behavior" is set to "Default", onBackground does not get dispatched until another application goes fullscreen.  When "Application Behavior" is set to "Showcase", onBackground does not get dispatched because all open applications stay active. When "Application Behavior" is set to "Paused", onBackground gets dispatched once the application is sent to the background. 	
 	 * @callback {function} onBackgroundCallback Function to be called when the application goes to the background. Expected signature: function onBackgroundCallback().
-	 * @PB10 
+	 * @PB10+ 
 	 * @BB50+
      * @RIPPLE
 	 * @example
@@ -69,7 +69,7 @@ blackberry.app.event = {
 	 * This event is dispatched whenever the application comes to the foreground, for example, when the user re-opens the application from the application list. Only one function can be assigned to this event. To unregister the callback call the onForeground method and pass in null for the callback parameter.
 	 * <p/>Note: The BlackBerry PlayBook's "Application Behavior" setting has an impact on when onForeground gets dispatched. Refer to {@link blackberry.app.event.onBackground} documentation for details.	
 	 * @callback {function} onForegroundCallback Function to be called when the application goes to the foreground. Expected signature: function onForegroundCallback().
-	 * @PB10
+	 * @PB10+
 	 * @BB50+
      * @RIPPLE
 	 */
@@ -81,7 +81,7 @@ blackberry.app.event = {
 	 * <p/>
 	 * This event is dispatched when a user swipes down from the top bezel of the BlackBerry PlayBook onto the screen. Only one function can be assigned to this event. To unregister the callback call the onSwipeDown method and pass in null for the callback parameter. 	
 	 * @callback {function} onSwipeDownCallback Function to be called when the swipe down action occurs. Expected signature: function onSwipeDownCallback().
-	 * @PB10
+	 * @PB10+
      * @RIPPLE
 	 */
 	onSwipeDown : function(onSwipeDownCallback) {},
@@ -91,7 +91,7 @@ blackberry.app.event = {
 	 * <p/>
 	 * This event is dispatched when the user starts a swipe from the top bezel of the BlackBerry PlayBook. Only one function can be assigned to this event. To unregister the callback call the onSwipeStart method and pass in null for the callback parameter.
 	 * @callback {function} onSwipeStartCallback Function to be called when the user starts a swipe from the top bezel of the PlayBook. Expected signature: function onSwipeStartCallback(). Static="true" returns="void".
-	 * @PB10
+	 * @PB10+
      * @RIPPLE
 	 */
 	onSwipeStart : function(onSwipeStartCallback) {}
