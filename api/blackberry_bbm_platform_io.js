@@ -157,14 +157,14 @@ blackberry.bbm.platform.io = {
      * @param {String} hostPIN The host PIN. Can be obtained by <code>blackberry.identity.PIN</code>
      * @param {String} hostPPID The host PPID. Can be obtained by <code>blackberry.bbm.platform.self.ppid</code>.
      * @callback {Function} onComplete Invoked when the user finishes approving the join request.
-     * @callback {blackberry.bbm.platform.io.BBMPlatformOutgoingJoinRequest} onComplete.request The
+     * @callback {blackberry.bbm.platform.io.OutgoingJoinRequest} onComplete.request The
      * request sent to the host; <code>undefined</code> if the user aborted the join request.
      * @callback {Function} onHostAccepted Invoked when the join request is accepted by the host.
-     * @callback {blackberry.bbm.platform.io.BBMPlatformOutgoingJoinRequest} onHostAccepted.request The accepted request.
+     * @callback {blackberry.bbm.platform.io.OutgoingJoinRequest} onHostAccepted.request The accepted request.
      * @callback {String} onHostAccepted.cookie The cookie sent when the host accepted the join request in {@link blackberry.bbm.platform.io.IncomingJoinRequest#accept}. <code>undefined</code>
      * if no cookie was provided.
      * @callback {Function} onHostDeclined Invoked when the join request is declined by the host.
-     * @callback {blackberry.bbm.platform.io.BBMPlatformOutgoingJoinRequest} onHostDeclined.request The declined request.
+     * @callback {blackberry.bbm.platform.io.OutgoingJoinRequest} onHostDeclined.request The declined request.
      * @callback {String} onHostDeclined.reason The reason that the request was declined. 
      * @param {String} [cookie] A custom parameter provided by the application.
      * e.g. Their current game level. Max length of 128 characters.
@@ -244,7 +244,8 @@ blackberry.bbm.platform.io = {
     /////////////////////////////////
     
     /**
-     * Invoked when a contact has become reachable after a ContactUnreachableException was thrown.
+     * Invoked when a contact has become reachable after a ContactUnreachableException was thrown from {@link blackberry.bbm.platform.io.Connection#send}.
+     * <p>See {@link blackberry.bbm.platform.io.Connection#send}
      * @param {blackberry.bbm.platform.users.BBMPlatformUser} user The user who has become reachable.
      * @event
      * @BB50+
@@ -252,7 +253,8 @@ blackberry.bbm.platform.io = {
     onuserreachable: function(user) { },
     
     /**
-     * Invoked when pending data for an unreachable user has expired.
+     * Invoked when pending data for an unreachable user has expired. See {@link blackberry.bbm.platform.io.Connection#send} for more details.
+     * <p>See {@link blackberry.bbm.platform.io.Connection#send}
      * @param {blackberry.bbm.platform.users.BBMPlatformUser} user The unreachable user.
      * @param {String[]} data The data messages which expired.
      * @event

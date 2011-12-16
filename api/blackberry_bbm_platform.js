@@ -21,7 +21,7 @@
  * 
  * <h1>Required BBM Version</h1>
  * 
- * BBM Social Platform APIs come with BBM6 and later. BBM6 is supported on BlackBerry OS 5, 6, and 7.
+ * BBM Social Platform APIs come with BBM 6.1.0 and later. BBM 6.1.0 is supported on BlackBerry OS 5, 6, and 7.
  * 
  * <h1>Authorization</h1>
  * 
@@ -37,7 +37,7 @@
  * </ul>
  * @BB50+
  * @learns {Download BBM SDK Resources} http://us.blackberry.com/developers/blackberrymessenger/ Download the resources required to use the BBM SDK for WebWorks [BlackBerry].
- * @learns {Getting Started Guide} http://docs.blackberry.com/en/developers/deliverables/30299/ Setup the BBM SDK for BlackBerry WebWorks [BlackBerry Developer Resource Center].
+ * @learns {Getting Started Guide} https://bdsc.webapps.blackberry.com/html5/documentation/ww_services/bbm_sdk_for_ww_1878476_11.html Setup the BBM SDK for BlackBerry WebWorks [BlackBerry Developer Resource Center].
  * @learns {Sample Application Guide} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Getting-Started-BlackBerry-WebWorks-Development-for-Smartphones/ta-p/1185353 Get started with the sample application included with the BBM SDK for BlackBerry WebWorks [BlackBerry Developer Resource Center].
  */
 blackberry.bbm.platform = {
@@ -105,11 +105,32 @@ blackberry.bbm.platform = {
      * });
      * 
      * &lt;/script&gt;
+     * @deprecated Use {@link blackberry.bbm.platform.showBBMAppOptions}
      * @BB50+
      */
     requestUserPermission : function(onComplete) {
         
-    }
+    },
+    
+    /**
+     * @description Brings the BBM options screen for this application to the foreground. This
+     * method may only be called if access status is <code>"allowed"</code> or blocked by
+     * <code>"user"</code>. Otherwise this method does nothing.
+     * @param {Function} onComplete Called when the user exited the BBM options screen.
+     * @example
+     * &lt;script type="text/javascript"&gt;
+     * 
+     * blackberry.bbm.platform.showBBMAppOptions(function() {
+     *     // User exited the BBM options screen
+     * });
+     * 
+     * &lt;/script&gt;
+     * 
+     * @BB50+
+     */
+    showBBMAppOptions: function(onComplete) {
+    	
+    },
 
     /**
      * Called when the access status changes.
@@ -121,6 +142,7 @@ blackberry.bbm.platform = {
      * <li><code>"allowed"</code>: Access is allowed.
      * <li><code>"user"</code>: Access is blocked by the user.
      * <li><code>"rim"</code>: Access is blocked by RIM (the application has most likely violated the terms of use).
+     * <li><code>"itpolicy"</code>: Access is blocked by IT Policy.
      * <li><code>"resetrequired"</code>: Access is blocked because a device reset is required to use the BBM Social Platform.
      * <li><code>"nodata"</code>: Access is blocked because the device is out of data coverage. A data connection is required
      * to register the application.
@@ -136,34 +158,61 @@ blackberry.bbm.platform = {
     },
     
     /**
-     * Called in certain cases when the application is invoked from within BBM. At the moment this
-     * event is only triggered by profile box items.
-     * <p>This callback should be assigned <b>before</b> the call to {@link blackberry.bbm.platform.register}. If the application is not yet running then it will be launched. This callback will only be invoked once access to the platform is allowed.
+     * Called in certain cases when the application is invoked from within BBM.
+     * <p>The <code>param</code> and <code>user</code> parameters are dictated by the invocation <code>reason</code>.
+     * 
+     * <p>This callback should be assigned <b>before</b> the call to {@link blackberry.bbm.platform.register}. If the application is not yet running then it will be launched. This callback will only be invoked once access to BBM Social Platform is allowed.
      * <p>This callback is optional. Applications are not required to handle this type of event. 
-     * <h3>ProfileBoxItem Invocations</h3>
-     * The user can launch the application via profile box items (see {@link blackberry.bbm.platform.self.profilebox}).
-     * This callback will be invoked with the reason <code>"profilebox"</code> and a
-     * {@link blackberry.bbm.platform.self.profilebox.ProfileBoxItem} param -- the profile box item
-     * which was clicked.
-     * @param {String} reason The reason that the application was invoked. If <code>"profilebox"</code> then
-     * <code>param</code> is a {@link blackberry.bbm.platform.self.profilebox.ProfileBoxItem}.
-     * @param {blackberry.bbm.platform.self.profilebox.ProfileBoxItem} param The parameter associated with <code>reason</code>.
+     * 
+     * @param {String} reason The reason that the application was invoked.
+     * <ul>
+     * <li><code>"profilebox"</code>: A user's profile box item was clicked.
+     * <br/><br/><code>param</code> is the {@link blackberry.bbm.platform.self.profilebox.ProfileBoxItem} that was clicked.
+     * <br/><br/>See {@link blackberry.bbm.platform.self.profilebox}.
+     * <li><code>"profileboxtitle"</code>: A user's profile box title was clicked.
+     * <br/><br/><code>param</code> is <code>undefined</code>.
+     * <br/><br/>See {@link blackberry.bbm.platform.self.profilebox}.
+     * <li><code>"personalmessage"</code>: A user's personal message app link was clicked.
+     * <br/><br/><code>param</code> is the personal message, excluding the app link.
+     * <br/><br/>See {@link blackberry.bbm.platform.self.setPersonalMessage}.
+     * <li><code>"chatmessage"</code>: A user's chat message app link was clicked.
+     * <br/><br/><code>param</code> is <code>undefined</code>. 
+     * <br/><br/>See {@link blackberry.bbm.platform.users.startBBMChat}.
+     * </ul>
+     * @param {void} param The parameter associated with <code>reason</code>. May be <code>undefined</code>
+     * @param {blackberry.bbm.platform.users.BBMPlatformUser | blackberry.bbm.platform.self} user The
+     * user whose personal message/profile box/etc. was clicked. May be <code>undefined</code>.
      * @example
      * &lt;script type="text/javascript"&gt;
      * 
-     * // Trigger an action in the application when a profile box item is selected
-     * blackberry.bbm.platform.onappinvoked = function(reason, param) {
-     *     if(reason == "profilebox") {
-     *         var boxItem = param;
-     *         // Take action based on profile box item...
-     *     }
-     * };
+     * blackberry.bbm.platform.onappinvoked = function(reason, param, user) {
+     *     // User clicked a user's profile box
+     *     if(reason == "profileboxtitle") {
+     *         // e.g. Show detail for user's whole TPA profile box
+     *         
+     *     // User clicked a user's profile box item
+     *     } else if(reason == "profilebox") {
+     *         // e.g. Show the score and trophy represented by a profile box item
+     *         var item = param;
+     *         var score = item.cookie;
+     *     
+     *     // User clicked a user's personal message TPA link
+     *     } else if(reason == "personalmessage") {
+     *         // e.g. Allow the user to comment on the user's personal message in the user's TPA profile
+     *         var personalMessage = param;
+     *     
+     *     // User clicked a contact's chat message TPA link
+     *     } else if(reason == "chatmessage") {
+     *         // e.g. Start an activity with the contact
+     *         
+     *     } 
+     * }
      * 
      * &lt;/script&gt; 
      * @event
      * @BB50+
      */
-    onappinvoked : function(reason, param) {
+    onappinvoked : function(reason, param, user) {
     },
     
     /**
