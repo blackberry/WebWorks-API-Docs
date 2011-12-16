@@ -17,8 +17,6 @@
 /**
  * @toc {System} Application
  * @featureID blackberry.app
- * @notice {Warning ( Playbook 1.0 Notice):}
- * For URI based APIs, webworks:// has been deprecated and replaced with http://localhost:8472. This change does not affect the procedural APIs.
  * @namespace The Application object provides functions and properties for the currently running application.
  * @example
  * &lt;script type="text/javascript"&gt;
@@ -51,7 +49,7 @@ blackberry.app ={
 	/**
 	 * @description This function will cause the application to exit.
 	 * @BB50+
-	 * @PB10
+	 * @PB10+
      * @RIPPLE
 	 */
 	exit: function(){},
@@ -110,7 +108,7 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	/**
 	 * @description The ID of the author's name that is specified in the config.xml file. 
 	 * @BB50+
-	 * @PB10
+	 * @PB10+
      * @RIPPLE
 	 * @readonly
 	 * @type String
@@ -120,7 +118,7 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	/**
 	 * @description The author's email of the BlackBerry WebWorks application that is specified in the config.xml file. 
 	 * @BB50+
-	 * @PB10
+	 * @PB10+
      * @RIPPLE
 	 * @readonly
 	 * @type String
@@ -130,7 +128,7 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	/**
 	 * @description The author's URL of the BlackBerry WebWorks application that is specified in the config.xml file.
 	 * @BB50+
-	 * @PB10
+	 * @PB10+
      * @RIPPLE
 	 * @readonly
 	 * @type String
@@ -139,7 +137,7 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	/**
 	 * @description The copyright information of the BlackBerry WebWorks application that is specified in the config.xml file.
 	 * @BB50+
-	 * @PB10
+	 * @PB10+
      * @RIPPLE
 	 * @readonly
 	 * @type String
@@ -149,7 +147,7 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	/**
 	 * @description The description of the BlackBerry WebWorks application that is specified in the config.xml file.
 	 * @BB50+
-	 * @PB10
+	 * @PB10+
      * @RIPPLE
 	 * @readonly
 	 * @type String
@@ -159,7 +157,7 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	/**
 	 * @description The ID of the BlackBerry WebWorks Application that is specified in the config.xml file. 
 	 * @BB50+
-	 * @PB10
+	 * @PB10+
      * @RIPPLE
 	 * @readonly
 	 * @type String
@@ -178,7 +176,7 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	/**
 	 * @description The license of the BlackBerry WebWorks Application that is specified in the config.xml file. 
 	 * @BB50+
-	 * @PB10
+	 * @PB10+
      * @RIPPLE
 	 * @readonly
 	 * @type String
@@ -188,7 +186,7 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	/**
 	 * @description The license URL of the BlackBerry WebWorks Application that is specified in the config.xml file. 
 	 * @BB50+
-	 * @PB10
+	 * @PB10+
      * @RIPPLE
 	 * @readonly
 	 * @type String
@@ -198,7 +196,7 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	/**
 	 * @description The name of the BlackBerry WebWorks Application that is specified in the config.xml file. 
 	 * @BB50+
-	 * @PB10
+	 * @PB10+
      * @RIPPLE
 	 * @readonly
 	 * @type String
@@ -208,7 +206,7 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	/**
 	 * @description The version of the BlackBerry WebWorks Application that is specified in the config.xml file. 
 	 * @BB50+
-	 * @PB10
+	 * @PB10+
      * @RIPPLE
 	 * @readonly
 	 * @type String
@@ -220,7 +218,7 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	/**
      * Returns a JSON object containing all properties of the application.
 	 * @uri 
-	 * @PB10
+	 * @PB10+
 	 * @returns {JSON of all the properties}
 	 * {
 	 * 	"data":{

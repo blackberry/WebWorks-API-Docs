@@ -33,7 +33,7 @@ blackberry.utils = {
 	 * @param {String} [encoding = ISO-8859-1] The name of a supported character encoding.BlackBerry supports the following character encodings: ISO-8859-1, UTF-8, UTF-16BE, US-ASCII. Besides these encodings, Web API also supports BASE64 encoding. Support of other encodings depends on the configuration of the BlackBerry Smartphone.
 	 * @returns {String} The String result from converting the Blob
      * @BB50+
-	 * @PB10
+	 * @PB10+
      * @RIPPLE
 	 */
 	blobToString : function(blob,encoding){},
@@ -60,7 +60,7 @@ blackberry.utils = {
 	 * @param {String} [encoding = ISO-8859-1] The name of a supported character encoding.BlackBerry supports the following character encodings: ISO-8859-1, UTF-8, UTF-16BE, US-ASCII. Besides these encodings, Web API also supports BASE64 encoding. Support of other encodings depends on the configuration of the BlackBerry Smartphone.
 	 * @returns {Blob} The Blob result from converting the String
 	 * @BB50+
-	 * @PB10
+	 * @PB10+
      * @RIPPLE
 	 */
 	stringToBlob : function(str,encoding){},
@@ -70,7 +70,7 @@ blackberry.utils = {
 	 * @description This method will generate a unique number.
 	 * @returns {Number} A unique number from JavaScript's Math.random() function.
      * @BB50+
-	 * @PB10
+	 * @PB10+
      * @RIPPLE
 	 */
 	generateUniqueId: function(){},
@@ -80,7 +80,7 @@ blackberry.utils = {
 	 * @param {String} url The URL string to be parsed.
 	 * @returns {blackberry.utils.URL} A {@link blackberry.utils.URL} object is returned if the parsing is successful.
      * @BB50+
-	 * @PB10 
+	 * @PB10+ 
      * @RIPPLE
 	 */
 	parseURL: function(url){},
@@ -99,38 +99,38 @@ blackberry.utils = {
 		 * @param {String} key The key of the parameter to be retrieved.
 		 * @returns {String} An undefined object is returned if the key does not exist in the URL query.
 		 * @BB50+
-		 * @PB10
+		 * @PB10+
          * @RIPPLE
 		 */
-		getURLParameter:function(key){},
+		prototype.getURLParameter:function(key){},
 		
 		/**
 		 * @description Obtain the value of a parameter by index. The values are stored in the order they appear in the URL string.
 		 * @param {Number} index The index of the parameter to be retrieved.
 		 * @returns {String} An undefined object is returned if the index is invalid.
          * @BB50+
-		 * @PB10
+		 * @PB10+
          * @RIPPLE
 		 */
-		getURLParameterByIndex:function(index){},
+		prototype.getURLParameterByIndex:function(index){},
 		
 		/**
 		 * @readOnly
 		 * @type String
 		 * @BB50+
-		 * @PB10
+		 * @PB10+
          * @RIPPLE
 		 * @description Host address in the URL string.
 		 */
-		host:null,
+		prototype.host:null,
 		/**
 		 * @readOnly
 		 * @type Number
 		 * @BB50+
-		 * @PB10
+		 * @PB10+
          * @RIPPLE
 		 * @description Port number in the URL string.
 		 */
-		port:null
+		prototype.port:null
 	}
 };

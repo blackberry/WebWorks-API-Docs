@@ -63,7 +63,7 @@ blackberry.payment = {
      * <li> Illegal Application Error = 5 [BlackBerry OS 5.0+ only]</li>
      * </ul>
      * <b>Note:</b> The actual values may be different when {@link blackberry.payment.developmentMode} equals true.
-     * @PB10
+     * @PB10+
 	 * @BB50+
      */
     getExistingPurchases : function (refresh, callbackOnSuccess, callbackOnFailure) {
@@ -90,7 +90,7 @@ blackberry.payment = {
      * <li> Digital Good not Found = 4</li>
      * <li> Illegal Application Error = 5 [BlackBerry OS 5.0+ only]</li>
      * </ul>
-     * @PB10
+     * @PB10+
      * @BB50+
      * @example
      * &lt;script type="text/javascript"&gt;
@@ -128,7 +128,7 @@ blackberry.payment = {
      * @type Boolean
      * @description Defines the development mode used in the application. If development mode is set to true, the application does not contact the Payment Service server for any transactions. For purchases, a simulated purchase screen is displayed, allowing the user to choose the result of the purchase. For retrieving existing purchases, only simulated successful purchases are returned. This mode is useful for testing how your application handles the possible results without requiring network connections or currency. THIS MODE SHOULD NOT BE USED IN PRODUCTION CODE. If development mode is set to false, purchases and retrievals of existing purchases proceed normally, contacting the Payment Service server as necessary. This is the default development mode, and applications in production should not modify it.
      * @default false
-     * @PB10
+     * @PB10+
      * @BB50+
      */
     developmentMode: false;
@@ -147,7 +147,7 @@ Purchase = { };
 /**
  * @type String
  * @description The transaction ID for this purchase.
- * @PB10
+ * @PB10+
  * @BB50+
  */
 Purchase.prototype.transactionID = null;
@@ -155,7 +155,7 @@ Purchase.prototype.transactionID = null;
 /**
  * @type String
  * @description The ID of the purchased digital good.
- * @PB10
+ * @PB10+
  * @BB50+
  */
 Purchase.prototype.digitalGoodID = null;
@@ -163,7 +163,7 @@ Purchase.prototype.digitalGoodID = null;
 /**
  * @type String
  * @description The SKU of the purchased digital good.
- * @PB10
+ * @PB10+
  * @BB50+
  */
 Purchase.prototype.digitalGoodSKU = null;
@@ -171,7 +171,7 @@ Purchase.prototype.digitalGoodSKU = null;
 /**
  * @type String
  * @description The metadata for this purchase, or null if no metadata was included with the purchase.
- * @PB10
+ * @PB10+
  * @BB50+
  */
 Purchase.prototype.metaData = null;
@@ -179,7 +179,7 @@ Purchase.prototype.metaData = null;
 /**
  * @type String
  * @description The Epoch time represention of the date this purchase was made.
- * @PB10
+ * @PB10+
  * @BB50+
  */
 Purchase.prototype.date = null;
@@ -187,7 +187,7 @@ Purchase.prototype.date = null;
 /**
  * @type String
  * @description Represents the license key for this purchase, or null if the purchased digital good does not have a license key.
- * @PB10
+ * @PB10+
  * @BB50+
  */
 Purchase.prototype.licenseKey = null;

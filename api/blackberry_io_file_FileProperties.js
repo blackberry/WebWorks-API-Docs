@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2011 Research In Motion Limited.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -38,6 +38,7 @@ blackberry.io.file.FileProperties = { };
 * @type Boolean
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.io.file.FileProperties.prototype.isReadonly = { };
 
@@ -46,7 +47,8 @@ blackberry.io.file.FileProperties.prototype.isReadonly = { };
 * @type Boolean
 * @readOnly
 * @BB50+
-* @PB10
+* @RIPPLE
+* @PB10+
 */
 blackberry.io.file.FileProperties.prototype.isHidden = { };
 
@@ -55,7 +57,8 @@ blackberry.io.file.FileProperties.prototype.isHidden = { };
 * @type Number
 * @readOnly
 * @BB50+
-* @PB10
+* @RIPPLE
+* @PB10+
 */
 blackberry.io.file.FileProperties.prototype.size = { };
 
@@ -63,7 +66,8 @@ blackberry.io.file.FileProperties.prototype.size = { };
 * File creation date 
 * @type Date
 * @readOnly
-* @PB10
+* @RIPPLE
+* @PB10+
 */
 blackberry.io.file.FileProperties.prototype.dateCreated = { };
 
@@ -72,7 +76,8 @@ blackberry.io.file.FileProperties.prototype.dateCreated = { };
 * @type Date
 * @readOnly
 * @BB50+
-* @PB10
+* @RIPPLE
+* @PB10+
 */
 blackberry.io.file.FileProperties.prototype.dateModified = { };
 
@@ -81,7 +86,8 @@ blackberry.io.file.FileProperties.prototype.dateModified = { };
 * @type String
 * @readOnly
 * @BB50+
-* @PB10
+* @RIPPLE
+* @PB10+
 */
 blackberry.io.file.FileProperties.prototype.fileExtension = { };
 
@@ -90,7 +96,8 @@ blackberry.io.file.FileProperties.prototype.fileExtension = { };
 * @type String
 * @readOnly
 * @BB50+
-* @PB10
+* @RIPPLE
+* @PB10+
 */
 blackberry.io.file.FileProperties.prototype.directory = { };
 
@@ -99,6 +106,7 @@ blackberry.io.file.FileProperties.prototype.directory = { };
 * @type String
 * @readOnly
 * @BB50+
+* @RIPPLE
 */
 blackberry.io.file.FileProperties.prototype.mimeType = { };
 
