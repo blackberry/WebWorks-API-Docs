@@ -139,6 +139,10 @@ blackberry.bbm.platform.io.Connection = function() {
     /**
      * @description Sends data to all users on the connection or a subset. Data cannot be sent to users
      * who have not joined.
+     * <h3>Unreachable Users</h3>
+     * <p>If a user becomes unreachable then up to 50 packets (50 calls of <code>send()</code>) will be queued. A ContactUnreachableException will be thrown on the 51st call.
+     * <p>If the user later becomes reachable then {@link blackberry.bbm.platform.io.event:onuserreachable} will be invoked with the now-reachable user.
+     * <p>BBM Social Platform will continue to attempt to deliver the packets to an unreachable user for 24 hours. If the user does not become reachable within this time then the packets will expire, and {@link blackberry.bbm.platform.io.event:ondataexpired} will be invoked with unreachable user and the expired packets.
      * @param {String} data Object to be sent.
      * @param {blackberry.bbm.platform.users.BBMPlatformUser[]} [users] Data recipients. 
      * If not provided, data will be sent to all users on this connection.
@@ -257,7 +261,7 @@ blackberry.bbm.platform.io.Connection = function() {
     /**
      * Invoked when the user invites others to join the connection. This will not be
      * called if the user invites others to download the application.
-     * @param {blackberry.bbm.platform.io.BBMPlatformUser} users the users who were invited
+     * @param {blackberry.bbm.platform.io.BBMPlatformUser[]} users the users who were invited
      * @event
      * @BB50+
      */
