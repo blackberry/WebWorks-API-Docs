@@ -1,5 +1,5 @@
 SET JSDOC_DIR=%1%
-SET JSDOC_TEMPLATE_DIR=%1%\jsdoc-toolkit\templates\BBTemplate
+SET JSDOC_TEMPLATE_DIR=%1%\templates\BBTemplate
 SET BB_TEMPLATE_DIR=BBTemplate
 SET BB_PLUGIN=bbPlugin.js
 SET API_DOC_DIR=..\api

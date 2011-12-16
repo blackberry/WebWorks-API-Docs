@@ -35,7 +35,7 @@ Acceleration = {
 	 * @type Number
 	 * @description x-coordinate of the acceleration
 	 * @readOnly
-	 * @PB10
+	 * @PB10+
 	 * @RIPPLE
 	 */ 
 	Acceleration.prototype.x=Number,
@@ -44,7 +44,7 @@ Acceleration = {
 	 * @type Number
 	 * @description y-coordinate of the acceleration
 	 * @readOnly
-	 * @PB10
+	 * @PB10+
 	 * @RIPPLE
 	 */ 	
 	Acceleration.prototype.y=Number,
@@ -53,7 +53,7 @@ Acceleration = {
 	 * @type Number
 	 * @description z-coordinate of the acceleration
 	 * @readOnly
-	 * @PB10
+	 * @PB10+
 	 * @RIPPLE
 	 */ 
 	Acceleration.prototype.z=Number,
@@ -61,7 +61,7 @@ Acceleration = {
 
 /**
  * @toc {Device Motion} HTML5 Device Motion Event
- * @PB10
+ * @PB10+
  * @RIPPLE
  * @namespace
  * This event provides direct access to motion data from an accelerometer and gyroscope. The three pieces of data provided are the acceleration, acceleration including gravity and rotation rate. <br>At this moment the data supported is from Accelerometer only.<br>
@@ -86,7 +86,7 @@ DeviceMotionEvent = {
 	 * @type Number
 	 * @description The regular interval at which the event must fire at, given in milliseconds
 	 * @readOnly
-	 * @PB10
+	 * @PB10+
 	 */ 
 	DeviceMotionEvent.prototype.interval= Number,
 	
@@ -95,7 +95,7 @@ DeviceMotionEvent = {
 	 * @description Implementations that are unable to provide acceleration data without the effect of gravity (due, for example, to the lack of a gyroscope) may instead supply the acceleration including the effect of gravity. This is less useful in many applications but is provided as a means of providing best-effort support. 
 	 * In this case, the values reported are equal to the acceleration of the device, plus an acceleration equal and opposite to the acceleration due to gravity.
 	 * @readOnly
-	 * @PB10
+	 * @PB10+
 	 * @RIPPLE
 	 */
 	DeviceMotionEvent.prototype.accelerationIncludingGravity=null,
@@ -103,7 +103,7 @@ DeviceMotionEvent = {
 	/**
 	 * @function
 	 * @description Initializes the event listener and it's parameters
-	 * @PB10
+	 * @PB10+
 	 */
 	DeviceMotionEvent.prototype.initDeviceMotionEvent = function(){}
 };

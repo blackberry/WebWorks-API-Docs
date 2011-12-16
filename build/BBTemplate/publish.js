@@ -27,7 +27,8 @@ function publish(symbolSet) {
         imagesDir : "images/",
         jsDir : "javascript/",
         templateName : "BBTest",
-        templateVersion : "0.1"
+        templateVersion : "0.1",
+        viewDir : "view/"        
     };
 
     // is source output is suppressed, just display the links to the source file
@@ -39,11 +40,9 @@ function publish(symbolSet) {
 
     // create the folders and subfolders to hold the output
     IO.mkPath((publish.conf.outDir + publish.conf.imagesDir));
-    /* These paths are no longer used
-    IO.mkPath((publish.conf.outDir + publish.conf.cssDir));
-    IO.mkPath((publish.conf.outDir + publish.conf.jsDir));
-    IO.mkPath((publish.conf.outDir + publish.conf.srcDir));
-    */
+    IO.mkPath((publish.conf.outDir + publish.conf.viewDir));
+    IO.mkPath((publish.conf.outDir + publish.conf.viewDir + publish.conf.imagesDir));
+
 
     // used to allow Link to check the details of things being linked to
     Link.symbolSet = symbolSet;
@@ -54,7 +53,7 @@ function publish(symbolSet) {
         // var ditamapTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"ditamap.tmpl");
         var JSONTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"JSON.tmpl");
         var PHPTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"PHP.tmpl");
-        // var viewableClassTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"viewableClass.tmpl");
+        var viewableClassTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"viewableClass.tmpl");
 	}
 	catch(e) {
         print("Couldn't create the required templates: " + e);
@@ -105,26 +104,36 @@ function publish(symbolSet) {
     // Generate the toc page
     Link.base = "";
 
-    var classes = classes.filter(function ($) {return ($.toc)} ).sort(makeTocSort());
+    var tocClasses = classes.filter(function ($) {return ($.toc)} ).sort(makeTocSort());
 
     // var processedDitamap = ditamapTemplate.process(classes);
     // IO.saveFile(publish.conf.outDir, "toc.ditamap", processedDitamap);
 
-    var processedJSON = JSONTemplate.process(classes);
+    var processedJSON = JSONTemplate.process(tocClasses);
     IO.saveFile(publish.conf.outDir, "menu-apis.php.json", processedJSON);
 
-    var processedPHP = PHPTemplate.process(classes);
+    var processedPHP = PHPTemplate.process(tocClasses);
     IO.saveFile(publish.conf.outDir, "menu-apis.php", processedPHP);
+    
+    // create each of the viewable class pages
+    for ( var i = 0, l = classes.length; i < l; i++) {
+        symbol = classes[i];
+
+        output = viewableClassTemplate.process(symbol);
+		IO.saveFile(publish.conf.outDir+publish.conf.viewDir, ((JSDOC.opt.u)? Link.filemap[symbol.alias] : symbol.alias) + publish.conf.ext, output);
+    }
 
     // COPY FILES
-    // CSS files
-	// copyFiles(publish.conf.templatesDir+"/"+publish.conf.cssDir,publish.conf.outDir+"/"+publish.conf.cssDir );
-    // Static files
+    // Copy Static files for microsite
 	copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir );
-    // Image Files
-	// copyFiles(publish.conf.templatesDir+"/"+publish.conf.imagesDir,publish.conf.outDir+"/"+publish.conf.imagesDir );
-    // JS Files
-	// copyFiles(publish.conf.templatesDir+"/"+publish.conf.jsDir,publish.conf.outDir+"/"+publish.conf.jsDir );
+    // Copy Static files for viewable HTML
+	copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir + publish.conf.viewDir);    
+    // Copy Image files for viewable HTML (already copied for microsite by @image tags)
+    copyFiles(publish.conf.outDir + publish.conf.imagesDir, publish.conf.outDir + publish.conf.viewDir + publish.conf.imagesDir);
+
+    // create a viewable version of the index.html
+    output = viewableClassTemplate.process({alias : 'index'});
+    IO.saveFile(publish.conf.outDir+publish.conf.viewDir, 'index' + publish.conf.ext, output);
 
 }
 
@@ -334,7 +343,7 @@ function getSymbolName(symbol, forSummary) {
         return "[]";
     } else if (symbol.uri) {
         return "http://localhost:8472/" + symbol.alias.replace(/\./g, "/").replace("[\^][\d]", '');
-    } else if (symbol.isStatic && !forSummary) {
+    } else if (symbol.isStatic && !forSummary && !isProperty(symbol) & !isConstant(symbol)) {
         return symbol.memberOf + "." + symbol.name.replace(/\^\d+$/, '').replace("[\^][\d]", '');
     } else {
         return symbol.name.replace(/\^\d+$/, '').replace("[\^][\d]", '');

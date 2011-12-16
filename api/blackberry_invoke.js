@@ -44,7 +44,7 @@ blackberry.invoke = {
 		 * @param {Object} [args] An arguments object specifying information for the application being invoked.
 		 * @throws {Exception} If values supplied are not correct. 
 		 * @BB50+
-		 * @PB10
+		 * @PB10+
 		 * @RIPPLE
 		 */
 		invoke : function(appType, args){},
@@ -94,7 +94,7 @@ blackberry.invoke = {
 		 * @type Number
 		 * @constant
 		 * @BB50+
-		 * @PB10
+		 * @PB10+
 		 * @RIPPLE
 		 * @description Camera.
 		 */
@@ -105,7 +105,7 @@ blackberry.invoke = {
 		 * @type Number
 		 * @constant
 		 * @BB50+
-		 * @PB10
+		 * @PB10+
 		 * @RIPPLE
 		 * @description Maps.
 		 */
@@ -164,7 +164,7 @@ blackberry.invoke = {
 		 * @type Number
 		 * @constant
 		 * @BB50+
-		 * @PB10
+		 * @PB10+
 		 * @RIPPLE
 		 * @description Browser.
 		 */
@@ -182,7 +182,7 @@ blackberry.invoke = {
 		 * @default 13
 		 * @type Number
 		 * @constant
-		 * @PB10
+		 * @PB10+
 		 * @RIPPLE
 		 * @description Music Application.
 		 */
@@ -191,7 +191,7 @@ blackberry.invoke = {
 		 * @default 14
 		 * @type Number
 		 * @constant
-		 * @PB10
+		 * @PB10+
 		 * @RIPPLE
 		 * @description Photos Application.
 		 */
@@ -200,7 +200,7 @@ blackberry.invoke = {
 		 * @default 15
 		 * @type Number
 		 * @constant
-		 * @PB10
+		 * @PB10+
 		 * @RIPPLE
 		 * @description Videos Application.
 		 */
@@ -209,7 +209,7 @@ blackberry.invoke = {
 		 * @default 16
 		 * @type Number
 		 * @constant
-		 * @PB10
+		 * @PB10+
 		 * @RIPPLE
 		 * @description App World Application.
 		 */

@@ -29,13 +29,14 @@
  * avoided in {@link blackberry.bbm.platform.users.sendFile} and {@link blackberry.bbm.platform.users.startBBMChat}
  * by providing a {@link blackberry.bbm.platform.users.BBMPlatformUser} in the method call.
  * 
- * <h3>File Transfer, Invite to Download, and Starting a BBM Chat</h3>
- * <p>The current user can send files, start a chat in BBM, and invite others to download the
- * application using the following methods:
+ * <h3>File Transfer, Invite to Download, Starting a BBM Chat, and Sharing Content</h3>
+ * <p>The current user can send files, start a chat in BBM, invite others to download the
+ * application, and share content using the following methods:
  * <ul>
  * <li>{@link blackberry.bbm.platform.users.sendFile}
  * <li>{@link blackberry.bbm.platform.users.startBBMChat}
  * <li>{@link blackberry.bbm.platform.users.inviteToDownload}
+ * <li>{@link blackberry.bbm.platform.users.shareContent}
  * </ul>
  * </p>
  * 
@@ -303,5 +304,84 @@ blackberry.bbm.platform.users = {
      * @BB50+
      */
     inviteToBBMFromConnections: function() {
+    },
+    
+    /**
+     * @description Shares content with a one or more contacts. A Contact Picker dialog will be shown allowing
+     * the user to select recipients of the content.
+     * 
+     * <p>The content will not appear in BBM but is received by the recipient's application. The
+     * application does not need to be running in order to receive shared content. Once
+     * the application is launched and registered with BBM Social Platform, the callback
+     * {@link blackberry.bbm.platform.users.event:onsharecontent} will be invoked for the
+     * application to handle the content.
+     * 
+     * <h3>Users without BBM 6.1.0 or the application installed</h3>
+     * <p>Recipients also do not need to have BBM 6.1.0 (or later) or the application installed:
+     * <ul>
+     * <li>Recipients without BBM 6.1.0 will be prompted to download the latest version of BBM.
+     * <li>Recipients without the application installed will receive a download invitation to download
+     * the application from App World.
+     * </ul>
+     * Once a recipient has both BBM 6.1.0 and the application installed, the application will
+     * be passed the content after registering with BBM Social Platform.
+     * 
+     * <h3>Application icon splat when shared content is received</h3>
+     * <p>Applications can enable their icon to be splatted when shared content is received, in
+     * order to notify the user of the new content. To enable splatting, add the property
+     * <code>shareContentSplat: true</code> to the options object passed into {@link blackberry.bbm.platform.register}.
+     * @param {String} content The content to be shared.
+     * @param {String} description A short description of the content.
+     * @param {Function} onComplete Invoked when the user has finished selecting content recipients.
+     * @param {Object} [options] Object containing share content options.
+     * @param {String} [options.title] Title of the Contact Picker. If not provided then the default title is used.
+     * dialog.
+     * @param {blackberry.bbm.platform.users.BBMPlatformUser[]} [options.users] Users shown in the
+     * dialog. If not provided then all contacts are shown in the dialog.  
+     * @throws {Exception} if <code>description</code> is <code>null</code> or greater than 128 characters.
+     * @throws {Exception} if <code>content</code> is greater than 61440 characters.
+     * @example
+     * &lt;script type="text/javascript"&gt;
+     * 
+     * // Share content
+     * blackberry.bbm.platform.users.shareContent("A spoon full of sugar", "Mary's Recipe", function() {
+     * 				// User finished sharing...
+     * }, { title: "Choose Recipe Recipients" });
+     * 
+     * &lt;/script&gt;
+     * 
+     * @example
+     * &lt;script type="text/javascript"&gt;
+     * 
+     * // Enable splatting of the icon when shared content is received
+     * blackberry.bbm.platform.register({
+     *     uuid: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", // Randomly generated UUID
+     *     
+     *     shareContentSplat: true
+     * });
+     * 
+     * &lt;/script&gt;
+     * 
+     * @BB50+
+     */
+    shareContent: function(content, description, onComplete, options) {
+    	
+    },
+    
+    /**
+     * @description Invoked when shared content arrives at the recipient. If the application is not
+     * running when content is received, then this will be invoked after the application starts and
+     * is registered with BBM Social Platform.
+     * <p>This callback must be assigned <b>before</b> the call to {@link blackberry.bbm.platform.register}.
+     * <p>See {@link blackberry.bbm.platform.users.shareContent}
+     * @param {blackberry.bbm.platform.users.BBMPlatformUser} sender The user who shared the content.
+     * @param {String} content The content data.
+     * @param {String} description The content description.
+     * @param {Date} timestamp Timestamp when the content was received.
+     * @event
+     * @BB50+
+     */
+    onsharecontent: function(sender, content, description, timestamp) {
+    	
     }
 };
