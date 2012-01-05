@@ -189,7 +189,7 @@ blackberry.ui.dialog ={
          * @param {String} options.min String representation of the minimum date/time allowed in the field
          * @param {String} options.max String representation of the maximum date/time allowed in the field
 		 * @callback {function} onDateTimeSelected A callback that will be invoked with the user's choices from the native UI.
-		 * @callback {String} onDateTimeSelected.datetime The date/time user user has selected.
+		 * @callback {String} onDateTimeSelected.datetime The date/time user has selected.
 		 * @BB50+
 		 * @example
 		 * &lt;script type="text/javascript"&gt;
