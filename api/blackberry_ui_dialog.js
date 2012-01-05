@@ -138,6 +138,109 @@ blackberry.ui.dialog ={
 		 * &lt;/script&gt;
 		 */
 		standardAskAsync : function(message,type,onOptionSelected,settings){},
+        
+        /**
+		 * @description Creates an asynchronous dialog to allow user to select one or many items in a list.
+		 * <p/>The function is an asynchronous call and will not block JavaScript execution. It will return array of indexes that user selected.
+		 * @param {Boolean} allowMultiple If true, the dialog will allow multiple selection.
+		 * @param {Object[]} options Array of objects representing the select items and their states.
+         * @param {String} options.label The value of an item in the dropdown list
+         * @param {Boolean} options.selected Flag that indicates whether an item should be rendered as currently selected
+         * @param {Boolean} options.enabled Flag that indicates whether an item should be enabled for selection
+         * @param {String} options.type Can be either "group" or "option" to indicate whether an item is a group header or an option
+		 * @callback {function} onSelected A callback that will be invoked with the user's choices from the native UI. 
+		 * @callback {Number[]} onSelected.indices The indices of the user's selections.
+		 * @BB50+
+		 * @example
+		 * &lt;script type="text/javascript"&gt;
+		 * 
+		 * function onSelected(indices) {
+         *   var i; 
+         *   for(i = 0; i < indices.length; i++) {
+		 *     alert("Item selected: " + indices[i]);
+         *   }
+		 * }  
+		 * 
+		 * function selectAsync() {
+		 *   try {
+		 *     blackberry.ui.dialog.selectAsync(false, 
+         *                                      [ { label : "Animals", selected : false, enabled : false, type : "group"},
+         *                                        { label : "cat", selected : true, enabled : true, type : "option"},
+         *                                        { label : "dog", selected : false, enabled : true}, type : "option",
+         *                                        { label : "mouse", selected : false, enabled : true, type : "option"},
+         *                                        { label : "raccoon", selected : false, enabled : true, type : "option"}
+         *                                      ], 
+         *                                      window.onSelected);
+		 *   }catch (e) {
+		 *     alert("Exception in selectAsync: " + e);
+		 *   }
+		 * }
+		 * 
+		 * &lt;/script&gt;
+		 */
+		selectAsync : function(allowMultiple, options, onSelected){},
+        
+        /**
+		 * @description Creates an asynchronous dialog to allow user to select a date/time for an HTML 5 input of types: date, datetime, datetime-local, month, time
+		 * <p/>The function is an asynchronous call and will not block execution. It will return the value selected by the user.
+		 * @param {String} type One of: "date", "datetime", "datetime-local", "month", "time".
+		 * @param {Object[]} options The current state of the input control.
+         * @param {String} options.value String representation of the current date/time displayed in the field
+         * @param {String} options.min String representation of the minimum date/time allowed in the field
+         * @param {String} options.max String representation of the maximum date/time allowed in the field
+		 * @callback {function} onDateTimeSelected A callback that will be invoked with the user's choices from the native UI.
+		 * @callback {String} onDateTimeSelected.datetime The date/time user user has selected.
+		 * @BB50+
+		 * @example
+		 * &lt;script type="text/javascript"&gt;
+		 * 
+		 * function onDateTimeSelected(datetime){
+		 *   alert(datetime);
+		 * }  
+		 * 
+         * //Input argument is a reference to an input control of type: date, datetime, datetime-local, month, time 
+		 * function dateTimeAsync(htmlDateTimeInput) {
+		 *   try {
+         *     var opts = { "value" : htmlDateTimeInput.value,
+         *                   "min"   : htmlDateTimeInput.min || "",
+         *                   "max"   : htmlDateTimeInput.max || ""
+         *     };
+         *      
+		 *     blackberry.ui.dialog.dateTimeAsync("date", opts, window.onDateTimeSelected);
+		 *   }catch (e) {
+		 *     alert("Exception in dateTimeAsync: " + e);
+		 *   }
+		 * }
+		 * 
+		 * &lt;/script&gt;
+		 */
+		dateTimeAsync : function(type, options, onSelected){},
+		
+		/**
+		 * @description Creates an asynchronous dialog to allow user to select a color.
+		 * <p/>The function is an asynchronous call and will not block execution. It will return the value selected by the user.
+		 * @param {String} initialColor Color that will first be selected when the color picker dialog appears in hexadecimal format.
+		 * @callback {function} onColorSelected Callback function that will be invoked when the user makes a selection. It will be invoked with the user's choice from the native UI.
+		 * @callback {String} onColorSelected.color The color user has selected in hexadecimal format.
+		 * @BB50+
+		 * @example
+		 * &lt;script type="text/javascript"&gt;
+		 * 
+		 * function onColorSelected(color){
+		 *   alert(color);
+		 * }  
+		 * 
+		 * function colorPicker() {
+		 *   try {
+		 *     blackberry.ui.dialog.colorPickerAsync("000000", onColorSelected);
+		 *   } catch (e) {
+		 *     alert("Exception in colorPickerAsync: " + e);
+		 *   }
+		 * }
+		 *
+		 * &lt;/script&gt;
+		 */
+		colorPickerAsync : function(){initialColor, onColorSelected},
 		
 		/**
 		 * @constant
@@ -288,7 +391,7 @@ blackberry.ui.dialog ={
 		 * @PB10+
 		 * @RIPPLE
 		 */
-		SIZE_FULL : null,
+		SIZE_FULL : null, 
 		/**
 		 * @constant
 		 * @type String
@@ -309,7 +412,6 @@ blackberry.ui.dialog ={
 		SIZE_MEDIUM : null,
 		/**
 		 * @constant
-		 * @type String
 		 * @description Small size dialog
 		 * @default "small"
 		 * @PB10+
@@ -324,5 +426,6 @@ blackberry.ui.dialog ={
 		 * @PB10+
 		 * @RIPPLE
 		 */
-		SIZE_TALL : null			
+		SIZE_TALL : null
 };
+
