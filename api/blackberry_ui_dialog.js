@@ -184,12 +184,12 @@ blackberry.ui.dialog ={
 		 * @description Creates an asynchronous dialog to allow user to select a date/time for an HTML 5 input of types: date, datetime, datetime-local, month, time
 		 * <p/>The function is an asynchronous call and will not block execution. It will return the value selected by the user.
 		 * @param {String} type One of: "date", "datetime", "datetime-local", "month", "time".
-		 * @param {Object} options The current state of the input control.
+		 * @param {Object[]} options The current state of the input control.
          * @param {String} options.value String representation of the current date/time displayed in the field
          * @param {String} options.min String representation of the minimum date/time allowed in the field
          * @param {String} options.max String representation of the maximum date/time allowed in the field
 		 * @callback {function} onDateTimeSelected A callback that will be invoked with the user's choices from the native UI.
-		 * @callback {String} onSelected.datetime The date/time user user has selected.
+		 * @callback {String} onDateTimeSelected.datetime The date/time user user has selected.
 		 * @BB50+
 		 * @example
 		 * &lt;script type="text/javascript"&gt;
