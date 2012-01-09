@@ -33,9 +33,10 @@
 blackberry.bbm.platform.users.BBMPlatformUser = function() {
     /**
      * @description The display picture, encoded as a base64 image string.
+     * <p><b>This is not supported in BlackBerry OS 5.0</b></p>
      * @type String
      * @readOnly
-     * @BB50+
+     * @BB60+
      * @example
      * &lt;script type="text/javascript"&gt;
      * // Show the current user's display picture
@@ -43,7 +44,6 @@ blackberry.bbm.platform.users.BBMPlatformUser = function() {
      * var displayPicImg = document.getElementById("displayPicture"); // Must have img tag with id='displayPicture'
      * displayPicImg.src = user.displayPicture;
      * &lt;/script&gt;
-     * </pre>
      */
     this.displayPicture = "";
 
@@ -94,4 +94,25 @@ blackberry.bbm.platform.users.BBMPlatformUser = function() {
      * @BB50+
      */
     this.ppid = 0;
+    
+    /**
+     * @description The version of this BBM Connected Application that the user is running.
+     * @type String
+     * @readOnly
+     * @BB50+
+     */
+    this.appVersion = "";
+    
+    /**
+     * @description The version of the BBM SDK that the user is running.
+     * <ul>
+     * <li>BBM SDK 1.0: <code>100</code>
+     * <li>BBM SDK 1.2: <code>120</code>
+     * <li>BBM SDK 1.3: <code>130</code>
+     * </ul>
+     * @type Number
+     * @readOnly
+     * @BB50+
+     */
+    this.bbmsdkVersion = 0;
 };
