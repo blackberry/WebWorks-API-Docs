@@ -79,7 +79,7 @@
 *       When there is no focusable element visible in the current viewable part of the screen, no element will be considered focused. In this case, the mousedown, mouseup, and click event is not directed to any element if you press the scroll wheel.
 *     </p></div>
 * <div><h3>Focus Visual Effect</h3><p>
-*       By default, when an element is focused, a light-blue round rectangle appears around the dimension of the element. If you wish to customize the behaviour and styling of a control when it gains or loses focus, you can use the onmouseover/onmouseout events to invoke custom JavaScript; CSS hover will NOT be triggered.
+*       By default, when an element is focused, a light-blue round rectangle appears around the dimensions of the element. If you wish to customize the behaviour and styling of a control when it gains or loses focus, you can use the onmouseover/onmouseout events to invoke custom JavaScript; CSS hover will NOT be triggered.
 *     </p></div>
 *     <div><p>
 *     <a href="http://wbt20ykf/html5/documentation/ww_developing/using_the_navigation_mode_1866978_11.html">Please see our documentation</a> for a code sample on using onmouseout/onmouseover to customize styling of focused elements.
