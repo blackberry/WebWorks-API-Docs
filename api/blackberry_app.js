@@ -24,17 +24,17 @@
  *		try {
  *			var details = document.getElementById("details");
  *			if (details) {
- *				var output = "<table>";
- *				output += "<tr><td><b>Author</b></td><td>" + blackberry.app.author + "</td></tr>";
- *				output += "<tr><td><b>Author Email</b></td><td>" + blackberry.app.authorEmail + "</td></tr>";
- *				output += "<tr><td><b>Author URL</b></td><td>" + blackberry.app.authorURL + "</td></tr>";
- *				output += "<tr><td><b>Copyright</b></td><td>" + blackberry.app.copyright + "</td></tr>";
- *				output += "<tr><td><b>Description</b></td><td>" + blackberry.app.description + "</td></tr>";
- *				output += "<tr><td><b>ID</b></td><td>" + blackberry.app.id + "</td></tr>";
- *				output += "<tr><td><b>License</b></td><td>" + blackberry.app.license + "</td></tr>";
- *				output += "<tr><td><b>License URL</b></td><td>" + blackberry.app.licenseURL + "</td></tr>";
- *				output += "<tr><td><b>Name</b></td><td>" + blackberry.app.name + "</td></tr>";
- *				output += "<tr><td><b>Version</b></td><td>" + blackberry.app.version + "</td></tr>";
+ *				var output = "&lt;table&gt;";
+ *				output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Author&lt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.author + "&lt;/td&gt;&lt;/tr&gt;";
+ *				output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Author Email&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.authorEmail + "&lt;/td&gt;&lt;/tr&gt;";
+ *				output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Author URL&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.authorURL + "&lt;/td&gt;&lt;/tr&gt;";
+ *				output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Copyright&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.copyright + "&lt;/td&gt;&lt;/tr&gt;";
+ *				output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Description&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.description + "&lt;&lt;/tr&gt;";
+ *				output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;ID&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.id + "&lt;/td&gt;&lt;/tr&gt;";
+ *				output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;License&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.license + "&lt;/td&gt;&lt;/tr&gt;";
+ *				output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;License URL&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.licenseURL + "&lt;/td&gt;&lt;/tr&gt;";
+ *				output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.name + "&lt;/td&gt;&lt;/tr&gt;";
+ *				output += "&lt;tr&gt;&lt;td&gt;&lt;Version&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.version + "&lt;/td&gt;&lt;/tr&gt;";
  *			
  *				details.innerHTML = output;
  *			}
