@@ -25,6 +25,12 @@
  * <p>This box can be viewed by the current user and their contacts, and is editable by the current
  * user and the owning application (on this device). The current user can only remove items.</p>
  * 
+ * <h2>Permission Model</h2>
+ * The user must manually show the profile box via the "activities" option in the BBM options screen
+ * for the application. The application can add items whether or not this option is enabled.
+ * <p>The application can read {@link blackberry.bbm.platform.settings.profileboxEnabled} to determine if
+ * the user is showing the profile box, and prompt them to enable it with {@link blackberry.bbm.platform.showBBMAppOptions}.
+ * 
  * <h2>Icon recommendations</h2>
  * <ul>
  * <li>Recommended icon size is 100x100, regardless of device.
@@ -38,18 +44,6 @@
  * contact's profile. The application will be brought to the foreground and/or launched if not yet
  * running. The invoking profile box item can be obtained by assigning a callback to
  * {@link blackberry.bbm.platform.event:onappinvoked}.
- * 
- * @example
- * &lt;script type="text/javascript"&gt;
- * // Trigger an action in the application when a profile box item is selected
- * blackberry.bbm.platform.onAppInvoked = function(reason, param) {
- *     if(reason == "profilebox") {
- *         var boxItem = param;
- *         var achievementID = boxItem.cookie;
- *         // Take action based on profile box item...
- *     }
- * };
- * &lt;/script&gt; 
  * @BB50+
  */
 blackberry.bbm.platform.self.profilebox = {

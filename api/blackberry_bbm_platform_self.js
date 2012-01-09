@@ -56,7 +56,7 @@ blackberry.bbm.platform.self = {
         /**
          * @description Sets the user's personal message. A dialog will be presented to the user to
          * allow or deny the change.
-         * @param {String} personalMessage The personal message. The maximum length is 64 characters;
+         * @param {String} personalMessage The personal message. The maximum length is 160 characters;
          * anything over will be truncated. If <code>null</code> is provided then the personal message
          * will be cleared.
          * @callback {Function} onComplete Invoked when the user has dismissed the dialog.
