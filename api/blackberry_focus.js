@@ -25,7 +25,7 @@
 *       In summary, running a widget with focus-based navigation mode markup on a BlackBerry device without a trackball is the same as running the widget without specifying any focus-based navigation and the entire navigation related HTML mark-up, JavaScript and CSS extensions are ignored.
 *     </p></div>
 * <div><p>
-*       Currently, focus based navigation will not function in a &quot;child&quot; document that is contained by a &lt;frame&gt;. Focus based navigation only works in the &quot;root&quot; document and first-level &lt;iframe&gt; element.
+*       Currently, focus based navigation will not function in a &quot;child&quot; document that is contained by a &lt;frame&gt;. Focus based navigation only works in the &quot;root&quot; document and first-level &lt;iframe&gt; elements.
 *       </p></div>
 * <div><h3>Configuration</h3><p>
 *       Navigation mode can be enabled for BlackBerry devices with trackball by adding a  <rim:navigation> element in config.xml document that looks like the following:
