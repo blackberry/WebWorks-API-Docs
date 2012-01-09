@@ -25,8 +25,7 @@
 *       In summary, running a widget with focus-based navigation mode markup on a BlackBerry device without a trackball is the same as running the widget without specifying any focus-based navigation and the entire navigation related HTML mark-up, JavaScript and CSS extensions are ignored.
 *     </p></div>
 * <div><p>
-*       Currently, focus based navigation will not function in a &quot;child&quot; document that is contained by a &lt;frameset&gt; &lt;frame&gt;
-*       or &lt;iframe&gt; or any other HTML element that contains a document element. Focus based navigation only works in the &quot;root&quot; document.
+*       Currently, focus based navigation will not function in a &quot;child&quot; document that is contained by a &lt;frame&gt;. Focus based navigation only works in the &quot;root&quot; document and first-level &lt;iframe&gt; elements.
 *       </p></div>
 * <div><h3>Configuration</h3><p>
 *       Navigation mode can be enabled for BlackBerry devices with trackball by adding a  <rim:navigation> element in config.xml document that looks like the following:
@@ -80,17 +79,12 @@
 *       When there is no focusable element visible in the current viewable part of the screen, no element will be considered focused. In this case, the mousedown, mouseup, and click event is not directed to any element if you press the scroll wheel.
 *     </p></div>
 * <div><h3>Focus Visual Effect</h3><p>
-*       By default, when an element is focused, a light-blue round rectangle appears around the dimension of the element. When an element gains focus, the CSS hover will be triggered, allowing you to customize
-*       the focused element. You can also turn off the default focus highlight by using the following meta tag:
+*       By default, when an element is focused, a light-blue round rectangle appears around the dimensions of the element. If you wish to customize the behaviour and styling of a control when it gains or loses focus, you can use the onmouseover/onmouseout events to invoke custom JavaScript; CSS hover will NOT be triggered.
 *     </p></div>
-*       <div><p>
-*       &lt;meta name=&quot;x-blackberry-defaultHoverEffect&quot; content=&quot;false&quot; /&gt;
-*       </p></div>
-* <div><h3>Limitations</h3><p>
-*       Currently focus navigation doesn't support the &lt;select&gt; element with the "multiple" attribute. Therefore the &lt;select&lt;
-*       element with the "multiple" attribute is not focusable and cannot be added to navigation map. The workaround is to either add some navigation JavaScript outside the &lt;select&gt; element or simply using other HTML elements to mimic the multiple selection function.
-*       </p></div>
-* @toc {User Interface} Focus 
+*     <div><p>
+*     <a href="http://wbt20ykf/html5/documentation/ww_developing/using_the_navigation_mode_1866978_11.html">Please see our documentation</a> for a code sample on using onmouseout/onmouseover to customize styling of focused elements.
+*     </p></div>
+* @toc {User Interface} Focus
 * @BB50+
 * @example
 * &lt;html&gt;
@@ -127,7 +121,7 @@
 blackberry.focus = { };
 
 /**
-* User scrolled Right 
+* User scrolled Right
 * @type Number
 * @constant
 * @BB50+
@@ -135,7 +129,7 @@ blackberry.focus = { };
 blackberry.focus.RIGHT = 0;
 
 /**
-* User scrolled Left 
+* User scrolled Left
 * @type Number
 * @constant
 * @BB50+
@@ -143,7 +137,7 @@ blackberry.focus.RIGHT = 0;
 blackberry.focus.LEFT = 1;
 
 /**
-* User scrolled Up 
+* User scrolled Up
 * @type Number
 * @constant
 * @BB50+
@@ -151,7 +145,7 @@ blackberry.focus.LEFT = 1;
 blackberry.focus.UP = 2;
 
 /**
-* User scrolled Down 
+* User scrolled Down
 * @type Number
 * @constant
 * @BB50+
@@ -159,32 +153,30 @@ blackberry.focus.UP = 2;
 blackberry.focus.DOWN = 3;
 
 /**
-* Returns the id of the current focused HTML element 
+* Returns the id of the current focused HTML element
 * @returns {String}
 * @BB50+
 */
 blackberry.focus.getFocus = function() { };
 
 /**
-* Returns the id of the prior focused HTML element to current focused element 
+* Returns the id of the prior focused HTML element to current focused element
 * @returns {String}
 * @BB50+
 */
 blackberry.focus.getPriorFocus = function() { };
 
 /**
-* Returns the current direction of the scroll action.  This is an integer value that is represented in the direction constants RIGHT, LEFT, UP, DOWN 
+* Returns the current direction of the scroll action.  This is an integer value that is represented in the direction constants RIGHT, LEFT, UP, DOWN
 * @returns {Number}
 * @BB50+
 */
 blackberry.focus.getDirection = function() { };
 
 /**
-* This function will set the focus on the HTML element with specified id value 
+* This function will set the focus on the HTML element with specified id value
 * @param {String} id The element &apos;id&apos; in which you want to set focus
 * @returns {void}
 * @BB50+
 */
 blackberry.focus.setFocus = function(id) { };
-
-
