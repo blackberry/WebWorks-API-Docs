@@ -55,13 +55,10 @@ blackberry.ui.dialog ={
 		 * @param {String[]} buttons Array of string choices that will be presented to the user in the form of buttons.
 		 * @callback {function} [onOptionSelected] Optional callback function that will be invoked when the user makes a selection. Expected signature: function onOptionSelected(selectedButtonIndex).
 		 * @callback {Number} [onOptionSelected.index] The index of the selection the user has made.
-		 * @param {Object} [settings = null] Optional Object literal that allows the user to manipulate the size, location, title of the dialog, and whether this is a global dialog (your application cannot be minimized when a global dialog is active; by default when the 'global' flag is not passed, dialog will be modal only for your application). It is not required to provide all parameters, and these do not have to be specified in any particular order.
+		 * @param {Object} [settings = null] Optional Object literal that allows the user to manipulate the size, location, title of the dialog, and whether this is a global dialog (your application cannot be minimized when a global dialog is active; by default when the 'global' flag is not passed, dialog will be modal only for your application). It is not required to provide all parameters, and these do not have to be specified in any particular order. <p> NOTE: The settings parameter applies only to PlayBook and to Ripple. On the smartphone, it has no effect.
 		 * @param {String} [settings.title] Desired title of the dialog.
 		 * @param {String[]} [settings.size] Desired size of the dialog.
 		 * @param {String[]} [settings.position] Desired position of the dialog.
-		 * <br>
-		 * <b>Note:</b> The settings parameter applies only to PlayBook and to Ripple. On the smartphone, it has no effect.
-		 * </br>
 		 * @BB50+
 		 * @PB10+
 		 * @RIPPLE
@@ -120,13 +117,10 @@ blackberry.ui.dialog ={
 		 * @param {Number} type  Parameter that specifies the type of standard dialog. Constants starting with D_*.
 		 * @callback {function} [onOptionSelected] Optional callback function that will be invoked when the user makes a selection. Expected signature: function onOptionSelected(selectedButtonIndex).
 		 * @callback {Number} [onOptionSelected.index] The index of the selection the user has made.
-		 * @param {Object} [settings = null] Optional Object literal that allows the user to manipulate the size, location, title of the dialog, and whether this is a global dialog (your application cannot be minimized when a global dialog is active; by default when the 'global' flag is not passed, dialog will be modal only for your application). It is not required to provide all parameters, and these do not have to be specified in any particular order.
+		 * @param {Object} [settings = null] Optional Object literal that allows the user to manipulate the size, location, title of the dialog, and whether this is a global dialog (your application cannot be minimized when a global dialog is active; by default when the 'global' flag is not passed, dialog will be modal only for your application). It is not required to provide all parameters, and these do not have to be specified in any particular order. <p> NOTE: The settings parameter applies only to PlayBook and to Ripple. On the smartphone, it has no effect.
 		 * @param {String} [settings.title] Desired title of the dialog.
 		 * @param {String[]} [settings.size] Desired size of the dialog.
 		 * @param {String[]} [settings.position] Desired position of the dialog.
-		 * <br>
-		 * <b>Note:</b> The settings parameter applies only to PlayBook and to Ripple. On the smartphone, it has no effect.
-		 * </br>
 		 * @BB50+
 		 * @PB10+
 		 * @RIPPLE
