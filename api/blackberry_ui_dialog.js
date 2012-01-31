@@ -24,6 +24,7 @@
 blackberry.ui.dialog ={
 
 		/**
+		 * @deprecated This API is deprecated, please use {@link blackberry.ui.dialog.customAskAsync} instead.
 		 * @param {String} message Message to be displayed in the dialog.
 		 * @param {String[]} choices Array of string choices that will be presented to the user in the form of buttons.
 		 * @param {Number} [defaultChoice = 0] Optional parameter that specifies what choice should be selected by default. This is a number value representing the index of the choice provided in the choices parameter.
@@ -58,6 +59,8 @@ blackberry.ui.dialog ={
 		 * @param {String} [settings.title] Desired title of the dialog.
 		 * @param {String[]} [settings.size] Desired size of the dialog.
 		 * @param {String[]} [settings.position] Desired position of the dialog.
+		 * <b>Note:</b> The settings parameter applies only to PlayBook and to Ripple. On the smartphone, it has no effect.
+		 * @BB50+
 		 * @PB10+
 		 * @RIPPLE
 		 * @example
@@ -82,6 +85,7 @@ blackberry.ui.dialog ={
 		customAskAsync : function(message,buttons,onOptionSelected,settings){},
 
 		/**
+		 * @deprecated This API is deprecated, please use {@link blackberry.ui.dialog.standardAskAsync} instead.
 		 * @param {Number} specifies the type of standard dialog. Constants starting with D_*.
 		 * @param {String} message Message to be displayed in the dialog.
 		 * @param {Number} [defaultChoice = 0] Optional parameter that specifies what choice should be selected by default. For the standard dialogs, these options can be one of the constants starting with C_*.
@@ -118,6 +122,8 @@ blackberry.ui.dialog ={
 		 * @param {String} [settings.title] Desired title of the dialog.
 		 * @param {String[]} [settings.size] Desired size of the dialog.
 		 * @param {String[]} [settings.position] Desired position of the dialog.
+		 * <b>Note:</b> The settings parameter applies only to PlayBook and to Ripple. On the smartphone, it has no effect.
+		 * @BB50+
 		 * @PB10+
 		 * @RIPPLE
 		 * @example
