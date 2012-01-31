@@ -59,7 +59,9 @@ blackberry.ui.dialog ={
 		 * @param {String} [settings.title] Desired title of the dialog.
 		 * @param {String[]} [settings.size] Desired size of the dialog.
 		 * @param {String[]} [settings.position] Desired position of the dialog.
+		 * <br>
 		 * <b>Note:</b> The settings parameter applies only to PlayBook and to Ripple. On the smartphone, it has no effect.
+		 * </br>
 		 * @BB50+
 		 * @PB10+
 		 * @RIPPLE
@@ -122,7 +124,9 @@ blackberry.ui.dialog ={
 		 * @param {String} [settings.title] Desired title of the dialog.
 		 * @param {String[]} [settings.size] Desired size of the dialog.
 		 * @param {String[]} [settings.position] Desired position of the dialog.
+		 * <br>
 		 * <b>Note:</b> The settings parameter applies only to PlayBook and to Ripple. On the smartphone, it has no effect.
+		 * </br>
 		 * @BB50+
 		 * @PB10+
 		 * @RIPPLE
