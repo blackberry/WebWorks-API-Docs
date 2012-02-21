@@ -48,9 +48,9 @@ blackberry.ui.dialog ={
 
 		/**
          * @function
-		 * @description Creates an asynchronous custom dialog to ask the user a question.
-		 * <p/>
-		 * Uses the custom dialog. The function is an asynchronous call and will not block execution. It will return the 0-based index of the user's choice. <p> NOTE: function is only implemented for Ripple emulation on Playbook
+		 * @description Creates an asynchronous custom dialog to ask the user a question. <br/>
+         * Uses the custom dialog. The function is an asynchronous call and will not block execution. It will return the 0-based index of the user's choice. <br/>
+         * NOTE: function is only implemented for Ripple emulation on Playbook.
 		 * @param {String} message Message to be displayed in the dialog.
 		 * @param {String[]} buttons Array of string choices that will be presented to the user in the form of buttons.
 		 * @callback {function} [onOptionSelected] Optional callback function that will be invoked when the user makes a selection. Expected signature: function onOptionSelected(selectedButtonIndex). <p> NOTE: onOptionSelected is required for BlackBerry OS5.0+.
@@ -111,8 +111,9 @@ blackberry.ui.dialog ={
 		standardAsk : function(type, message, defaultChoice, globalStatus){},
 
 		/**
-		 * @description Creates an asynchronous standard dialog to ask the user a question.
-		 * <p/> Uses the standard dialog. The function is an asynchronous call and will not block execution. It will return the 0-based index of the user's choice. <p> NOTE: function is only implemented for Ripple emulation on Playbook
+		 * @description Creates an asynchronous standard dialog to ask the user a question. <br/>
+		 * Uses the standard dialog. The function is an asynchronous call and will not block execution. It will return the 0-based index of the user's choice. <br/> 
+         * NOTE: function is only implemented for Ripple emulation on Playbook.
 		 * @param {String} message Message to be displayed in the dialog.
 		 * @param {Number} type  Parameter that specifies the type of standard dialog. Constants starting with D_*. 
 		 * @callback {function} [onOptionSelected] Optional callback function that will be invoked when the user makes a selection. Expected signature: function onOptionSelected(selectedButtonIndex).  <p> NOTE: onOptionSelected is required for BlackBerry OS5.0+.
