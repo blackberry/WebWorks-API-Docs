@@ -174,7 +174,7 @@ blackberry.system ={
 
     /**
      * @type String
-     * @description Returns the current version of the WebWorks library being used.
+     * @description Returns the current version of the operating system, for example, 1.0.0.0.
      * @readOnly
      * @BB50+
      * @PB10+
