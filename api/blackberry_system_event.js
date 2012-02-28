@@ -140,15 +140,15 @@ blackberry.system.event.onCoverageChange = function(onSystemEvent) { };
  * @RIPPLE
  * @example
  * &lt;script type="text/javascript"&gt;
- *  function onBatteryLevelChange(level) { //This is just the callback function to be able to access the battery level. If you want it to alert you at a different interval, you just change this specific callback function to alert you at a different interval. 
+ *  function foobar(level) { //This is just the callback function to be able to access the battery level. If you want it to alert you at a different interval, you just change this specific callback function to alert you at a different interval. 
  *    alert("Battery Level: " + level);
  *  }
  *
- *  function notifyOnBatteryLevelChange(batteryLevelChangeCb) {
- *    blackberry.system.event.deviceBatteryLevelChange(batteryLevelChangeCb);
+ *  function notifyOnBatteryLevelChange(callBackFunction) {
+ *    blackberry.system.event.deviceBatteryLevelChange(callBackFunction);
  *  }
  *
- *  notifyOnBatteryLevelChange(onBatteryLevelChange);
+ *  notifyOnBatteryLevelChange(foobar);
  * &lt;/script&gt;
  */
 blackberry.system.event.deviceBatteryLevelChange =  function(onBatteryLevelChange){};
@@ -172,8 +172,8 @@ blackberry.system.event.deviceBatteryLevelChange =  function(onBatteryLevelChang
  *    alert("Battery state: " + state);
  *  }
  *
- *  function notifyStateChange(someCallBackFunction) {
- *    blackberry.system.event.deviceBatteryStateChange(someCallBackFunction);
+ *  function notifyStateChange(callBackFunction) {
+ *    blackberry.system.event.deviceBatteryStateChange(callBackFunction);
  *  }
  *
  *  notifyStateChange(foo);
