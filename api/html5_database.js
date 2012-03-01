@@ -25,7 +25,7 @@ Database = {
          * @constructedBy window.openDatabase
          * @description Creates a new database object. 
          * If the database already exists, the existing database will be returned and the creation callback will not be invoked.<br>
-		 * <p>Note: A SD card is the required method of storage for databases for 5.x devices and pre-5.x</p>
+		 * <p>Note: A SD card is the required method of storage for databases for 5.x devices</p>
          * @param {String} name The name of the database to be created
          * @param {String} version The version of the database to be created
          * @param {String} displayName The display name of the database to be created
