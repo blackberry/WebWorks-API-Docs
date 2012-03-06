@@ -133,31 +133,31 @@ blackberry.system.event.onCoverageChange = function(onSystemEvent) { };
 /**
  * @function
  * @description Assigns a listener for when the battery level changes.
- * Battery level is a percentage value.
+ * Battery level is a percentage value. This API is currently designed where it will immediately announce the initial battery level, then it will announce any percentage change afterwards
  * @callback {function} onBatteryLevelChange Function to be called when the battery level changes. The level is passed as its only argument.
  * @callback {Number} onBatteryLevelChange.level battery level of the device ranging from 0 to 100
  * @PB10+
  * @RIPPLE
  * @example
  * &lt;script type="text/javascript"&gt;
- *  function onBatteryLevelChange(level) {
+ *  function foobar(level) { //This is just the callback function to be able to access the battery level. If you want it to alert you at a different interval, you just change this specific callback function to alert you at a different interval. 
  *    alert("Battery Level: " + level);
  *  }
  *
- *  function notifyOnBatteryLevelChange(batteryLevelChangeCb) {
- *    blackberry.system.event.deviceBatteryLevelChange(batteryLevelChangeCb);
+ *  function notifyOnBatteryLevelChange(callBackFunction) {
+ *    blackberry.system.event.deviceBatteryLevelChange(callBackFunction);
  *  }
  *
- *  notifyOnBatteryLevelChange(onBatteryLevelChange);
+ *  notifyOnBatteryLevelChange(foobar);
  * &lt;/script&gt;
  */
 blackberry.system.event.deviceBatteryLevelChange =  function(onBatteryLevelChange){};
 
 /**
  * @function
- * @description Assigns a listener for when the battery state changes.
+ * @description Assigns a listener for when the battery state changes. When called, this API will immediately return the current battery state (whether it is charging or unplugged etc.) and will return the value when it reaches a new battery state.
  * <p/>
- * States are defined as
+ * States are defined as the following: 
  * <br>UNKNOWN		= 0;
  * <br>FULL		= 1;
  * <br>CHARGING 	= 2;
@@ -166,5 +166,17 @@ blackberry.system.event.deviceBatteryLevelChange =  function(onBatteryLevelChang
  * @callback {Number} onBatteryStateChange.state battery state of the device
  * @PB10+
  * @RIPPLE
- */
+ * @example
+ * &lt;script type="text/javascript"&gt;
+ *  function foo(state) { //This is just the callback function to be able to access the battery state when there is a change. 
+ *    alert("Battery state: " + state);
+ *  }
+ *
+ *  function notifyStateChange(callBackFunction) {
+ *    blackberry.system.event.deviceBatteryStateChange(callBackFunction);
+ *  }
+ *
+ *  notifyStateChange(foo);
+ * &lt;/script&gt;
+  */
 blackberry.system.event.deviceBatteryStateChange = function(onBatteryStateChange){};
