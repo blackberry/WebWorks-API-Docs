@@ -35,6 +35,8 @@ The documentation can also be viewed online on github at this [link](http://blac
 ## Viewing the Documentation
 After you have generated the documentation you will find all the HTML for the API docs in your _**&lt;some-output-folder&gt;/view**_.  The default main page is _**index.html**_.  
 
+The documentation can also be viewed online on github at this [link](http://blackberry-webworks.github.com/WebWorks-API-Docs/index.html).
+
 ## Additional Information
 
 ### Cookbook
