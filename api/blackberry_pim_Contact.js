@@ -51,6 +51,21 @@ blackberry.pim.Contact = function(service) { };
 * @returns {Contact[]}
 * @BB50+
 * @RIPPLE
+* @example
+* &lt;script type=&quot;text&#47;javascript&quot;&gt;
+*   var c = new blackberry.pim.Contact();
+*   c.firstName = "Tom";
+*   c.lastName = "Sawyer";
+*   c.save();
+*   				
+*   c.firstName = "Huckleberry";
+*   c.lastName = "Finn";
+*   c.save();
+*				
+*   var fe = new blackberry.find.FilterExpression("uid", "==", c.uid);
+*   var res = blackberry.pim.Contact.find(fe); //Returns 1 item array as once you have saved there is a new unique UID. The UID searched was from the last contact saved hence the contact Huckleberry Finn should be the contact retrieved.
+*
+* &lt;&#92;script&gt;
 */
 blackberry.pim.Contact.find = function(fieldFilter,orderBy,maxReturn,service,isAscending) { };
 
@@ -60,6 +75,23 @@ blackberry.pim.Contact.find = function(fieldFilter,orderBy,maxReturn,service,isA
 * @returns {void}
 * @BB50+
 * @RIPPLE
+* @example
+* &lt;script type=&quot;text&#47;javascript&quot;&gt;
+*
+*   var file1 = "local:///data/pic1.jpg"
+*   var c = new blackberry.pim.Contact();
+*   c.firstName = "Huckleberry";
+*   c.lastName = "Finn";
+*
+*   function handleOpenedFile(fullPath, blobData) // fullPath variable is part of the expected callback function syntax to access the path of the file. In this particular case you already have it through file1.
+*   {
+*       c.setPicture(blobData); 
+*   }
+*
+*   blackberry.io.file.readFile(file, handleOpenedFile);
+*   c.save();
+*
+* &lt;&#92;script&gt;
 */
 blackberry.pim.Contact.prototype.setPicture = function(picture) { };
 
@@ -68,6 +100,20 @@ blackberry.pim.Contact.prototype.setPicture = function(picture) { };
 * @returns {void}
 * @BB50+
 * @RIPPLE
+* @example
+* &lt;script type=&quot;text&#47;javascript&quot;&gt;
+*   var c = new blackberry.pim.Contact();
+*   c.firstName = "Tom";
+*   c.lastName = "Sawyer";
+*   c.note = "Loves to paint fences";
+*   c.save();
+*
+*   var fe = new blackberry.find.FilterExpression("Tom", "==", c.firstName);
+*   var results = blackberry.pim.Contact.find(fe); //Returns 1 item array
+*
+*   results[0].note = "Bestfriend is Huck"; 
+*   results[0].save();
+* &lt;&#92;script&gt;
 */
 blackberry.pim.Contact.prototype.save = function() { };
 
@@ -76,6 +122,18 @@ blackberry.pim.Contact.prototype.save = function() { };
 * @returns {void}
 * @BB50+
 * @RIPPLE
+* @example
+* &lt;script type=&quot;text&#47;javascript&quot;&gt;
+*   var c = new blackberry.pim.Contact();
+*   c.firstName = "Mad";
+*   c.lastName = "Hatter";
+*   c.save();
+*
+*   var fe = new blackberry.find.FilterExpression("Hatter", "==", c.lastName);
+*   var results = blackberry.pim.Contact.find(fe); //Returns 1 item array
+*
+*   results[0].remove();
+* &lt;&#92;script&gt;
 */
 blackberry.pim.Contact.prototype.remove = function() { };
 

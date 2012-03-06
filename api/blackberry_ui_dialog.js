@@ -72,7 +72,7 @@ blackberry.ui.dialog ={
 		 * function customDialog() {
 		 *   try {
 		 *     var buttons = ["Yes", "No", "Sometimes", "NA"];
-		 *     var ops = {title : "Choose the answer that describes you best", size : blackberry.ui.dialog.SIZE_TALL, position : blackberry.ui.dialog.LOC_CENTER};
+		 *     var ops = {title : "Choose the answer that describes you best", size : blackberry.ui.dialog.SIZE_TALL, position : blackberry.ui.dialog.CENTER};
 		 *     blackberry.ui.dialog.customAskAsync("Do you routinely work out?", buttons, dialogCallBack, ops);
 		 *   } catch(e) {
 		 *     alert("Exception in customDialog: " + e);
@@ -134,7 +134,7 @@ blackberry.ui.dialog ={
 		 *
 		 * function standardDialog() {
 		 *   try {
-		 *     blackberry.ui.dialog.standardAskAsync("Save?", blackberry.ui.dialog.D_SAVE, dialogCallBack, {title : "Save Dialog", size: blackberry.ui.dialog.SIZE_MEDIUM, position : blackberry.ui.dialog.LOC_BOTTOM});
+		 *     blackberry.ui.dialog.standardAskAsync("Save?", blackberry.ui.dialog.D_SAVE, dialogCallBack, {title : "Save Dialog", size: blackberry.ui.dialog.SIZE_MEDIUM, position : blackberry.ui.dialog.BOTTOM});
 		 *   }catch (e) {
 		 *     alert("Exception in standardDialog: " + e);
 		 *   }
