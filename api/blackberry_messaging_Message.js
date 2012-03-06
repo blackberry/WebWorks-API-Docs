@@ -29,13 +29,13 @@
 * @constructor The constructor will create a new instance of the Message for the targeted recipient. 
 * @param {blackberry.identity.Service} [service] optional parameter that specifies the type of service that is expected.  This value can specify the email service to create an email message for.  If no parameter is specified the default email service will be used.
 * @example
-* &lt;script type=&quot;text&sol;javascript&quot;&gt;
+* &lt;script type=&quot;text&#47;javascript&quot;&gt;
 *   var message = new blackberry.message.Message();
 *   message.toRecipients = &quot;noone@blackberryWidgets.com&quot;;
 *   message.subject = &quot;Hello&quot;;
 *   message.body = &quot;World&quot;;
 *   message.send();
-* &lt;&sol;script&gt;
+* &lt;&#92;script&gt;
 */
 blackberry.message.Message = function(service) { };
 
@@ -173,6 +173,19 @@ blackberry.message.Message.FOLDER_OTHER = 5;
 * @returns {Message[]}
 * @BB50+
 * @RIPPLE
+* @example
+* &lt;script type=&quot;text&#47;javascript&quot;&gt;
+*   var message = new blackberry.message.Message();
+*   message.toRecipients = "nobody@blackberryWidgets.com";
+*   message.subject = "[DRAFT] Hello World";
+*   message.body = "[DRAFT]Just hanging around. How are you doing?";
+*   message.folder = blackberry.message.Message.FOLDER_DRAFT;
+*   message.save();
+*
+*   var filter = new blackberry.find.FilterExpression("nobody@blackberryWidgets.com", "==", message.toRecipients, true);
+*   var results = blackberry.message.Message.find(filter); 
+*
+* &lt;&#92;script&gt;
 */
 blackberry.message.Message.find = function(filter,maxReturn,service) { };
 
@@ -181,7 +194,16 @@ blackberry.message.Message.find = function(filter,maxReturn,service) { };
 * @returns {void}
 * @BB50+
 * @RIPPLE
-*/
+* @example
+* &lt;script type=&quot;text&#47;javascript&quot;&gt;
+*   var message = new blackberry.message.Message();
+*   message.toRecipients = "nobody@blackberryWidgets.com";
+*   message.subject = "[DRAFT] An example to show how message.save works";
+*   message.body = "[DRAFT] Just another message to be saved in the draft folder";
+*   message.folder = blackberry.message.Message.FOLDER_DRAFT;
+*   message.save();
+*
+* &lt;&#92;script&gt;*/
 blackberry.message.Message.prototype.save = function() { };
 
 /**
@@ -189,6 +211,16 @@ blackberry.message.Message.prototype.save = function() { };
 * @returns {void}
 * @BB50+
 * @RIPPLE
+* @example
+* &lt;script type=&quot;text&#47;javascript&quot;&gt;
+*   var message = new blackberry.message.Message();
+*   message.toRecipients = "nobody@blackberryWidgets.com";
+*   message.subject = "An example to show how message.send works";
+*   message.body = "Hey there!";
+*   message.folder = blackberry.message.Message.FOLDER_SENT; //You need this step otherwise it will not show up in your sent folder
+*   message.send();
+*
+* &lt;&#92;script&gt;*/
 */
 blackberry.message.Message.prototype.send = function() { };
 
