@@ -22,7 +22,7 @@
 
 BBTag = {
     tableHeader : function(firstColumnName){
-        return "<thead><tr><th>"+firstColumnName+"</th><th>BB5.0</th><th>BB6.0</th><th>BB7.0</th><th>PB1.0</th><th>PB2.0</th><th>Ripple</th></tr></thead>";
+        return "<thead><tr><th>"+firstColumnName+"</th><th>BB5.0</th><th>BB6.0</th><th>BB7.0</th><th>PB1.0</th><th>PB2.0</th><th>BB10</th><th>Ripple</th></tr></thead>";
     }
 };
 
@@ -39,6 +39,7 @@ BBTag.Support.prototype.init = function() {
     this.bb70 = false;
     this.pb10 = false;
 	this.pb20 = false;
+	this.bb10x = false;
 	this.ripple = false;
     this.common = false;
     this.resetSupportAttributes();
@@ -102,6 +103,17 @@ BBTag.Support.prototype.resetSupportAttributes = function() {
         this.supportTable += tableNo + "\n" + tableNo + "\n";;
     }
 	
+	if(this.bb10x){
+        this.supportStrings.push("BlackBerry 10");
+        if(this.supportTag.length){
+            this.supportTag += "|";
+        }
+        this.supportTag += "bb10x";
+        this.supportTable += tableYes;
+    }else{
+        this.supportTable += tableNo;
+    }
+	
 	if(this.ripple){
         this.supportStrings.push("Ripple Emulator");
         if(this.supportTag.length){
@@ -118,14 +130,15 @@ BBTag.Support.prototype.resetSupportAttributes = function() {
     }
 }
 
-BBTag.Support.prototype.populateByBools = function(bb50, bb60, bb70, pb10, pb20, ripple) {
+BBTag.Support.prototype.populateByBools = function(bb50, bb60, bb70, pb10, pb20, bb10x, ripple ) {
     this.bb50 |= bb50;
     this.bb60 |= bb60;
     this.bb70 |= bb70;
     this.pb10 |= pb10;
 	this.pb20 |= pb20;
+	this.bb10x |= bb10x;
 	this.ripple |= ripple;
-    this.common |= bb50 && bb60 && bb70 && pb10 && pb20;
+    this.common |= bb50 && bb60 && bb70 && pb10 && pb20 && bb10x;
     this.resetSupportAttributes();
 };
 
@@ -144,12 +157,13 @@ BBTag.Support.prototype.populateBySymbol = function(symbol) {
             var PB10 = symbol.comment.getTag("PB10").length;
 			var PB20 = symbol.comment.getTag("PB20").length;
             var PB10P = symbol.comment.getTag("PB10+").length;
+			var BB10X = symbol.comment.getTag("BB10X").length;
 			var RIPPLE = symbol.comment.getTag("RIPPLE").length;
 
             symbol.support = new BBTag.Support();
             symbol.support.populateByBools((BB50 || BB50P), 
 		(BB50P || BB60P || BB60), (BB50P || BB60P || BB60 || BB70P || BB70), 
-		(PB10 || PB10P), (PB20 || PB10P), RIPPLE);
+		(PB10 || PB10P), (PB20 || PB10P), BB10X, RIPPLE );
             this.populateBySupport(symbol.support);
         }
     }
@@ -167,10 +181,11 @@ BBTag.Support.prototype.populateByString = function(string) {
         var PB10 = string.equals("PB10");
         var PB10P = string.equals("PB10+");
 		var PB20 = string.equals("PB20");
+		var BB10X = string.equals("BB10X");
 		var RIPPLE = string.equals("RIPPLE");
-
+		
         this.populateByBools((BB50 || BB50P), (BB50P || BB60P || BB60), 
-		(BB50P || BB60P || BB60 || BB70P || BB70), (PB10 || PB10P),(PB20 || PB10P), RIPPLE);
+		(BB50P || BB60P || BB60 || BB70P || BB70), (PB10 || PB10P),(PB20 || PB10P), BB10X, RIPPLE );
     }
 };
 
@@ -180,6 +195,7 @@ BBTag.Support.prototype.populateBySupport = function(support) {
     this.bb70 |= support.bb70;
     this.pb10 |= support.pb10;
 	this.pb20 |= support.pb20;
+	this.bb10x |= support.bb10x;
 	this.ripple |= support.ripple;
     this.common |= support.common;
     this.resetSupportAttributes();
@@ -194,7 +210,7 @@ BBTag.Support.prototype.populateBySymbolArray = function(symbolArray) {
 
 BBTag.PlaybookSupport = function(){
     var pbSupport = new BBTag.Support();
-    pbSupport.populateByBools(false, false, false, true, false);
+    pbSupport.populateByBools(false, false, false, true, true, false, false);
     return pbSupport;
 }
 
