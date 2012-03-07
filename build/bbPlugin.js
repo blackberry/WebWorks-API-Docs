@@ -108,7 +108,7 @@ BBTag.Support.prototype.resetSupportAttributes = function() {
         if(this.supportTag.length){
             this.supportTag += "|";
         }
-        this.supportTag += "bb10";
+        this.supportTag += "bb10x";
         this.supportTable += tableYes;
     }else{
         this.supportTable += tableNo;
