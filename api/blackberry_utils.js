@@ -35,7 +35,27 @@ blackberry.utils = {
      * @BB50+
 	 * @PB10+
      * @RIPPLE
-	 */
+	 * @example
+     * &lt;script type="text/javascript"&gt;
+	 *
+	 *  var fileName = "local:///data/fooFile.txt";
+	 *
+     *  function handleOpenedFile(fullPath, blobData) // callback function that is passed when using the blackberry.io.file.readFile API
+     *  {
+     *    xmlString = blackberry.utils.blobToString(blobData); 
+     *  }
+	 * 
+     *  try{
+	 *      if (blackberry.io.file.exists(fileName)) {
+	 *		    blackberry.io.file.readFile(fileName, handleOpenedFile);
+	 *      } 
+	 *  }
+	 *  catch (ex) {
+	 *      alert("exist: " + ex.toString(0));
+	 *  }
+     *
+     * &lt;/script&gt;
+     */
 	blobToString : function(blob,encoding){},
 
 	/**
@@ -62,6 +82,14 @@ blackberry.utils = {
 	 * @BB50+
 	 * @PB10+
      * @RIPPLE
+	 * @example
+	 * &lt;script type="text/javascript"&gt;
+	 *
+	 * var myString = "This is some sort of string that I would like to encode";
+	 *
+	 * blackberry.utils.stringToBlob (myString, "UTF-8");
+	 *
+	 * &lt;/script&gt;
 	 */
 	stringToBlob : function(str,encoding){},
 	
@@ -72,6 +100,12 @@ blackberry.utils = {
      * @BB50+
 	 * @PB10+
      * @RIPPLE
+	 * @example
+	 * &lt;script type="text/javascript"&gt;
+	 *
+	 * var myID = blackberry.utils.generateUniqueId();
+	 *
+	 * &lt;/script&gt;
 	 */
 	generateUniqueId: function(){},
 	
@@ -82,6 +116,13 @@ blackberry.utils = {
      * @BB50+
 	 * @PB10+ 
      * @RIPPLE
+	 * @example 
+	 * &lt;script type="text/javascript"&gt;
+	 * var myURL = "https://bdsc.webapps.blackberry.com/html5/";
+	 * 
+	 * var URLObj = blackberry.utils.URL(myURL); 
+	 *
+	 * &lt;/script&gt;
 	 */
 	parseURL: function(url){},
 		
