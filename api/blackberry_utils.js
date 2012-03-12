@@ -35,7 +35,27 @@ blackberry.utils = {
      * @BB50+
 	 * @PB10+
      * @RIPPLE
-	 */
+	 * @example
+     * &lt;script type="text/javascript"&gt;
+	 *
+	 *  var fileName = "local:///data/fooFile.txt";
+	 *
+     *  function handleOpenedFile(fullPath, blobData) // callback function that is passed when using the blackberry.io.file.readFile API
+     *  {
+     *    xmlString = blackberry.utils.blobToString(blobData); 
+     *  }
+	 * 
+     *  try{
+	 *      if (blackberry.io.file.exists(fileName)) {
+	 *		    blackberry.io.file.readFile(fileName, handleOpenedFile);
+	 *      } 
+	 *  }
+	 *  catch (ex) {
+	 *      alert("exist: " + ex.toString(0));
+	 *  }
+     *
+     * &lt;/script&gt;
+     */
 	blobToString : function(blob,encoding){},
 
 	/**
@@ -62,6 +82,46 @@ blackberry.utils = {
 	 * @BB50+
 	 * @PB10+
      * @RIPPLE
+	 * @example
+	 * &lt;script type="text/javascript"&gt;
+	 *
+	 * var myBlob = blackberry.utils.stringToBlob ("This is some sort of string that I would like to encode", "UTF-8");
+	 * var filePath, fileDir;
+	 *
+	 * // Check what device you are using
+	 * var model = blackberry.system.model;
+     *
+	 * // Establishing where to save my file depending on which device I have
+	 * if (model.indexOf("Playbook") == -1) { // device is BlackBerry
+	 *     
+	 *    //Now need to check if there is a SD card on the device
+	 *    if (blackberry.io.dir.exists("file:///SDCard")) { //The only way to see if the SDCard is inserted into the device is by checking to see if the directory is there.
+	 *
+     *          fileDir = "file:///SDCard/dir1";
+     *          blackberry.io.dir.createNewDir(fileDir);
+     *
+     *    } else { // Apparently there no SD card, so we're saving the blob on the local device
+	 *
+	 *          fileDir = "file:///store/dir1";
+     *          blackberry.io.dir.createNewDir(fileDir);
+	 *
+	 *    }
+	 * } else {
+	 *    // Device is Playbook
+	 *
+	 *    // To make this example easier, I did not turn on "File Sharing" and choosing to save in the app storage area.	 
+	 *    fileDir = blackberry.io.dir.appDirs.app.storage.path + "/dir1";  
+	 *                                                    
+	 *    blackberry.io.dir.createNewDir(fileDir);
+	 * }
+	 * 
+	 * try {
+	 *    blackberry.io.file.saveFile(filedir + "/blob.txt", myBlob);
+	 * } catch (e) {
+     *    alert('e.message = ' + e.message);
+     * }			
+     * 
+	 * &lt;/script&gt;
 	 */
 	stringToBlob : function(str,encoding){},
 	
@@ -72,6 +132,12 @@ blackberry.utils = {
      * @BB50+
 	 * @PB10+
      * @RIPPLE
+	 * @example
+	 * &lt;script type="text/javascript"&gt;
+	 *
+	 * var myID = blackberry.utils.generateUniqueId();
+	 *
+	 * &lt;/script&gt;
 	 */
 	generateUniqueId: function(){},
 	
@@ -82,6 +148,13 @@ blackberry.utils = {
      * @BB50+
 	 * @PB10+ 
      * @RIPPLE
+	 * @example 
+	 * &lt;script type="text/javascript"&gt;
+	 * var myURL = "https://bdsc.webapps.blackberry.com/html5/";
+	 * 
+	 * var URLObj = blackberry.utils.URL(myURL); 
+	 *
+	 * &lt;/script&gt;
 	 */
 	parseURL: function(url){},
 		
