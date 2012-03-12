@@ -85,11 +85,40 @@ blackberry.utils = {
 	 * @example
 	 * &lt;script type="text/javascript"&gt;
 	 *
-	 * var filePath = "file:///store/home/user/myFile.txt";
 	 * var myBlob = blackberry.utils.stringToBlob ("This is some sort of string that I would like to encode", "UTF-8");
+	 * var filePath, fileDir;
+	 *
+	 * // Check what device you are using
+	 * var model = blackberry.system.model;
+     *
+	 * // Establishing where to save my file depending on which device I have
+	 * if (model.indexOf("Playbook") == -1) { // device is BlackBerry
+	 *     
+	 *    //Now need to check if there is a SD card on the device
+	 *    if (blackberry.io.dir.exists("file:///SDCard")) { //The only way to see if the SDCard is inserted into the device is by checking to see if the directory is there.
+	 *
+     *          fileDir = "file:///SDCard/dir1";
+     *          blackberry.io.dir.createNewDir(fileDir);
+     *
+     *    } else { // Apparently there no SD card, so we're saving the blob on the local device
+	 *
+	 *          fileDir = "file:///store/dir1";
+     *          blackberry.io.dir.createNewDir(fileDir);
+	 *
+	 *    }
+	 * } else {
+	 *    // Device is Playbook
+	 *    fileDir = blackberry.io.dir.appDirs + "/dir1";  //This gives you the root location where you can store your application-specific data that can ONLY be accessed by your application
+	 *                                                    // If you want to access the "shared" folder that is the parent directory to camera and music, please see the appDirs property in the blackberry.io.dir object
+	 *    blackberry.io.dir.createNewDir(fileDir);
+	 * }
 	 * 
-	 * blackberry.io.file.saveFile(filePath, myBlob);
-	 * 
+	 * try {
+	 *    blackberry.io.file.saveFile(filedir + "/blob.txt", myBlob);
+	 * } catch (e) {
+     *    alert('e.message = ' + e.message);
+     * }			
+     * 
 	 * &lt;/script&gt;
 	 */
 	stringToBlob : function(str,encoding){},
