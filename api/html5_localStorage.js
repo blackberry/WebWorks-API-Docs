@@ -15,19 +15,23 @@
 */
 
 /**
+ * @notice {Support for BlackBerry 6.0:}
+ * This API supports BlackBerry 6.0; however, some BlackBerry 6.0 dot revisions may not be fully supported.
  * @toc {Data Storage} HTML5 Local Storage
  * @PB10+
+ * @BB60+
  * @namespace This object provides functions to access a list of key/value pairs. 
  * <p/>Each <code>Storage</code> object provides access to a list of key/value pairs, which are sometimes called items. 
  * Keys are strings. Any string (including the empty string) is a valid key. 
  * Values can be any data type supported by the structured clone algorithm.
+ 
  * 
  */
 
 localStorage ={
 		/**
 		 * @PB10+
-         * @BB70+
+         * @BB60+
 		 * @RIPPLE
 		 * @description The number of key/value pairs currently present in the list associated with the object.
 		 * @readOnly
@@ -37,7 +41,7 @@ localStorage ={
 		
 		/**
 		 * @PB10+
-         * @BB70+
+         * @BB60+
 		 * @RIPPLE
 		 * @description Returns the name of the nth key in the list. The order of keys is user-agent defined, but must be consistent within an object so long as the number of keys doesn't change.
 		 * @param {Number} index The nth key in the list
@@ -47,7 +51,7 @@ localStorage ={
 		
 		/**
 		 * @PB10+
-         * @BB70+
+         * @BB60+
 		 * @RIPPLE
 		 * @description Returns a structured clone of the current value associated with the given key.
 		 * @param {String} key The key for the key/value pair 
@@ -59,7 +63,7 @@ localStorage ={
 		
 		/**
 		 * @PB10+
-         * @BB70+
+         * @BB60+
 		 * @RIPPLE
 		 * @description This method first creates a structured clone of the given value. The user agent checks if a key/value pair with the given key already exists in the list associated with the object.
 		 * If it does not, then a new key/value pair must be added to the list, with the given key and with its value set to the newly obtained clone of value.
@@ -76,7 +80,7 @@ localStorage ={
 
 		/**
 		 * @PB10+
-         * @BB70+
+         * @BB60+
 		 * @RIPPLE
 		 * @description This method causes the key/value pair with the given key to be removed from the list associated with the object, if it exists. If no item with that key exists, the method does nothing.
 		 * @param  {String} key The key for the key/value pair
@@ -87,7 +91,7 @@ localStorage ={
 
 		/**
 		 * @PB10+
-         * @BB70+
+         * @BB60+
 		 * @RIPPLE
 		 * @description This method atomically causes the list associated with the object to be emptied of all key/value pairs, if there are any. If there are none, then the method does nothing.
 		 */
