@@ -27,7 +27,7 @@
 localStorage ={
 		/**
 		 * @PB10+
-         * @BB50+
+         * @BB70+
 		 * @RIPPLE
 		 * @description The number of key/value pairs currently present in the list associated with the object.
 		 * @readOnly
@@ -37,7 +37,7 @@ localStorage ={
 		
 		/**
 		 * @PB10+
-         * @BB50+
+         * @BB70+
 		 * @RIPPLE
 		 * @description Returns the name of the nth key in the list. The order of keys is user-agent defined, but must be consistent within an object so long as the number of keys doesn't change.
 		 * @param {Number} index The nth key in the list
@@ -47,7 +47,7 @@ localStorage ={
 		
 		/**
 		 * @PB10+
-         * @BB50+
+         * @BB70+
 		 * @RIPPLE
 		 * @description Returns a structured clone of the current value associated with the given key.
 		 * @param {String} key The key for the key/value pair 
@@ -59,7 +59,7 @@ localStorage ={
 		
 		/**
 		 * @PB10+
-         * @BB50+
+         * @BB70+
 		 * @RIPPLE
 		 * @description This method first creates a structured clone of the given value. The user agent checks if a key/value pair with the given key already exists in the list associated with the object.
 		 * If it does not, then a new key/value pair must be added to the list, with the given key and with its value set to the newly obtained clone of value.
@@ -76,7 +76,7 @@ localStorage ={
 
 		/**
 		 * @PB10+
-         * @BB50+
+         * @BB70+
 		 * @RIPPLE
 		 * @description This method causes the key/value pair with the given key to be removed from the list associated with the object, if it exists. If no item with that key exists, the method does nothing.
 		 * @param  {String} key The key for the key/value pair
@@ -87,7 +87,7 @@ localStorage ={
 
 		/**
 		 * @PB10+
-         * @BB50+
+         * @BB70+
 		 * @RIPPLE
 		 * @description This method atomically causes the list associated with the object to be emptied of all key/value pairs, if there are any. If there are none, then the method does nothing.
 		 */
