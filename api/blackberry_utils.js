@@ -85,10 +85,11 @@ blackberry.utils = {
 	 * @example
 	 * &lt;script type="text/javascript"&gt;
 	 *
-	 * var myString = "This is some sort of string that I would like to encode";
-	 *
-	 * blackberry.utils.stringToBlob (myString, "UTF-8");
-	 *
+	 * var filePath = "file:///store/home/user/myFile.txt";
+	 * var myBlob = blackberry.utils.stringToBlob ("This is some sort of string that I would like to encode", "UTF-8");
+	 * 
+	 * blackberry.io.file.saveFile(filePath, myBlob);
+	 * 
 	 * &lt;/script&gt;
 	 */
 	stringToBlob : function(str,encoding){},
