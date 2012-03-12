@@ -108,8 +108,10 @@ blackberry.utils = {
 	 *    }
 	 * } else {
 	 *    // Device is Playbook
-	 *    fileDir = blackberry.io.dir.appDirs + "/dir1";  //This gives you the root location where you can store your application-specific data that can ONLY be accessed by your application
-	 *                                                    // If you want to access the "shared" folder that is the parent directory to camera and music, please see the appDirs property in the blackberry.io.dir object
+	 *
+	 *    // To make this example easier, I did not turn on "File Sharing" and choosing to save in the app storage area.	 
+	 *    fileDir = blackberry.io.dir.appDirs.app.storage.path + "/dir1";  
+	 *                                                    
 	 *    blackberry.io.dir.createNewDir(fileDir);
 	 * }
 	 * 
