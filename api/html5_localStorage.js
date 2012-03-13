@@ -15,18 +15,23 @@
 */
 
 /**
+ * @notice {Support for BlackBerry 6.0:}
+ * This API supports BlackBerry 6.0; however, some BlackBerry 6.0 dot revisions may not be fully supported.
  * @toc {Data Storage} HTML5 Local Storage
  * @PB10+
+ * @BB60+
  * @namespace This object provides functions to access a list of key/value pairs. 
- * <p/>Each Storage object provides access to a list of key/value pairs, which are sometimes called items. 
+ * <p/>Each <code>Storage</code> object provides access to a list of key/value pairs, which are sometimes called items. 
  * Keys are strings. Any string (including the empty string) is a valid key. 
  * Values can be any data type supported by the structured clone algorithm.
+ 
  * 
  */
 
 localStorage ={
 		/**
 		 * @PB10+
+         * @BB60+
 		 * @RIPPLE
 		 * @description The number of key/value pairs currently present in the list associated with the object.
 		 * @readOnly
@@ -36,19 +41,21 @@ localStorage ={
 		
 		/**
 		 * @PB10+
+         * @BB60+
 		 * @RIPPLE
-		 * @description Return the name of the nth key in the list. The order of keys is user-agent defined, but must be consistent within an object so long as the number of keys doesn't change.
-		 * @param {Number} index the nth key in the list
-		 * @returns {String} the name of the nth key in the list. If index is greater than or equal to the number of key/value pairs in the object, then this method must return null.
+		 * @description Returns the name of the nth key in the list. The order of keys is user-agent defined, but must be consistent within an object so long as the number of keys doesn't change.
+		 * @param {Number} index The nth key in the list
+		 * @returns {String} The name of the nth key in the list. Returns <code>null</code> if the index is greater than or equal to the number of key/value pairs in the object.
 		 */
 		key : function(index){},
 		
 		/**
 		 * @PB10+
+         * @BB60+
 		 * @RIPPLE
-		 * @description Return a structured clone of the current value associated with the given key.
-		 * @param {String} key the key for the key/value pair 
-		 * @returns {Object} the value associated with the given key. If the given key does not exist, this method return null.
+		 * @description Returns a structured clone of the current value associated with the given key.
+		 * @param {String} key The key for the key/value pair 
+		 * @returns {Object} The value associated with the given key. Returns <code>null</code> if the given key does not exist.
 		 * @example
 		 * var cityName=localStorage.getItem("cityName");
 		 */
@@ -56,18 +63,16 @@ localStorage ={
 		
 		/**
 		 * @PB10+
+         * @BB60+
 		 * @RIPPLE
-		 * @description This method first create a structured clone of the given value. 
-		 * If this raises an exception, then the exception must be thrown and the list associated with the object is left unchanged. 
-		 * If constructing the structured clone would involve constructing a new <b>ImageData</b> object, then throw a <b>NOT_SUPPORTED_ERR</b> exception instead.
-		 * <P>
-		 * Otherwise, the user agent must then check if a key/value pair with the given key already exists in the list associated with the object.
+		 * @description This method first creates a structured clone of the given value. The user agent checks if a key/value pair with the given key already exists in the list associated with the object.
 		 * If it does not, then a new key/value pair must be added to the list, with the given key and with its value set to the newly obtained clone of value.
 		 * If the given key does exist in the list, then it must have its value updated to the newly obtained clone of value.
-		 * If it couldn't set the new value, the method must raise an <b>QUOTA_EXCEEDED_ERR</b> exception. (Setting could fail if, e.g., the user has disabled storage for the site, or if the quota has been exceeded.) 
-		 * @param {String} key the key for the key/value pair 
-		 * @param {Object} value the value for the key/value pair
-		 * @throws {Exception} This method first create a structured clone of the given value. If this raises an exception, then the exception is thrown and the list associated with the object is left unchanged. If constructing the structured clone would involve constructing a new <b>ImageData</b> object, then throw a <b>NOT_SUPPORTED_ERR</b> exception instead. If it couldn't set the new value, the method raises an <b>QUOTA_EXCEEDED_ERR</b> exception. (Setting could fail if, e.g., the user has disabled storage for the site, or if the quota has been exceeded.)
+		 * @param {String} key The key for the key/value pair 
+		 * @param {Object} value The value for the key/value pair
+		 * @throws {Exception} If a structured clone of the given value cannot be created. The list associated with the object is left unchanged.     
+         * @throws {NOT_SUPPORTED_ERR} If the structured clone involving the construction of a new <code>ImageData</code> object cannot be created.
+         * @throws {QUOTA_EXCEEDED_ERR} If the new value couldn't be set (for example, if the user disabled storage for the site, or if the quota has been exceeded).
 		 * @example
 		 * localStorage.setItem("cityName", "Toronto"); 
 		 */
@@ -75,9 +80,10 @@ localStorage ={
 
 		/**
 		 * @PB10+
+         * @BB60+
 		 * @RIPPLE
-		 * @description This method causes the key/value pair with the given key to be removed from the list associated with the object, if it exists. If no item with that key exists, the method do nothing.
-		 * @param  {String} key the key for the key/value pair
+		 * @description This method causes the key/value pair with the given key to be removed from the list associated with the object, if it exists. If no item with that key exists, the method does nothing.
+		 * @param  {String} key The key for the key/value pair
 		 * @example
 		 * localStorage.removeItem("cityName");
 		 */
@@ -85,8 +91,9 @@ localStorage ={
 
 		/**
 		 * @PB10+
+         * @BB60+
 		 * @RIPPLE
-		 * @description This method atomically causes the list associated with the object to be emptied of all key/value pairs, if there are any. If there are none, then the method do nothing.
+		 * @description This method atomically causes the list associated with the object to be emptied of all key/value pairs, if there are any. If there are none, then the method does nothing.
 		 */
 		clear : function(){}
 };
