@@ -89,10 +89,10 @@ blackberry.utils = {
 	 * var filePath, fileDir;
 	 *
 	 * // Check what device you are using
-	 * var model = blackberry.system.model;
+	 * var OSversion = blackberry.system.softwareVersion; // Note: On the Playbook, only the OS Version will actually say the what type of device it is. For handheld device, blackberry.system.model will return the actual model (ie. 9780)
      *
 	 * // Establishing where to save my file depending on which device I have
-	 * if (model.indexOf("Playbook") == -1) { // device is BlackBerry
+	 * if (OSversion.indexOf("Playbook") == -1) { // Device is BlackBerry
 	 *     
 	 *    //Now need to check if there is a SD card on the device
 	 *    if (blackberry.io.dir.exists("file:///SDCard")) { //The only way to see if the SDCard is inserted into the device is by checking to see if the directory is there.
