@@ -45,7 +45,7 @@ blackberry.invoke = {
 		 * @throws {Exception} If values supplied are not correct. 
 		 * @BB50+
 		 * @PB10+
-       * @BB10x
+		 * @BB10X
 		 * @RIPPLE
 		 */
 		invoke : function(appType, args){},
@@ -166,7 +166,7 @@ blackberry.invoke = {
 		 * @constant
 		 * @BB50+
 		 * @PB10+
-		 * @BB10x
+		 * @BB10X
 		 * @RIPPLE
 		 * @description Browser.
 		 */

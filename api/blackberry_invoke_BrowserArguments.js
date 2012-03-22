@@ -22,7 +22,7 @@
 * @toc {Invoke} BrowserArguments 
 * @BB50+
 * @PB10+
-* @BB10x
+* @BB10X
 * @RIPPLE
 * @class The BrowserArguments object is an instance object, and is used as a parameter to the invoke() method when invoking the BlackBerry Browser application.
 * @featureID blackberry.invoke
