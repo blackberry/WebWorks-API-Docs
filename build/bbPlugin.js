@@ -317,6 +317,11 @@ JSDOC.PluginManager.registerPlugin("JSDOC.BBTag", {
                 if(constructedBy.length){
                     symbol.constructedBy = constructedBy;
                 }
+
+                var signature = symbol.comment.getTag("signature");
+                if(signature.length) {
+                  symbol.signature = signature;
+                }
             }
 
             var paramCallbacks = symbol.comment.tags.filter(function($){return $.isCallback && $.title == "param"});
