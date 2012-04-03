@@ -13,7 +13,7 @@ var functionParams,
                 <hr/>
                  
                 {!//The function signature !}
-                <if test="!isURIMethod(member)">
+                <if test="!isURIMethod(member) && !member.noSignature">
                     <table>
                         <tr><td>
                             <if test="member.signature">
@@ -92,7 +92,7 @@ var functionParams,
                         </tr></thead>
                         {!functionParams = member.params.filter(function($){return $.name.indexOf(".") == -1});!}               
                         <for each="item" in="functionParams">
-                            {!subParams = member.params.filter(function($){return $.name.indexOf(item.name+".") != -1});!}
+                            {!subParams = member.params.filter(function($){return $.name.indexOf(item.name+".") === 0});!}
                             <tr>
                                 <td><b>{+item.name+}</b></td>
                                 <td>

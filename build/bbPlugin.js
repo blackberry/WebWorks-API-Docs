@@ -322,6 +322,9 @@ JSDOC.PluginManager.registerPlugin("JSDOC.BBTag", {
                 if(signature.length) {
                   symbol.signature = signature;
                 }
+
+                var noSignature = symbol.comment.getTag("noSignature");
+                symbol.noSignature = !!noSignature.length;
             }
 
             var paramCallbacks = symbol.comment.tags.filter(function($){return $.isCallback && $.title == "param"});
