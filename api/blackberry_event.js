@@ -29,6 +29,62 @@ blackberry.event = {
     */
   
    /**
+    * @description The <b>batterycritical</b> event is triggered whenever the battery level changes to the value lower than 5%.
+    * @callback {function} yourCallbackFunction The callback function that will be invoked on the batterycritical event
+    * @callback {JSON} yourCallbackFunction.info An object  the pertinent information
+    * @callback {Number} yourCallbackFunction.info.level The percentage of the battery charge (0-100).
+    * @callback {Boolean} yourCallbackFunction.info.isPlugged A boolean that represents whether or not the device is receiving a charge.
+    * @example
+    * &lt;script type="text/javascript"&gt;
+    *
+    * function onBatteryCritical(info) {
+    *   alert("The playbook " + info.isPlugged?"is ":"is not " + "plugged in with " + info.level + "% battery remaining");
+    * }
+    *
+    * blackberry.event.addEventListener("batterycritical", onBatteryCritical);
+    *
+    * &lt;/script&gt;
+    */
+   batterycritical : function(){},
+
+   /**#@-*/
+
+   /**#@+
+    * @noSignature
+    * @event
+    * @BB10X
+    * @description This event is fired by the system. If you want to listen to the event you can do so using the {@link blackberry.event.addEventListener} function and remove the listener using the {@link blackberry.event.removeEventListener} function. <br/>
+    */
+
+   /**
+    * @description The <b>batterylow</b> event is triggered whenever the battery level changes to the value lower than 15%.
+    * @callback {function} yourCallbackFunction The callback function that will be invoked on the batterylow event
+    * @callback {JSON} yourCallbackFunction.info An object  the pertinent information
+    * @callback {Number} yourCallbackFunction.info.level The percentage of the battery charge (0-100).
+    * @callback {Boolean} yourCallbackFunction.info.isPlugged A boolean that represents whether or not the device is receiving a charge.
+    * @example
+    * &lt;script type="text/javascript"&gt;
+    *
+    * function onBatteryLow(info) {
+    *   alert("The playbook " + info.isPlugged?"is ":"is not " + "plugged in with " + info.level + "% battery remaining");
+    * }
+    *
+    * blackberry.event.addEventListener("batterylow", onBatteryLow);
+    *
+    * &lt;/script&gt;
+    */
+   batterylow : function(){},
+
+   /**#@-*/
+
+   /**#@+
+    * @noSignature
+    * @event
+    * @BB10X
+    * @description This event is fired by the system. If you want to listen to the event you can do so using the {@link blackberry.event.addEventListener} function and remove the listener using the {@link blackberry.event.removeEventListener} function. <br/>
+    */
+
+   /**
     * @description The <b>batterystatus</b> event is triggered whenever the: <ul><li>battery level changes</li><li>device starts to receive a charge</li><li>device stops receiving a charge</li></ul>
     * @callback {function} yourCallbackFunction The callback function that will be invoked on the batterystatus event
     * @callback {JSON} yourCallbackFunction.info An object  the pertinent information
@@ -42,7 +98,7 @@ blackberry.event = {
     * }
     *
     * blackberry.event.addEventListener("batterystatus", onBatteryStatusChange);
-    * 
+    *
     * &lt;/script&gt;
     */
    batterystatus : function(){},
