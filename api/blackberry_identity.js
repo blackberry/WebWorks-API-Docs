@@ -123,4 +123,12 @@ blackberry.identity.IMSI = { };
 */
 blackberry.identity.IMEI = { };
 
+/**
+* Contains the unique identifier for the device.
+* @type String
+* @static
+* @readOnly
+* @BB10X
+*/
+blackberry.identity.uuid = { };
 
