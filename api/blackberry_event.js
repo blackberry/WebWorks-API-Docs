@@ -47,13 +47,6 @@ blackberry.event = {
     */
    batterycritical : function(){},
 
-   /*
-    * @noSignature
-    * @event
-    * @BB10X
-    * @description This event is fired by the system. If you want to listen to the event you can do so using the {@link blackberry.event.addEventListener} function and remove the listener using the {@link blackberry.event.removeEventListener} function. <br/>
-    */
-
    /**
     * @description The <b>batterylow</b> event is triggered whenever the battery level changes to the value lower than 15%.
     * @callback {function} yourCallbackFunction The callback function that will be invoked on the batterylow event
@@ -72,13 +65,6 @@ blackberry.event = {
     * &lt;/script&gt;
     */
    batterylow : function(){},
-
-   /*
-    * @noSignature
-    * @event
-    * @BB10X
-    * @description This event is fired by the system. If you want to listen to the event you can do so using the {@link blackberry.event.addEventListener} function and remove the listener using the {@link blackberry.event.removeEventListener} function. <br/>
-    */
 
    /**
     * @description The <b>batterystatus</b> event is triggered whenever the: <ul><li>battery level changes</li><li>device starts to receive a charge</li><li>device stops receiving a charge</li></ul>
