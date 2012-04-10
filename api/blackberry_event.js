@@ -47,9 +47,7 @@ blackberry.event = {
     */
    batterycritical : function(){},
 
-   /**#@-*/
-
-   /**#@+
+   /*
     * @noSignature
     * @event
     * @BB10X
@@ -75,9 +73,7 @@ blackberry.event = {
     */
    batterylow : function(){},
 
-   /**#@-*/
-
-   /**#@+
+   /*
     * @noSignature
     * @event
     * @BB10X
