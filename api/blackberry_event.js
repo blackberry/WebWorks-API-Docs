@@ -38,7 +38,7 @@ blackberry.event = {
     * &lt;script type="text/javascript"&gt;
     *
     * function onBatteryCritical(info) {
-    *   alert("The playbook " + info.isPlugged?"is ":"is not " + "plugged in with " + info.level + "% battery remaining");
+    *   alert("The battery level is critical: " + info.level + (info.isPlugged?".":" and will shutdown soon. Save your work or connect device to a charging source."));
     * }
     *
     * blackberry.event.addEventListener("batterycritical", onBatteryCritical);
@@ -57,7 +57,7 @@ blackberry.event = {
     * &lt;script type="text/javascript"&gt;
     *
     * function onBatteryLow(info) {
-    *   alert("The playbook " + info.isPlugged?"is ":"is not " + "plugged in with " + info.level + "% battery remaining");
+    *   alert("The battery level is low: " + info.level + (info.isPlugged?".":". Consider connecting your device to a charging source."));
     * }
     *
     * blackberry.event.addEventListener("batterylow", onBatteryLow);
