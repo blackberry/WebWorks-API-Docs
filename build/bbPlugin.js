@@ -172,7 +172,6 @@ BBTag.Support.prototype.populateBySymbol = function(symbol) {
 //This is used by the featureID tags to limit which platforms they are supported by
 //It should support a comma separated list or | seperated
 BBTag.Support.prototype.populateByString = function(string) {
-    print("populatingByString for " + string);
     var tags = [string],
         BB50 = false,
         BB50P = false, 
@@ -189,10 +188,8 @@ BBTag.Support.prototype.populateByString = function(string) {
     //If there are commas
     if (string.indexOf(",") !== -1) {
         tags = string.split(",");
-        print(string + " has been split into " + tags);
     } else if (string.indexOf("|") !== -1) {
         tags = string.split("|");
-        print(string + " has been split into " + tags);
     }
 
     tags.forEach(function (tag) {
