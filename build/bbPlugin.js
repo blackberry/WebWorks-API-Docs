@@ -169,24 +169,50 @@ BBTag.Support.prototype.populateBySymbol = function(symbol) {
     }
 };
 
+//This is used by the featureID tags to limit which platforms they are supported by
+//It should support a comma separated list or | seperated
 BBTag.Support.prototype.populateByString = function(string) {
-    // BlackBerry Support Tags
-    if(string){
-        var BB50 = string.equals("BB50");
-        var BB50P = string.equals("BB50+");
-        var BB60 = string.equals("BB60");
-        var BB60P = string.equals("BB60+");
-        var BB70 = string.equals("BB70");
-        var BB70P = string.equals("BB70+");
-        var PB10 = string.equals("PB10");
-        var PB10P = string.equals("PB10+");
-		var PB20 = string.equals("PB20");
-		var BB10X = string.equals("BB10X");
-		var RIPPLE = string.equals("RIPPLE");
-		
-        this.populateByBools((BB50 || BB50P), (BB50P || BB60P || BB60), 
-		(BB50P || BB60P || BB60 || BB70P || BB70), (PB10 || PB10P),(PB20 || PB10P), BB10X, RIPPLE );
+    print("populatingByString for " + string);
+    var tags = [string],
+        BB50 = false,
+        BB50P = false, 
+        BB60 = false,
+        BB60P = false,
+        BB70 = false,
+        BB70P = false,
+        PB10 = false,
+        PB10P = false,
+        PB20 = false,
+        BB10X = false,
+        RIPPLE = false;
+
+    //If there are commas
+    if (string.indexOf(",") !== -1) {
+        tags = string.split(",");
+        print(string + " has been split into " + tags);
+    } else if (string.indexOf("|") !== -1) {
+        tags = string.split("|");
+        print(string + " has been split into " + tags);
     }
+
+    tags.forEach(function (tag) {
+        if (tag) {
+            BB50 |= tag.equals("BB50");
+            BB50P |= tag.equals("BB50+");
+            BB60 |= tag.equals("BB60");
+            BB60P |= tag.equals("BB60+");
+            BB70 |= tag.equals("BB70");
+            BB70P |= tag.equals("BB70+");
+            PB10 |= tag.equals("PB10");
+            PB10P |= tag.equals("PB10+");
+            PB20 |= tag.equals("PB20");
+            BB10X |= tag.equals("BB10X");
+            RIPPLE |= tag.equals("RIPPLE");
+        }
+    });
+		
+    this.populateByBools((BB50 || BB50P), (BB50P || BB60P || BB60), 
+                         (BB50P || BB60P || BB60 || BB70P || BB70), (PB10 || PB10P),(PB20 || PB10P), BB10X, RIPPLE );
 };
 
 BBTag.Support.prototype.populateBySupport = function(support) {
