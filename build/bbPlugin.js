@@ -237,6 +237,20 @@ function GetType(src) {
     return {type : type, remainder : src};
 }
 
+function getTagsWithReparsedType(symbol, tagString) {
+    var symbolTags = symbol.comment.tags.filter(function($, index){$.itemIndex = index; return $.title==tagString && $.type});
+    if (symbolTags.length) {
+        symbolTags.forEach(function(symbolTag) {
+            var symbolTagParts = GetType(symbol.comment.tagTexts[symbolTag.itemIndex]);
+            if(symbolTagParts && symbolTagParts.type) {
+                symbolTag.title = symbolTagParts.type
+            }
+            symbolTag.desc = symbolTagParts.remainder;
+        });
+    }
+    return symbolTags;
+}
+
 JSDOC.PluginManager.registerPlugin("JSDOC.BBTag", {
     onSymbol : function(symbol) {
 
@@ -255,19 +269,7 @@ JSDOC.PluginManager.registerPlugin("JSDOC.BBTag", {
                     }
                 }
 
-                var notice = symbol.comment.tags.filter(function($, index){$.itemIndex = index; return $.title=="notice" && $.type});
-                if(notice.length){
-                    // reparse the .type attribute as jsDocs as modifies characters
-                    for ( var i = 0; i < notice.length; i++){
-                        var n = notice[i];
-                        var parts = GetType(symbol.comment.tagTexts[n.itemIndex]);
-                        if(parts && parts.type){
-                            n.title = parts.type;
-                        }
-                        n.desc = parts.remainder;
-                    }
-                    symbol.notice = notice;
-                }
+                symbol.notice = getTagsWithReparsedType(symbol, "notice");
 
                 var constructorTag = symbol.comment.getTag("constructor");
                 if(constructorTag.length == 0){
@@ -323,8 +325,11 @@ JSDOC.PluginManager.registerPlugin("JSDOC.BBTag", {
                   symbol.signature = signature;
                 }
 
+                //@noSignature has does not use anything after it
                 var noSignature = symbol.comment.getTag("noSignature");
                 symbol.noSignature = !!noSignature.length;
+
+                symbol.apiNotice = getTagsWithReparsedType(symbol, "apiNotice");
             }
 
             var paramCallbacks = symbol.comment.tags.filter(function($){return $.isCallback && $.title == "param"});

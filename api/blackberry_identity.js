@@ -94,8 +94,7 @@ blackberry.identity.getTransportList = function() { };
 
 /**
 * Contains the Personal Identification number for the device.
-* <p/>
-* This field has been changed to {@link blackberry.identity.uuid} in BlackBerry 10.
+* @apiNotice {BB10 API Changes} This field has been changed to {@link blackberry.identity.uuid} in BlackBerry 10.
 * @type String
 * @static
 * @readOnly
