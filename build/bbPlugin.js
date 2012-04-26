@@ -131,14 +131,14 @@ BBTag.Support.prototype.resetSupportAttributes = function() {
 }
 
 BBTag.Support.prototype.populateByBools = function(bb50, bb60, bb70, pb10, pb20, bb10x, ripple ) {
-    this.bb50 |= bb50;
-    this.bb60 |= bb60;
-    this.bb70 |= bb70;
-    this.pb10 |= pb10;
-	this.pb20 |= pb20;
-	this.bb10x |= bb10x;
-	this.ripple |= ripple;
-    this.common |= bb50 && bb60 && bb70 && pb10 && pb20 && bb10x;
+    this.bb50 || bb50;
+    this.bb60 || bb60;
+    this.bb70 || bb70;
+    this.pb10 || pb10;
+	this.pb20 || pb20;
+	this.bb10x || bb10x;
+	this.ripple || ripple;
+    this.common || bb50 && bb60 && bb70 && pb10 && pb20 && bb10x;
     this.resetSupportAttributes();
 };
 
@@ -186,25 +186,21 @@ BBTag.Support.prototype.populateByString = function(string) {
         RIPPLE = false;
 
     //If there are commas
-    if (string.indexOf(",") !== -1) {
-        tags = string.split(",");
-    } else if (string.indexOf("|") !== -1) {
-        tags = string.split("|");
-    }
+    tags = string.split("\,|\|");
 
     tags.forEach(function (tag) {
         if (tag) {
-            BB50 |= tag.equals("BB50");
-            BB50P |= tag.equals("BB50+");
-            BB60 |= tag.equals("BB60");
-            BB60P |= tag.equals("BB60+");
-            BB70 |= tag.equals("BB70");
-            BB70P |= tag.equals("BB70+");
-            PB10 |= tag.equals("PB10");
-            PB10P |= tag.equals("PB10+");
-            PB20 |= tag.equals("PB20");
-            BB10X |= tag.equals("BB10X");
-            RIPPLE |= tag.equals("RIPPLE");
+            BB50 || tag.equals("BB50");
+            BB50P || tag.equals("BB50+");
+            BB60 || tag.equals("BB60");
+            BB60P || tag.equals("BB60+");
+            BB70 || tag.equals("BB70");
+            BB70P || tag.equals("BB70+");
+            PB10 || tag.equals("PB10");
+            PB10P || tag.equals("PB10+");
+            PB20 || tag.equals("PB20");
+            BB10X || tag.equals("BB10X");
+            RIPPLE || tag.equals("RIPPLE");
         }
     });
 		
@@ -213,14 +209,14 @@ BBTag.Support.prototype.populateByString = function(string) {
 };
 
 BBTag.Support.prototype.populateBySupport = function(support) {
-    this.bb50 |= support.bb50;
-    this.bb60 |= support.bb60;
-    this.bb70 |= support.bb70;
-    this.pb10 |= support.pb10;
-	this.pb20 |= support.pb20;
-	this.bb10x |= support.bb10x;
-	this.ripple |= support.ripple;
-    this.common |= support.common;
+    this.bb50 || support.bb50;
+    this.bb60 || support.bb60;
+    this.bb70 || support.bb70;
+    this.pb10 || support.pb10;
+	this.pb20 || support.pb20;
+	this.bb10x || support.bb10x;
+	this.ripple || support.ripple;
+    this.common || support.common;
     this.resetSupportAttributes();
 };
 
