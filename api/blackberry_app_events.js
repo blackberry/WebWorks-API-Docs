@@ -42,7 +42,8 @@ blackberry.app.event = {
 	 * @description Assigns a listener that is called when the application goes to the background.
 	 * <p/>
 	 * This event is dispatched whenever the application goes to the background, but has not ended. Only one function can be assigned to this event. To unregister the callback, call the onBackground method and pass in null for the callback parameter.
-	 * <p/>Note: The BlackBerry PlayBook's "Application Behavior" setting has an impact on when onBackground gets dispatched. When "Application Behavior" is set to "Default", onBackground does not get dispatched until another application goes fullscreen.  When "Application Behavior" is set to "Showcase", onBackground does not get dispatched because all open applications stay active. When "Application Behavior" is set to "Paused", onBackground gets dispatched once the application is sent to the background. 	
+	 * <p/>Note: The BlackBerry PlayBook's "Application Behavior" setting has an impact on when onBackground gets dispatched. When "Application Behavior" is set to "Default", onBackground does not get dispatched until another application goes fullscreen.  When "Application Behavior" is set to "Showcase", onBackground does not get dispatched because all open applications stay active. When "Application Behavior" is set to "Paused", onBackground gets dispatched once the application is sent to the background.
+	 * <p/>This function has been migrated to {@link blackberry.event.pause} in BlackBerry 10.
 	 * @callback {function} onBackgroundCallback Function to be called when the application goes to the background. Expected signature: function onBackgroundCallback().
 	 * @PB10+ 
 	 * @BB50+
@@ -67,7 +68,8 @@ blackberry.app.event = {
 	 * @description Assigns a listener that is called when the application goes to the foreground.
 	 * <p/>
 	 * This event is dispatched whenever the application comes to the foreground, for example, when the user re-opens the application from the application list. Only one function can be assigned to this event. To unregister the callback call the onForeground method and pass in null for the callback parameter.
-	 * <p/>Note: The BlackBerry PlayBook's "Application Behavior" setting has an impact on when onForeground gets dispatched. Refer to {@link blackberry.app.event.onBackground} documentation for details.	
+	 * <p/>Note: The BlackBerry PlayBook's "Application Behavior" setting has an impact on when onForeground gets dispatched. Refer to {@link blackberry.app.event.onBackground} documentation for details.
+	 * <p/>This function has been migrated to {@link blackberry.event.resume} in BlackBerry 10.
 	 * @callback {function} onForegroundCallback Function to be called when the application goes to the foreground. Expected signature: function onForegroundCallback().
 	 * @PB10+
 	 * @BB50+
