@@ -133,9 +133,9 @@ blackberry.system.event.onCoverageChange = function(onSystemEvent) { };
 /**
  * @function
  * @description Assigns a listener for when the battery level changes.
- * <p/>
- * This function has been migrated to {@link blackberry.event.batterystatus}, {@link blackberry.event.batterylow}, and {@link blackberry.event.batterycritical} in BlackBerry 10.
  * Battery level is a percentage value. This API is currently designed where it will immediately announce the initial battery level, then it will announce any percentage change afterwards
+ * <p/>
+ * This function has been migrated to {@link blackberry.event.batterystatus}, {@link blackberry.event.batterylow}, and {@link blackberry.event.batterycritical} in BlackBerry 10. 
  * @callback {function} onBatteryLevelChange Function to be called when the battery level changes. The level is passed as its only argument.
  * @callback {Number} onBatteryLevelChange.level battery level of the device ranging from 0 to 100
  * @PB10+
