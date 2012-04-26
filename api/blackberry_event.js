@@ -19,13 +19,12 @@
  * @toc {Event} Event
  * @featureID blackberry.event
  * @example
- * <!DOCTYPE html>
- * <html>
- * <head>
- * <title>WebWorks Pause Example</title>
+ * &lt;html&gt;
+ * &lt;head&gt;
+ * &lt;title&gt;WebWorks Pause Example&lt;/title&gt;
  * 
- * <script type="text/javascript" charset="utf-8" src="webworks.js"></script>
- * <script type="text/javascript" charset="utf-8">
+ * &lt;script type="text/javascript" charset="utf-8" src="webworks.js"&gt;&lt;/script&gt;
+ * &lt;script type="text/javascript" charset="utf-8"&gt;
  * 
  * // Call onWebworksReady when WebWorks is loaded.
  * //
@@ -44,11 +43,11 @@
  * function onPause() {
  * }
  * 
- * </script>
- * </head>
- * <body onload="onLoad()">
- * </body>
- * </html>
+ * &lt;/script&gt;
+ * &lt;/head&gt;
+ * &lt;body onload="onLoad()"&gt;
+ * &lt;/body&gt;
+ * &lt;/html&gt;
  */
 blackberry.event = {
 
