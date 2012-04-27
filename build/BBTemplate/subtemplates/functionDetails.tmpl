@@ -12,28 +12,49 @@ var functionParams,
                 </h2>
                 <hr/>
                  
-                <if test="!isURIMethod(member)">
+                {!//The function signature !}
+                <if test="!isURIMethod(member) && !member.noSignature">
                     <table>
                         <tr><td>
-                            <if test="isConstructor(member)">
-                                {+getSymbolName(member,true)+}
-                                <if test="!member.is('OBJECT')">
-                                    {+makeSignature(member.params)+}
-                                </if>
+                            <if test="member.signature">
+                                {+member.signature+}
                             <else/>
-                                <if test="member.isStatic">static</if>              
-                                <if test="member.type">{+new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')+}<else/>void</if>
-                                <if test="member.squareAccessor">
-                                    [{+makeSignature(member.params).slice(1,-1)+}]
-                                <else />
-                                    {+getSymbolName(member,true)+}{+makeSignature(member.params)+}
-                                </if>                          
+                                <if test="isConstructor(member)">
+                                    {+getSymbolName(member,true)+}
+                                    <if test="!member.is('OBJECT')">
+                                        {+makeSignature(member.params)+}
+                                    </if>
+                                <else/>
+                                    <if test="member.isStatic">static</if>              
+                                    <if test="member.type">{+new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')+}
+                                    <else/>
+                                        void
+                                    </if>
+                                    <if test="member.squareAccessor">
+                                        [{+makeSignature(member.params).slice(1,-1)+}]
+                                    <else />
+                                        {+getSymbolName(member,true)+}{+makeSignature(member.params)+}
+                                    </if>                          
+                                </if>
                             </if>
                         </td></tr>
                     </table>
                     <br />
                 </if>
                         
+                {!/**********     Notices     **********/!}
+                <if test="member.apiNotice">
+                    <for each="item" in="member.apiNotice">
+                        <if test="!(isBlank(item.title) || isBlank(item.desc))">
+                            <div class="note">                        
+                                <h3>{+item.title+}</h3>
+                                {+resolveLinks(item.desc)+}                        
+                            </div>
+                        </if>
+                    </for>
+                    <br />
+                </if>
+                
                 <if test="member.deprecated">
                     <table>
                         <tr><td>
@@ -84,7 +105,7 @@ var functionParams,
                         </tr></thead>
                         {!functionParams = member.params.filter(function($){return $.name.indexOf(".") == -1});!}               
                         <for each="item" in="functionParams">
-                            {!subParams = member.params.filter(function($){return $.name.indexOf(item.name+".") != -1});!}
+                            {!subParams = member.params.filter(function($){return $.name.indexOf(item.name+".") === 0});!}
                             <tr>
                                 <td><b>{+item.name+}</b></td>
                                 <td>
