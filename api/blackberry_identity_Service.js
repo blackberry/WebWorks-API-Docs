@@ -31,7 +31,7 @@
 *   &sol;&sol; Enumerate all of our services on the device.
 *   var services = blackberry.identity.getServiceList();
 *   for (var i = 0; i &lt; services.length; i++) {
-*     if (services[i].type == services[i].TYPE_CONTACT) {
+*     if (services[i].type == blackberry.identity.Service.TYPE_CONTACT) {
 *       alert(&quot;Name: &quot; + services[i].name);
 *     }
 *   }

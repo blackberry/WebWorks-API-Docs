@@ -22,7 +22,7 @@
 
 BBTag = {
     tableHeader : function(firstColumnName){
-        return "<thead><tr><th>"+firstColumnName+"</th><th>BB5.0</th><th>BB6.0</th><th>BB7.0</th><th>PB1.0</th><th>PB2.0</th><th>Ripple</th></tr></thead>";
+        return "<thead><tr><th>"+firstColumnName+"</th><th>BB5.0</th><th>BB6.0</th><th>BB7.0</th><th>PB1.0</th><th>PB2.0</th><th>BB10</th><th>Ripple</th></tr></thead>";
     }
 };
 
@@ -39,6 +39,7 @@ BBTag.Support.prototype.init = function() {
     this.bb70 = false;
     this.pb10 = false;
 	this.pb20 = false;
+	this.bb10x = false;
 	this.ripple = false;
     this.common = false;
     this.resetSupportAttributes();
@@ -102,6 +103,17 @@ BBTag.Support.prototype.resetSupportAttributes = function() {
         this.supportTable += tableNo + "\n" + tableNo + "\n";;
     }
 	
+	if(this.bb10x){
+        this.supportStrings.push("BlackBerry 10");
+        if(this.supportTag.length){
+            this.supportTag += "|";
+        }
+        this.supportTag += "bb10x";
+        this.supportTable += tableYes;
+    }else{
+        this.supportTable += tableNo;
+    }
+	
 	if(this.ripple){
         this.supportStrings.push("Ripple Emulator");
         if(this.supportTag.length){
@@ -118,14 +130,15 @@ BBTag.Support.prototype.resetSupportAttributes = function() {
     }
 }
 
-BBTag.Support.prototype.populateByBools = function(bb50, bb60, bb70, pb10, pb20, ripple) {
-    this.bb50 |= bb50;
-    this.bb60 |= bb60;
-    this.bb70 |= bb70;
-    this.pb10 |= pb10;
-	this.pb20 |= pb20;
-	this.ripple |= ripple;
-    this.common |= bb50 && bb60 && bb70 && pb10 && pb20;
+BBTag.Support.prototype.populateByBools = function(bb50, bb60, bb70, pb10, pb20, bb10x, ripple ) {
+    this.bb50 = this.bb50 || bb50;
+    this.bb60 = this.bb60 || bb60;
+    this.bb70 = this.bb70 || bb70;
+    this.pb10 = this.pb10 || pb10;
+	this.pb20 = this.pb20 || pb20;
+	this.bb10x = this.bb10x || bb10x;
+	this.ripple = this.ripple || ripple;
+    this.common = this.common || bb50 && bb60 && bb70 && pb10 && pb20 && bb10x;
     this.resetSupportAttributes();
 };
 
@@ -144,44 +157,66 @@ BBTag.Support.prototype.populateBySymbol = function(symbol) {
             var PB10 = symbol.comment.getTag("PB10").length;
 			var PB20 = symbol.comment.getTag("PB20").length;
             var PB10P = symbol.comment.getTag("PB10+").length;
+			var BB10X = symbol.comment.getTag("BB10X").length;
 			var RIPPLE = symbol.comment.getTag("RIPPLE").length;
 
             symbol.support = new BBTag.Support();
             symbol.support.populateByBools((BB50 || BB50P), 
 		(BB50P || BB60P || BB60), (BB50P || BB60P || BB60 || BB70P || BB70), 
-		(PB10 || PB10P), (PB20 || PB10P), RIPPLE);
+		(PB10 || PB10P), (PB20 || PB10P), BB10X, RIPPLE );
             this.populateBySupport(symbol.support);
         }
     }
 };
 
+//This is used by the featureID tags to limit which platforms they are supported by
+//It should support a comma separated list or | seperated
 BBTag.Support.prototype.populateByString = function(string) {
-    // BlackBerry Support Tags
-    if(string){
-        var BB50 = string.equals("BB50");
-        var BB50P = string.equals("BB50+");
-        var BB60 = string.equals("BB60");
-        var BB60P = string.equals("BB60+");
-        var BB70 = string.equals("BB70");
-        var BB70P = string.equals("BB70+");
-        var PB10 = string.equals("PB10");
-        var PB10P = string.equals("PB10+");
-		var PB20 = string.equals("PB20");
-		var RIPPLE = string.equals("RIPPLE");
+    var tags = [],
+        BB50 = false,
+        BB50P = false, 
+        BB60 = false,
+        BB60P = false,
+        BB70 = false,
+        BB70P = false,
+        PB10 = false,
+        PB10P = false,
+        PB20 = false,
+        BB10X = false,
+        RIPPLE = false;
 
-        this.populateByBools((BB50 || BB50P), (BB50P || BB60P || BB60), 
-		(BB50P || BB60P || BB60 || BB70P || BB70), (PB10 || PB10P),(PB20 || PB10P), RIPPLE);
-    }
+    //If there are commas or pipes
+    tags = string.split(/[,|]/);
+
+    tags.forEach(function (tag) {
+        if (tag) {
+            BB50 = BB50 || tag.equals("BB50");
+            BB50P = BB50P || tag.equals("BB50+");
+            BB60 = BB60 || tag.equals("BB60");
+            BB60P = BB60P || tag.equals("BB60+");
+            BB70 = BB70 || tag.equals("BB70");
+            BB70P = BB70P || tag.equals("BB70+");
+            PB10 = PB10 || tag.equals("PB10");
+            PB10P = PB10P || tag.equals("PB10+");
+            PB20 = PB20 || tag.equals("PB20");
+            BB10X = BB10X || tag.equals("BB10X");
+            RIPPLE = RIPPLE || tag.equals("RIPPLE");
+        }
+    });
+		
+    this.populateByBools((BB50 || BB50P), (BB50P || BB60P || BB60), 
+                         (BB50P || BB60P || BB60 || BB70P || BB70), (PB10 || PB10P),(PB20 || PB10P), BB10X, RIPPLE );
 };
 
 BBTag.Support.prototype.populateBySupport = function(support) {
-    this.bb50 |= support.bb50;
-    this.bb60 |= support.bb60;
-    this.bb70 |= support.bb70;
-    this.pb10 |= support.pb10;
-	this.pb20 |= support.pb20;
-	this.ripple |= support.ripple;
-    this.common |= support.common;
+    this.bb50 = this.bb50 || support.bb50;
+    this.bb60 = this.bb60 || support.bb60;
+    this.bb70 = this.bb70 || support.bb70;
+    this.pb10 = this.pb10 || support.pb10;
+	this.pb20 = this.pb20 || support.pb20;
+	this.bb10x = this.bb10x || support.bb10x;
+	this.ripple = this.ripple || support.ripple;
+    this.common = this.common || support.common;
     this.resetSupportAttributes();
 };
 
@@ -194,7 +229,7 @@ BBTag.Support.prototype.populateBySymbolArray = function(symbolArray) {
 
 BBTag.PlaybookSupport = function(){
     var pbSupport = new BBTag.Support();
-    pbSupport.populateByBools(false, false, false, true, false);
+    pbSupport.populateByBools(false, false, false, true, true, false, false);
     return pbSupport;
 }
 
@@ -221,6 +256,20 @@ function GetType(src) {
     return {type : type, remainder : src};
 }
 
+function getTagsWithReparsedType(symbol, tagString) {
+    var symbolTags = symbol.comment.tags.filter(function($, index){$.itemIndex = index; return $.title==tagString && $.type});
+    if (symbolTags.length) {
+        symbolTags.forEach(function(symbolTag) {
+            var symbolTagParts = GetType(symbol.comment.tagTexts[symbolTag.itemIndex]);
+            if(symbolTagParts && symbolTagParts.type) {
+                symbolTag.title = symbolTagParts.type
+            }
+            symbolTag.desc = symbolTagParts.remainder;
+        });
+    }
+    return symbolTags;
+}
+
 JSDOC.PluginManager.registerPlugin("JSDOC.BBTag", {
     onSymbol : function(symbol) {
 
@@ -239,19 +288,7 @@ JSDOC.PluginManager.registerPlugin("JSDOC.BBTag", {
                     }
                 }
 
-                var notice = symbol.comment.tags.filter(function($, index){$.itemIndex = index; return $.title=="notice" && $.type});
-                if(notice.length){
-                    // reparse the .type attribute as jsDocs as modifies characters
-                    for ( var i = 0; i < notice.length; i++){
-                        var n = notice[i];
-                        var parts = GetType(symbol.comment.tagTexts[n.itemIndex]);
-                        if(parts && parts.type){
-                            n.title = parts.type;
-                        }
-                        n.desc = parts.remainder;
-                    }
-                    symbol.notice = notice;
-                }
+                symbol.notice = getTagsWithReparsedType(symbol, "notice");
 
                 var constructorTag = symbol.comment.getTag("constructor");
                 if(constructorTag.length == 0){
@@ -301,6 +338,17 @@ JSDOC.PluginManager.registerPlugin("JSDOC.BBTag", {
                 if(constructedBy.length){
                     symbol.constructedBy = constructedBy;
                 }
+
+                var signature = symbol.comment.getTag("signature");
+                if(signature.length) {
+                  symbol.signature = signature;
+                }
+
+                //@noSignature has does not use anything after it
+                var noSignature = symbol.comment.getTag("noSignature");
+                symbol.noSignature = !!noSignature.length;
+
+                symbol.apiNotice = getTagsWithReparsedType(symbol, "apiNotice");
             }
 
             var paramCallbacks = symbol.comment.tags.filter(function($){return $.isCallback && $.title == "param"});

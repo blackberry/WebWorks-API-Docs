@@ -108,6 +108,7 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	/**
 	 * @description The ID of the author's name that is specified in the config.xml file. 
 	 * @BB50+
+	 * @BB10X
 	 * @PB10+
      * @RIPPLE
 	 * @readonly
@@ -118,6 +119,7 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	/**
 	 * @description The author's email of the BlackBerry WebWorks application that is specified in the config.xml file. 
 	 * @BB50+
+	 * @BB10X
 	 * @PB10+
      * @RIPPLE
 	 * @readonly
@@ -128,6 +130,7 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	/**
 	 * @description The author's URL of the BlackBerry WebWorks application that is specified in the config.xml file.
 	 * @BB50+
+	 * @BB10X
 	 * @PB10+
      * @RIPPLE
 	 * @readonly
@@ -137,6 +140,7 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	/**
 	 * @description The copyright information of the BlackBerry WebWorks application that is specified in the config.xml file.
 	 * @BB50+
+	 * @BB10X
 	 * @PB10+
      * @RIPPLE
 	 * @readonly
@@ -147,6 +151,7 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	/**
 	 * @description The description of the BlackBerry WebWorks application that is specified in the config.xml file.
 	 * @BB50+
+	 * @BB10X
 	 * @PB10+
      * @RIPPLE
 	 * @readonly
@@ -157,6 +162,7 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	/**
 	 * @description The ID of the BlackBerry WebWorks Application that is specified in the config.xml file. 
 	 * @BB50+
+	 * @BB10X
 	 * @PB10+
      * @RIPPLE
 	 * @readonly
@@ -176,6 +182,7 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	/**
 	 * @description The license of the BlackBerry WebWorks Application that is specified in the config.xml file. 
 	 * @BB50+
+	 * @BB10X
 	 * @PB10+
      * @RIPPLE
 	 * @readonly
@@ -186,6 +193,7 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	/**
 	 * @description The license URL of the BlackBerry WebWorks Application that is specified in the config.xml file. 
 	 * @BB50+
+	 * @BB10X
 	 * @PB10+
      * @RIPPLE
 	 * @readonly
@@ -196,6 +204,7 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	/**
 	 * @description The name of the BlackBerry WebWorks Application that is specified in the config.xml file. 
 	 * @BB50+
+	 * @BB10X
 	 * @PB10+
      * @RIPPLE
 	 * @readonly
@@ -206,6 +215,7 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	/**
 	 * @description The version of the BlackBerry WebWorks Application that is specified in the config.xml file. 
 	 * @BB50+
+	 * @BB10X
 	 * @PB10+
      * @RIPPLE
 	 * @readonly
