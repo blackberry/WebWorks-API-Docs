@@ -55,6 +55,7 @@ blackberry.system ={
      * @returns {Boolean} Returns true if the device is capable of the given service.
      * @BB50+
      * @PB10+
+     * @BB10X
      * @RIPPLE
      */
     hasCapability : function(capability){},
@@ -84,6 +85,7 @@ blackberry.system ={
      * @returns {Number} The possible return values: 0 - ALLOW 1 - DENY
      * @BB50+
      * @PB10+
+     * @BB10X
      * @RIPPLE
      */
     hasPermission : function(module){},
@@ -199,6 +201,7 @@ blackberry.system ={
      * @default 0
      * @BB50+
      * @PB10+
+     * @BB10X
      * @RIPPLE
      */
     ALLOW : 0,
@@ -209,6 +212,7 @@ blackberry.system ={
      * @default 1
      * @BB50+
      * @PB10+
+     * @BB10X
      * @RIPPLE
      */
     DENY:1
