@@ -131,14 +131,14 @@ BBTag.Support.prototype.resetSupportAttributes = function() {
 }
 
 BBTag.Support.prototype.populateByBools = function(bb50, bb60, bb70, pb10, pb20, bb10x, ripple ) {
-    this.bb50 |= bb50;
-    this.bb60 |= bb60;
-    this.bb70 |= bb70;
-    this.pb10 |= pb10;
-	this.pb20 |= pb20;
-	this.bb10x |= bb10x;
-	this.ripple |= ripple;
-    this.common |= bb50 && bb60 && bb70 && pb10 && pb20 && bb10x;
+    this.bb50 = this.bb50 || bb50;
+    this.bb60 = this.bb60 || bb60;
+    this.bb70 = this.bb70 || bb70;
+    this.pb10 = this.pb10 || pb10;
+	this.pb20 = this.pb20 || pb20;
+	this.bb10x = this.bb10x || bb10x;
+	this.ripple = this.ripple || ripple;
+    this.common = this.common || bb50 && bb60 && bb70 && pb10 && pb20 && bb10x;
     this.resetSupportAttributes();
 };
 
@@ -169,35 +169,54 @@ BBTag.Support.prototype.populateBySymbol = function(symbol) {
     }
 };
 
+//This is used by the featureID tags to limit which platforms they are supported by
+//It should support a comma separated list or | seperated
 BBTag.Support.prototype.populateByString = function(string) {
-    // BlackBerry Support Tags
-    if(string){
-        var BB50 = string.equals("BB50");
-        var BB50P = string.equals("BB50+");
-        var BB60 = string.equals("BB60");
-        var BB60P = string.equals("BB60+");
-        var BB70 = string.equals("BB70");
-        var BB70P = string.equals("BB70+");
-        var PB10 = string.equals("PB10");
-        var PB10P = string.equals("PB10+");
-		var PB20 = string.equals("PB20");
-		var BB10X = string.equals("BB10X");
-		var RIPPLE = string.equals("RIPPLE");
+    var tags = [],
+        BB50 = false,
+        BB50P = false, 
+        BB60 = false,
+        BB60P = false,
+        BB70 = false,
+        BB70P = false,
+        PB10 = false,
+        PB10P = false,
+        PB20 = false,
+        BB10X = false,
+        RIPPLE = false;
+
+    //If there are commas or pipes
+    tags = string.split(/[,|]/);
+
+    tags.forEach(function (tag) {
+        if (tag) {
+            BB50 = BB50 || tag.equals("BB50");
+            BB50P = BB50P || tag.equals("BB50+");
+            BB60 = BB60 || tag.equals("BB60");
+            BB60P = BB60P || tag.equals("BB60+");
+            BB70 = BB70 || tag.equals("BB70");
+            BB70P = BB70P || tag.equals("BB70+");
+            PB10 = PB10 || tag.equals("PB10");
+            PB10P = PB10P || tag.equals("PB10+");
+            PB20 = PB20 || tag.equals("PB20");
+            BB10X = BB10X || tag.equals("BB10X");
+            RIPPLE = RIPPLE || tag.equals("RIPPLE");
+        }
+    });
 		
-        this.populateByBools((BB50 || BB50P), (BB50P || BB60P || BB60), 
-		(BB50P || BB60P || BB60 || BB70P || BB70), (PB10 || PB10P),(PB20 || PB10P), BB10X, RIPPLE );
-    }
+    this.populateByBools((BB50 || BB50P), (BB50P || BB60P || BB60), 
+                         (BB50P || BB60P || BB60 || BB70P || BB70), (PB10 || PB10P),(PB20 || PB10P), BB10X, RIPPLE );
 };
 
 BBTag.Support.prototype.populateBySupport = function(support) {
-    this.bb50 |= support.bb50;
-    this.bb60 |= support.bb60;
-    this.bb70 |= support.bb70;
-    this.pb10 |= support.pb10;
-	this.pb20 |= support.pb20;
-	this.bb10x |= support.bb10x;
-	this.ripple |= support.ripple;
-    this.common |= support.common;
+    this.bb50 = this.bb50 || support.bb50;
+    this.bb60 = this.bb60 || support.bb60;
+    this.bb70 = this.bb70 || support.bb70;
+    this.pb10 = this.pb10 || support.pb10;
+	this.pb20 = this.pb20 || support.pb20;
+	this.bb10x = this.bb10x || support.bb10x;
+	this.ripple = this.ripple || support.ripple;
+    this.common = this.common || support.common;
     this.resetSupportAttributes();
 };
 
