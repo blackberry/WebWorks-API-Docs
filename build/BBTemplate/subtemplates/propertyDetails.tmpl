@@ -20,6 +20,8 @@
 
 !}
 
+
+
 <for each="children" in="data.ownChildren">
     {!i++;!}
     <if test="children && children.length">
@@ -27,7 +29,23 @@
         <div x-ww-support="{+childrenSupport.supportTag+}">
             <h2>{+data.headerText[i]+}:</h2>
             <hr/>
-          
+
+            {!// For tags that go at the top !}         
+            <for each="member" in="children">
+                {!/**********     Notices     **********/!}
+                <if test="member.apiNotice">
+                    <for each="item" in="member.apiNotice">
+                        <if test="!(isBlank(item.title) || isBlank(item.desc))">
+                            <div class="note">                        
+                                <h3>{+item.title+}</h3>
+                                {+resolveLinks(item.desc)+}                        
+                            </div>
+                        </if>
+                    </for>
+                    <br />
+                </if>
+            </for>
+ 
             <table>
                 <thead><tr>
                     <th>
@@ -90,6 +108,7 @@
                                     {+resolveLinks(subItem.desc)+}
                                 </for>
                             </if>
+
                             <if test="member.deprecated">
                                 <table>
                                     <tr>
