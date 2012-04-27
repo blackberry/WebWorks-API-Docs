@@ -42,6 +42,19 @@ var functionParams,
                     <br />
                 </if>
                         
+                {!/**********     Notices     **********/!}
+                <if test="member.apiNotice">
+                    <for each="item" in="member.apiNotice">
+                        <if test="!(isBlank(item.title) || isBlank(item.desc))">
+                            <div class="note">                        
+                                <h3>{+item.title+}</h3>
+                                {+resolveLinks(item.desc)+}                        
+                            </div>
+                        </if>
+                    </for>
+                    <br />
+                </if>
+                
                 <if test="member.deprecated">
                     <table>
                         <tr><td>

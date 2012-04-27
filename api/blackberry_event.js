@@ -18,6 +18,36 @@
  * @namespace The event Object contains functions for dealing with specific events.
  * @toc {Event} Event
  * @featureID blackberry.event
+ * @example
+ * &lt;html&gt;
+ * &lt;head&gt;
+ * &lt;title&gt;WebWorks Pause Example&lt;/title&gt;
+ * 
+ * &lt;script type="text/javascript" charset="utf-8" src="webworks.js"&gt;&lt;/script&gt;
+ * &lt;script type="text/javascript" charset="utf-8"&gt;
+ * 
+ * // Call onWebworksReady when WebWorks is loaded.
+ * //
+ * function onLoad() {
+ *    document.addEventListener("webworksready", onWebworksReady, false);
+ * }
+ * 
+ * // WebWorks is loaded and it is now safe to make calls WebWorks API
+ * //
+ * function onWebworksReady() {
+ *    blackberry.event.addEventListener("pause", onPause);
+ * }
+ * 
+ * // Handle the pause event
+ * //
+ * function onPause() {
+ * }
+ * 
+ * &lt;/script&gt;
+ * &lt;/head&gt;
+ * &lt;body onload="onLoad()"&gt;
+ * &lt;/body&gt;
+ * &lt;/html&gt;
  */
 blackberry.event = {
 

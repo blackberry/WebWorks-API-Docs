@@ -93,7 +93,8 @@ blackberry.identity.getServiceList = function() { };
 blackberry.identity.getTransportList = function() { };
 
 /**
-* Contains the Personal Identification number for the smartphone. 
+* Contains the Personal Identification number for the device.
+* @apiNotice {BB10 API Changes} {@link blackberry.identity.PIN} has been changed to {@link blackberry.identity.uuid} in BlackBerry 10.
 * @type String
 * @static
 * @readOnly
