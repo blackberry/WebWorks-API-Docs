@@ -285,24 +285,30 @@ function makeSignature(params) {
  *  	the names of the params are sliced
  *		the type is a link to the actual type
  **/
-function makeCallbackSignature(params) {
-	if (!params) return "()";
-    var signature = "("
-	+
-	params.map(
-                    function($) {
-			var name = ($.name.indexOf(".") != -1) ? ($.name.slice($.name.indexOf('.')+1, $.name.length)) : $.name;
-			var type = (($.type)?(new Link().toSymbol($.type)) : "");
-                        if ($.isOptional) {
-                            return "<i>[" + name + ": " + type + "]</i>";
-                        } else {
-                            return name + " : " + type;
-                        }
+function makeCallbackSignature (params) {
+    var signature = "(";
+    //If no params empty brackets are returned
+    if (params) {
+        //Filter out sub-sub params from the signature
+        params = params.filter( function ($) {
+            var paramNameParts = $.name.split('.');
+            return paramNameParts.length <= 2;
+        });
+        signature += params.map(
+            function($) {
+            var nameParts = $.name.split('.'),
+            name = (nameParts.length === 1) ? nameParts[0] : nameParts[1],
+            type = (($.type)?(new Link().toSymbol($.type)) : "");
+            //Ignore sub-sub params
+            if ($.isOptional) {
+                return "<i>[" + name + ": " + type + "]</i>";
+            } else {
+                return name + " : " + type;
+            }
 		}
-	).join(", ")
-	+
-	")";
-    return signature;
+        ).join(", ");
+    }
+    return signature + ")";
 }
 
 /** Find symbol {@link ...} strings in text and turn into html links */
