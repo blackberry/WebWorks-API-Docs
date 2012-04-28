@@ -50,8 +50,6 @@ function publish(symbolSet) {
     // create the required templates
     try {
 		var classTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"class.tmpl");
-        // var ditamapTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"ditamap.tmpl");
-        var JSONTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"JSON.tmpl");
         var PHPTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"PHP.tmpl");
         var viewableClassTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"viewableClass.tmpl");
 	}
@@ -106,14 +104,8 @@ function publish(symbolSet) {
 
     var tocClasses = classes.filter(function ($) {return ($.toc)} ).sort(makeTocSort());
 
-    // var processedDitamap = ditamapTemplate.process(classes);
-    // IO.saveFile(publish.conf.outDir, "toc.ditamap", processedDitamap);
-
-    var processedJSON = JSONTemplate.process(tocClasses);
-    IO.saveFile(publish.conf.outDir, "menu-apis.php.json", processedJSON);
-
     var processedPHP = PHPTemplate.process(tocClasses);
-    IO.saveFile(publish.conf.outDir, "menu-apis.php", processedPHP);
+    IO.saveFile(publish.conf.outDir, "ref_menu.php", processedPHP);
     
     // create each of the viewable class pages
     for ( var i = 0, l = classes.length; i < l; i++) {
