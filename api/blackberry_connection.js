@@ -30,83 +30,74 @@ blackberry.connection = {
         type : 0,
 
         /**
-         * @default 0
          * @type Number
          * @constant
          * @BB10X
          * @description BlackBerry Bridge connection
          */
 
-         BB : 0,
+         BB : 6,
         /**
-         * @default 1
          * @type Number
          * @constant
          * @BB10X
          * @description Bluetooth tethering connection
          */
 
-         BLUETOOTH_DUN : 1,
+         BLUETOOTH_DUN : 3,
         /**
-         * @default 2
          * @type Number
          * @constant
          * @BB10X
          * @description Cellular connection
          */
 
-         CELLULAR : 2,
+         CELLULAR : 7,
         /**
-         * @default 3
          * @type Number
          * @constant
          * @BB10X
          * @description Wired ethernet connection
          */
 
-         ETHERNET : 3,
+         ETHERNET : 1,
         /**
-         * @default 4
          * @type Number
          * @constant
          * @BB10X
          * @description No connection
          */
 
-         NONE : 4,
+         NONE : 8,
         /**
-         * @default 5
          * @type Number
          * @constant
          * @BB10X
          * @description Unknown connection
          */
-        UNKNOWN : 5,
+        UNKNOWN : 0,
         /**
-         * @default 6
          * @type Number
          * @constant
          * @BB10X
          * @description USB connection
          */
 
-         USB : 6,
+         USB : 4,
         /**
-         * @default 7
          * @type Number
          * @constant
          * @BB10X
          * @description VPN connection
          */
 
-         VPN : 7,
+         VPN : 5,
         /**
-         * @default 8
          * @type Number
          * @constant
          * @BB10X
          * @description Wi-fi connection
          */
 
-         WIFI : 8
+         WIFI : 2
 }
