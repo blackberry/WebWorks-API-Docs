@@ -368,6 +368,7 @@ blackberry.ui.dialog ={
 		 * @description Bottom located dialog
 		 * @default "bottomCenter"
 		 * @PB10+
+         * @BB10X
 		 * @RIPPLE
 		 */
 		BOTTOM : "bottomCenter",
