@@ -57,8 +57,9 @@ blackberry.ui.dialog ={
 		 * @callback {Number} [onOptionSelected.index] The index of the selection the user has made.
 		 * @param {Object} [settings = null] Optional Object literal that allows the user to manipulate the size, location, title of the dialog, and whether this is a global dialog (your application cannot be minimized when a global dialog is active; by default when the 'global' flag is not passed, dialog will be modal only for your application). It is not required to provide all parameters, and these do not have to be specified in any particular order. <p> NOTE: The settings parameter applies only to PlayBook and to Ripple. On the smartphone, it has no effect.
 		 * @param {String} [settings.title] Desired title of the dialog.
-		 * @param {String[]} [settings.size] Desired size of the dialog.
-		 * @param {String[]} [settings.position] Desired position of the dialog.
+		 * @param {String} [settings.size] Desired size of the dialog.
+		 * @param {String} [settings.position] Desired position of the dialog.
+		 * @param {Boolean} [settings.global] Specifies the global flag of the dialog.
 		 * @BB50+
 		 * @PB10+
 		 * @BB10X
@@ -121,8 +122,8 @@ blackberry.ui.dialog ={
 		 * @callback {Number} [onOptionSelected.index] The index of the selection the user has made.
 		 * @param {Object} [settings = null] Optional Object literal that allows the user to manipulate the size, location, title of the dialog, and whether this is a global dialog (your application cannot be minimized when a global dialog is active; by default when the 'global' flag is not passed, dialog will be modal only for your application). It is not required to provide all parameters, and these do not have to be specified in any particular order. <p> NOTE: The settings parameter applies only to PlayBook and to Ripple. On the smartphone, it has no effect.
 		 * @param {String} [settings.title] Desired title of the dialog.
-		 * @param {String[]} [settings.size] Desired size of the dialog.
-		 * @param {String[]} [settings.position] Desired position of the dialog.
+		 * @param {String} [settings.size] Desired size of the dialog.
+		 * @param {String} [settings.position] Desired position of the dialog.
 		 * @BB50+
 		 * @PB10+
 		 * @RIPPLE
