@@ -126,6 +126,7 @@ blackberry.ui.dialog ={
 		 * @param {String} [settings.position] Desired position of the dialog.
 		 * @BB50+
 		 * @PB10+
+		 * @BB10X
 		 * @RIPPLE
 		 * @example
 		 * &lt;script type="text/javascript"&gt;
@@ -256,6 +257,7 @@ blackberry.ui.dialog ={
 		 * @default 0
 		 * @BB50+
 		 * @PB10+
+		 * @BB10X
 		 * @RIPPLE
 		 */
 		D_OK : 0,
@@ -266,6 +268,7 @@ blackberry.ui.dialog ={
 		 * @default 1
 		 * @BB50+
 		 * @PB10+
+		 * @BB10X
 		 * @RIPPLE
 		 */
 		D_SAVE:1,
@@ -276,6 +279,7 @@ blackberry.ui.dialog ={
 		 * @default 2
 		 * @BB50+
 		 * @PB10+
+		 * @BB10X
 		 * @RIPPLE
 		 */
 		D_DELETE:2,
@@ -286,6 +290,7 @@ blackberry.ui.dialog ={
 		 * @default 3
 		 * @BB50+
 		 * @PB10+
+		 * @BB10X
 		 * @RIPPLE
 		 */
 		D_YES_NO:3,
@@ -296,6 +301,7 @@ blackberry.ui.dialog ={
 		 * @default 4
 		 * @BB50+
 		 * @PB10+
+		 * @BB10X
 		 * @RIPPLE
 		 */
 		D_OK_CANCEL:4,
