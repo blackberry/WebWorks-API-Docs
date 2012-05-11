@@ -57,10 +57,12 @@ blackberry.ui.dialog ={
 		 * @callback {Number} [onOptionSelected.index] The index of the selection the user has made.
 		 * @param {Object} [settings = null] Optional Object literal that allows the user to manipulate the size, location, title of the dialog, and whether this is a global dialog (your application cannot be minimized when a global dialog is active; by default when the 'global' flag is not passed, dialog will be modal only for your application). It is not required to provide all parameters, and these do not have to be specified in any particular order. <p> NOTE: The settings parameter applies only to PlayBook and to Ripple. On the smartphone, it has no effect.
 		 * @param {String} [settings.title] Desired title of the dialog.
-		 * @param {String[]} [settings.size] Desired size of the dialog.
-		 * @param {String[]} [settings.position] Desired position of the dialog.
+		 * @param {String} [settings.size] Desired size of the dialog.
+		 * @param {String} [settings.position] Desired position of the dialog.
+		 * @param {Boolean} [settings.global] Specifies the global flag of the dialog.
 		 * @BB50+
 		 * @PB10+
+		 * @BB10X
 		 * @RIPPLE
 		 * @example
 		 * &lt;script type="text/javascript"&gt;
@@ -120,8 +122,8 @@ blackberry.ui.dialog ={
 		 * @callback {Number} [onOptionSelected.index] The index of the selection the user has made.
 		 * @param {Object} [settings = null] Optional Object literal that allows the user to manipulate the size, location, title of the dialog, and whether this is a global dialog (your application cannot be minimized when a global dialog is active; by default when the 'global' flag is not passed, dialog will be modal only for your application). It is not required to provide all parameters, and these do not have to be specified in any particular order. <p> NOTE: The settings parameter applies only to PlayBook and to Ripple. On the smartphone, it has no effect.
 		 * @param {String} [settings.title] Desired title of the dialog.
-		 * @param {String[]} [settings.size] Desired size of the dialog.
-		 * @param {String[]} [settings.position] Desired position of the dialog.
+		 * @param {String} [settings.size] Desired size of the dialog.
+		 * @param {String} [settings.position] Desired position of the dialog.
 		 * @BB50+
 		 * @PB10+
 		 * @RIPPLE
@@ -367,6 +369,7 @@ blackberry.ui.dialog ={
 		 * @description Bottom located dialog
 		 * @default "bottomCenter"
 		 * @PB10+
+		 * @BB10X
 		 * @RIPPLE
 		 */
 		BOTTOM : "bottomCenter",
@@ -376,6 +379,7 @@ blackberry.ui.dialog ={
 		 * @description Center located dialog
 		 * @default "middleCenter"
 		 * @PB10+
+		 * @BB10X
 		 * @RIPPLE
 		 */
 		CENTER : "middleCenter",
@@ -385,6 +389,7 @@ blackberry.ui.dialog ={
 		 * @description Top located dialog
 		 * @default "topCenter"
 		 * @PB10+
+		 * @BB10X
 		 * @RIPPLE
 		 */
 		TOP : "topCenter",
@@ -394,6 +399,7 @@ blackberry.ui.dialog ={
 		 * @description Full size dialog
 		 * @default "full"
 		 * @PB10+
+		 * @BB10X
 		 * @RIPPLE
 		 */
 		SIZE_FULL : null,
@@ -403,6 +409,7 @@ blackberry.ui.dialog ={
 		 * @description Large size dialog
 		 * @default "large"
 		 * @PB10+
+		 * @BB10X
 		 * @RIPPLE
 		 */
 		SIZE_LARGE : null,
@@ -412,6 +419,7 @@ blackberry.ui.dialog ={
 		 * @description Medium size dialog
 		 * @default "medium"
 		 * @PB10+
+		 * @BB10X
 		 * @RIPPLE
 		 */
 		SIZE_MEDIUM : null,
@@ -420,6 +428,7 @@ blackberry.ui.dialog ={
 		 * @description Small size dialog
 		 * @default "small"
 		 * @PB10+
+		 * @BB10X
 		 * @RIPPLE
 		 */
 		SIZE_SMALL : null,
@@ -429,6 +438,7 @@ blackberry.ui.dialog ={
 		 * @description Tall size dialog
 		 * @default "tall"
 		 * @PB10+
+		 * @BB10X
 		 * @RIPPLE
 		 */
 		SIZE_TALL : null
