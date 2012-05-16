@@ -275,7 +275,46 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	 *&lt;/body&gt;
 	 *&lt;/html&gt;
 	 */
-	get: function(){}
+	get: function(){},
+
+   /**#@+
+    * @noSignature
+    * @event
+    * @BB10X
+    * @description This event is fired by the system. If you want to listen to the event you can do so using the {@link blackberry.event.addEventListener} function and remove the listener using the {@link blackberry.event.removeEventListener} function. <br/>
+    */
 	
-	
+   /**
+    * @description The <b>pause</b> event is triggered whenever the the application is put into the background.
+    * @callback {function} yourCallbackFunction The callback function that will be invoked on the pause event
+    * @example
+    * &lt;script type="text/javascript"&gt;
+    * 
+    * function onPause() {
+    *   alert("The app is about to be paused.");
+    * }
+    *
+    * blackberry.event.addEventListener("pause", onPause);
+    *
+    * &lt;/script&gt;
+    */
+   pause : function(){},
+
+   /**
+    * @description The <b>resume</b> event is triggered whenever the the application is retrieved from the background.
+    * @callback {function} yourCallbackFunction The callback function that will be invoked on the resume event
+    * @example
+    * &lt;script type="text/javascript"&gt;
+    * 
+    * function onResume() {
+    *   alert("The app is resumed.");
+    * }
+    *
+    * blackberry.event.addEventListener("resume", onResume);
+    *
+    * &lt;/script&gt;
+    */
+   resume : function(){}
+
+    /**#@-*/
 };

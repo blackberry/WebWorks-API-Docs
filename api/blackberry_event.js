@@ -17,7 +17,6 @@
 /**
  * @namespace The event Object contains functions for dealing with specific events.
  * @toc {Event} Event
- * @featureID blackberry.event
  * @example
  * &lt;html&gt;
  * &lt;head&gt;
