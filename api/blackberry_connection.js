@@ -29,6 +29,34 @@ blackberry.connection = {
          */
         type : 0,
 
+       /**#@+
+        * @noSignature
+        * @event
+        * @BB10X
+        * @description This event is fired by the system. If you want to listen to the event you can do so using the {@link blackberry.event.addEventListener} function and remove the listener using the {@link blackberry.event.removeEventListener} function. <br/>
+        */
+        
+       /**
+        * @description The <b>connectionchange</b> event is triggered whenever the network connection type changes.
+        * @callback {function} yourCallbackFunction The callback function that will be invoked on the connectionchange event.
+        * @callback {Object} yourCallbackFunction.info An object with the pertinent information.
+        * @callback {Number} yourCallbackFunction.info.oldType The network connection type prior to the event.
+        * @callback {Number} yourCallbackFunction.info.newType The new network connection type.
+        * @example
+        * &lt;script type="text/javascript"&gt;
+        *
+        * function onChange(info) {
+        *   alert("The network connection type used to be: " + info.oldType + " and is now: " + info.newType);
+        * }
+        *
+        * blackberry.event.addEventListener("connectionchange", onChange);
+        *
+        * &lt;/script&gt;
+        */
+       connectionchange : function(){},
+
+        /**#@-*/
+
         /**
          * @type Number
          * @constant
