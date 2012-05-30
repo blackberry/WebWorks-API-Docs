@@ -23,7 +23,7 @@
 blackberry.connection = {
 
         /**
-         * @description The type of network connection that is being used by the application.
+         * @description The type of network connection that is being used by the application. Note that CELL_4G is always returned for cellular connection.
          * @type String
          * @readOnly
          * @BB10X
