@@ -15,6 +15,7 @@
 */
 
 /**
+ * @beta
  * @namespace The Connection object gives access to the device's cellular and wifi connection information.
  * @toc {Connection} Connection
  * @featureID blackberry.connection
@@ -23,11 +24,11 @@ blackberry.connection = {
 
         /**
          * @description The type of network connection that is being used by the application.
-         * @type Number
+         * @type String
          * @readOnly
          * @BB10X
          */
-        type : 0,
+        type : "",
 
        /**#@+
         * @noSignature
@@ -58,74 +59,90 @@ blackberry.connection = {
         /**#@-*/
 
         /**
-         * @type Number
+         * @type String
          * @constant
          * @BB10X
          * @description BlackBerry Bridge connection
          */
 
-         BB : 6,
+         BB : "rim-bb",
         /**
-         * @type Number
+         * @type String
          * @constant
          * @BB10X
          * @description Bluetooth tethering connection
          */
 
-         BLUETOOTH_DUN : 3,
+         BLUETOOTH_DUN : "bluetooth_dun",
         /**
-         * @type Number
+         * @type String
          * @constant
          * @BB10X
-         * @description Cellular connection
+         * @description Cellular 2G connection
          */
 
-         CELLULAR : 7,
+         CELL_2G : "2g",
         /**
-         * @type Number
+         * @type String
+         * @constant
+         * @BB10X
+         * @description Cellular 3G connection
+         */
+
+         CELL_3G : "3g",
+        /**
+         * @type String
+         * @constant
+         * @BB10X
+         * @description Cellular 4G connection
+         */
+
+         CELL_4G : "4g",
+        /**
+         * @type String
          * @constant
          * @BB10X
          * @description Wired ethernet connection
          */
 
-         ETHERNET : 1,
+         ETHERNET : "ethernet",
         /**
-         * @type Number
+         * @type String
          * @constant
          * @BB10X
          * @description No connection
          */
 
-         NONE : 8,
+         NONE : "none",
         /**
-         * @type Number
+         * @type String
          * @constant
          * @BB10X
          * @description Unknown connection
          */
-        UNKNOWN : 0,
+        UNKNOWN : "unknown",
         /**
-         * @type Number
+         * @type String
          * @constant
          * @BB10X
          * @description USB connection
          */
 
-         USB : 4,
+         USB : "usb",
         /**
-         * @type Number
+         * @type String
          * @constant
          * @BB10X
          * @description VPN connection
          */
 
-         VPN : 5,
+         VPN : "vpn",
         /**
-         * @type Number
+         * @type String
          * @constant
          * @BB10X
          * @description Wi-fi connection
          */
 
-         WIFI : 2
+         WIFI : "wifi"
 }
