@@ -51,7 +51,8 @@ function publish(symbolSet) {
     try {
 		var classTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"class.tmpl");
         var PHPTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"PHP.tmpl");
-        var viewableClassTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"viewableClass.tmpl");
+        //var jsNavTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"nav_js.tmpl");
+        //var viewableClassTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"viewableClass.tmpl");
 	}
 	catch(e) {
         print("Couldn't create the required templates: " + e);
@@ -106,14 +107,22 @@ function publish(symbolSet) {
 
     var processedPHP = PHPTemplate.process(tocClasses);
     IO.saveFile(publish.conf.outDir, "ref_menu.php", processedPHP);
-    
+   
+//    var processedJSNav = jsNavTemplate.process(classes);
+//    IO.saveFile(publish.conf.outDir, "nav.js", processedJSNav);
+
     // create each of the viewable class pages
+    /* Turning off viewable classes for now
     for ( var i = 0, l = classes.length; i < l; i++) {
         symbol = classes[i];
 
         output = viewableClassTemplate.process(symbol);
 		IO.saveFile(publish.conf.outDir+publish.conf.viewDir, ((JSDOC.opt.u)? Link.filemap[symbol.alias] : symbol.alias) + publish.conf.ext, output);
     }
+    // create a viewable version of the index.html
+    output = viewableClassTemplate.process({alias : 'index'});
+    IO.saveFile(publish.conf.outDir+publish.conf.viewDir, 'index' + publish.conf.ext, output);
+    */
 
     // COPY FILES
     // Copy Static files for microsite
@@ -123,9 +132,6 @@ function publish(symbolSet) {
     // Copy Image files for viewable HTML (already copied for microsite by @image tags)
     copyFiles(publish.conf.outDir + publish.conf.imagesDir, publish.conf.outDir + publish.conf.viewDir + publish.conf.imagesDir);
 
-    // create a viewable version of the index.html
-    output = viewableClassTemplate.process({alias : 'index'});
-    IO.saveFile(publish.conf.outDir+publish.conf.viewDir, 'index' + publish.conf.ext, output);
 
 }
 
@@ -249,7 +255,7 @@ function makeSrcFile(path, srcDir, name) {
 }
 
 /** Build output for displaying function parameters. */
-function makeSignature(params) {
+function makeSignature(params, showCallback) {
 	if (!params) return "()";
 	var signature = "("
 	+
@@ -259,11 +265,19 @@ function makeSignature(params) {
 		}
 	).map(
 		function($) {
-        if ($.isOptional) {
-            return "<i>[" + $.name + ": " + $.type + "]</i>";
-        } else {
-            return $.name + " : " + $.type;
-        }
+            var returnValue,
+                type = (($.type)?(new Link().toSymbol($.type)) : "");
+
+            if ($.isCallback && showCallback) {
+                returnValue = $.name + ": function" + makeCallbackSignature(params.filter(function(param) { return param.name.indexOf($.name + ".") === 0}));
+            } else {
+                returnValue = $.name + " : " + type;
+            }
+
+            if ($.isOptional) {
+                returnValue = "<i>[" + returnValue + "]</i>";
+            }
+            return returnValue;
 		}
 	).join(", ")
 	+
