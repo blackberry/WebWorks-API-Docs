@@ -46,6 +46,7 @@ var functionParams,
                                             {+getSymbolName(member)+}
                                     <else/>
                                         <if test="member.isStatic">static</if>              
+                                        <if test="member.readOnly">readonly</if>
                                         <if test="member.type">{+new Link().toSymbol(member.type).toString().replace(/\|/g, ' | ')+}
                                         <else/>
                                             void
@@ -54,8 +55,14 @@ var functionParams,
                                             [{+makeSignature(member.params).slice(1,-1)+}]
                                         <else />
                                             {+getSymbolName(member)+}
-                                            <if test="!isProperty(member) && !isConstant(member)">
-                                                {+makeSignature(member.params, true)+}
+                                            <if test="!isProperty(member)">
+                                                <if test="isConstant(member)">
+                                                    <if test="member.defaultValue">
+                                                        = {+ resolveLinks(member.defaultValue) +}
+                                                    </if>
+                                                <else />
+                                                    {+makeSignature(member.params, true)+}
+                                                </if>
                                             </if>
                                         </if>                          
                                     </if>
@@ -167,6 +174,14 @@ var functionParams,
                                 <br />
                             </if>
                             
+                            {!/**********     Default Value     **********/!}
+                            <if test="member.defaultValue && isProperty(member)">
+                                <br />
+                                <span><b>Default Value:</b></span>
+                                <p> {+resolveLinks(member.defaultValue)+} </p>
+                                <br />
+                            </if>
+
                             {!/**********     Code Example     **********/!}
                             {+subtemplate("subtemplates/example.tmpl", {example: member.example})+}
                         </div>
