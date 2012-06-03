@@ -1,5 +1,5 @@
 /*
-* Copyright 2010-2011 Research In Motion Limited.
+* Copyright 2010-2012 Research In Motion Limited.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ function publish(symbolSet) {
     publish.conf = { // trailing slash expected for dirs
         ext : ".html",
         outDir : JSDOC.opt.d || SYS.pwd + "../out/jsdoc/",
-        templatesDir : JSDOC.opt.t || SYS.pwd + "../templates/jsdoc/",
+        templatesDir : JSDOC.opt.t || SYS.pwd + "../templates/BBTemplate/",
         staticDir : "static/",
         symbolsDir : "",
         srcDir : "src/",
@@ -31,6 +31,37 @@ function publish(symbolSet) {
         viewDir : "view/"        
     };
 
+    //Adding JSON
+    load(publish.conf.templatesDir + "json2.js");
+    //Adding Array.reduce
+    if (!Array.prototype.reduce) {  
+        Array.prototype.reduce = function reduce(accumulator) {  
+            if (this===null || this===undefined) throw new TypeError("Object is null or undefined");  
+                var i = 0, l = this.length >> 0, curr;  
+
+            if(typeof accumulator !== "function") // ES5 : "If IsCallable(callbackfn) is false, throw a TypeError exception."  
+                throw new TypeError("First argument is not callable");  
+
+            if(arguments.length < 2) {  
+                if (l === 0) throw new TypeError("Array length is 0 and no second argument");  
+                    curr = this[0];  
+                i = 1; // start accumulating at the second element  
+            }  
+            else  
+                curr = arguments[1];  
+
+            while (i < l) {  
+                if(i in this) curr = accumulator.call(undefined, curr, this[i], i, this);  
+                    ++i;  
+            }  
+
+            return curr;  
+        };  
+    }  
+    //Adding nav functions
+    load(publish.conf.templatesDir + "nav.js");
+
+    
     // is source output is suppressed, just display the links to the source file
     if (JSDOC.opt.s && defined(Link) && Link.prototype._makeSrcLink) {
         Link.prototype._makeSrcLink = function(srcFilePath) {
@@ -50,8 +81,9 @@ function publish(symbolSet) {
     // create the required templates
     try {
 		var classTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"class.tmpl");
-        var PHPTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"PHP.tmpl");
-        //var jsNavTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"nav_js.tmpl");
+        var jsNavTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"nav_js.tmpl");
+        var classesTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"classes.tmpl");
+        var topicsTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"topics.tmpl");
         //var viewableClassTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"viewableClass.tmpl");
 	}
 	catch(e) {
@@ -103,13 +135,14 @@ function publish(symbolSet) {
     // Generate the toc page
     Link.base = "";
 
-    var tocClasses = classes.filter(function ($) {return ($.toc)} ).sort(makeTocSort());
+    var processedJSNav = jsNavTemplate.process(classes);
+    IO.saveFile(publish.conf.outDir, "nav.js", processedJSNav);
 
-    var processedPHP = PHPTemplate.process(tocClasses);
-    IO.saveFile(publish.conf.outDir, "ref_menu.php", processedPHP);
-   
-//    var processedJSNav = jsNavTemplate.process(classes);
-//    IO.saveFile(publish.conf.outDir, "nav.js", processedJSNav);
+    var processedClasses = classesTemplate.process(classes);
+    IO.saveFile(publish.conf.outDir, "classes.html", processedClasses);
+
+    var processedTopics = topicsTemplate.process(classes);
+    IO.saveFile(publish.conf.outDir, "topics.html", processedTopics);
 
     // create each of the viewable class pages
     /* Turning off viewable classes for now
@@ -203,30 +236,6 @@ function makeSpecialSortby(attribute1, attribute2) {
     }
 }
 
-function makeTocSort() {
-    return function(a, b) {
-        try {
-            var baseAttribute = "toc";
-            var subAttribute1 = "type";
-            var subAttribute2 = "desc";
-			if (a[baseAttribute] != undefined &&
-			    a[baseAttribute][subAttribute1] != undefined  &&
-			    a[baseAttribute][subAttribute2] != undefined  &&
-			    b[baseAttribute] != undefined &&
-			    a[baseAttribute][subAttribute1] != undefined  &&
-			    b[baseAttribute][subAttribute2] != undefined ) {
-				a = a[baseAttribute][subAttribute1].toLowerCase() + a[baseAttribute][subAttribute2].toLowerCase();
-				b = b[baseAttribute][subAttribute1].toLowerCase() + b[baseAttribute][subAttribute2].toLowerCase();
-				//print("Comparing " + a + " and " +b + " and result is " + (a>b?1:(a<b?-1:0)) );
-				if (a < b) return -1;
-				if (a > b) return 1;
-                return 0;
-            }
-        } catch (e) {
-            print("Couldn't sort by attribute " + attribute + ": " + e);
-        }
-    }
-}
 
 /** Pull in the contents of an external file at the given path. */
 function include(path) {
