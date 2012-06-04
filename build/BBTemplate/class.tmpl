@@ -114,8 +114,8 @@
             <for each="item" in="data.notice">
                 <if test="!(isBlank(item.title) || isBlank(item.desc))">
                     <div class="notice warning">                        
-                        <h3>{+item.title+}</h3>
-                        {+item.desc+}                        
+                        <span><b>{+item.title+}</b></span>
+                        <p>{+resolveLinks(item.desc)+}</p>
                     </div>
                 </if>
             </for>
@@ -125,16 +125,18 @@
 {!/***********     Beta Notice     ***********/!}
         <if test="data.betaTag">
             <div class="notice warning">                
-                <h3>Beta Notice:</h3>
-                This API is considered to be in Beta.
-                The function and property signatures listed below could change at anytime.
-                Once the API moves out of Beta it will be distributed as part of the core API.
-                <br /><br />
-                <for each="item" in="data.betaTag">
-                    {+item.desc+}
-                </for>
-                <br /><br />
-                <i>Last Updated: {+new Date()+}</i>                
+                <span><b>Beta Notice:</b></span>
+                <p>
+                    This API is considered to be in Beta.
+                    The function and property signatures listed below could change at anytime.
+                    Once the API moves out of Beta it will be distributed as part of the core API.
+                    <br /><br />
+                    <for each="item" in="data.betaTag">
+                        {+resolveLinks(item.desc)+}
+                    </for>
+                    <br /><br />
+                    <i>Last Updated: {+new Date()+}</i>
+                </p>
             </div>
         </if>
 

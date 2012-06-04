@@ -161,9 +161,9 @@ function publish(symbolSet) {
     // Copy Static files for microsite
 	copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir );
     // Copy Static files for viewable HTML
-	copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir + publish.conf.viewDir);    
+	//copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir + publish.conf.viewDir);    
     // Copy Image files for viewable HTML (already copied for microsite by @image tags)
-    copyFiles(publish.conf.outDir + publish.conf.imagesDir, publish.conf.outDir + publish.conf.viewDir + publish.conf.imagesDir);
+    //copyFiles(publish.conf.outDir + publish.conf.imagesDir, publish.conf.outDir + publish.conf.viewDir + publish.conf.imagesDir);
 
 
 }
@@ -348,7 +348,7 @@ function resolveLinks(str, from) {
 					IO.copyFile(JSDOC.opt._[i]+"/"+symbolName, publish.conf.outDir+"/"+publish.conf.imagesDir);
             }
 			}catch(e){}
-			return "<image src=\""+publish.conf.imagesDir + fileName+"\">";
+			return "<image src=\"/html5/files/apis/"+publish.conf.imagesDir + fileName+"\">";
         }
 	);
 

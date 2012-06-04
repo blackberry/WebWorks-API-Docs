@@ -76,8 +76,8 @@ var functionParams,
                                 <for each="item" in="member.apiNotice">
                                     <if test="!(isBlank(item.title) || isBlank(item.desc))">
                                         <div class="notice note">                        
-                                            <h3>{+item.title+}</h3>
-                                            {+resolveLinks(item.desc)+}                        
+                                            <span><b>{+item.title+}</b></span>
+                                            <p>{+resolveLinks(item.desc)+}</p>
                                         </div>
                                     </if>
                                 </for>
