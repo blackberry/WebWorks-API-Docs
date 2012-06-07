@@ -28,211 +28,107 @@
         - BlackBerry WebWorks
     </title>
 
-    <script type="text/javascript" src="https://bdsc.webapps.blackberry.com/html5/webroot/js/main.min.js"></script>
-
-      <link href="https://bdsc.webapps.blackberry.com/html5/webroot/css/main.min.css" type="text/css" rel="stylesheet" />
-
-      <script type="text/javascript">
-
-        global.init('https://bdsc.webapps.blackberry.com/html5/', 'apis', 'index', '', 'https://bdsc.webapps.blackberry.com/html5/webroot/');
-
-      </script>
-
-       <!--[if lt IE 9]>
-
-        <link rel="stylesheet" type="text/css" href="https://bdsc.webapps.blackberry.com/html5/webroot/css/main-ie7.min.css" />
-
-      <script src="https://bdsc.webapps.blackberry.com/html5/webroot/js/html5.js" type="text/javascript"></script>
-
-      <![endif]-->
-
-            <!--[if lte IE 9]>
-
-                <link rel="stylesheet" type="text/css" href="https://bdsc.webapps.blackberry.com/html5/webroot/css/main-ie.min.css" />
-
-            <![endif]-->
-
-            <!--[if IE 9]>
-
-        <style type="text/css">
-
-          #carousel-news .carousel-item .link {
-
-            background-position: 0 3px;
-
-          }
-
-          .highlights .highlight .link {
-
-            background-position: 0 3px;
-
-
-
-          }
-
-
-
-          .shortcuts .column .meta .link { background-position: 0 12px; }
-
-          .shortcuts .column a:hover .meta .link { background-position: 0 -12px; }
-
-          .extra-item .meta .link {}
-
-        </style>
-
-      <![endif]-->
-
-
-
-          <!--[if IE 7]>
-
-        <script type="text/javascript">
-
-          $(document).ready(function() {
-
-            $('a[name]').css('color', '#363636');
-
-            $('a[name]').hover(function () { $(this).css('text-decoration', 'none') });
-
-          });
-
-        </script>
-
-    <![endif]-->
-
-
-
+    <script type="text/javascript" src="https://bdsc.webapps.blackberry.com/html5/webroot/js/pagehead.min.js"></script>
+    <link href="https://bdsc.webapps.blackberry.com/html5/webroot/css/main.min.css" type="text/css" rel="stylesheet" />
 </head>
 
 <body>
     <div class="site_container clearfix guide-container">
+        <section  class="page_container references">
+            <div class="row">
+                <nav class="column grid_4 side-navigation" id="side-nav-api" role="navigation">
+                    <div id="sticky-anchor"> </div>
+                    <div class="side-nav-wrapper" id="sticky">
+                        <div class="side-nav-content clearfix" id="none">
+                            <div class="side-nav-section clearfix" id="side-nav-title">
+                                <h3>API Reference</h3>
+                            </div>
+                            <div class="side-nav-section loading clearfix" id="side-nav-parents"> 
+                            </div>
+                            <div class="side-nav-section clearfix" id="side-nav-filter"> 
+                            </div>
+                            <div class="side-nav-section loading clearfix" id="side-nav-children"> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-navspacer-bottom"> </div>
+                </nav>
 
-{!
-
-    var toc,
-        jsonToc,
-        i,
-        j,
-        htmlOutput,
-        jsonTocElem,
-        jsonTocElemLink,
-        jsonTocElemName,
-        jsonTocElemChild,
-        jsonTocElemChildLink,
-        jsonTocElemChildName,
-        prefix = '/html5/apis/',
-        htmlFragment;
-
-
-    //Read in and process DitaMap into TOC
-    toc = IO.readFile(publish.conf.outDir + "menu-apis.php.json");
-    //jsonToc = JSON.parse(toc); no JSON :(
-    eval('jsonToc = ' + toc);
-
-    htmlOutput = "<div class=\"column grid_4 side-navigation\"><ul class=\"level_1\">";
-    for (i = 0; i < jsonToc.length; i++) {
-        jsonTocElem = jsonToc[i];
-        jsonTocElemLink = jsonTocElem.link.slice(prefix.length);
-        jsonTocElemName = jsonTocElem.title;
-        if (data.toc && data.toc.type === jsonTocElemName) {
-            htmlOutput += "<li class=\"with_children open\"><span class=\"item child_active\">";
-        } else {
-            htmlOutput += "<li class=\"with_children not_open\"><span class=\"item\">";
-        }
-        htmlOutput += "<span class=\"opener\">&nbsp;</span><a href=\"" + jsonTocElemLink + "\">" + jsonTocElemName + "</a></span>";
-        if (jsonTocElem.children.length) {
-            htmlOutput += "<ul class=\"obfuscated_css level_2\">";
-            for (j = 0; j < jsonTocElem.children.length; j++) {
-                jsonTocElemChild = jsonTocElem.children[j];
-                jsonTocElemChildLink = jsonTocElemChild.link.slice(prefix.length);
-                jsonTocElemChildName = jsonTocElemChild.title;
-                htmlOutput += "<li class=\"no_children\">";
-                if (data.toc && data.toc.desc === jsonTocElemChildName) {
-                    htmlOutput += "<span class=\"item active\">";
-                } else {
-                    htmlOutput += "<span class=\"item\">";
-                }
-                htmlOutput += "<span class=\"opener\">&nbsp;</span><a href=\"" + jsonTocElemChildLink + "\">" + jsonTocElemChildName + "</a></span></li>";
-            }
-            htmlOutput += "</ul>";
-        }
-        htmlOutput += "</li><li class=\"seperator\"></li>";
-    }
-    htmlOutput += "</ul></div>";
-
-    htmlOutput += "\n\n        ";
-
-    htmlOutput += "<div class=\"column grid_8 page-content\">";
-    htmlFragment = IO.readFile(publish.conf.outDir + data.alias + publish.conf.ext);
-    htmlOutput += htmlFragment;
-    htmlOutput += "</div>";
-
-!}
-
-<section class="page_container guide-section two_columns">
-
-    <div class="row clearfix">
-
-        {+htmlOutput+}
-
+                <div class="column grid_8">
+                        <div class="row">
+                            <article id="main" class="column grid_8" role="main">
+                                {+ IO.readFile(publish.conf.outDir + data.alias + publish.conf.ext)+}
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
-</section>
 
-<script type="text/javascript">
-
-initSidebarMenuEventHandlers();
-
-function getPackage() {
-
-    pathname = document.location.pathname;
-
-    g = '/apis/'
-
-    guideposition = pathname.lastIndexOf(g);
-
-    sub = pathname.substr(guideposition+g.length);
-
-    sub2 = sub.substr(0, sub.indexOf('/'));
-
-    return sub2;
-
-}
-
-images = $('.page-content img, .page-content embed');
-
-pkg = getPackage();
-
-images.each(function() {
-
-    srcAttr = $(this).attr('src');
-
-    if (pkg != '') {
-
-        src = '/html5/files/apis/'+pkg+'/'+src;
-
-        $(this).attr('src', src);
-
-    } else {
-
-        $(this).attr('src','/html5/files/apis/'+srcAttr);
-
+<script type="text/javascript" src="https://bdsc.webapps.blackberry.com/html5/webroot/js/pageend.min.js"></script>
+<script type="text/javascript" src="https://bdsc.webapps.blackberry.com/html5/webroot/js/jquery.carouFredSel-4.4.1-packed.js"></script>
+<script type="text/javascript" src="https://client.akamai.com/dlm/dlm.js"></js>
+<script> 
+    global.init('/html5/', 'apis', 'index', '', '/html5/webroot/');
+</script>
+<script>
+var menu, menu_id_str, selected, siblings;
+    menu = null;
+    menu_id_str = $('.side-nav-content').attr('id');
+    if (menu_id_str !== 'none') {
+        menu = menu_id_str;
     }
+    $(document).ready(function () {
+        stage.initiate();
+        stage.add_measurement('footer_top', function () {
+            var m = $('#main');
+            stage.footer_top = m.offset().top + m.height();
+        }, false);
+        stage.add_measurement('art_height', function () {
+            stage.art_height = $('#main').height();
+        }, false);
+        stage.initiate();
+        sticky.initiate();
+        sizer.initiate(); /* Initiates resizing of menu on pages where it is relevant */
 
-});
+        selected = $('.no_children.item_active').first();
+        selected.siblings().addClass('active_sibling');
+        $("#main a").each(function () {
+            $(this).bind('click', function () {
+                sticky.scrollEvent();
+            });
+        });
 
+    });
+    $(window).load(function () {
+        var container, scrollTo;
+        initMenu(window.location.pathname, menu);
+        reset_size_and_scroll();
+        $(function () {
+            container = $('#side-nav-children');
+            scrollTo = $('.active', container);
+            if (scrollTo.length > 0) {
+                container.scrollTop(scrollTo.offset().top - container.offset().top + container.scrollTop() - 80);
+            }
+        });
+    });
 
-
+    $(window).resize(function (e) {
+        if (e) { e.stopPropagation(); }
+        reset_size_and_scroll();
+    });
+    $(window).scroll(function (e) {
+        if (e) { e.stopPropagation(); }
+        reset_size_and_scroll();
+    });
 </script>
+<script type="text/javascript" src="https://bdsc.webapps.blackberry.com/html5/webroot/js/pageload.min.js"></script>
+<script type="text/javascript" src="nav.js"></script>
 
-<script type="text/javascript">
-
-$(document).ready(loadPage());
-
-
-
-</script>
 
 
 </body>
 </html>
+

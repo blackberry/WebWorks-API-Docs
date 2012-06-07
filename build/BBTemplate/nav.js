@@ -34,7 +34,7 @@ function createObj(clazz, isTitle, children) {
         returnValue = {
             alt: clazz.alias,
             title: clazz.toc? clazz.toc[property]: clazz.alias,
-            link: "/html5/apis/" + (new TextLink()).toClass(clazz.alias),
+            link: (new TextLink()).toClass(clazz.alias).toString(),
             id: clazz.alias,
             children: children
         };

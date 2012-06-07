@@ -84,7 +84,7 @@ function publish(symbolSet) {
         var jsNavTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"nav_js.tmpl");
         var classesTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"classes.tmpl");
         var topicsTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"topics.tmpl");
-        //var viewableClassTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"viewableClass.tmpl");
+        var viewableClassTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"viewableClass.tmpl");
 	}
 	catch(e) {
         print("Couldn't create the required templates: " + e);
@@ -133,8 +133,7 @@ function publish(symbolSet) {
     }
 
     // Generate the toc page
-    Link.base = "";
-
+    Link.base = "/html5/apis/";
     var processedJSNav = jsNavTemplate.process(classes);
     IO.saveFile(publish.conf.outDir, "nav.js", processedJSNav);
 
@@ -144,28 +143,30 @@ function publish(symbolSet) {
     var processedTopics = topicsTemplate.process(classes);
     IO.saveFile(publish.conf.outDir, "topics.html", processedTopics);
 
-    // create each of the viewable class pages
-    /* Turning off viewable classes for now
-    for ( var i = 0, l = classes.length; i < l; i++) {
-        symbol = classes[i];
-
-        output = viewableClassTemplate.process(symbol);
-		IO.saveFile(publish.conf.outDir+publish.conf.viewDir, ((JSDOC.opt.u)? Link.filemap[symbol.alias] : symbol.alias) + publish.conf.ext, output);
-    }
-    // create a viewable version of the index.html
-    output = viewableClassTemplate.process({alias : 'index'});
-    IO.saveFile(publish.conf.outDir+publish.conf.viewDir, 'index' + publish.conf.ext, output);
-    */
-
     // COPY FILES
     // Copy Static files for microsite
 	copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir );
+    
+/********* VIEWABLE OUTPUT ***********/
+    //Create nav.js for viewable html
+    Link.base= "";
+    processedJSNav = jsNavTemplate.process(classes);
+    IO.saveFile(publish.conf.outDir + publish.conf.viewDir, "nav.js", processedJSNav);
+
     // Copy Static files for viewable HTML
-	//copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir + publish.conf.viewDir);    
+	copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir + publish.conf.viewDir);    
     // Copy Image files for viewable HTML (already copied for microsite by @image tags)
-    //copyFiles(publish.conf.outDir + publish.conf.imagesDir, publish.conf.outDir + publish.conf.viewDir + publish.conf.imagesDir);
+    copyFiles(publish.conf.outDir + publish.conf.imagesDir, publish.conf.outDir + publish.conf.viewDir + publish.conf.imagesDir);
 
+    // create a viewable version of the index, classes and topics pages
+    var viewableClasses = classes.concat([{alias: 'index'}, {alias: "classes"}, {alias: "topics"}]);
+    // create each of the viewable class pages
+    for ( var i = 0, l = viewableClasses.length; i < l; i++) {
+        symbol = viewableClasses[i];
 
+        output = viewableClassTemplate.process(symbol);
+		IO.saveFile(publish.conf.outDir + publish.conf.viewDir, ((JSDOC.opt.u)? Link.filemap[symbol.alias] : symbol.alias) + publish.conf.ext, output);
+    }
 }
 
 function copyFiles(srcDir, destDir) {

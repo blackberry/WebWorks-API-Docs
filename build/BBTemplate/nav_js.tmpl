@@ -17,16 +17,16 @@
 !}
 var menuHasSelected, localStore, localStoreAvailable, setup, Storage, menu_map,menu_link_map, default_menu, index_menu, class_menu, topics_menu;
 
-index_menu = [{"children": [], "alt": "", "link": "/html5/apis/classes.html", "id": "class", "title": "All classes"}, {"title": "Topics", "created_statically": true, "id": "topics", "link": "/html5/apis/topics.html", "alt": "Classes sorted via topics", "children": []}];
+index_menu = [{"children": [], "alt": "", "link": "{+(new TextLink()).toFile("classes.html")+}", "id": "class", "title": "All classes"}, {"title": "Topics", "created_statically": true, "id": "topics", "link": "{+(new TextLink()).toFile("topics.html")+}", "alt": "Classes sorted via topics", "children": []}];
 
 class_menu = {+ JSON.stringify(buildClassMenu(data)) +};
 
 topics_menu = {+ JSON.stringify(buildTopicsMenu(data)) +};
 
 menu_link_map = {
-"index_menu": "/html5/apis/index.html",
-"class_menu": "/html5/apis/classes.html",
-"topics_menu": "/html5/apis/topics.html"
+"index_menu": "{+(new TextLink()).toFile("index.html")+}",
+"class_menu": "{+(new TextLink()).toFile("classes.html")+}",
+"topics_menu": "{+(new TextLink()).toFile("topics.html")+}"
 };
 
 menu_map = {
