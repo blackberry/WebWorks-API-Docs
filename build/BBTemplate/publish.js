@@ -80,13 +80,10 @@ function publish(symbolSet) {
 
     // create the required templates
     try {
-		var classTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"class.tmpl");
+        var containerTemplate = new JSDOC.JsPlate(publish.conf.templatesDir + "container.tmpl");
         var jsNavTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"nav_js.tmpl");
-        var classesTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"classes.tmpl");
-        var topicsTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"topics.tmpl");
         var viewableClassTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"viewableClass.tmpl");
-	}
-	catch(e) {
+	} catch(e) {
         print("Couldn't create the required templates: " + e);
         quit();
     }
@@ -128,7 +125,7 @@ function publish(symbolSet) {
         Link.currentSymbol = symbol;
         Link.base="";
 
-        var output = classTemplate.process(symbol);
+        var output = containerTemplate.process({id: "none", tmpl: "class.tmpl", data: symbol});
 		IO.saveFile(publish.conf.outDir, ((JSDOC.opt.u)? Link.filemap[symbol.alias] : symbol.alias) + publish.conf.ext, output);
     }
 
@@ -137,21 +134,59 @@ function publish(symbolSet) {
     var processedJSNav = jsNavTemplate.process(classes);
     IO.saveFile(publish.conf.outDir, "nav.js", processedJSNav);
 
-    var processedClasses = classesTemplate.process(classes);
-    IO.saveFile(publish.conf.outDir, "classes.html", processedClasses);
+    var processedClasses = containerTemplate.process({id: "class_menu", tmpl: "classes.tmpl", data: classes});
+    IO.saveFile(publish.conf.outDir, "classes" + publish.conf.ext, processedClasses);
 
-    var processedTopics = topicsTemplate.process(classes);
-    IO.saveFile(publish.conf.outDir, "topics.html", processedTopics);
+    var bbClasses = classes.filter(function (element) {
+        return element.support && element.support.hasBBSupport();
+    });
+    processedClasses = containerTemplate.process(
+        {id: "bb_menu", tmpl: "classes.tmpl", data: bbClasses});
+    IO.saveFile(publish.conf.outDir, "bb_index" + publish.conf.ext, processedClasses);
+
+    var pbClasses = classes.filter(function (element) {
+        return element.support && element.support.hasPBSupport();
+    });
+    processedClasses = containerTemplate.process(
+        {id: "pb_menu", tmpl: "classes.tmpl", data: pbClasses});
+    IO.saveFile(publish.conf.outDir, "pb_index" + publish.conf.ext, processedClasses);
+    
+    var bb10Classes = classes.filter(function (element) {
+        return element.support && element.support.hasBB10XSupport();
+    });
+    processedClasses = containerTemplate.process(
+        {id: "bb10_menu", tmpl: "classes.tmpl", data: bb10Classes});
+    IO.saveFile(publish.conf.outDir, "bb10_index" + publish.conf.ext, processedClasses);
+    
+    var processedTopics = containerTemplate.process(
+        {id: "topics_menu", tmpl: "topics.tmpl", data: classes});
+    IO.saveFile(publish.conf.outDir, "topics" + publish.conf.ext, processedTopics);
 
     // COPY FILES
     // Copy Static files for microsite
 	copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir );
     
-/********* VIEWABLE OUTPUT ***********/
+/********* VIEWABLE OUTPUT **********/
     //Create nav.js for viewable html
     Link.base= "";
     processedJSNav = jsNavTemplate.process(classes);
     IO.saveFile(publish.conf.outDir + publish.conf.viewDir, "nav.js", processedJSNav);
+
+    //Create index files for viewable html
+    processedClasses = containerTemplate.process({id: "class_menu", tmpl: "classes.tmpl", data: classes});
+    IO.saveFile(publish.conf.outDir + publish.conf.viewDir, "classes" + publish.conf.ext, processedClasses);
+    processedClasses = containerTemplate.process(
+        {id: "bb_menu", tmpl: "classes.tmpl", data: bbClasses});
+    IO.saveFile(publish.conf.outDir + publish.conf.viewDir, "bb_index" + publish.conf.ext, processedClasses);
+    processedClasses = containerTemplate.process(
+        {id: "pb_menu", tmpl: "classes.tmpl", data: pbClasses});
+    IO.saveFile(publish.conf.outDir + publish.conf.viewDir, "pb_index" + publish.conf.ext, processedClasses);
+    processedClasses = containerTemplate.process(
+        {id: "bb10_menu", tmpl: "classes.tmpl", data: bb10Classes});
+    IO.saveFile(publish.conf.outDir + publish.conf.viewDir, "bb10_index" + publish.conf.ext, processedClasses);
+    processedTopics = containerTemplate.process(
+        {id: "topics_menu", tmpl: "topics.tmpl", data: classes});
+    IO.saveFile(publish.conf.outDir + publish.conf.viewDir, "topics" + publish.conf.ext, processedTopics);
 
     // Copy Static files for viewable HTML
 	copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir + publish.conf.viewDir);    
@@ -159,12 +194,36 @@ function publish(symbolSet) {
     copyFiles(publish.conf.outDir + publish.conf.imagesDir, publish.conf.outDir + publish.conf.viewDir + publish.conf.imagesDir);
 
     // create a viewable version of the index, classes and topics pages
-    var viewableClasses = classes.concat([{alias: 'index'}, {alias: "classes"}, {alias: "topics"}]);
+    var viewableClasses = classes.concat([
+                                         {alias: 'index'}, 
+                                         {
+                                             alias: "classes", 
+                                             path: publish.conf.outDir + publish.conf.viewDir + "classes" + publish.conf.ext
+                                         },
+                                         {
+                                             alias: "topics",
+                                             path: publish.conf.outDir + publish.conf.viewDir + "topics" + publish.conf.ext
+                                         }, 
+                                         {
+                                             alias: "bb_index",
+                                             path: publish.conf.outDir + publish.conf.viewDir + "bb_index" + publish.conf.ext
+                                         }, 
+                                         {
+                                             alias: "pb_index",
+                                             path: publish.conf.outDir + publish.conf.viewDir + "pb_index" + publish.conf.ext
+                                         }, 
+                                         {
+                                             alias: "bb10_index",
+                                             path: publish.conf.outDir + publish.conf.viewDir + "bb10_index" + publish.conf.ext
+                                         }]);
     // create each of the viewable class pages
     for ( var i = 0, l = viewableClasses.length; i < l; i++) {
         symbol = viewableClasses[i];
 
-        output = viewableClassTemplate.process(symbol);
+        var title = symbol.title || ((symbol.toc && symbol.toc.desc) ? symbol.toc.desc : symbol.alias);
+        var path = symbol.path || publish.conf.outDir + symbol.alias + publish.conf.ext;  
+
+        output = viewableClassTemplate.process({title: title, path: path});
 		IO.saveFile(publish.conf.outDir + publish.conf.viewDir, ((JSDOC.opt.u)? Link.filemap[symbol.alias] : symbol.alias) + publish.conf.ext, output);
     }
 }

@@ -1,4 +1,5 @@
-﻿<!--
+﻿{!
+/*
 * Copyright 2010-2011 Research In Motion Limited.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -11,21 +12,23 @@
 * distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 * See the License for the specific language governing permissions and
-* limitations under the License.-->
+* limitations under the License.
+*/
+
+/*
+******* Expected Incoming Data **********
+* Data.title = the title of the page
+* Data.path = the input file to be read
+*/
+!}
 
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- ============================== header ================================= -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     <title>
-        <if test="data.toc && data.toc.desc">
-            {+data.toc.desc+}
-        <else />
-            {+data.alias+}
-        </if>
-        - BlackBerry WebWorks
+        {+data.title+} - BlackBerry WebWorks
     </title>
 
     <script type="text/javascript" src="https://bdsc.webapps.blackberry.com/html5/webroot/js/pagehead.min.js"></script>
@@ -33,38 +36,9 @@
 </head>
 
 <body>
-    <div class="site_container clearfix guide-container">
-        <section  class="page_container references">
-            <div class="row">
-                <nav class="column grid_4 side-navigation" id="side-nav-api" role="navigation">
-                    <div id="sticky-anchor"> </div>
-                    <div class="side-nav-wrapper" id="sticky">
-                        <div class="side-nav-content clearfix" id="none">
-                            <div class="side-nav-section clearfix" id="side-nav-title">
-                                <h3>API Reference</h3>
-                            </div>
-                            <div class="side-nav-section loading clearfix" id="side-nav-parents"> 
-                            </div>
-                            <div class="side-nav-section clearfix" id="side-nav-filter"> 
-                            </div>
-                            <div class="side-nav-section loading clearfix" id="side-nav-children"> 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="side-navspacer-bottom"> </div>
-                </nav>
-
-                <div class="column grid_8">
-                        <div class="row">
-                            <article id="main" class="column grid_8" role="main">
-                                {+ IO.readFile(publish.conf.outDir + data.alias + publish.conf.ext)+}
-                            </article>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+<div class="site_container clearfix guide-container">
+    {+ IO.readFile(data.path)+}
+</div>
 
 
 <script type="text/javascript" src="https://bdsc.webapps.blackberry.com/html5/webroot/js/pageend.min.js"></script>

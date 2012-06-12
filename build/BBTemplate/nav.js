@@ -114,8 +114,9 @@ function makeIndexSort() {
     }
 }
 
-function buildClassMenu(data) {
-    return data.sort(makeIndexSort()).map(function (element) {
+function buildClassMenu(data, filter) {
+    filter = filter || function () { return true; }
+    return data.filter(filter).sort(makeIndexSort()).map(function (element) {
         return createObj(element, false, []);
     });
 }
