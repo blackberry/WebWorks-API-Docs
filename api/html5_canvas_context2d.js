@@ -27,6 +27,7 @@
 * @toc {User Interface} HTML5 2D Canvas Context
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */ 
 CanvasRenderingContext2D = { };
@@ -65,6 +66,7 @@ CanvasRenderingContext2D = { };
 *     &lt;/body&gt;
 * &lt;/html&gt;
 * @PB10+
+* @BB10X
 * @BB60+
 * @RIPPLE
 */
@@ -77,6 +79,7 @@ CanvasRenderingContext2D.documentConstructor = undefined;
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.canvas = { };
@@ -85,6 +88,7 @@ CanvasRenderingContext2D.prototype.canvas = { };
 * Push a copy of the current drawing state onto the drawing state stack.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.save = function() { }; 
@@ -94,6 +98,7 @@ CanvasRenderingContext2D.prototype.save = function() { };
 * state it describes.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.restore = function() { };
@@ -107,6 +112,7 @@ CanvasRenderingContext2D.prototype.restore = function() { };
 * @param {Number} y the amount to scale vertically
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.scale = function(x, y) { };
@@ -119,6 +125,7 @@ CanvasRenderingContext2D.prototype.scale = function(x, y) { };
 * @param {Number} angle clockwise rotation angle expressed in radians
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.rotate = function(angle) { };
@@ -133,6 +140,7 @@ CanvasRenderingContext2D.prototype.rotate = function(angle) { };
 * @param {Number} y y-coord of the translation
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.translate = function(x, y) { };
@@ -154,6 +162,7 @@ CanvasRenderingContext2D.prototype.translate = function(x, y) { };
 * @param {Number} dy Is the y-scalar of the transformation matrix
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.transform = function(m11, m12, m21, m22, dx, dy) { };
@@ -170,6 +179,7 @@ CanvasRenderingContext2D.prototype.transform = function(m11, m12, m21, m22, dx, 
 * @param {Number} dy Is the y-scalar of the transformation matrix
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.setTransform = function(m11, m12, m21, m22, dx, dy) { };
@@ -181,6 +191,7 @@ CanvasRenderingContext2D.prototype.setTransform = function(m11, m12, m21, m22, d
 * @type Number
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.globalAlpha = 1.0; 
@@ -248,6 +259,7 @@ CanvasRenderingContext2D.prototype.globalAlpha = 1.0;
 * @type String
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.globalCompositeOperation = "source-over";
@@ -260,6 +272,7 @@ CanvasRenderingContext2D.prototype.globalCompositeOperation = "source-over";
 * @type Object
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.strokeStyle = "black"; 
@@ -273,6 +286,7 @@ CanvasRenderingContext2D.prototype.strokeStyle = "black";
 * @type Object
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.fillStyle = "black"
@@ -292,6 +306,7 @@ CanvasRenderingContext2D.prototype.fillStyle = "black"
 * @throws {NOT_SUPPORTED_ERR} If any of the arguments are not finite numbers.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.createLinearGradient = function(x0, y0, x1, y1) { };
@@ -311,6 +326,7 @@ CanvasRenderingContext2D.prototype.createLinearGradient = function(x0, y0, x1, y
 * @throws {INDEX_SIZE_ERR} If either of the radii are negative.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.createRadialGradient = function (x0, y0, r0, x1, y1, r1) { };
@@ -342,6 +358,7 @@ CanvasRenderingContext2D.prototype.createRadialGradient = function (x0, y0, r0, 
 * @throws {SYNTAX_ERR} If the second argument isn't one of the allowed values.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.createPattern = function(image, repetition) { };
@@ -353,6 +370,7 @@ CanvasRenderingContext2D.prototype.createPattern = function(image, repetition) {
 * @type Number
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.lineWidth = 1; // (default 1)
@@ -366,6 +384,7 @@ CanvasRenderingContext2D.prototype.lineWidth = 1; // (default 1)
 * @type String
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.lineCap = "butt"; // "butt", "round", "square" (default "butt")
@@ -378,6 +397,7 @@ CanvasRenderingContext2D.prototype.lineCap = "butt"; // "butt", "round", "square
 * @type String
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.lineJoin = "miter"; // "miter", "round", "bevel"  (default "miter")
@@ -389,6 +409,7 @@ CanvasRenderingContext2D.prototype.lineJoin = "miter"; // "miter", "round", "bev
 * @type Number
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.miterLimit = 10; // (default 10)
@@ -400,6 +421,7 @@ CanvasRenderingContext2D.prototype.miterLimit = 10; // (default 10)
 * @type Number
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.shadowOffsetX = 0; // (default 0)
@@ -411,6 +433,7 @@ CanvasRenderingContext2D.prototype.shadowOffsetX = 0; // (default 0)
 * @type Number
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.shadowOffsetY = 0; // (default 0)
@@ -424,6 +447,7 @@ CanvasRenderingContext2D.prototype.shadowOffsetY = 0; // (default 0)
 * @type Number
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.shadowBlur = 0; // (default 0)
@@ -435,6 +459,7 @@ CanvasRenderingContext2D.prototype.shadowBlur = 0; // (default 0)
 * @type String
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.shadowColor = "transparent black"; // (default transparent black)
@@ -448,6 +473,7 @@ CanvasRenderingContext2D.prototype.shadowColor = "transparent black"; // (defaul
 * @param {Number} h height of the rectangle
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.clearRect = function(x, y, w, h) { };
@@ -461,6 +487,7 @@ CanvasRenderingContext2D.prototype.clearRect = function(x, y, w, h) { };
 * @param {Number} h height of the rectangle
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.fillRect = function(x, y, w, h) { };
@@ -474,6 +501,7 @@ CanvasRenderingContext2D.prototype.fillRect = function(x, y, w, h) { };
 * @param {Number} h height of the rectangle
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.strokeRect = function(x, y, w, h) { };
@@ -483,6 +511,7 @@ CanvasRenderingContext2D.prototype.strokeRect = function(x, y, w, h) { };
 * Resets the current path.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.beginPath = function() { };
@@ -492,6 +521,7 @@ CanvasRenderingContext2D.prototype.beginPath = function() { };
 * a point the same as the start and end of the newly closed subpath.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.closePath = function() { };
@@ -503,6 +533,7 @@ CanvasRenderingContext2D.prototype.closePath = function() { };
 * @param {Number} y y-coord of the point to move to
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.moveTo = function(x, y) { };
@@ -514,6 +545,7 @@ CanvasRenderingContext2D.prototype.moveTo = function(x, y) { };
 * @param {Number} y y-coord of the end point to draw a line to
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.lineTo = function(x, y) { };
@@ -528,6 +560,7 @@ CanvasRenderingContext2D.prototype.lineTo = function(x, y) { };
 * @param {Number} y y-coord of the end point
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.quadraticCurveTo = function(cpx, cpy, x, y) { };
@@ -543,6 +576,7 @@ CanvasRenderingContext2D.prototype.quadraticCurveTo = function(cpx, cpy, x, y) {
 * @param {Number} y y-coord of the end point
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.bezierCurveTo = function(cp1x, cp1y, cp2x, cp2y, x, y) { };
@@ -562,6 +596,7 @@ CanvasRenderingContext2D.prototype.bezierCurveTo = function(cp1x, cp1y, cp2x, cp
 * @throws {INDEX_SIZE_ERR} If the given radius is negative.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.arcTo = function(x1, y1, x2, y2, radius) { };
@@ -575,6 +610,7 @@ CanvasRenderingContext2D.prototype.arcTo = function(x1, y1, x2, y2, radius) { };
 * @param {Number} h height of the rectangle
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.rect = function(x, y, w, h) { };
@@ -596,6 +632,7 @@ CanvasRenderingContext2D.prototype.rect = function(x, y, w, h) { };
 * @throws {INDEX_SIZE_ERR} If the given radius is negative.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.arc = function(x, y, radius, startAngle, endAngle, anticlockwise) { };
@@ -604,6 +641,7 @@ CanvasRenderingContext2D.prototype.arc = function(x, y, radius, startAngle, endA
 * Fills the subpaths with the current fill style.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.fill = function() { };
@@ -613,6 +651,7 @@ CanvasRenderingContext2D.prototype.fill = function() { };
 * stroke style.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.stroke = function() { };
@@ -621,6 +660,7 @@ CanvasRenderingContext2D.prototype.stroke = function() { };
 * Further constrains the clipping region to the given path.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.clip = function() { };
@@ -632,6 +672,7 @@ CanvasRenderingContext2D.prototype.clip = function() { };
 * @returns {Boolean} true if point x,y is in the path, otherwise false
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.isPointInPath = function(x, y) { };
@@ -646,6 +687,7 @@ CanvasRenderingContext2D.prototype.isPointInPath = function(x, y) { };
 * @returns {Boolean} When the method returns true, the author is expected to manually draw a focus ring
 * @BB60+
 * @PB10+
+* @BB10X
 */
 CanvasRenderingContext2D.prototype.drawFocusRing = function(element, canDrawCustom) { };
 
@@ -656,6 +698,7 @@ CanvasRenderingContext2D.prototype.drawFocusRing = function(element, canDrawCust
 * @returns {Number} blinkrate in milliseconds. -1 if unsupported.
 * @BB60+
 * @PB10+
+* @BB10X
 */
 CanvasRenderingContext2D.prototype.caretBlinkRate = function() { };
  
@@ -671,6 +714,7 @@ CanvasRenderingContext2D.prototype.caretBlinkRate = function() { };
 * @returns {Boolean} true if the given element is focused or a document descendant of an element with focus. Otherwise, returns false
 * @BB60+
 * @PB10+
+* @BB10X
 */
 CanvasRenderingContext2D.prototype.setCaretSelectionRect = function(element, x, y, w, h){};
 
@@ -685,6 +729,7 @@ CanvasRenderingContext2D.prototype.setCaretSelectionRect = function(element, x, 
 * @type String
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.font = "10px sans-serif"; // (default 10px sans-serif)
@@ -698,6 +743,7 @@ CanvasRenderingContext2D.prototype.font = "10px sans-serif"; // (default 10px sa
 * @type String
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.textAlign = "start"; // "start", "end", "left", "right", "center" (default: "start")
@@ -711,6 +757,7 @@ CanvasRenderingContext2D.prototype.textAlign = "start"; // "start", "end", "left
 * @type String
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.textBaseline = "alphabetic"; // "top", "hanging", "middle", "alphabetic", "ideographic", "bottom" (default: "alphabetic")
@@ -725,6 +772,7 @@ CanvasRenderingContext2D.prototype.textBaseline = "alphabetic"; // "top", "hangi
 * @param {Number} [maxWidth] The maximum width the text should take up
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.fillText = function(text, x, y, maxWidth) { };
@@ -739,6 +787,7 @@ CanvasRenderingContext2D.prototype.fillText = function(text, x, y, maxWidth) { }
 * @param {Number} [maxWidth] The maximum width the text should take up
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.strokeText = function(text, x, y, maxWidth) { };
@@ -750,6 +799,7 @@ CanvasRenderingContext2D.prototype.strokeText = function(text, x, y, maxWidth) {
 * @returns {TextMetrics} the width of the text if rendered
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.measureText = function(text) { };
@@ -765,6 +815,7 @@ CanvasRenderingContext2D.prototype.measureText = function(text) { };
 * @param {Number} [dh] height of the destination position
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.drawImage = function(image, dx, dy, dw, dh) { };
@@ -800,6 +851,7 @@ CanvasRenderingContext2D.prototype.drawImage = function(image, dx, dy, dw, dh) {
 * @param {Number} dh height of the destination position
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.drawImage = function(image, sx, sy, sw, sh, dx, dy, dw, dh) { };
@@ -817,6 +869,7 @@ CanvasRenderingContext2D.prototype.drawImage = function(image, sx, sy, sw, sh, d
 * @returns {ImageData} The {@link ImageData} for the current context
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.createImageData = function(sw, sh) { };
@@ -830,6 +883,7 @@ CanvasRenderingContext2D.prototype.createImageData = function(sw, sh) { };
 * @throws {NOT_SUPPORTED_ERR} If the argument is null
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.createImageData = function(imagedata) { };
@@ -846,6 +900,7 @@ CanvasRenderingContext2D.prototype.createImageData = function(imagedata) { };
 * @throws {NOT_SUPPORTED_ERR} If the argument is null
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.getImageData = function(sx, sy, sw, sh) { };
@@ -872,6 +927,7 @@ CanvasRenderingContext2D.prototype.getImageData = function(sx, sy, sw, sh) { };
 * @throws {NOT_SUPPORTED_ERR} If any of the other arguments are not finite.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasRenderingContext2D.prototype.putImageData = function(imagedata, dx, dy, dirtyX, dirtyY, dirtyWidth, dirtyHeight) { };
@@ -882,6 +938,7 @@ CanvasRenderingContext2D.prototype.putImageData = function(imagedata, dx, dy, di
 * An object representing a canvas gradient pattern 
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasGradient = function() { };
@@ -896,6 +953,7 @@ CanvasGradient = function() { };
 * @throws {SYNTAX_ERR} If the color cannot be parsed
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasGradient.prototype.addColorStop = function(offset, color) { };
@@ -905,6 +963,7 @@ CanvasGradient.prototype.addColorStop = function(offset, color) { };
 * An object representing a canvas pattern 
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasPattern = function() { };
@@ -919,6 +978,7 @@ CanvasPattern = function() { };
 * @BB60+
 * @RIPPLE
 * @PB10+
+* @BB10X
 */
 TextMetrics = function() { };
 
@@ -928,6 +988,7 @@ TextMetrics = function() { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextMetrics.prototype.width = { };
@@ -937,6 +998,7 @@ TextMetrics.prototype.width = { };
 * An object representing image data on a canvas
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 ImageData = function() { };
@@ -947,6 +1009,7 @@ ImageData = function() { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 ImageData.prototype.data = undefined;
@@ -957,6 +1020,7 @@ ImageData.prototype.data = undefined;
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 ImageData.prototype.height = undefined;
@@ -967,6 +1031,7 @@ ImageData.prototype.height = undefined;
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 ImageData.prototype.width = undefined;
@@ -985,6 +1050,7 @@ ImageData.prototype.width = undefined;
 * 0 for the top left pixel's red component.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasPixelArray = function() {};
@@ -997,6 +1063,7 @@ CanvasPixelArray = function() {};
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasPixelArray.prototype.item = function() { };
@@ -1007,6 +1074,7 @@ CanvasPixelArray.prototype.item = function() { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 CanvasPixelArray.prototype.length = { };

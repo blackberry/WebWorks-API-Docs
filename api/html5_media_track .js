@@ -34,6 +34,7 @@
 * @extends HTMLElement
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 * @example
 * &lt;video src=\&quot;brave.webm\&quot;&gt;
@@ -53,6 +54,7 @@ HTMLTrackElement = function() { };
  * @example 
  * var track = document.createElement("track");
  * @PB10+
+ * @BB10X
  * @BB60+
  * @RIPPLE
  */
@@ -64,6 +66,7 @@ HTMLTrackElement.documentConstructor = undefined;
 * @type String
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLTrackElement.prototype.kind = { };
@@ -76,6 +79,7 @@ HTMLTrackElement.prototype.kind = { };
 * @type String
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLTrackElement.prototype.src = { };
@@ -88,6 +92,7 @@ HTMLTrackElement.prototype.src = { };
 * @type String
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLTrackElement.prototype.srclang = { };
@@ -103,6 +108,7 @@ HTMLTrackElement.prototype.srclang = { };
 * @type String
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLTrackElement.prototype.label = { };
@@ -117,6 +123,7 @@ HTMLTrackElement.prototype.label = { };
 * @type Boolean
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLTrackElement.prototype.default = { };
@@ -128,6 +135,7 @@ HTMLTrackElement.prototype.default = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLSourceElement.prototype.track = { };
