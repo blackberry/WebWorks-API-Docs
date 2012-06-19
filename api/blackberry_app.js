@@ -314,7 +314,23 @@ A banner indicator can have an optional numeric value that usually serves as a c
     *
     * &lt;/script&gt;
     */
-   resume : function(){}
+   resume : function(){},
+   
+   /**
+    * @description The <b>swipedown</b> event is triggered when the user swipes down from the top of the application.
+    * @callback {function} yourCallbackFunction The callback function that will be invoked on the swipedown event
+    * @example
+    * &lt;script type="text/javascript"&gt;
+    * 
+    * function onSwipedown() {
+    *   alert("Swipe down event occured.");
+    * }
+    *
+    * blackberry.event.addEventListener("swipedown", onSwipedown);
+    *
+    * &lt;/script&gt;
+    */
+   swipedown : function(){}
 
     /**#@-*/
 };
