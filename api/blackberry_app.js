@@ -50,6 +50,7 @@ blackberry.app ={
 	 * @description This function will cause the application to exit.
 	 * @BB50+
 	 * @PB10+
+	 * @BB10X
      * @RIPPLE
 	 */
 	exit: function(){},
