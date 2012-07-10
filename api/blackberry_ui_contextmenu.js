@@ -53,5 +53,110 @@ blackberry.ui.contextmenu = {
  * &lt;/script&gt;
  *
  */
- enabled : Boolean
+ enabled : Boolean,
+
+
+ /**
+ * @description Allows the developer to add custom items to the context menu. The items will be appended to the end of the list
+ * of operating system defined functions. Developers must provide the following parameters to successfully add items to the context
+ * menu.
+ * @param {String[]} contexts An array of constants defining which contexts this new item should appear.
+ * @param {Object} action An object which defines the menu item to be added.
+ * @param {String} action.actionId A property that uniquely defines the action to be added to the context menu.
+ * @param {String} action.label A string that will be displayed to the user describing the custom context to be performed. ie: Edit
+ * @param {String} action.icon A path to the an image to display in the context menu
+ * @BB10X
+ * @RIPPLE
+ * @example
+ * &lt;script type="text/javascript"&gt;
+ *
+ * function addMyItem() {
+ *     var myItem = {actionId: 'MyItem', label: 'My Item', icon:'http://mysite.com/icon.png'},
+ *         contexts = [blackberry.ui.contextmenu.CONTEXT_IMAGE, blackberry.ui.contextmenu.CONTEXT_INPUT];
+ *     blackberry.ui.contextmenu.addItem(contexts, myItem);
+ * }
+ * &lt;/script&gt;
+ *
+ */
+ addItem : function (){},
+ 
+ /**
+ * @description Allows the developer to remove previously added custom items from the context menu.
+ * @param {String[]} contexts An array of constants defining which contexts this new item should appear.
+ * @param {String} actionId An id that uniquely defines the action to be removed from the context menu.
+ * @BB10X
+ * @RIPPLE
+ * @example
+ * &lt;script type="text/javascript"&gt;
+ *
+ * function addMyItem() {
+ *     var myItem = {actionId: 'MyItem', label: 'My Item', icon:'http://mysite.com/icon.png'},
+ *         contexts = [blackberry.ui.contextmenu.CONTEXT_IMAGE, blackberry.ui.contextmenu.CONTEXT_INPUT];
+ *     blackberry.ui.contextmenu.addItem(contexts, myItem);
+ * }
+ *
+ * function removeMyItem() {
+ *     var myItem = {actionId: 'MyItem', label: 'My Item', icon:'http://mysite.com/icon.png'},
+ *         contexts = [blackberry.ui.contextmenu.CONTEXT_IMAGE, blackberry.ui.contextmenu.CONTEXT_INPUT];
+ *     blackberry.ui.contextmenu.removeItem(contexts, myItem.actionId);
+ * }
+ *
+ * &lt;/script&gt;
+ *
+ */
+removeItem: function (){},
+
+/**
+ * Constant denoting all contexts.
+ * @type String
+ * @constant
+ * @BB10X
+ * @RIPPLE
+ */
+ CONTEXT_ALL: "CONTEXT_ALL",
+
+ /**
+ * Constant denoting the context of links.
+ * @type String
+ * @constant
+ * @BB10X
+ * @RIPPLE
+ */
+ CONTEXT_LINK: "CONTEXT_LINK",
+
+ /**
+ * Constant denoting the context of images.
+ * @type String
+ * @constant
+ * @BB10X
+ * @RIPPLE
+ */
+ CONTEXT_IMAGE: "CONTEXT_IMAGE",
+
+ /**
+ * Constant denoting the context of image links.
+ * @type String
+ * @constant
+ * @BB10X
+ * @RIPPLE
+ */
+ CONTEXT_IMAGE_LINK: "CONTEXT_IMAGE_LINK",
+ 
+ /**
+ * Constant denoting the context of input fields.
+ * @type String
+ * @constant
+ * @BB10X
+ * @RIPPLE
+ */
+ CONTEXT_INPUT: "CONTEXT_INPUT",
+
+ /**
+ * Constant denoting the context of text.
+ * @type String
+ * @constant
+ * @BB10X
+ * @RIPPLE
+ */
+ CONTEXT_TEXT: "CONTEXT_TEXT"
 };
