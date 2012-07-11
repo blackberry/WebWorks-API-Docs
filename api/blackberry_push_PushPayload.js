@@ -16,8 +16,10 @@
 
 /**
 * @toc {Push} PushPayload 
-* @class The PushPayload object provides access to the payload that has arrived as the result of a push.  
-* This object cannot be created by the new keyword.  It is generated only by the system on receipt of a push notification.
+* @class The <code>PushPayload</code> object provides access to the payload that has arrived as the result of a push.  
+* This object <b>cannot</b> be created by the new keyword.  It is generated only by the system on receipt of a push notification.
+* <br/><br/>
+* For a great sample app that demonstrates how to use the push APIs, see <a href="https://github.com/blackberry/WebWorks-Samples/tree/master/pushCapture">Push Capture</a>.
 * @BB10X
 * @featureID blackberry.push
 */
@@ -38,7 +40,9 @@ blackberry.push.PushPayload = {};
 * if (pushPayload.isAcknowledgeRequired) {
 *    // Accept push
 *    pushPayload.acknowledge(true);
-*    // To reject the push, you would call: pushPayload.acknowledge(false);
+* 
+*    // To reject the push, you would call: 
+*    // pushPayload.acknowledge(false);
 * }
 */
 blackberry.push.PushPayload.prototype.acknowledge = function(shouldAcceptPush) { };
@@ -57,6 +61,7 @@ blackberry.push.PushPayload.prototype.id = undefined;
 * @readOnly 
 * @BB10X 
 * @example
+* // To access a header value with the name "header-name":
 * var headerValue = pushPayload.headers["header-name"];
 */
 blackberry.push.PushPayload.prototype.headers = undefined;
@@ -65,7 +70,12 @@ blackberry.push.PushPayload.prototype.headers = undefined;
 * The data (payload) of a push.
 * @type Blob
 * @readOnly 
-* @BB10X 
+* @BB10X
+* @example
+* // See the extractPushPayload function in the PushService 
+* // class for an example of how to convert the data   
+* // property from a Blob to a string (for plain text) 
+* // and to an ArrayBuffer (for binary)
 */
 blackberry.push.PushPayload.prototype.data = undefined;
 

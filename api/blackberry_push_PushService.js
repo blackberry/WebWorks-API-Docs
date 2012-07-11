@@ -24,6 +24,8 @@
 * <br/><br/>
 * To work with a <code>PushService</code> object, you must first call the static <code>create</code> function.  On a successful create, you will then be able
 * to perform operations using the <code>PushService</code> object you receive in the success callback.
+* <br/><br/>
+* For a great sample app that demonstrates how to use the push APIs, see <a href="https://github.com/blackberry/WebWorks-Samples/tree/master/pushCapture">Push Capture</a>. 
 * @toc {Push} PushService 
 * @class The <code>PushService</code> object allows you to perform all the push-related operations.
 * @featureID blackberry.push
@@ -60,38 +62,52 @@ blackberry.push.PushService = {};
 * @static
 * @example 
 * // For a consumer application (using the public/BIS PPG)
-* var ops = { invokeTargetId : 'com.sample.pushtest.target', appId : 'appId1', ppgUrl : 'https://cpcontprovId1.pushapi.na.blackberry.com' };
+* var ops = { invokeTargetId : 'com.sample.pushtest.target', 
+*             appId : 'appId1', 
+*             ppgUrl : 'https://cpcontprovId1.pushapi.na.blackberry.com' };
 *
 * // For an enterprise application (using the enterprise/BES PPG)
 * // var ops = { invokeTargetId : 'com.sample.pushtest.target' }; 
-* // or, with an application ID, var ops = { invokeTargetId : 'com.sample.pushtest.target', appId : 'appId1' };
+* 
+* // Or, for an enterprise application with an application ID: 
+* // var ops = { invokeTargetId : 'com.sample.pushtest.target', 
+* //             appId : 'appId1' };
+* 
 * try {
 *     blackberry.push.PushService.create(ops, successCallback, failCallback, simChangeCallback);
 * } catch (err) {
-*     console.log("Create was called more than once with different values for options.invokeTargetId or options.appId.");
+*     console.log("Create was called more than once with different " + 
+*         "values for options.invokeTargetId or options.appId.");
 *     console.log(err);
 * }
 *
 * function successCallback(pushService) {
 *    // The create operation was a success
-*    // Use the pushService object to now perform a launchApplicationOnPush, createChannel, destroyChannel, etc.
+*    // Use the pushService object to now perform a 
+*    // launchApplicationOnPush, createChannel, destroyChannel, etc.
 *    pushService.createChannel(createChannelCallback);
 * }
 *
 * function failCallback(result) {
 *    // The create operation failed
-*    // You should compare the result code against the error constants in this PushService class that apply for create and
+*    // You should compare the result code against the error constants 
+*    // in this PushService class that apply for create and
 *    // take the recommended action for that constant
 *    if (result == blackberry.push.PushService.INTERNAL_ERROR) {
-*        // Retry the create up to a certain number of attempts and then display an error to the user
+*        // Retry the create up to a certain number of attempts 
+*        // and then display an error to the user
 *    }
-*    // ... handle the other possible error constants from the PushService class
+*    // ... handle the other possible error constants 
+*    // from the PushService class
 * }
 *
 * function simChangeCallback() {
-*    // The SIM card was changed and the channel has been destroyed since a new user might be using the device.
-*    // It is recommended that the user of this application be re-authenticated with the Push Initiator 
-*    // (if your Push Initiator implementation supports subscription) followed by a call to createChannel.
+*    // The SIM card was changed and the channel has been 
+*    // destroyed since a new user might be using the device.
+*    // It is recommended that the user of this application be 
+*    // re-authenticated with the Push Initiator (if your 
+*    // Push Initiator implementation supports subscription) 
+*    // followed by a call to createChannel.
 * }
 */
 blackberry.push.PushService.create = function(options, successCallback, failCallback, simChangeCallback) { };
@@ -124,11 +140,15 @@ blackberry.push.PushService.create = function(options, successCallback, failCall
 * function createChannelCallback(result, token) {
 *    if (result == blackberry.push.PushService.SUCCESS) {
 *      // Success, so a token should be available
-*      // Subscribe with the Push Initiator using this token (if your Push Initiator supports subscription) so
+*      // Subscribe with the Push Initiator using this token 
+*      // (if your Push Initiator supports subscription) so
 *      // that you can push to this user using this token
 *    } else if (result == blackberry.push.PushService.INTERNAL_ERROR) {
-*      // Retry the createChannel up to a certain number of attempts and then display an error to the user
-*    } else if ... (handle all the error codes possible for createChannel - see the error constants in this PushService class)
+*      // Retry the createChannel up to a certain number of attempts 
+*      // and then display an error to the user
+*    } else if ... (handle all the error codes possible for 
+*                   createChannel - see the error constants 
+*                   in this PushService class)
 * }
 */
 blackberry.push.PushService.prototype.createChannel = function(createChannelCallback) { };
@@ -152,8 +172,11 @@ blackberry.push.PushService.prototype.createChannel = function(createChannelCall
 *
 * function destroyChannelCallback(result) {
 *    if (result == blackberry.push.PushService.INTERNAL_ERROR) {
-*      // Retry the destroyChannel up to a certain number of attempts and then display an error to the user
-*    } else if ... (handle all the error codes possible for destroyChannel - see the error constants in this PushService class)
+*      // Retry the destroyChannel up to a certain number of attempts 
+*      // and then display an error to the user
+*    } else if ... (handle all the error codes possible for 
+*                   destroyChannel - see the error constants 
+*                   in this PushService class)
 * }
 */
 blackberry.push.PushService.prototype.destroyChannel = function(destroyChannelCallback) { };
@@ -172,10 +195,14 @@ blackberry.push.PushService.prototype.destroyChannel = function(destroyChannelCa
 * @example
 * try {
 *     var pushPayload = pushService.extractPushPayload(invokeRequest);
+*
 *     // pushPayload.data is of type Blob
-*     // If the Blob is known to contain text, then do something like this:
+*     // If the Blob is known to contain text, 
+*     // then do something like this:
 *     blobToText(pushPayload.data, "UTF-8", textConversionCallback);
-*     // If the Blob is known to contain binary, then do something like this to get an ArrayBuffer:
+*
+*     // If the Blob is known to contain binary, then do 
+*     // something like this to get an ArrayBuffer:
 *     // blobToArrayBuffer(pushPayload.data, binaryConversionCallback);
 * } catch (err) {
 *     console.log("Was unable to parse the invoke request.");
@@ -191,7 +218,8 @@ blackberry.push.PushService.prototype.destroyChannel = function(destroyChannelCa
 *     };
 *    	
 *     reader.onerror = function(evt) {
-*         console.log("Error converting Blob to string: " + evt.target.error);
+*         console.log("Error converting Blob to string: " + 
+*             evt.target.error);
 *     };
 *        
 *     reader.readAsText(blob, encoding);
@@ -210,14 +238,16 @@ blackberry.push.PushService.prototype.destroyChannel = function(destroyChannelCa
 *     };
 *    	
 *     reader.onerror = function(evt) {
-*         console.log("Error converting Blob to ArrayBuffer: " + evt.target.error);
+*         console.log("Error converting Blob to ArrayBuffer: " + 
+*             evt.target.error);
 *     };
 *        
 *     reader.readAsArrayBuffer(blob);
 * }
 *
 * function binaryConversionCallback(arrayBuffer) {
-*     // Process the ArrayBuffer containing binary content as needed
+*     // Process the ArrayBuffer containing 
+*     // binary content as needed
 * }
 */
 blackberry.push.PushService.prototype.extractPushPayload = function(invokeRequest) { };
@@ -243,24 +273,27 @@ blackberry.push.PushService.prototype.extractPushPayload = function(invokeReques
 * @example
 * // Indicate that you want the application to launch on a new push
 * pushService.launchApplicationOnPush(true, launchApplicationCallback);
-* // To indicate that you do not want to launch on a new push, either leave the default behaviour or call:
-* // pushService.launchApplicationOnPush(false, launchApplicationCallback);
+* 
+* // To indicate that you do not want to launch on a new push, 
+* // either leave the default behaviour or call:
+* // pushService.launchApplicationOnPush(false, 
+* //     launchApplicationCallback);
 * 
 * function launchApplicationOnPush(result) {
 *    if (result == blackberry.push.PushService.INTERNAL_ERROR) {
-*      // Retry the launchApplicationOnPush up to a certain number of attempts and then display an error to the user
-*    } else if ... (handle all the error codes possible for launchApplicationOnPush - see the error constants in this PushService class)
+*      // Retry the launchApplicationOnPush up to a certain number 
+*      // of attempts and then display an error to the user
+*    } else if ... (handle all the error codes possible for 
+*                   launchApplicationOnPush - see the error 
+*                   constants in this PushService class)
 * }
 */
 blackberry.push.PushService.prototype.launchApplicationOnPush = function(shouldLaunch, launchApplicationCallback) { };
 
 /**
-* <p>
 * Result code for an operation that was performed successfully. 
-* </p>
-* <p>
+* <br/><br/>
 * Operations this code applies to: create, createChannel, destroyChannel, launchApplicationOnPush
-* </p>
 * @type Number
 * @constant
 * @static
@@ -269,15 +302,11 @@ blackberry.push.PushService.prototype.launchApplicationOnPush = function(shouldL
 blackberry.push.PushService.SUCCESS : 0;
 
 /**
-* <p>
-* Result error code for an internal error.  
-* </p>
-* <p>
+* Result error code for an internal error. 
+* <br/><br/> 
 * Operations this error can occur on: create, createChannel, destroyChannel, launchApplicationOnPush
-* </p>
-* <p>
+* <br/><br/>
 * Recommended action: Retrying the operation might correct the issue.
-* </p>
 * @type Number
 * @constant
 * @static
@@ -286,16 +315,12 @@ blackberry.push.PushService.SUCCESS : 0;
 blackberry.push.PushService.INTERNAL_ERROR : 500;
 
 /**
-* <p>
 * Result error code for an invalid device PIN as determined by the PPG.
-* </p>
-* <p>
+* <br/><br/>
 * Operations this error can occur on: createChannel, destroyChannel (only if using public/BIS PPG)
-* </p>
-* <p>
+* <br/><br/>
 * Recommended action: Retrying the operation might correct the issue.  The PIN is obtained under the covers
 * by the public/BIS PPG.  It very rarely has issues obtaining the device PIN, so a retry might fix this.
-* </p>
 * @type Number
 * @constant
 * @static
@@ -304,15 +329,11 @@ blackberry.push.PushService.INTERNAL_ERROR : 500;
 blackberry.push.PushService.INVALID_DEVICE_PIN : 10001;
 
 /**
-* <p>
 * Result error code for an invalid provider application ID.  Either an invalid one was specified or none at all.
-* </p>
-* <p>
+* <br/><br/>
 * Operations this error can occur on: create, createChannel, destroyChannel (only if using public/BIS PPG)
-* </p>
-* <p>
+* <br/><br/>
 * Recommended action: Specifying a valid value for appId programmatically and retrying might correct the issue.
-* </p>
 * @type Number
 * @constant
 * @static
@@ -321,15 +342,11 @@ blackberry.push.PushService.INVALID_DEVICE_PIN : 10001;
 blackberry.push.PushService.INVALID_PROVIDER_APPLICATION_ID : 10002;
 
 /**
-* <p>
 * Result error code when attempting to call destroy channel again after a successful destroy channel has already been done.  
-* </p>
-* <p>
+* <br/><br/>
 * Operations this error can occur on: destroyChannel (only if using public/BIS PPG)
-* </p>
-* <p>
+* <br/><br/>
 * Recommended action: Most applications will typically want to just ignore this error code when it comes back.
-* </p>
 * @type Number
 * @constant
 * @static
@@ -338,16 +355,12 @@ blackberry.push.PushService.INVALID_PROVIDER_APPLICATION_ID : 10002;
 blackberry.push.PushService.CHANNEL_ALREADY_DESTROYED : 10004;
 
 /**
-* <p>
 * Result error code when attempting to call destroy channel after a content provider has already done the destroying of the channel
 * by unregistering a user.  
-* </p>
-* <p>
+* <br/><br/>
 * Operations this error can occur on: destroyChannel (only if using public/BIS PPG)
-* </p>
-* <p>
+* <br/><br/>
 * Recommended action: Most applications will typically want to just ignore this error code when it comes back.
-* </p>
 * @type Number
 * @constant
 * @static
@@ -356,16 +369,12 @@ blackberry.push.PushService.CHANNEL_ALREADY_DESTROYED : 10004;
 blackberry.push.PushService.CHANNEL_ALREADY_DESTROYED_BY_PROVIDER : 10005;
 
 /**
-* <p>
 * This result error code should not typically be encountered.  
 * It would only occur if a create or destroy channel operation internally causes the state of a subscriber on the PPG to be in an invalid state.
-* </p>
-* <p>
+* <br/><br/>
 * Operations this error can occur on: createChannel, destroyChannel (only if using public/BIS PPG)
-* </p>
-* <p>
+* <br/><br/>
 * Recommended action: If this error occurs, it should be logged and reported to the RIM support team.
-* </p>
 * @type Number
 * @constant
 * @static
@@ -374,16 +383,12 @@ blackberry.push.PushService.CHANNEL_ALREADY_DESTROYED_BY_PROVIDER : 10005;
 blackberry.push.PushService.INVALID_PPG_SUBSCRIBER_STATE : 10006;
 
 /**
-* <p>
 * Result error code for when a destroy channel operation fails because the subscriber could not be found on the PPG's end.  
-* </p>
-* <p>
+* <br/><br/>
 * Operations this error can occur on: destroyChannel (only if using public/BIS PPG)
-* </p>
-* <p>
+* <br/><br/>
 * Recommended action: This error can most likely be ignored since if the subscriber could not be found on the PPG's end, then
 * destroying the channel will have no effect anyway (it is as if they were never registered with the PPG using create channel).
-* </p>
 * @type Number
 * @constant
 * @static
@@ -392,15 +397,11 @@ blackberry.push.PushService.INVALID_PPG_SUBSCRIBER_STATE : 10006;
 blackberry.push.PushService.PPG_SUBSCRIBER_NOT_FOUND : 10007;
 
 /**
-* <p>
 * Result error code for when a create channel or destroy channel operation internally passes an expired authentication token to the PPG.  
-* </p>
-* <p>
+* <br/><br/>
 * Operations this error can occur on: createChannel, destroyChannel (only if using public/BIS PPG)
-* </p>
-* <p>
+* <br/><br/>
 * Recommended action: Retrying the operation might correct the issue.
-* </p>
 * @type Number
 * @constant
 * @static
@@ -409,16 +410,12 @@ blackberry.push.PushService.PPG_SUBSCRIBER_NOT_FOUND : 10007;
 blackberry.push.PushService.EXPIRED_AUTHENTICATION_TOKEN_PROVIDED_TO_PPG : 10008;
 
 /**
-* <p>
 * This result error code should not typically be encountered.  
 * It would only occur if a create channel or destroy channel operation internally passes an invalid authentication token to the PPG.
-* </p>
-* <p>
+* <br/><br/>
 * Operations this error can occur on: createChannel, destroyChannel (only if using public/BIS PPG)
-* </p>
-* <p>
+* <br/><br/>
 * Recommended action: If this error occurs, it should be logged and reported to the RIM support team.
-* </p>
 * @type Number
 * @constant
 * @static
@@ -427,17 +424,13 @@ blackberry.push.PushService.EXPIRED_AUTHENTICATION_TOKEN_PROVIDED_TO_PPG : 10008
 blackberry.push.PushService.INVALID_AUTHENTICATION_TOKEN_PROVIDED_TO_PPG : 10009;
 
 /**
-* <p>
 * Result error code for when too many devices have already performed a create channel for the provider application ID.
 * (A create channel will effectively register a user with the PPG for public/BIS.)
-* </p>
-* <p>
+* <br/><br/>
 * Operations this error can occur on: createChannel (only if using public/BIS PPG)
-* </p>
-* <p>
+* <br/><br/>
 * Recommended action: No action can be taken by the application for this error, but it should somehow be communicated  
 * back to the content provider and then to RIM to try to increase the allowed subscription limit.  
-* </p>
 * @type Number
 * @constant
 * @static
@@ -446,16 +439,12 @@ blackberry.push.PushService.INVALID_AUTHENTICATION_TOKEN_PROVIDED_TO_PPG : 10009
 blackberry.push.PushService.PPG_SUBSCRIBER_LIMIT_REACHED : 10010;
 
 /**
-* <p>
 * Result error code for when a device attempting to do a create channel has an invalid operating system version number or an invalid device model number.
-* </p>
-* <p>
+* <br/><br/>
 * Operations this error can occur on: createChannel (only if using public/BIS PPG)
-* </p>
-* <p>
+* <br/><br/>
 * Recommended action: Retrying the operation is not recommended since this is an unrecoverable error that is out of control of the application.
 * It might make sense to communicate this issue up to the user. 
-* </p>
 * @type Number
 * @constant
 * @static
@@ -464,16 +453,12 @@ blackberry.push.PushService.PPG_SUBSCRIBER_LIMIT_REACHED : 10010;
 blackberry.push.PushService.INVALID_OS_VERSION_OR_DEVICE_MODEL_NUMBER : 10011;
 
 /**
-* <p>
-* Result error code when attempting to call destroy channel after a content provider has manually suspended a user.
-* Similar to the <code>CHANNEL_ALREADY_DESTROYED_BY_PROVIDER</code> error.
-* </p>
-* <p>
+* Result error code when attempting to call destroy channel after a content provider 
+* has manually suspended a user.
+* <br/><br/>
 * Operations this error can occur on: destroyChannel (only if using public/BIS PPG)
-* </p>
-* <p>
+* <br/><br/>
 * Recommended action: Most applications will typically want to just ignore this error code when it comes back. 
-* </p>
 * @type Number
 * @constant
 * @static
@@ -482,15 +467,11 @@ blackberry.push.PushService.INVALID_OS_VERSION_OR_DEVICE_MODEL_NUMBER : 10011;
 blackberry.push.PushService.CHANNEL_SUSPENDED_BY_PROVIDER : 10012;
 
 /**
-* <p>
 * Result error code when attempting to perform an operation and a create session has not been done beforehand.
-* </p>
-* <p>
+* <br/><br/>
 * Operations this error can occur on: createChannel, destroyChannel, launchApplicationOnPush
-* </p>
-* <p>
+* <br/><br/>
 * Recommended action: This usually means a programming error in the application.
-* </p>
 * @type Number
 * @constant
 * @static
@@ -499,33 +480,26 @@ blackberry.push.PushService.CHANNEL_SUSPENDED_BY_PROVIDER : 10012;
 blackberry.push.PushService.CREATE_SESSION_NOT_DONE : 10100;
 
 /**
-* <p>
 * Result error code when attempting to perform a create channel and a PPG URL was missing.
-* </p>
-* <p>
+* <br/><br/>
 * Operations this error can occur on: createChannel (only if using public/BIS PPG)
-* </p>
-* <p>
+* <br/><br/>
 * Recommended action: Specifying a value for ppgUrl programmatically and retrying might correct the issue.
-* </p>
 * @type Number
 * @constant
 * @static
 * @BB10X
 */
 blackberry.push.PushService.MISSING_PPG_URL : 10102;
+
 /**
-* <p>
 * Result error code when a create channel or destroy channel operation has failed due to network issues.
-* </p>
-* <p>
+* <br/><br/>
 * Operations this error can occur on: createChannel, destroyChannel (only if using public/BIS PPG)
-* </p>
-* <p>
+* <br/><br/>
 * Recommended action: Retrying the operation might correct the issue.  
 * This error can also occur when the user's wireless connection (e.g. Wi-Fi, Mobile Network) is off or temporarily down,
 * so it might make sense to communicate this issue up to the user.
-* </p>
 * @type Number
 * @constant
 * @static
@@ -534,12 +508,9 @@ blackberry.push.PushService.MISSING_PPG_URL : 10102;
 blackberry.push.PushService.NETWORK_FAILURE : 10103;
 
 /**
-* <p>
 * Result error code when a certain operation is currently not supported.
-* </p>
-* <p>
-* Recommended action: This operation/feature might not yet be implemented and so should not be performed.
-* </p>
+* <br/><br/>
+* Recommended action: This operation might not yet be implemented and so should not be performed.
 * @type Number
 * @constant
 * @static
@@ -548,15 +519,11 @@ blackberry.push.PushService.NETWORK_FAILURE : 10103;
 blackberry.push.PushService.OPERATION_NOT_SUPPORTED : 10105;
 
 /**
-* <p>
 * Result error code when attempting to perform a destroy channel and a create channel has not been done beforehand.
-* </p>
-* <p>
+* <br/><br/>
 * Operations this error can occur on: destroyChannel
-* </p>
-* <p>
+* <br/><br/>
 * Recommended action: This might mean a programming error in the application.
-* </p>
 * @type Number
 * @constant
 * @static
@@ -565,15 +532,11 @@ blackberry.push.PushService.OPERATION_NOT_SUPPORTED : 10105;
 blackberry.push.PushService.CREATE_CHANNEL_NOT_DONE : 10106;
 
 /**
-* <p>
 * Result error code as a result of an issue on a create channel operation obtaining a port from the PPG.
-* </p>
-* <p>
+* <br/><br/>
 * Operations this error can occur on: createChannel
-* </p>
-* <p>
+* <br/><br/>
 * Recommended action: Retrying the operation might correct the issue.
-* </p>
 * @type Number
 * @constant
 * @static
@@ -582,15 +545,11 @@ blackberry.push.PushService.CREATE_CHANNEL_NOT_DONE : 10106;
 blackberry.push.PushService.MISSING_PORT_FROM_PPG : 10107;
 
 /**
-* <p>
 * Result error code as a result of an issue on a create channel operation obtaining a subscription return code from the PPG.
-* </p>
-* <p>
+* <br/><br/>
 * Operations this error can occur on: createChannel (only if using public/BIS PPG)
-* </p>
-* <p>
+* <br/><br/>
 * Recommended action: Retrying the operation might correct the issue.
-* </p>
 * @type Number
 * @constant
 * @static
@@ -599,17 +558,13 @@ blackberry.push.PushService.MISSING_PORT_FROM_PPG : 10107;
 blackberry.push.PushService.MISSING_SUBSCRIPTION_RETURN_CODE_FROM_PPG : 10108;
 
 /**
-* <p>
 * Result error code when a create channel or destroy channel operation has failed due to a failure to communicate with the PPG.
-* </p>
-* <p>
+* <br/><br/>
 * Operations this error can occur on: createChannel, destroyChannel (only if using public/BIS PPG)
-* </p>
-* <p>
+* <br/><br/>
 * Recommended action: Retrying the operation might correct the issue.
 * It also might make sense to communicate this issue up to the user telling them to try again later when the PPG 
 * is available again.
-* </p>
 * @type Number
 * @constant
 * @static
@@ -618,15 +573,11 @@ blackberry.push.PushService.MISSING_SUBSCRIPTION_RETURN_CODE_FROM_PPG : 10108;
 blackberry.push.PushService.PPG_CURRENTLY_NOT_AVAILABLE : 10110;
 
 /**
-* <p>
 * Result error code when no invoke target ID is specified on a create operation.
-* </p>
-* <p>
+* <br/><br/>
 * Operations this error can occur on: create
-* </p>
-* <p>
+* <br/><br/>
 * Recommended action: Specifying a value for invokeTargetId programmatically and retrying might correct the issue.
-* </p>
 * @type Number
 * @constant
 * @static
