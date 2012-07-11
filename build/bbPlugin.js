@@ -227,6 +227,18 @@ BBTag.Support.prototype.populateBySymbolArray = function(symbolArray) {
     }
 };
 
+BBTag.Support.prototype.hasBBSupport = function () {
+    return this.bb50 || this.bb60 || this.bb70;
+}
+
+BBTag.Support.prototype.hasPBSupport = function () {
+    return this.pb10 || this.pb20;
+}
+
+BBTag.Support.prototype.hasBB10XSupport = function () {
+    return this.bb10x;
+}
+
 BBTag.PlaybookSupport = function(){
     var pbSupport = new BBTag.Support();
     pbSupport.populateByBools(false, false, false, true, true, false, false);

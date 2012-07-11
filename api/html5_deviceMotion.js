@@ -36,6 +36,7 @@ Acceleration = {
 	 * @description x-coordinate of the acceleration
 	 * @readOnly
 	 * @PB10+
+	 * @BB10X
 	 * @RIPPLE
 	 */ 
 	Acceleration.prototype.x=Number,
@@ -45,6 +46,7 @@ Acceleration = {
 	 * @description y-coordinate of the acceleration
 	 * @readOnly
 	 * @PB10+
+	 * @BB10X
 	 * @RIPPLE
 	 */ 	
 	Acceleration.prototype.y=Number,
@@ -54,6 +56,7 @@ Acceleration = {
 	 * @description z-coordinate of the acceleration
 	 * @readOnly
 	 * @PB10+
+	 * @BB10X
 	 * @RIPPLE
 	 */ 
 	Acceleration.prototype.z=Number,
@@ -62,6 +65,7 @@ Acceleration = {
 /**
  * @toc {Device Motion} HTML5 Device Motion Event
  * @PB10+
+ * @BB10X
  * @RIPPLE
  * @namespace
  * This event provides direct access to motion data from an accelerometer and gyroscope. The three pieces of data provided are the acceleration, acceleration including gravity and rotation rate. <br>At this moment the data supported is from Accelerometer only.<br>
@@ -86,6 +90,7 @@ DeviceMotionEvent = {
 	 * @type Number
 	 * @description The regular interval at which the event must fire at, given in milliseconds
 	 * @readOnly
+     * @BB10X
 	 * @PB10+
 	 */ 
 	DeviceMotionEvent.prototype.interval= Number,
@@ -96,6 +101,7 @@ DeviceMotionEvent = {
 	 * In this case, the values reported are equal to the acceleration of the device, plus an acceleration equal and opposite to the acceleration due to gravity.
 	 * @readOnly
 	 * @PB10+
+     * @BB10X
 	 * @RIPPLE
 	 */
 	DeviceMotionEvent.prototype.accelerationIncludingGravity=null,
@@ -104,6 +110,7 @@ DeviceMotionEvent = {
 	 * @function
 	 * @description Initializes the event listener and it's parameters
 	 * @PB10+
+	 * @BB10X
 	 */
 	DeviceMotionEvent.prototype.initDeviceMotionEvent = function(){}
 };

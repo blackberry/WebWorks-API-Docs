@@ -23,6 +23,7 @@
 * @namespace
 * An audio element represents a sound or audio stream.
 * @PB10+
+* @BB10X
 * @BB60+
 * @RIPPLE
 * @toc {Media} HTML5 Audio
@@ -40,6 +41,7 @@ HTMLAudioElement = {
          * audio.controls = true;
          * document.body.appendChild(audio);
          * @PB10+
+         * @BB10X
          * @BB60+
          * @RIPPLE
          */
@@ -56,6 +58,7 @@ HTMLAudioElement = {
          * @example
          * var audio = new Audio('audio.wav');
          * @PB10+
+         * @BB10X
          * @BB60+
          * @RIPPLE
          */
