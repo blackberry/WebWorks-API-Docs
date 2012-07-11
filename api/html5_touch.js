@@ -26,6 +26,7 @@
 * This interface defines an individual point of contact for a touch event.
 * @BB60+
 * @PB10+
+* @BB10X
 */
 Touch = function() {
 }
@@ -44,6 +45,7 @@ Touch = function() {
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 */
 Touch.prototype.identifier = { };
 
@@ -53,6 +55,7 @@ Touch.prototype.identifier = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 */
 Touch.prototype.screenX = { };
 
@@ -62,6 +65,7 @@ Touch.prototype.screenX = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 */
 Touch.prototype.screenY = { };
 
@@ -71,6 +75,7 @@ Touch.prototype.screenY = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 */
 Touch.prototype.clientX = { };
 
@@ -80,6 +85,7 @@ Touch.prototype.clientX = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 */
 Touch.prototype.clientY = { };
 
@@ -89,6 +95,7 @@ Touch.prototype.clientY = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 */
 Touch.prototype.pageX = { };
 
@@ -98,6 +105,7 @@ Touch.prototype.pageX = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 */
 Touch.prototype.pageY = { };
 
@@ -107,6 +115,7 @@ Touch.prototype.pageY = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 */
 Touch.prototype.radiusX = { };
 
@@ -116,6 +125,7 @@ Touch.prototype.radiusX = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 */
 Touch.prototype.radiusY = { };
 
@@ -134,6 +144,7 @@ Touch.prototype.radiusY = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 */
 Touch.prototype.rotationAngle = { };
 
@@ -147,6 +158,7 @@ Touch.prototype.rotationAngle = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 */
 Touch.prototype.force = { };
 
@@ -156,6 +168,7 @@ Touch.prototype.force = { };
 * This interface defines a list of individual points of contact for a touch event.
 * @BB60+
 * @PB10+
+* @BB10X
 */
 TouchList = function() {};
 
@@ -165,6 +178,7 @@ TouchList = function() {};
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 */
 TouchList.prototype.length = {};
 
@@ -178,6 +192,7 @@ TouchList.prototype.length = {};
 * @throws {IndexOutOfBoundsException} When the index is invalid
 * @BB60+
 * @PB10+
+* @BB10X
 */
 TouchList.prototype.item = function(index) { };
 
@@ -186,6 +201,7 @@ TouchList.prototype.item = function(index) { };
 
 * @BB60+
 * @PB10+
+* @BB10X
 * @param {Number} identifier the identifier of the touch event to fetch
 * @returns {Touch} the first {@link Touch} with long identifier from the list
 */
@@ -205,6 +221,7 @@ TouchEvent = function() { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 */
 TouchEvent.prototype.touches = {};
 
@@ -214,6 +231,7 @@ TouchEvent.prototype.touches = {};
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 */
 TouchEvent.prototype.targetTouches = {};
 
@@ -224,6 +242,7 @@ TouchEvent.prototype.targetTouches = {};
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 */
 TouchEvent.prototype.changedTouches = {};
 
@@ -233,6 +252,7 @@ TouchEvent.prototype.changedTouches = {};
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 */
 TouchEvent.prototype.altKey = {};
 
@@ -244,6 +264,7 @@ TouchEvent.prototype.altKey = {};
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 */
 TouchEvent.prototype.metaKey = {};
 
@@ -253,6 +274,7 @@ TouchEvent.prototype.metaKey = {};
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 */
 TouchEvent.prototype.ctrlKey = {};
 
@@ -262,6 +284,7 @@ TouchEvent.prototype.ctrlKey = {};
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 */
 TouchEvent.prototype.shiftKey = {};
 
@@ -275,6 +298,7 @@ TouchEvent.prototype.shiftKey = {};
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 */
 TouchEvent.prototype.relatedTarget = {};
 
@@ -284,6 +308,7 @@ TouchEvent.prototype.relatedTarget = {};
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @param {String} type
 * @param {Boolean} canBubble
 * @param {Boolean} cancelable
@@ -309,6 +334,7 @@ ctrlKey,altKey,shiftKey,metaKey,touches,targetTouches,changedTouches) {
 * @toc {Touch} HTML5 Element Touch Events
 * @BB60+
 * @PB10+
+* @BB10X
 * @example
 * &lt;html&gt;&lt;head&gt;&lt;title&gt;sample&lt;/title&gt;&lt;/head&gt;
 *   &lt;body&gt;
@@ -347,6 +373,7 @@ Element = function() {
 * The target of this event must be an Element.
 * @BB60+
 * @PB10+
+* @BB10X
 * @event
 * @param {TouchEvent} event
 */
@@ -365,6 +392,7 @@ Element.prototype.ontouchstart = function(event) { };
 * of the TouchEvent, and must not be included in the touches and targetTouches attributes.
 * @BB60+
 * @PB10+
+* @BB10X
 * @event
 * @param {TouchEvent} event
 */
@@ -388,6 +416,7 @@ Element.prototype.ontouchend = function(event) { };
 * and may depend on hardware capabilities and other implementation details.
 * @BB60+
 * @PB10+
+* @BB10X
 * @event
 * @param {TouchEvent} event
 */
@@ -399,6 +428,7 @@ Element.prototype.ontouchmove = function(event) { };
 * interactive area defined by a DOM element. Events of this type must not bubble.
 * @BB60+
 * @PB10+
+* @BB10X
 * @event
 * @param {TouchEvent} event
 */
@@ -410,6 +440,7 @@ Element.prototype.ontouchenter = function(event) { };
 * interactive area defined by a DOM element. Events of this type must not bubble.
 * @BB60+
 * @PB10+
+* @BB10X
 * @event
 * @param {TouchEvent} event
 */
@@ -427,6 +458,7 @@ Element.prototype.ontouchleave = function(event) { };
 * the TouchList should be removed.
 * @BB60+
 * @PB10+
+* @BB10X
 * @event
 * @param {TouchEvent} event
 */

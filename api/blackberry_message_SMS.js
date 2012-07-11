@@ -53,7 +53,6 @@ blackberry.message.sms.isListeningForMessage = { };
 * Static function to send out an SMS message 
 * @param {String} message The text that should be sent
 * @param {String} address Address where the message should be delivered to.
-* @returns {Undefined}
 * @BB50+
 * @RIPPLE
 */
@@ -61,8 +60,10 @@ blackberry.message.sms.send = function(message,address) { };
 
 /**
 * SMS listener to receive a message when it arrives 
-* @param {function(String, String, Date)} callback Callback function that is invoked when a new SMS message is received. Overwrites the previous callback. The parameters are: message, sender, and date.
-* @returns {Undefined}
+* @callback {Function} listener Callback function that is invoked when a new SMS message is received. Overwrites the previous callback.
+* @callback {String} listener.message The content of the SMS message.
+* @callback {String} listener.sender The sender of the SMS message.
+* @callback {Date} listener.date The date of the SMS message.
 * @BB50+
 * @RIPPLE
 */

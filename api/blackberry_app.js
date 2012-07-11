@@ -97,14 +97,14 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	 * @param {String} icon The name of the icon to show on the banner. The icon must be a local resource and it's size varies from 10x10 up to 32x32 depending on current theme and device screen size.
 	 * @param {Number} [value] Optional parameter to indicate the number to show on the banner.
 	 */		 
-	showBannerIndicator:function( icon, value ){} 
+	showBannerIndicator:function( icon, value ){}, 
 
     /**
 	 * @description This function will remove the indicator on the banner.
 	 * @BB50+
      * @RIPPLE
 	 */	 
-	removeBannerIndicator:function(){} 
+	removeBannerIndicator: function(){},
 	
 	/**
 	 * @description The ID of the author's name that is specified in the config.xml file. 
@@ -232,18 +232,18 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	 * @PB10+
 	 * @returns {JSON of all the properties}
 	 * {
-	 * 	"data":{
-	 *		"author":"John Doe",
-	 *		"name":"My WebWorks Widget",
-	 *		"authorEmail":"jdoe@company.com",
-	 *		"authorURL":"www.company.com",
-	 *		"description":"A sample widget",
-	 *		"license":"Legal stuff goes here",
-	 *		"id":"888",
-	 *		"version":"1.0",
-	 *		"copyright":"Company Ltd.",
-	 *		"licenseURL":"www.company.com/license"
-	 * 	}
+	 *     "data": {
+	 *         "author":"John Doe",
+	 *         "name":"My WebWorks Widget",
+	 *         "authorEmail":"jdoe@company.com",
+	 *         "authorURL":"www.company.com",
+	 *         "description":"A sample widget",
+	 *         "license":"Legal stuff goes here",
+	 *         "id":"888",
+	 *         "version":"1.0",
+	 *         "copyright":"Company Ltd.",
+	 *         "licenseURL":"www.company.com/license"
+	 *     }
 	 * }
 	 * @example 
 	 * &lt;html&gt;

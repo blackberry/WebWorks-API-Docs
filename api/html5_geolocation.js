@@ -32,6 +32,7 @@ navigator.geolocation = {
          * @param {PositionOptions} [options] return {@link PositionOptions} of a current position.
          * @BB50+
          * @PB10+
+         * @BB10X
 		 * @RIPPLE
          * @example
          * <b>To get current position</b>
@@ -82,6 +83,7 @@ navigator.geolocation = {
          * @returns {Long} Return a watchId so that it can be use in function {@link navigator.geolocation.clearWatch}.
          * @BB50+
          * @PB10+
+         * @BB10X
 		 * @RIPPLE
          */
         watchPosition : function(PositionCallback, PositionErrorCallback, positionOptions) {},
@@ -91,6 +93,7 @@ navigator.geolocation = {
          * @description  Like {@link getCurrentPosition} continue to monitor the position of the device and invoke the appropriate callback every time this position changes. It continues until the clearWatch method is called with the corresponding identifier.
          * @param {long} watchId A unique identifier return from {@link navigator.geolocation.watchPosition}.
          * @PB10+
+         * @BB10X
          * @BB50+
 		 * @RIPPLE
          */
@@ -109,6 +112,7 @@ Position = {};
      * @description The coords attribute contains a set of geographic coordinates together with their associated accuracy, as well as a set of other optional attributes such as altitude and speed.
      * @BB50+
      * @PB10+
+     * @BB10X
 	 * @RIPPLE
      * @type Coordinates
      */
@@ -118,6 +122,7 @@ Position = {};
      * @description The timestamp attribute represents the time when the Position object was acquired and is represented as a Date.
      * @BB50+
      * @PB10+
+     * @BB10X
 	 * @RIPPLE
      * @type Date
      */
@@ -137,6 +142,7 @@ PositionError  = {
      * @default 1
      * @BB50+
      * @PB10+
+     * @BB10X
 	 * @RIPPLE
      * @type Number
      */
@@ -148,6 +154,7 @@ PositionError  = {
      * @default 2
      * @BB50+
      * @PB10+
+     * @BB10X
 	 * @RIPPLE
      * @type Number
      */
@@ -159,6 +166,7 @@ PositionError  = {
      * @default 3
      * @BB50+
      * @PB10+
+     * @BB10X
 	 * @RIPPLE
      * @type Number
      */
@@ -170,6 +178,7 @@ PositionError  = {
      * @description Error code. One of the {@link PositionError.PERMISSION_DENIED}, {@link PositionError.POSITION_UNAVAILABLE} or {@link PositionError.TIMEOUT}
      * @BB50+
      * @PB10+
+     * @BB10X
 	 * @RIPPLE
      * @readonly
      * @type Number
@@ -180,6 +189,7 @@ PositionError  = {
      * @description Error message describing the details of the error encountered.
      * @BB50+
      * @PB10+
+     * @BB10X
 	 * @RIPPLE
      * @readonly
      * @type String
@@ -198,6 +208,7 @@ PositionOptions = {};
      * @description The enableHighAccuracy attribute provides a hint that the application would like to receive the best possible results. This may result in slower response times or increased power consumption. The user might also deny this capability, or the device might not be able to provide more accurate results than if the flag wasn't specified. The intended purpose of this attribute is to allow applications to inform the implementation that they do not require high accuracy geolocation fixes and, therefore, the implementation can avoid using geolocation providers that consume a significant amount of power (e.g. GPS). This is especially useful for applications running on battery-powered devices, such as mobile phones.
      * @BB50+
      * @PB10+
+     * @BB10X
 	 * @RIPPLE
      * @type Boolean
      */
@@ -207,6 +218,7 @@ PositionOptions = {};
      * @description The timeout attribute denotes the maximum length of time (expressed in milliseconds) that is allowed to pass from the call to getCurrentPosition() or watchPosition().
      * @BB50+
      * @PB10+
+     * @BB10X
 	 * @RIPPLE
      * @type Number
      */
@@ -216,6 +228,7 @@ PositionOptions = {};
      * @description The maximumAge attribute indicates that the application is willing to accept a cached position whose age is no greater than the specified time in milliseconds.
      * @BB50+
      * @PB10+
+     * @BB10X
 	 * @RIPPLE
      * @readonly
      * @type Number
@@ -236,6 +249,7 @@ Coordinates = {};
      * @description The latitude attributes is geographic coordinates specified in decimal degrees.
      * @BB50+
      * @PB10+
+     * @BB10X
 	 * @RIPPLE
      * @readOnly
 	 * @type Number
@@ -246,6 +260,7 @@ Coordinates = {};
      * @description The longitude attributes is geographic coordinates specified in decimal degrees.
      * @BB50+
      * @PB10+
+     * @BB10X
 	 * @RIPPLE
      * @readOnly
 	 * @type Number
@@ -256,6 +271,7 @@ Coordinates = {};
      * @description The altitude attribute denotes the height of the position, specified in meters above the [WGS84] ellipsoid.
      * @BB50+
      * @PB10+
+     * @BB10X
 	 * @RIPPLE
      * @readOnly
 	 * @type Number
@@ -266,6 +282,7 @@ Coordinates = {};
      * @description The accuracy attribute denotes the accuracy level of the latitude and longitude coordinates.
      * @BB50+
      * @PB10+
+     * @BB10X
 	 * @RIPPLE
      * @readOnly
 	 * @type Number
@@ -276,6 +293,7 @@ Coordinates = {};
      * @description The altitudeAccuracy attribute is in meters.
      * @BB50+
      * @PB10+
+     * @BB10X
 	 * @RIPPLE
      * @readOnly
 	 * @type Number
@@ -286,6 +304,7 @@ Coordinates = {};
      * @description The heading attribute denotes the direction of travel of the hosting device in degrees, where 0&deg; &le; heading &le; 360&deg;, counting clockwise relative to the true north.
      * @BB50+
      * @PB10+
+     * @BB10X
 	 * @RIPPLE
      * @readOnly
 	 * @type Number
@@ -296,6 +315,7 @@ Coordinates = {};
      * @description The speed attribute denotes the current ground speed of the hosting device in meters per second.
      * @BB50+
      * @PB10+
+     * @BB10X
 	 * @RIPPLE
      * @readOnly
 	 * @type Number

@@ -28,6 +28,7 @@ Worker = function() {};
     * @description  The postMessage() method on Web Workers objects invoked the method of the same name on the port, with the same arguments, and returned the same return value.
     * @param {Object} message A message to post when worker is created.
     * @PB10+
+    * @BB10X
     * @BB50+
     * @RIPPLE
     * @example
@@ -58,6 +59,7 @@ Worker = function() {};
     * @param {String} [senderId] sender ID.
     * @param {Object} [messageObject] message object when send.
     * @PB10+
+    * @BB10X
     * @RIPPLE
     * @BB50+  	
     */
@@ -68,6 +70,7 @@ Worker = function() {};
      * @description The ApplicationCache object associated with this worker
      * @type ApplicationCache
      * @PB10+
+     * @BB10X
      * @RIPPLE
      * @BB60+
      */
