@@ -25,6 +25,7 @@
 * A video element represents a video or video stream.
 * @toc {Media} HTML5 Video
 * @PB10+
+* @BB10X
 * @BB70+
 * @extends HTMLMediaElement
 * @RIPPLE
@@ -41,6 +42,7 @@ HTMLVideoElement = function() { };
  * video.controls = true;
  * document.body.appendChild(video);
  * @PB10+
+ * @BB10X
  * @BB70+
  * @RIPPLE
  */
@@ -52,6 +54,7 @@ HTMLVideoElement.documentConstructor = undefined;
 * @type Number
 * @BB70+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 
@@ -62,6 +65,7 @@ HTMLVideoElement.prototype.width = { };
 * @type Number
 * @BB70+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 
@@ -74,6 +78,7 @@ HTMLVideoElement.prototype.height = { };
 * @readOnly
 * @BB70+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 
@@ -86,6 +91,7 @@ HTMLVideoElement.prototype.videoWidth = { };
 * @readOnly
 * @BB70+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 
@@ -98,6 +104,7 @@ HTMLVideoElement.prototype.videoHeight = { };
 * @type String
 * @BB70+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 
