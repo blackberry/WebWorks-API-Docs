@@ -10,4 +10,4 @@ mkdir "%JSDOC_TEMPLATE_DIR%"
 xcopy %BB_TEMPLATE_DIR% "%JSDOC_TEMPLATE_DIR%" /e /y
 copy %BB_PLUGIN% "%JSDOC_DIR%\app\plugins\" /y
 
-java -jar %JSDOC_DIR%\jsrun.jar %JSDOC_DIR%\app\run.js -a "%API_DOC_DIR%" -t=%JSDOC_TEMPLATE_DIR% -d="%OUTPUT_DIR%"
+java -jar %JSDOC_DIR%\jsrun.jar %JSDOC_DIR%\app\run.js -a "%API_DOC_DIR%" -t=%JSDOC_TEMPLATE_DIR% -d="%OUTPUT_DIR%" -u

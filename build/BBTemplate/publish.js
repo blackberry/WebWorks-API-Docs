@@ -26,8 +26,8 @@ function publish(symbolSet) {
         cssDir : "css/",
         imagesDir : "images/",
         jsDir : "javascript/",
-        templateName : "BBTest",
-        templateVersion : "0.1",
+        templateName : "BBTemplate",
+        templateVersion : "2.1",
         viewDir : "view/"        
     };
 
@@ -89,9 +89,9 @@ function publish(symbolSet) {
     }
 
     // some utility filters
-	function hasNoParent($) {return ($.memberOf == "");};
-	function isaFile($) {return ($.is("FILE"));};
-	function isaClass($) {return ($.is("CONSTRUCTOR") || $.isNamespace) && !($.alias == "_global_");};
+	function hasNoParent($) {return ($.memberOf === "");}
+	function isaFile($) {return ($.is("FILE"));}
+	function isaClass($) {return ($.is("CONSTRUCTOR") || $.isNamespace) && ($.alias != "_global_");}
 
     // get an array version of the symbolset, useful for filtering
     var symbols = symbolSet.toArray();
@@ -163,8 +163,8 @@ function publish(symbolSet) {
     IO.saveFile(publish.conf.outDir, "topics" + publish.conf.ext, processedTopics);
 
     // COPY FILES
-    // Copy Static files for microsite
-	copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir );
+    // Copy Static files for microsite -- NONE
+	//copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir );
     
 /********* VIEWABLE OUTPUT **********/
     //Create nav.js for viewable html
@@ -173,7 +173,8 @@ function publish(symbolSet) {
     IO.saveFile(publish.conf.outDir + publish.conf.viewDir, "nav.js", processedJSNav);
 
     //Create index files for viewable html
-    processedClasses = containerTemplate.process({id: "class_menu", tmpl: "classes.tmpl", data: classes});
+    processedClasses = containerTemplate.process(
+        {id: "class_menu", tmpl: "classes.tmpl", data: classes});
     IO.saveFile(publish.conf.outDir + publish.conf.viewDir, "classes" + publish.conf.ext, processedClasses);
     processedClasses = containerTemplate.process(
         {id: "bb_menu", tmpl: "classes.tmpl", data: bbClasses});
@@ -188,14 +189,13 @@ function publish(symbolSet) {
         {id: "topics_menu", tmpl: "topics.tmpl", data: classes});
     IO.saveFile(publish.conf.outDir + publish.conf.viewDir, "topics" + publish.conf.ext, processedTopics);
 
-    // Copy Static files for viewable HTML
-	copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir + publish.conf.viewDir);    
+    // Copy Static files for viewable HTML -- NONE
+	//copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir + publish.conf.viewDir);    
     // Copy Image files for viewable HTML (already copied for microsite by @image tags)
     copyFiles(publish.conf.outDir + publish.conf.imagesDir, publish.conf.outDir + publish.conf.viewDir + publish.conf.imagesDir);
 
     // create a viewable version of the index, classes and topics pages
     var viewableClasses = classes.concat([
-                                         {alias: 'index'}, 
                                          {
                                              alias: "classes", 
                                              path: publish.conf.outDir + publish.conf.viewDir + "classes" + publish.conf.ext
@@ -220,12 +220,15 @@ function publish(symbolSet) {
     for ( var i = 0, l = viewableClasses.length; i < l; i++) {
         symbol = viewableClasses[i];
 
-        var title = symbol.title || ((symbol.toc && symbol.toc.desc) ? symbol.toc.desc : symbol.alias);
-        var path = symbol.path || publish.conf.outDir + symbol.alias + publish.conf.ext;  
+        var title = symbol.title || ((symbol.toc && symbol.toc.desc) ? symbol.toc.desc : symbol.alias),
+            path = symbol.path || publish.conf.outDir + symbol.alias + publish.conf.ext,
+            fileName = (JSDOC.opt.u && Link.filemap[symbol.alias]) ? Link.filemap[symbol.alias] : symbol.alias;
 
         output = viewableClassTemplate.process({title: title, path: path});
-		IO.saveFile(publish.conf.outDir + publish.conf.viewDir, ((JSDOC.opt.u)? Link.filemap[symbol.alias] : symbol.alias) + publish.conf.ext, output);
+        
+		IO.saveFile(publish.conf.outDir + publish.conf.viewDir, fileName + publish.conf.ext, output);
     }
+
 }
 
 function copyFiles(srcDir, destDir) {
@@ -408,7 +411,7 @@ function resolveLinks(str, from) {
 					IO.copyFile(JSDOC.opt._[i]+"/"+symbolName, publish.conf.outDir+"/"+publish.conf.imagesDir);
             }
 			}catch(e){}
-			return "<image src=\"/html5/files/apis/"+publish.conf.imagesDir + fileName+"\">";
+			return "<img src=\"/html5/files/apis/"+publish.conf.imagesDir + fileName+"\" alt=\"" + fileName + "\" />";
         }
 	);
 

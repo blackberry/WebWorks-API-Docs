@@ -20,6 +20,6 @@ rm -f -r "$outputDir"
 cp "${webworksGit}build/bbPlugin.js" "${jsToolkit}jsdoc-toolkit/app/plugins/"
 cp -fr "${webworksGit}build/BBTemplate" "${jsToolkit}jsdoc-toolkit/templates"
 cd "${jsToolkit}jsdoc-toolkit"    
-java -jar jsrun.jar app/run.js -a "${webworksGit}/api" -t=templates/BBTemplate -d="${outputDir}${sb}"
+java -jar jsrun.jar app/run.js -a "${webworksGit}/api" -t=templates/BBTemplate -d="${outputDir}${sb}" -u
 
 

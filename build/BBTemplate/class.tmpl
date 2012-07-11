@@ -191,10 +191,8 @@
                             </if>
                             <for each="item" in="allChildren">
                                 <tr x-ww-support="{+item.support.supportTag+}">
-                                    <td class="first_column">
-                                        {+new Link().toSymbol(item.alias).withText(getSymbolName(item))+}
-                                        {+item.support.supportTable+}
-                                    </td>
+                                    {+new Link().toSymbol(item.alias).withText(getSymbolName(item))+}
+                                    {+item.support.supportTable+}
                                 </tr>
                             </for>
                         </table>

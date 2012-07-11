@@ -39,7 +39,7 @@ var menuHasSelected,
     bb10_menu   = {+ JSON.stringify(buildClassMenu(data, function (element) { return element.support && element.support.hasBB10XSupport()})) +};
 
 menu_link_map = {
-    "index_menu":   "{+(new TextLink()).toFile("index.html")+}",
+    "index_menu":   "{+(new TextLink()).toFile("topics.html")+}",
     "class_menu":   "{+(new TextLink()).toFile("classes.html")+}",
     "topics_menu":  "{+(new TextLink()).toFile("topics.html")+}",
     "bb_menu":      "{+(new TextLink()).toFile("bb_index.html")+}",
@@ -64,6 +64,175 @@ is_ie7 = $('html').hasClass('ie7');
 classAttr = 'class';
 if (is_ie7) {
   classAttr = 'className';
+}
+
+stage = {
+	initiated : false,
+    window_top : 0,
+    window_height : 0,
+    visible_bottom : 0,
+	document_height : 0,
+	custom_measurements : [],
+	add_measurement : function(name, method, measure_now) {
+		var m_name;
+		m_name = 'measure_'+name;
+		this[name] = 0;
+		this[m_name] = method;
+		this.custom_measurements.push(m_name);
+		if (measure_now) {
+			this[m_name]();
+		}
+	},
+	measure_document_height : function() {
+        this.document_height = $(document).height();
+    },
+    measure_window_height : function() {
+        this.window_height = $(window).height();
+    },
+    measure_window_top : function() {
+        this.window_top = $(window).scrollTop();
+    },
+    measure_visible_bottom : function() {
+        this.visible_bottom = this.window_top+this.window_height;
+    },
+	measure_distance : function(x,y) {
+		return x-y;
+	},
+	recalculate : function() {
+		this.measure_window_top();
+		this.measure_window_height();
+        this.measure_visible_bottom();
+		this.measure_document_height();
+		for (var i = 0; i < this.custom_measurements.length; i++) {
+			this[this.custom_measurements[i]]();
+		}
+	},
+    initiate : function() {
+		this.recalculate();
+		this.initiated = true;
+    }
+}
+stage.add_measurement('footer_top', function () {
+						var m = $('#main');
+						stage.footer_top = m.offset().top + m.height();
+					}, false);
+stage.add_measurement('art_height', function () {
+						stage.art_height = $('#main').height();
+					}, false);
+
+/* Assumes jQuery, sticky and stage is loaded */
+var sticky_id, sticky_anchor_id, main_id, sizer;
+main_id = '#main';
+sticky_id = "#sticky";
+sticky_anchor_id = "#sticky-anchor";
+sizer = {
+    initiated : false,
+    no_resizing: false,
+    timeout_event : null,
+    main_content : null,
+    main_bottom_offset : 0,
+    calculate_new_size : function () {
+        var x, a_os, s_os, sections_bottom, sn_children, padding_bottom;
+        padding_bottom = 30;
+        stage.recalculate();
+        a_os = sticky.anchor_el.offset().top;
+        sn_children = $('#side-nav-children');
+        sections_bottom = sn_children.offset().top;
+        x = stage.visible_bottom - sections_bottom - padding_bottom;
+        if (stage.visible_bottom > stage.footer_top) {
+            x = stage.measure_distance(stage.footer_top, (sections_bottom - padding_bottom));
+        }
+        return x;
+    },
+    set_resize_event : function (delay) {
+        var x;
+        if (this.timeout_event !== null) {
+            clearTimeout(this.timeout_event);
+        }
+        x = this.calculate_new_size();
+        this.timeout_event = setTimeout("$('#side-nav-children').animate({height:'" + x + "px'}, {duration: 200, step: function () { $(this).css('overflow-y', 'scroll') }})", delay);
+    },
+    resize : function () {
+        if (!sticky.disabled) {
+            if (!this.initiated) {
+                this.initiate();
+            }
+            if (!this.no_resizing) {
+                if (!sticky.reached_bottom) {
+                    this.set_resize_event(300);
+                }
+            }
+        }
+    },
+    initiate: function () {
+        var sticky_bottom;
+        if (!sticky.disabled) {
+            this.main_content = $(main_id);
+            this.main_bottom_offset = this.main_content.offset().top + $(main_id).height();
+            sticky_bottom = sticky.el.offset().top + sticky.el.height();
+            sticky_bottom = $(window).scrollTop();
+            if (sticky_bottom > this.main_bottom_offset) {
+                this.no_resizing = true;
+            }
+            this.initiated = true;
+        } else {
+            this.no_resizing = true;
+        }
+    }
+};
+
+/* Assumes jQuery and stage-object is loaded */
+sticky = {
+    initiated : false,
+    disabled : false,
+	disable_on_height: 0,
+    el : null,
+    anchor_el : null,
+    footer_el : null,
+    reached_bottom : false,
+    refresh_elements : function () {
+        this.el = $('#sticky');
+        this.anchor_el = $('#sticky-anchor');
+        this.initiated = true;
+        if (this.el.length === 0) {
+            this.disabled = true;
+        }
+    },
+    scrollEvent : function () {
+        if (!this.disabled) {
+			var distance, a_os, s_os;
+            if (!this.initiated) {
+                this.initiate();
+            }
+			
+            stage.recalculate();
+            a_os = this.anchor_el.offset().top;
+            if (stage.visible_bottom > stage.footer_top && (stage.footer_top - a_os) > stage.art_height) {
+				this.visible_bottom = stage.window_top + stage.window_height;
+				distance = stage.measure_distance(stage.visible_bottom, stage.footer_top);
+				this.el.css({position : "fixed", top : "", bottom : distance + 'px'});
+				this.reached_bottom = true;
+            } else {
+                this.reached_bottom = false;
+                if (stage.window_top > a_os) {
+                    this.el.css({position : "fixed", top : "0px", bottom : ""});
+                } else {
+                    if (stage.window_top <= a_os) {
+                        this.el.css({position : "relative", top : "", bottom : ""});
+                    }
+                }
+            }
+        }
+	},
+    initiate : function () {
+        this.refresh_elements();
+        this.scrollEvent();
+    }
+};
+
+function reset_size_and_scroll() {
+    sticky.scrollEvent();
+    sizer.resize();
 }
 
 function getCookie(cookie_name) {
@@ -186,7 +355,7 @@ function createPrimaryMenu(menu, selected_menu) {
     return ul;
 }
 
-function initMenu(selected_url, menu_to_load) {
+function renderMenu(selected_url, menu_to_load) {
     var sideNavPar, sideNavCh, prim, menu, sub, mi, ul, temp_ul, stored, selected, i;
     sideNavPar = document.getElementById('side-nav-parents');
     sideNavCh = document.getElementById('side-nav-children');
@@ -243,4 +412,48 @@ function initMenu(selected_url, menu_to_load) {
         sideNavCh.appendChild(sub);
     }
     $('#side-nav-children').removeClass('loading');
+}
+
+function initiateApiMenu() {
+	var menu, menu_id_str, selected, siblings;
+	menu = null;
+	menu_id_str = $('.side-nav-content').attr('id');
+	if (menu_id_str !== 'none') {
+		menu = menu_id_str;
+	}
+	$(document).ready(function () {
+		stage.initiate();
+		sticky.initiate();
+		sizer.initiate(); /* Initiates resizing of menu on pages where it is relevant */
+
+		selected = $('.no_children.item_active').first();
+		selected.siblings().addClass('active_sibling');
+		$("#main a").each(function () {
+			$(this).bind('click', function () {
+				sticky.scrollEvent();
+			});
+		});
+		
+	});
+	$(window).load(function () {
+		var container, scrollTo;
+		renderMenu(window.location.pathname, menu);
+		reset_size_and_scroll();
+		$(function () {
+			container = $('#side-nav-children');
+			scrollTo = $('.active', container);
+			if (scrollTo.length > 0) {
+				container.scrollTop(scrollTo.offset().top - container.offset().top + container.scrollTop() - 80);
+			}
+		});
+	});
+
+	$(window).resize(function (e) {
+		if (e) { e.stopPropagation(); }
+		reset_size_and_scroll();
+	});
+	$(window).scroll(function (e) {
+		if (e) { e.stopPropagation(); }
+		reset_size_and_scroll();
+	});
 }
