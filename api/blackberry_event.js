@@ -17,7 +17,6 @@
 /**
  * @namespace The event Object contains functions for dealing with specific events.
  * @toc {Event} Event
- * @featureID blackberry.event
  * @example
  * &lt;html&gt;
  * &lt;head&gt;
@@ -35,6 +34,7 @@
  * // WebWorks is loaded and it is now safe to make calls WebWorks API
  * //
  * function onWebworksReady() {
+ *    // Make sure "blackberry.app" is declared in config.xml if you intend to use the "pause" event
  *    blackberry.event.addEventListener("pause", onPause);
  * }
  * 
@@ -50,105 +50,6 @@
  * &lt;/html&gt;
  */
 blackberry.event = {
-
-   /**#@+
-    * @noSignature
-    * @event
-    * @BB10X
-    * @description This event is fired by the system. If you want to listen to the event you can do so using the {@link blackberry.event.addEventListener} function and remove the listener using the {@link blackberry.event.removeEventListener} function. <br/>
-    */
-  
-   /**
-    * @description The <b>batterycritical</b> event is triggered whenever the battery level changes to the value lower than 5%.
-    * @callback {function} yourCallbackFunction The callback function that will be invoked on the batterycritical event
-    * @callback {JSON} yourCallbackFunction.info An object  the pertinent information
-    * @callback {Number} yourCallbackFunction.info.level The percentage of the battery charge (0-100).
-    * @callback {Boolean} yourCallbackFunction.info.isPlugged A boolean that represents whether or not the device is receiving a charge.
-    * @example
-    * &lt;script type="text/javascript"&gt;
-    *
-    * function onBatteryCritical(info) {
-    *   alert("The battery level is critical: " + info.level + (info.isPlugged?".":" and will shutdown soon. Save your work or connect device to a charging source."));
-    * }
-    *
-    * blackberry.event.addEventListener("batterycritical", onBatteryCritical);
-    *
-    * &lt;/script&gt;
-    */
-   batterycritical : function(){},
-
-   /**
-    * @description The <b>batterylow</b> event is triggered whenever the battery level changes to the value lower than 15%.
-    * @callback {function} yourCallbackFunction The callback function that will be invoked on the batterylow event
-    * @callback {JSON} yourCallbackFunction.info An object  the pertinent information
-    * @callback {Number} yourCallbackFunction.info.level The percentage of the battery charge (0-100).
-    * @callback {Boolean} yourCallbackFunction.info.isPlugged A boolean that represents whether or not the device is receiving a charge.
-    * @example
-    * &lt;script type="text/javascript"&gt;
-    *
-    * function onBatteryLow(info) {
-    *   alert("The battery level is low: " + info.level + (info.isPlugged?".":". Consider connecting your device to a charging source."));
-    * }
-    *
-    * blackberry.event.addEventListener("batterylow", onBatteryLow);
-    *
-    * &lt;/script&gt;
-    */
-   batterylow : function(){},
-
-   /**
-    * @description The <b>batterystatus</b> event is triggered whenever the: <ul><li>battery level changes</li><li>device starts to receive a charge</li><li>device stops receiving a charge</li></ul>
-    * @callback {function} yourCallbackFunction The callback function that will be invoked on the batterystatus event
-    * @callback {JSON} yourCallbackFunction.info An object  the pertinent information
-    * @callback {Number} yourCallbackFunction.info.level The percentage of the battery charge (0-100).
-    * @callback {Boolean} yourCallbackFunction.info.isPlugged A boolean that represents whether or not the device is receiving a charge.
-    * @example
-    * &lt;script type="text/javascript"&gt;
-    * 
-    * function onBatteryStatusChange(info) {
-    *   alert("The playbook " + info.isPlugged?"is ":"is not " + "plugged in with " + info.level + "% battery remaining");
-    * }
-    *
-    * blackberry.event.addEventListener("batterystatus", onBatteryStatusChange);
-    *
-    * &lt;/script&gt;
-    */
-   batterystatus : function(){},
-
-   /**
-    * @description The <b>pause</b> event is triggered whenever the the application is put into the background.
-    * @callback {function} yourCallbackFunction The callback function that will be invoked on the pause event
-    * @example
-    * &lt;script type="text/javascript"&gt;
-    * 
-    * function onPause() {
-    *   alert("The app is about to be paused.");
-    * }
-    *
-    * blackberry.event.addEventListener("pause", onPause);
-    *
-    * &lt;/script&gt;
-    */
-   pause : function(){},
-
-   /**
-    * @description The <b>resume</b> event is triggered whenever the the application is retrieved from the background.
-    * @callback {function} yourCallbackFunction The callback function that will be invoked on the resume event
-    * @example
-    * &lt;script type="text/javascript"&gt;
-    * 
-    * function onResume() {
-    *   alert("The app is resumed.");
-    * }
-    *
-    * blackberry.event.addEventListener("resume", onResume);
-    *
-    * &lt;/script&gt;
-    */
-   resume : function(){},
-
-   /**#@-*/
-
    /**
     * @description Allows you to attach a callback function to an event. You can attach multuple callback functions to a single event.
     * @param {String} eventName The event you want to attach the callback function to.

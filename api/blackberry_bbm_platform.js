@@ -18,18 +18,10 @@
  * @toc {BBM} BBM Platform
  * @featureID blackberry.bbm.platform
  * @namespace Provides access to the BBM Social Platform.
- * 
- * <h1>Required BBM Version</h1>
- * 
- * BBM Social Platform APIs come with BBM 6.1.0 and later. BBM 6.1.0 is supported on BlackBerry OS 5, 6, and 7.
- * 
- * <h1>Authorization</h1>
- * 
- * <p>
+ * @notice {Required BBM Version} BBM Social Platform APIs come with BBM 6.1.0 and later. BBM 6.1.0 is supported on BlackBerry OS 5, 6, and 7.
+ * @notice {Authorization}
  * Applications must first obtain access to the platform by calling
  * {@link blackberry.bbm.platform.register}.
- * </p>
- * 
  * <ul>
  * <li><b>Accessing other namespaces under</b> {@link blackberry.bbm.platform} <b>may throw exceptions
  * if not authorized.</b></li>

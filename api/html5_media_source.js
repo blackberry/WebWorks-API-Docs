@@ -44,6 +44,7 @@ HTMLSourceElement = function() { };
  * @example
  * var source = document.createElement("source");
  * @PB10+
+ * @BB10X
  * @BB60+
  * @RIPPLE
  */
@@ -56,6 +57,7 @@ HTMLSourceElement.documentConstructor = undefined;
 * @type String
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLSourceElement.prototype.src = { };
@@ -65,6 +67,7 @@ HTMLSourceElement.prototype.src = { };
 * @type String
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLSourceElement.prototype.type = { };
@@ -74,6 +77,7 @@ HTMLSourceElement.prototype.type = { };
 * @type String
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLSourceElement.prototype.media = { };

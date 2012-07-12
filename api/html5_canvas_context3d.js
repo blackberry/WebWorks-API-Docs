@@ -23,6 +23,7 @@
 * The WebGLRenderingContext object is used to manage OpenGL state and render to the drawing buffer
 * @toc {User Interface} HTML5 WebGL Canvas Context
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext = { 
@@ -31,6 +32,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x00000400
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		STENCIL_BUFFER_BIT : 0x00000400,
@@ -40,6 +42,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x00004000
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		COLOR_BUFFER_BIT : 0x00004000,
@@ -49,6 +52,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0000
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		POINTS : 0x0000,
@@ -58,6 +62,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0001
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		LINES : 0x0001,
@@ -67,6 +72,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0002
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		LINE_LOOP : 0x0002,
@@ -76,6 +82,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0003
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		LINE_STRIP : 0x0003,
@@ -85,6 +92,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0004
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TRIANGLES : 0x0004,
@@ -94,6 +102,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0005
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TRIANGLE_STRIP : 0x0005,
@@ -103,6 +112,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0006
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TRIANGLE_FAN : 0x0006,
@@ -112,6 +122,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		ZERO : 0,
@@ -121,6 +132,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 1
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		ONE : 1,
@@ -130,6 +142,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0300
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		SRC_COLOR : 0x0300,
@@ -139,6 +152,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0301
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		ONE_MINUS_SRC_COLOR : 0x0301,
@@ -148,6 +162,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0302
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		SRC_ALPHA : 0x0302,
@@ -157,6 +172,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0303
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		ONE_MINUS_SRC_ALPHA : 0x0303,
@@ -166,6 +182,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0304
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		DST_ALPHA : 0x0304,
@@ -175,6 +192,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0305
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		ONE_MINUS_DST_ALPHA : 0x0305,
@@ -184,6 +202,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0306
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		DST_COLOR : 0x0306,
@@ -193,6 +212,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0307
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		ONE_MINUS_DST_COLOR : 0x0307,
@@ -202,6 +222,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0308
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		SRC_ALPHA_SATURATE : 0x0308,
@@ -211,6 +232,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8006
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FUNC_ADD : 0x8006,
@@ -220,6 +242,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8009
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		BLEND_EQUATION : 0x8009,
@@ -229,6 +252,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8009
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		BLEND_EQUATION_RGB : 0x8009,   /* same as BLEND_EQUATION */
@@ -238,6 +262,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x883D
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		BLEND_EQUATION_ALPHA : 0x883D,
@@ -247,6 +272,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x800A
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FUNC_SUBTRACT : 0x800A,
@@ -256,6 +282,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x800B
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FUNC_REVERSE_SUBTRACT : 0x800B,
@@ -265,6 +292,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x80C8
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		BLEND_DST_RGB : 0x80C8,
@@ -274,6 +302,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x80C9
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		BLEND_SRC_RGB : 0x80C9,
@@ -283,6 +312,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x80CA
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		BLEND_DST_ALPHA : 0x80CA,
@@ -292,6 +322,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x80CB
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		BLEND_SRC_ALPHA : 0x80CB,
@@ -301,6 +332,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8001
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		CONSTANT_COLOR : 0x8001,
@@ -310,6 +342,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8002
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		ONE_MINUS_CONSTANT_COLOR : 0x8002,
@@ -319,6 +352,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8003
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		CONSTANT_ALPHA : 0x8003,
@@ -328,6 +362,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8004
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		ONE_MINUS_CONSTANT_ALPHA : 0x8004,
@@ -337,6 +372,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8005
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		BLEND_COLOR : 0x8005,
@@ -346,6 +382,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8892
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		ARRAY_BUFFER : 0x8892,
@@ -355,6 +392,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8893
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		ELEMENT_ARRAY_BUFFER : 0x8893,
@@ -364,6 +402,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8894
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		ARRAY_BUFFER_BINDING : 0x8894,
@@ -373,6 +412,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8895
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		ELEMENT_ARRAY_BUFFER_BINDING : 0x8895,
@@ -382,6 +422,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x88E0
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		STREAM_DRAW : 0x88E0,
@@ -391,6 +432,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x88E4
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		STATIC_DRAW : 0x88E4,
@@ -400,6 +442,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x88E8
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		DYNAMIC_DRAW : 0x88E8,
@@ -409,6 +452,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8764
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		BUFFER_SIZE : 0x8764,
@@ -418,6 +462,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8765
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		BUFFER_USAGE : 0x8765,
@@ -427,6 +472,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8626
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		CURRENT_VERTEX_ATTRIB : 0x8626,
@@ -436,6 +482,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0404
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FRONT : 0x0404,
@@ -445,6 +492,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0405
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		BACK : 0x0405,
@@ -454,6 +502,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0408
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FRONT_AND_BACK : 0x0408,
@@ -463,6 +512,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0DE1
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE_2D : 0x0DE1,
@@ -472,6 +522,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0B44
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		CULL_FACE : 0x0B44,
@@ -481,6 +532,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0BE2
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		BLEND : 0x0BE2,
@@ -490,6 +542,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0BD0
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		DITHER : 0x0BD0,
@@ -499,6 +552,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0B90
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		STENCIL_TEST : 0x0B90,
@@ -508,6 +562,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0B71
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		DEPTH_TEST : 0x0B71,
@@ -517,6 +572,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0C11
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		SCISSOR_TEST : 0x0C11,
@@ -526,6 +582,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8037
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		POLYGON_OFFSET_FILL : 0x8037,
@@ -535,6 +592,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x809E
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		SAMPLE_ALPHA_TO_COVERAGE : 0x809E,
@@ -544,6 +602,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x80A0
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		SAMPLE_COVERAGE : 0x80A0,
@@ -553,6 +612,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		NO_ERROR : 0,
@@ -562,6 +622,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0500
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		INVALID_ENUM : 0x0500,
@@ -571,6 +632,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0501
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		INVALID_VALUE : 0x0501,
@@ -580,6 +642,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0502
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		INVALID_OPERATION : 0x0502,
@@ -589,6 +652,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0505
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		OUT_OF_MEMORY : 0x0505,
@@ -598,6 +662,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0900
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		CW : 0x0900,
@@ -607,6 +672,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0901
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		CCW : 0x0901,
@@ -616,6 +682,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0B21
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		LINE_WIDTH : 0x0B21,
@@ -625,6 +692,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x846D
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		ALIASED_POINT_SIZE_RANGE : 0x846D,
@@ -634,6 +702,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x846E
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		ALIASED_LINE_WIDTH_RANGE : 0x846E,
@@ -643,6 +712,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0B45
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		CULL_FACE_MODE : 0x0B45,
@@ -652,6 +722,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0B46
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FRONT_FACE : 0x0B46,
@@ -661,6 +732,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0B70
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		DEPTH_RANGE : 0x0B70,
@@ -670,6 +742,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0B72
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		DEPTH_WRITEMASK : 0x0B72,
@@ -679,6 +752,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0B73
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		DEPTH_CLEAR_VALUE : 0x0B73,
@@ -688,6 +762,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0B74
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		DEPTH_FUNC : 0x0B74,
@@ -697,6 +772,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0B91
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		STENCIL_CLEAR_VALUE : 0x0B91,
@@ -706,6 +782,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0B92
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		STENCIL_FUNC : 0x0B92,
@@ -715,6 +792,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0B94
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		STENCIL_FAIL : 0x0B94,
@@ -724,6 +802,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0B95
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		STENCIL_PASS_DEPTH_FAIL : 0x0B95,
@@ -733,6 +812,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0B96
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		STENCIL_PASS_DEPTH_PASS : 0x0B96,
@@ -742,6 +822,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0B97
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		STENCIL_REF : 0x0B97,
@@ -751,6 +832,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0B93
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		STENCIL_VALUE_MASK : 0x0B93,
@@ -760,6 +842,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0B98
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		STENCIL_WRITEMASK : 0x0B98,
@@ -769,6 +852,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8800
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		STENCIL_BACK_FUNC : 0x8800,
@@ -778,6 +862,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8801
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		STENCIL_BACK_FAIL : 0x8801,
@@ -787,6 +872,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8802
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		STENCIL_BACK_PASS_DEPTH_FAIL : 0x8802,
@@ -796,6 +882,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8803
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		STENCIL_BACK_PASS_DEPTH_PASS : 0x8803,
@@ -805,6 +892,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8CA3
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		STENCIL_BACK_REF : 0x8CA3,
@@ -814,6 +902,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8CA4
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		STENCIL_BACK_VALUE_MASK : 0x8CA4,
@@ -823,6 +912,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8CA5
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		STENCIL_BACK_WRITEMASK : 0x8CA5,
@@ -832,6 +922,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0BA2
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		VIEWPORT : 0x0BA2,
@@ -841,6 +932,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0C10
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		SCISSOR_BOX : 0x0C10,
@@ -850,6 +942,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0C22
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		COLOR_CLEAR_VALUE : 0x0C22,
@@ -859,6 +952,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0C23
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		COLOR_WRITEMASK : 0x0C23,
@@ -868,6 +962,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0CF5
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		UNPACK_ALIGNMENT : 0x0CF5,
@@ -877,6 +972,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0D05
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		PACK_ALIGNMENT : 0x0D05,
@@ -886,6 +982,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0D33
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		MAX_TEXTURE_SIZE : 0x0D33,
@@ -895,6 +992,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0D3A
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		MAX_VIEWPORT_DIMS : 0x0D3A,
@@ -904,6 +1002,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0D50
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		SUBPIXEL_BITS : 0x0D50,
@@ -913,6 +1012,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0D52
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		RED_BITS : 0x0D52,
@@ -922,6 +1022,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0D53
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		GREEN_BITS : 0x0D53,
@@ -931,6 +1032,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0D54
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		BLUE_BITS : 0x0D54,
@@ -940,6 +1042,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0D55
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		ALPHA_BITS : 0x0D55,
@@ -949,6 +1052,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0D56
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		DEPTH_BITS : 0x0D56,
@@ -958,6 +1062,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0D57
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		STENCIL_BITS : 0x0D57,
@@ -967,6 +1072,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x2A00
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		POLYGON_OFFSET_UNITS : 0x2A00,
@@ -976,6 +1082,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8038
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		POLYGON_OFFSET_FACTOR : 0x8038,
@@ -985,6 +1092,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8069
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE_BINDING_2D : 0x8069,
@@ -994,6 +1102,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x80A8
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		SAMPLE_BUFFERS : 0x80A8,
@@ -1003,6 +1112,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x80A9
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		SAMPLES : 0x80A9,
@@ -1012,6 +1122,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x80AA
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		SAMPLE_COVERAGE_VALUE : 0x80AA,
@@ -1021,6 +1132,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x80AB
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		SAMPLE_COVERAGE_INVERT : 0x80AB,
@@ -1030,6 +1142,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x86A2
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		NUM_COMPRESSED_TEXTURE_FORMATS : 0x86A2,
@@ -1039,6 +1152,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x86A3
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		COMPRESSED_TEXTURE_FORMATS : 0x86A3,
@@ -1048,6 +1162,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x1100
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		DONT_CARE : 0x1100,
@@ -1057,6 +1172,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x1101
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FASTEST : 0x1101,
@@ -1066,6 +1182,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x1102
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		NICEST : 0x1102,
@@ -1075,6 +1192,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8192
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		GENERATE_MIPMAP_HINT : 0x8192,
@@ -1084,6 +1202,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x1400
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		BYTE : 0x1400,
@@ -1093,6 +1212,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x1401
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		UNSIGNED_BYTE : 0x1401,
@@ -1102,6 +1222,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x1402
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		SHORT : 0x1402,
@@ -1111,6 +1232,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x1403
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		UNSIGNED_SHORT : 0x1403,
@@ -1120,6 +1242,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x1404
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		INT : 0x1404,
@@ -1129,6 +1252,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x1405
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		UNSIGNED_INT : 0x1405,
@@ -1138,6 +1262,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x1406
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FLOAT : 0x1406,
@@ -1147,6 +1272,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x1902
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		DEPTH_COMPONENT : 0x1902,
@@ -1156,6 +1282,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x1906
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		ALPHA : 0x1906,
@@ -1165,6 +1292,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x1907
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		RGB : 0x1907,
@@ -1174,6 +1302,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x1908
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		RGBA : 0x1908,
@@ -1183,6 +1312,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x1909
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		LUMINANCE : 0x1909,
@@ -1192,6 +1322,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x190A
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		LUMINANCE_ALPHA : 0x190A,
@@ -1201,6 +1332,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8033
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		UNSIGNED_SHORT_4_4_4_4 : 0x8033,
@@ -1210,6 +1342,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8034
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		UNSIGNED_SHORT_5_5_5_1 : 0x8034,
@@ -1219,6 +1352,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8363
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		UNSIGNED_SHORT_5_6_5 : 0x8363,
@@ -1228,6 +1362,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B30
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FRAGMENT_SHADER : 0x8B30,
@@ -1237,6 +1372,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B31
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		VERTEX_SHADER : 0x8B31,
@@ -1246,6 +1382,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8869
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		MAX_VERTEX_ATTRIBS : 0x8869,
@@ -1255,6 +1392,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8DFB
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		MAX_VERTEX_UNIFORM_VECTORS : 0x8DFB,
@@ -1264,6 +1402,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8DFC
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		MAX_VARYING_VECTORS : 0x8DFC,
@@ -1273,6 +1412,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B4D
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		MAX_COMBINED_TEXTURE_IMAGE_UNITS : 0x8B4D,
@@ -1282,6 +1422,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B4C
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		MAX_VERTEX_TEXTURE_IMAGE_UNITS : 0x8B4C,
@@ -1291,6 +1432,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8872
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		MAX_TEXTURE_IMAGE_UNITS : 0x8872,
@@ -1300,6 +1442,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8DFD
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		MAX_FRAGMENT_UNIFORM_VECTORS : 0x8DFD,
@@ -1309,6 +1452,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B4F
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		SHADER_TYPE : 0x8B4F,
@@ -1318,6 +1462,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B80
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		DELETE_STATUS : 0x8B80,
@@ -1327,6 +1472,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B82
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		LINK_STATUS : 0x8B82,
@@ -1336,6 +1482,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B83
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		VALIDATE_STATUS : 0x8B83,
@@ -1345,6 +1492,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B85
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		ATTACHED_SHADERS : 0x8B85,
@@ -1354,6 +1502,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B86
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		ACTIVE_UNIFORMS : 0x8B86,
@@ -1363,6 +1512,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B87
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		ACTIVE_UNIFORM_MAX_LENGTH : 0x8B87,
@@ -1372,6 +1522,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B89
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		ACTIVE_ATTRIBUTES : 0x8B89,
@@ -1381,6 +1532,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B8A
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		ACTIVE_ATTRIBUTE_MAX_LENGTH : 0x8B8A,
@@ -1390,6 +1542,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B8C
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		SHADING_LANGUAGE_VERSION : 0x8B8C,
@@ -1399,6 +1552,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B8D
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		CURRENT_PROGRAM : 0x8B8D,
@@ -1408,6 +1562,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0200
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		NEVER : 0x0200,
@@ -1417,6 +1572,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0201
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		LESS : 0x0201,
@@ -1426,6 +1582,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0202
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		EQUAL : 0x0202,
@@ -1435,6 +1592,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0203
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		LEQUAL : 0x0203,
@@ -1444,6 +1602,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0204
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		GREATER : 0x0204,
@@ -1453,6 +1612,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0205
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		NOTEQUAL : 0x0205,
@@ -1462,6 +1622,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0206
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		GEQUAL : 0x0206,
@@ -1471,6 +1632,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0207
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		ALWAYS : 0x0207,
@@ -1480,6 +1642,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x1E00
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		KEEP : 0x1E00,
@@ -1489,6 +1652,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x1E01
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		REPLACE : 0x1E01,
@@ -1498,6 +1662,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x1E02
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		INCR : 0x1E02,
@@ -1507,6 +1672,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x1E03
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		DECR : 0x1E03,
@@ -1516,6 +1682,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x150A
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		INVERT : 0x150A,
@@ -1525,6 +1692,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8507
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		INCR_WRAP : 0x8507,
@@ -1534,6 +1702,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8508
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		DECR_WRAP : 0x8508,
@@ -1543,6 +1712,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x1F00
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		VENDOR : 0x1F00,
@@ -1552,6 +1722,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x1F01
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		RENDERER : 0x1F01,
@@ -1561,6 +1732,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x1F02
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		VERSION : 0x1F02,
@@ -1570,6 +1742,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x2600
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		NEAREST : 0x2600,
@@ -1579,6 +1752,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x2601
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		LINEAR : 0x2601,
@@ -1588,6 +1762,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x2700
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		NEAREST_MIPMAP_NEAREST : 0x2700,
@@ -1597,6 +1772,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x2701
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		LINEAR_MIPMAP_NEAREST : 0x2701,
@@ -1606,6 +1782,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x2702
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		NEAREST_MIPMAP_LINEAR : 0x2702,
@@ -1615,6 +1792,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x2703
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		LINEAR_MIPMAP_LINEAR : 0x2703,
@@ -1624,6 +1802,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x2800
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE_MAG_FILTER : 0x2800,
@@ -1633,6 +1812,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x2801
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE_MIN_FILTER : 0x2801,
@@ -1642,6 +1822,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x2802
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE_WRAP_S : 0x2802,
@@ -1651,6 +1832,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x2803
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE_WRAP_T : 0x2803,
@@ -1660,6 +1842,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x1702
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE : 0x1702,
@@ -1669,6 +1852,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8513
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE_CUBE_MAP : 0x8513,
@@ -1678,6 +1862,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8514
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE_BINDING_CUBE_MAP : 0x8514,
@@ -1687,6 +1872,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8515
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE_CUBE_MAP_POSITIVE_X : 0x8515,
@@ -1696,6 +1882,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8516
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE_CUBE_MAP_NEGATIVE_X : 0x8516,
@@ -1705,6 +1892,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8517
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE_CUBE_MAP_POSITIVE_Y : 0x8517,
@@ -1714,6 +1902,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8518
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE_CUBE_MAP_NEGATIVE_Y : 0x8518,
@@ -1723,6 +1912,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8519
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE_CUBE_MAP_POSITIVE_Z : 0x8519,
@@ -1732,6 +1922,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x851A
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE_CUBE_MAP_NEGATIVE_Z : 0x851A,
@@ -1741,6 +1932,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x851C
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		MAX_CUBE_MAP_TEXTURE_SIZE : 0x851C,
@@ -1750,6 +1942,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84C0
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE0 : 0x84C0,
@@ -1759,6 +1952,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84C1
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE1 : 0x84C1,
@@ -1768,6 +1962,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84C2
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE2 : 0x84C2,
@@ -1777,6 +1972,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84C3
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE3 : 0x84C3,
@@ -1786,6 +1982,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84C4
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE4 : 0x84C4,
@@ -1795,6 +1992,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84C5
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE5 : 0x84C5,
@@ -1804,6 +2002,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84C6
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE6 : 0x84C6,
@@ -1813,6 +2012,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84C7
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE7 : 0x84C7,
@@ -1822,6 +2022,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84C8
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE8 : 0x84C8,
@@ -1831,6 +2032,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84C9
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE9 : 0x84C9,
@@ -1840,6 +2042,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84CA
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE10 : 0x84CA,
@@ -1849,6 +2052,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84CB
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE11 : 0x84CB,
@@ -1858,6 +2062,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84CC
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE12 : 0x84CC,
@@ -1867,6 +2072,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84CD
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE13 : 0x84CD,
@@ -1876,6 +2082,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84CE
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE14 : 0x84CE,
@@ -1885,6 +2092,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84CF
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE15 : 0x84CF,
@@ -1894,6 +2102,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84D0
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE16 : 0x84D0,
@@ -1903,6 +2112,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84D1
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE17 : 0x84D1,
@@ -1912,6 +2122,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84D2
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE18 : 0x84D2,
@@ -1921,6 +2132,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84D3
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE19 : 0x84D3,
@@ -1930,6 +2142,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84D4
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE20 : 0x84D4,
@@ -1939,6 +2152,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84D5
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE21 : 0x84D5,
@@ -1948,6 +2162,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84D6
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE22 : 0x84D6,
@@ -1957,6 +2172,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84D7
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE23 : 0x84D7,
@@ -1966,6 +2182,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84D8
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE24 : 0x84D8,
@@ -1975,6 +2192,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84D9
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE25 : 0x84D9,
@@ -1984,6 +2202,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84DA
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE26 : 0x84DA,
@@ -1993,6 +2212,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84DB
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE27 : 0x84DB,
@@ -2002,6 +2222,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84DC
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE28 : 0x84DC,
@@ -2011,6 +2232,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84DD
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE29 : 0x84DD,
@@ -2020,6 +2242,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84DE
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE30 : 0x84DE,
@@ -2029,6 +2252,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84DF
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		TEXTURE31 : 0x84DF,
@@ -2038,6 +2262,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84E0
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		ACTIVE_TEXTURE : 0x84E0,
@@ -2047,6 +2272,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x2901
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		REPEAT : 0x2901,
@@ -2056,6 +2282,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x812F
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		CLAMP_TO_EDGE : 0x812F,
@@ -2065,6 +2292,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8370
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		MIRRORED_REPEAT : 0x8370,
@@ -2074,6 +2302,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B50
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FLOAT_VEC2 : 0x8B50,
@@ -2083,6 +2312,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B51
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FLOAT_VEC3 : 0x8B51,
@@ -2092,6 +2322,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B52
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FLOAT_VEC4 : 0x8B52,
@@ -2101,6 +2332,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B53
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		INT_VEC2 : 0x8B53,
@@ -2110,6 +2342,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B54
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		INT_VEC3 : 0x8B54,
@@ -2119,6 +2352,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B55
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		INT_VEC4 : 0x8B55,
@@ -2128,6 +2362,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B56
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		BOOL : 0x8B56,
@@ -2137,6 +2372,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B57
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		BOOL_VEC2 : 0x8B57,
@@ -2146,6 +2382,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B58
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		BOOL_VEC3 : 0x8B58,
@@ -2155,6 +2392,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B59
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		BOOL_VEC4 : 0x8B59,
@@ -2164,6 +2402,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B5A
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FLOAT_MAT2 : 0x8B5A,
@@ -2173,6 +2412,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B5B
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FLOAT_MAT3 : 0x8B5B,
@@ -2182,6 +2422,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B5C
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FLOAT_MAT4 : 0x8B5C,
@@ -2191,6 +2432,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B5E
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		SAMPLER_2D : 0x8B5E,
@@ -2200,6 +2442,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B60
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		SAMPLER_CUBE : 0x8B60,
@@ -2209,6 +2452,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8622
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		VERTEX_ATTRIB_ARRAY_ENABLED : 0x8622,
@@ -2218,6 +2462,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8623
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		VERTEX_ATTRIB_ARRAY_SIZE : 0x8623,
@@ -2227,6 +2472,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8624
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		VERTEX_ATTRIB_ARRAY_STRIDE : 0x8624,
@@ -2236,6 +2482,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8625
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		VERTEX_ATTRIB_ARRAY_TYPE : 0x8625,
@@ -2245,6 +2492,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x886A
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		VERTEX_ATTRIB_ARRAY_NORMALIZED : 0x886A,
@@ -2254,6 +2502,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8645
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		VERTEX_ATTRIB_ARRAY_POINTER : 0x8645,
@@ -2263,6 +2512,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x889F
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		VERTEX_ATTRIB_ARRAY_BUFFER_BINDING : 0x889F,
@@ -2272,6 +2522,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B81
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		COMPILE_STATUS : 0x8B81,
@@ -2281,6 +2532,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B84
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		INFO_LOG_LENGTH : 0x8B84,
@@ -2290,6 +2542,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8B88
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		SHADER_SOURCE_LENGTH : 0x8B88,
@@ -2299,6 +2552,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8DF0
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		LOW_FLOAT : 0x8DF0,
@@ -2308,6 +2562,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8DF1
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		MEDIUM_FLOAT : 0x8DF1,
@@ -2317,6 +2572,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8DF2
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		HIGH_FLOAT : 0x8DF2,
@@ -2326,6 +2582,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8DF3
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		LOW_INT : 0x8DF3,
@@ -2335,6 +2592,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8DF4
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		MEDIUM_INT : 0x8DF4,
@@ -2344,6 +2602,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8DF5
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		HIGH_INT : 0x8DF5,
@@ -2353,6 +2612,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8D40
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FRAMEBUFFER : 0x8D40,
@@ -2362,6 +2622,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8D41
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		RENDERBUFFER : 0x8D41,
@@ -2371,6 +2632,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8056
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		RGBA4 : 0x8056,
@@ -2380,6 +2642,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8057
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		RGB5_A1 : 0x8057,
@@ -2389,6 +2652,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8D62
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		RGB565 : 0x8D62,
@@ -2398,6 +2662,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x81A5
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		DEPTH_COMPONENT16 : 0x81A5,
@@ -2407,6 +2672,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x1901
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		STENCIL_INDEX : 0x1901,
@@ -2416,6 +2682,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8D48
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		STENCIL_INDEX8 : 0x8D48,
@@ -2425,6 +2692,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84F9
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		DEPTH_STENCIL : 0x84F9,
@@ -2434,6 +2702,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8D42
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		RENDERBUFFER_WIDTH : 0x8D42,
@@ -2443,6 +2712,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8D43
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		RENDERBUFFER_HEIGHT : 0x8D43,
@@ -2452,6 +2722,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8D44
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		RENDERBUFFER_INTERNAL_FORMAT : 0x8D44,
@@ -2461,6 +2732,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8D50
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		RENDERBUFFER_RED_SIZE : 0x8D50,
@@ -2470,6 +2742,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8D51
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		RENDERBUFFER_GREEN_SIZE : 0x8D51,
@@ -2479,6 +2752,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8D52
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		RENDERBUFFER_BLUE_SIZE : 0x8D52,
@@ -2488,6 +2762,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8D53
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		RENDERBUFFER_ALPHA_SIZE : 0x8D53,
@@ -2497,6 +2772,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8D54
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		RENDERBUFFER_DEPTH_SIZE : 0x8D54,
@@ -2506,6 +2782,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8D55
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		RENDERBUFFER_STENCIL_SIZE : 0x8D55,
@@ -2515,6 +2792,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8CD0
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE : 0x8CD0,
@@ -2524,6 +2802,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8CD1
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FRAMEBUFFER_ATTACHMENT_OBJECT_NAME : 0x8CD1,
@@ -2533,6 +2812,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8CD2
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL : 0x8CD2,
@@ -2542,6 +2822,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8CD3
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE : 0x8CD3,
@@ -2551,6 +2832,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8CE0
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		COLOR_ATTACHMENT0 : 0x8CE0,
@@ -2560,6 +2842,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8D00
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		DEPTH_ATTACHMENT : 0x8D00,
@@ -2569,6 +2852,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8D20
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		STENCIL_ATTACHMENT : 0x8D20,
@@ -2578,6 +2862,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x821A
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		DEPTH_STENCIL_ATTACHMENT : 0x821A,
@@ -2587,6 +2872,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		NONE : 0,
@@ -2596,6 +2882,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8CD5
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FRAMEBUFFER_COMPLETE : 0x8CD5,
@@ -2605,6 +2892,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8CD6
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FRAMEBUFFER_INCOMPLETE_ATTACHMENT : 0x8CD6,
@@ -2614,6 +2902,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8CD7
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT : 0x8CD7,
@@ -2623,6 +2912,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8CD9
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FRAMEBUFFER_INCOMPLETE_DIMENSIONS : 0x8CD9,
@@ -2632,6 +2922,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8CDD
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FRAMEBUFFER_UNSUPPORTED : 0x8CDD,
@@ -2641,6 +2932,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8CA6
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		FRAMEBUFFER_BINDING : 0x8CA6,
@@ -2650,6 +2942,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x8CA7
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		RENDERBUFFER_BINDING : 0x8CA7,
@@ -2659,6 +2952,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x84E8
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		MAX_RENDERBUFFER_SIZE : 0x84E8,
@@ -2668,6 +2962,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x0506
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		INVALID_FRAMEBUFFER_OPERATION : 0x0506,
@@ -2677,6 +2972,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x9240
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		UNPACK_FLIP_Y_WEBGL : 0x9240,
@@ -2686,6 +2982,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x9241
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		UNPACK_PREMULTIPLY_ALPHA_WEBGL : 0x9241,
@@ -2695,6 +2992,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x9242
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		CONTEXT_LOST_WEBGL : 0x9242,
@@ -2704,6 +3002,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x9243
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		UNPACK_COLORSPACE_CONVERSION_WEBGL : 0x9243,
@@ -2713,6 +3012,7 @@ WebGLRenderingContext = {
 		* @constant
 		* @default 0x9244
 		* @PB20
+		* @BB10X
 		* @RIPPLE
 		*/
 		BROWSER_DEFAULT_WEBGL : 0x9244,
@@ -2747,6 +3047,7 @@ WebGLRenderingContext = {
 *     &lt;/body&gt;
 * &lt;/html&gt;
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.documentConstructor = undefined;
@@ -2755,6 +3056,7 @@ WebGLRenderingContext.documentConstructor = undefined;
 * @namespace
 * The WebGLContextAttributes interface contains drawing surface attributes and is passed as the second parameter to getContext
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLContextAttributes = { };
@@ -2764,6 +3066,7 @@ WebGLContextAttributes = { };
 * @type boolean
 * @default true
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLContextAttributes.prototype.depth = { };
@@ -2773,6 +3076,7 @@ WebGLContextAttributes.prototype.depth = { };
 * @type boolean
 * @default false
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLContextAttributes.prototype.stencil = { };
@@ -2784,6 +3088,7 @@ WebGLContextAttributes.prototype.stencil = { };
 * @type boolean
 * @default true
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLContextAttributes.prototype.antialias = { };
@@ -2794,6 +3099,7 @@ WebGLContextAttributes.prototype.antialias = { };
 * @type boolean
 * @default true
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLContextAttributes.prototype.premultipliedAlpha = { };
@@ -2802,6 +3108,7 @@ WebGLContextAttributes.prototype.premultipliedAlpha = { };
 * @namespace
 * The WebGLObject interface is the parent interface for all GL objects.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLObject = { };
@@ -2812,6 +3119,8 @@ WebGLObject = { };
 * glBindBuffer and destroyed as if by calling glDeleteBuffers
 * @extends WebGLObject
 * @PB20
+* @BB10X
+* @BB10X
 * @RIPPLE
 */
 WebGLBuffer = { };
@@ -2832,6 +3141,7 @@ WebGLFramebuffer = { };
 * calling glUseProgram and destroyed as if by calling glDeleteProgram
 * @extends WebGLObject
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLProgram = { };
@@ -2842,6 +3152,7 @@ WebGLProgram = { };
 * as if by calling glBindRenderbuffer and destroyed as if by calling glDeleteRenderbuffers
 * @extends WebGLObject
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderbuffer = { };
@@ -2852,6 +3163,7 @@ WebGLRenderbuffer = { };
 * as if by calling glAttachShader and destroyed as if by calling glDeleteShader
 * @extends WebGLObject
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLShader = { };
@@ -2861,6 +3173,7 @@ WebGLShader = { };
 * The WebGLTexture interface represents an OpenGL Texture Object. The underlying object is created as if by calling glGenTextures, bound as if by calling * glBindTexture and destroyed as if by calling glDeleteTextures
 * @extends WebGLObject
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLTexture = { };
@@ -2869,6 +3182,7 @@ WebGLTexture = { };
 * @namespace
 * The WebGLUniformLocation interface represents the location of a uniform variable in a shader program
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLUniformLocation = { };
@@ -2877,6 +3191,7 @@ WebGLUniformLocation = { };
 * @namespace
 * The WebGLActiveInfo interface represents the information returned from the getActiveAttrib and getActiveUniform calls
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLActiveInfo = { };
@@ -2887,6 +3202,7 @@ WebGLActiveInfo = { };
 * @type GLint
 * @readOnly
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLActiveInfo.prototype.size = { };
@@ -2896,6 +3212,7 @@ WebGLActiveInfo.prototype.size = { };
 * @type GLenum
 * @readOnly
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLActiveInfo.prototype.type = { };
@@ -2905,6 +3222,7 @@ WebGLActiveInfo.prototype.type = { };
 * @type String
 * @readOnly
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLActiveInfo.prototype.name = { };
@@ -2914,6 +3232,7 @@ WebGLActiveInfo.prototype.name = { };
 * @type canvas
 * @readonly
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.canvas = { };
@@ -2922,6 +3241,7 @@ WebGLRenderingContext.prototype.canvas = { };
 * Returns the WebGLContextAttributes describing the current drawing buffer
 * @return {WebGLContextAttributes} The {@link WebGLContextAttributes} object describing the current drawing buffer
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.getContextAttributes = function() { };
@@ -2930,6 +3250,7 @@ WebGLRenderingContext.prototype.getContextAttributes = function() { };
 * Returns true if the context is in the lost state
 * @return {boolean} true if the context is in the lost state, false otherwise
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.isContextLost = function() { };
@@ -2938,6 +3259,7 @@ WebGLRenderingContext.prototype.isContextLost = function() { };
 * Returns an array of all the supported extension strings
 * @return {String[]} an array of all the supported extension strings
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.getSupportedExtensions = function() { };
@@ -2949,6 +3271,7 @@ WebGLRenderingContext.prototype.getSupportedExtensions = function() { };
 * @param {String} name name of extension
 * @return {object} an object if the passed extension is supported, or null if not
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.getExtension = function(name) { };
@@ -2957,6 +3280,7 @@ WebGLRenderingContext.prototype.getExtension = function(name) { };
 * Select active texture unit
 * @param {GLenum} texture  Specifies which texture unit to make active. The number of texture units is implementation dependent, but must be at least two. texture must be one of TEXTUREi, where i ranges from 0 to (MAX_COMBINED_TEXTURE_IMAGE_UNITS - 1). The initial value is TEXTURE0. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.activeTexture = function(texture) { };
@@ -2966,6 +3290,7 @@ WebGLRenderingContext.prototype.activeTexture = function(texture) { };
 * @param {WebGLProgram} program Specifies the program object to which a shader object will be attached.
 * @param {WebGLShader} shader Specifies the shader object that is to be attached.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.attachShader = function(program, shader) { };
@@ -2976,6 +3301,7 @@ WebGLRenderingContext.prototype.attachShader = function(program, shader) { };
 * @param {GLuint} index Specifies the index of the generic vertex attribute to be bound.
 * @param {String} name Specifies a null terminated string containing the name of the vertex shader attribute variable to which index is to be bound.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.bindAttribLocation = function(program, index, name) { };
@@ -2985,6 +3311,7 @@ WebGLRenderingContext.prototype.bindAttribLocation = function(program, index, na
 * @param {GLenum} target  Specifies the target to which the buffer object is bound. The symbolic constant must be ARRAY_BUFFER or ELEMENT_ARRAY_BUFFER. 
 * @param {WebGLBuffer} buffer  Specifies the name of a buffer object. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.bindBuffer = function(target, buffer) { };
@@ -2994,6 +3321,7 @@ WebGLRenderingContext.prototype.bindBuffer = function(target, buffer) { };
 * @param {GLenum} target  Specifies the target to which the framebuffer object is bound. The symbolic constant must be FRAMEBUFFER. 
 * @param {WebGLFramebuffer} framebuffer  Specifies the name of a framebuffer object. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.bindFramebuffer = function(target, framebuffer) { };
@@ -3003,6 +3331,7 @@ WebGLRenderingContext.prototype.bindFramebuffer = function(target, framebuffer) 
 * @param {GLenum} target  Specifies the target to which the renderbuffer object is bound. The symbolic constant must be RENDERBUFFER. 
 * @param {WebGLRenderbuffer} renderbuffer  Specifies the name of a renderbuffer object. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.bindRenderbuffer = function(target, renderbuffer) { };
@@ -3012,6 +3341,7 @@ WebGLRenderingContext.prototype.bindRenderbuffer = function(target, renderbuffer
 * @param {GLenum} target  Specifies the target of the active texture unit to which the texture is bound. Must be either TEXTURE_2D or TEXTURE_CUBE_MAP. 
 * @param {WebGLTexture} texture  Specifies the name of a texture. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.bindTexture = function(target, texture) { };
@@ -3023,6 +3353,7 @@ WebGLRenderingContext.prototype.bindTexture = function(target, texture) { };
 * @param {GLclampf} blue  specify the blue component of BLEND_COLOR 
 * @param {GLclampf} alpha  specify the alpha component of BLEND_COLOR 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.blendColor = function(red, green, blue, alpha) { };
@@ -3031,6 +3362,7 @@ WebGLRenderingContext.prototype.blendColor = function(red, green, blue, alpha) {
 * Specify the equation used for both the RGB blend equation and the Alpha blend equation
 * @param {GLenum} mode  specifies how source and destination colors are combined. It must be FUNC_ADD, FUNC_SUBTRACT, or FUNC_REVERSE_SUBTRACT. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.blendEquation = function(mode) { };
@@ -3040,6 +3372,7 @@ WebGLRenderingContext.prototype.blendEquation = function(mode) { };
 * @param {GLenum} modeRGB  specifies the RGB blend equation, how the red, green, and blue components of the source and destination colors are combined. It must be FUNC_ADD, FUNC_SUBTRACT, or FUNC_REVERSE_SUBTRACT. 
 * @param {GLenum} modeAlpha  specifies the alpha blend equation, how the alpha component of the source and destination colors are combined. It must be FUNC_ADD, FUNC_SUBTRACT, or FUNC_REVERSE_SUBTRACT. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.blendEquationSeparate = function(modeRGB, modeAlpha) { };
@@ -3049,6 +3382,7 @@ WebGLRenderingContext.prototype.blendEquationSeparate = function(modeRGB, modeAl
 * @param {GLenum} sfactor  Specifies how the red, green, blue, and alpha source blending factors are computed. The following symbolic constants are accepted: ZERO, ONE, SRC_COLOR, ONE_MINUS_SRC_COLOR, DST_COLOR, ONE_MINUS_DST_COLOR, SRC_ALPHA, ONE_MINUS_SRC_ALPHA, DST_ALPHA, ONE_MINUS_DST_ALPHA, CONSTANT_COLOR, ONE_MINUS_CONSTANT_COLOR, CONSTANT_ALPHA, ONE_MINUS_CONSTANT_ALPHA, and SRC_ALPHA_SATURATE. The initial value is ONE. 
 * @param {GLenum} dfactor  Specifies how the red, green, blue, and alpha destination blending factors are computed. The following symbolic constants are accepted: ZERO, ONE, SRC_COLOR, ONE_MINUS_SRC_COLOR, DST_COLOR, ONE_MINUS_DST_COLOR, SRC_ALPHA, ONE_MINUS_SRC_ALPHA, DST_ALPHA, ONE_MINUS_DST_ALPHA. CONSTANT_COLOR, ONE_MINUS_CONSTANT_COLOR, CONSTANT_ALPHA, and ONE_MINUS_CONSTANT_ALPHA. The initial value is ZERO. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.blendFunc = function(sfactor, dfactor) { };
@@ -3060,6 +3394,7 @@ WebGLRenderingContext.prototype.blendFunc = function(sfactor, dfactor) { };
 * @param {GLenum} srcAlpha  Specified how the alpha source blending factor is computed. The same symbolic constants are accepted as for srcRGB. The initial value is ONE. 
 * @param {GLenum} dstAlpha  Specified how the alpha destination blending factor is computed. The same symbolic constants are accepted as for dstRGB. The initial value is ZERO. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.blendFuncSeparate = function(srcRGB, dstRGB, srcAlpha, dstAlpha) { };
@@ -3070,6 +3405,7 @@ WebGLRenderingContext.prototype.blendFuncSeparate = function(srcRGB, dstRGB, src
 * @param {GLsizeiptr} size  Specifies the size in bytes of the buffer object's new data store. 
 * @param {GLenum} usage  Specifies a pointer to data that will be copied into the data store for initialization, or NULL if no data is to be copied. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.bufferData = function(target, size, usage) { };
@@ -3082,6 +3418,7 @@ WebGLRenderingContext.prototype.bufferData = function(target, size, usage) { };
 * @param {ArrayBufferView} data  Buffer to measure
 * @param {GLenum} usage  Specifies a pointer to data that will be copied into the data store for initialization, or NULL if no data is to be copied. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.bufferData = function(target, data, usage) { };
@@ -3095,6 +3432,7 @@ WebGLRenderingContext.prototype.bufferData = function(target, data, usage) { };
 * @param {ArrayBuffer} data  Buffer to measure
 * @param {GLenum} usage  Specifies a pointer to data that will be copied into the data store for initialization, or NULL if no data is to be copied. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.bufferData = function(target, data, usage) { };
@@ -3106,6 +3444,7 @@ WebGLRenderingContext.prototype.bufferData = function(target, data, usage) { };
 * @param {GLintptr} offset  Specifies the offset into the buffer object's data store where data replacement will begin, measured in bytes. 
 * @param {ArrayBufferView} data  Specifies the size in bytes of the data store region being replaced. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.bufferSubData = function(target, offset, data) { };
@@ -3118,6 +3457,7 @@ WebGLRenderingContext.prototype.bufferSubData = function(target, offset, data) {
 * @param {GLintptr} offset  Specifies the offset into the buffer object's data store where data replacement will begin, measured in bytes. 
 * @param {ArrayBuffer} data  Specifies the size in bytes of the data store region being replaced. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.bufferSubData = function(target, offset, data) { };
@@ -3127,6 +3467,7 @@ WebGLRenderingContext.prototype.bufferSubData = function(target, offset, data) {
 * @param {GLenum} target  Specifies the target framebuffer object. The symbolic constant must be FRAMEBUFFER. 
 * @return {GLenum} symbolic constant that identifies whether or not the currently bound framebuffer is framebuffer complete, and if not, which of the rules of framebuffer completeness is violated
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.checkFramebufferStatus = function(target) { };
@@ -3135,6 +3476,7 @@ WebGLRenderingContext.prototype.checkFramebufferStatus = function(target) { };
 * Clear buffers to preset values
 * @param {GLbitfield} mask  Bitwise OR of masks that indicate the buffers to be cleared. The three masks are COLOR_BUFFER_BIT, DEPTH_BUFFER_BIT, and STENCIL_BUFFER_BIT. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.clear = function(mask) { };
@@ -3146,6 +3488,7 @@ WebGLRenderingContext.prototype.clear = function(mask) { };
 * @param {GLclampf} blue 
 * @param {GLclampf} alpha  Specify the red, green, blue, and alpha values used when the color buffers are cleared. The initial values are all 0. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.clearColor = function(red, green, blue, alpha) { };
@@ -3154,6 +3497,7 @@ WebGLRenderingContext.prototype.clearColor = function(red, green, blue, alpha) {
 * Specify the clear value for the depth buffer
 * @param {GLclampf} depth Specifies the depth value used when the depth buffer is cleared. The initial value is 1.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.clearDepth = function(depth) { };
@@ -3162,6 +3506,7 @@ WebGLRenderingContext.prototype.clearDepth = function(depth) { };
 * Specify the clear value for the stencil buffer
 * @param {GLint} s  Specifies the index used when the stencil buffer is cleared. The initial value is 0. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.clearStencil = function(s) { };
@@ -3173,6 +3518,7 @@ WebGLRenderingContext.prototype.clearStencil = function(s) { };
 * @param {GLboolean} blue 
 * @param {GLboolean} alpha  Specify whether red, green, blue, and alpha can or cannot be written into the frame buffer. The initial values are all TRUE, indicating that the color components can be written. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.colorMask = function(red, green, blue, alpha) { };
@@ -3181,6 +3527,7 @@ WebGLRenderingContext.prototype.colorMask = function(red, green, blue, alpha) { 
 * Compile a shader object
 * @param {WebGLShader} shader Specifies the shader object to be compiled.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.compileShader = function(shader) { };
@@ -3196,6 +3543,7 @@ WebGLRenderingContext.prototype.compileShader = function(shader) { };
 * @param {GLsizei} height  Specifies the height of the texture image. All implementations support 2D texture images that are at least 64 texels high and cube-mapped texture images that are at least 16 texels high. 
 * @param {GLint} border  Specifies the width of the border. Must be 0. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.copyTexImage2D = function(target, level, internalformat, x, y, width, height, border) { };
@@ -3211,6 +3559,7 @@ WebGLRenderingContext.prototype.copyTexImage2D = function(target, level, interna
 * @param {GLsizei} width  Specifies the width of the texture subimage. 
 * @param {GLsizei} height  Specifies the height of the texture subimage. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.copyTexSubImage2D = function(target, level, xoffset, yoffset, x, y, width, height) { };
@@ -3219,6 +3568,7 @@ WebGLRenderingContext.prototype.copyTexSubImage2D = function(target, level, xoff
 * Create a WebGLBuffer object
 * @return {WebGLBuffer} the created {@link WebGLBuffer} object
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.createBuffer = function() { };
@@ -3227,6 +3577,7 @@ WebGLRenderingContext.prototype.createBuffer = function() { };
 * Create a WebGLFramebuffer object
 * @return {WebGLFramebuffer} the created {@link WebGLFramebuffer} object
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.createFramebuffer = function() { };
@@ -3235,6 +3586,7 @@ WebGLRenderingContext.prototype.createFramebuffer = function() { };
 * Create a WebGLProgram object
 * @return {WebGLProgram} the created {@link WebGLProgram} object
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.createProgram = function() { };
@@ -3243,6 +3595,7 @@ WebGLRenderingContext.prototype.createProgram = function() { };
 * Create a WebGLRenderbuffer object
 * @return {WebGLRenderbuffer} the created {@link WebGLRenderbuffer} object
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.createRenderbuffer = function() { };
@@ -3252,6 +3605,7 @@ WebGLRenderingContext.prototype.createRenderbuffer = function() { };
 * @param {GLenum} type Specifies the type of shader to be created. Must be either VERTEX_SHADER or FRAGMENT_SHADER.
 * @return {WebGLShader} the created {@link WebGLShader} object
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.createShader = function(type) { };
@@ -3260,6 +3614,7 @@ WebGLRenderingContext.prototype.createShader = function(type) { };
 * Create a WebGLTexture object
 * @return {WebGLTexture} the created {@link WebGLTexture} object
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.createTexture = function() { };
@@ -3268,6 +3623,7 @@ WebGLRenderingContext.prototype.createTexture = function() { };
 * Specify whether front- or back-facing facets can be culled
 * @param {GLenum} mode  Specifies whether front- or back-facing facets are candidates for culling. Symbolic constants FRONT, BACK, and FRONT_AND_BACK are accepted. The initial value is BACK. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.cullFace = function(mode) { };
@@ -3276,6 +3632,7 @@ WebGLRenderingContext.prototype.cullFace = function(mode) { };
 * Delete a buffer object
 * @param {WebGLBuffer} buffer Specifies the buffer object to be deleted.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.deleteBuffer = function(buffer) { };
@@ -3284,6 +3641,7 @@ WebGLRenderingContext.prototype.deleteBuffer = function(buffer) { };
 * Delete a framebuffer object
 * @param {WebGLFramebuffer} framebuffer Specifies the framebuffer object to be deleted.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.deleteFramebuffer = function(framebuffer) { };
@@ -3292,6 +3650,7 @@ WebGLRenderingContext.prototype.deleteFramebuffer = function(framebuffer) { };
 * Delete a program object
 * @param {WebGLProgram} program Specifies the program object to be deleted.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.deleteProgram = function(program) { };
@@ -3300,6 +3659,7 @@ WebGLRenderingContext.prototype.deleteProgram = function(program) { };
 * Delete a renderbuffer object
 * @param {WebGLRenderbuffer} renderbuffer Specifies the renderbuffer object to be deleted.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.deleteRenderbuffer = function(renderbuffer) { };
@@ -3308,6 +3668,7 @@ WebGLRenderingContext.prototype.deleteRenderbuffer = function(renderbuffer) { };
 * Delete a shader object
 * @param {WebGLShader} shader Specifies the shader object to be deleted.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.deleteShader = function(shader) { };
@@ -3316,6 +3677,7 @@ WebGLRenderingContext.prototype.deleteShader = function(shader) { };
 * Delete a texture object
 * @param {WebGLTexture} texture Specifies the texture object to be deleted.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.deleteTexture = function(texture) { };
@@ -3324,6 +3686,7 @@ WebGLRenderingContext.prototype.deleteTexture = function(texture) { };
 * Specify the value used for depth buffer comparisons
 * @param {GLenum} func  Specifies the depth comparison function. Symbolic constants NEVER, LESS, EQUAL, LEQUAL, GREATER, NOTEQUAL, GEQUAL, and ALWAYS are accepted. The initial value is LESS. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.depthFunc = function(func) { };
@@ -3332,6 +3695,7 @@ WebGLRenderingContext.prototype.depthFunc = function(func) { };
 * Enable or disable writing into the depth buffer
 * @param {GLboolean} flag  Specifies whether the depth buffer is enabled for writing. If flag is FALSE, depth buffer writing is disabled. Otherwise, it is enabled. Initially, depth buffer writing is enabled. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.depthMask = function(flag) { };
@@ -3341,6 +3705,7 @@ WebGLRenderingContext.prototype.depthMask = function(flag) { };
 * @param {GLclampf} zNear Specifies the mapping of the near clipping plane to window coordinates. The initial value is 0.
 * @param {GLclampf} zFar Specifies the mapping of the far clipping plane to window coordinates. The initial value is 1.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.depthRange = function(zNear, zFar) { };
@@ -3350,6 +3715,7 @@ WebGLRenderingContext.prototype.depthRange = function(zNear, zFar) { };
 * @param {WebGLProgram} program Specifies the program object from which to detach the shader object.
 * @param {WebGLShader} shader Specifies the shader object to be detached.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.detachShader = function(program, shader) { };
@@ -3370,6 +3736,7 @@ WebGLRenderingContext.prototype.detachShader = function(program, shader) { };
 *   <li>WebGLRenderingContext.STENCIL_TEST<br/>If enabled, do stencil testing and update the stencil buffer. See {@link #stencilFunc} and {@link #stencilOp}.</li>
 * </ul>
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.disable = function(cap) { };
@@ -3378,6 +3745,7 @@ WebGLRenderingContext.prototype.disable = function(cap) { };
 * Disables the generic vertex attribute array specified by index
 * @param {GLuint} index Specifies the index of the generic vertex attribute to be disabled.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.disableVertexAttribArray = function(index) { };
@@ -3388,6 +3756,7 @@ WebGLRenderingContext.prototype.disableVertexAttribArray = function(index) { };
 * @param {GLint} first  Specifies the starting index in the enabled arrays. 
 * @param {GLsizei} count  Specifies the number of vertices to be rendered. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.drawArrays = function(mode, first, count) { };
@@ -3399,6 +3768,7 @@ WebGLRenderingContext.prototype.drawArrays = function(mode, first, count) { };
 * @param {GLenum} type  Specifies the type of the values in indices. Must be UNSIGNED_BYTE or UNSIGNED_SHORT. 
 * @param {GLintptr} offset  Specifies a pointer to the location where the indices are stored. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.drawElements = function(mode, count, type, offset) { };
@@ -3407,6 +3777,7 @@ WebGLRenderingContext.prototype.drawElements = function(mode, count, type, offse
 * Enable server-side GL capabilities
 * @param {GLenum} cap  Specifies a symbolic constant indicating a GL capability. See @link {#disable} for list of valid constants.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.enable = function(cap) { };
@@ -3415,6 +3786,7 @@ WebGLRenderingContext.prototype.enable = function(cap) { };
 * Enable a generic vertex attribute array
 * @param {GLuint} index Specifies the index of the generic vertex attribute to be enabled.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.enableVertexAttribArray = function(index) { };
@@ -3422,6 +3794,7 @@ WebGLRenderingContext.prototype.enableVertexAttribArray = function(index) { };
 /**
 * Block until all GL execution is complete
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.finish = function() { };
@@ -3429,6 +3802,7 @@ WebGLRenderingContext.prototype.finish = function() { };
 /**
 * Force execution of GL commands in finite time
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.flush = function() { };
@@ -3440,6 +3814,7 @@ WebGLRenderingContext.prototype.flush = function() { };
 * @param {GLenum} renderbuffertarget Specifies the renderbuffer target. The symbolic constant must be RENDERBUFFER.
 * @param {WebGLRenderbuffer} renderbuffer Specifies the renderbuffer object that is to be attached.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.framebufferRenderbuffer = function(target, attachment, renderbuffertarget, renderbuffer) { };
@@ -3452,6 +3827,7 @@ WebGLRenderingContext.prototype.framebufferRenderbuffer = function(target, attac
 * @param {WebGLTexture} texture Specifies the texture object whose image is to be attached.
 * @param {GLint} level Specifies the mipmap level of the texture image to be attached, which must be 0.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.framebufferTexture2D = function(target, attachment, textarget, texture, level) { };
@@ -3460,6 +3836,7 @@ WebGLRenderingContext.prototype.framebufferTexture2D = function(target, attachme
 * Define front- and back-facing polygons
 * @param {GLenum} mode  Specifies the orientation of front-facing polygons. CW and CCW are accepted. The initial value is CCW. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.frontFace = function(mode) { };
@@ -3468,6 +3845,7 @@ WebGLRenderingContext.prototype.frontFace = function(mode) { };
 * Generate a complete set of mipmaps for a texture object
 * @param {GLenum} target Specifies the texture target of the active texture unit to which the texture object is bound whose mipmaps will be generated. Must be one of the following symbolic constants: TEXTURE_2D or TEXTURE_CUBE_MAP.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.generateMipmap = function(target) { };
@@ -3478,6 +3856,7 @@ WebGLRenderingContext.prototype.generateMipmap = function(target) { };
 * @param {GLuint} index Specifies the index of the attribute variable to be queried.
 * @return {WebGLActiveInfo} information about the size, type and name of the vertex attribute at the passed index of the passed program object.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.getActiveAttrib = function(program, index) { };
@@ -3488,6 +3867,7 @@ WebGLRenderingContext.prototype.getActiveAttrib = function(program, index) { };
 * @param {GLuint} index Specifies the index of the uniform variable to be queried.
 * @return {WebGLActiveInfo} information about the size, type and name of the uniform at the passed index of the passed program object.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.getActiveUniform = function(program, index) { };
@@ -3497,6 +3877,7 @@ WebGLRenderingContext.prototype.getActiveUniform = function(program, index) { };
 * @param {WebGLProgram} program Specifies the program object to be queried.
 * @return {WebGLShader[ ]} the list of shaders attached to the passed program.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.getAttachedShaders = function(program) { };
@@ -3507,6 +3888,7 @@ WebGLRenderingContext.prototype.getAttachedShaders = function(program) { };
 * @param {String} name Points to a null terminated string containing the name of the attribute variable whose location is to be queried.
 * @return {GLint} the index of the generic vertex attribute that is bound to that attribute variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.getAttribLocation = function(program, name) { };
@@ -3605,6 +3987,7 @@ WebGLRenderingContext.prototype.getAttribLocation = function(program, name) { };
 *        <tr><td>VIEWPORT</td><td>Int32Array (with 4 elements)</td></tr> 
 *    </table>
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.getParameter = function(pname) { };
@@ -3615,6 +3998,7 @@ WebGLRenderingContext.prototype.getParameter = function(pname) { };
 * @param {GLenum} pname Specifies the symbolic name of a buffer object parameter. Accepted values are BUFFER_SIZE or BUFFER_USAGE.
 * @return {any} the value for the passed pname.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.getBufferParameter = function(target, pname) { };
@@ -3632,6 +4016,7 @@ WebGLRenderingContext.prototype.getBufferParameter = function(target, pname) { }
     <li>WebGLRenderingContext.CONTEXT_LOST_WEBGL<br/>getError returns CONTEXT_LOST_WEBGL the first time it is called while the context is lost. Afterward it will return NO_ERROR until the context has been restored.</li>
 * </ul>
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.getError = function() { };
@@ -3643,6 +4028,7 @@ WebGLRenderingContext.prototype.getError = function() { };
 * @param {GLenum} pname Specifies the symbolic name of a framebuffer object attachment parameter. Accepted values are FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE, FRAMEBUFFER_ATTACHMENT_OBJECT_NAME, FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL, and FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE.
 * @return {any} the value for the passed pname given the passed target and attachment.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.getFramebufferAttachmentParameter = function(target, attachment, pname) { };
@@ -3653,6 +4039,7 @@ WebGLRenderingContext.prototype.getFramebufferAttachmentParameter = function(tar
 * @param {GLenum} pname Specifies the object parameter. Accepted symbolic names are DELETE_STATUS, LINK_STATUS, VALIDATE_STATUS, ATTACHED_SHADERS, ACTIVE_ATTRIBUTES, ACTIVE_UNIFORMS.
 * @return {any} the value for the passed pname given the passed program.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.getProgramParameter = function(program, pname) { };
@@ -3662,6 +4049,7 @@ WebGLRenderingContext.prototype.getProgramParameter = function(program, pname) {
 * @param {WebGLProgram} program Specifies the program object whose information log is to be queried.
 * @return {String} the information log for the specified program object.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.getProgramInfoLog = function(program) { };
@@ -3672,6 +4060,7 @@ WebGLRenderingContext.prototype.getProgramInfoLog = function(program) { };
 * @param {GLenum} pname Specifies the symbolic name of a renderbuffer object parameter. Accepted values are RENDERBUFFER_WIDTH, RENDERBUFFER_HEIGHT, RENDERBUFFER_INTERNAL_FORMAT, RENDERBUFFER_RED_SIZE, RENDERBUFFER_GREEN_SIZE, RENDERBUFFER_BLUE_SIZE, RENDERBUFFER_ALPHA_SIZE, RENDERBUFFER_DEPTH_SIZE, or RENDERBUFFER_STENCIL_SIZE.
 * @return {any} the value for the passed pname given the passed target.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.getRenderbufferParameter = function(target, pname) { };
@@ -3682,6 +4071,7 @@ WebGLRenderingContext.prototype.getRenderbufferParameter = function(target, pnam
 * @param {GLenum} pname Specifies the object parameter. Accepted symbolic names are SHADER_TYPE, DELETE_STATUS, COMPILE_STATUS.
 * @return {any} the value for the passed pname given the passed shader.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.getShaderParameter = function(shader, pname) { };
@@ -3691,6 +4081,7 @@ WebGLRenderingContext.prototype.getShaderParameter = function(shader, pname) { }
 * @param {WebGLShader} shader Specifies the shader object whose information log is to be queried.
 * @return {String} the information log for the specified shader object.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.getShaderInfoLog = function(shader) { };
@@ -3700,6 +4091,7 @@ WebGLRenderingContext.prototype.getShaderInfoLog = function(shader) { };
 * @param {WebGLShader} shader Specifies the shader object to be queried.
 * @return {String} the concatenation of the source code strings from the shader object specified by shader.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.getShaderSource = function(shader) { };
@@ -3710,6 +4102,7 @@ WebGLRenderingContext.prototype.getShaderSource = function(shader) { };
 * @param {GLenum} pname  Specifies the symbolic name of a texture parameter. TEXTURE_MAG_FILTER, TEXTURE_MIN_FILTER, TEXTURE_WRAP_S, and TEXTURE_WRAP_T are accepted. 
 * @return {any} the value of the texture parameter specified as pname.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.getTexParameter = function(target, pname) { };
@@ -3738,6 +4131,7 @@ WebGLRenderingContext.prototype.getTexParameter = function(target, pname) { };
 *        <tr><td>mat4</td><td>Float32Array (with 16 elements)</td></tr> 
 *    </table>
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.getUniform = function(program, location) { };
@@ -3748,6 +4142,7 @@ WebGLRenderingContext.prototype.getUniform = function(program, location) { };
 * @param {String} name Points to a null terminated string containing the name of the uniform variable whose location is to be queried.
 * @return {WebGLUniformLocation} an integer that represents the location of a specific uniform variable within a program object.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.getUniformLocation = function(program, name) { };
@@ -3758,6 +4153,7 @@ WebGLRenderingContext.prototype.getUniformLocation = function(program, name) { }
 * @param {GLenum} pname Specifies the symbolic name of the vertex attribute parameter to be queried. Accepted values are VERTEX_ATTRIB_ARRAY_BUFFER_BINDING, VERTEX_ATTRIB_ARRAY_ENABLED, VERTEX_ATTRIB_ARRAY_SIZE, VERTEX_ATTRIB_ARRAY_STRIDE, VERTEX_ATTRIB_ARRAY_TYPE, VERTEX_ATTRIB_ARRAY_NORMALIZED, or CURRENT_VERTEX_ATTRIB.
 * @return {any} the value of a generic vertex attribute parameter.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.getVertexAttrib = function(index, pname) { };
@@ -3768,6 +4164,7 @@ WebGLRenderingContext.prototype.getVertexAttrib = function(index, pname) { };
 * @param {GLenum} pname Specifies the symbolic name of the generic vertex attribute parameter to be returned. Must be VERTEX_ATTRIB_ARRAY_POINTER.
 * @return {GLsizeiptr} the pointer value.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.getVertexAttribOffset = function(index, pname) { };
@@ -3777,6 +4174,7 @@ WebGLRenderingContext.prototype.getVertexAttribOffset = function(index, pname) {
 * @param {GLenum} target  Specifies a symbolic constant indicating the behavior to be controlled. GENERATE_MIPMAP_HINT is accepted. 
 * @param {GLenum} mode  Specifies a symbolic constant indicating the desired behavior. FASTEST, NICEST, and DONT_CARE are accepted. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.hint = function(target, mode) { };
@@ -3786,6 +4184,7 @@ WebGLRenderingContext.prototype.hint = function(target, mode) { };
 * @param {WebGLBuffer} buffer  Specifies a value that may be the name of a buffer object. 
 * @return {GLboolean} TRUE if buffer is currently the name of a buffer object. If buffer is zero, or is a non-zero value that is not currently the name of a buffer object, or if an error occurs, isBuffer returns FALSE.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.isBuffer = function(buffer) { };
@@ -3809,6 +4208,7 @@ WebGLRenderingContext.prototype.isBuffer = function(buffer) { };
 *		 </tbody>
 *    </table>
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.isEnabled = function(cap) { };
@@ -3818,6 +4218,7 @@ WebGLRenderingContext.prototype.isEnabled = function(cap) { };
 * @param {WebGLFramebuffer} framebuffer  Specifies a value that may be the name of a framebuffer object. 
 * @return {GLboolean} true if the passed WebGLFramebuffer is valid and false otherwise.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.isFramebuffer = function(framebuffer) { };
@@ -3827,6 +4228,7 @@ WebGLRenderingContext.prototype.isFramebuffer = function(framebuffer) { };
 * @param {WebGLProgram} program Specifies a potential program object.
 * @return {GLboolean} true if the passed WebGLProgram is valid and false otherwise.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.isProgram = function(program) { };
@@ -3836,6 +4238,7 @@ WebGLRenderingContext.prototype.isProgram = function(program) { };
 * @param {WebGLRenderbuffer} renderbuffer  Specifies a value that may be the name of a renderbuffer object. 
 * @return {GLboolean} true if the passed WebGLRenderbuffer is valid and false otherwise.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.isRenderbuffer = function(renderbuffer) { };
@@ -3845,6 +4248,7 @@ WebGLRenderingContext.prototype.isRenderbuffer = function(renderbuffer) { };
 * @param {WebGLShader} shader Specifies a potential shader object.
 * @return {GLboolean} true if the passed WebGLShader is valid and false otherwise.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.isShader = function(shader) { };
@@ -3854,6 +4258,7 @@ WebGLRenderingContext.prototype.isShader = function(shader) { };
 * @param {WebGLTexture} texture  Specifies a value that may be the name of a texture. 
 * @return {GLboolean} true if the passed WebGLTexture is valid and false otherwise.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.isTexture = function(texture) { };
@@ -3862,6 +4267,7 @@ WebGLRenderingContext.prototype.isTexture = function(texture) { };
 * Specify the width of rasterized lines
 * @param {GLfloat} width  Specifies the width of rasterized lines. The initial value is 1. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.lineWidth = function(width) { };
@@ -3870,6 +4276,7 @@ WebGLRenderingContext.prototype.lineWidth = function(width) { };
 * Link a program object
 * @param {WebGLProgram} program Specifies the handle of the program object to be linked.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.linkProgram = function(program) { };
@@ -3879,6 +4286,7 @@ WebGLRenderingContext.prototype.linkProgram = function(program) { };
 * @param {GLenum} pname  Specifies the symbolic name of the parameter to be set. One value affects the packing of pixel data into memory: PACK_ALIGNMENT. The other affects the unpacking of pixel data from memory: UNPACK_ALIGNMENT. 
 * @param {GLint} param  Specifies the value that pname is set to. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.pixelStorei = function(pname, param) { };
@@ -3888,6 +4296,7 @@ WebGLRenderingContext.prototype.pixelStorei = function(pname, param) { };
 * @param {GLfloat} factor  Specifies a scale factor that is used to create a variable depth offset for each polygon. The initial value is 0. 
 * @param {GLfloat} units  Is multiplied by an implementation-specific value to create a constant depth offset. The initial value is 0. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.polygonOffset = function(factor, units) { };
@@ -3902,6 +4311,7 @@ WebGLRenderingContext.prototype.polygonOffset = function(factor, units) { };
 * @param {GLenum} type  Specifies the data type of the pixel data. Must be one of UNSIGNED_BYTE, UNSIGNED_SHORT_5_6_5, UNSIGNED_SHORT_4_4_4_4, or UNSIGNED_SHORT_5_5_5_1. 
 * @param {ArrayBufferView} pixels  Returns the pixel data. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.readPixels = function(x, y, width, height, format, type, pixels) { };
@@ -3913,6 +4323,7 @@ WebGLRenderingContext.prototype.readPixels = function(x, y, width, height, forma
 * @param {GLsizei} width Specifies the width of the renderbuffer in pixels.
 * @param {GLsizei} height Specifies the height of the renderbuffer in pixels.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.renderbufferStorage = function(target, internalformat, width, height) { };
@@ -3922,6 +4333,7 @@ WebGLRenderingContext.prototype.renderbufferStorage = function(target, internalf
 * @param {GLclampf} value  Specify a single floating-point sample coverage value. The value is clamped to the range 0-1. The initial value is 1.0 . 
 * @param {GLboolean} invert  Specify a single boolean value representing if the coverage masks should be inverted. TRUE and FALSE are accepted. The initial value is FALSE. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.sampleCoverage = function(value, invert) { };
@@ -3933,6 +4345,7 @@ WebGLRenderingContext.prototype.sampleCoverage = function(value, invert) { };
 * @param {GLsizei} width  Specify the width of the scissor box. When a GL context is first attached to a window, width is set to the dimensions of that window. 
 * @param {GLsizei} height  Specify the height of the scissor box. When a GL context is first attached to a window, height is set to the dimensions of that window. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.scissor = function(x, y, width, height) { };
@@ -3942,6 +4355,7 @@ WebGLRenderingContext.prototype.scissor = function(x, y, width, height) { };
 * @param {WebGLShader} shader Specifies the handle of the shader object whose source code is to be replaced.
 * @param {String} source Specifies the number of elements in the string and length arrays.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.shaderSource = function(shader, source) { };
@@ -3952,6 +4366,7 @@ WebGLRenderingContext.prototype.shaderSource = function(shader, source) { };
 * @param {GLint} ref  Specifies the reference value for the stencil test. ref is clamped to the range 0-(2n-1), where n is the number of bitplanes in the stencil buffer. The initial value is 0. 
 * @param {GLuint} mask  Specifies a mask that is ANDed with both the reference value and the stored stencil value when the test is done. The initial value is all 1's. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.stencilFunc = function(func, ref, mask) { };
@@ -3963,6 +4378,7 @@ WebGLRenderingContext.prototype.stencilFunc = function(func, ref, mask) { };
 * @param {GLint} ref  Specifies the reference value for the stencil test. ref is clamped to the range 0-(2n-1), where n is the number of bitplanes in the stencil buffer. The initial value is 0. 
 * @param {GLuint} mask  Specifies a mask that is ANDed with both the reference value and the stored stencil value when the test is done. The initial value is all 1's. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.stencilFuncSeparate = function(face, func, ref, mask) { };
@@ -3971,6 +4387,7 @@ WebGLRenderingContext.prototype.stencilFuncSeparate = function(face, func, ref, 
 * Control the front and back writing of individual bits in the stencil planes
 * @param {GLuint} mask  Specifies a bit mask to enable and disable writing of individual bits in the stencil planes. Initially, the mask is all 1's. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.stencilMask = function(mask) { };
@@ -3980,6 +4397,7 @@ WebGLRenderingContext.prototype.stencilMask = function(mask) { };
 * @param {GLenum} face  Specifies whether the front and/or back stencil writemask is updated. Three symbolic constants are valid: FRONT, BACK, and FRONT_AND_BACK. 
 * @param {GLuint} mask  Specifies a bit mask to enable and disable writing of individual bits in the stencil planes. Initially, the mask is all 1's. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.stencilMaskSeparate = function(face, mask) { };
@@ -3990,6 +4408,7 @@ WebGLRenderingContext.prototype.stencilMaskSeparate = function(face, mask) { };
 * @param {GLenum} zfail  Specifies the stencil action when the stencil test passes, but the depth test fails. zfail accepts the same symbolic constants as fail. The initial value is KEEP. 
 * @param {GLenum} zpass  Specifies the stencil action when both the stencil test and the depth test pass, or when the stencil test passes and either there is no depth buffer or depth testing is not enabled. zpass accepts the same symbolic constants as fail. The initial value is KEEP. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.stencilOp = function(fail, zfail, zpass) { };
@@ -4001,6 +4420,7 @@ WebGLRenderingContext.prototype.stencilOp = function(fail, zfail, zpass) { };
 * @param {GLenum} zfail  Specifies the stencil action when the stencil test passes, but the depth test fails. zfail accepts the same symbolic constants as fail. The initial value is KEEP. 
 * @param {GLenum} zpass  Specifies the stencil action when both the stencil test and the depth test pass, or when the stencil test passes and either there is no depth buffer or depth testing is not enabled. zpass accepts the same symbolic constants as fail. The initial value is KEEP. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.stencilOpSeparate = function(face, fail, zfail, zpass) { };
@@ -4017,6 +4437,7 @@ WebGLRenderingContext.prototype.stencilOpSeparate = function(face, fail, zfail, 
 * @param {GLenum} type  Specifies the data type of the texel data. The following symbolic values are accepted: UNSIGNED_BYTE, UNSIGNED_SHORT_5_6_5, UNSIGNED_SHORT_4_4_4_4, and UNSIGNED_SHORT_5_5_5_1. 
 * @param {ArrayBufferView} pixels  Specifies a pointer to the image data in memory. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.texImage2D = function(target, level, internalformat, width, height, border, format, type, pixels) { };
@@ -4032,6 +4453,7 @@ WebGLRenderingContext.prototype.texImage2D = function(target, level, internalfor
 * @param {GLenum} type  Specifies the height of the texture image All implementations support 2D texture images that are at least 64 texels high and cube-mapped texture images that are at least 16 texels high. 
 * @param {ImageData} pixels  Specifies the width of the border. Must be 0. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.texImage2D = function(target, level, internalformat, format, type, pixels) { };
@@ -4047,6 +4469,7 @@ WebGLRenderingContext.prototype.texImage2D = function(target, level, internalfor
 * @param {GLenum} type  Specifies the height of the texture image All implementations support 2D texture images that are at least 64 texels high and cube-mapped texture images that are at least 16 texels high. 
 * @param {HTMLImageElement} image  Specifies the width of the border. Must be 0. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.texImage2D = function(target, level, internalformat, format, type, image) { };
@@ -4062,6 +4485,7 @@ WebGLRenderingContext.prototype.texImage2D = function(target, level, internalfor
 * @param {GLenum} type  Specifies the height of the texture image All implementations support 2D texture images that are at least 64 texels high and cube-mapped texture images that are at least 16 texels high. 
 * @param {HTMLCanvasElement} canvas  Specifies the width of the border. Must be 0. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.texImage2D = function(target, level, internalformat, format, type, canvas) { };
@@ -4077,6 +4501,7 @@ WebGLRenderingContext.prototype.texImage2D = function(target, level, internalfor
 * @param {GLenum} type  Specifies the height of the texture image All implementations support 2D texture images that are at least 64 texels high and cube-mapped texture images that are at least 16 texels high. 
 * @param {HTMLVideoElement} video  Specifies the width of the border. Must be 0. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.texImage2D = function(target, level, internalformat, format, type, video) { };
@@ -4087,6 +4512,7 @@ WebGLRenderingContext.prototype.texImage2D = function(target, level, internalfor
 * @param {GLenum} pname Specifies the symbolic name of a texture parameter. pname can be one of the following: TEXTURE_MIN_FILTER, TEXTURE_MAG_FILTER, TEXTURE_WRAP_S, or TEXTURE_WRAP_T.
 * @param {GLfloat} param Specifies the value of pname.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.texParameterf = function(target, pname, param) { };
@@ -4097,6 +4523,7 @@ WebGLRenderingContext.prototype.texParameterf = function(target, pname, param) {
 * @param {GLenum} pname Specifies the symbolic name of a texture parameter. pname can be one of the following: TEXTURE_MIN_FILTER, TEXTURE_MAG_FILTER, TEXTURE_WRAP_S, or TEXTURE_WRAP_T.
 * @param {GLint} param Specifies the value of pname.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.texParameteri = function(target, pname, param) { };
@@ -4113,6 +4540,7 @@ WebGLRenderingContext.prototype.texParameteri = function(target, pname, param) {
 * @param {GLenum} type  Specifies the data type of the pixel data. The following symbolic values are accepted: UNSIGNED_BYTE, UNSIGNED_SHORT_5_6_5, UNSIGNED_SHORT_4_4_4_4, and UNSIGNED_SHORT_5_5_5_1. 
 * @param {ArrayBufferView} pixels  Specifies a pointer to the image data in memory. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.texSubImage2D = function(target, level, xoffset, yoffset, width, height, format, type, pixels) { };
@@ -4129,6 +4557,7 @@ WebGLRenderingContext.prototype.texSubImage2D = function(target, level, xoffset,
 * @param {GLenum} type  Specifies the height of the texture subimage. 
 * @param {ImageData} pixels  Specifies the format of the pixel data. The following symbolic values are accepted: ALPHA, RGB, RGBA, LUMINANCE, and LUMINANCE_ALPHA. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.texSubImage2D = function(target, level, xoffset, yoffset, format, type, pixels) { };
@@ -4145,6 +4574,7 @@ WebGLRenderingContext.prototype.texSubImage2D = function(target, level, xoffset,
 * @param {GLenum} type  Specifies the height of the texture subimage. 
 * @param {HTMLImageElement} image  Specifies the format of the pixel data. The following symbolic values are accepted: ALPHA, RGB, RGBA, LUMINANCE, and LUMINANCE_ALPHA. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.texSubImage2D = function(target, level, xoffset, yoffset, format, type, image) { };
@@ -4161,6 +4591,7 @@ WebGLRenderingContext.prototype.texSubImage2D = function(target, level, xoffset,
 * @param {GLenum} type  Specifies the height of the texture subimage. 
 * @param {HTMLCanvasElement} canvas  Specifies the format of the pixel data. The following symbolic values are accepted: ALPHA, RGB, RGBA, LUMINANCE, and LUMINANCE_ALPHA. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.texSubImage2D = function(target, level, xoffset, yoffset, format, type, canvas) { };
@@ -4177,6 +4608,7 @@ WebGLRenderingContext.prototype.texSubImage2D = function(target, level, xoffset,
 * @param {GLenum} type  Specifies the height of the texture subimage. 
 * @param {HTMLVideoElement} video  Specifies the format of the pixel data. The following symbolic values are accepted: ALPHA, RGB, RGBA, LUMINANCE, and LUMINANCE_ALPHA. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.texSubImage2D = function(target, level, xoffset, yoffset, format, type, video) { };
@@ -4186,6 +4618,7 @@ WebGLRenderingContext.prototype.texSubImage2D = function(target, level, xoffset,
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {GLfloat} x Specifies the new value to be used for the specified uniform variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniform1f = function(location, x) { };
@@ -4195,6 +4628,7 @@ WebGLRenderingContext.prototype.uniform1f = function(location, x) { };
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {FloatArray} v Specifies the new values to be used for the specified uniform variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniform1fv = function(location, v) { };
@@ -4206,6 +4640,7 @@ WebGLRenderingContext.prototype.uniform1fv = function(location, v) { };
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {sequence<float>} v Specifies the new values to be used for the specified uniform variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniform1fv = function(location, v) { };
@@ -4215,6 +4650,7 @@ WebGLRenderingContext.prototype.uniform1fv = function(location, v) { };
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {GLint} x Specifies the new value to be used for the specified uniform variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniform1i = function(location, x) { };
@@ -4224,6 +4660,7 @@ WebGLRenderingContext.prototype.uniform1i = function(location, x) { };
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {Int32Array} v Specifies the new values to be used for the specified uniform variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniform1iv = function(location, v) { };
@@ -4235,6 +4672,7 @@ WebGLRenderingContext.prototype.uniform1iv = function(location, v) { };
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {sequence<long>} v Specifies the new values to be used for the specified uniform variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniform1iv = function(location, v) { };
@@ -4245,6 +4683,7 @@ WebGLRenderingContext.prototype.uniform1iv = function(location, v) { };
 * @param {GLfloat} x Specifies the new value to be used for the specified uniform variable.
 * @param {GLfloat} y Specifies the new value to be used for the specified uniform variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniform2f = function(location, x, y) { };
@@ -4254,6 +4693,7 @@ WebGLRenderingContext.prototype.uniform2f = function(location, x, y) { };
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {FloatArray} v Specifies the new values to be used for the specified uniform variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniform2fv = function(location, v) { };
@@ -4265,6 +4705,7 @@ WebGLRenderingContext.prototype.uniform2fv = function(location, v) { };
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {sequence<float>} v Specifies the new values to be used for the specified uniform variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniform2fv = function(location, v) { };
@@ -4275,6 +4716,7 @@ WebGLRenderingContext.prototype.uniform2fv = function(location, v) { };
 * @param {GLint} x Specifies the new value to be used for the specified uniform variable.
 * @param {GLint} y Specifies the new value to be used for the specified uniform variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniform2i = function(location, x, y) { };
@@ -4284,6 +4726,7 @@ WebGLRenderingContext.prototype.uniform2i = function(location, x, y) { };
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {Int32Array} v Specifies the new values to be used for the specified uniform variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniform2iv = function(location, v) { };
@@ -4295,6 +4738,7 @@ WebGLRenderingContext.prototype.uniform2iv = function(location, v) { };
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {sequence<long>} v Specifies the new values to be used for the specified uniform variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniform2iv = function(location, v) { };
@@ -4306,6 +4750,7 @@ WebGLRenderingContext.prototype.uniform2iv = function(location, v) { };
 * @param {GLfloat} y Specifies the new value to be used for the specified uniform variable.
 * @param {GLfloat} z Specifies the new value to be used for the specified uniform variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniform3f = function(location, x, y, z) { };
@@ -4315,6 +4760,7 @@ WebGLRenderingContext.prototype.uniform3f = function(location, x, y, z) { };
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {FloatArray} v Specifies the new values to be used for the specified uniform variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniform3fv = function(location, v) { };
@@ -4326,6 +4772,7 @@ WebGLRenderingContext.prototype.uniform3fv = function(location, v) { };
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {sequence<float>} v Specifies the new values to be used for the specified uniform variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniform3fv = function(location, v) { };
@@ -4337,6 +4784,7 @@ WebGLRenderingContext.prototype.uniform3fv = function(location, v) { };
 * @param {GLint} y Specifies the new value to be used for the specified uniform variable.
 * @param {GLint} z Specifies the new value to be used for the specified uniform variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniform3i = function(location, x, y, z) { };
@@ -4346,6 +4794,7 @@ WebGLRenderingContext.prototype.uniform3i = function(location, x, y, z) { };
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {Int32Array} v Specifies the new values to be used for the specified uniform variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniform3iv = function(location, v) { };
@@ -4357,6 +4806,7 @@ WebGLRenderingContext.prototype.uniform3iv = function(location, v) { };
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {sequence<long>} v Specifies the new values to be used for the specified uniform variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniform3iv = function(location, v) { };
@@ -4369,6 +4819,7 @@ WebGLRenderingContext.prototype.uniform3iv = function(location, v) { };
 * @param {GLfloat} z Specifies the new value to be used for the specified uniform variable.
 * @param {GLfloat} w Specifies the new value to be used for the specified uniform variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniform4f = function(location, x, y, z, w) { };
@@ -4378,6 +4829,7 @@ WebGLRenderingContext.prototype.uniform4f = function(location, x, y, z, w) { };
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {FloatArray} v Specifies the new values to be used for the specified uniform variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniform4fv = function(location, v) { };
@@ -4389,6 +4841,7 @@ WebGLRenderingContext.prototype.uniform4fv = function(location, v) { };
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {sequence<float>} v Specifies the new values to be used for the specified uniform variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniform4fv = function(location, v) { };
@@ -4401,6 +4854,7 @@ WebGLRenderingContext.prototype.uniform4fv = function(location, v) { };
 * @param {GLint} z Specifies the new value to be used for the specified uniform variable.
 * @param {GLint} w Specifies the new value to be used for the specified uniform variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniform4i = function(location, x, y, z, w) { };
@@ -4410,6 +4864,7 @@ WebGLRenderingContext.prototype.uniform4i = function(location, x, y, z, w) { };
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {Int32Array} v Specifies the new values to be used for the specified uniform variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniform4iv = function(location, v) { };
@@ -4421,6 +4876,7 @@ WebGLRenderingContext.prototype.uniform4iv = function(location, v) { };
 * @param {WebGLUniformLocation} location Specifies the location of the uniform variable to be modified.
 * @param {sequence<long>} v Specifies the new values to be used for the specified uniform variable.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniform4iv = function(location, v) { };
@@ -4431,6 +4887,7 @@ WebGLRenderingContext.prototype.uniform4iv = function(location, v) { };
 * @param {GLboolean} transpose Specifies whether to transpose the matrix as the values are loaded into the uniform variable. Must be FALSE.
 * @param {FloatArray} value Specifies a pointer to an array of values that will be used to update the specified uniform matrix.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniformMatrix2fv = function(location, transpose, value) { };
@@ -4443,6 +4900,7 @@ WebGLRenderingContext.prototype.uniformMatrix2fv = function(location, transpose,
 * @param {GLboolean} transpose Specifies whether to transpose the matrix as the values are loaded into the uniform variable. Must be FALSE.
 * @param {sequence<float>} value Specifies a pointer to an array of values that will be used to update the specified uniform matrix.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniformMatrix2fv = function(location, transpose, value) { };
@@ -4453,6 +4911,7 @@ WebGLRenderingContext.prototype.uniformMatrix2fv = function(location, transpose,
 * @param {GLboolean} transpose Specifies whether to transpose the matrix as the values are loaded into the uniform variable. Must be FALSE.
 * @param {FloatArray} value Specifies a pointer to an array of values that will be used to update the specified uniform matrix.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniformMatrix3fv = function(location, transpose, value) { };
@@ -4465,6 +4924,7 @@ WebGLRenderingContext.prototype.uniformMatrix3fv = function(location, transpose,
 * @param {GLboolean} transpose Specifies whether to transpose the matrix as the values are loaded into the uniform variable. Must be FALSE.
 * @param {sequence<float>} value Specifies a pointer to an array of values that will be used to update the specified uniform matrix.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniformMatrix3fv = function(location, transpose, value) { };
@@ -4475,6 +4935,7 @@ WebGLRenderingContext.prototype.uniformMatrix3fv = function(location, transpose,
 * @param {GLboolean} transpose Specifies whether to transpose the matrix as the values are loaded into the uniform variable. Must be FALSE.
 * @param {FloatArray} value Specifies a pointer to an array of values that will be used to update the specified uniform matrix.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniformMatrix4fv = function(location, transpose, value) { };
@@ -4487,6 +4948,7 @@ WebGLRenderingContext.prototype.uniformMatrix4fv = function(location, transpose,
 * @param {GLboolean} transpose Specifies whether to transpose the matrix as the values are loaded into the uniform variable. Must be FALSE.
 * @param {sequence<float>} value Specifies a pointer to an array of values that will be used to update the specified uniform matrix.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.uniformMatrix4fv = function(location, transpose, value) { };
@@ -4495,6 +4957,7 @@ WebGLRenderingContext.prototype.uniformMatrix4fv = function(location, transpose,
 * Install a program object as part of current rendering state
 * @param {WebGLProgram} program Specifies the handle of the program object whose executables are to be used as part of current rendering state.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.useProgram = function(program) { };
@@ -4503,6 +4966,7 @@ WebGLRenderingContext.prototype.useProgram = function(program) { };
 * Validate a program object
 * @param {WebGLProgram} program Specifies the handle of the program object to be validated.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.validateProgram = function(program) { };
@@ -4512,6 +4976,7 @@ WebGLRenderingContext.prototype.validateProgram = function(program) { };
 * @param {GLuint} indx Specifies the index of the generic vertex attribute to be modified.
 * @param {GLfloat} x Specifies the new value to be used for the specified vertex attribute.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.vertexAttrib1f = function(indx, x) { };
@@ -4521,6 +4986,7 @@ WebGLRenderingContext.prototype.vertexAttrib1f = function(indx, x) { };
 * @param {GLuint} indx Specifies the index of the generic vertex attribute to be modified.
 * @param {FloatArray} values Specifies the new values to be used for the specified vertex attribute.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.vertexAttrib1fv = function(indx, values) { };
@@ -4532,6 +4998,7 @@ WebGLRenderingContext.prototype.vertexAttrib1fv = function(indx, values) { };
 * @param {GLuint} indx Specifies the index of the generic vertex attribute to be modified.
 * @param {sequence<float>} values Specifies the new values to be used for the specified vertex attribute.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.vertexAttrib1fv = function(indx, values) { };
@@ -4542,6 +5009,7 @@ WebGLRenderingContext.prototype.vertexAttrib1fv = function(indx, values) { };
 * @param {GLfloat} x Specifies the new value to be used for the specified vertex attribute.
 * @param {GLfloat} y Specifies the new value to be used for the specified vertex attribute.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.vertexAttrib2f = function(indx, x, y) { };
@@ -4551,6 +5019,7 @@ WebGLRenderingContext.prototype.vertexAttrib2f = function(indx, x, y) { };
 * @param {GLuint} indx Specifies the index of the generic vertex attribute to be modified.
 * @param {FloatArray} values Specifies the new values to be used for the specified vertex attribute.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.vertexAttrib2fv = function(indx, values) { };
@@ -4562,6 +5031,7 @@ WebGLRenderingContext.prototype.vertexAttrib2fv = function(indx, values) { };
 * @param {GLuint} indx Specifies the index of the generic vertex attribute to be modified.
 * @param {sequence<float>} values Specifies the new values to be used for the specified vertex attribute.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.vertexAttrib2fv = function(indx, values) { };
@@ -4573,6 +5043,7 @@ WebGLRenderingContext.prototype.vertexAttrib2fv = function(indx, values) { };
 * @param {GLfloat} y Specifies the new value to be used for the specified vertex attribute.
 * @param {GLfloat} z Specifies the new value to be used for the specified vertex attribute.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.vertexAttrib3f = function(indx, x, y, z) { };
@@ -4582,6 +5053,7 @@ WebGLRenderingContext.prototype.vertexAttrib3f = function(indx, x, y, z) { };
 * @param {GLuint} indx Specifies the index of the generic vertex attribute to be modified.
 * @param {FloatArray} values Specifies the new values to be used for the specified vertex attribute.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.vertexAttrib3fv = function(indx, values) { };
@@ -4593,6 +5065,7 @@ WebGLRenderingContext.prototype.vertexAttrib3fv = function(indx, values) { };
 * @param {GLuint} indx Specifies the index of the generic vertex attribute to be modified.
 * @param {sequence<float>} values Specifies the new values to be used for the specified vertex attribute.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.vertexAttrib3fv = function(indx, values) { };
@@ -4605,6 +5078,7 @@ WebGLRenderingContext.prototype.vertexAttrib3fv = function(indx, values) { };
 * @param {GLfloat} z Specifies the new value to be used for the specified vertex attribute.
 * @param {GLfloat} w Specifies the new value to be used for the specified vertex attribute.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.vertexAttrib4f = function(indx, x, y, z, w) { };
@@ -4614,6 +5088,7 @@ WebGLRenderingContext.prototype.vertexAttrib4f = function(indx, x, y, z, w) { };
 * @param {GLuint} indx Specifies the index of the generic vertex attribute to be modified.
 * @param {FloatArray} values Specifies the new values to be used for the specified vertex attribute.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.vertexAttrib4fv = function(indx, values) { };
@@ -4625,6 +5100,7 @@ WebGLRenderingContext.prototype.vertexAttrib4fv = function(indx, values) { };
 * @param {GLuint} indx Specifies the index of the generic vertex attribute to be modified.
 * @param {sequence<float>} values Specifies the new values to be used for the specified vertex attribute.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.vertexAttrib4fv = function(indx, values) { };
@@ -4638,6 +5114,7 @@ WebGLRenderingContext.prototype.vertexAttrib4fv = function(indx, values) { };
 * @param {GLsizei} stride Specifies the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in the array. The initial value is 0.
 * @param {GLintptr} offset Specifies a pointer to the first component of the first generic vertex attribute in the array. The initial value is 0.
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.vertexAttribPointer = function(indx, size, type, normalized, stride, offset) { };
@@ -4649,6 +5126,7 @@ WebGLRenderingContext.prototype.vertexAttribPointer = function(indx, size, type,
 * @param {GLsizei} width  Specify the width of the viewport. When a GL context is first attached to a window, width is set to the dimensions of that window. 
 * @param {GLsizei} height  Specify the height of the viewport. When a GL context is first attached to a window, height is set to the dimensions of that window. 
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLRenderingContext.prototype.viewport = function(x, y, width, height) { };
@@ -4658,6 +5136,7 @@ WebGLRenderingContext.prototype.viewport = function(x, y, width, height) { };
 * WebGL generates a WebGLContextEvent event in response to a status change to the WebGL rendering context associated with the HTMLCanvasElement which has a listener for this event.
 * @extends Event
 * @PB20
+* @BB10X
 * @RIPPLE
 */
 WebGLContextEvent = { };

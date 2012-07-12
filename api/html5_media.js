@@ -30,6 +30,7 @@
 * there has not been an error.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 MediaError = function() { }
@@ -41,6 +42,7 @@ MediaError = function() { }
 * @type Number
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 MediaError.MEDIA_ERR_ABORTED = 1;
@@ -53,6 +55,7 @@ MediaError.MEDIA_ERR_ABORTED = 1;
 * @type Number
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 MediaError.MEDIA_ERR_NETWORK = 2;
@@ -64,6 +67,7 @@ MediaError.MEDIA_ERR_NETWORK = 2;
 * @type Number
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 MediaError.MEDIA_ERR_DECODE = 3;
@@ -74,6 +78,7 @@ MediaError.MEDIA_ERR_DECODE = 3;
 * @type Number
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED = 4;
@@ -86,6 +91,7 @@ MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED = 4;
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 MediaError.prototype.code = { }
@@ -104,6 +110,7 @@ MediaError.prototype.code = { }
 * into one bigger range).
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TimeRanges = function() { }
@@ -115,6 +122,7 @@ TimeRanges = function() { }
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TimeRanges.prototype.length = { };
@@ -125,6 +133,7 @@ TimeRanges.prototype.length = { };
 * @returns {Number} Returns the time for the start of the range with the given index.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TimeRanges.prototype.start = function(index) { };
@@ -135,6 +144,7 @@ TimeRanges.prototype.start = function(index) { };
 * @returns {Number} Returns the time for the end of the range with the given index.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TimeRanges.prototype.end = function(index) { };
@@ -158,6 +168,7 @@ HTMLMediaElement = function() { }
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.error = { };
@@ -174,6 +185,7 @@ HTMLMediaElement.prototype.error = { };
 * @type String
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.src = { };
@@ -186,6 +198,7 @@ HTMLMediaElement.prototype.src = { };
 * @type String
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.currentSRC = { };
@@ -197,6 +210,7 @@ HTMLMediaElement.prototype.currentSRC = { };
 * @type Number
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.NETWORK_EMPTY = 0;
@@ -208,6 +222,7 @@ HTMLMediaElement.NETWORK_EMPTY = 0;
 * @type Number
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.NETWORK_IDLE = 1;
@@ -219,6 +234,7 @@ HTMLMediaElement.NETWORK_IDLE = 1;
 * @type Number
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.NETWORK_LOADING = 2;
@@ -229,6 +245,7 @@ HTMLMediaElement.NETWORK_LOADING = 2;
 * @type Number
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.NETWORK_NO_SOURCE = 3;
@@ -242,6 +259,7 @@ HTMLMediaElement.NETWORK_NO_SOURCE = 3;
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.networkState = { };
@@ -284,6 +302,7 @@ HTMLMediaElement.prototype.networkState = { };
 * @type String
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.preload = { };
@@ -296,6 +315,7 @@ HTMLMediaElement.prototype.preload = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.buffered;
@@ -305,6 +325,7 @@ HTMLMediaElement.prototype.buffered;
 * new media resource from scratch.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.load = function () { };
@@ -318,6 +339,7 @@ HTMLMediaElement.prototype.load = function () { };
 * @returns {String} A string indicating the likelyhood of being able to play the type
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.canPlayType = function(type) { };
@@ -331,6 +353,7 @@ HTMLMediaElement.prototype.canPlayType = function(type) { };
 * @type Number
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.HAVE_NOTHING = 0;
@@ -345,6 +368,7 @@ HTMLMediaElement.HAVE_NOTHING = 0;
 * @type Number
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.HAVE_METADATA = 1;
@@ -362,6 +386,7 @@ HTMLMediaElement.HAVE_METADATA = 1;
 * @type Number
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.HAVE_CURRENT_DATA = 2;
@@ -378,6 +403,7 @@ HTMLMediaElement.HAVE_CURRENT_DATA = 2;
 * @type Number
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.HAVE_FUTURE_DATA = 3;
@@ -393,6 +419,7 @@ HTMLMediaElement.HAVE_FUTURE_DATA = 3;
 * @type Number
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.HAVE_ENOUGH_DATA = 4;
@@ -405,6 +432,7 @@ HTMLMediaElement.HAVE_ENOUGH_DATA = 4;
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.readyState = { };
@@ -415,6 +443,7 @@ HTMLMediaElement.prototype.readyState = { };
 * @type Boolean
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.seeking = { };
@@ -426,6 +455,7 @@ HTMLMediaElement.prototype.seeking = { };
 * @type Number
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 
@@ -438,6 +468,7 @@ HTMLMediaElement.prototype.currentTime = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.initialTime = { };
@@ -448,6 +479,7 @@ HTMLMediaElement.prototype.initialTime = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.duration = {};
@@ -458,6 +490,7 @@ HTMLMediaElement.prototype.duration = {};
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.startOffsetTime = { };
@@ -468,6 +501,7 @@ HTMLMediaElement.prototype.startOffsetTime = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.paused = { };
@@ -481,6 +515,7 @@ HTMLMediaElement.prototype.paused = { };
 * @type Number
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.defaultPlaybackRate = { };
@@ -497,6 +532,7 @@ HTMLMediaElement.prototype.defaultPlaybackRate = { };
 * @type Number
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.playbackRate = { };
@@ -510,6 +546,7 @@ HTMLMediaElement.prototype.playbackRate = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.played = { };
@@ -522,6 +559,7 @@ HTMLMediaElement.prototype.played = { };
 * @type TimeRanges
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.seekable = { };
@@ -534,6 +572,7 @@ HTMLMediaElement.prototype.seekable = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.ended = { };
@@ -544,6 +583,7 @@ HTMLMediaElement.prototype.ended = { };
 * @type Boolean
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.autoplay = { };
@@ -555,6 +595,7 @@ HTMLMediaElement.prototype.autoplay = { };
 * @type Boolean
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.loop = { };
@@ -564,6 +605,7 @@ HTMLMediaElement.prototype.loop = { };
 * beginning and start again. 
 * @BB60+
 * @PB10+
+* @BB10X
 */
 HTMLMediaElement.prototype.play = function() { };
 
@@ -571,6 +613,7 @@ HTMLMediaElement.prototype.play = function() { };
 * Pause playback of the video.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.pause =  function() { };
@@ -581,6 +624,7 @@ HTMLMediaElement.prototype.pause =  function() { };
 * @type Boolean
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.controls = { };
@@ -596,6 +640,7 @@ HTMLMediaElement.prototype.controls = { };
 * @type Number
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.volume = { };
@@ -605,6 +650,7 @@ HTMLMediaElement.prototype.volume = { };
 * @type Boolean
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.muted = { };
@@ -623,6 +669,7 @@ TextTrackCue = function() { }
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrackCue.prototype.track = { };
@@ -633,6 +680,7 @@ TextTrackCue.prototype.track = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrackCue.prototype.id = { };
@@ -643,6 +691,7 @@ TextTrackCue.prototype.id = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrackCue.prototype.startTime = { };
@@ -653,6 +702,7 @@ TextTrackCue.prototype.startTime = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrackCue.prototype.endTime = { };
@@ -663,6 +713,7 @@ TextTrackCue.prototype.endTime = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrackCue.prototype.pauseOnExit = { };
@@ -672,6 +723,7 @@ TextTrackCue.prototype.pauseOnExit = { };
 * text cue. 
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 * @event
 * @param {Event} event
@@ -683,6 +735,7 @@ TextTrack.prototype.onenter = function(event) { };
 * text cue. 
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 * @event
 * @param {Event} event
@@ -694,6 +747,7 @@ TextTrack.prototype.onexit = function(event) { };
 * @returns String
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrackCue.prototype.getCueAsSource = function() { };
@@ -704,6 +758,7 @@ TextTrackCue.prototype.getCueAsSource = function() { };
 * @returns String
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrackCue.prototype.getCueAsHTML = function() { };
@@ -715,6 +770,7 @@ TextTrackCue.prototype.getCueAsHTML = function() { };
 * of {@link TextTrackCue}s in a given order.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrackCueList = function() { }
@@ -730,6 +786,7 @@ TextTrackCueList = function() { }
 * @throws {IndexOutOfBoundsException} When the index is invalid.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrackCueList.prototype.item = function(index) { };
@@ -741,6 +798,7 @@ TextTrackCueList.prototype.item = function(index) { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrackCueList.prototype.length = { };
@@ -751,6 +809,7 @@ TextTrackCueList.prototype.length = { };
 * @returns {TextTrackCue} The TexTrackCue that matches the supplied id
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrackCueList.prototype.getCueById = function(id) { };
@@ -764,6 +823,7 @@ TextTrackCueList.prototype.getCueById = function(id) { };
 * @extends EventTarget
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrack = function() { }
@@ -775,6 +835,7 @@ TextTrack = function() { }
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrack.prototype.kind = { };
@@ -785,6 +846,7 @@ TextTrack.prototype.kind = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrack.prototype.label = { };
@@ -795,6 +857,7 @@ TextTrack.prototype.label = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrack.prototype.language = { };
@@ -805,6 +868,7 @@ TextTrack.prototype.language = { };
 * @constant
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrack.NONE = 0;
@@ -815,6 +879,7 @@ TextTrack.NONE = 0;
 * @constant
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrack.LOADING = 1;
@@ -825,6 +890,7 @@ TextTrack.LOADING = 1;
 * @constant
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrack.LOADED = 2;
@@ -835,6 +901,7 @@ TextTrack.LOADED = 2;
 * @constant
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrack.ERROR = 3;
@@ -845,6 +912,7 @@ TextTrack.ERROR = 3;
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrack.prototype.readyState = { };
@@ -853,6 +921,7 @@ TextTrack.prototype.readyState = { };
 * Fire the onload if the {@link TextTrack} has loaded.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 * @event
 * @param {Event} event
@@ -864,6 +933,7 @@ TextTrack.prototype.onload = function(event) { };
 * For example loading has failed.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 * @event
 * @param {Event} event
@@ -876,6 +946,7 @@ TextTrack.prototype.onerror = function(event) { };
 * @constant
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrack.OFF = 0;
@@ -886,6 +957,7 @@ TextTrack.OFF = 0;
 * @constant
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrack.HIDDEN = 1;
@@ -896,6 +968,7 @@ TextTrack.HIDDEN = 1;
 * @constant
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrack.SHOWING = 2;
@@ -907,6 +980,7 @@ TextTrack.SHOWING = 2;
 * @type Number|TextTrack.OFF|TextTrack.HIDDEN|TextTrack.SHOWING
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrack.prototype.mode = { };
@@ -925,6 +999,7 @@ TextTrack.prototype.mode = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrack.prototype.cues = { };
@@ -942,6 +1017,7 @@ TextTrack.prototype.cues = { };
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 TextTrack.prototype.activeCues = { };
@@ -953,6 +1029,7 @@ TextTrack.prototype.activeCues = { };
 * active.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 * @event
 * @param {Event} event
@@ -975,6 +1052,7 @@ MutableTextTrack = function() { }
 * another text track, or already in the list of cues.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 * @event
 * @param {TextTrackCue} cue the cue to add
@@ -989,6 +1067,7 @@ MutableTextTrack.prototype.addCue(cue) { }
 * another text track, or not in the list of cues.
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 * @event
 * @param {TextTrackCue} cue the cue to remove
@@ -1003,6 +1082,7 @@ MutableTextTrack.prototype.removeCue(cue) { }
 * @readOnly
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.textTracks = { };
@@ -1016,6 +1096,7 @@ HTMLMediaElement.prototype.textTracks = { };
 * @returns {MutableTextTrack}
 * @BB60+
 * @PB10+
+* @BB10X
 * @RIPPLE
 */
 HTMLMediaElement.prototype.addTrack = function(kind, label, language) { };

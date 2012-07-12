@@ -1,5 +1,5 @@
 /*
-* Copyright 2010-2011 Research In Motion Limited.
+* Copyright 2010-2012 Research In Motion Limited.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -19,18 +19,49 @@ function publish(symbolSet) {
     publish.conf = { // trailing slash expected for dirs
         ext : ".html",
         outDir : JSDOC.opt.d || SYS.pwd + "../out/jsdoc/",
-        templatesDir : JSDOC.opt.t || SYS.pwd + "../templates/jsdoc/",
+        templatesDir : JSDOC.opt.t || SYS.pwd + "../templates/BBTemplate/",
         staticDir : "static/",
         symbolsDir : "",
         srcDir : "src/",
         cssDir : "css/",
         imagesDir : "images/",
         jsDir : "javascript/",
-        templateName : "BBTest",
-        templateVersion : "0.1",
+        templateName : "BBTemplate",
+        templateVersion : "2.1",
         viewDir : "view/"        
     };
 
+    //Adding JSON
+    load(publish.conf.templatesDir + "json2.js");
+    //Adding Array.reduce
+    if (!Array.prototype.reduce) {  
+        Array.prototype.reduce = function reduce(accumulator) {  
+            if (this===null || this===undefined) throw new TypeError("Object is null or undefined");  
+                var i = 0, l = this.length >> 0, curr;  
+
+            if(typeof accumulator !== "function") // ES5 : "If IsCallable(callbackfn) is false, throw a TypeError exception."  
+                throw new TypeError("First argument is not callable");  
+
+            if(arguments.length < 2) {  
+                if (l === 0) throw new TypeError("Array length is 0 and no second argument");  
+                    curr = this[0];  
+                i = 1; // start accumulating at the second element  
+            }  
+            else  
+                curr = arguments[1];  
+
+            while (i < l) {  
+                if(i in this) curr = accumulator.call(undefined, curr, this[i], i, this);  
+                    ++i;  
+            }  
+
+            return curr;  
+        };  
+    }  
+    //Adding nav functions
+    load(publish.conf.templatesDir + "nav.js");
+
+    
     // is source output is suppressed, just display the links to the source file
     if (JSDOC.opt.s && defined(Link) && Link.prototype._makeSrcLink) {
         Link.prototype._makeSrcLink = function(srcFilePath) {
@@ -49,21 +80,18 @@ function publish(symbolSet) {
 
     // create the required templates
     try {
-		var classTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"class.tmpl");
-        // var ditamapTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"ditamap.tmpl");
-        var JSONTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"JSON.tmpl");
-        var PHPTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"PHP.tmpl");
+        var containerTemplate = new JSDOC.JsPlate(publish.conf.templatesDir + "container.tmpl");
+        var jsNavTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"nav_js.tmpl");
         var viewableClassTemplate = new JSDOC.JsPlate(publish.conf.templatesDir+"viewableClass.tmpl");
-	}
-	catch(e) {
+	} catch(e) {
         print("Couldn't create the required templates: " + e);
         quit();
     }
 
     // some utility filters
-	function hasNoParent($) {return ($.memberOf == "");};
-	function isaFile($) {return ($.is("FILE"));};
-	function isaClass($) {return ($.is("CONSTRUCTOR") || $.isNamespace) && !($.alias == "_global_");};
+	function hasNoParent($) {return ($.memberOf === "");}
+	function isaFile($) {return ($.is("FILE"));}
+	function isaClass($) {return ($.is("CONSTRUCTOR") || $.isNamespace) && ($.alias != "_global_");}
 
     // get an array version of the symbolset, useful for filtering
     var symbols = symbolSet.toArray();
@@ -97,43 +125,109 @@ function publish(symbolSet) {
         Link.currentSymbol = symbol;
         Link.base="";
 
-        var output = classTemplate.process(symbol);
+        var output = containerTemplate.process({id: "none", tmpl: "class.tmpl", data: symbol});
 		IO.saveFile(publish.conf.outDir, ((JSDOC.opt.u)? Link.filemap[symbol.alias] : symbol.alias) + publish.conf.ext, output);
     }
 
     // Generate the toc page
-    Link.base = "";
+    Link.base = "/html5/apis/";
+    var processedJSNav = jsNavTemplate.process(classes);
+    IO.saveFile(publish.conf.outDir, "nav.js", processedJSNav);
 
-    var tocClasses = classes.filter(function ($) {return ($.toc)} ).sort(makeTocSort());
+    var processedClasses = containerTemplate.process({id: "class_menu", tmpl: "classes.tmpl", data: classes});
+    IO.saveFile(publish.conf.outDir, "classes" + publish.conf.ext, processedClasses);
 
-    // var processedDitamap = ditamapTemplate.process(classes);
-    // IO.saveFile(publish.conf.outDir, "toc.ditamap", processedDitamap);
+    var bbClasses = classes.filter(function (element) {
+        return element.support && element.support.hasBBSupport();
+    });
+    processedClasses = containerTemplate.process(
+        {id: "bb_menu", tmpl: "classes.tmpl", data: bbClasses});
+    IO.saveFile(publish.conf.outDir, "bb_index" + publish.conf.ext, processedClasses);
 
-    var processedJSON = JSONTemplate.process(tocClasses);
-    IO.saveFile(publish.conf.outDir, "menu-apis.php.json", processedJSON);
-
-    var processedPHP = PHPTemplate.process(tocClasses);
-    IO.saveFile(publish.conf.outDir, "menu-apis.php", processedPHP);
+    var pbClasses = classes.filter(function (element) {
+        return element.support && element.support.hasPBSupport();
+    });
+    processedClasses = containerTemplate.process(
+        {id: "pb_menu", tmpl: "classes.tmpl", data: pbClasses});
+    IO.saveFile(publish.conf.outDir, "pb_index" + publish.conf.ext, processedClasses);
     
-    // create each of the viewable class pages
-    for ( var i = 0, l = classes.length; i < l; i++) {
-        symbol = classes[i];
-
-        output = viewableClassTemplate.process(symbol);
-		IO.saveFile(publish.conf.outDir+publish.conf.viewDir, ((JSDOC.opt.u)? Link.filemap[symbol.alias] : symbol.alias) + publish.conf.ext, output);
-    }
+    var bb10Classes = classes.filter(function (element) {
+        return element.support && element.support.hasBB10XSupport();
+    });
+    processedClasses = containerTemplate.process(
+        {id: "bb10_menu", tmpl: "classes.tmpl", data: bb10Classes});
+    IO.saveFile(publish.conf.outDir, "bb10_index" + publish.conf.ext, processedClasses);
+    
+    var processedTopics = containerTemplate.process(
+        {id: "topics_menu", tmpl: "topics.tmpl", data: classes});
+    IO.saveFile(publish.conf.outDir, "topics" + publish.conf.ext, processedTopics);
 
     // COPY FILES
-    // Copy Static files for microsite
-	copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir );
-    // Copy Static files for viewable HTML
-	copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir + publish.conf.viewDir);    
+    // Copy Static files for microsite -- NONE
+	//copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir );
+    
+/********* VIEWABLE OUTPUT **********/
+    //Create nav.js for viewable html
+    Link.base= "";
+    processedJSNav = jsNavTemplate.process(classes);
+    IO.saveFile(publish.conf.outDir + publish.conf.viewDir, "nav.js", processedJSNav);
+
+    //Create index files for viewable html
+    processedClasses = containerTemplate.process(
+        {id: "class_menu", tmpl: "classes.tmpl", data: classes});
+    IO.saveFile(publish.conf.outDir + publish.conf.viewDir, "classes" + publish.conf.ext, processedClasses);
+    processedClasses = containerTemplate.process(
+        {id: "bb_menu", tmpl: "classes.tmpl", data: bbClasses});
+    IO.saveFile(publish.conf.outDir + publish.conf.viewDir, "bb_index" + publish.conf.ext, processedClasses);
+    processedClasses = containerTemplate.process(
+        {id: "pb_menu", tmpl: "classes.tmpl", data: pbClasses});
+    IO.saveFile(publish.conf.outDir + publish.conf.viewDir, "pb_index" + publish.conf.ext, processedClasses);
+    processedClasses = containerTemplate.process(
+        {id: "bb10_menu", tmpl: "classes.tmpl", data: bb10Classes});
+    IO.saveFile(publish.conf.outDir + publish.conf.viewDir, "bb10_index" + publish.conf.ext, processedClasses);
+    processedTopics = containerTemplate.process(
+        {id: "topics_menu", tmpl: "topics.tmpl", data: classes});
+    IO.saveFile(publish.conf.outDir + publish.conf.viewDir, "topics" + publish.conf.ext, processedTopics);
+
+    // Copy Static files for viewable HTML -- NONE
+	//copyFiles(publish.conf.templatesDir+"/"+publish.conf.staticDir,publish.conf.outDir + publish.conf.viewDir);    
     // Copy Image files for viewable HTML (already copied for microsite by @image tags)
     copyFiles(publish.conf.outDir + publish.conf.imagesDir, publish.conf.outDir + publish.conf.viewDir + publish.conf.imagesDir);
 
-    // create a viewable version of the index.html
-    output = viewableClassTemplate.process({alias : 'index'});
-    IO.saveFile(publish.conf.outDir+publish.conf.viewDir, 'index' + publish.conf.ext, output);
+    // create a viewable version of the index, classes and topics pages
+    var viewableClasses = classes.concat([
+                                         {
+                                             alias: "classes", 
+                                             path: publish.conf.outDir + publish.conf.viewDir + "classes" + publish.conf.ext
+                                         },
+                                         {
+                                             alias: "topics",
+                                             path: publish.conf.outDir + publish.conf.viewDir + "topics" + publish.conf.ext
+                                         }, 
+                                         {
+                                             alias: "bb_index",
+                                             path: publish.conf.outDir + publish.conf.viewDir + "bb_index" + publish.conf.ext
+                                         }, 
+                                         {
+                                             alias: "pb_index",
+                                             path: publish.conf.outDir + publish.conf.viewDir + "pb_index" + publish.conf.ext
+                                         }, 
+                                         {
+                                             alias: "bb10_index",
+                                             path: publish.conf.outDir + publish.conf.viewDir + "bb10_index" + publish.conf.ext
+                                         }]);
+    // create each of the viewable class pages
+    for ( var i = 0, l = viewableClasses.length; i < l; i++) {
+        symbol = viewableClasses[i];
+
+        var title = symbol.title || ((symbol.toc && symbol.toc.desc) ? symbol.toc.desc : symbol.alias),
+            path = symbol.path || publish.conf.outDir + symbol.alias + publish.conf.ext,
+            fileName = (JSDOC.opt.u && Link.filemap[symbol.alias]) ? Link.filemap[symbol.alias] : symbol.alias;
+
+        output = viewableClassTemplate.process({title: title, path: path});
+        
+		IO.saveFile(publish.conf.outDir + publish.conf.viewDir, fileName + publish.conf.ext, output);
+    }
 
 }
 
@@ -205,30 +299,6 @@ function makeSpecialSortby(attribute1, attribute2) {
     }
 }
 
-function makeTocSort() {
-    return function(a, b) {
-        try {
-            var baseAttribute = "toc";
-            var subAttribute1 = "type";
-            var subAttribute2 = "desc";
-			if (a[baseAttribute] != undefined &&
-			    a[baseAttribute][subAttribute1] != undefined  &&
-			    a[baseAttribute][subAttribute2] != undefined  &&
-			    b[baseAttribute] != undefined &&
-			    a[baseAttribute][subAttribute1] != undefined  &&
-			    b[baseAttribute][subAttribute2] != undefined ) {
-				a = a[baseAttribute][subAttribute1].toLowerCase() + a[baseAttribute][subAttribute2].toLowerCase();
-				b = b[baseAttribute][subAttribute1].toLowerCase() + b[baseAttribute][subAttribute2].toLowerCase();
-				//print("Comparing " + a + " and " +b + " and result is " + (a>b?1:(a<b?-1:0)) );
-				if (a < b) return -1;
-				if (a > b) return 1;
-                return 0;
-            }
-        } catch (e) {
-            print("Couldn't sort by attribute " + attribute + ": " + e);
-        }
-    }
-}
 
 /** Pull in the contents of an external file at the given path. */
 function include(path) {
@@ -257,7 +327,7 @@ function makeSrcFile(path, srcDir, name) {
 }
 
 /** Build output for displaying function parameters. */
-function makeSignature(params) {
+function makeSignature(params, showCallback) {
 	if (!params) return "()";
 	var signature = "("
 	+
@@ -267,11 +337,19 @@ function makeSignature(params) {
 		}
 	).map(
 		function($) {
-        if ($.isOptional) {
-            return "<i>[" + $.name + ": " + $.type + "]</i>";
-        } else {
-            return $.name + " : " + $.type;
-        }
+            var returnValue,
+                type = (($.type)?(new Link().toSymbol($.type)) : "");
+
+            if ($.isCallback && showCallback) {
+                returnValue = $.name + ": function" + makeCallbackSignature(params.filter(function(param) { return param.name.indexOf($.name + ".") === 0}));
+            } else {
+                returnValue = $.name + " : " + type;
+            }
+
+            if ($.isOptional) {
+                returnValue = "<i>[" + returnValue + "]</i>";
+            }
+            return returnValue;
 		}
 	).join(", ")
 	+
@@ -333,7 +411,7 @@ function resolveLinks(str, from) {
 					IO.copyFile(JSDOC.opt._[i]+"/"+symbolName, publish.conf.outDir+"/"+publish.conf.imagesDir);
             }
 			}catch(e){}
-			return "<image src=\""+publish.conf.imagesDir + fileName+"\">";
+			return "<img src=\"/html5/files/apis/"+publish.conf.imagesDir + fileName+"\" alt=\"" + fileName + "\" />";
         }
 	);
 
@@ -356,12 +434,12 @@ function getSymbolName(symbol, forSummary) {
     }
 }
 
-function isMethod($)      {return (!$.isNamespace && !$.uri && !$.isConstant && !$.constructedBy);};
-function isURIMethod($)   {return (!$.isNamespace && $.uri  && !$.isConstant && !$.constructedBy);};
-function isConstructor($) {return ((!$.isNamespace && !$.uri && !$.isConstant && $.constructedBy) || ($.is('CONSTRUCTOR')));};
-function isProperty($)    {return (!$.isNamespace && !$.uri && !$.isConstant && !$.constructedBy);};
-function isConstant($)    {return (!$.isNamespace && !$.uri && $.isConstant  && !$.constructedBy);};
-function isEvent($)       {return (!$.isNamespace && !$.uri && !$.isConstant && !$.constructedBy);};
+function isMethod($)      {return !$.isNamespace && !$.uri && !$.isConstant && !$.constructedBy && $.is('FUNCTION');};
+function isURIMethod($)   {return !$.isNamespace && $.uri  && !$.isConstant && !$.constructedBy && $.is('FUNCTION');};
+function isConstructor($) {return (!$.isNamespace && !$.uri && !$.isConstant && $.constructedBy) || ($.is('CONSTRUCTOR'));};
+function isProperty($)    {return !$.isNamespace && !$.uri && !$.isConstant && !$.constructedBy && $.is('OBJECT');};
+function isConstant($)    {return !$.isNamespace && !$.uri && $.isConstant  && !$.constructedBy && $.is('OBJECT');};
+function isEvent($)       {return !$.isNamespace && !$.uri && !$.isConstant && !$.constructedBy && $.is('FUNCTION');};
 
 function isBlank(str) { return (!str || /^\s*$/.test(str)); };
 
