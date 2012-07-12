@@ -64,7 +64,7 @@ blackberry.push.PushService = {};
 * // For a consumer application (using the public/BIS PPG)
 * var ops = { invokeTargetId : 'com.sample.pushtest.target', 
 *             appId : 'appId1', 
-*             ppgUrl : 'https://cpcontprovId1.pushapi.na.blackberry.com' };
+*             ppgUrl : 'https://cp123.pushapi.na.blackberry.com' };
 *
 * // For an enterprise application (using the enterprise/BES PPG)
 * // var ops = { invokeTargetId : 'com.sample.pushtest.target' }; 
@@ -74,40 +74,41 @@ blackberry.push.PushService = {};
 * //             appId : 'appId1' };
 * 
 * try {
-*     blackberry.push.PushService.create(ops, successCallback, failCallback, simChangeCallback);
+*     blackberry.push.PushService.create(ops, successCallback, 
+*         failCallback, simChangeCallback);
 * } catch (err) {
-*     console.log("Create was called more than once with different " + 
-*         "values for options.invokeTargetId or options.appId.");
+*     console.log("Create was called more than once with different " 
+*         + "values for options.invokeTargetId or options.appId.");
 *     console.log(err);
 * }
 *
 * function successCallback(pushService) {
-*    // The create operation was a success
-*    // Use the pushService object to now perform a 
-*    // launchApplicationOnPush, createChannel, destroyChannel, etc.
-*    pushService.createChannel(createChannelCallback);
+*     // The create operation was a success
+*     // Use the pushService object to now perform a 
+*     // launchApplicationOnPush, createChannel, destroyChannel, etc.
+*     pushService.createChannel(createChannelCallback);
 * }
 *
 * function failCallback(result) {
-*    // The create operation failed
-*    // You should compare the result code against the error constants 
-*    // in this PushService class that apply for create and
-*    // take the recommended action for that constant
-*    if (result == blackberry.push.PushService.INTERNAL_ERROR) {
-*        // Retry the create up to a certain number of attempts 
-*        // and then display an error to the user
-*    }
-*    // ... handle the other possible error constants 
-*    // from the PushService class
+*     // The create operation failed
+*     // You should compare the result code against the error  
+*     // constants in this PushService class that apply for 
+*     // create and take the recommended action for that constant
+*     if (result == blackberry.push.PushService.INTERNAL_ERROR) {
+*         // Retry the create up to a certain number of attempts 
+*         // and then display an error to the user
+*     }
+*     // ... handle the other possible error constants 
+*     // from the PushService class
 * }
 *
 * function simChangeCallback() {
-*    // The SIM card was changed and the channel has been 
-*    // destroyed since a new user might be using the device.
-*    // It is recommended that the user of this application be 
-*    // re-authenticated with the Push Initiator (if your 
-*    // Push Initiator implementation supports subscription) 
-*    // followed by a call to createChannel.
+*     // The SIM card was changed and the channel has been 
+*     // destroyed since a new user might be using the device.
+*     // It is recommended that the user of this application be 
+*     // re-authenticated with the Push Initiator (if your 
+*     // Push Initiator implementation supports subscription) 
+*     // followed by a call to createChannel.
 * }
 */
 blackberry.push.PushService.create = function(options, successCallback, failCallback, simChangeCallback) { };
@@ -138,17 +139,18 @@ blackberry.push.PushService.create = function(options, successCallback, failCall
 * pushService.createChannel(createChannelCallback);
 *
 * function createChannelCallback(result, token) {
-*    if (result == blackberry.push.PushService.SUCCESS) {
-*      // Success, so a token should be available
-*      // Subscribe with the Push Initiator using this token 
-*      // (if your Push Initiator supports subscription) so
-*      // that you can push to this user using this token
-*    } else if (result == blackberry.push.PushService.INTERNAL_ERROR) {
-*      // Retry the createChannel up to a certain number of attempts 
-*      // and then display an error to the user
-*    } else if ... (handle all the error codes possible for 
-*                   createChannel - see the error constants 
-*                   in this PushService class)
+*     if (result == blackberry.push.PushService.SUCCESS) {
+*         // Success, so a token should be available
+*         // Subscribe with the Push Initiator using this  
+*         // token (if your Push Initiator supports subscription) 
+*         // so that you can push to this user using this token
+*     } else if (result == 
+*         blackberry.push.PushService.INTERNAL_ERROR) {
+*         // Retry the createChannel up to a certain number of  
+*         // attempts and then display an error to the user
+*     } else if ... (handle all the error codes possible for 
+*                    createChannel - see the error constants 
+*                    in this PushService class)
 * }
 */
 blackberry.push.PushService.prototype.createChannel = function(createChannelCallback) { };
@@ -171,12 +173,12 @@ blackberry.push.PushService.prototype.createChannel = function(createChannelCall
 * pushService.destroyChannel(destroyChannelCallback);
 *
 * function destroyChannelCallback(result) {
-*    if (result == blackberry.push.PushService.INTERNAL_ERROR) {
-*      // Retry the destroyChannel up to a certain number of attempts 
-*      // and then display an error to the user
-*    } else if ... (handle all the error codes possible for 
-*                   destroyChannel - see the error constants 
-*                   in this PushService class)
+*     if (result == blackberry.push.PushService.INTERNAL_ERROR) {
+*         // Retry the destroyChannel up to a certain number  
+*         // of attempts and then display an error to the user
+*     } else if ... (handle all the error codes possible for 
+*                    destroyChannel - see the error constants 
+*                    in this PushService class)
 * }
 */
 blackberry.push.PushService.prototype.destroyChannel = function(destroyChannelCallback) { };
@@ -194,7 +196,8 @@ blackberry.push.PushService.prototype.destroyChannel = function(destroyChannelCa
 * @BB10X
 * @example
 * try {
-*     var pushPayload = pushService.extractPushPayload(invokeRequest);
+*     var pushPayload = 
+*         pushService.extractPushPayload(invokeRequest);
 *
 *     // pushPayload.data is of type Blob
 *     // If the Blob is known to contain text, 
@@ -203,7 +206,8 @@ blackberry.push.PushService.prototype.destroyChannel = function(destroyChannelCa
 *
 *     // If the Blob is known to contain binary, then do 
 *     // something like this to get an ArrayBuffer:
-*     // blobToArrayBuffer(pushPayload.data, binaryConversionCallback);
+*     // blobToArrayBuffer(pushPayload.data, 
+*     //     binaryConversionCallback);
 * } catch (err) {
 *     console.log("Was unable to parse the invoke request.");
 *     console.log(err);
@@ -272,7 +276,8 @@ blackberry.push.PushService.prototype.extractPushPayload = function(invokeReques
 * @BB10X
 * @example
 * // Indicate that you want the application to launch on a new push
-* pushService.launchApplicationOnPush(true, launchApplicationCallback);
+* pushService.launchApplicationOnPush(true, 
+*     launchApplicationCallback);
 * 
 * // To indicate that you do not want to launch on a new push, 
 * // either leave the default behaviour or call:
