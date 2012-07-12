@@ -50,6 +50,7 @@ blackberry.app ={
 	 * @description This function will cause the application to exit.
 	 * @BB50+
 	 * @PB10+
+	 * @BB10X
      * @RIPPLE
 	 */
 	exit: function(){},
@@ -96,14 +97,14 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	 * @param {String} icon The name of the icon to show on the banner. The icon must be a local resource and it's size varies from 10x10 up to 32x32 depending on current theme and device screen size.
 	 * @param {Number} [value] Optional parameter to indicate the number to show on the banner.
 	 */		 
-	showBannerIndicator:function( icon, value ){} 
+	showBannerIndicator:function( icon, value ){}, 
 
     /**
 	 * @description This function will remove the indicator on the banner.
 	 * @BB50+
      * @RIPPLE
 	 */	 
-	removeBannerIndicator:function(){} 
+	removeBannerIndicator: function(){},
 	
 	/**
 	 * @description The ID of the author's name that is specified in the config.xml file. 
@@ -231,18 +232,18 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	 * @PB10+
 	 * @returns {JSON of all the properties}
 	 * {
-	 * 	"data":{
-	 *		"author":"John Doe",
-	 *		"name":"My WebWorks Widget",
-	 *		"authorEmail":"jdoe@company.com",
-	 *		"authorURL":"www.company.com",
-	 *		"description":"A sample widget",
-	 *		"license":"Legal stuff goes here",
-	 *		"id":"888",
-	 *		"version":"1.0",
-	 *		"copyright":"Company Ltd.",
-	 *		"licenseURL":"www.company.com/license"
-	 * 	}
+	 *     "data": {
+	 *         "author":"John Doe",
+	 *         "name":"My WebWorks Widget",
+	 *         "authorEmail":"jdoe@company.com",
+	 *         "authorURL":"www.company.com",
+	 *         "description":"A sample widget",
+	 *         "license":"Legal stuff goes here",
+	 *         "id":"888",
+	 *         "version":"1.0",
+	 *         "copyright":"Company Ltd.",
+	 *         "licenseURL":"www.company.com/license"
+	 *     }
 	 * }
 	 * @example 
 	 * &lt;html&gt;
@@ -314,7 +315,23 @@ A banner indicator can have an optional numeric value that usually serves as a c
     *
     * &lt;/script&gt;
     */
-   resume : function(){}
+   resume : function(){},
+   
+   /**
+    * @description The <b>swipedown</b> event is triggered when the user swipes down from the top of the application.
+    * @callback {function} yourCallbackFunction The callback function that will be invoked on the swipedown event
+    * @example
+    * &lt;script type="text/javascript"&gt;
+    * 
+    * function onSwipedown() {
+    *   alert("Swipe down event occured.");
+    * }
+    *
+    * blackberry.event.addEventListener("swipedown", onSwipedown);
+    *
+    * &lt;/script&gt;
+    */
+   swipedown : function(){}
 
     /**#@-*/
 };
