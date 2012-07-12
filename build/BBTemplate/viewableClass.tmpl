@@ -48,55 +48,47 @@
     global.init('/html5/', 'apis', 'index', '', '/html5/webroot/');
 </script>
 <script>
-var menu, menu_id_str, selected, siblings;
-    menu = null;
-    menu_id_str = $('.side-nav-content').attr('id');
-    if (menu_id_str !== 'none') {
-        menu = menu_id_str;
-    }
-    $(document).ready(function () {
-        stage.initiate();
-        stage.add_measurement('footer_top', function () {
-            var m = $('#main');
-            stage.footer_top = m.offset().top + m.height();
-        }, false);
-        stage.add_measurement('art_height', function () {
-            stage.art_height = $('#main').height();
-        }, false);
-        stage.initiate();
-        sticky.initiate();
-        sizer.initiate(); /* Initiates resizing of menu on pages where it is relevant */
+	var menu, menu_id_str, selected, siblings;
+	menu = null;
+	menu_id_str = $('.side-nav-content').attr('id');
+	if (menu_id_str !== 'none') {
+		menu = menu_id_str;
+	}
+	$(document).ready(function () {
+		stage.initiate();
+		sticky.initiate();
+		sizer.initiate(); /* Initiates resizing of menu on pages where it is relevant */
 
-        selected = $('.no_children.item_active').first();
-        selected.siblings().addClass('active_sibling');
-        $("#main a").each(function () {
-            $(this).bind('click', function () {
-                sticky.scrollEvent();
-            });
-        });
+		selected = $('.no_children.item_active').first();
+		selected.siblings().addClass('active_sibling');
+		$("#main a").each(function () {
+			$(this).bind('click', function () {
+				sticky.scrollEvent();
+			});
+		});
+		
+	});
+	$(window).load(function () {
+		var container, scrollTo;
+		renderMenu(window.location.pathname, menu);
+		reset_size_and_scroll();
+		$(function () {
+			container = $('#side-nav-children');
+			scrollTo = $('.active', container);
+			if (scrollTo.length > 0) {
+				container.scrollTop(scrollTo.offset().top - container.offset().top + container.scrollTop() - 80);
+			}
+		});
+	});
 
-    });
-    $(window).load(function () {
-        var container, scrollTo;
-        initMenu(window.location.pathname, menu);
-        reset_size_and_scroll();
-        $(function () {
-            container = $('#side-nav-children');
-            scrollTo = $('.active', container);
-            if (scrollTo.length > 0) {
-                container.scrollTop(scrollTo.offset().top - container.offset().top + container.scrollTop() - 80);
-            }
-        });
-    });
-
-    $(window).resize(function (e) {
-        if (e) { e.stopPropagation(); }
-        reset_size_and_scroll();
-    });
-    $(window).scroll(function (e) {
-        if (e) { e.stopPropagation(); }
-        reset_size_and_scroll();
-    });
+	$(window).resize(function (e) {
+		if (e) { e.stopPropagation(); }
+		reset_size_and_scroll();
+	});
+	$(window).scroll(function (e) {
+		if (e) { e.stopPropagation(); }
+		reset_size_and_scroll();
+	});
 </script>
 <script type="text/javascript" src="https://bdsc.webapps.blackberry.com/html5/webroot/js/pageload.min.js"></script>
 <script type="text/javascript" src="nav.js"></script>
