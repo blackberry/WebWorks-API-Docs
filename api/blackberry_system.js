@@ -166,6 +166,14 @@ blackberry.system ={
 
     /**
      * @type String
+     * @description Returns the hardware identifier for the device.
+     * @readOnly
+     * @BB10X
+     */
+    hardwareId: null,
+
+    /**
+     * @type String
      * @description Returns the model number of the BlackBerry PlayBook or the BlackBerry Smartphone device.
      * @readOnly
      * @BB50+
@@ -190,6 +198,7 @@ blackberry.system ={
      * @readOnly
      * @BB50+
      * @PB10+
+     * @BB10X
      * @RIPPLE
      */
     softwareVersion:null,
