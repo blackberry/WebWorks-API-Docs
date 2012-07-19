@@ -25,7 +25,7 @@
 * To work with a <code>PushService</code> object, you must first call the static <code>create</code> function.  On a successful create, you will then be able
 * to perform operations using the <code>PushService</code> object you receive in the success callback.
 * <br/><br/>
-* For a great sample app that demonstrates how to use the push APIs, see <a href="https://github.com/blackberry/WebWorks-Samples/tree/master/pushCapture">Push Capture</a>. 
+* For a great sample app that demonstrates how to use the push APIs, see <a href="https://github.com/blackberry/BB10-WebWorks-Samples/tree/master/pushCapture">Push Capture</a>. 
 * @toc {Push} PushService 
 * @class The <code>PushService</code> object allows you to perform all the push-related operations.
 * @featureID blackberry.push
