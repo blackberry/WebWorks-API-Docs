@@ -589,3 +589,16 @@ blackberry.push.PushService.PPG_CURRENTLY_NOT_AVAILABLE : 10110;
 * @BB10X
 */
 blackberry.push.PushService.MISSING_INVOKE_TARGET_ID : 10111;
+
+/**
+* Result error code when an underlying session already exists.
+* <br/><br/>
+* Operations this error can occur on: create
+* <br/><br/>
+* Recommended action: Check the appId and invokeTargetId to ensure that they are valid and unique to your application.
+* @type Number
+* @constant
+* @static
+* @BB10X
+*/
+blackberry.push.PushService.SESSION_ALREADY_EXISTS : 10112;
