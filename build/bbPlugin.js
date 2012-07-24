@@ -54,24 +54,24 @@ BBTag.Support.prototype.resetSupportAttributes = function() {
     
     if(this.bb50 && this.bb60 && this.bb70){
         this.supportStrings.push("BlackBerry OS 5.0+");
-        this.supportTag = "bb5.0|bb6.0|bb7.0";
+        this.supportTag = "bb_menu";
         this.supportTable = tableYes + "\n" + tableYes + "\n" + tableYes + "\n";
     }else if(!this.bb50 && this.bb60 && this.bb70) {
 	this.supportStrings.push("BlackBerry OS 6.0+");
-	this.supportTag = "bb6.0|bb7.0";
+    this.supportTag = "bb_menu";
 	this.supportTable = tableNo + "\n" + tableYes + "\n" + tableYes + "\n";
     }else if(this.bb50 && !this.bb60 && !this.bb70){
         this.supportStrings.push("BlackBerry OS 5.0");
-        this.supportTag = "bb5.0";
+        this.supportTag = "bb_menu";
         this.supportTable = tableYes + "\n" + tableNo + "\n" + tableNo + "\n";
     }else if(!this.bb50 && this.bb60 && !this.bb70){
         this.supportStrings.push("BlackBerry OS 6.0");
-        this.supportTag = "bb6.0";
+        this.supportTag = "bb_menu";
         this.supportTable = tableNo + "\n" + tableYes + "\n" + tableNo + "\n";
     }else if(!this.bb50 && !this.bb60 && this.bb70){
 	this.supportStrings.push("BlackBerry OS 7.0+");
-	this.supportingTag = "bb7.0";
-	this.supportTable = tableNo + "\n" + tableNo + "\n" + tableYes + "\n";
+	this.supportTag = "bb_menu";
+    this.supportTable = tableNo + "\n" + tableNo + "\n" + tableYes + "\n";
     } else {// This last else has no support
         this.supportTable = tableNo + "\n" + tableNo + "\n" + tableNo + "\n"; 
     }
@@ -83,21 +83,21 @@ BBTag.Support.prototype.resetSupportAttributes = function() {
         if(this.supportTag.length){
             this.supportTag += "|";
         }
-        this.supportTag += "pb1.0|pb2.0";
+        this.supportTag += "pb_menu";
         this.supportTable += tableYes + "\n" + tableYes + "\n";
     } else if(this.pb20){
         this.supportStrings.push("BlackBerry PlayBook 2.0");
         if(this.supportTag.length){
             this.supportTag += "|";
         }
-        this.supportTag += "pb2.0";
+        this.supportTag += "pb_menu";
         this.supportTable += tableNo+ "\n" + tableYes + "\n";;
 	} else if(this.pb10){
         this.supportStrings.push("BlackBerry PlayBook 1.0");
         if(this.supportTag.length){
             this.supportTag += "|";
         }
-        this.supportTag += "pb1.0";
+        this.supportTag += "pb_menu";
         this.supportTable += tableYes + "\n" + tableNo + "\n";;
     }else{
         this.supportTable += tableNo + "\n" + tableNo + "\n";;
@@ -108,7 +108,7 @@ BBTag.Support.prototype.resetSupportAttributes = function() {
         if(this.supportTag.length){
             this.supportTag += "|";
         }
-        this.supportTag += "bb10x";
+        this.supportTag += "bb10_menu";
         this.supportTable += tableYes;
     }else{
         this.supportTable += tableNo;
