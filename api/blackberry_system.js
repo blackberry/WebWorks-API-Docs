@@ -174,6 +174,17 @@ blackberry.system ={
 
     /**
      * @type String
+     * @description Returns the current UI language for the device. Examples of
+     * possible values include, but are not limited to "fr_CA", "en_CA",
+     * "en_US", and "es_ES". The format of the response conforms to
+     * <a href="http://tools.ietf.org/html/bcp47">BCP47</a>.
+     * @RIPPLE
+     * @BB10X
+     */
+    language: null,
+
+    /**
+     * @type String
      * @description Returns the model number of the BlackBerry PlayBook or the BlackBerry Smartphone device.
      * @readOnly
      * @BB50+
@@ -181,6 +192,18 @@ blackberry.system ={
      * @RIPPLE
      */
     model: null,
+
+    /**
+     * @type String
+     * @description Returns the current country setting for the device. The
+     * region determines the format of items such as the date, time, numbers,
+     * and the calendar. Examples of possible values include, but are not
+     * limited to "fr_CA", "en_CA", "en_US", and "es_ES". The format of the
+     * response conforms to <a href="http://tools.ietf.org/html/bcp47">BCP47</a>.
+     * @RIPPLE
+     * @BB10X
+     */
+    region: null,
 
     /**
      * @type String
@@ -232,7 +255,7 @@ blackberry.system ={
     * @BB10X
     * @description This event is fired by the system. If you want to listen to the event you can do so using the {@link blackberry.event.addEventListener} function and remove the listener using the {@link blackberry.event.removeEventListener} function. <br/>
     */
-  
+
    /**
     * @description The <b>batterycritical</b> event is triggered whenever the battery level changes to the value lower than 5%.
     * @callback {function} yourCallbackFunction The callback function that will be invoked on the batterycritical event
@@ -274,12 +297,12 @@ blackberry.system ={
    /**
     * @description The <b>batterystatus</b> event is triggered whenever the: <ul><li>battery level changes</li><li>device starts to receive a charge</li><li>device stops receiving a charge</li></ul>
     * @callback {function} yourCallbackFunction The callback function that will be invoked on the batterystatus event
-    * @callback {JSON} yourCallbackFunction.info An object  the pertinent information
+    * @callback {JSON} yourCallbackFunction.info An object with the pertinent information
     * @callback {Number} yourCallbackFunction.info.level The percentage of the battery charge (0-100).
     * @callback {Boolean} yourCallbackFunction.info.isPlugged A boolean that represents whether or not the device is receiving a charge.
     * @example
     * &lt;script type="text/javascript"&gt;
-    * 
+    *
     * function onBatteryStatusChange(info) {
     *   alert("The playbook " + info.isPlugged?"is ":"is not " + "plugged in with " + info.level + "% battery remaining");
     * }
@@ -288,7 +311,39 @@ blackberry.system ={
     *
     * &lt;/script&gt;
     */
-   batterystatus : function(){}
+   batterystatus : function(){},
+
+   /**
+    * @description The <b>languagechange</b> event is triggered whenever the language setting of the device is changed.
+    * @callback {Function} yourCallbackFunction The callback function that will be triggered on the languagechange event.
+    * @param {String} yourCallbackFunction.newLanguage The new language setting of the device. Its format conforms to <a href="http://tools.ietf.org/html/bcp47">BCP47</a>.
+    * @example
+    * &lt;script type="text/javascript"&gt;
+    *
+    * function onLanguageChange(newLanguage) {
+    *   alert("The laguage has changed to " + newLanguage);
+    * }
+    *
+    * blackberry.event.addEventListener("languagechanged", onLanguageChange);
+    * &lt;/script&gt;
+    */
+   languagechanged: function(){},
+
+   /**
+    * @description The <b>regionChange</b> event is triggered whenever the regional setting of the device is changed.
+    * @callback {Function} yourCallbackFunction The callback function that will be triggered on the regionchange event.
+    * @param {String} yourCallbackFunction.newRegion The new regional setting of the device. Its format conforms to <a href="http://tools.ietf.org/html/bcp47">BCP47</a>.
+    * @example
+    * &lt;script type="text/javascript"&gt;
+    *
+    * function onRegionChange(newRegion) {
+    *   alert("The current region has changed to " + newRegion);
+    * }
+    *
+    * blackberry.event.addEventListener("regionchanged", onRegionChange);
+    * &lt;/script&gt;
+    */
+   regionchanged: function(){}
 
    /**#@-*/
 };
