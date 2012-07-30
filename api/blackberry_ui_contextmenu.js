@@ -74,7 +74,7 @@ blackberry.ui.contextmenu = {
  * function addMyItem() {
  *     var myItem = {actionId: 'MyItem', label: 'My Item', icon:'http://mysite.com/icon.png'},
  *         contexts = [blackberry.ui.contextmenu.CONTEXT_IMAGE, blackberry.ui.contextmenu.CONTEXT_INPUT];
- *     blackberry.ui.contextmenu.addItem(contexts, myItem);
+ *     blackberry.ui.contextmenu.addItem(contexts, myItem, function() { console.log('hi') });
  * }
  * &lt;/script&gt;
  *
