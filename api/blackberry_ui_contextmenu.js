@@ -65,6 +65,7 @@ blackberry.ui.contextmenu = {
  * @param {String} action.actionId A property that uniquely defines the action to be added to the context menu.
  * @param {String} action.label A string that will be displayed to the user describing the custom context to be performed. ie: Edit
  * @param {String} action.icon A path to the an image to display in the context menu
+ * @callback {Function} callback A function which runs when the menu item action is executed
  * @BB10X
  * @RIPPLE
  * @example
