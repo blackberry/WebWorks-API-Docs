@@ -203,6 +203,15 @@ blackberry.invoke = {
          *     }, onInvokeSuccess, onInvokeError);
          * }
          *
+         * function invokeCard() {
+         *     // invoking Card is the same as invoking an application, except the target specified should point to the "Card" target entry point
+         *     blackberry.invoke.invoke({
+         *         target: "an.app.that.supports.card", // The target should point to the "Card" target entry point of an application
+         *         type: "text/plain",
+         *         data: "{'myData': 'Some data'}"
+         *     }, onInvokeSuccess, onInvokeError);
+         * }
+         *
          * &lt;/script&gt;
          */
         invoke : function(request, onSuccess, onError){},
@@ -231,6 +240,96 @@ blackberry.invoke = {
          *  &lt;/script&gt;
          */
         invoke : function(appType, args){},
+
+        /**
+         * @description As a parent, close the child Card
+         * @returns {void}
+         * @BB10X
+         * @RIPPLE
+         * @example
+         * &lt;script type="text/javascript"&gt;
+         *
+         * function closeChildCard() {
+         *     // Close the child Card for some reason
+         *     blackberry.invoke.closeChildCard();
+         * }
+         *
+         * &lt;/script&gt;
+         */
+        closeChildCard : function() {
+        },
+
+        /**#@+
+         * @noSignature
+         * @event
+         * @BB10X
+         * @description This event is fired by the system. If you want to listen to the event you can do so using the {@link blackberry.event.addEventListener} function and remove the listener using the {@link blackberry.event.removeEventListener} function. <br /><br />
+         */
+
+        /**
+         * @description The <b>onChildCardStartPeek</b> event is fired by the navigator to notify the parent that it is being peeked at and describe the type of peek being performed
+         * @callback {function} yourCallbackFunction The callback function that will be invoked on the onChildCardStartPeek event
+         * @callback {String} yourCallbackFunction.peekType Describes the type of peek to be performed as a peek to the content of the parent or a peek to the content of the root. The value is either "content" or "root".
+         * @example
+         * &lt;script type="text/javascript"&gt;
+         *
+         * function onChildCardStartPeekHandler(peekType) {
+         *    // The Card started peeking
+         *    console.log("The card started peeking.");
+         *    if (peekType == "root") {
+         *        updateContent(true);
+         *    }
+         * }
+         *
+         * blackberry.event.addEventListener("onChildCardStartPeek", onChildCardStartPeekHandler);
+         *
+         * &lt;/script&gt;
+         */
+        onChildCardStartPeek : function() {
+        },
+
+        /**
+         * @description The <b>onChildCardEndPeek</b> event is fired by the navigator to notify the parent that it is no longer being peeked at.
+         * @callback {function} yourCallbackFunction The callback function that will be invoked on the onChildCardEndPeek event
+         * @example
+         * &lt;script type="text/javascript"&gt;
+         *
+         * function onChildCardEndPeekHandler() {
+         *    // The Card stopped peeking
+         *    console.log("I am no longer being peeked at.");
+         * }
+         *
+         * blackberry.event.addEventListener("onChildCardEndPeek", onChildCardEndPeekHandler);
+         *
+         * &lt;/script&gt;
+         */
+        onChildCardEndPeek : function() {
+        },
+
+        /**
+         * @description The <b>onChildCardClosed</b> event is fired by the navigator to notify the parent that a card is closed. The event includes any response data sent by the card (if the card requested its own closure).
+         * @callback {function} yourCallbackFunction The callback function that will be invoked on the onChildCardClosed event
+         * @callback {Object} yourCallbackFunction.request An object that includes any response data sent by the card (if the card requested closure).
+         * @callback {String} yourCallbackFunction.request.reason Describes application level description of why the card was closed. In the case that the close was due to a navigation Navigator will insert the value "navigation"
+         * @callback {String} yourCallbackFunction.request.type Describes the type and encoding of the value in the data attributes
+         * @callback {String} yourCallbackFunction.request.data Describes the data that will be returned to the parent
+         * @example
+         * &lt;script type="text/javascript"&gt;
+         *
+         * function onChildCardClosedHandler(request) {
+         *    // The child Card is closed and reason is "OK", process the closure data;
+         *    // otherwise do nothing.
+         *    if (request.reason == "OK") {
+         *        processCardClosureData(request.type, request.data);
+         *    }
+         * }
+         *
+         * blackberry.event.addEventListener("onChildCardClosed", onChildCardClosedHandler);
+         *
+         * &lt;/script&gt;
+         */
+        onChildCardClosed : function() {
+        },
 
         /**
          * @default 0
