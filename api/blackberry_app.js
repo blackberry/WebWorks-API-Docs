@@ -359,7 +359,7 @@ A banner indicator can have an optional numeric value that usually serves as a c
     *   console.log("Keyboard opened event occured.");
     * }
     *
-    * blackberry.event.addEventListener("keyboardOpening", onKeyboardOpened);
+    * blackberry.event.addEventListener("keyboardOpened", onKeyboardOpened);
     *
     * &lt;/script&gt;
     */
