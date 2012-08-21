@@ -100,6 +100,20 @@ blackberry.system ={
     isMassStorageActive : function(){},
 
     /**
+     * @description Returns the information of current system font, which is composed of the font family and font size.
+     * @returns {Object} Returns the JavaScript Object that contains fontFamily and fontSize properties.
+	 * @example
+	 * &lt;script type="text/javascript"&gt;
+	 * // Check system font information
+	 * var fontInfo = blackberry.system.getFontInfo();
+	 * alert("The font family of current system font is " + fontInfo.fontFamily + "\n" + "The size of current system font is " + fontInfo.fontSize);
+	 * &lt;/script&gt;
+     * @BB10X
+     * @RIPPLE
+     */
+    getFontInfo : function(){},
+
+    /**
      * @uri
      * @BB50+
      * @PB10+
@@ -322,7 +336,7 @@ blackberry.system ={
    batterystatus : function(){},
 
    /**
-    * @description The <b>languagechange</b> event is triggered whenever the language setting of the device is changed.
+    * @description The <b>languagechanged</b> event is triggered whenever the language setting of the device is changed.
     * @callback {Function} yourCallbackFunction The callback function that will be triggered on the languagechange event.
     * @param {String} yourCallbackFunction.newLanguage The new language setting of the device. Its format conforms to <a href="http://tools.ietf.org/html/bcp47">BCP47</a>.
     * @example
@@ -338,7 +352,7 @@ blackberry.system ={
    languagechanged: function(){},
 
    /**
-    * @description The <b>regionChange</b> event is triggered whenever the regional setting of the device is changed.
+    * @description The <b>regionChanged</b> event is triggered whenever the regional setting of the device is changed.
     * @callback {Function} yourCallbackFunction The callback function that will be triggered on the regionchange event.
     * @param {String} yourCallbackFunction.newRegion The new regional setting of the device. Its format conforms to <a href="http://tools.ietf.org/html/bcp47">BCP47</a>.
     * @example
@@ -351,7 +365,25 @@ blackberry.system ={
     * blackberry.event.addEventListener("regionchanged", onRegionChange);
     * &lt;/script&gt;
     */
-   regionchanged: function(){}
+   regionchanged: function(){},
+
+   /**
+    * @description The <b>fontchanged</b> event is triggered whenever the font setting of the system is changed.
+    * @callback {Function} yourCallbackFunction The callback function that will be triggered on the fontchange event.
+    * @param {String} yourCallbackFunction.fontInfo The Object that contains the information of the new system font.
+    * @param {String} yourCallbackFunction.fontInfo.fontFamily The font family of the new system font.
+    * @param {String} yourCallbackFunction.fontInfo.fontSize The font size of the new system font.
+    * @example
+    * &lt;script type="text/javascript"&gt;
+    *
+    * function onFontChange(fontInfo) {
+    *   alert("The system font has changed to " + fontInfo.fontFamily + " size " + fontInfo.fontSize);
+    * }
+    *
+    * blackberry.event.addEventListener("fontchanged", onFontChange);
+    * &lt;/script&gt;
+    */
+   fontchanged: function(){}
 
    /**#@-*/
 };
