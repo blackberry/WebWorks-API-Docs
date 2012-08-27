@@ -94,7 +94,7 @@ blackberry.push.PushService = {};
 *     // You should compare the result code against the error  
 *     // constants in this PushService class that apply for 
 *     // create and take the recommended action for that constant
-*     if (result == blackberry.push.PushService.INTERNAL_ERROR) {
+*     if (result === blackberry.push.PushService.INTERNAL_ERROR) {
 *         // Retry the create up to a certain number of attempts 
 *         // and then display an error to the user
 *     }
@@ -139,12 +139,12 @@ blackberry.push.PushService.create = function(options, successCallback, failCall
 * pushService.createChannel(createChannelCallback);
 *
 * function createChannelCallback(result, token) {
-*     if (result == blackberry.push.PushService.SUCCESS) {
+*     if (result === blackberry.push.PushService.SUCCESS) {
 *         // Success, so a token should be available
 *         // Subscribe with the Push Initiator using this  
 *         // token (if your Push Initiator supports subscription) 
 *         // so that you can push to this user using this token
-*     } else if (result == 
+*     } else if (result === 
 *         blackberry.push.PushService.INTERNAL_ERROR) {
 *         // Retry the createChannel up to a certain number of  
 *         // attempts and then display an error to the user
@@ -173,7 +173,7 @@ blackberry.push.PushService.prototype.createChannel = function(createChannelCall
 * pushService.destroyChannel(destroyChannelCallback);
 *
 * function destroyChannelCallback(result) {
-*     if (result == blackberry.push.PushService.INTERNAL_ERROR) {
+*     if (result === blackberry.push.PushService.INTERNAL_ERROR) {
 *         // Retry the destroyChannel up to a certain number  
 *         // of attempts and then display an error to the user
 *     } else if ... (handle all the error codes possible for 
@@ -285,7 +285,7 @@ blackberry.push.PushService.prototype.extractPushPayload = function(invokeReques
 * //     launchApplicationCallback);
 * 
 * function launchApplicationOnPush(result) {
-*    if (result == blackberry.push.PushService.INTERNAL_ERROR) {
+*    if (result === blackberry.push.PushService.INTERNAL_ERROR) {
 *      // Retry the launchApplicationOnPush up to a certain number 
 *      // of attempts and then display an error to the user
 *    } else if ... (handle all the error codes possible for 
