@@ -185,6 +185,40 @@ blackberry.bbm.platform.users = {
     sendFile : function(fileURI, comment, onFailure, contact) {
     },
     
+     /**
+     * @name blackberry.bbm.platform.users.onupdate^2
+     * @function
+     * Invoked when a user's information is updated. Assign a function to receive user updates.
+     * <p>User updates can be captured such as profile information and application installation changes.
+     * Updates can be received from the current user, contacts who have the application, and non-contacts
+     * who have joined in an application connection with the current user.</p>
+     * <ul>
+     * <li><code>"displayname"</code>: Display name update.
+     * <li><code>"displaypicture"</code>: Display picture update.
+     * <li><code>"personalmessage"</code>: Personal message update.
+     * <li><code>"status"</code>: Status and/or status message update.
+     * </ul>
+     * @param {blackberry.bbm.platform.users.BBMPlatformUser} user The user whose information updated.
+     * @param {String} event The type of update.
+     * @example
+     * &lt;script type="text/javascript"&gt;
+     * 
+     * blackberry.event.addEventListener("onupdate", function(user, event) {
+     *     // Handle events for the current user
+     *     if(user.handle == blackberry.platform.self.handle) {
+     *         if (event == "personalmessage") {
+     *             alert("Personal message update: " + user.personalmessage);
+     *         }
+     *         // Handle other events for the current user...
+     *     }
+     *     // Handle events for other users...
+     * };
+     * 
+     * &lt;/script&gt;
+     * @event
+     * @BB10X
+     */   
+     
     /**
      * Invoked when a user's information is updated. Assign a function to receive user updates.
      * <p>User updates can be captured such as profile information and application installation changes.
