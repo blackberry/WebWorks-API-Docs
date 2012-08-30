@@ -121,6 +121,7 @@ blackberry.identity.IMSI = { };
 * @readOnly
 * @BB50+
 * @RIPPLE
+* @BB10X
 */
 blackberry.identity.IMEI = { };
 

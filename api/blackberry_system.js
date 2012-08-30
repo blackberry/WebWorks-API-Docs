@@ -227,6 +227,14 @@ blackberry.system ={
     softwareVersion:null,
 
     /**
+     * @type String
+     * @description Returns the name of the device.
+     * @readOnly
+     * @BB10X
+     */
+    name:null,
+
+    /**
      * @constant
      * @type Number
      * @description Returned by hasPermission() indicating that the module requested is accessible.
