@@ -244,6 +244,20 @@ blackberry.bbm.platform.users = {
     },
     
     /**
+     * @name blackberry.bbm.platform.users.inviteToDownload^2
+     * @function
+     * @description Allows the user to invite contacts to download the application. A download invitation
+     * card will appear allowing the user to select contacts to invite.
+     * <p><b>Only contacts without the application can be invited to download.</b>
+     * @example
+     * blackberry.bbm.platform.users.inviteToDownload();
+     * 
+     * @BB10X
+     */
+    inviteToDownload : function() {
+    },
+
+    /**
      * Allows the user to invite users to their BBM contact list. A dialog will appear allowing the
      * user to select users to invite. Users already in the current user's contact list will not be
      * included in the dialog.
