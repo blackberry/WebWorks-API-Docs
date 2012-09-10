@@ -171,6 +171,22 @@ blackberry.pim.contacts.Contact.prototype.ringtone = "";
 blackberry.pim.contacts.Contact.prototype.favorite = false;
 
 /**
+ * @description An array of the contact's latest activities.
+ * @readOnly
+ * @type blackberry.pim.contacts.ContactActivity[]
+ * @BB10X
+ */
+blackberry.pim.contacts.Contact.prototype.activities = "";
+
+/**
+ * @description An array of the contact's latest online news.
+ * @readOnly
+ * @type blackberry.pim.contacts.ContactNews[]
+ * @BB10X
+ */
+blackberry.pim.contacts.Contact.prototype.news = "";
+
+/**
  * Saves a new contact to the device contacts database, or updates an existing contact if a contact with the same id already exists.
  * @param {function} onSaveSuccess The callback function that will be invoked when the contact is saved successfully.
  * @callback {blackberry.pim.contacts.Contact} onSaveSuccess.contact The Contact object.
