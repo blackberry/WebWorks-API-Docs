@@ -16,6 +16,7 @@
 
 /**
  * @featureID blackberry.bbm.platform
+ * @permission [bbm_connect] BBM APIs requre this permission to be set
  * @class <p>Provides read-only access to a BBM platform user's information as defined in their BBM profile.
  * <p><i>Instances of this object are not created, but obtained from the BBM platform.</i>
  * <h3>Current User</h3>
@@ -123,29 +124,5 @@ blackberry.bbm.platform.users.BBMPlatformUser = function() {
      * @BB10X
      */
     this.bbmsdkVersion = 0;
-    
-    /**
-     * @description The country code of the user.
-     * @type String
-     * @readOnly
-     * @BB10X
-     */
-    this.countryCode = "";
-    
-    /**
-     * @description The a picture of the user's country flag encoded as base64 image string.
-     * @type String
-     * @readOnly
-     * @BB10X
-     */
-    this.countryFlag = "";
-
-    /**
-     * @description The timezone of the user.
-     * @type String
-     * @readOnly
-     * @BB10X
-     */
-    this.timezone = "";
 
 };
