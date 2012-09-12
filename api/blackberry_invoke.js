@@ -32,7 +32,7 @@ QueryResponse = {};
  * @property {String} icon The path of the icon that may be used to represent the target.
  * @property {String} [splash] The path of the icon that may be used to represent the viewer while loading. This field is present if the type property is VIEWER and is otherwise omitted.
  * @property {String} label The label that may be used to represent the target.
- * @property {String} type Indication of the type of the invocation target. Possible values are "APPLICATION", "VIEWER" or "SERVICE". 
+ * @property {String} type Indication of the type of the invocation target. Possible values are "APPLICATION", "VIEWER" or "SERVICE".
  */
 QueryResponseTarget = {};
 
@@ -50,6 +50,7 @@ QueryResponseTarget = {};
  */
 blackberry.invoke = {
 
+
         /**
          * @description Queries device for list of invokable applications.
          * @param {Object} request An object containing a query to be performed on applications on the device.
@@ -60,7 +61,7 @@ blackberry.invoke = {
          * @param {String} [request.action_type] Indicates the type of actions to be returned. Possible values are "MENU" or "ALL". Menu actions specify addtional icon and label properties.
          * @param {String} [request.receiver_capabilites] The list of capabilities that must be granted to the target in order for it to be considered a candidate.
          * @callback {function} onSuccess The callback function that will be triggerd if the query is successful.
-         * @param {QueryResponse[]} onSuccess.response An array which contains the result of the query. 
+         * @param {QueryResponse[]} onSuccess.response An array which contains the result of the query.
          * @callback {function} onError The callback function that will be triggered if there was an error processing the query.
          * @param {String} [onError.error] A String that contains an error message.
          * @RIPPLE
@@ -127,7 +128,7 @@ blackberry.invoke = {
          */
         query : function(request, onSuccess, onError){},
 
-        /**
+       /**
          * @description Invokes another application
          * @param {Object} request Object literal that specifies what to invoke. None of the fields are required. Refer to the example code for more information.
          * @param {String} [request.target] The id that identifies the component to invoke. If target is omitted, the invocation framework would perform brokering based on the specified action, type, URI or data to locate an appropriate target to invoke.
@@ -135,6 +136,7 @@ blackberry.invoke = {
          * @param {String} [request.type] MIME type of data to be acted on. If the MIME type is not specified then the mime type would be inferred from the given URI. If the MIME type cannot be inferred or URI field is empty then invocation will be rejected.
          * @param {String} [request.uri] URI pointing to invocation data. If no URI is provided then this implies that the invocation data is provided in-band in the data field of the invocation request.
          * @param {String|Blob} [request.data] Data (String or Blob) to be acted upon encoded based on the specified type.<br/>NOTE: If a String is passed, make sure that it does not contain unicode characters or invocation will fail.
+         * @param {String} [request.file_transfer_mode] An optional string that represents the file transfer mode that can be one of {@link blackberry.invoke.FILE_TRANSFER_PRESERVE}, {@link blackberry.invoke.FILE_TRANSFER_COPY_RO}, {@link blackberry.invoke.FILE_TRANSFER_COPY_RW}, {@link blackberry.invoke.FILE_TRANSFER_LINK}. If omitted, it a sensible default of {@link blackberry.invoke.FILE_TRANSFER_COPY_RO} will be used.
          * @callback {function} onSuccess Callback function that will be triggered when the invocation is successful. Expected signature: function onSuccess().
          * @callback {function} onError Callback function that will be triggered when invocation is not successful, or if request's data field cannot be encoded (e.g. when it contains unicode characters). Expected signature: function onError(error).
          * @callback {String} [onError.error] A String that describes the error.
@@ -212,9 +214,66 @@ blackberry.invoke = {
          *     }, onInvokeSuccess, onInvokeError);
          * }
          *
+         * function invokePictureViewer() {
+         *     // invoking Card is the same as invoking an application, except the target specified should point to the "Card" target entry point
+         *     blackberry.invoke.invoke({
+         *         action: "bb.action.VIEW",
+         *         uri : "local:///img/image.jpg",
+         *         file_transfer_mode : blackberry.invoke.FILE_TRANSFER_COPY_RO
+         *     }, onInvokeSuccess, onInvokeError);
+         * }
+         *
+         * function invokeAudoPlayer() {
+         *      blackberry.invoke.invoke({
+         *          action: "bb.action.VIEW",
+         *          uri : "local:///audio/test.mp3",
+         *          file_transfer_mode : blackberry.invoke.FILE_TRANSFER_COPY_RO
+         *       }, onInvokeSuccess, onInvokeError);
+         * }
+         *
+         * function invokeAudioWithoutTrasnsfer() {
+         *      blackberry.invoke.invoke({
+         *          action: "bb.action.VIEW",
+         *          uri : "local:///audio/test.mp3",
+         *       }, onInvokeSuccess, onInvokeError);
+         * }
+         *
+         *
          * &lt;/script&gt;
          */
         invoke : function(request, onSuccess, onError){},
+
+        /**
+         * @type String
+         * @constant
+         * @BB10X
+         * @description Describes the file transfer mode where the file will be copied to the invoked application with read only privileges
+         */
+        FILE_TRANSFER_COPY_RO : 'COPY_RO',
+
+         /**
+         * @type String
+         * @constant
+         * @BB10X
+         * @description Describes the file transfer mode where the file will be copied to the invoked application with read and write privileges
+         */
+        FILE_TRANSFER_COPY_RW : 'COPY_RW',
+
+         /**
+         * @type String
+         * @constant
+         * @BB10X
+         * @description Describes the file transfer mode where the invoked application will receive a link to the file path provided. The permissions of the original file MUST include o+r. It o+w the sender must be the owner of the file.
+         */
+        FILE_TRANSFER_LINK : 'LINK',
+
+         /**
+         * @type String
+         * @constant
+         * @BB10X
+         * @description Describes the file transfer mode where the provided URI is preserved as is. No box-2-box logic is applied
+         */
+        FILE_TRANSFER_PRESERVE : 'PRESERVE',
 
         /**
          * @name blackberry.invoke.invoke^2
