@@ -79,13 +79,13 @@ blackberry.pim.contacts = {
         /**
          * @name blackberry.pim.contacts.find
          * @function
-         * @description Queries the device contacts database. The search results are passed to the onFindSuccess callback function specified by the onFindSuccess parameter. 
+         * @description Queries the device contacts database. The search results are passed to the onFindSuccess callback function specified by the onFindSuccess parameter.
          * @param {String[]} contactFields A String array of contact fields to be used as search qualifier. Only these fields will have values in the resulting Contact objects.
+         * @param {blackberry.pim.contacts.ContactFindOptions} findOptions Options to be applied to the search.
          * @param {function} onFindSuccess Success callback function that is invoked with the contacts returned from the contacts database.
          * @callback {blackberry.pim.contacts.Contact[]} onFindSuccess.contacts The array of Contact objects from the search.
          * @param {function} [onFindError] Optional error callback function. Invoked when error occurs. Possible errors are: permission denied error (if access_pimdomain_contacts is not specified) or illegal arguments error (if mandatory parameters are missing or invalid).
          * @callback {blackberry.pim.contacts.ContactError} onFindError.error The {@link blackberry.pim.contacts.ContactError} object which contains the error code.
-         * @param {blackberry.pim.contacts.ContactFindOptions} findOptions Options to be applied to the search.
          * @example
          * function onFindSuccess(contacts) {
          *     console.log("Found " + contacts.length + " John Smith in total");
@@ -116,7 +116,7 @@ blackberry.pim.contacts = {
          *             20                                 // limit
          *         );
          *
-         *     contacts.find(["name"], onFindSuccess, onFindError, findOptions);
+         *     contacts.find(["name"], findOptions, onFindSuccess, onFindError);
          * }
          * @BB10X
          */

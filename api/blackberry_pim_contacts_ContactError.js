@@ -29,7 +29,7 @@ blackberry.pim.contacts.ContactError = {};
  * @example
  * function findContacts() {
  *     var contacts = blackberry.pim.contacts;
- *     contacts.find(["name"], onFindSuccess, onFindError, null);
+ *     contacts.find(["name"], null, onFindSuccess, onFindError);
  * }
  *
  * function onFindSuccess(contacts) {
@@ -37,8 +37,18 @@ blackberry.pim.contacts.ContactError = {};
  * }
  *
  * function onFindError(error) {
- *     if (error.code === error.UNKNOWN_ERROR) {
- *         alert("Contact find error: An unknown error occurred");
+ *     switch (error.code) {
+ *     case error.UNKNOWN_ERROR:
+ *          alert("Contact find error: An unknown error occurred");
+ *          break;
+ *     case error.INVALID_ARGUMENT_ERROR:
+ *          alert("Contact find error: Invalid argument");
+ *          break;
+ *     case error.PERMISSION_DENIED_ERROR:
+ *          alert("Contact find error: Permission denied error");
+ *          break;
+ *     default:
+ *          alert("Contact find error: other error, code=" + error.code);
  *     }
  * }
  */
