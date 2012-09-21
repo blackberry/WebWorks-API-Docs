@@ -17,6 +17,7 @@
 /**
  * @toc {BBM} BBM Platform
  * @featureID blackberry.bbm.platform
+ * @permission [bbm_connect] BBM APIs requre this permission to be set
  * @namespace Provides access to the BBM Social Platform.
  * @notice {Required BBM Version} BBM Social Platform APIs come with BBM 6.1.0 and later. BBM 6.1.0 is supported on BlackBerry OS 5, 6, and 7.
  * @notice {Authorization}
@@ -35,6 +36,45 @@
 blackberry.bbm.platform = {
 
     /**
+     * @name blackberry.bbm.platform.register^2
+     * @function
+     * @description Registers for access to BBM Platform.
+     * <p>The application must assign a callback to {@link blackberry.bbm.platform.event:onaccesschanged}
+     * before registering. During registration, a dialog will be shown to guide the user through the registration process.
+     * The application should wait until {@link blackberry.bbm.platform.event:onaccesschanged} is invoked before continuing.</p>
+     * <h4>Application in Test Environment</h4>
+     * Applications must provide a UUID used to identify the application in the test
+     * environment. If the application is in App World then the UUID will not be used. The same
+     * UUID should be used for future releases of the same application; otherwise communication
+     * between them will not be possible. The UUID must be a randomly generated 36-character UUID.
+     * Any UUID generator can be used.
+     * @param {Object} options Options.
+     * @param {String} options.uuid ID used to identify the application in the test environment.
+     * @example
+     * &lt;script type="text/javascript"&gt;
+     * 
+     * // Create callback invoked when access changes
+     * blackberry.bbm.platform.onaccesschanged = function(accessible, status) {
+     *     if (status == "allowed") {
+     *         // Access allowed
+     *     } else if (status == "user") {
+     *         // Access blocked by user
+     *     } else if (status == "rim") {
+     *         // Access blocked by RIM
+     *     }
+     *     // Listen for other status...
+     * };
+     * 
+     * // Register with the platform
+     * blackberry.bbm.platform.register({
+     *     uuid: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" // Randomly generated UUID
+     * });
+     * 
+     * &lt;/script&gt;
+     * @BB10X
+     */
+
+     /**
      * @description Registers for access to BBM Platform.
      * <p>The application must assign a callback to {@link blackberry.bbm.platform.event:onaccesschanged}
      * before registering. During registration, a dialog will be shown to guide the user through the registration process.
@@ -73,8 +113,7 @@ blackberry.bbm.platform = {
      * @BB50+
      */
     register : function(options) {
-    },
-    
+    },   
     /**
      * @description Shows a dialog prompting the user to connect this application to BBM. This will
      * only work if the application is blocked by the user (i.e. access status is <code>"user"</code>).
@@ -124,6 +163,46 @@ blackberry.bbm.platform = {
     	
     },
 
+    /**
+     * @name blackberry.bbm.platform.onaccesschanged^2
+     * @description This event is fired by the system. If you want to listen to the event you can do so using the {@link blackberry.event.addEventListener} function and remove the listener using the {@link blackberry.event.removeEventListener} function. <br/> 
+     * @description Registers for access to BBM Platform.
+     * <p>The application must assign a callback by adding an event listener {@link blackberry.bbm.platform.event:onaccesschanged}
+     * before registering. During registration, a dialog will be shown to guide the user through the registration process.
+     * The application should wait until {@link blackberry.bbm.platform.event:onaccesschanged} is invoked before continuing.</p>
+     * <h4>Application in Test Environment</h4>
+     * Applications must provide a UUID used to identify the application in the test
+     * environment. If the application is in App World then the UUID will not be used. The same
+     * UUID should be used for future releases of the same application; otherwise communication
+     * between them will not be possible. The UUID must be a randomly generated 36-character UUID.
+     * Any UUID generator can be used.
+     * @param {Object} options Options.
+     * @param {String} options.uuid ID used to identify the application in the test environment.
+     * @example
+     * &lt;script type="text/javascript"&gt;
+     * 
+     * // Create callback invoked when access changes
+     * blackberry.event.addEventListner("onaccesschanged", function(accessible, status) {
+     *     if  (status == "allowed") {
+     *         // Access allowed
+     *     } else if (status == "user") {
+     *         // Access blocked by user
+     *     } else if (status == "rim") {
+     *         // Access blocked by RIM
+     *     }
+     *     // Listen for other status...
+     *     };
+     *
+     * // Register with the platform
+     * blackberry.bbm.platform.register({
+     *     uuid: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" // Randomly generated UUID
+     * });
+     * 
+     * &lt;/script&gt;
+     * @event
+     * @BB10X
+     */
+    
     /**
      * Called when the access status changes.
      * <p>This callback is mandatory and must be assigned <b>before</b> the call to {@link blackberry.bbm.platform.register}.

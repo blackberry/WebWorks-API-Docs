@@ -32,7 +32,7 @@ QueryResponse = {};
  * @property {String} icon The path of the icon that may be used to represent the target.
  * @property {String} [splash] The path of the icon that may be used to represent the viewer while loading. This field is present if the type property is VIEWER and is otherwise omitted.
  * @property {String} label The label that may be used to represent the target.
- * @property {String} type Indication of the type of the invocation target. Possible values are "APPLICATION", "VIEWER" or "SERVICE". 
+ * @property {String} type Indication of the type of the invocation target. Possible values are "APPLICATION", "VIEWER" or "SERVICE".
  */
 QueryResponseTarget = {};
 
@@ -50,6 +50,7 @@ QueryResponseTarget = {};
  */
 blackberry.invoke = {
 
+
         /**
          * @description Queries device for list of invokable applications.
          * @param {Object} request An object containing a query to be performed on applications on the device.
@@ -60,7 +61,7 @@ blackberry.invoke = {
          * @param {String} [request.action_type] Indicates the type of actions to be returned. Possible values are "MENU" or "ALL". Menu actions specify addtional icon and label properties.
          * @param {String} [request.receiver_capabilites] The list of capabilities that must be granted to the target in order for it to be considered a candidate.
          * @callback {function} onSuccess The callback function that will be triggerd if the query is successful.
-         * @param {QueryResponse[]} onSuccess.response An array which contains the result of the query. 
+         * @param {QueryResponse[]} onSuccess.response An array which contains the result of the query.
          * @callback {function} onError The callback function that will be triggered if there was an error processing the query.
          * @param {String} [onError.error] A String that contains an error message.
          * @RIPPLE
@@ -127,7 +128,7 @@ blackberry.invoke = {
          */
         query : function(request, onSuccess, onError){},
 
-        /**
+       /**
          * @description Invokes another application
          * @param {Object} request Object literal that specifies what to invoke. None of the fields are required. Refer to the example code for more information.
          * @param {String} [request.target] The id that identifies the component to invoke. If target is omitted, the invocation framework would perform brokering based on the specified action, type, URI or data to locate an appropriate target to invoke.
@@ -135,6 +136,7 @@ blackberry.invoke = {
          * @param {String} [request.type] MIME type of data to be acted on. If the MIME type is not specified then the mime type would be inferred from the given URI. If the MIME type cannot be inferred or URI field is empty then invocation will be rejected.
          * @param {String} [request.uri] URI pointing to invocation data. If no URI is provided then this implies that the invocation data is provided in-band in the data field of the invocation request.
          * @param {String|Blob} [request.data] Data (String or Blob) to be acted upon encoded based on the specified type.<br/>NOTE: If a String is passed, make sure that it does not contain unicode characters or invocation will fail.
+         * @param {String} [request.file_transfer_mode] An optional string that represents the file transfer mode that can be one of {@link blackberry.invoke.FILE_TRANSFER_PRESERVE}, {@link blackberry.invoke.FILE_TRANSFER_COPY_RO}, {@link blackberry.invoke.FILE_TRANSFER_COPY_RW}, {@link blackberry.invoke.FILE_TRANSFER_LINK}. If omitted, it a sensible default of {@link blackberry.invoke.FILE_TRANSFER_COPY_RO} will be used.
          * @callback {function} onSuccess Callback function that will be triggered when the invocation is successful. Expected signature: function onSuccess().
          * @callback {function} onError Callback function that will be triggered when invocation is not successful, or if request's data field cannot be encoded (e.g. when it contains unicode characters). Expected signature: function onError(error).
          * @callback {String} [onError.error] A String that describes the error.
@@ -203,9 +205,75 @@ blackberry.invoke = {
          *     }, onInvokeSuccess, onInvokeError);
          * }
          *
+         * function invokeCard() {
+         *     // invoking Card is the same as invoking an application, except the target specified should point to the "Card" target entry point
+         *     blackberry.invoke.invoke({
+         *         target: "an.app.that.supports.card", // The target should point to the "Card" target entry point of an application
+         *         type: "text/plain",
+         *         data: "{'myData': 'Some data'}"
+         *     }, onInvokeSuccess, onInvokeError);
+         * }
+         *
+         * function invokePictureViewer() {
+         *     // invoking Card is the same as invoking an application, except the target specified should point to the "Card" target entry point
+         *     blackberry.invoke.invoke({
+         *         action: "bb.action.VIEW",
+         *         uri : "local:///img/image.jpg",
+         *         file_transfer_mode : blackberry.invoke.FILE_TRANSFER_COPY_RO
+         *     }, onInvokeSuccess, onInvokeError);
+         * }
+         *
+         * function invokeAudoPlayer() {
+         *      blackberry.invoke.invoke({
+         *          action: "bb.action.VIEW",
+         *          uri : "local:///audio/test.mp3",
+         *          file_transfer_mode : blackberry.invoke.FILE_TRANSFER_COPY_RO
+         *       }, onInvokeSuccess, onInvokeError);
+         * }
+         *
+         * function invokeAudioWithoutTrasnsfer() {
+         *      blackberry.invoke.invoke({
+         *          action: "bb.action.VIEW",
+         *          uri : "local:///audio/test.mp3",
+         *       }, onInvokeSuccess, onInvokeError);
+         * }
+         *
+         *
          * &lt;/script&gt;
          */
         invoke : function(request, onSuccess, onError){},
+
+        /**
+         * @type String
+         * @constant
+         * @BB10X
+         * @description Describes the file transfer mode where the file will be copied to the invoked application with read only privileges
+         */
+        FILE_TRANSFER_COPY_RO : 'COPY_RO',
+
+         /**
+         * @type String
+         * @constant
+         * @BB10X
+         * @description Describes the file transfer mode where the file will be copied to the invoked application with read and write privileges
+         */
+        FILE_TRANSFER_COPY_RW : 'COPY_RW',
+
+         /**
+         * @type String
+         * @constant
+         * @BB10X
+         * @description Describes the file transfer mode where the invoked application will receive a link to the file path provided. The permissions of the original file MUST include o+r. It o+w the sender must be the owner of the file.
+         */
+        FILE_TRANSFER_LINK : 'LINK',
+
+         /**
+         * @type String
+         * @constant
+         * @BB10X
+         * @description Describes the file transfer mode where the provided URI is preserved as is. No box-2-box logic is applied
+         */
+        FILE_TRANSFER_PRESERVE : 'PRESERVE',
 
         /**
          * @name blackberry.invoke.invoke^2
@@ -231,6 +299,96 @@ blackberry.invoke = {
          *  &lt;/script&gt;
          */
         invoke : function(appType, args){},
+
+        /**
+         * @description As a parent, close the child Card
+         * @returns {void}
+         * @BB10X
+         * @RIPPLE
+         * @example
+         * &lt;script type="text/javascript"&gt;
+         *
+         * function closeChildCard() {
+         *     // Close the child Card for some reason
+         *     blackberry.invoke.closeChildCard();
+         * }
+         *
+         * &lt;/script&gt;
+         */
+        closeChildCard : function() {
+        },
+
+        /**#@+
+         * @noSignature
+         * @event
+         * @BB10X
+         * @description This event is fired by the system. If you want to listen to the event you can do so using the {@link blackberry.event.addEventListener} function and remove the listener using the {@link blackberry.event.removeEventListener} function. <br /><br />
+         */
+
+        /**
+         * @description The <b>onChildCardStartPeek</b> event is fired by the navigator to notify the parent that it is being peeked at and describe the type of peek being performed
+         * @callback {function} yourCallbackFunction The callback function that will be invoked on the onChildCardStartPeek event
+         * @callback {String} yourCallbackFunction.peekType Describes the type of peek to be performed as a peek to the content of the parent or a peek to the content of the root. The value is either "content" or "root".
+         * @example
+         * &lt;script type="text/javascript"&gt;
+         *
+         * function onChildCardStartPeekHandler(peekType) {
+         *    // The Card started peeking
+         *    console.log("The card started peeking.");
+         *    if (peekType == "root") {
+         *        updateContent(true);
+         *    }
+         * }
+         *
+         * blackberry.event.addEventListener("onChildCardStartPeek", onChildCardStartPeekHandler);
+         *
+         * &lt;/script&gt;
+         */
+        onChildCardStartPeek : function() {
+        },
+
+        /**
+         * @description The <b>onChildCardEndPeek</b> event is fired by the navigator to notify the parent that it is no longer being peeked at.
+         * @callback {function} yourCallbackFunction The callback function that will be invoked on the onChildCardEndPeek event
+         * @example
+         * &lt;script type="text/javascript"&gt;
+         *
+         * function onChildCardEndPeekHandler() {
+         *    // The Card stopped peeking
+         *    console.log("I am no longer being peeked at.");
+         * }
+         *
+         * blackberry.event.addEventListener("onChildCardEndPeek", onChildCardEndPeekHandler);
+         *
+         * &lt;/script&gt;
+         */
+        onChildCardEndPeek : function() {
+        },
+
+        /**
+         * @description The <b>onChildCardClosed</b> event is fired by the navigator to notify the parent that a card is closed. The event includes any response data sent by the card (if the card requested its own closure).
+         * @callback {function} yourCallbackFunction The callback function that will be invoked on the onChildCardClosed event
+         * @callback {Object} yourCallbackFunction.request An object that includes any response data sent by the card (if the card requested closure).
+         * @callback {String} yourCallbackFunction.request.reason Describes application level description of why the card was closed. In the case that the close was due to a navigation Navigator will insert the value "navigation"
+         * @callback {String} yourCallbackFunction.request.type Describes the type and encoding of the value in the data attributes
+         * @callback {String} yourCallbackFunction.request.data Describes the data that will be returned to the parent
+         * @example
+         * &lt;script type="text/javascript"&gt;
+         *
+         * function onChildCardClosedHandler(request) {
+         *    // The child Card is closed and reason is "OK", process the closure data;
+         *    // otherwise do nothing.
+         *    if (request.reason == "OK") {
+         *        processCardClosureData(request.type, request.data);
+         *    }
+         * }
+         *
+         * blackberry.event.addEventListener("onChildCardClosed", onChildCardClosedHandler);
+         *
+         * &lt;/script&gt;
+         */
+        onChildCardClosed : function() {
+        },
 
         /**
          * @default 0

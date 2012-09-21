@@ -16,6 +16,7 @@
 
 /**
  * @featureID blackberry.bbm.platform
+ * @permission [bbm_connect] BBM APIs requre this permission to be set
  * @class <p>Provides read-only access to a BBM platform user's information as defined in their BBM profile.
  * <p><i>Instances of this object are not created, but obtained from the BBM platform.</i>
  * <h3>Current User</h3>
@@ -52,6 +53,7 @@ blackberry.bbm.platform.users.BBMPlatformUser = function() {
      * @type String
      * @readOnly
      * @BB50+
+     * @BB10X
      */
     this.displayName = "";
 
@@ -60,6 +62,7 @@ blackberry.bbm.platform.users.BBMPlatformUser = function() {
      * @type String
      * @readOnly
      * @BB50+
+     * @BB10X
      */
     this.personalMessage = "";
 
@@ -68,6 +71,7 @@ blackberry.bbm.platform.users.BBMPlatformUser = function() {
      * @type String
      * @readOnly
      * @BB50+
+     * @BB10X
      */
     this.status = "";
 
@@ -76,6 +80,7 @@ blackberry.bbm.platform.users.BBMPlatformUser = function() {
      * @type String
      * @readOnly
      * @BB50+
+     * @BB10X
      */
     this.statusMessage = "";
     
@@ -84,6 +89,7 @@ blackberry.bbm.platform.users.BBMPlatformUser = function() {
      * @type String
      * @readOnly
      * @BB50+
+     * @BB10X
      */
     this.handle = 0;
     
@@ -92,6 +98,7 @@ blackberry.bbm.platform.users.BBMPlatformUser = function() {
      * @type String
      * @readOnly
      * @BB50+
+     * @BB10X
      */
     this.ppid = 0;
     
@@ -100,6 +107,7 @@ blackberry.bbm.platform.users.BBMPlatformUser = function() {
      * @type String
      * @readOnly
      * @BB50+
+     * @BB10X
      */
     this.appVersion = "";
     
@@ -113,6 +121,8 @@ blackberry.bbm.platform.users.BBMPlatformUser = function() {
      * @type Number
      * @readOnly
      * @BB50+
+     * @BB10X
      */
     this.bbmsdkVersion = 0;
+
 };
