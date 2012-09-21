@@ -32,7 +32,7 @@
  *              // in order to access the shared folder,
  *              // config.xml must declare the "access_shared" permission
  *              // reference file by absolute path since file system is un-sandboxed
- *              fs.root.getFile(blackberry.io.sharedFolder + '/documents/log.txt', {},
+ *              fs.root.getFile(blackberry.io.sharedFolder + '/Documents/log.txt', {create: true},
  *                  function (fileEntry) {
  *                      fileEntry.file(function (file) {
  *                          var reader = new FileReader();
