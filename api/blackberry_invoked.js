@@ -23,27 +23,6 @@
 blackberry.invoked = {
 
     /**
-     * @description As a Card, notify the navigator that it is finished handling resize request
-     * @BB10X
-     * @RIPPLE
-     * @example
-     * &lt;script type="text/javascript"&gt;
-     *
-     * function onCardResizeHandler(resizeRequest) {
-     *     // Resizing
-     *     ...
-     *
-     *     // Notify the navigator resize is done
-     *     blackberry.invoked.cardResizeDone();
-     * }
-     *
-     * blackberry.event.addEventListener("onCardResize", onCardResizeHandler);
-     * &lt;/script&gt;
-     */
-    cardResizeDone : function() {
-    },
-
-    /**
      * @description As a Card, request the navigator to perform a peek on the deck
      * @param {String} peekType Describes the type of peek to perform as a peek to the content of the parent or a peek to the content of the root. The value should be either "content" or "root".
      * @BB10X
@@ -153,31 +132,6 @@ blackberry.invoked = {
      * &lt;/script&gt;
      */
     onCardClosed : function() {
-    },
-
-    /**
-     * @description As a Card, the <b>onCardResize</b> event is fired by the navigator to indicate that it should resize its buffers.
-     * @callback {function} yourCallbackFunction The callback function that will be invoked on the onCardResize event
-     * @callback {Object} yourCallbackFunction.resizeRequest An object that contains the resize information.
-     * @callback {Number} yourCallbackFunction.resizeRequest.width Describes the new width for the card.
-     * @callback {Number} yourCallbackFunction.resizeRequest.height Describes the new height for the card.
-     * @callback {String} yourCallbackFunction.resizeRequest.orientation Describes the new orientation of device (portrait or landscape). The value is either "portrait" or "landscape".
-     * @callback {String} yourCallbackFunction.resizeRequest.edge Describes the new edge of device that is pointing up. When the new orientation of device is portrait, the value is either "top_up" (the top of the device is pointing up) or "bottom_up" (the bottom of the device is pointing up); when the new orientation of device is landscape, the value is either "left_up" (the left side of the device is pointing up) or "right_up" (the right side of the device is pointing up).
-     * @example
-     * &lt;script type="text/javascript"&gt;
-     *
-     * function onCardResizeHandler(resizeRequest) {
-     *    doResize(resizeRequest.width, resizeRequest.height, resizeRequest.orientation, resizeRequest.edge);
-     *    ...
-     *     // Notify the navigator resize is done
-     *     blackberry.invoked.cardResizeDone();
-     * }
-     *
-     * blackberry.event.addEventListener("onCardResize", onCardResizeHandler);
-     *
-     * &lt;/script&gt;
-     */
-    onCardResize : function() {
     }
     /**#@-*/
-}
+};
