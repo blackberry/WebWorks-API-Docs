@@ -16,7 +16,7 @@
 
 /**
  * @beta <a href="https://adservices.blackberry.com/register">Sign up</a> for the BlackBerry&reg; Advertising Service <br>
- * <a href="http://docs.blackberry.com/en/developers/deliverables/34109/index.jsp?name=Development+Guide+-+Advertising+Service+for+BlackBerry+WebWorksAdvertising+Service1.0+Beta&language=English&userType=21&category=BlackBerry+WebWorks+for+Smartphones&subCategory="> Development Guide - Advertising Service for BlackBerry WebWorks </a>
+ * <a href="https://developer.blackberry.com/html5/documentation/overview_webworks_1122006_11.html"> Development Guide - Advertising Service for BlackBerry WebWorks </a>
  * @toc {Advertising} Banner
  * @featureID blackberry.advertising
  * @class The Banner object is an advertising banner that will be created and automatically added into a specified div in your html.
