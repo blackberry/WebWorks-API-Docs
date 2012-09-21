@@ -73,23 +73,31 @@
             }
 
             function runFilter() {
-                var filter = localStorage.getItem('selectedmenu');
-                var elements = getDesiredElements(document.body, 'x-ww-support');
-                for (var i = 0; i < elements.length; i++) {
-                    var target = elements[i];
-                    var x_ww_support = target.getAttribute('x-ww-support').split('|');
-                    if (x_ww_support.indexOf(filter) < 0) {
-                        target.style.display = 'none';
+                var ACCEPTABLE_FILTERS = ["bb_menu", "pb_menu", "bb10_menu"],
+                    filter = localStorage.getItem('selectedmenu'),
+                    elements,
+                    target,
+                    x_ww_support,
+                    i;
+
+                if (ACCEPTABLE_FILTERS.indexOf(filter) !== -1) {
+                    elements = getDesiredElements(document.body, 'x-ww-support');
+                    for (i = 0; i < elements.length; i++) {
+                        target = elements[i];
+                        x_ww_support = target.getAttribute('x-ww-support').split('|');
+                        if (x_ww_support.indexOf(filter) < 0) {
+                            target.style.display = 'none';
+                        }
                     }
                 }
             }
-            
+
             if(window.attachEvent) {
                 window.attachEvent('onload', runFilter);
             } else {
                 if(window.onload) {
-                    var curronload = window.onload;
-                    var newonload = function() {
+                    var curronload = window.onload,
+                        newonload = function() {
                         curronload();
                         runFilter();
                     };
