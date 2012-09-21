@@ -26,12 +26,28 @@ blackberry.bbm.platform.self = {
         prototype: new blackberry.bbm.platform.users.BBMPlatformUser(),
         
         /**
+         * @description Gets the user's display picture.
+         * @callback {Function} onComplete Invoked when the image has been retrieved.
+         * @callback {String} onComplete.image contains a base64 string representation of the image
+         * @BB10X
+         * @example
+         * &lt;script type="text/javascript"&gt;
+         * // Get the user's display picture
+         * blackberry.bbm.platform.self.getDisplayPicture(function (image) {
+         *     // do something with the image here
+         * });
+         * &lt;/script&gt;
+         */
+        getDisplayPicture: function (onComplete) { },
+
+        /**
          * @description Sets the user's display picture from a URI. A dialog will be presented to
          * the user to allow or deny the change.
          * <p>The URI must be fully qualified. Non-local URIs must be whitelisted in the application's configuration file. Examples:
          * <ul>
          * <li>Locally from within the widget package (e.g. "local:///smiley.jpg")
-         * <li>From the filesystem of the device (e.g. "file:///SDCard/BlackBerry/pictures/smiley.jpg")
+         * <li>From the filesystem of the a BB5.0+ device (e.g. "file:///SDCard/BlackBerry/pictures/smiley.jpg")
+         * <li>From the filesystem of the a BB10 device (e.g. "/accounts/1000/shared/photos/smiley.jpg")
          * </ul>
          * </p>
          * @param {String} displayPictureURI The fully qualified URI.
@@ -39,10 +55,11 @@ blackberry.bbm.platform.self = {
          * @callback {Boolean} onComplete.accepted <code>true</code> if the user allowed the change;
          * <code>false</code> otherwise.
          * @BB50+
+         * @BB10X
          * @example
          * &lt;script type="text/javascript"&gt;
          * // Set the user's display picture
-         * blackberry.bbm.platform.self.setDisplayPicture("local:///smiley.jpg", function(accepted) {
+         * blackberry.bbm.platform.self.setDisplayPicture("local:///smiley.jpg", function (accepted) {
          *     if(accepted) {
          *         // User allowed the change
          *     } else {
@@ -63,6 +80,7 @@ blackberry.bbm.platform.self = {
          * @callback {Boolean} onComplete.accepted <code>true</code> if the user allowed the change;
          * <code>false</code> otherwise.
          * @BB50+
+         * @BB10X
          */
         setPersonalMessage: function(personalMessage, onComplete) { },
         
@@ -76,10 +94,11 @@ blackberry.bbm.platform.self = {
          * @callback {Boolean} onComplete.accepted <code>true</code> if the user allowed the change;
          * <code>false</code> otherwise.
          * @BB50+
+         * @BB10X
          * @example
          * &lt;script type="text/javascript"&gt;
          * // Set the user's status and status message
-         * blackberry.bbm.platform.self.setStatus("busy", "Playing Tic-Tac-Toe!", function(accepted) {
+         * blackberry.bbm.platform.self.setStatus("busy", "Playing Tic-Tac-Toe!", function (accepted) {
          *     if(accepted) {
          *         // User allowed the change
          *     } else {

@@ -19,7 +19,7 @@
 * @class The <code>PushPayload</code> object provides access to the payload that has arrived as the result of a push.  
 * This object <b>cannot</b> be created by the new keyword.  It is generated only by the system on receipt of a push notification.
 * <br/><br/>
-* For a great sample app that demonstrates how to use the push APIs, see <a href="https://github.com/blackberry/WebWorks-Samples/tree/master/pushCapture">Push Capture</a>.
+* For a great sample app that demonstrates how to use the push APIs, see <a href="https://github.com/blackberry/BB10-WebWorks-Samples/tree/master/pushCapture">Push Capture</a>.
 * @BB10X
 * @featureID blackberry.push
 */

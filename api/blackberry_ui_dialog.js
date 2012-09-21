@@ -376,7 +376,6 @@ blackberry.ui.dialog ={
 		 * @description Bottom located dialog
 		 * @default "bottomCenter"
 		 * @PB10+
-		 * @BB10X
 		 * @RIPPLE
 		 */
 		BOTTOM : "bottomCenter",
@@ -386,7 +385,6 @@ blackberry.ui.dialog ={
 		 * @description Center located dialog
 		 * @default "middleCenter"
 		 * @PB10+
-		 * @BB10X
 		 * @RIPPLE
 		 */
 		CENTER : "middleCenter",
@@ -396,7 +394,6 @@ blackberry.ui.dialog ={
 		 * @description Top located dialog
 		 * @default "topCenter"
 		 * @PB10+
-		 * @BB10X
 		 * @RIPPLE
 		 */
 		TOP : "topCenter",
@@ -406,7 +403,6 @@ blackberry.ui.dialog ={
 		 * @description Full size dialog
 		 * @default "full"
 		 * @PB10+
-		 * @BB10X
 		 * @RIPPLE
 		 */
 		SIZE_FULL : null,
@@ -416,7 +412,6 @@ blackberry.ui.dialog ={
 		 * @description Large size dialog
 		 * @default "large"
 		 * @PB10+
-		 * @BB10X
 		 * @RIPPLE
 		 */
 		SIZE_LARGE : null,
@@ -426,7 +421,6 @@ blackberry.ui.dialog ={
 		 * @description Medium size dialog
 		 * @default "medium"
 		 * @PB10+
-		 * @BB10X
 		 * @RIPPLE
 		 */
 		SIZE_MEDIUM : null,
@@ -435,7 +429,6 @@ blackberry.ui.dialog ={
 		 * @description Small size dialog
 		 * @default "small"
 		 * @PB10+
-		 * @BB10X
 		 * @RIPPLE
 		 */
 		SIZE_SMALL : null,
@@ -445,7 +438,6 @@ blackberry.ui.dialog ={
 		 * @description Tall size dialog
 		 * @default "tall"
 		 * @PB10+
-		 * @BB10X
 		 * @RIPPLE
 		 */
 		SIZE_TALL : null

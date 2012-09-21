@@ -56,6 +56,52 @@
 <section>
 
     <script type="text/javascript">
+        (function() {
+            function getDesiredElements(element, attributeName) {
+                var results = new Array();
+                if (element.hasAttribute(attributeName))
+                    results.push(element);
+
+                //Check child nodes
+                for (var i = 0; i < element.childNodes.length; i++) {
+                    var child = element.childNodes[i];
+                    if (child.nodeType == 1) {
+                        results = results.concat(getDesiredElements(child, attributeName));
+                    }
+                }
+                return results;
+            }
+
+            function runFilter() {
+                var filter = localStorage.getItem('selectedmenu');
+                var elements = getDesiredElements(document.body, 'x-ww-support');
+                for (var i = 0; i < elements.length; i++) {
+                    var target = elements[i];
+                    var x_ww_support = target.getAttribute('x-ww-support').split('|');
+                    if (x_ww_support.indexOf(filter) < 0) {
+                        target.style.display = 'none';
+                    }
+                }
+            }
+            
+            if(window.attachEvent) {
+                window.attachEvent('onload', runFilter);
+            } else {
+                if(window.onload) {
+                    var curronload = window.onload;
+                    var newonload = function() {
+                        curronload();
+                        runFilter();
+                    };
+                    window.onload = newonload;
+                } else {
+                    window.onload = runFilter;
+                }
+            }
+        })();
+    </script>
+
+    <script type="text/javascript">
 
         function viewSupportedTable() {
             var table = document.getElementById('APISupportTable');
@@ -191,8 +237,10 @@
                             </if>
                             <for each="item" in="allChildren">
                                 <tr x-ww-support="{+item.support.supportTag+}">
-                                    {+new Link().toSymbol(item.alias).withText(getSymbolName(item))+}
-                                    {+item.support.supportTable+}
+                                    <td>
+                                        {+new Link().toSymbol(item.alias).withText(getSymbolName(item))+}
+                                        {+item.support.supportTable+}
+                                    </td>
                                 </tr>
                             </for>
                         </table>
