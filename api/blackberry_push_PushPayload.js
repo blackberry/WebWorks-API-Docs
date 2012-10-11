@@ -20,8 +20,11 @@
 * This object <b>cannot</b> be created by the new keyword.  It is generated only by the system on receipt of a push notification.
 * <br/><br/>
 * For a great sample app that demonstrates how to use the push APIs, see <a href="https://github.com/blackberry/BB10-WebWorks-Samples/tree/master/pushCapture">Push Capture</a>.
+* <br/><br/>
+* There is also a very valuable developer guide for the Push Capture sample app that you can find <a href='https://developer.blackberry.com/html5/documentation/push_service.html'>here</a>. 
 * @BB10X
 * @featureID blackberry.push
+* @permission {system} _sys_use_consumer_push Permits your consumer (public) application to use push. This permission is not needed to use enterprise push.
 */
 blackberry.push.PushPayload = {};
 

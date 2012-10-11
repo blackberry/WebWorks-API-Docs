@@ -284,7 +284,7 @@
                     </td></tr></tbody></table>
                 </if>
 
-                <div x-ww-support="{+BBTag.PlaybookSupport().supportTag+}">
+                <div x-ww-support="{+BBTag.PlaybookAndBB10Support().supportTag+}">
                     <if test="data.permission">
                         {!
                             mandatoryPermissions = data.permission.filter(function($){return !$.isOptional}).sort(makeSortby("name"));
@@ -293,7 +293,7 @@
                     </if>
                     <table>
                         <tr>
-                            <th>Permission Elements (PlayBook Only)</th>
+                            <th>Permission Elements (PlayBook and BlackBerry 10+)</th>
                         </tr>
                         <if test="data.permission">
                             <if test="mandatoryPermissions.length">
@@ -302,7 +302,7 @@
                                 </i></td></tr>
                                 <for each="item" in="mandatoryPermissions">
                                     <tr><td>
-                                        - &lt;rim:permit&gt;{+item.name+}&lt;/rim:permit&gt;
+                                        - &lt;rim:permit{+item.type === "system" ? " system = 'true'&gt;" : "&gt;"+}{+item.name+}&lt;/rim:permit&gt;
                                         <br />
                                         {+item.desc+}
                                         <br />
@@ -320,7 +320,7 @@
 
                                 <for each="item" in="optionalPermissions">
                                     <tr><td>
-                                        - &lt;rim:permit&gt;{+item.name+}&lt;/rim:permit&gt;
+                                        - &lt;rim:permit{+item.type === "system" ? " system = 'true'&gt;" : "&gt;"+}{+item.name+}&lt;/rim:permit&gt;
                                         <br />
                                         {+item.desc+}
                                         <br />
