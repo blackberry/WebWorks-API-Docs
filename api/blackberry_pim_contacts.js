@@ -87,18 +87,19 @@ blackberry.pim.contacts = {
          * @param {function} [onFindError] Optional error callback function. Invoked when error occurs. Possible errors are: permission denied error (if access_pimdomain_contacts is not specified) or illegal arguments error (if mandatory parameters are missing or invalid).
          * @callback {blackberry.pim.contacts.ContactError} onFindError.error The {@link blackberry.pim.contacts.ContactError} object which contains the error code.
          * @example
-         * function onFindSuccess(contacts) {
-         *     console.log("Found " + contacts.length + " John Smith in total");
+         * var contacts = blackberry.pim.contacts,
+         *     ContactFindOptions = contacts.ContactFindOptions;
+         *
+         * function onFindSuccess(results) {
+         *     console.log("Found " + results.length + " John Smith in total");
          * }
          *
          * function onFindError(error) {
          *     console.log("Error: " + error.code);
          * }
          *
-         * function searchContacts() {
-         *     var contacts = blackberry.pim.contacts,
-         *         ContactFindOptions = contacts.ContactFindOptions,
-         *         searchFirstName = {
+         * function searchContactsByName() {
+         *     var searchFirstName = {
          *              "fieldName" : ContactFindOptions.SEARCH_FIELD_GIVEN_NAME,
          *              "fieldValue" : "John"
          *         },
@@ -115,7 +116,58 @@ blackberry.pim.contacts = {
          *             [sortOrg],                         // sort
          *             20                                 // limit
          *         );
+         *     // The first 20 contacts (based on specified sort specs) with given name "John"
+         *     // and family name "Smith" will be returned
+         *     contacts.find(["name"], findOptions, onFindSuccess, onFindError);
+         * }
          *
+         * function listAllContacts() {
+         *     var sort = [{
+         *             "fieldName": ContactFindOptions.SORT_FIELD_FAMILY_NAME,
+         *             "desc": false
+         *         }, {
+         *             "fieldName": ContactFindOptions.SORT_FIELD_GIVEN_NAME,
+         *             "desc": true
+         *         }],
+         *         findOptions = new ContactFindOptions(
+         *             null,  // null filter - return all contacts
+         *             sort,  // sort contacts first by family name (desc), then by given name (asc)
+         *             20     // limit - return up to 20 contacts
+         *         );
+         *     // The first 20 contacts (based on specified sort specs) will be returned
+         *     contacts.find(["name"], findOptions, onFindSuccess, onFindError);
+         * }
+         *
+         * function findContactErrorMissingFilterValue() {
+         *     var findOptions = new ContactFindOptions([{
+         *             "fieldName": ContactFindOptions.SEARCH_FIELD_GIVEN_NAME,
+         *             "fieldValue": ""
+         *         }, {
+         *             "fieldName": ContactFindOptions.SEARCH_FIELD_FAMILY_NAME,
+         *             "fieldValue": "Smith"
+         *         }], [{
+         *             "fieldName": ContactFindOptions.SORT_FIELD_FAMILY_NAME,
+         *             "desc": false
+         *         }, {
+         *             "fieldName": ContactFindOptions.SORT_FIELD_GIVEN_NAME,
+         *             "desc": true
+         *         }],
+         *         2);
+         *     // Error - illegal argument (reason: fieldValue = "" for first search field)
+         *     contacts.find(["name"], findOptions, onFindSuccess, onFindError);
+         * }
+         *
+         * function findContactErrorMissingFilter() {
+         *     var findOptions = new ContactFindOptions([{
+         *             "fieldName": ContactFindOptions.SORT_FIELD_FAMILY_NAME,
+         *             "desc": false
+         *         }, {
+         *             "fieldName": ContactFindOptions.SORT_FIELD_GIVEN_NAME,
+         *             "desc": true
+         *         }], // sort
+         *         2); // limit
+         *     // Error - illegal argument (reason: filter omitted, but the params followed by it are not)
+         *     // Once an optional param is omitted, all params followed by it should also be omitted
          *     contacts.find(["name"], findOptions, onFindSuccess, onFindError);
          * }
          * @BB10X
