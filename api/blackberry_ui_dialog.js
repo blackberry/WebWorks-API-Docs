@@ -121,17 +121,17 @@ blackberry.ui.dialog ={
 		 * @param {Number} type  Parameter that specifies the type of standard dialog. Constants starting with D_*. 
 		 * @callback {function} [onOptionSelected] Optional callback function that will be invoked when the user makes a selection. Expected signature: function onOptionSelected(selectedButtonIndex).  <p> NOTE: onOptionSelected is required for BlackBerry OS5.0+.
 		 * @callback {Number} [onOptionSelected.index] The index of the selection the user has made.
-		 * @callback {Boolean} [onOptionSelected.ok] The element for the primary ok/save/yes/delete button. Set to true if selected.
-		 * @callback {Boolean} [onOptionSelected.cancel] The element for the secondary cancel/no/discard button. Set to true if selected.
+		 * @callback {Boolean} [onOptionSelected.firstButton] The element for the primary ok/save/yes/delete button. Set to true if selected.
+		 * @callback {Boolean} [onOptionSelected.secondButton] The element for the secondary cancel/no/discard button. Set to true if selected.
 		 * @callback {Boolean} [onOptionSelected.thirdOptionButton] The element for the optional button. Set to true if selected.
-		 * @callback {String} [onOptionSelected.oktext] The element for entered text. Returns the user's entered string.(Option only used for select dialogs: D_PROMPT). <br/><br/>
-		 * NOTE: Callback 'ok', 'cancel', 'thirdOptionButton', 'oktext', are only implemented on BB10. Also note callback 'index' is NOT implemented for BB10.
+		 * @callback {String} [onOptionSelected.promptText] The element for entered text. Returns the user's entered string.(Option only used for select dialogs: D_PROMPT). <br/><br/>
+		 * NOTE: Callback 'firstButton', 'secondButton', 'thirdOptionButton', 'promptText', are only implemented on BB10. Also note callback 'index' is NOT implemented for BB10.
 		 * @param {Object} [settings = null] Optional Object literal that allows the user to manipulate the size, location, title of the dialog, and whether this is a global dialog (your application cannot be minimized when a global dialog is active; by default when the 'global' flag is not passed, dialog will be modal only for your application). It is not required to provide all parameters, and these do not have to be specified in any particular order. <p> NOTE: The settings parameter applies only to PlayBook, Ripple, and BB10. On the other devices, it has no effect.
 		 * @param {String} [settings.title] Desired title of the dialog.
 		 * @param {String} [settings.size] Desired size of the dialog.
 		 * @param {String} [settings.position] Desired position of the dialog.
 		 * @param {Boolean} [settings.global] Specifies the global flag of the dialog window. (Your application cannot be minimized when the dialog global setting is set to true and when any dialog window is open). By default this parameter is false when not specified.
-		 * @param {String} [settings.third] Desired label for optional third button. (This option is only available for select dialogs: not available for D_PROMPT). <br/>
+		 * @param {String} [settings.thirdOptionLabel] Desired label for optional third button. (This option is only available for select dialogs: not available for D_PROMPT or D_OK). <br/>
 		 * NOTE: The parameters for 'size', 'position', and 'global' are NOT implemented for BB10. Also note 'third' parameter is only implemented in BB10.
 		 * @BB50+
 		 * @PB10+
@@ -146,7 +146,7 @@ blackberry.ui.dialog ={
 		 *
 		 * function standardDialog() {
 		 *   try {
-		 *     blackberry.ui.dialog.standardAskAsync("Save?", blackberry.ui.dialog.D_SAVE, dialogCallBack, {title : "Save Dialog", size: blackberry.ui.dialog.SIZE_MEDIUM, position : blackberry.ui.dialog.BOTTOM});
+		 *     blackberry.ui.dialog.standardAskAsync("Save?", blackberry.ui.dialog.D_SAVE, dialogCallBack, {title : "Save Dialog"});
 		 *   }catch (e) {
 		 *     alert("Exception in standardDialog: " + e);
 		 *   }
