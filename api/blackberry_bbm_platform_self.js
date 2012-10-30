@@ -17,6 +17,7 @@
 /**
  * @toc {BBM} Current User
  * @featureID blackberry.bbm.platform
+ * @permission bbm_connect BBM APIs requre this permission to be set
  * @namespace Provides access to the current user's information.
  * @base blackberry.bbm.platform.users.BBMPlatformUser
  * @BB50+

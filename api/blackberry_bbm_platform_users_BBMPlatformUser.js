@@ -16,7 +16,7 @@
 
 /**
  * @featureID blackberry.bbm.platform
- * @permission [bbm_connect] BBM APIs requre this permission to be set
+ * @permission bbm_connect BBM APIs requre this permission to be set
  * @class <p>Provides read-only access to a BBM platform user's information as defined in their BBM profile.
  * <p><i>Instances of this object are not created, but obtained from the BBM platform.</i>
  * <h3>Current User</h3>
