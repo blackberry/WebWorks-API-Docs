@@ -62,7 +62,7 @@ blackberry.app ={
      * @BB10X
      * @RIPPLE
      */
-    lockOrientation: function(orienation, receiveRotateEvents){},
+    lockOrientation: function(orientation, receiveRotateEvents){},
 
     /**
      * @description This function will unlock the screen rotating if it was previously locked.
@@ -70,6 +70,14 @@ blackberry.app ={
      * @RIPPLE
      */
     unlockOrientation: function(){},
+
+    /**
+     * @description This function will rotate the application.
+     * @param {String} orientation The orientation to rotate the device to.
+     * @BB10X
+     * @RIPPLE
+     */
+    rotate: function(orientation){},
 
 	/**
 	 * @description This function will move the application to the background.
