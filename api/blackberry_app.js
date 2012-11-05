@@ -55,6 +55,22 @@ blackberry.app ={
 	 */
 	exit: function(){},
 
+    /**
+     * @description This function will lock the application's screen to the given orientation.
+     * @param {String} orientation The orientation to lock the device to. If the device is currently not in this orientation, the application will rotate then lock. 
+     * @param {Boolean} [receiveRotateEvents] Optional parameter to allow rotation events to still occur while the screen is locked.
+     * @BB10X
+     * @RIPPLE
+     */
+    lockOrientation: function(orienation, receiveRotateEvents){},
+
+    /**
+     * @description This function will unlock the screen rotating if it was previously locked.
+     * @BB10X
+     * @RIPPLE
+     */
+    unlockOrientation: function(){},
+
 	/**
 	 * @description This function will move the application to the background.
 	 * @BB50+
@@ -212,6 +228,16 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	 * @type String
 	 */
 	name : "",
+
+    /**
+     * @description The current orientation of the BlackBerry device.
+     * @BB10X
+     * @RIPPLE
+     * @readonly
+     * @type String
+     */
+    orientation : "",
+
 
 	/**
 	 * @description The version of the BlackBerry WebWorks Application that is specified in the config.xml file.
@@ -413,6 +439,22 @@ A banner indicator can have an optional numeric value that usually serves as a c
     * &lt;/script&gt;
     */
    keyboardPosition : function(yPosition){}
+
+   /**
+    * @description The <b>orientationchange</b> event is triggered when the user changes the orientation of the device.
+    * @callback {function} yourCallbackFunction The callback function that will be invoked on the orientationchange event
+    * @example
+    * &lt;script type="text/javascript"&gt;
+    *
+    * function onOrientationChange(orientation) {
+    *   alert("New orientation is: " + orientation);
+    * }
+    *
+    * blackberry.event.addEventListener("orientationchange", onOrientationChange);
+    *
+    * &lt;/script&gt;
+    */
+   orientationchange : function(orientation){}
 
     /**#@-*/
 };
