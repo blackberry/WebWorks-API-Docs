@@ -20,11 +20,11 @@
  * @namespace Provides services to create, accept, and manage connections.
  * <h3>Connections</h3>
  * <h4>Connection types</h4>
- * The BBM Platform supports the following types of connections:
+ * The BBM Social Platform supports the following types of connections:
  * <br/>{@link blackberry.bbm.platform.io.Channel}
  * <br/>{@link blackberry.bbm.platform.io.Session}
  * 
- * <h4>Creating a connections</h4>
+ * <h4>Creating connections</h4>
  * <p>Connections can be created using {@link blackberry.bbm.platform.io.createConnection}.
  * When a connection is created, the application should assign callbacks to it in order to be notified
  * of various events.</p>
@@ -85,7 +85,7 @@
  * };
  * </pre>
  * 
- * <h3>Adding Users to Connections</h3>
+ * <h3>Adding users to connections</h3>
  * <p>There are two ways to add users to connections: (1) inviting contacts to join a connection, and
  * (2) hosting a connection for non-contacts to join. A user does not have to be the connection
  * creator in order to invite users.
@@ -93,7 +93,7 @@
  * <h4>1. Inviting contacts to join</h4>
  * <p>An application user can invite contacts to join a connection.</p>
  * <p>When the application calls {@link blackberry.bbm.platform.io.Connection#inviteContacts} a Contact Picker dialog will be shown containing contacts that have the application installed.
- * If the user invites contacts then the {@link blackberry.bbm.platform.io.Connection#event:onusersinvited} callback will be invoked on the inviter's side.</p>
+ * If the user invites contacts, the {@link blackberry.bbm.platform.io.Connection#event:onusersinvited} callback will be invoked on the inviter's side.</p>
  * <p>Invitees receive the invitations within BBM.</p>
  * <ul>
  * <li>If they accept the invitation, {@link blackberry.bbm.platform.io.Connection#event:onusersjoined} is invoked on the inviter's side, and {@link blackberry.bbm.platform.io.event:onconnectionaccepted} is invoked on the invitee's side with the connection they just joined. 
@@ -102,10 +102,10 @@
  * <br>{@image /images/bbm/invite_to_join.png}<br>
  * 
  * <h4>2. Hosting a public connection for non-contacts to join</h4>
- * <p>An application user can also host an event within a public connection to let all application users join.</p>
- * <p>When the application calls {@link blackberry.bbm.platform.io.host} a dialog will be shown for the user to allow or deny the decision. If the user allows, the application should then post the host's PIN and PPID to its discovery service. <b>The BBM platform does not provide a discovery service. This must be provided by the application developer.</b>
- * <p>Peers should download host information (PIN and PPID) from the discovery service and then call {@link blackberry.bbm.platform.io.joinHost}. The peer will also be presented with a dialog to allow or deny the decision.
- * <p>At this point the request is in the <code>"pending"</code> state. In this state the peer can {@link blackberry.bbm.platform.io.OutgoingJoinRequest#cancel} the request, and the host can {@link blackberry.bbm.platform.io.IncomingJoinRequest#accept} or {@link blackberry.bbm.platform.io.IncomingJoinRequest#decline}.</p>
+ * <p>An application user can also host an event within a public connection to allow all application users to join.</p>
+ * <p>When the application calls {@link blackberry.bbm.platform.io.host}, a dialog appears for the user to accept or refuse to host the public connection. If the user accepts, the application posts the host's PIN and PPID to its discovery service. <b>The BBM Social Platform does not provide a discovery service. The application developer must provide one.</b>
+ * <p>Peers should download host information (PIN and PPID) from the discovery service and then call {@link blackberry.bbm.platform.io.joinHost}. The peer will also be presented with a dialog to join or decline the public connection.
+ * <p>At this point, the request is in the <code>"pending"</code> state. In this state, the peer can {@link blackberry.bbm.platform.io.OutgoingJoinRequest#cancel} the request, and the host can {@link blackberry.bbm.platform.io.IncomingJoinRequest#accept} or {@link blackberry.bbm.platform.io.IncomingJoinRequest#decline}.</p>
  * <br>{@image /images/bbm/hosting.png}<br>
  * </p>
  * @BB50+
@@ -150,8 +150,8 @@ blackberry.bbm.platform.io = {
      * <li><code>"hostdeclined"</code>: The host declined without a specific reason.
      * <li><code>"hostppidinvalid"</code>: The host PPID is invalid.
      * <li><code>"appnotrunning"</code>: The host's application was not running when they received the request.
-     * <li><code>"connectionnotfound"</code>: The host is not hosting on any connection, or stopped hosting on the connection while the request was pending.
-     * <li><code>"connectionfull"</code>: The host's hosted connection is full.
+     * <li><code>"connectionnotfound"</code>: The host is not hosting on any connection, or stopped hosting the connection while the request was pending.
+     * <li><code>"connectionfull"</code>: The host's connection is full.
      * </ul>
      * @param {String} hostPIN The host PIN. Can be obtained by <code>blackberry.identity.PIN</code>
      * @param {String} hostPPID The host PPID. Can be obtained by <code>blackberry.bbm.platform.self.ppid</code>.
@@ -161,12 +161,11 @@ blackberry.bbm.platform.io = {
      * @callback {Function} onHostAccepted Invoked when the join request is accepted by the host.
      * @callback {blackberry.bbm.platform.io.OutgoingJoinRequest} onHostAccepted.request The accepted request.
      * @callback {String} onHostAccepted.cookie The cookie sent when the host accepted the join request in {@link blackberry.bbm.platform.io.IncomingJoinRequest#accept}. <code>undefined</code>
-     * if no cookie was provided.
+     * if a cookie wasn't provided.
      * @callback {Function} onHostDeclined Invoked when the join request is declined by the host.
      * @callback {blackberry.bbm.platform.io.OutgoingJoinRequest} onHostDeclined.request The declined request.
      * @callback {String} onHostDeclined.reason The reason that the request was declined. 
-     * @param {String} [cookie] A custom parameter provided by the application.
-     * e.g. Their current game level. Max length of 128 characters.
+     * @param {String} [cookie] A custom parameter provided by the application, such as the current game level. Max length of 128 characters.
      * @throws {IllegalStateException} If the current user has connected with the host in a connection
      * but still attempts to send another join request to the host.
      * @throws {IllegalArgumentException} If <code>hostPIN</code> is invalid.
@@ -189,9 +188,9 @@ blackberry.bbm.platform.io = {
     joinHostRequests: [],
     
     /**
-     * Enables hosting on this connection. The user will be prompted with a dialog to allow or deny hosting.
+     * Enables hosting on this connection. The user is prompted with a dialog to allow or deny hosting.
      * <p>To stop hosting, call <code>blackberry.bbm.platform.io.host()</code>. Stopping hosting will not
-     * remove users from the connection who have already joined, it will only disallow others from joining.
+     * remove users from the connection who have already joined, but it will prevent others from joining.
      * {@link blackberry.bbm.platform.io.hostRequests} will be emptied.</p>
      * <p>The user may only host on one connection in the application. If this application is already
      * hosting a public connection and this method is invoked on a different connection, then hosting

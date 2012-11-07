@@ -42,18 +42,18 @@ blackberry.bbm.platform.self = {
         getDisplayPicture: function (onComplete) { },
 
         /**
-         * @description Sets the user's display picture from a URI. A dialog will be presented to
-         * the user to allow or deny the change.
+         * @description Sets the user's display picture from a URI. A dialog appears and allows the 
+         * user to accept or cancel the change.
          * <p>The URI must be fully qualified. Non-local URIs must be whitelisted in the application's configuration file. Examples:
          * <ul>
          * <li>Locally from within the widget package (e.g. "local:///smiley.jpg")
-         * <li>From the filesystem of the a BB5.0+ device (e.g. "file:///SDCard/BlackBerry/pictures/smiley.jpg")
-         * <li>From the filesystem of the a BB10 device (e.g. "/accounts/1000/shared/photos/smiley.jpg")
+         * <li>From the filesystem of a BB5.0+ device (e.g. "file:///SDCard/BlackBerry/pictures/smiley.jpg")
+         * <li>From the filesystem of a BB10 device (e.g. "/accounts/1000/shared/photos/smiley.jpg")
          * </ul>
          * </p>
          * @param {String} displayPictureURI The fully qualified URI.
          * @callback {Function} onComplete Invoked when the user has dismissed the dialog.
-         * @callback {Boolean} onComplete.accepted <code>true</code> if the user allowed the change;
+         * @callback {Boolean} onComplete.accepted <code>true</code> if the user accepted the change;
          * <code>false</code> otherwise.
          * @BB50+
          * @BB10X
@@ -62,9 +62,9 @@ blackberry.bbm.platform.self = {
          * // Set the user's display picture
          * blackberry.bbm.platform.self.setDisplayPicture("local:///smiley.jpg", function (accepted) {
          *     if(accepted) {
-         *         // User allowed the change
+         *         // User accepted the change
          *     } else {
-         *         // User denied the change
+         *         // User canceled the change
          *     }
          * });
          * &lt;/script&gt;
@@ -72,13 +72,13 @@ blackberry.bbm.platform.self = {
         setDisplayPicture: function(displayPictureURI, onComplete) { },
         
         /**
-         * @description Sets the user's personal message. A dialog will be presented to the user to
-         * allow or deny the change.
+         * @description Sets the user's personal message. A dialog appears and allows the user to
+         * accept or cancel the change.
          * @param {String} personalMessage The personal message. The maximum length is 160 characters;
          * anything over will be truncated. If <code>null</code> is provided then the personal message
-         * will be cleared.
-         * @callback {Function} onComplete Invoked when the user has dismissed the dialog.
-         * @callback {Boolean} onComplete.accepted <code>true</code> if the user allowed the change;
+         * is cleared.
+         * @callback {Function} onComplete Invoked if the user dismissed the dialog.
+         * @callback {Boolean} onComplete.accepted <code>true</code> if the user accepted the change;
          * <code>false</code> otherwise.
          * @BB50+
          * @BB10X
@@ -86,13 +86,13 @@ blackberry.bbm.platform.self = {
         setPersonalMessage: function(personalMessage, onComplete) { },
         
         /**
-         * @description Sets the user's status. A dialog will be presented to the user to allow
-         * or deny the change.
+         * @description Sets the user's status. A dialog appears and allows the user to accept
+         * or cancel the change.
          * @param {String} status The status: one of <code>"available"</code> or <code>"busy"</code>.
-         * @param {String} [message] The optional status message. If not provided then the default message of
+         * @param {String} [message] The optional status message. If not provided, the default message of
          * either "Available" or "Busy" will be used.
-         * @callback {Function} onComplete Invoked when the user has dismissed the dialog.
-         * @callback {Boolean} onComplete.accepted <code>true</code> if the user allowed the change;
+         * @callback {Function} onComplete Invoked if the user dismissed the dialog.
+         * @callback {Boolean} onComplete.accepted <code>true</code> if the user accepted the change;
          * <code>false</code> otherwise.
          * @BB50+
          * @BB10X
@@ -101,9 +101,9 @@ blackberry.bbm.platform.self = {
          * // Set the user's status and status message
          * blackberry.bbm.platform.self.setStatus("busy", "Playing Tic-Tac-Toe!", function (accepted) {
          *     if(accepted) {
-         *         // User allowed the change
+         *         // User accepted the change
          *     } else {
-         *         // User denied the change
+         *         // User canceled the change
          *     }
          * });
          * &lt;/script&gt;

@@ -17,8 +17,8 @@
 /**
  * @toc {BBM} Other Users
  * @featureID blackberry.bbm.platform
- * @permission bbm_connect BBM APIs requre this permission to be set
- * @namespace Provides access to and interaction with other users. For the current user see
+ * @permission bbm_connect BBM APIs require this permission to be set
+ * @namespace Provides access to and interaction with other users. For the current user, see
  * {@link blackberry.bbm.platform.self}.
  * 
  * <h3>Picking Users</h3>
@@ -30,28 +30,28 @@
  * avoided in {@link blackberry.bbm.platform.users.sendFile} and {@link blackberry.bbm.platform.users.startBBMChat}
  * by providing a {@link blackberry.bbm.platform.users.BBMPlatformUser} in the method call.
  * 
- * <h3>File Transfer, Invite to Download, Starting a BBM Chat, and Sharing Content</h3>
- * <p>The current user can send files, start a chat in BBM, invite others to download the
- * application, and share content using the following methods:
+ * <h3>File transfer, invite to download, start a BBM chat, and share content</h3>
+ * <p>The current user can send files, invite others to download the
+ * application, start a chat in BBM, and share content using the following methods:
  * <ul>
  * <li>{@link blackberry.bbm.platform.users.sendFile}
- * <li>{@link blackberry.bbm.platform.users.startBBMChat}
  * <li>{@link blackberry.bbm.platform.users.inviteToDownload}
+ * <li>{@link blackberry.bbm.platform.users.startBBMChat}
  * <li>{@link blackberry.bbm.platform.users.shareContent}
  * </ul>
  * </p>
  * 
  * <h3>Inviting users to BBM contact list</h3>
- * <p>Inviting users to the current user's contact list is also supported. You can invite anonymous
+ * <p>Inviting users to the current user's contact list is supported. You can invite anonymous
  * users by PIN using {@link blackberry.bbm.platform.users.inviteToBBM}. Alternatively you can invite
  * users from open connection(s) using {@link blackberry.bbm.platform.users.inviteToBBMFromConnections}.
  * 
- * <h3>BBM Social Graph</h3>
- * <p>Applications can also obtain access to the user's social graph.
+ * <h3>BBM social graph</h3>
+ * <p>Applications can obtain access to the user's social graph.
  * {@link blackberry.bbm.platform.users.contactsWithApp} is a complete list of the current user's BBM
  * contacts who have the application installed.
  * 
- * <p>Applications can also listen for changes in the social graph by assigning a callback to
+ * <p>Applications can listen for changes in the social graph by assigning a callback to
  * {@link blackberry.bbm.platform.users.event:onupdate}. Events are fired for both the current user
  * and their contacts who have the application installed. You can listen for user profile property
  * changes, such as display name and display picture, and also when a user installs/uninstalls your
@@ -69,15 +69,15 @@ blackberry.bbm.platform.users = {
     contactsWithApp : [],
 
     /**
-     * @description Shows Contact Picker dialog allowing the user to select users.
+     * @description Shows Contact Picker dialog which allows the user to select users.
      * @param {Object} options Object containing Contact Picker options.
      * @param {String} [options.title] Title of the Contact Picker dialog.
      * @param {String} [options.type] Type of users to include in the dialog. May be "contactswithapp".
      * @param {blackberry.bbm.platform.users.BBMPlatformUser[]} [options.users] Users shown in the
      * dialog.
      * @param {Boolean} [options.multiSelect=false] <code>true</code> to allow the user to select
-     * multiple users; <code>false</code> to only allow 1. 
-     * @param {Boolean} [options.showSelectAll=false] <code>true</code> to show Select All option;
+     * multiple users; <code>false</code> to allow only 1. 
+     * @param {Boolean} [options.showSelectAll=false] <code>true</code> to show the Select All option;
      * <code>false</code> otherwise. Ignored if <code>options.multiSelect == false</code>.
      * @callback {Function} onComplete Function called when user is finished.
      * @callback {blackberry.bbm.platform.users.BBMPlatformUser[]} onComplete.users The picked
@@ -106,11 +106,11 @@ blackberry.bbm.platform.users = {
      * @description Starts a chat within BBM, bringing the chat screen to the foreground and entering
      * a message in the reply field.
      * <p>If <code>users</code> is provided, the chat screen is opened immediately; otherwise a Contact
-     * Picker dialog is displayed beforehand.
+     * Picker dialog is displayed instead.
      * <p><b>Chats can be started with any contact.</b>
      * @param {Function} onComplete Invoked when the chat has been started or canceled.
      * @param {String} message The initial message in the reply field of the chat screen.
-     * @param {blackberry.bbm.platform.users.BBMPlatformUser[]} [users] The users with whom to chat.
+     * @param {blackberry.bbm.platform.users.BBMPlatformUser[]} [users] The users to chat with.
      * Must not contain {@link blackberry.bbm.platform.self}.
      * @example
      * &lt;script type="text/javascript"&gt;
@@ -129,21 +129,21 @@ blackberry.bbm.platform.users = {
     /**
      * @description Sends a file to a contact. The user will be prompted to edit the comment and
      * choose to send or cancel the file transfer.
-     * <p>If <code>contact</code> is not provided then the Contact Picker dialog be shown first,
-     * allowing the user to pick someone in their contact list whom to send the file. Otherwise,
-     * the Contact Picker dialog will not be shown.</p>
+     * <p>If <code>contact</code> is not provided, the Contact Picker dialog appears,
+     * allowing the user to pick someone in their contact list to send the file to. Otherwise,
+     * the Contact Picker dialog is not shown.</p>
      * <p><b>Files can be sent to any contact.</b>
      * <p>If the contact cannot receive the specific file type, the file will not be sent.</p>
      * <p>The application is notified of any errors that occur through the <code>onFailure(reason)</code>
      * callback. The reasons are:</p>
      * <ul>
      * <li><code>"filenotfound"</code>: The file transfer failed because the file does not exist.
-     * <li><code>"filetoolarge"</code>: The file transfer failed because the file size exceeds the limit permitted by BBM.
+     * <li><code>"filetoolarge"</code>: The file transfer failed because the file size exceeds the limit permitted by the BBM Social Platform.
      * <li><code>"fileempty"</code>: The file transfer failed because the file is empty.
      * <li><code>"fileforwardlocked"</code>: The file transfer failed because the file is forward-locked.
      * <li><code>"filebadtype"</code>: The file transfer failed because the recipient is not permitted to receive files of the file type.
      * <li><code>"usercanceled"</code>: The file transfer failed because the current user canceled the file transfer.
-     * <li><code>"noncontact"</code>: The file transfer failed because the recipient is not a BBM contact of the user.
+     * <li><code>"noncontact"</code>: The file transfer failed because the recipient is not one of the user's BBM contacts.
      * </ul>
      * @param {String} fileURI The fully qualified path of the file to send.
      * @param {String} comment The default comment on the file. The user may edit this comment before sending.
@@ -198,7 +198,7 @@ blackberry.bbm.platform.users = {
      * <li><code>"personalmessage"</code>: Personal message update.
      * <li><code>"status"</code>: Status and/or status message update.
      * </ul>
-     * @param {blackberry.bbm.platform.users.BBMPlatformUser} user The user whose information updated.
+     * @param {blackberry.bbm.platform.users.BBMPlatformUser} user The user whose information was updated.
      * @param {String} event The type of update.
      * @example
      * &lt;script type="text/javascript"&gt;
@@ -225,11 +225,11 @@ blackberry.bbm.platform.users = {
      * <li><code>"displaypicture"</code>: Display picture update.
      * <li><code>"personalmessage"</code>: Personal message update.
      * <li><code>"status"</code>: Status and/or status message update.
-     * <li><code>"install"</code>: User installed or unblocked application.
-     * <li><code>"uninstall"</code> User uninstalled or blocked application.
-     * <li><code>"invited"</code>: The current user received an invitation to join this application in BBM. <i>This only applies to the current user.</i>
+     * <li><code>"install"</code>: User installed or unblocked an application.
+     * <li><code>"uninstall"</code>: User uninstalled or blocked an application.
+     * <li><code>"invited"</code>: The current user received an invitation to join the application in BBM. <i>This only applies to the current user.</i>
      * </ul>
-     * @param {blackberry.bbm.platform.users.BBMPlatformUser} user The user whose information updated.
+     * @param {blackberry.bbm.platform.users.BBMPlatformUser} user The user whose information was updated.
      * @param {String} event The type of update.
      * @example
      * &lt;script type="text/javascript"&gt;
@@ -255,9 +255,9 @@ blackberry.bbm.platform.users = {
 
     /**
      * @description Allows the user to invite contacts to download the application. A Contact Picker
-     * dialog will appear allowing the user to select contacts to invite.
-     * <p><b>Only contacts without the application can be invited to download.</b>
-     * @callback {Function} onComplete Invoked when the user is complete.
+     * dialog appears, allowing the user to select contacts to invite.
+     * <p><b>Only contacts who do not have the application installed can be invited to download it.</b>
+     * @callback {Function} onComplete Invoked when the user is finished inviting contacts to download the application.
      * @callback {String} onComplete.result <code>"limitreached"</code> if the download invitation limit has been reached;<code>undefined</code> otherwise. A 
      * maximum of 10 download invitations per minute is allowed.
      * @example
@@ -276,9 +276,9 @@ blackberry.bbm.platform.users = {
     /**
      * @name blackberry.bbm.platform.users.inviteToDownload^2
      * @function
-     * @description Allows the user to invite contacts to download the application. A download invitation
-     * card will appear allowing the user to select contacts to invite.
-     * <p><b>Only contacts without the application can be invited to download.</b>
+     * @description Allows the user to invite contacts to download the application. An invitation
+     * card appears, allowing the user to select contacts to invite.
+     * <p><b>Only contacts who do not have the application installed can be invited to download.</b>
      * @example
      * blackberry.bbm.platform.users.inviteToDownload();
      * 
@@ -288,11 +288,11 @@ blackberry.bbm.platform.users = {
     },
 
     /**
-     * Allows the user to invite users to their BBM contact list. A dialog will appear allowing the
-     * user to select users to invite. Users already in the current user's contact list will not be
-     * included in the dialog.
+     * Allows the user to invite users to their BBM contact list. A dialog appears, allowing the
+     * user to select users to invite. Users already in the current user's contact list are not
+     * shown in the dialog.
      * @param {Function} onComplete Invoked when the user has finished selecting contacts to invite.
-     * @param {Object[]} invitations The pin-name pairs of the users to invite to BBM.
+     * @param {Object[]} invitations The pin-name pairs of the users to invite to the BBM Social Platform.
      * @throws {IllegalArgumentException} If <code>PIN</code> is invalid for any invitation.
      * @throws {IllegalArgumentException} If <code>name</code> is null or empty for any invitation.
      * @throws {IllegalArgumentException} If <code>invitations.length > 24</code>.
@@ -317,13 +317,13 @@ blackberry.bbm.platform.users = {
     },
     
     /**
-     * Allows the user to invite users to their BBM contact list. A dialog will appear allowing the
-     * user to select users to invite. Users already in the current user's contact list will not be
-     * included in the dialog.
+     * Allows the user to invite users to their BBM contact list. A dialog appears, allowing the
+     * user to select users to invite. Users already in the current user's contact list are not 
+     * shown in the dialog.
      * <p>Users from <code>connection</code> (who are not in the user's contact list) will be shown
      * in the dialog.
-     * <p>If <code>connection</code> is not provided, then users from all connections the application
-     * has open (who are not in the user's contact list) will be shown in the dialog. 
+     * <p>If <code>connection</code> is not provided, users from all connections that the application
+     * has open (who are not in the user's contact list) are shown in the dialog. 
      * @param {Function} onComplete Invoked when the user has finished selecting contacts to invite.
      * @param {blackberry.bbm.platform.io.Connection} [connection] The connection to invite users from.
      * @example
@@ -351,37 +351,36 @@ blackberry.bbm.platform.users = {
     },
     
     /**
-     * @description Shares content with a one or more contacts. A Contact Picker dialog will be shown allowing
-     * the user to select recipients of the content.
+     * @description Shares content with a one or more contacts. A Contact Picker dialog appears, allowing
+     * the user to select contacts to send the content to.
      * 
-     * <p>The content will not appear in BBM but is received by the recipient's application. The
+     * <p>The content does not appear in BBM; the recipient's application receives the content. The
      * application does not need to be running in order to receive shared content. Once
-     * the application is launched and registered with BBM Social Platform, the callback
-     * {@link blackberry.bbm.platform.users.event:onsharecontent} will be invoked for the
+     * the application is launched and registered with the BBM Social Platform, the callback
+     * {@link blackberry.bbm.platform.users.event:onsharecontent} is invoked for the
      * application to handle the content.
      * 
-     * <h3>Users without BBM 6.1.0 or the application installed</h3>
-     * <p>Recipients also do not need to have BBM 6.1.0 (or later) or the application installed:
+     * <h3>Users who do not have BBM 6.1.0 or the application installed</h3>
+     * <p>Recipients do not need to have BBM 6.1.0 (or later) or the application installed:
      * <ul>
-     * <li>Recipients without BBM 6.1.0 will be prompted to download the latest version of BBM.
-     * <li>Recipients without the application installed will receive a download invitation to download
+     * <li>Recipients who do not have BBM 6.1.0 will be prompted to download the latest version of BBM.
+     * <li>Recipients who do not have the application installed will receive an invitation to download
      * the application from App World.
      * </ul>
-     * Once a recipient has both BBM 6.1.0 and the application installed, the application will
-     * be passed the content after registering with BBM Social Platform.
+     * After a recipient has both BBM 6.1.0 and the application installed, and the application registers
+	 * with the BBM Social Platform, the content is sent to the application.
      * 
-     * <h3>Application icon splat when shared content is received</h3>
-     * <p>Applications can enable their icon to be splatted when shared content is received, in
-     * order to notify the user of the new content. To enable splatting, add the property
-     * <code>shareContentSplat: true</code> to the options object passed into {@link blackberry.bbm.platform.register}.
+     * <h3>Adding the new notification symbol to your app's icon when shared content is received</h3>
+     * <p>To notify users about new content, you can enable your app's icon to show the new notification 
+	 * symbol when shared content is received. To enable the notification symbol, add the property 
+	 * <code>shareContentSplat: true</code> to the options object passed into {@link blackberry.bbm.platform.register}.
      * @param {String} content The content to be shared.
      * @param {String} description A short description of the content.
      * @param {Function} onComplete Invoked when the user has finished selecting content recipients.
-     * @param {Object} [options] Object containing share content options.
-     * @param {String} [options.title] Title of the Contact Picker. If not provided then the default title is used.
-     * dialog.
+     * @param {Object} [options] Object containing options for sharing content.
+     * @param {String} [options.title] Title of the Contact Picker dialog. If not provided, the default title is used.
      * @param {blackberry.bbm.platform.users.BBMPlatformUser[]} [options.users] Users shown in the
-     * dialog. If not provided then all contacts are shown in the dialog.  
+     * dialog. If not provided, all contacts are shown in the dialog.  
      * @throws {Exception} if <code>description</code> is <code>null</code> or greater than 128 characters.
      * @throws {Exception} if <code>content</code> is greater than 61440 characters.
      * @example
@@ -397,7 +396,7 @@ blackberry.bbm.platform.users = {
      * @example
      * &lt;script type="text/javascript"&gt;
      * 
-     * // Enable splatting of the icon when shared content is received
+     * // Enable adding the notification symbol to the app's icon when shared content is received
      * blackberry.bbm.platform.register({
      *     uuid: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", // Randomly generated UUID
      *     
@@ -413,15 +412,15 @@ blackberry.bbm.platform.users = {
     },
     
     /**
-     * @description Invoked when shared content arrives at the recipient. If the application is not
-     * running when content is received, then this will be invoked after the application starts and
-     * is registered with BBM Social Platform.
+     * @description Invoked when the recipient receives shared content. If the application is not
+     * running when content is received, this will be invoked after the application starts and
+     * is registers with the BBM Social Platform.
      * <p>This callback must be assigned <b>before</b> the call to {@link blackberry.bbm.platform.register}.
      * <p>See {@link blackberry.bbm.platform.users.shareContent}
      * @param {blackberry.bbm.platform.users.BBMPlatformUser} sender The user who shared the content.
      * @param {String} content The content data.
      * @param {String} description The content description.
-     * @param {Date} timestamp Timestamp when the content was received.
+     * @param {Date} timestamp Time stamp when the content was received.
      * @event
      * @BB50+
      */

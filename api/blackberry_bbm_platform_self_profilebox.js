@@ -67,17 +67,17 @@ blackberry.bbm.platform.self.profilebox = {
     
     /**
      * Adds an item to the top of the user's profile box.
-     * <p>Icons are optional and are provided via fully-qualified URI. Non-local URIs must be whitelisted in the application's configuration file. Examples:
+     * <p>Icons are optional and are provided via a fully-qualified URI. Non-local URIs must be whitelisted in the application's configuration file. Examples:
      * <ul>
      * <li>Locally from within the widget package (e.g. "local:///smiley.jpg")
-     * <li>From the filesystem of the device (e.g. "file:///SDCard/BlackBerry/pictures/smiley.jpg")
+     * <li>From the file system of the device (e.g. "file:///SDCard/BlackBerry/pictures/smiley.jpg")
      * </ul>
      * @param {Object} options The options.
      * @param {String} options.text The text of the item.
-     * @param {Number} [options.icon] <i>Optional</i> The URI of the icon to use. If not provided
-     * then no icon will be used.
+     * @param {Number} [options.icon] <i>Optional</i> The URI of the icon to use. If not provided,
+     * no icon is used.
      * @param {String} [options.cookie] <i>Optional</i> The customizable cookie.
-     * @returns {blackberry.bbm.platform.self.profilebox.ProfileBoxItem} the new item.
+     * @returns {blackberry.bbm.platform.self.profilebox.ProfileBoxItem} The new item.
      * @throws {UserProfileBoxAccessException} If the profile box is inaccessible.
      * @example
      * &lt;script type="text/javascript"&gt;

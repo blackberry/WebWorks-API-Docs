@@ -23,15 +23,15 @@
 blackberry.bbm.platform.io.OutgoingJoinRequest = function() {
 
     /**
-     * The host to whom the request is sent.
+     * The host that the request is sent to.
      * @type blackberry.bbm.platform.users.BBMPlatformUser
      * @BB50+
      */
     this.host = undefined;
     
     /**
-     * Cancels the request. The request can only be canceled if its <code>status == "pending"</code>; otherwise, this will do nothing.
-     * <p><code>onRequestCanceled</code> supplied to {@link blackberry.bbm.platform.io.host} will be invoked on the host's side. 
+     * Cancels the request. The request can only be canceled if its <code>status == "pending"</code>; otherwise, this does nothing.
+     * <p><code>onRequestCanceled</code> supplied to {@link blackberry.bbm.platform.io.host} is invoked on the host's side. 
      * @BB50+
      */
     this.cancel = function() { };
