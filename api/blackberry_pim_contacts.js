@@ -56,10 +56,10 @@ blackberry.pim.contacts = {
          * function createContact() {
          *     var contacts = blackberry.pim.contacts,
          *         ContactField = contacts.ContactField,
-         *         name = new contacts.ContactName(),
-         *         workPhone = new ContactField(ContactField.WORK, "123-456-789"),
-         *         workEmail = new ContactField(ContactField.WORK, "abc@blah.com"),
-         *         homeEmail = new ContactField(ContactField.HOME, "hello@me.com"),
+         *         name = {},
+         *         workPhone = { type: ContactField.WORK, value: "123-456-789" },
+         *         workEmail = { type: ContactField.WORK, value: "abc@blah.com" },
+         *         homeEmail = { type: ContactField.HOME, value: "hello@me.com" },
          *         contact;
          *         
          *     name.familyName = "Smith";
@@ -91,7 +91,7 @@ blackberry.pim.contacts = {
          *     ContactFindOptions = contacts.ContactFindOptions;
          *
          * function onFindSuccess(results) {
-         *     console.log("Found " + results.length + " John Smith in total");
+         *     console.log("Found " + results.length + " contacts in total");
          * }
          *
          * function onFindError(error) {
@@ -111,11 +111,11 @@ blackberry.pim.contacts = {
          *              "fieldName" : ContactFindOptions.SORT_FIELD_ORGANIZATION_NAME,
          *              "desc" : false
          *         },
-         *         findOptions = new ContactFindOptions(
-         *             [searchFirstName, searchLastName], // filter
-         *             [sortOrg],                         // sort
-         *             20                                 // limit
-         *         );
+         *         findOptions = {
+         *              filter: [searchFirstName, searchLastName], // filter
+         *              sort: [sortOrg],                           // sort
+         *              limit: 20                                  // limit
+         *         };
          *     // The first 20 contacts (based on specified sort specs) with given name "John"
          *     // and family name "Smith" will be returned
          *     contacts.find(["name"], findOptions, onFindSuccess, onFindError);
@@ -123,53 +123,52 @@ blackberry.pim.contacts = {
          *
          * function listAllContacts() {
          *     var sort = [{
-         *             "fieldName": ContactFindOptions.SORT_FIELD_FAMILY_NAME,
-         *             "desc": false
+         *              "fieldName": ContactFindOptions.SORT_FIELD_FAMILY_NAME,
+         *              "desc": false
          *         }, {
-         *             "fieldName": ContactFindOptions.SORT_FIELD_GIVEN_NAME,
-         *             "desc": true
+         *              "fieldName": ContactFindOptions.SORT_FIELD_GIVEN_NAME,
+         *              "desc": true
          *         }],
-         *         findOptions = new ContactFindOptions(
-         *             null,  // null filter - return all contacts
-         *             sort,  // sort contacts first by family name (desc), then by given name (asc)
-         *             20     // limit - return up to 20 contacts
-         *         );
+         *         // no filter - return all contacts
+         *         findOptions = { 
+         *              // sort contacts first by family name (desc), then by given name (asc)
+         *              sort: sort,  
+         *              limit: 20     // limit - return up to 20 contacts
+         *         };
          *     // The first 20 contacts (based on specified sort specs) will be returned
          *     contacts.find(["name"], findOptions, onFindSuccess, onFindError);
          * }
          *
+         * function listAllContactsWithEmptyFindOptions() {
+         *     var findOptions = {};
+         *     
+         *     //Will return all contacts with no particular sort order
+         *     contacts.find(["name"], findOptions, onFindSuccess, onFindError);
+         * }
+         *
          * function findContactErrorMissingFilterValue() {
-         *     var findOptions = new ContactFindOptions([{
-         *             "fieldName": ContactFindOptions.SEARCH_FIELD_GIVEN_NAME,
-         *             "fieldValue": ""
-         *         }, {
-         *             "fieldName": ContactFindOptions.SEARCH_FIELD_FAMILY_NAME,
-         *             "fieldValue": "Smith"
-         *         }], [{
-         *             "fieldName": ContactFindOptions.SORT_FIELD_FAMILY_NAME,
-         *             "desc": false
-         *         }, {
-         *             "fieldName": ContactFindOptions.SORT_FIELD_GIVEN_NAME,
-         *             "desc": true
-         *         }],
-         *         2);
+         *     var findOptions = {
+         *           filter: [{
+         *                 "fieldName": ContactFindOptions.SEARCH_FIELD_GIVEN_NAME,
+         *                 "fieldValue": ""
+         *           }, {
+         *                 "fieldName": ContactFindOptions.SEARCH_FIELD_FAMILY_NAME,
+         *                 "fieldValue": "Smith"
+         *           }],
+         *           sort: [{
+         *                 "fieldName": ContactFindOptions.SORT_FIELD_FAMILY_NAME,
+         *                 "desc": false
+         *           }, {
+         *                 "fieldName": ContactFindOptions.SORT_FIELD_GIVEN_NAME,
+         *                 "desc": true
+         *           }],
+         *           limit: 2
+         *        };
          *     // Error - illegal argument (reason: fieldValue = "" for first search field)
          *     contacts.find(["name"], findOptions, onFindSuccess, onFindError);
          * }
          *
-         * function findContactErrorMissingFilter() {
-         *     var findOptions = new ContactFindOptions([{
-         *             "fieldName": ContactFindOptions.SORT_FIELD_FAMILY_NAME,
-         *             "desc": false
-         *         }, {
-         *             "fieldName": ContactFindOptions.SORT_FIELD_GIVEN_NAME,
-         *             "desc": true
-         *         }], // sort
-         *         2); // limit
-         *     // Error - illegal argument (reason: filter omitted, but the params followed by it are not)
-         *     // Once an optional param is omitted, all params followed by it should also be omitted
-         *     contacts.find(["name"], findOptions, onFindSuccess, onFindError);
-         * }
+         *
          * @BB10X
          */
         find : function () {}

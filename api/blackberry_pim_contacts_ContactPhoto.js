@@ -18,31 +18,34 @@
  * @toc {PIM} ContactPhoto
  * @featureID blackberry.pim.contacts
  * @class The ContactPhoto object contains the address information of a Contact object.
- * @constructor Constructor for a new ContactPhoto object.
- * @param {String} originalFilePath The file path to the contact's photo.
- * @param {Boolean} pref Whether this ContactPhoto contains the user's preferred value.
  * @BB10X
  * @example
  * function createContact() {
  *     var contacts = blackberry.pim.contacts;
  *
- *     var primaryPhoto = new contacts.ContactPhoto(
- *         blackberry.io.home + "/photos/contact.png",
- *         true);
- *     var secondaryPhoto = new contacts.ContactPhoto(
- *         blackberry.io.home + "/photos/other.png",
- *         false);
+ *     // access_shared permission is needed to access shared folder
+ *     var primaryPhoto = {
+ *         originalFilePath: blackberry.io.sharedFolder + "/photos/contact.jpg",
+ *         pref: true
+ *     };
+ *     var secondaryPhoto = {
+ *         originalFilePath: blackberry.io.sharedFolder + "/photos/other.jpg",
+ *         pref: false
+ *     };
  *
  *     var newContact = contacts.create();
+ *     newContact.name = {
+ *         "givenName": "Lisa",
+ *         "familyName": "Simpson"
+ *     };
  *     newContact.photos = [primaryPhoto, secondaryPhoto];
  *
  *     newContact.save(onSaveSuccess, onSaveError);
- *
- *     alert("Small primary photo: " + primaryPhoto.smallFilePath);
  * }
  *
  * function onSaveSuccess(contact) {
- *     alert("Contact saved: " + contact.displayName);
+ *     alert("Contact saved: " + contact.name.givenName);
+ *     alert("Small primary photo: " + contact.photos[0].smallFilePath);
  * }
  *
  * function onSaveError(error) {

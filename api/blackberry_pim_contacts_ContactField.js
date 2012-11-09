@@ -18,22 +18,25 @@
  * @toc {PIM} ContactField
  * @featureID blackberry.pim.contacts
  * @class The ContactField object provides a generic field in a Contact object.  Properties that are stored as ContactField objects include email addresses and phone numbers.
- * @constructor Constructor for a new ContactField object.
- * @param {String} type The type of ContactField.
- * @param {String} value The value of the ContactField.
  * @BB10X
  * @example
  * function createContact() {
  *     var contacts = blackberry.pim.contacts;
  *
- *     var homeEmail = new contacts.ContactField(
- *         contacts.ContactField.HOME,
- *         "xyz@person.com");
- *     var workEmail = new contacts.ContactField(
- *         contacts.ContactField.WORK,
- *         "abc@rim.com");
+ *     var homeEmail = {
+ *         type: contacts.ContactField.HOME,
+ *         value: "xyz@person.com"
+ *     };
+ *     var workEmail = {
+ *         type: contacts.ContactField.WORK,
+ *         value: "abc@rim.com"
+ *     };
  *
  *     var newContact = contacts.create();
+ *     newContact.name = {
+ *	       givenName: "Marge",
+ *         familyName: "Simpson"
+ *     };
  *     newContact.emails = [homeEmail, workEmail];
  *
  *     newContact.save(onSaveSuccess, onSaveError);
@@ -42,7 +45,7 @@
  * }
  *
  * function onSaveSuccess(contact) {
- *     alert("Contact saved: " + contact.displayName);
+ *     alert("Contact saved: " + contact.name.givenName);
  * }
  *
  * function onSaveError(error) {

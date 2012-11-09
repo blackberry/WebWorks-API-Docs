@@ -18,17 +18,6 @@
  * @toc {PIM} ContactAddress
  * @featureID blackberry.pim.contacts
  * @class The ContactAddress object contains the address information of a Contact object.
- * @constructor Constructor for a new ContactAddress object.
- * @param {Object} [properties] Optional object literal that specifies the field values for the ContactAddress object. The object should be in the following form (with any number of properties): <br><pre>
- * {
- *     type: &lt;type of address HOME, WORK, or OTHER - String&gt;,
- *     streetAddress: &lt;the street address - String&gt;,
- *     streetOther: &lt;extra information about street address - String&gt;,
- *     locality: &lt;the city or locality - String&gt;,
- *     region: &lt;the province, state, or region - String&gt;,
- *     postalCode: &lt;the postal code or zip code - String&gt;,
- *     country: &lt;the country name - String&gt;
- * }
  * </pre>
  * @BB10X
  * @example
@@ -36,31 +25,33 @@
  *     var contacts = blackberry.pim.contacts,
  *         ContactAddress = contacts.ContactAddress;
  *
- *     var homeAddress = new ContactAddress({
- *             "type": ContactAddress.HOME,
- *             "streetAddress": "123 Abc Rd",
- *             "locality": "Waterloo",
- *             "region": "Ontario",
- *             "country": "Canada"
- *         });
- *     var workAddress = new ContactAddress({
- *             "type": ContactAddress.WORK,
- *             "streetAddress": "456 Industry St",
- *             "locality": "Waterloo",
- *             "region": "Ontario",
- *             "country": Canada"
- *         });
+ *     var homeAddress = {
+ *              "type": ContactAddress.HOME,
+ *              "streetAddress": "123 Abc Rd",
+ *              "locality": "Waterloo",
+ *              "region": "Ontario",
+ *              "country": "Canada"
+ *        };
+ *     var workAddress = {
+ *              "type": ContactAddress.WORK,
+ *              "streetAddress": "456 Industry St",
+ *              "locality": "Waterloo",
+ *              "region": "Ontario",
+ *              "country": "Canada"
+ *         };
  *
  *     var newContact = contacts.create();
+ *     newContact.name = {
+ *         "givenName": "Bart",
+ *         "familyName": "Simpson"
+ *     };
  *     newContact.addresses = [homeAddress, workAddress];
  *
  *     newContact.save(onSaveSuccess, onSaveError);
- *
- *     alert("Home address: " + homeAddress.formatted);
  * }
  *
  * function onSaveSuccess(contact) {
- *     alert("Contact saved: " + contact.displayName);
+ *     alert("Contact saved: " + contact.name.givenName);
  * }
  *
  * function onSaveError(error) {
