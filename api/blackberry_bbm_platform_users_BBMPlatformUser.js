@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+ 
 /**
  * @featureID blackberry.bbm.platform
- * @permission [bbm_connect] BBM APIs requre this permission to be set
- * @class <p>Provides read-only access to a BBM platform user's information as defined in their BBM profile.
- * <p><i>Instances of this object are not created, but obtained from the BBM platform.</i>
+ * @permission bbm_connect BBM APIs require this permission to be set
+ * @class <p>Provides read-only access to a BBM user's information as defined in their BBM profile.
+ * <p><i>Instances of this object are not created, but are obtained from the BBM platform.</i>
  * <h3>Current User</h3>
- * The current user's BBMPlatformUser instance is {@link blackberry.bbm.platform.self}. It also provides the ability to set properties of the current user.
+ * The current user's <code>BBMPlatformUser</code> instance is {@link blackberry.bbm.platform.self}. It also provides the ability to set properties of the current user.
  * <h3>Other Users</h3>
  * You can obtain other users from the following functions/callbacks:
  * <ul>
@@ -28,9 +28,10 @@
  * <li>{@link blackberry.bbm.platform.users.pickUsers}
  * <li>{@link blackberry.bbm.platform.users.event:onupdate}
  * </ul>
- * {@link blackberry.bbm.platform.io.Channel} and {@link blackberry.bbm.platform.io.Session} also use BBMPlatformUser extensively.
+ * {@link blackberry.bbm.platform.io.Channel} and {@link blackberry.bbm.platform.io.Session} also use <code>BBMPlatformUser</code> extensively.
  * @BB50+
  */
+
 blackberry.bbm.platform.users.BBMPlatformUser = function() {
     /**
      * @description The display picture, encoded as a base64 image string.

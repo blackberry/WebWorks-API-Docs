@@ -18,15 +18,6 @@
  * @toc {PIM} ContactFindOptions
  * @featureID blackberry.pim.contacts
  * @class The ContactFindOptions object contains fields that filter and sort the results of {@link blackberry.pim.contacts.find}().
- * @constructor Constructor for a new ContactFindOptions object.
- * @param {Object[]} [filter] Optional.  An array of object literals that specifies search criteria to filter the results.
- * @param {Number} [filter.fieldName] The field being searched.  This should be one of the SEARCH_FIELD_* constants.
- * @param {String} [filter.fieldValue] The value of the field.
- * @param {Object[]} [sort] Optional.  An array of object literals that specifies the order of the results.
- * @param {Number} [sort.fieldName] The field to sort.  This should be one of the SORT_FIELD_* constants.
- * @param {Boolean} [sort.desc] The sort order (descending if true).
- * @param {Number} [limit] Optional.  The maximum number of results to return from the search.
- * @param {Boolean} [favorite] Optional. If set to true, only Contacts marked as favorite would be included in search results.
  * @BB10X
  */
 blackberry.pim.contacts.ContactFindOptions = {};
@@ -35,7 +26,7 @@ blackberry.pim.contacts.ContactFindOptions = {};
  * @type Object[]
  * @description An array of object literals that specifies search criteria to filter the results.  The object should be in the following form: <br><pre>
  * {
- *     fieldName: &lt;field name, one of the SEARCH_FIELD_* constants&gt;,
+ *     fieldName: &lt;The field being searched, one of the SORT_FIELD_* constants&gt;,
  *     fieldValue: &lt;value of the field&gt;
  * }
  * </pre>
@@ -47,8 +38,8 @@ blackberry.pim.contacts.ContactFindOptions.prototype.filter = [];
  * @type Object[]
  * @description An array of object literals that specifies the order of the results.  The object should be in the following form: <br><pre>
  * {
- *     fieldName: &lt;field name, one of the SORT_FIELD_* constants&gt;,
- *     desc: true to sort results in descending order     
+ *     fieldName: &lt;The field being searched, one of the SORT_FIELD_* constants&gt;,
+ *     desc: true to sort results in descending order (descending if true).
  * }
  * </pre>
  * @BB10X

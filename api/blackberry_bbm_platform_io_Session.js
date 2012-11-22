@@ -17,14 +17,14 @@
 /**
  * @class A connection to communicate with one or more peers, where <b>the peers are aware of each other</b>.
  * <p>Peers may in turn invite other users, who are also visible to everyone in the session, whether or not they are contacts of the session originator.</p>
- * <p>For example, a session connection could be used for a multi-player game application such as a poker game. When all the users in the session want to see the poker table, and game data is sent to each player in the game as it occurs.</p>
+ * <p>For example, a session connection could be used for a multi-player game application such as a poker game. When all of the users in the session want to see the poker table, game data is sent to each player in the game as it occurs.</p>
  * <b>User A invites user B, and user B joins the session</b>
  * <br><br> {@image /images/bbm/session_invite1.png} <br><br>
  * <b>User B invites user C, and user C joins the session</b>
  * <br><br> {@image /images/bbm/session_invite2.png} <br><br>
  * <b>User C invites user D, and user D joins the session</b>
  * <br><br> {@image /images/bbm/session_invite3.png} <br><br>
- * Once a user has joined they can send data to anyone in the session.
+ * Once a user has joined, they can send data to anyone in the session.
  * @featureID blackberry.bbm.platform
  * @extends blackberry.bbm.platform.io.Connection
  * @BB50+
@@ -40,7 +40,7 @@ blackberry.bbm.platform.io.Session = function() {
      * <p>All participants will be removed from {@link joinedUsers}. All pending invitations will be
      * removed and {@link pendingUsers} will be set to <code>0</code>.
      * <p>{@link blackberry.bbm.platform.io.Session#event:onended} will be called for all users currently in the connection.
-     * <p>The connection will become inactive for the current user, and should not be used afterwards.
+     * <p>The connection will become inactive for the current user, and should not be used again.
      * @throws {IllegalStateException} if the current user has already ended the connection.
      * @BB50+
      */
@@ -49,7 +49,7 @@ blackberry.bbm.platform.io.Session = function() {
     /**
      * Removes the current user from the connection, but leaves it active for all other participants.
      * <p>{@link onUserLeft} will be called for all other users currently in the connection.
-     * <p>The connection will become inactive for the current user, and should not be used afterwards.
+     * <p>The connection will become inactive for the current user, and should not be used again.
      * @throws {IllegalStateException} if the current user has already left the connection.
      * @BB50+
      */
@@ -57,11 +57,11 @@ blackberry.bbm.platform.io.Session = function() {
     
     /**
      * Sends data to all users.
-     * @throws {ContactUnreachableException} If a user is unreachable, up to 50 packets will be queued. This will be thrown on the 51st call.
-     * @throws {DataOverflowException} If the rate of data sent by the application exceeds that which the BBM Platform allows.
+     * @throws {ContactUnreachableException} If a user is unreachable, up to 50 packets will be queued, and on the 51st call this exception is thrown.
+     * @throws {DataOverflowException} If the application sends data at a rate greater than what the BBM Social Platform allows.
      * @throws {NullPointerException} If <code>data</code> is null or empty.
      * @throws {IllegalArgumentException} If <code>data.length</code> is larger than {@link blackberry.bbm.platform.io.Connection.MAX_DATA_LENGTH}.
-     * @throws {PersistentContentException} If Content Protection is enabled and device is locked.
+     * @throws {PersistentContentException} If Content Protection is enabled and the device is locked.
      * @param {String} data Object to be sent.
      * @BB50+
      */
@@ -73,14 +73,14 @@ blackberry.bbm.platform.io.Session = function() {
     
     /**
      * Invoked when broadcast data is received from a user.
-     * @param {blackberry.bbm.platform.users.BBMPlatformUser} sender User that sent the data.
+     * @param {blackberry.bbm.platform.users.BBMPlatformUser} sender The user that sent the data.
      * @param {String} data Data received.
      * @event
      * @BB50+
      */
     this.onbroadcastdata = function(sender, data) { };
     
-    /**
+	 /**
      * Invoked when users are removed.
      * @param {blackberry.bbm.platform.users.BBMPlatformUser} remover The user who removed <code>users</code>.
      * @param {blackberry.bbm.platform.users.BBMPlatformUser[]}users The removed users.

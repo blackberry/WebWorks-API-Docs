@@ -18,28 +18,15 @@
  * @class The ContactName object contains name properties of a {@link blackberry.pim.contacts.Contact} object.
  * @toc {PIM} ContactName
  * @featureID blackberry.pim.contacts
- * @constructor Constructor for a new ContactName object.
- * @param {Object} [properties] Optional object literal that specifies the field values for the ContactName object. The object should be in the following form (with any number of properties): <br><pre>
- * {
- *      familyName: &lt;family name of the contact - String&gt;,
- *      givenName: &lt;given name of the contact - String&gt;,
- *      middleName: &lt;middle name of the contact - String&gt;,
- *      honorificPrefix: &lt;prefix of the contact - String&gt;,
- *      honorificSuffix: &lt;suffix of the contact - String&gt;,
- *      alias: &lt;alias of the contact - String&gt;,
- *      phoneticGivenName: &lt;phonetic given name of the contact - String&gt;,
- *      phoneticFamilyName: &lt;phonetic family name of the contact - String&gt;
- * }
- * </pre>
  * @BB10X
  * @example
  * function createContact() {
  *     var contacts = blackberry.pim.contacts;
  *
- *     var name = new contacts.ContactName({
- *             "givenName": "John",
- *             "familyName": "Smith"
- *         });
+ *     var name = {
+ *         "givenName": "John",
+ *         "familyName": "Smith"
+ *     };
  *
  *     var newContact = contacts.create();
  *     newContact.name = name;
