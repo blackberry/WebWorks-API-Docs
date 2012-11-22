@@ -114,6 +114,26 @@ blackberry.system ={
     getFontInfo : function(){},
 
     /**
+     * @function
+     * @description Retrieves the list of all time zones supported by the device. The time zones are based on the Olson time zone database. For more information, refer to <a href="http://www.iana.org/time-zones" target="_blank">IANA</a>.
+     * @returns {String[]}
+     * @BB10X
+     */
+    getTimezones: function () {},
+
+    /**
+     * @function
+     * @description Retrieves the time zone currently used by the device.
+     * @returns {String}
+     * @example
+     * function getCurrentTimezone() {
+     *     return blackberry.system.getCurrentTimezone(); // e.g. "America/New_York"
+     * }
+     * @BB10X
+     */
+    getCurrentTimezone: function () {},
+
+    /**
      * @uri
      * @BB50+
      * @PB10+

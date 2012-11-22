@@ -20,8 +20,8 @@
  * <p>For example, a channel connection could be used when a user wants to have a private chat with
  * a contact, or wants to send their location information to one or more contacts.
  * <br><br> {@image /images/bbm/channel.png} <br><br>
- * In diagram above, the current user A has invited users B, C, and D to the channel. Once the users
- * join, user A can send data to B, C, and D, but B, C, and D can only send data to A.
+ * In the diagram above, the current user (user A) has invited users B, C, and D to the channel. Once 
+ * the users join, user A can send data to B, C, and D, but B, C, and D can only send data to A.
  * @featureID blackberry.bbm.platform
  * @extends blackberry.bbm.platform.io.Connection
  * @BB50+
