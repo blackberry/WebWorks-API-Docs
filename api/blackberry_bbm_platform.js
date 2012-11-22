@@ -55,22 +55,25 @@ blackberry.bbm.platform = {
      * &lt;script type="text/javascript"&gt;
      * 
      * // Create callback invoked when access changes
-     * blackberry.bbm.platform.onaccesschanged = function(accessible, status) {
-     *     if (status == "allowed") {
+     * blackberry.event.addEventListner("onaccesschanged", accessChangedCallback);
+     * 
+     * function accessChangedCallback(accessible, status) {
+     *     if (status == "unregistered") {
+     *         // App is unregistered, proceed to register
+     *         registerApp();
+     *     } else if (status == "allowed") {
      *         // Access allowed
-     *     } else if (status == "user") {
-     *         // Access blocked by user
-     *     } else if (status == "rim") {
-     *         // Access blocked by RIM
      *     }
      *     // Listen for other status...
      * };
-     * 
+     *
+     * function registerApp() {
      * // Register with the platform
-     * blackberry.bbm.platform.register({
-     *     uuid: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" // Randomly generated UUID
-     * });
-     * 
+     *      blackberry.bbm.platform.register({
+     *          uuid: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" // Randomly generated UUID
+     *      });
+     * }
+     *
      * &lt;/script&gt;
      * @BB10X
      */
@@ -94,8 +97,10 @@ blackberry.bbm.platform = {
      * &lt;script type="text/javascript"&gt;
      * 
      * // Create callback invoked when access changes
-     * blackberry.bbm.platform.onaccesschanged = function(accessible, status) {
-     *     if (status == "allowed") {
+     * blackberry.event.addEventListner("onaccesschanged", accessChangedCallback);
+     * 
+     * function accessChangedCallback(accessible, status) {
+     *     if  (status == "allowed") {
      *         // Access allowed
      *     } else if (status == "user") {
      *         // Access blocked by user
@@ -114,7 +119,8 @@ blackberry.bbm.platform = {
      * @BB50+
      */
     register : function(options) {
-    },   
+    },
+
     /**
      * @description Shows a dialog prompting the user to connect the application to BBM. This will
      * only work if the application is blocked by the user (i.e. access status is <code>"user"</code>).
@@ -141,7 +147,6 @@ blackberry.bbm.platform = {
      * @BB50+
      */
     requestUserPermission : function(onComplete) {
-        
     },
     
     /**
@@ -161,29 +166,33 @@ blackberry.bbm.platform = {
      * @BB50+
      */
     showBBMAppOptions: function(onComplete) {
-    	
     },
 
     /**
      * @name blackberry.bbm.platform.onaccesschanged^2
      * @description This event is fired by the system. If you want to listen to the event, you can use the {@link blackberry.event.addEventListener} function and remove the listener using the {@link blackberry.event.removeEventListener} function. <br/> 
      * @description Registers for access to the BBM Social Platform.
-     * <p>The application must assign a callback by adding an event listener {@link blackberry.bbm.platform.event:onaccesschanged}
-     * before registering. During registration, a dialog opens and guides the user through the registration process.
-     * The application should wait until {@link blackberry.bbm.platform.event:onaccesschanged} is invoked before continuing.</p>
-     * <h4>Application in Test Environment</h4>
-     * Applications must provide a UUID used to identify the application in the test
-     * environment. If the application is in App World, the UUID will not be used. The same
-     * UUID should be used for future releases of the same application; otherwise communication
-     * between them will not be possible. The UUID must be a randomly generated 36-character UUID.
-     * Any UUID generator can be used.
-     * @param {Object} options Options.
-     * @param {String} options.uuid ID used to identify the application in the test environment.
+     * <p>The application must assign a callback by adding an event listener {@link blackberry.bbm.platform.event:onaccesschanged} before registering or attemping to use any BBM related functions.
+     * @param {Boolean} accessible Flag if the BBM Social Platform access is allowed.
+     * @param {String} status Status message of current BBMSP access.
+     * <ul>
+     * <li><code>"allowed"</code>: Access is allowed.
+     * <li><code>"unregistered"</code>: Access is blocked because the application is currently not registered.
+     * <li><code>"pending"</code>: Access is pending and being processed.
+     * <li><code>"user"</code>: Access is blocked by the user.
+     * <li><code>"rim"</code>: Access is blocked by RIM (the application has most likely violated the terms of use).
+     * <li><code>"nodata"</code>: Access is blocked because the device is out of data coverage. A data connection is required to register the application.
+     * <li><code>"unexpectederror"</code>: Access is blocked because an unexpected error has occured. 
+     * <li><code>"invaliduuid"</code>: Access is blocked because an invalid UUID was provided when registering.
+     * <li><code>"temperror"</code>: Access is blocked because of a temporary error. The application should try to call
+     * {@link blackberry.bbm.platform.register} in 30 minutes, or the next time the application starts.
      * @example
      * &lt;script type="text/javascript"&gt;
      * 
      * // Create callback invoked when access changes
-     * blackberry.event.addEventListner("onaccesschanged", function(accessible, status) {
+     * blackberry.event.addEventListner("onaccesschanged", accessChangedCallback);
+     * 
+     * function accessChangedCallback(accessible, status) {
      *     if  (status == "allowed") {
      *         // Access allowed
      *     } else if (status == "user") {
@@ -194,11 +203,6 @@ blackberry.bbm.platform = {
      *     // Listen for other status...
      *     };
      *
-     * // Register with the platform
-     * blackberry.bbm.platform.register({
-     *     uuid: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" // Randomly generated UUID
-     * });
-     * 
      * &lt;/script&gt;
      * @event
      * @BB10X

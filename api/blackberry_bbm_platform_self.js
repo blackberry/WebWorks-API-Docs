@@ -42,13 +42,35 @@ blackberry.bbm.platform.self = {
         getDisplayPicture: function (onComplete) { },
 
         /**
+         * @name blackberry.bbm.platform.self.setDisplayPicture^2
+         * @function
+         * @description Sets the user's display picture from a URI. A dialog appears and allows the 
+         * user to accept or cancel the change. Note that the display picture cannot exceed 32KB.
+         * <p>The URI must be fully qualified. Non-local URIs must be whitelisted in the application's configuration file. Examples:
+         * <ul>
+         * <li>Locally from within the widget package (e.g. "local:///smiley.jpg")
+         * <li>From the filesystem of a BB10 device (e.g. "/accounts/1000/shared/photos/smiley.jpg")
+         * </ul>
+         * </p>
+         * @param {String} displayPictureURI The fully qualified URI.
+         * <code>false</code> otherwise.
+         * @BB10X
+         * @example
+         * &lt;script type="text/javascript"&gt;
+         * // Set the user's display picture
+         * blackberry.bbm.platform.self.setDisplayPicture("local:///smiley.jpg");
+         * &lt;/script&gt;
+         */
+
+        /**
+         * @name blackberry.bbm.platform.self.setDisplayPicture
+         * @function
          * @description Sets the user's display picture from a URI. A dialog appears and allows the 
          * user to accept or cancel the change.
          * <p>The URI must be fully qualified. Non-local URIs must be whitelisted in the application's configuration file. Examples:
          * <ul>
          * <li>Locally from within the widget package (e.g. "local:///smiley.jpg")
          * <li>From the filesystem of a BB5.0+ device (e.g. "file:///SDCard/BlackBerry/pictures/smiley.jpg")
-         * <li>From the filesystem of a BB10 device (e.g. "/accounts/1000/shared/photos/smiley.jpg")
          * </ul>
          * </p>
          * @param {String} displayPictureURI The fully qualified URI.
@@ -56,7 +78,6 @@ blackberry.bbm.platform.self = {
          * @callback {Boolean} onComplete.accepted <code>true</code> if the user accepted the change;
          * <code>false</code> otherwise.
          * @BB50+
-         * @BB10X
          * @example
          * &lt;script type="text/javascript"&gt;
          * // Set the user's display picture
@@ -70,7 +91,7 @@ blackberry.bbm.platform.self = {
          * &lt;/script&gt;
          */
         setDisplayPicture: function(displayPictureURI, onComplete) { },
-        
+
         /**
          * @description Sets the user's personal message. A dialog appears and allows the user to
          * accept or cancel the change.
