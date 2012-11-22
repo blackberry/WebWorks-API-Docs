@@ -25,10 +25,14 @@
 * To work with a <code>PushService</code> object, you must first call the static <code>create</code> function.  On a successful create, you will then be able
 * to perform operations using the <code>PushService</code> object you receive in the success callback.
 * <br/><br/>
-* For a great sample app that demonstrates how to use the push APIs, see <a href="https://github.com/blackberry/BB10-WebWorks-Samples/tree/master/pushCapture">Push Capture</a>. 
+* For a great sample app that demonstrates how to use the push APIs, see <a href="https://github.com/blackberry/BB10-WebWorks-Samples/tree/master/pushCapture">Push Capture</a>.
+* <br/><br/>
+* There is also a very valuable developer guide for the Push Capture sample app that you can find <a href='https://developer.blackberry.com/html5/documentation/push_service.html'>here</a>. 
 * @toc {Push} PushService 
 * @class The <code>PushService</code> object allows you to perform all the push-related operations.
+* @BB10X
 * @featureID blackberry.push
+* @permission {system} _sys_use_consumer_push Permits your consumer (public) application to use push. This permission is not needed to use enterprise push.
 */
 blackberry.push.PushService = {};
 
@@ -57,10 +61,10 @@ blackberry.push.PushService = {};
 * Care should be taken by the application to handle this situation as well. For example, the application may wish to re-authenticate the user with the Push Initiator 
 * (if your Push Initiator implementation supports subscription) and then re-create the channel using <code>createChannel</code>. 
 * @callback {function} pushTransportReadyCallback The callback that is invoked after a create channel or destroy operation has failed with a result error code of
-* <code>PUSH_TRANSPORT_UNAVAILABLE</code> and the network/push transport is now available again.
+* either <code>PUSH_TRANSPORT_UNAVAILABLE</code> or <code>PPG_SERVER_ERROR</code> and the network/push transport/PPG is now available again.
 * @callback {Number} pushTransportReadyCallback.lastFailedOperation The last operation that was performed that failed with a result error code of 
-* <code>PUSH_TRANSPORT_UNAVAILABLE</code>. It should be one of <code>CREATE_CHANNEL_OPERATION</code> or <code>DESTROY_CHANNEL_OPERATION</code>.
-* Use this value to determine which operation should be tried again.
+* either <code>PUSH_TRANSPORT_UNAVAILABLE</code> or <code>PPG_SERVER_ERROR</code>. It should be one of <code>CREATE_CHANNEL_OPERATION</code> or 
+* <code>DESTROY_CHANNEL_OPERATION</code>.  Use this value to determine which operation should be tried again.
 * @throws {String} An exception is thrown if <code>create</code> is called more than once with different values for <code>options.invokeTargetId</code> and/or 
 * <code>options.appId</code>.
 * @BB10X
@@ -123,8 +127,9 @@ blackberry.push.PushService = {};
 * function pushTransportReadyCallback(lastFailedOperation) {
 *     // This callback will be called when a create channel
 *     // or destroy channel was previously attempted and it 
-*     // failed with the PUSH_TRANSPORT_UNAVAILABLE error code
-*     // and now the network/push transport is available again. 
+*     // failed with a PUSH_TRANSPORT_UNAVAILABLE or a 
+      // PPG_SERVER_ERROR error code and now the 
+*     // network/push transport/PPG is available again. 
 *     // The operation indicated by lastFailedOperation should 
 *     // be retried again.
 *     if (lastFailedOperation === 
@@ -542,7 +547,7 @@ blackberry.push.PushService.MISSING_PPG_URL : 10102;
 /**
 * Result error code when a create channel or destroy channel operation has failed due to network issues or the push transport being down.
 * <br/><br/>
-* Operations this error can occur on: Create Channel, Destroy Channel (only if using public/BIS PPG)
+* Operations this error can occur on: createChannel, destroyChannel (only if using public/BIS PPG)
 * <br/><br/>
 * Recommended action: Wait until <code>pushTransportReadyCallback</code> (one of the arguments in the static <code>create</code> function) 
 * is called before retrying. This error can also occur when the user's wireless connection (e.g. Wi-Fi, Mobile Network) is 
@@ -610,6 +615,21 @@ blackberry.push.PushService.MISSING_PORT_FROM_PPG : 10107;
 blackberry.push.PushService.MISSING_SUBSCRIPTION_RETURN_CODE_FROM_PPG : 10108;
 
 /**
+* Result error code when the PPG returns a server error.
+* <br/><br/>
+* Operations this error can occur on: createChannel, destroyChannel (only if using public/BIS PPG)
+* <br/><br/>
+* Recommended action: Wait until <code>pushTransportReadyCallback</code> (one of the arguments in the static 
+* <code>create</code> function) is called before retrying.
+* @type Number
+* @constant
+* @static
+* @BB10X
+* @default 10110
+*/
+blackberry.push.PushService.PPG_SERVER_ERROR : 10110;
+
+/**
 * Result error code when no invoke target ID is specified on a create operation.
 * <br/><br/>
 * Operations this error can occur on: create
@@ -640,23 +660,22 @@ blackberry.push.PushService.MISSING_INVOKE_TARGET_ID : 10111;
 blackberry.push.PushService.SESSION_ALREADY_EXISTS : 10112;
 
 /**
-* Result error code when the PPG is currently unavailable or an invalid PPG URL was specified.
+* Result error code when an invalid PPG URL was specified.
 * <br/><br/>
-* Operations this error can occur on: Create Channel, Destroy Channel (only if using public/BIS PPG)
+* Operations this error can occur on: createChannel, destroyChannel (only if using public/BIS PPG)
 * <br/><br/>
-* Recommended action: Check the value for <code>options.ppgUrl</code> in the static <code>create</code> function.
-* If the value looks correct, then the issue might be that the PPG is temporarily unavailable.
-* Waiting a bit and retrying the operation might correct the issue.
+* Recommended action: Specifying a valid value for <code>options.ppgUrl</code> in the static <code>create</code> 
+* function and retrying might correct the issue.
 * @type Number
 * @constant
 * @static
 * @BB10X
-* @default 10113
+* @default 10114
 */
-blackberry.push.PushService.INVALID_PPG_URL_OR_PPG_UNAVAILABLE : 10113;
+blackberry.push.PushService.INVALID_PPG_URL : 10114;
 
 /**
-* Constant associated with the create channel operation.
+* Constant associated with the createChannel operation.
 * <br/><br/>
 * Compare this constant against <code>pushTransportReadyCallback.lastFailedOperation</code> to determine
 * which failed operation should be tried again.
@@ -669,7 +688,7 @@ blackberry.push.PushService.INVALID_PPG_URL_OR_PPG_UNAVAILABLE : 10113;
 blackberry.push.PushService.CREATE_CHANNEL_OPERATION : 1;
 
 /**
-* Constant associated with the destroy channel operation.
+* Constant associated with the destroyChannel operation.
 * <br/><br/>
 * Compare this constant against <code>pushTransportReadyCallback.lastFailedOperation</code> to determine
 * which failed operation should be tried again.

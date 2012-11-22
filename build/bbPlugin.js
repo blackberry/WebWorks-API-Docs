@@ -245,6 +245,12 @@ BBTag.PlaybookSupport = function(){
     return pbSupport;
 }
 
+BBTag.PlaybookAndBB10Support = function(){
+    var pbAndBB10Support = new BBTag.Support();
+    pbAndBB10Support.populateByBools(false, false, false, true, true, true, false);
+    return pbAndBB10Support;
+}
+
 function isaClass($) {
     return ($.is("CONSTRUCTOR") || $.isNamespace) && !($.alias == "_global_")
 }

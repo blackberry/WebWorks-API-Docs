@@ -73,23 +73,31 @@
             }
 
             function runFilter() {
-                var filter = localStorage.getItem('selectedmenu');
-                var elements = getDesiredElements(document.body, 'x-ww-support');
-                for (var i = 0; i < elements.length; i++) {
-                    var target = elements[i];
-                    var x_ww_support = target.getAttribute('x-ww-support').split('|');
-                    if (x_ww_support.indexOf(filter) < 0) {
-                        target.style.display = 'none';
+                var ACCEPTABLE_FILTERS = ["bb_menu", "pb_menu", "bb10_menu"],
+                    filter = localStorage.getItem('selectedmenu'),
+                    elements,
+                    target,
+                    x_ww_support,
+                    i;
+
+                if (ACCEPTABLE_FILTERS.indexOf(filter) !== -1) {
+                    elements = getDesiredElements(document.body, 'x-ww-support');
+                    for (i = 0; i < elements.length; i++) {
+                        target = elements[i];
+                        x_ww_support = target.getAttribute('x-ww-support').split('|');
+                        if (x_ww_support.indexOf(filter) < 0) {
+                            target.style.display = 'none';
+                        }
                     }
                 }
             }
-            
+
             if(window.attachEvent) {
                 window.attachEvent('onload', runFilter);
             } else {
                 if(window.onload) {
-                    var curronload = window.onload;
-                    var newonload = function() {
+                    var curronload = window.onload,
+                        newonload = function() {
                         curronload();
                         runFilter();
                     };
@@ -284,7 +292,7 @@
                     </td></tr></tbody></table>
                 </if>
 
-                <div x-ww-support="{+BBTag.PlaybookSupport().supportTag+}">
+                <div x-ww-support="{+BBTag.PlaybookAndBB10Support().supportTag+}">
                     <if test="data.permission">
                         {!
                             mandatoryPermissions = data.permission.filter(function($){return !$.isOptional}).sort(makeSortby("name"));
@@ -293,7 +301,7 @@
                     </if>
                     <table>
                         <tr>
-                            <th>Permission Elements (PlayBook Only)</th>
+                            <th>Permission Elements (PlayBook and BlackBerry 10+)</th>
                         </tr>
                         <if test="data.permission">
                             <if test="mandatoryPermissions.length">
@@ -302,7 +310,7 @@
                                 </i></td></tr>
                                 <for each="item" in="mandatoryPermissions">
                                     <tr><td>
-                                        - &lt;rim:permit&gt;{+item.name+}&lt;/rim:permit&gt;
+                                        - &lt;rim:permit{+item.type === "system" ? " system = 'true'&gt;" : "&gt;"+}{+item.name+}&lt;/rim:permit&gt;
                                         <br />
                                         {+item.desc+}
                                         <br />
@@ -320,7 +328,7 @@
 
                                 <for each="item" in="optionalPermissions">
                                     <tr><td>
-                                        - &lt;rim:permit&gt;{+item.name+}&lt;/rim:permit&gt;
+                                        - &lt;rim:permit{+item.type === "system" ? " system = 'true'&gt;" : "&gt;"+}{+item.name+}&lt;/rim:permit&gt;
                                         <br />
                                         {+item.desc+}
                                         <br />

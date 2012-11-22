@@ -17,7 +17,7 @@
 /**
  * @beta
  * @namespace The Connection object gives access to the device's cellular and wifi connection information.
- * @toc {Connection} Connection
+ * @toc {System} Connection
  * @featureID blackberry.connection
  */
 blackberry.connection = {
@@ -36,7 +36,7 @@ blackberry.connection = {
         * @BB10X
         * @description This event is fired by the system. If you want to listen to the event you can do so using the {@link blackberry.event.addEventListener} function and remove the listener using the {@link blackberry.event.removeEventListener} function. <br/>
         */
-        
+
        /**
         * @description The <b>connectionchange</b> event is triggered whenever the network connection type changes.
         * @callback {function} yourCallbackFunction The callback function that will be invoked on the connectionchange event.
@@ -145,4 +145,4 @@ blackberry.connection = {
          */
 
          WIFI : "wifi"
-}
+};
