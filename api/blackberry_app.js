@@ -57,12 +57,11 @@ blackberry.app ={
 
     /**
      * @description This function will lock the application's screen to the given orientation.
-     * @param {String} orientation The orientation to lock the device to. If the device is currently not in this orientation, the application will rotate then lock. 
-     * @param {Boolean} [receiveRotateEvents] Optional parameter to allow rotation events to still occur while the screen is locked.
+     * @param {String} orientation The orientation to lock the device to. If the device is currently not in this orientation, the application will rotate then lock.Orientation can be landscape-primary, landscape-secondary, portrait-primary, portrait-secondary.
      * @BB10X
      * @RIPPLE
      */
-    lockOrientation: function(orientation, receiveRotateEvents){},
+    lockOrientation: function(orientation){},
 
     /**
      * @description This function will unlock the screen rotating if it was previously locked.
@@ -72,8 +71,8 @@ blackberry.app ={
     unlockOrientation: function(){},
 
     /**
-     * @description This function will rotate the application.
-     * @param {String} orientation The orientation to rotate the device to.
+     * @description This function will rotate the application even if the application is locked.
+     * @param {String} orientation The orientation to rotate the device to. Orientation can be landscape-primary, landscape-secondary, portrait-primary, portrait-secondary.
      * @BB10X
      * @RIPPLE
      */
@@ -450,7 +449,7 @@ A banner indicator can have an optional numeric value that usually serves as a c
 
    /**
     * @description The <b>orientationchange</b> event is triggered when the user changes the orientation of the device.
-    * @callback {function} yourCallbackFunction The callback function that will be invoked on the orientationchange event
+    * @callback {function} yourCallbackFunction The callback function that will be invoked on the orientationchange event. Orientation can be landscape-primary, landscape-secondary, portrait-primary, portrait-secondary.
     * @example
     * &lt;script type="text/javascript"&gt;
     *
