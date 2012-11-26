@@ -243,6 +243,62 @@ blackberry.invoke.card = {
         invokeFilePicker : function(options, onSave, onCancel, onInvoke){},
 
         /**
+         * @description Invokes the IcsViewer Card.
+         * @param {blackberry.invoke.card.IcsViewerOptions} options An object to type {@link blackberry.invoke.card.IcsViewerOptions} describes all the options available for IcsViewer.
+         * @callback {function} onDone The callback function that will be triggered .
+         * @callback {String} [onDone.data] A data string might be an empty or to contain some information.
+         * @callback {function} onCancel The callback function that will be triggered when the card invocation has been cancelled.
+         * @callback {String} [onCancel.reason] A string that describes the reason the IcsViewer was cancelled.
+         * @callback {function} onInvoke The callback function that will be triggered when the IcsViewer card is invoked.
+         * @callback {String} [onInvoke.error] A String that describes if there was an error. No error will be returned on success.
+         *
+         * @BB10X
+         * @example
+         * &lt;script type="text/javascript"&gt;
+         *
+         * //invoke the IcsViewer Card
+         * function invokeIcsViewer(options) {
+         *   blackberry.invoke.card.invokeIcsViewer(options, function (data) {
+         *         alert("Card is done");
+         *       },
+         *       function (reason) {
+         *         alert("cancelled " + reason);
+         *       },
+         *       function (error) {
+         *         if (error) {
+         *           alert("invoke error "+ error);
+         *         } else {
+         *           console.log("invoke success " );
+         *         }
+         *       }
+         *   );
+         * }
+         *
+         *
+         * //invoke IcsViewer with no account id provided
+         * function invokeIcsViewerNoAccountId() {
+         *   var options = {
+         *     uri: "file:///accounts/1000/shared/documents/test.ics"
+         *   };
+         *
+         *   invokeIcsViewer(options);
+         * }
+         *
+         * //invoke IcsViewer with an account id provided
+         * function invokeIcsViewerWithAccountId() {
+         *   var options = {
+         *     uri: "file:///accounts/1000/shared/documents/test.ics",
+         *     accountId: 1
+         *   };
+         *
+         *   invokeIcsViewer(options);
+         * }
+         *
+         * &lt;/script&gt;
+         */
+        invokeIcsViewer : function(options, onSave, onCancel, onInvoke){},
+
+        /**
          * @description Invokes the MediaPlayer Card.
          * @param {blackberry.invoke.card.MediaPlayerOptions} options An object to type {@link blackberry.invoke.card.MediaPlayerOptions} describe all the options available for meida player.
          * @callback {function} onDone The callback function that will be triggered when the user finished with the media player.
