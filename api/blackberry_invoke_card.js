@@ -26,7 +26,7 @@ blackberry.invoke.card = {
         /**
          * @description Invokes the Camera Card.
          * @param {String} mode A string to specify the photo video or full mode.
-         * @callback {function} onSave The callback function that will be triggerd if the user saves a picture or video.
+         * @callback {function} onSave The callback function that will be triggered if the user saves a picture or video.
          * @callback {String} [onSave.path] A String that describes the path of the file saved.
          * @callback {function} onCancel The callback function that will be triggered if the user does not save and simply quits the camera.
          * @callback {String} [onCancel.reason] A String that describes the reason the camera was cancelled.
@@ -84,7 +84,7 @@ blackberry.invoke.card = {
         /**
          * @description Invokes the FilePicker Card.
          * @param {blackberry.invoke.card.FilePickerOptions} options An object to type {@link blackberry.invoke.card.FilePickerOptions} describe all the options available for FilePicker.
-         * @callback {function} onDone The callback function that will be triggerd if the user selects file(s) or folder(s).
+         * @callback {function} onDone The callback function that will be triggered if the user selects file(s) or folder(s).
          * @callback {String} [onDone.pathArray] An Array that describes the path of each of the files saved.
          * @callback {function} onCancel The callback function that will be triggered if the user does not select file(s) or folder(s) and simply cancels.
          * @callback {String} [onCancel.reason] A String that describes the reason the FilePicker was cancelled.
@@ -241,6 +241,73 @@ blackberry.invoke.card = {
          * &lt;/script&gt;
          */
         invokeFilePicker : function(options, onSave, onCancel, onInvoke){},
+
+        /**
+         * @description Invokes the MediaPlayer Card.
+         * @param {blackberry.invoke.card.MediaPlayerOptions} options An object to type {@link blackberry.invoke.card.MediaPlayerOptions} describe all the options available for meida player.
+         * @callback {function} onDone The callback function that will be triggered when the user finished with the media player.
+         * @callback {String} [onDone.data] The data string back from the media player.
+         * @callback {function} onCancel The callback function that will be triggered if the user cancel the media player.
+         * @callback {String} [onCancel.reason] A String that describes the reason the MediaPlayer was cancelled.
+         * @callback {function} onInvoke The callback function that will be triggered when the media player is invoked.
+         * @callback {String} [onInvoke.error] A String that describes if there was an error. No error will be returned on success.
+         *
+         * @BB10X
+         * @example
+         * &lt;script type="text/javascript"&gt;
+         *
+         * //invoke the mediaPlayer Card
+         * function invokeMediaPlayer(options) {
+         *   blackberry.invoke.card.invokeMediaPlayer(options, function (data) {
+         *       alert("Done: "+ data);
+         *     },
+         *     function (reason) {
+         *       alert("cancelled: " + reason);
+         *     },
+         *     function (error) {
+         *       if (error) {
+         *         alert("invoke error "+ error);
+         *       } else {
+         *         console.log("invoke success");
+         *       }
+         *     }
+         *   );
+         * }
+         *
+         *
+         * //Invoke media player with the only title set.
+         * function invokeMediaPlayerWithTitle() {
+         *   var options = {
+         *     contentTitle: "Just Title",
+         *   };
+         *
+         *   invokeMediaPlayer(options);
+         * }
+         *
+         * //Invoke media player with title and video.
+         * function invokeMediaPlayerTitleAndVideo() {
+         *   var options = {
+         *     contentTitle: "My First Record",
+         *     contentUri: "file:///accounts/1000/shared/camera/VID_00000001.mp4"
+         *   };
+         *
+         *   invokeMediaPlayer(options);
+         * }
+         *
+         * //Invoke media player with title, audio and a background image.
+         * function invokeMediaPlayerTitleAudioAndImage() {
+         *   var options = {
+         *     contentTitle: "My First Record",
+         *     contentUri: "file:///accounts/1000/shared/camera/AUD_00000001.m4a,
+         *     imageUri: "local:///Background4MediaPlayerAudio.jpg"
+         *   };
+         *
+         *   invokeMediaPlayer(options);
+         * }
+         *
+         * &lt;/script&gt;
+         */
+        invokeMediaPlayer : function(options, onSave, onCancel, onInvoke){},
 
         /**
          * @type String
