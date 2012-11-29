@@ -27,12 +27,15 @@
  *     alert("Current azimuth: " + data.value);
  * }
  *
- * // Start listening to the compass sensor with a delay feedback of 1000 
- * blackberry.sensors.setOptions("devicecompass", { delay : 1000 });
+ * // Start listening to the compass sensor with a delay feedback of 1000 microseconds 
+ * blackberry.sensors.setOptions("devicecompass", { delay: 1000 });
  *    
  * // Start the event listener for the sensors callback
  * blackberry.event.addEventListener("devicecompass", compassCallback);
  *    
+ * // Set the sensor to work in the background and use batching mode
+ * blackberry.sensors.setOptions("devicecompass", { background: true, batching: true });
+ *
  * &lt;/script&gt;
  */
 blackberry.sensors ={
@@ -191,7 +194,7 @@ blackberry.sensors ={
     /**
      * @param {String} sensor The sensor to listen to.
      * @param {Object} options The options for the sensor being started.
-     * @description This method will start a sensor with the specifed options and begin returning it to the added event listener.<br>
+     * @description This function will set a sensor with the specifed options. Sensor options can be set before or after the sensor is active.<br>
      * <br>The supported object fields for 'options' are:
      * @param {String} [options.delay] Time in µs (microseconds) to report back between sensor updates.
      * @param {Boolean} [options.background] Allow sensor to send updates while the screen is off.
@@ -201,4 +204,11 @@ blackberry.sensors ={
      * @BB10X
      */
     setOptions: function(sensor, options){},
+
+    /**
+     * Returns an array of the supported sensors on the current device.
+     * @readOnly
+     * @BB10X
+     */
+    supportedSensors: []
 };
