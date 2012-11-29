@@ -56,6 +56,12 @@ blackberry.app ={
 	exit: function(){},
 
     /**
+     * @description Minimizes the application window to a thumbnail and sends the user to the application switcher on the home screen. This will trigger the pause event.
+     * @BB10X
+     */
+    minimize: function(){},
+
+    /**
      * @description This function will lock the application's screen to the given orientation.
      * @param {String} orientation The orientation to lock the device to. If the device is currently not in this orientation, the application will rotate then lock.Orientation can be landscape-primary, landscape-secondary, portrait-primary, portrait-secondary.
      * @BB10X
