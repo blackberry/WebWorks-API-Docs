@@ -172,4 +172,22 @@ blackberry.pim.contacts = {
          * @BB10X
          */
         find : function () {}
+
+         /**
+         * @name blackberry.pim.contacts.getContact
+         * @function
+         * @description Retrieves the contact with specified contactId. This function is especially useful if you have
+         * previously obtained an contact object, and you want to get a fresh copy from the backend to make sure all its properties
+         * are up-to-date.
+         * @param {String} contactId The identifier of the contact
+         * @returns {blackberry.pim.contacts.Contact}
+         * @example
+         * var contacts = blackberry.pim.contacts;
+         *
+         * function getContactById(contactId) {
+         *     var newContact = contacts.getContact(contactId));
+         * }
+         * @BB10X
+         */
+         getContact: function (contactId) {}
 }
