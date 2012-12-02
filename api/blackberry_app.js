@@ -35,6 +35,8 @@
  *				output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;License URL&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.licenseURL + "&lt;/td&gt;&lt;/tr&gt;";
  *				output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.name + "&lt;/td&gt;&lt;/tr&gt;";
  *				output += "&lt;tr&gt;&lt;td&gt;&lt;Version&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.version + "&lt;/td&gt;&lt;/tr&gt;";
+ *				output += "&lt;tr&gt;&lt;td&gt;&lt;Orientation&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.orientation + "&lt;/td&gt;&lt;/tr&gt;";
+ *				output += "&lt;tr&gt;&lt;td&gt;&lt;Window State&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.windowState + "&lt;/td&gt;&lt;/tr&gt;";
  *
  *				details.innerHTML = output;
  *			}
@@ -251,7 +253,6 @@ A banner indicator can have an optional numeric value that usually serves as a c
      */
     orientation : "",
 
-
 	/**
 	 * @description The version of the BlackBerry WebWorks Application that is specified in the config.xml file.
 	 * @BB50+
@@ -263,7 +264,14 @@ A banner indicator can have an optional numeric value that usually serves as a c
 	 */
 	version : "",
 
-
+    /**
+     * @description The current window state of the application.
+     * This will be equal to "fullscreen" when the application is considered to be fullscreen and should be running normally. It will have a value of "thumbnail" when the application has been sized smaller than fullscreen. It will be equal to "invisible" when the application's window is not visible to the user. This could be due to being positioned off the screen or when the LCD is turned off.
+     * @BB10X
+     * @readonly
+     * @type String
+     */
+    windowState : "",
 
 	/**
      * Returns a JSON object containing all properties of the application.
@@ -355,6 +363,25 @@ A banner indicator can have an optional numeric value that usually serves as a c
     * &lt;/script&gt;
     */
    resume : function(){},
+   
+   /**
+    * @description The <b>windowstatechanged</b> event is triggered whenever the application window's state has changed.
+    * Something important to note is that this event will not be triggered on application startup. If you need to know
+    * the window state when an application starts, look at the value of the <b>windowState</b> property.
+    * @callback {function} yourCallbackFunction The callback function that will be invoked on the windowstatechanged event
+    * @callback {String} yourCallbackFunction.state The new window state of the application (i.e. "fullscreen", "thumbnail", or "invisible")
+    * @example
+    * &lt;script type="text/javascript"&gt;
+    *
+    * function onWindowStateChange(state) {
+    *   alert("Window state was changed to: " + state);
+    * }
+    *
+    * blackberry.event.addEventListener("windowstatechanged", onWindowStateChange);
+    *
+    * &lt;/script&gt;
+    */
+   windowstatechanged : function(){},
 
    /**
     * @description The <b>swipedown</b> event is triggered when the user swipes down from the top of the application.
