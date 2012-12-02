@@ -242,7 +242,7 @@ blackberry.invoke.card = {
          */
         invokeFilePicker : function(options, onSave, onCancel, onInvoke){},
 
-        /**
+       /**
          * @description Invokes the IcsViewer Card.
          * @param {blackberry.invoke.card.IcsViewerOptions} options An object to type {@link blackberry.invoke.card.IcsViewerOptions} describes all the options available for IcsViewer.
          * @callback {function} onDone The callback function that will be triggered .
@@ -463,7 +463,102 @@ blackberry.invoke.card = {
          */
         invokeTargetPicker : function(options, title, onSuccess, onError) {},
 
+        /*
+         * @description Invokes calendar event picker card
+         * @param {blackberry.invoke.card.CalendarPickerOptions} options An object of type {@link blackberry.invoke.card.CalendarPickerOptions} which describes all options available to the event picker.
+         * @callback {function} onDone The callback function that will be triggered when the user finished with the event picker.
+         * @callback {String} [onDone.data] The data string back from the event picker.
+         * @callback {function} onCancel The callback function that will be triggered if the user cancel the event picker.
+         * @callback {String} [onCancel.reason] A String that describes the reason the event picker was cancelled.
+         * @callback {function} onInvoke The callback function that will be triggered when the event picker is invoked.
+         * @callback {String} [onInvoke.error] A String that describes if there was an error. No error will be returned on success.
+         *
+         * @BB10X
+         * @example
+         * &lt; script="text/javascript"&gt;
+         * //simply invoke calendar picker, with no options and callbacks
+         * blackberry.invoke.card.invokeCalendarPicker();
+         *
+         * //invoke calendar event picker with filepath option
+         * blackberry.invoke.card.invokeCalendarPicker({filepath: "/path/to/file.vcs"}, function (done) {
+         *     console.log(done);
+         * }, function (cancel) {
+         *     console.log(cancel)
+         * }, function (invokeError) {
+         *     console.log(invokeError);
+         * });
+         * &lt;/script&gt;
+         */
+        invokeCalendarPicker: function (options, onDone, onCancel, onInvoke){},
 
+
+        /**
+         * @description Invokes calendar event composer card
+         * @param {blackberry.invoke.card.CalendarComposerOptions} options An object of type {@link blackberry.invoke.card.CalendarComposerOptions} which describes all options available to the event composer.
+         * @callback {function} onDone The callback function that will be triggered when the user finished with the event composer.
+         * @callback {String} [onDone.data] The data string back from the event composer.
+         * @callback {function} onCancel The callback function that will be triggered if the user cancel the event composer.
+         * @callback {String} [onCancel.reason] A String that describes the reason the event composer was cancelled.
+         * @callback {function} onInvoke The callback function that will be triggered when the event composer is invoked.
+         * @callback {String} [onInvoke.error] A String that describes if there was an error. No error will be returned on success.
+         *
+         * @BB10X
+         * @example
+         * &lt; script="text/javascript"&gt;
+         * //simply invoke calendar composer, with no options and callbacks
+         * blackberry.invoke.card.invokeCalendarComposer();
+         *
+         * //invoke calendar event composer with subject, body, participants, startTime and duration options
+         * blackberry.invoke.card.invokeCalendarComposer({
+         *     subject: "Event Name",
+         *     body: "Notes about this event",
+         *     participants: ["a@a.ca", "b@b.com"],
+         *     startTime: "Wed Jun 25 11:00:00 2012",
+         *     duration: 30
+         * }, function (done) {
+         *     console.log(done);
+         * }, function (cancel) {
+         *     console.log(cancel)
+         * }, function (invokeError) {
+         *     console.log(invokeError);
+         * });
+         * &lt;/script&gt;
+         */
+        invokeCalendarComposer: function (options, onDone, onCancel, onInvoke){},
+
+        /**
+         * @description Invokes email composer card
+         * @param {blackberry.invoke.card.EmailComposerOptions} options An object of type {@link blackberry.invoke.card.EmailComposerOptions} which describes all options available to the email composer.
+         * @callback {function} onDone The callback function that will be triggered when the user finished with the email composer.
+         * @callback {String} [onDone.data] The data string back from the email composer.
+         * @callback {function} onCancel The callback function that will be triggered if the user cancel the email composer.
+         * @callback {String} [onCancel.reason] A String that describes the reason the email composer was cancelled.
+         * @callback {function} onInvoke The callback function that will be triggered when the email composer is invoked.
+         * @callback {String} [onInvoke.error] A String that describes if there was an error. No error will be returned on success.
+         *
+         * @BB10X
+         * @example
+         * &lt; script="text/javascript"&gt;
+         * //simply invoke email composer, with no options and callbacks
+         * blackberry.invoke.card.invokeEmailComposer();
+         *
+         * //invoke email composer with subject, body, to, cc and attachment options
+         * blackberry.invoke.card.invokeEmailComposer({
+         *     subject: "Email subject",
+         *     body: "Email body",
+         *     to: ["a@a.ca", "b@b.com"],
+         *     cc: ["c@c.ca, d@d.com"],
+         *     attachment: ["/path/to/an/attachment.txt", "path/to/another/attachment.txt"]
+         * }, function (done) {
+         *     console.log(done);
+         * }, function (cancel) {
+         *     console.log(cancel)
+         * }, function (invokeError) {
+         *     console.log(invokeError);
+         * });
+         * &lt;/script&gt;
+         */
+        invokeEmailComposer: function (options, onDone, onCancel, onInvoke){},
 
         /**
          * @type String
