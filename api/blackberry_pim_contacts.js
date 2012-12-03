@@ -171,7 +171,7 @@ blackberry.pim.contacts = {
          *
          * @BB10X
          */
-        find : function () {}
+        find : function () {},
 
          /**
          * @name blackberry.pim.contacts.getContact
@@ -185,9 +185,102 @@ blackberry.pim.contacts = {
          * var contacts = blackberry.pim.contacts;
          *
          * function getContactById(contactId) {
-         *     var newContact = contacts.getContact(contactId));
+         *     var contact = contacts.getContact(contactId);
+         *     if (contact) {
+         *        alert("Contact id #" + contactId + " corresponds to '" + contact.name.givenName + " " + contact.name.familyName +"'.");
+         *     } else {
+         *        alert("There is no contact with id: " + contactId);
+         *     }
          * }
          * @BB10X
          */
-         getContact: function (contactId) {}
+         getContact: function (contactId) {},
+
+        /**
+         * @name blackberry.pim.contacts.invokeContactPicker
+         * @function
+         * @description Invokes contact picker card.
+         * @param {blackberry.pim.contacts.ContactPickerOptions} options An object of type {@link blackberry.pim.contacts.ContactPickerOptions} which describes all options available to the contact picker.
+         * @param {function} onDone The callback function that will be triggered when the user is finished with the contact picker.
+         * @callback {Object} onDone.data The data returned by the contact picker. The returned data varies depends on the picker mode.
+         * <ol>
+         * <li>If mode = {@link blackberry.pim.contacts.ContactPickerOptions.MODE_SINGLE}:<pre>
+         * {
+         *    // id of the selected contact
+         *    contactId: "123"
+         * }</pre>
+         * </li>
+         * <li>If mode = {@link blackberry.pim.contacts.ContactPickerOptions.MODE_MULTIPLE}:<pre>
+         * {
+         *    // ids of the selected contacts
+         *    contactIds: ["123", "456", "789"]
+         * }</pre></li>
+         * <li>If mode = {@link blackberry.pim.contacts.ContactPickerOptions.MODE_ATTRIBUTE}:<pre>
+         * {
+         *    // id of the contact
+         *    contactId: "193",
+         *    // value of the selected attribute
+         *    value: "1234567890",
+         *    // field name of the selected attribute
+         *    field: "phoneNumbers",
+         *    // field type of the selected attribute
+         *    type: "work"
+         * }</pre>
+         * </li>
+         * </ol>
+         * @param {function} onCancel The callback function that will be triggered if the user presses cancel in the contact picker.
+         * @param {function} onInvoke The callback function that will be triggered when the contact picker is invoked.
+         * @callback {blackberry.pim.contacts.ContactError} [onInvoke.error] The {@link blackberry.pim.contacts.ContactError} object which contains the error code. If the contact picker is invoked successfully, the error object will be undefined.
+         * @example
+         * var contacts = blackberry.pim.contacts,
+         *     ContactPickerOptions = contacts.ContactPickerOptions;
+         *
+         * function onCancel() {
+         *     alert("User pressed cancel in contact picker.");
+         * }
+         *
+         * function onInvoke(error) {
+         *     if (error) {
+         *        alert("Error invoking contact picker: " + error.code);
+         *     } else {
+         *        alert("Contact picker invoked!");
+         *     }
+         * }
+         *
+         * function onContactSelected(data) {
+         *     alert("Id of selected contact: " + data.contactId);
+         * }
+         *
+         * function onContactsSelected(data) {
+         *     alert("Total # contacts selected: " + data.contactIds.length);
+         * }
+         *
+         * function onContactAttributeSelected(data) {
+         *     alert("The selected field '" + data.field + "(" + data.type + ")' has value '" + data.value + "' belongs to contact with id: " + data.contactId);
+         * }
+         *
+         * function invokeContactPickerSingle() {
+         *     contacts.invokeContactPicker({
+         *         mode: ContactPickerOptions.MODE_SINGLE,
+         *         fields: ["phoneNumbers"]
+         *     }, onContactSelected, onCancel, onInvoke);
+         * }
+         *
+         * function invokeContactPickerMultiple() {
+         *     contacts.invokeContactPicker({
+         *         mode: ContactPickerOptions.MODE_MULTIPLE,
+         *         fields: ["phoneNumbers"]
+         *     }, onContactsSelected, onCancel, onInvoke);
+         * }
+         *
+         * function invokeContactPickerAttribute() {
+         *     contacts.invokeContactPicker({
+         *         mode: ContactPickerOptions.MODE_ATTRIBUTE,
+         *         fields: ["phoneNumbers", "emails"]
+         *     }, onContactAttributeSelected, onCancel, onInvoke);
+         * }
+         *
+         * @BB10X
+         */
+        invokeContactPicker: function () {}
 }
