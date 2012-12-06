@@ -47,7 +47,7 @@ blackberry.ui.toast ={
          *        },
          *        options = {
          *          buttonText : buttonText,
-         *          dissmissCallback : onToastDismissed,
+         *          dismissCallback : onToastDismissed,
          *          buttonCallback : onButtonSelected
          *        };
          *
