@@ -116,6 +116,24 @@
  *   recEvent = calendar.createEvent({"summary": summary, "location": venue, "start": start, "end": end, "recurrence": rule});
  *   recEvent.save(onSaveSuccess, onSaveError);
  * }
+ *
+ * // Create an event that repeats on the last day of
+ * // every month with 4 occurrences
+ * function createEventRepeatsLastDayOfEveryMonth() {
+ *    var start = new Date("Jan 31, 2013, 12:00"),
+ *        end = new Date("Jan 31, 2013, 12:30"),
+ *        venue = "some location",
+ *        summary = "Last day of each month with 4 occurrences",
+ *        rule = {
+ *            "frequency": CalendarRepeatRule.FREQUENCY_MONTHLY_AT_A_WEEK_DAY,
+ *            "numberOfOccurrences": 4,
+ *            "dayInWeek": CalendarRepeatRule.LAST_DAY_IN_MONTH
+ *        };
+ *
+ *   recEvent = calendar.createEvent({"summary": summary, "location": venue, "start": start, "end": end, "recurrence": rule});
+ *   recEvent.save(onSaveSuccess, onSaveError);
+ * }
+ *
  */
 blackberry.pim.calendar.CalendarRepeatRule = {};
 
@@ -171,7 +189,9 @@ blackberry.pim.calendar.CalendarRepeatRule.prototype.numberOfOccurrences = 0;
  * Refer to {@link blackberry.pim.calendar.CalendarRepeatRule.SUNDAY}, {@link blackberry.pim.calendar.CalendarRepeatRule.MONDAY},
  * {@link blackberry.pim.calendar.CalendarRepeatRule.TUESDAY}, {@link blackberry.pim.calendar.CalendarRepeatRule.WEDNESDAY},
  * {@link blackberry.pim.calendar.CalendarRepeatRule.THURSDAY}, {@link blackberry.pim.calendar.CalendarRepeatRule.FRIDAY}, and
- * {@link blackberry.pim.calendar.CalendarRepeatRule.SATURDAY}
+ * {@link blackberry.pim.calendar.CalendarRepeatRule.SATURDAY}.
+ * <p>
+ * If an event should repeat on the last day of every month, you should set this field to {@link blackberry.pim.calendar.CalendarRepeatRule.LAST_DAY_IN_MONTH}
  * @type Number
  * @BB10X
  */
@@ -184,7 +204,6 @@ blackberry.pim.calendar.CalendarRepeatRule.prototype.dayInWeek = 0;
  * <li>monthly or</li>
  * <li>yearly</li>
  * </ul>
- * See also {@link blackberry.pim.calendar.CalendarRepeatRule.LAST_DAY_IN_MONTH}
  * @type Number
  * @BB10X
  */

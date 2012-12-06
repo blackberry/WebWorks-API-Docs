@@ -276,6 +276,37 @@ blackberry.invoke = {
         FILE_TRANSFER_PRESERVE : 'PRESERVE',
 
         /**
+         * @type Function
+         * @description Registers a function that is triggered during invocation as an interrupter. Allows developers to interrupt the invocation, and perform any action they please.
+         *              Developers are passed the invocation object, and can perform any modifications to it they like. The modifications should be returned from the function
+         * @param {function} onInvoke function that is triggered on invoke
+         * @returns {object} modified request from the user to the system to be run on invocation
+         * @BB10X
+         * @example
+         * &lt;script type="text/javascript"&gt;
+         *
+         *  function registerForInvokeInterrupter() {
+         *      blackberry.invoke.interrupter = function (request) {
+         *          if(confirm("System would like to invoke: " + request + " would you like to continue?")) {
+         *              return request;
+         *          } else {
+         *              alert("User canceled invocation");
+         *          }
+         *      };
+         *  }
+         *
+         *  function clearInterrupter () {
+         *      blackberry.invoke.interrupter = null;
+         *  }
+         *
+         *  registerForInvokeInterrupter();
+         *  clearInterrupter();
+         *  &lt;/script&gt;
+         */
+        interrupter : Function,
+
+
+        /**
          * @name blackberry.invoke.invoke^2
          * @function
          * @description Invokes another application on the BlackBerry PlayBook or Blackberry OS 5.0+.

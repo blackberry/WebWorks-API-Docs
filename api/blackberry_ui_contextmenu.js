@@ -107,6 +107,32 @@ blackberry.ui.contextmenu = {
  */
 removeItem: function (){},
 
+ /**
+ * @description Allows the developer to define a custom context.
+ * @param {String} context A String representing the custom context.
+ * @param {Object} options An Object that contains the various options to set for the custom context.
+ * @param {Array} options.includeContextItems An Array that defines a list of contexts to which custom items will be used from when applicable.
+ * @param {boolean} options.includePlatformItems An boolean indicating whether to include the default platform items.
+ * @param {boolean} options.includeMenuServiceItems An boolean indicating whether to add menu items provided by the menu service.
+ * @BB10X
+ * @RIPPLE
+ * @example
+ * &lt;script type="text/javascript"&gt;
+ *
+ * function defineCustomContext() {
+ *     var options = {
+ *         includeContextItems: [blackberry.ui.contextmenu.CONTEXT_IMAGE],//Includes custom items added for CONTEXT_IMAGE
+ *         includePlatformItems: true,
+ *         includeMenuServiceItems: true
+ *     };
+ *
+ *     blackberry.ui.contextmenu.defineCustomContext("myContext", options)
+ * }
+ * &lt;/script&gt;
+ *
+ */
+defineCustomContext: function (){},
+
 /**
  * Constant denoting all contexts.
  * @type String

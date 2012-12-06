@@ -134,6 +134,14 @@ blackberry.system ={
     getCurrentTimezone: function () {},
 
     /**
+     * @description  Set the wallpaper using the path to the file provided.
+     * @param {String} filePath Path to the file to be used as wallpaper.
+     * 
+     * @BB10X
+     */
+    setWallpaper: function(filePath) {},
+
+    /**
      * @uri
      * @BB50+
      * @PB10+
