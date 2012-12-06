@@ -26,7 +26,7 @@ blackberry.invoke.card = {
         /**
          * @description Invokes the Camera Card.
          * @param {String} mode A string to specify the photo video or full mode.
-         * @callback {function} onSave The callback function that will be triggerd if the user saves a picture or video.
+         * @callback {function} onSave The callback function that will be triggered if the user saves a picture or video.
          * @callback {String} [onSave.path] A String that describes the path of the file saved.
          * @callback {function} onCancel The callback function that will be triggered if the user does not save and simply quits the camera.
          * @callback {String} [onCancel.reason] A String that describes the reason the camera was cancelled.
@@ -84,7 +84,7 @@ blackberry.invoke.card = {
         /**
          * @description Invokes the FilePicker Card.
          * @param {blackberry.invoke.card.FilePickerOptions} options An object to type {@link blackberry.invoke.card.FilePickerOptions} describe all the options available for FilePicker.
-         * @callback {function} onDone The callback function that will be triggerd if the user selects file(s) or folder(s).
+         * @callback {function} onDone The callback function that will be triggered if the user selects file(s) or folder(s).
          * @callback {String} [onDone.pathArray] An Array that describes the path of each of the files saved.
          * @callback {function} onCancel The callback function that will be triggered if the user does not select file(s) or folder(s) and simply cancels.
          * @callback {String} [onCancel.reason] A String that describes the reason the FilePicker was cancelled.
@@ -241,6 +241,324 @@ blackberry.invoke.card = {
          * &lt;/script&gt;
          */
         invokeFilePicker : function(options, onSave, onCancel, onInvoke){},
+
+       /**
+         * @description Invokes the IcsViewer Card.
+         * @param {blackberry.invoke.card.IcsViewerOptions} options An object to type {@link blackberry.invoke.card.IcsViewerOptions} describes all the options available for IcsViewer.
+         * @callback {function} onDone The callback function that will be triggered .
+         * @callback {String} [onDone.data] A data string might be an empty or to contain some information.
+         * @callback {function} onCancel The callback function that will be triggered when the card invocation has been cancelled.
+         * @callback {String} [onCancel.reason] A string that describes the reason the IcsViewer was cancelled.
+         * @callback {function} onInvoke The callback function that will be triggered when the IcsViewer card is invoked.
+         * @callback {String} [onInvoke.error] A String that describes if there was an error. No error will be returned on success.
+         *
+         * @BB10X
+         * @example
+         * &lt;script type="text/javascript"&gt;
+         *
+         * //invoke the IcsViewer Card
+         * function invokeIcsViewer(options) {
+         *   blackberry.invoke.card.invokeIcsViewer(options, function (data) {
+         *         alert("Card is done");
+         *       },
+         *       function (reason) {
+         *         alert("cancelled " + reason);
+         *       },
+         *       function (error) {
+         *         if (error) {
+         *           alert("invoke error "+ error);
+         *         } else {
+         *           console.log("invoke success " );
+         *         }
+         *       }
+         *   );
+         * }
+         *
+         *
+         * //invoke IcsViewer with no account id provided
+         * function invokeIcsViewerNoAccountId() {
+         *   var options = {
+         *     uri: "file:///accounts/1000/shared/documents/test.ics"
+         *   };
+         *
+         *   invokeIcsViewer(options);
+         * }
+         *
+         * //invoke IcsViewer with an account id provided
+         * function invokeIcsViewerWithAccountId() {
+         *   var options = {
+         *     uri: "file:///accounts/1000/shared/documents/test.ics",
+         *     accountId: 1
+         *   };
+         *
+         *   invokeIcsViewer(options);
+         * }
+         *
+         * &lt;/script&gt;
+         */
+        invokeIcsViewer : function(options, onSave, onCancel, onInvoke){},
+
+        /**
+         * @description Invokes the MediaPlayer Card.
+         * @param {blackberry.invoke.card.MediaPlayerOptions} options An object to type {@link blackberry.invoke.card.MediaPlayerOptions} describe all the options available for meida player.
+         * @callback {function} onDone The callback function that will be triggered when the user finished with the media player.
+         * @callback {String} [onDone.data] The data string back from the media player.
+         * @callback {function} onCancel The callback function that will be triggered if the user cancel the media player.
+         * @callback {String} [onCancel.reason] A String that describes the reason the MediaPlayer was cancelled.
+         * @callback {function} onInvoke The callback function that will be triggered when the media player is invoked.
+         * @callback {String} [onInvoke.error] A String that describes if there was an error. No error will be returned on success.
+         *
+         * @BB10X
+         * @example
+         * &lt;script type="text/javascript"&gt;
+         *
+         * //invoke the mediaPlayer Card
+         * function invokeMediaPlayer(options) {
+         *   blackberry.invoke.card.invokeMediaPlayer(options, function (data) {
+         *       alert("Done: "+ data);
+         *     },
+         *     function (reason) {
+         *       alert("cancelled: " + reason);
+         *     },
+         *     function (error) {
+         *       if (error) {
+         *         alert("invoke error "+ error);
+         *       } else {
+         *         console.log("invoke success");
+         *       }
+         *     }
+         *   );
+         * }
+         *
+         *
+         * //Invoke media player with the only title set.
+         * function invokeMediaPlayerWithTitle() {
+         *   var options = {
+         *     contentTitle: "Just Title",
+         *   };
+         *
+         *   invokeMediaPlayer(options);
+         * }
+         *
+         * //Invoke media player with title and video.
+         * function invokeMediaPlayerTitleAndVideo() {
+         *   var options = {
+         *     contentTitle: "My First Record",
+         *     contentUri: "file:///accounts/1000/shared/camera/VID_00000001.mp4"
+         *   };
+         *
+         *   invokeMediaPlayer(options);
+         * }
+         *
+         * //Invoke media player with title, audio and a background image.
+         * function invokeMediaPlayerTitleAudioAndImage() {
+         *   var options = {
+         *     contentTitle: "My First Record",
+         *     contentUri: "file:///accounts/1000/shared/camera/AUD_00000001.m4a,
+         *     imageUri: "local:///Background4MediaPlayerAudio.jpg"
+         *   };
+         *
+         *   invokeMediaPlayer(options);
+         * }
+         *
+         * &lt;/script&gt;
+         */
+        invokeMediaPlayer : function(options, onSave, onCancel, onInvoke){},
+
+        /**
+         * @description Invokes the Target Picker Card.
+         * @param {Object} request Object literal that specifies what to invoke. None of the fields are required. Refer to the example code for more information.
+         * @param {String} [request.action] The action to be performed by the target.
+         * @param {String} [request.mime] MIME type of data to be acted on. If the MIME type is not specified then the mime type would be inferred from the given URI. If the MIME type cannot be inferred or URI field is empty then invocation will be rejected.
+         * @param {String} [request.uri] URI pointing to invocation data. If no URI is provided then this implies that the invocation data is provided in-band in the data field of the invocation request.
+         * @param {String|Blob} [request.data] Data (String or Blob) to be acted upon encoded based on the specified type.<br/>NOTE: If a String is passed, make sure that it does not contain unicode characters or invocation will fail.
+         * @param {String} title The title string that should appear at the top of the target picker card.
+         * @callback {function} onSuccess a callback that is called on successfull invocation of a target.
+         * @callback {function} onError a callback function that will be triggered on error during the invocation process.
+         *
+         * @BB10X
+         * @example
+         * &lt;script type="text/javascript"&gt;
+         *
+         * function onInvokeSuccess (msg) {
+         *     console.log("Invocation Success" + msg);
+         * }
+         *
+         * function onInvokeError (msg) {
+         *     console.log("Invocation Error: " + msg);
+         *  }
+         *
+         * function shareCardPNG() {
+         *     var request = {
+         *             action : 'bb.action.SHARE',
+         *             uri : 'local:///test_image.png',
+         *             target_type: ["CARD"]
+         *         };
+         *
+         *      blackberry.invoke.card.invokeTargetPicker(request, "Share Card JPEG", onInvokeSuccess, onInvokeError);
+         * }
+         *
+         * function shareCardFilePNG() {
+         *     var request = {
+         *         action : 'bb.action.SHARE',
+         *         uri : 'file://' + blackberry.io.home  + '/../app/native/manual/InvocationTest/test_image.png',
+         *         target_type: ["CARD"]
+         *     };
+         *
+         *     blackberry.invoke.card.invokeTargetPicker(request, "Share JPEGS Card", onInvokeSuccess, onInvokeError);
+         * }
+         *
+         * function sharePNG() {
+         *     var request = {
+         *         action : 'bb.action.SHARE',
+         *         uri : 'local:///test_image.png',
+         *         target_type: ["APPLICATION", "VIEWER", "CARD"]
+         *     };
+         *
+         *     blackberry.invoke.card.invokeTargetPicker(request, "Shared PNG", onInvokeSuccess, onInvokeError);
+         * }
+         *
+         * function sharePDFURI() {
+         *     var request = {
+         *         action : 'bb.action.SHARE',
+         *         uri : 'local:///test.pdf',
+         *         target_type: ["APPLICATION", "VIEWER"]
+         *     };
+         *
+         *     blackberry.invoke.card.invokeTargetPicker(request, "Shared PDF", onInvokeSuccess, onInvokeError);
+         * }
+         *
+         * function shareDocURI() {
+         *     var request = {
+         *         action : 'bb.action.SHARE',
+         *         uri : 'local:///test.docx',
+         *         target_type: ["APPLICATION", "VIEWER", "CARD"]
+         *     };
+         *
+         *     blackberry.invoke.card.invokeTargetPicker(request, "Share Word Document", onInvokeSuccess, onInvokeError);
+         * }
+         *
+         * function shareRemoteURL() {
+         *     var request = {
+         *         action : 'bb.action.SHARE',
+         *         uri : 'http://google.com',
+         *         target_type: ["APPLICATION", "VIEWER", "CARD"]
+         *     };
+         *
+         *     blackberry.invoke.card.invokeTargetPicker(request, "Shared Remote URL", onInvokeSuccess, onInvokeError);
+         * }
+         *
+         * function shareTextMockingSelection() {
+         *     var request = {
+         *         action : 'bb.action.SHARE',
+         *         mime : 'text/plain',
+         *         data : 'Some awesome text',
+         *         target_type: ["VIEWER", "CARD"]
+         *     };
+         *
+         *     blackberry.invoke.card.invokeTargetPicker(request, "Sharing Text", onInvokeSuccess, onInvokeError);
+         * }
+         *
+         * &lt;/script&gt;
+         */
+        invokeTargetPicker : function(options, title, onSuccess, onError) {},
+
+        /*
+         * @description Invokes calendar event picker card
+         * @param {blackberry.invoke.card.CalendarPickerOptions} options An object of type {@link blackberry.invoke.card.CalendarPickerOptions} which describes all options available to the event picker.
+         * @callback {function} onDone The callback function that will be triggered when the user finished with the event picker.
+         * @callback {String} [onDone.data] The data string back from the event picker.
+         * @callback {function} onCancel The callback function that will be triggered if the user cancel the event picker.
+         * @callback {String} [onCancel.reason] A String that describes the reason the event picker was cancelled.
+         * @callback {function} onInvoke The callback function that will be triggered when the event picker is invoked.
+         * @callback {String} [onInvoke.error] A String that describes if there was an error. No error will be returned on success.
+         *
+         * @BB10X
+         * @example
+         * &lt; script="text/javascript"&gt;
+         * //simply invoke calendar picker, with no options and callbacks
+         * blackberry.invoke.card.invokeCalendarPicker();
+         *
+         * //invoke calendar event picker with filepath option
+         * blackberry.invoke.card.invokeCalendarPicker({filepath: "/path/to/file.vcs"}, function (done) {
+         *     console.log(done);
+         * }, function (cancel) {
+         *     console.log(cancel)
+         * }, function (invokeError) {
+         *     console.log(invokeError);
+         * });
+         * &lt;/script&gt;
+         */
+        invokeCalendarPicker: function (options, onDone, onCancel, onInvoke){},
+
+
+        /**
+         * @description Invokes calendar event composer card
+         * @param {blackberry.invoke.card.CalendarComposerOptions} options An object of type {@link blackberry.invoke.card.CalendarComposerOptions} which describes all options available to the event composer.
+         * @callback {function} onDone The callback function that will be triggered when the user finished with the event composer.
+         * @callback {String} [onDone.data] The data string back from the event composer.
+         * @callback {function} onCancel The callback function that will be triggered if the user cancel the event composer.
+         * @callback {String} [onCancel.reason] A String that describes the reason the event composer was cancelled.
+         * @callback {function} onInvoke The callback function that will be triggered when the event composer is invoked.
+         * @callback {String} [onInvoke.error] A String that describes if there was an error. No error will be returned on success.
+         *
+         * @BB10X
+         * @example
+         * &lt; script="text/javascript"&gt;
+         * //simply invoke calendar composer, with no options and callbacks
+         * blackberry.invoke.card.invokeCalendarComposer();
+         *
+         * //invoke calendar event composer with subject, body, participants, startTime and duration options
+         * blackberry.invoke.card.invokeCalendarComposer({
+         *     subject: "Event Name",
+         *     body: "Notes about this event",
+         *     participants: ["a@a.ca", "b@b.com"],
+         *     startTime: "Wed Jun 25 11:00:00 2012",
+         *     duration: 30
+         * }, function (done) {
+         *     console.log(done);
+         * }, function (cancel) {
+         *     console.log(cancel)
+         * }, function (invokeError) {
+         *     console.log(invokeError);
+         * });
+         * &lt;/script&gt;
+         */
+        invokeCalendarComposer: function (options, onDone, onCancel, onInvoke){},
+
+        /**
+         * @description Invokes email composer card
+         * @param {blackberry.invoke.card.EmailComposerOptions} options An object of type {@link blackberry.invoke.card.EmailComposerOptions} which describes all options available to the email composer.
+         * @callback {function} onDone The callback function that will be triggered when the user finished with the email composer.
+         * @callback {String} [onDone.data] The data string back from the email composer.
+         * @callback {function} onCancel The callback function that will be triggered if the user cancel the email composer.
+         * @callback {String} [onCancel.reason] A String that describes the reason the email composer was cancelled.
+         * @callback {function} onInvoke The callback function that will be triggered when the email composer is invoked.
+         * @callback {String} [onInvoke.error] A String that describes if there was an error. No error will be returned on success.
+         *
+         * @BB10X
+         * @example
+         * &lt; script="text/javascript"&gt;
+         * //simply invoke email composer, with no options and callbacks
+         * blackberry.invoke.card.invokeEmailComposer();
+         *
+         * //invoke email composer with subject, body, to, cc and attachment options
+         * blackberry.invoke.card.invokeEmailComposer({
+         *     subject: "Email subject",
+         *     body: "Email body",
+         *     to: ["a@a.ca", "b@b.com"],
+         *     cc: ["c@c.ca, d@d.com"],
+         *     attachment: ["/path/to/an/attachment.txt", "path/to/another/attachment.txt"]
+         * }, function (done) {
+         *     console.log(done);
+         * }, function (cancel) {
+         *     console.log(cancel)
+         * }, function (invokeError) {
+         *     console.log(invokeError);
+         * });
+         * &lt;/script&gt;
+         */
+        invokeEmailComposer: function (options, onDone, onCancel, onInvoke){},
 
         /**
          * @type String
