@@ -282,5 +282,14 @@ blackberry.pim.contacts = {
          *
          * @BB10X
          */
-        invokeContactPicker: function () {}
+        invokeContactPicker: function () {},
+
+         /**
+         * @name blackberry.pim.contacts.getContactAccounts
+         * @function
+         * @description Retrieves all contact accounts.
+         * @returns {blackberry.pim.contacts.ContactAccount[]}
+         * @BB10X
+         */
+        getContactAccounts: function () {}
 }

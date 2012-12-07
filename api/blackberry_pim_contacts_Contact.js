@@ -187,6 +187,18 @@ blackberry.pim.contacts.Contact.prototype.activities = "";
 blackberry.pim.contacts.Contact.prototype.news = "";
 
 /**
+ * @description Retrieves a list of the accounts of the sources for this Contact.<br>
+ * Contacts can be merged from multiple accounts to form a single contact. For example, contacts might be
+ * merged from a personal account and a work account. If the same contact exists in both accounts, the contact
+ * information is merged into a single contact that includes all of the information from both accounts. This
+ * function returns all of the accounts that are sources for this contact.
+ * @readOnly
+ * @type blackberry.pim.contacts.ContactAccount[]
+ * @BB10X
+ */
+blackberry.pim.contacts.Contact.prototype.sourceAccounts = [];
+
+/**
  * Saves a new contact to the device contacts database, or updates an existing contact if a contact with the same id already exists.
  * @param {function} onSaveSuccess The callback function that will be invoked when the contact is saved successfully.
  * @callback {blackberry.pim.contacts.Contact} onSaveSuccess.contact The Contact object.

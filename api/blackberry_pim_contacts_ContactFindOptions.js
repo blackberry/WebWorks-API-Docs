@@ -61,6 +61,20 @@ blackberry.pim.contacts.ContactFindOptions.prototype.limit = "";
 blackberry.pim.contacts.ContactFindOptions.prototype.favorite = false;
 
 /**
+ * @type blackberry.pim.contacts.ContactAccount[]
+ * @description If specified, search results will be filtered to contain only contacts where the sources of the contact come from any of the provided accounts. If an empty array is passed, this property will be ignored. If a non-array is passed, the error callback will be triggered.
+ * @BB10X
+ */
+blackberry.pim.contacts.ContactFindOptions.prototype.includeAccounts = [];
+
+/**
+ * @type blackberry.pim.contacts.ContactAccount[]
+ * @description If specified, search results will be filtered to contain only contacts where the sources of the contact do not come from any of the provided accounts. If an empty array is passed, this property will be ignored. If a non-array is passed, the error callback will be triggered.
+ * @BB10X
+ */
+blackberry.pim.contacts.ContactFindOptions.prototype.excludeAccounts = [];
+
+/**
  * @constant
  * @type Number
  * @description Used by specifying the search filter
