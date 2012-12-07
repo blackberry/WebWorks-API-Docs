@@ -25,10 +25,11 @@ blackberry.ui.toast ={
 
         /**
          * @param {String} message Message to be displayed in the toast.
-         * @param {Object} [options] An optional options object that specifies the buttonText, and callback handlers that should be used by the toast
-         * @param {String} [options.buttonText] Optional parameter that specifies the label for the button within the toast.
-         * @callback {function} [options.buttonCallback] Optional callback for receiving the button event when the user selects the toast button.
-         * @callback {function} [options.dismissCallback] Optional callback for receiving an event when the toast dismisses either through the toast's timeout or when the button is selected.
+         * @param {Object} [options] options object that specifies the buttonText, and callback handlers that should be used by the toast
+         * @param {String} [options.buttonText] parameter that specifies the label for the button within the toast.
+         * @callback {function} [options.buttonCallback] callback for receiving the button event when the user selects the toast button.
+         * @callback {function} [options.dismissCallback] callback for receiving an event when the toast dismisses either through the toast's timeout or when the button is selected.
+         * @param {Number} [options.timeout] timeout value that can be used to extend the toast for as long as the user desires. The value specified is parsed in milliseconds.
          * @returns {Number} A numeric ID to reference this toast by.
          * @description Displays a toast notification.
          * @BB10X
@@ -54,6 +55,25 @@ blackberry.ui.toast ={
          *    toastId = blackberry.ui.toast.show(message, options);
          * }
          *
+         * function showCustomToastWithTimeout() {
+         *    var message = "This is my toast!",
+         *        buttonText = "Click Me",
+         *        toastId,
+         *        onButtonSelected = function () {
+         *           console.log('Button was clicked for toast: ' + toastId);
+         *        },
+         *        onToastDismissed = function () {
+         *           console.log('Toast disappeared: ' + toastId);
+         *        },
+         *        options = {
+         *          buttonText : buttonText,
+         *          dissmissCallback : onToastDismissed,
+         *          buttonCallback : onButtonSelected,
+         *          timeout : 10000
+         *        };
+         *
+         *    toastId = blackberry.ui.toast.show(message, options);
+         * }
          * &lt;/script&gt;
          */
         show : function(message, options){};
