@@ -277,6 +277,14 @@ blackberry.system ={
     name:null,
 
     /**
+     * @type String
+     * @description Returns the locked state of the device. The possible states are: passwordLocked, notLocked, or screenLocked.
+     * @readOnly
+     * @BB10X
+     */
+    deviceLockedStatus:null,
+
+    /**
      * @constant
      * @type Number
      * @description Returned by hasPermission() indicating that the module requested is accessible.
