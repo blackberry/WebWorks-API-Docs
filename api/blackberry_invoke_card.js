@@ -463,7 +463,7 @@ blackberry.invoke.card = {
          */
         invokeTargetPicker : function(options, title, onSuccess, onError) {},
 
-        /*
+        /**
          * @description Invokes calendar event picker card
          * @param {blackberry.invoke.card.CalendarPickerOptions} options An object of type {@link blackberry.invoke.card.CalendarPickerOptions} which describes all options available to the event picker.
          * @callback {function} onDone The callback function that will be triggered when the user finished with the event picker.
