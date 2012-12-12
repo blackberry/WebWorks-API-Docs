@@ -33,6 +33,38 @@
  * the contextmenu will default to the system, and the developer will have no access to the events described below.
  * </p>
  *
+ * <h3>Custom Context Menu</h3>
+ * <p>Webworks applications can give Dom elements custom context by using the data-webworks-context xml attribute. When a Dom element contains this attribute, custom context menus will be activated when the element is long pressed.
+ * Once you have created a custom context using the data-webworks-context attribute, you can then use addItem to add items to the custom context. You can also optionally use defineCustomContext to further define the items shown.
+ * @example
+ * &lt;script type="text/javascript"&gt;
+ * function addMenuItemToCustomContext() {
+ *     var myItem = {actionId: '7', label: 'itemForCustom', icon:'local:///img/myIcon.png'},
+ *         contexts = ["myContext"];
+ *     blackberry.ui.contextmenu.addItem(contexts, myItem);
+ * }
+ *
+ * function addAdditionalItemsFromCustomContext) {
+ *     var options = {
+ *         includeContextItems: [blackberry.ui.contextmenu.CONTEXT_IMAGE, blackberry.ui.contextmenu.CONTEXT_IMAGE_LINK],
+ *         includePlatformItems: true,
+ *         includeMenuService: true
+ *     };
+ *     blackberry.ui.contextmenu.defineCustomContext("myContext", options);
+ * }
+ *
+ * function removeAdditionalItemsFromCustomContext) {
+ *     var options = {
+ *         includeContextItems: [],
+ *         includePlatformItems: false,
+ *         includeMenuService: false
+ *     };
+ *     blackberry.ui.contextmenu.defineCustomContext("myContext", options);
+ * }
+ * &lt;/script&gt;
+ * <div data-webworks-context="myContext">I am a custom context!</div>
+ * <p>
+ *
  */
 blackberry.ui.contextmenu = {
 
@@ -49,7 +81,7 @@ blackberry.ui.contextmenu = {
  *
  * if(!blackberry.ui.contextmenu.enabled){
  *     console.log("context menu is currently disabled");
- *     }
+ * }
  * &lt;/script&gt;
  *
  */
@@ -80,7 +112,7 @@ blackberry.ui.contextmenu = {
  *
  */
  addItem : function (){},
- 
+
  /**
  * @description Allows the developer to remove previously added custom items from the context menu.
  * @param {String[]} contexts An array of constants defining which contexts this new item should appear.
@@ -168,7 +200,7 @@ defineCustomContext: function (){},
  * @RIPPLE
  */
  CONTEXT_IMAGE_LINK: "CONTEXT_IMAGE_LINK",
- 
+
  /**
  * Constant denoting the context of input fields.
  * @type String
