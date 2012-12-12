@@ -419,7 +419,37 @@ blackberry.system ={
     * blackberry.event.addEventListener("fontchanged", onFontChange);
     * &lt;/script&gt;
     */
-   fontchanged: function(){}
+   fontchanged: function(){},
+
+   /**
+    * @description The <b>perimeterlocked</b> event is triggered whenever the corporate or enterprise application is locked.<br/>Note: This event is not fired for non-corporate apps.
+    * @callback {Function} yourCallbackFunction The callback function that will be triggered on the perimeterlocked event.
+    * @example
+    * &lt;script type="text/javascript"&gt;
+    *
+    * function onPerimeterLocked() {
+    *    alert("The corporate app is locked!");
+    * }
+    *
+    * blackberry.event.addEventListener("perimeterlocked", onPerimeterLocked);
+    * &lt;/script&gt;
+    */
+   perimeterlocked: function(){},
+
+   /**
+    * @description The <b>perimeterunlocked</b> event is triggered whenever the corporate or enterprise application is unlocked.<br/>Note 1: When the corporate application is first launched, it is considered unlocked. No message is sent on startup of the application.<br/>Note 2: This event is not fired for non-corporate apps.
+    * @callback {Function} yourCallbackFunction The callback function that will be triggered on the perimeterunlocked event.
+    * @example
+    * &lt;script type="text/javascript"&gt;
+    *
+    * function onPerimeterUnlocked() {
+    *    alert("The corporate app is unlocked!");
+    * }
+    *
+    * blackberry.event.addEventListener("perimeterunlocked", onPerimeterUnlocked);
+    * &lt;/script&gt;
+    */
+   perimeterunlocked: function(){}
 
    /**#@-*/
 };
