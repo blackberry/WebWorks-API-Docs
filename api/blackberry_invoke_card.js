@@ -243,9 +243,9 @@ blackberry.invoke.card = {
         invokeFilePicker : function(options, onSave, onCancel, onInvoke){},
 
        /**
-         * @description Invokes the IcsViewer Card.
+         * @description Invokes the IcsViewer Card to display an iCalendar (.ics) event.
          * @param {blackberry.invoke.card.IcsViewerOptions} options An object to type {@link blackberry.invoke.card.IcsViewerOptions} describes all the options available for IcsViewer.
-         * @callback {function} onDone The callback function that will be triggered .
+         * @callback {function} onDone The callback function that will be triggered when the event is added to a calendar.
          * @callback {String} [onDone.data] A data string might be an empty or to contain some information.
          * @callback {function} onCancel The callback function that will be triggered when the card invocation has been cancelled.
          * @callback {String} [onCancel.reason] A string that describes the reason the IcsViewer was cancelled.
