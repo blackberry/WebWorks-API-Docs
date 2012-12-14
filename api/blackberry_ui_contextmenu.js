@@ -131,6 +131,7 @@ blackberry.ui.contextmenu = {
  * @param {String} action.label A string that will be displayed to the user describing the custom context to be performed. ie: Edit
  * @param {String} action.icon A path to the an image to display in the context menu
  * @callback {Function} callback A function which runs when the menu item action is executed
+ * @param {String} callback.sourceId The returned sourceId from the element which defined the custom context and the context was invoked on.
  * @BB10X
  * @RIPPLE
  * @example
@@ -141,6 +142,37 @@ blackberry.ui.contextmenu = {
  *         contexts = [blackberry.ui.contextmenu.CONTEXT_IMAGE, blackberry.ui.contextmenu.CONTEXT_INPUT];
  *     blackberry.ui.contextmenu.addItem(contexts, myItem, function() { console.log('hi') });
  * }
+ *
+ * //Perform an action on custom context, with a custom item
+ * function deleteItem(sourceId) {
+ *     var element = document.getElementById(sourceId);
+ *         element.parentNode.removeChild(element);
+ * }
+ *
+ * function greyOutItem(sourceId) {
+ *     var element = document.getElementById(sourceId);
+ *         element.className = "greyed-out";
+ * }
+ *
+ * var options = {
+ *         includeContextItems: [blackberry.ui.contextmenu.CONTEXT_ALL],
+ *         includePlatformItems: true,
+ *         includeMenuServiceItems: true
+ *      },
+ *      item,
+ *      contexts = [blackberry.ui.contextmenu.CONTEXT_ALL];
+ *
+ * // Define the custom context with the options that we want used
+ * blackberry.ui.contextmenu.defineCustomContext("PrincessContext", options);
+ *
+ * // Create a menu item and add it to the context
+ * item = {actionId: '1', label: 'Delete Item', icon:'local:///images/icon.png'};
+ * blackberry.ui.contextmenu.addItem(contexts, item, deleteItem);
+ *
+ * // And another
+ * item = {actionId: '2', label: 'Grey Out', icon:'local:///images/icon.png'};
+ * blackberry.ui.contextmenu.addItem(contexts, item, greyOutItem);
+ *
  * &lt;/script&gt;
  *
  */
