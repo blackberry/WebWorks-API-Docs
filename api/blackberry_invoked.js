@@ -15,7 +15,6 @@
 */
 
 /**
- * @beta
  * @namespace The Invoked object allows the application to be invoked by other applications.
  * @toc {Invoke} Invoked
  * @featureID blackberry.invoked

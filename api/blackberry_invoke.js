@@ -37,7 +37,6 @@ QueryResponse = {};
 QueryResponseTarget = {};
 
 /**
- * @beta
  * @namespace The Invoke object contains methods that interact with other applications.
  * <p/>
  * On BlackBerry OS 5.0+ and BlackBerry PlayBook 1.0+, the {@link blackberry.invoke.invoke^2} method on the invoke object allows you to pass arguments to the target application. </br>The types of arguments can be one of: {@link blackberry.invoke.AddressBookArguments}, {@link blackberry.invoke.BrowserArguments},
