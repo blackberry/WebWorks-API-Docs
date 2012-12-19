@@ -33,6 +33,38 @@
  * the contextmenu will default to the system, and the developer will have no access to the events described below.
  * </p>
  *
+ * <h4>Context Information</h4>
+ * <p>Context information is available from the window object through a contextmenu event "window.oncontextmenu". This event is triggered whenever there
+ * is a context menu request from the client. This event provides all the contextual information needed to store the context yourself
+ * and save what element the context menu was triggered on. This allows you to perform a multitude of different actions once a context
+ * menu has been requested.
+ * @example
+ * &lt;script type="text/javascript"&gt;
+ *
+ * // Update the path from a small icon to a full image
+ * function translateIcontoFullImage (path) {
+ *     if (path && path.indexOf('.ico') !== -1) {
+ *         return path.replace('.ico', '.jpeg');
+ *     }
+ * }
+ *
+ * function onContextMenu (contextEvent) {
+ *     var srcElement = contextEvent.srcElement;
+ *     blackberry.invoke.interrupter = function (request) {
+ *         // Check if this is an image we wish to translate
+ *         if (srcElement && srcElement.src {
+ *             request.uri = translateIcontoFullImage(srcElement.src);
+ *         }
+ *
+ *         // Return the updated request object
+ *         return request;
+ *     };
+ *
+ * }
+ *
+ * window.addEventListener('oncontextmenu', onContextMenu);
+ *
+ * &lt;/script&gt;
  */
 blackberry.ui.contextmenu = {
 
@@ -80,7 +112,7 @@ blackberry.ui.contextmenu = {
  *
  */
  addItem : function (){},
- 
+
  /**
  * @description Allows the developer to remove previously added custom items from the context menu.
  * @param {String[]} contexts An array of constants defining which contexts this new item should appear.
@@ -168,7 +200,7 @@ defineCustomContext: function (){},
  * @RIPPLE
  */
  CONTEXT_IMAGE_LINK: "CONTEXT_IMAGE_LINK",
- 
+
  /**
  * Constant denoting the context of input fields.
  * @type String
