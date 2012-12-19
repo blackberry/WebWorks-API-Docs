@@ -15,7 +15,6 @@
 */
 
 /**
- * @beta
  * @namespace The Connection object gives access to the device's cellular and wifi connection information.
  * @toc {System} Connection
  * @featureID blackberry.connection

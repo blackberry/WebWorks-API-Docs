@@ -33,6 +33,41 @@
  * the contextmenu will default to the system, and the developer will have no access to the events described below.
  * </p>
  *
+ * <h4>Context Information</h4>
+ * <p>Context information is available from the window object through a contextmenu event "window.oncontextmenu". This event is triggered whenever there
+ * is a context menu request from the client. This event provides all the contextual information needed to store the context yourself
+ * and save what element the context menu was triggered on. This allows you to perform a multitude of different actions once a context
+ * menu has been requested.
+ *
+ * <pre>
+ * &lt;script type="text/javascript"&gt;
+ *
+ * // Update the path from a small icon to a full image
+ * function translateIcontoFullImage (path) {
+ *     if (path && path.indexOf('.ico') !== -1) {
+ *         return path.replace('.ico', '.jpeg');
+ *     }
+ * }
+ *
+ * function onContextMenu (contextEvent) {
+ *     var srcElement = contextEvent.srcElement;
+ *     blackberry.invoke.interrupter = function (request) {
+ *         // Check if this is an image we wish to translate
+ *         if (srcElement && srcElement.src {
+ *             request.uri = translateIcontoFullImage(srcElement.src);
+ *         }
+ *
+ *         // Return the updated request object
+ *         return request;
+ *     };
+ *
+ * }
+ *
+ * window.addEventListener('oncontextmenu', onContextMenu);
+ *
+ * &lt;/script&gt;
+ * </pre>
+ *
  * <h3>Custom Context Menu</h3>
  * <p>Webworks applications can give Dom elements custom context by using the data-webworks-context xml attribute. When a Dom element contains this attribute, custom context menus will be activated when the element is long pressed.
  * Once you have created a custom context using the data-webworks-context attribute, you can then use addItem to add items to the custom context. You can also optionally use defineCustomContext to further define the items shown.
@@ -62,9 +97,7 @@
  *     blackberry.ui.contextmenu.defineCustomContext("myContext", options);
  * }
  * &lt;/script&gt;
- * <div data-webworks-context="myContext">I am a custom context!</div>
- * <p>
- *
+ * &lt;div data-webworks-context="myContext"&gt;I am a custom context!&lt;/div&gt;
  */
 blackberry.ui.contextmenu = {
 

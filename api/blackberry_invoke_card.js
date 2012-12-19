@@ -15,7 +15,6 @@
 */
 
 /**
- * @beta
  * @namespace The Card object contains methods that invoke cards.
  * <p/>
  * @toc {Invoke} Card
@@ -464,7 +463,8 @@ blackberry.invoke.card = {
         invokeTargetPicker : function(options, title, onSuccess, onError) {},
 
         /**
-         * @description Invokes calendar event picker card
+         * @description Invokes calendar event picker card.
+         * @apiNotice {Warning} Filepaths using the local:/// protocol are not supported for this card.
          * @param {blackberry.invoke.card.CalendarPickerOptions} options An object of type {@link blackberry.invoke.card.CalendarPickerOptions} which describes all options available to the event picker.
          * @callback {function} onDone The callback function that will be triggered when the user finished with the event picker.
          * @callback {String} [onDone.data] The data string back from the event picker.
@@ -527,7 +527,8 @@ blackberry.invoke.card = {
         invokeCalendarComposer: function (options, onDone, onCancel, onInvoke){},
 
         /**
-         * @description Invokes email composer card
+         * @description Invokes email composer card.
+         * @apiNotice {Warning} Filepaths using the local:/// prototcol are supported for this card.
          * @param {blackberry.invoke.card.EmailComposerOptions} options An object of type {@link blackberry.invoke.card.EmailComposerOptions} which describes all options available to the email composer.
          * @callback {function} onDone The callback function that will be triggered when the user finished with the email composer.
          * @callback {String} [onDone.data] The data string back from the email composer.
