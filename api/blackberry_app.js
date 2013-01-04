@@ -17,33 +17,34 @@
 /**
  * @toc {System} Application
  * @featureID blackberry.app
+ * @learns {Sample - Using Orientation} https://github.com/blackberry/BB10-WebWorks-Samples/tree/master/Orientation Sample that demonstrates how to use the Orientation API [BlackBerry on GitHub].
  * @namespace The Application object provides functions and properties for the currently running application.
  * @example
  * &lt;script type="text/javascript"&gt;
- *	function makeTable() {
- *		try {
- *			var details = document.getElementById("details");
- *			if (details) {
- *				var output = "&lt;table&gt;";
- *				output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Author&lt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.author + "&lt;/td&gt;&lt;/tr&gt;";
- *				output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Author Email&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.authorEmail + "&lt;/td&gt;&lt;/tr&gt;";
- *				output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Author URL&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.authorURL + "&lt;/td&gt;&lt;/tr&gt;";
- *				output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Copyright&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.copyright + "&lt;/td&gt;&lt;/tr&gt;";
- *				output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Description&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.description + "&lt;&lt;/tr&gt;";
- *				output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;ID&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.id + "&lt;/td&gt;&lt;/tr&gt;";
- *				output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;License&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.license + "&lt;/td&gt;&lt;/tr&gt;";
- *				output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;License URL&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.licenseURL + "&lt;/td&gt;&lt;/tr&gt;";
- *				output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.name + "&lt;/td&gt;&lt;/tr&gt;";
- *				output += "&lt;tr&gt;&lt;td&gt;&lt;Version&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.version + "&lt;/td&gt;&lt;/tr&gt;";
- *				output += "&lt;tr&gt;&lt;td&gt;&lt;Orientation&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.orientation + "&lt;/td&gt;&lt;/tr&gt;";
- *				output += "&lt;tr&gt;&lt;td&gt;&lt;Window State&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.windowState + "&lt;/td&gt;&lt;/tr&gt;";
+ *  function makeTable() {
+ *    try {
+ *      var details = document.getElementById("details");
+ *      if (details) {
+ *        var output = "&lt;table&gt;";
+ *        output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Author&lt;/td&gt;&lt;td&gt;" + blackberry.app.author + "&lt;/td&gt;&lt;/tr&gt;";
+ *        output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Author Email&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.authorEmail + "&lt;/td&gt;&lt;/tr&gt;";
+ *        output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Author URL&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.authorURL + "&lt;/td&gt;&lt;/tr&gt;";
+ *        output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Copyright&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.copyright + "&lt;/td&gt;&lt;/tr&gt;";
+ *        output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Description&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.description + "&lt;&lt;/tr&gt;";
+ *        output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;ID&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.id + "&lt;/td&gt;&lt;/tr&gt;";
+ *        output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;License&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.license + "&lt;/td&gt;&lt;/tr&gt;";
+ *        output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;License URL&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.licenseURL + "&lt;/td&gt;&lt;/tr&gt;";
+ *        output += "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.name + "&lt;/td&gt;&lt;/tr&gt;";
+ *        output += "&lt;tr&gt;&lt;td&gt;&lt;Version&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.version + "&lt;/td&gt;&lt;/tr&gt;";
+ *        output += "&lt;tr&gt;&lt;td&gt;&lt;Orientation&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.orientation + "&lt;/td&gt;&lt;/tr&gt;";
+ *        output += "&lt;tr&gt;&lt;td&gt;&lt;Window State&lt;/b&gt;&lt;/td&gt;&lt;td&gt;" + blackberry.app.windowState + "&lt;/td&gt;&lt;/tr&gt;";
  *
- *				details.innerHTML = output;
- *			}
- *		} catch(e) {
- *			alert("Exception in displayDetails: " + e);
- *		}
- *	}
+ *        details.innerHTML = output;
+ *      }
+ *    } catch(e) {
+ *        alert("Exception in displayDetails: " + e);
+ *    }
+ *  }
  * &lt;/script&gt;
  */
 blackberry.app ={

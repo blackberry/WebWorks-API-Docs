@@ -16,6 +16,7 @@
 
 /**
  * @toc {IO} FileTransfer
+ * @learns {Sample - Using FileTransfer} https://github.com/blackberry/BB10-WebWorks-Samples/tree/master/fileTransfer Sample that demonstrates how to use the BlackBerry File Transfer API [BlackBerry on GitHub].
  * @featureID blackberry.io.filetransfer
  * @namespace The FileTransfer object contains functions for uploading and downloading files to/from a remote server.
  */

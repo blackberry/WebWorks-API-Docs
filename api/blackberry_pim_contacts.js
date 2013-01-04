@@ -18,7 +18,8 @@
  * @namespace The contacts object provides functions for creating and finding contacts.
  * @toc {PIM} Contacts
  * @featureID blackberry.pim.contacts
- * @permission access_pimdomain_contacts Permits your app to access contacts.
+ * @learns {Sample - Working with Contacts} https://github.com/blackberry/BB10-WebWorks-Community-Samples/tree/master/pimcontacts Sample that demonstrates how to use the BlackBerry Contacts API [BlackBerry Community Samples on GitHub].
+  * @permission access_pimdomain_contacts Permits your app to access contacts.
  */
 blackberry.pim.contacts = {
 

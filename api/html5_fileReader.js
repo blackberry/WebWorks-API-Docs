@@ -16,6 +16,7 @@
 
 /**
  * @toc {IO} HTML5 FileReader
+ * @learns {Sample - Using FileReader to upload a picture using the camera } https://github.com/blackberry/BB10-WebWorks-Samples/blob/master/camera Sample that demonstrates how to use the HTML5 FileReader API [BlackBerry on GitHub].
  * @namespace Object to allow reading of files
  * @PB10+
  * @BB10X

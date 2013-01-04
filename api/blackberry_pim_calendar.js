@@ -18,6 +18,7 @@
  * @namespace The <code>Calendar</code> object provides functions for creating and finding contacts.
  * @toc {PIM} Calendar
  * @featureID blackberry.pim.calendar
+ * @learns {Sample - Using Calendar API to  create and modify calendar entries} https://github.com/blackberry/BB10-WebWorks-Samples/tree/master/pimcalendar Sample that demonstrates how to use the BlackBerry Calendar API [BlackBerry on GitHub].
  * @permission access_pimdomain_calendars Permits your app to access calendar.
  */
 blackberry.pim.calendar = {

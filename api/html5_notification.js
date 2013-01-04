@@ -16,6 +16,7 @@
 
 /**
  * @toc {Notification} HTML5 Notifications
+ * @learns {Sample - Using HTML5 Notifications} https://github.com/blackberry/BB10-WebWorks-Samples/blob/master/notify Sample that demonstrates how to use the HTML5 Notification API [BlackBerry on GitHub].
  * @permission post_notification Permits your application to create notifications.
  * @class The Notification API allows you to create a notification object in Universal inbox for BlackBerry 10.
  * @constructor Constructor for a new window.Notification object.

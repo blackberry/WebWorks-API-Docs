@@ -18,6 +18,7 @@
  * @class Represents a label object to be displayed on the application's window cover.
  * @toc {User Interface} Cover Labels
  * @featureID blackberry.ui.cover
+ * @learns {Sample - Using a label on a Window Cover} https://github.com/blackberry/BB10-WebWorks-Samples/tree/master/WindowCovers Sample that demonstrates how to use the BlackBerry CoverLabel API [BlackBerry on GitHub]. 
  * @BB10X
  */
 blackberry.ui.cover.CoverLabel = {}
