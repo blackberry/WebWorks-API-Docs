@@ -16,6 +16,7 @@
 
 /**
  * @toc {User Interface} Window Covers
+ * @learns {Sample - Using Window Covers} https://github.com/blackberry/BB10-WebWorks-Samples/tree/master/WindowCovers Sample that demonstrates how to use the BlackBerry Window Covers API [BlackBerry on GitHub].
  * @featureID blackberry.ui.cover
  * @BB10X
  * @namespace The cover namespace provides the ability to modify the application's window cover which is displayed when the application is in thumbnail mode.

@@ -46,6 +46,7 @@ QueryResponseTarget = {};
  * On BlackBerry 10, the {@link blackberry.invoke.invoke} method will take arguments in the form of JavaScript object literal.
  * @toc {Invoke} Invoke
  * @featureID blackberry.invoke
+ * @learns {Sample - Invoking applications from an app} https://github.com/blackberry/BB10-WebWorks-Samples/tree/master/invoke See Invoker sample [BlackBerry on GitHub].
  */
 blackberry.invoke = {
 

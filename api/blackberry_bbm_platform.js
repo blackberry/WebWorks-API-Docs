@@ -33,6 +33,9 @@
  * @learns {Download BBM SDK Resources} http://us.blackberry.com/developers/blackberrymessenger/ Download the resources required to use the BBM SDK for WebWorks [BlackBerry].
  * @learns {Getting Started Guide} https://bdsc.webapps.blackberry.com/html5/documentation/ww_services/bbm_sdk_for_ww_1878476_11.html Setup the BBM SDK for BlackBerry WebWorks [BlackBerry Developer Resource Center].
  * @learns {Sample Application Guide} http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/Getting-Started-BlackBerry-WebWorks-Development-for-Smartphones/ta-p/1185353 Get started with the sample application included with the BBM SDK for BlackBerry WebWorks [BlackBerry Developer Resource Center].
+ * @learns {Sample - BBM for BB10 } https://github.com/blackberry/BB10-WebWorks-Samples/tree/master/bbm Sample that demonstrates how to use the BlackBerry BBM APIs for BlackBerry 10 [BlackBerry on GitHub].
+ * @learns {Tutorial - WebWorks apps and BBM} http://devblog.blackberry.com/2012/11/blackberry-webworks-bbm-integration/ How to Integrate Your BlackBerry WebWorks Application with BBM [BlackBerry Developer Blog].
+
  */
 blackberry.bbm.platform = {
 

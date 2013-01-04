@@ -17,6 +17,9 @@
 /**
  * @toc {System} System
  * @featureID blackberry.system
+
+ * @learns {Sample - Setting the Wallpaper } https://github.com/blackberry/BB10-WebWorks-Samples/tree/master/SetWallpaper Sample that demonstrates how to use the BlackBerry system.setWallpaper API [BlackBerry on GitHub].
+ * @learns {Sample - Recognizing System Language Changes } https://github.com/blackberry/BB10-WebWorks-Samples/tree/master/Localization Sample that demonstrates how to work with device region and language changes [BlackBerry on GitHub].
  * @namespace The System object allows you to get access to system level functions and attributes of the BlackBerry PlayBook.<br>
  * <br> The System object is static; all of its functions and properties are used directly from the object.
  * @example

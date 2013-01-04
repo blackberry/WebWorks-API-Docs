@@ -20,7 +20,6 @@
  * @BB10X
  * @RIPPLE
  * @namespace The contextmenu namespace provides the facility to interact with the context menu api to control whether context menus are enabled, listen to events, add items to appear based on the context, and set the theme of the context menu.
- *
  * <h3>Context Menu</h3>
  * <p>Webworks applications can choose to use an in app contextmenu as opposed to the default operating system menu. The
  * contextmenu provides several facilities to developers to allow them to control the elements that appear in the menu, as
@@ -38,7 +37,7 @@
  * is a context menu request from the client. This event provides all the contextual information needed to store the context yourself
  * and save what element the context menu was triggered on. This allows you to perform a multitude of different actions once a context
  * menu has been requested.
- *
+ * @learns {Sample - Using Custom Context} https://github.com/blackberry/BB10-WebWorks-Samples/tree/master/CustomContext Sample that demonstrates how to use the BlackBerry Custom Context API [BlackBerry on GitHub].
  * <pre>
  * &lt;script type="text/javascript"&gt;
  *
@@ -410,6 +409,6 @@ defineCustomContext: function (){},
  * @BB10X
  * @RIPPLE
  */
- ACTION_VIEW_IMAGE: "ViewImage",
+ ACTION_VIEW_IMAGE: "ViewImage"
 
 };

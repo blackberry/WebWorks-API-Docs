@@ -16,6 +16,7 @@
 
 /**
  * @toc {Sensors} Sensors
+ * @learns {Sample - Using Sensors } https://github.com/blackberry/BB10-WebWorks-Samples/tree/master/Sensors Sample that demonstrates how to use the BlackBerry Sensors API [BlackBerry on GitHub].
  * @featureID blackberry.sensors
  * @namespace The Sensors object allows you to get access to system level sensors and attributes of the BlackBerry device.<br>
  * <br>The sensors object has various event listeners for sensors on the device.

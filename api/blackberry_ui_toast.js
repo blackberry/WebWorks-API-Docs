@@ -17,6 +17,7 @@
 /**
  * @toc {User Interface} Toast
  * @featureID blackberry.ui.toast
+ * @learns {Sample - Using Toast} https://github.com/blackberry/BB10-WebWorks-Samples/tree/master/Toast Sample that demonstrates how to use the BlackBerry Toast API [BlackBerry on GitHub].
  * @namespace The Toast object contains functions for displaying toast notifications.
  * <p/>
  * The functionality of this object allows the developer to display system toast notifications within their WebWorks application.

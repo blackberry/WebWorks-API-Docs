@@ -17,6 +17,8 @@
 /**
  * @namespace The Card object contains methods that invoke cards.
  * <p/>
+ * @learns {Sample - Invoking cards} https://github.com/blackberry/BB10-WebWorks-Samples/tree/master/invoke-card Sample that demonstrates how to use the BlackBerry Invoke Cards API [BlackBerry on GitHub].
+ * @learns {Sample - Invoking cards as Share Targets} https://github.com/blackberry/BB10-WebWorks-Samples/tree/master/ShareTargets Sample that demonstrates how to use the BlackBerry Invoke Cards API [BlackBerry on GitHub].
  * @toc {Invoke} Card
  * @featureID blackberry.invoke.card
  */

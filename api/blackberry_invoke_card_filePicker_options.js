@@ -18,6 +18,7 @@
 /**
  * @toc {Invoke} FilePickerOptions
  * @class The FilePickerOptions object contains options that are passed into {@link blackberry.invoke.card.invokeFilePicker}().
+ * @learns {Sample - Set Wallpaper using File Picker } https://github.com/blackberry/BB10-WebWorks-Samples/tree/master/SetWallpaper Sample that demonstrates how to use the BlackBerry Invoke FilePicker API [BlackBerry on GitHub].
  * @BB10X
  */
 blackberry.invoke.card.FilePickerOptions = {};
