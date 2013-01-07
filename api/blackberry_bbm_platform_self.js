@@ -93,6 +93,17 @@ blackberry.bbm.platform.self = {
         setDisplayPicture: function(displayPictureURI, onComplete) { },
 
         /**
+         * @name blackberry.bbm.platform.self.setPersonalMessage^2
+         * @description Sets the user's personal message. A dialog appears and allows the user to
+         * accept or cancel the change.
+         * @param {String} personalMessage The personal message. The maximum length is 160 characters;
+         * anything over will be truncated. If <code>null</code> is provided then the personal message
+         * is cleared.
+         * @BB10X
+         */
+
+        /**
+         * @name blackberry.bbm.platform.self.setPersonalMessage
          * @description Sets the user's personal message. A dialog appears and allows the user to
          * accept or cancel the change.
          * @param {String} personalMessage The personal message. The maximum length is 160 characters;
@@ -107,6 +118,20 @@ blackberry.bbm.platform.self = {
         setPersonalMessage: function(personalMessage, onComplete) { },
         
         /**
+         * @name blackberry.bbm.platform.self.setStatus^2
+         * @description Sets the user's status. A dialog appears and allows the user to accept
+         * or cancel the change.
+         * @param {String} status The status: one of <code>"available"</code> or <code>"busy"</code>.
+         * @param {String} [message] The optional status message. If not provided, the default message of
+         * either "Available" or "Busy" will be used.
+         * @callback {Function} onComplete Invoked if the user dismissed the dialog.
+         * @callback {Boolean} onComplete.accepted <code>true</code> if the user accepted the change;
+         * <code>false</code> otherwise.
+         * @BB10X
+         */
+
+        /**
+         * @name blackberry.bbm.platform.self.setStatus
          * @description Sets the user's status. A dialog appears and allows the user to accept
          * or cancel the change.
          * @param {String} status The status: one of <code>"available"</code> or <code>"busy"</code>.
@@ -116,7 +141,6 @@ blackberry.bbm.platform.self = {
          * @callback {Boolean} onComplete.accepted <code>true</code> if the user accepted the change;
          * <code>false</code> otherwise.
          * @BB50+
-         * @BB10X
          * @example
          * &lt;script type="text/javascript"&gt;
          * // Set the user's status and status message

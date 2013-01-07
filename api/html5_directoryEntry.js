@@ -103,32 +103,32 @@ DirectoryEntry = function() {};
 
     /**
     * @description Create or look up a directory.
-    * @param {String} The path of the directory to be looked up or created
-    * @param {flags} Options to specify whether the directory is to be created if it doesn't exist
+    * @param {String} path - path of the directory to be looked up or created.
+    * @param {flags} options - options to specify whether the directory is to be created if it doesn't exist
     * @callback {successCallback} callback function that is called with a File object. (Function)
-    *callback {errorCallback} callback function to execute when there is an error during creating the File object. Invoked with a FileError object. (Function)
+    * @callback {errorCallback} callback function to execute when there is an error during creating the File object. Invoked with a FileError object. (Function)
     * @PB10+
     * @RIPPLE
     * @BB10X
     */
-    DirectoryEntry.prototype.getDirectory  = function(successCallback, errorCallback) {};
+    DirectoryEntry.prototype.getDirectory  = function(path, options, successCallback, errorCallback) {};
 
     /**
     * @description Creates or look up a file.
-    * @param {String} Path - path of the file to be looked up or created.
-    * @param {flags} Options - options to specify whether the file is created if it doesn't exist
+    * @param {String} path - path of the file to be looked up or created.
+    * @param {flags} options - options to specify whether the file is created if it doesn't exist
     * @callback {successCallback} callback function that is called with a File object. (Function)
-    * @callback {errorCallback} callback function to execute when there is an error during creating the File object. Invoked with a FileError object.
+    * @callback {errorCallback} callback function to execute when there is an error during creating the File object. Invoked with a FileError object. (Function)
     * @PB10+
     * @RIPPLE
     * @BB10X
     */
-    DirectoryEntry.prototype.getFile  = function(Path, Options, successCallback, errorCallback) {};
+    DirectoryEntry.prototype.getFile  = function(path, options, successCallback, errorCallback) {};
 
     /**
     * @description Delete a directory and all of its contents.
     * @callback {successCallback} callback function that is called with a File object. (Function)
-    * @callback {errorCallback} callback function to execute when there is an error during creating the File object. Invoked with a FileError object.
+    * @callback {errorCallback} callback function to execute when there is an error during creating the File object. Invoked with a FileError object. (Function)
     * @PB10+
     * @RIPPLE
     * @BB10X

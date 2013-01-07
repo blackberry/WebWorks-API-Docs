@@ -190,7 +190,7 @@ blackberry.bbm.platform = {
      * &lt;script type="text/javascript"&gt;
      *
      * // Create callback invoked when access changes
-     * blackberry.event.addEventListner("onaccesschanged", accessChangedCallback);
+     * blackberry.event.addEventListener("onaccesschanged", accessChangedCallback);
      *
      * function accessChangedCallback(accessible, status) {
      *     if  (status == "allowed") {
