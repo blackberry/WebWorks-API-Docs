@@ -29,7 +29,7 @@ FileWriter = function() {};
     *
     */
     FileWriter.prototype.abort = function() {};
-	
+
     /**
     * @description  Moves the file pointer to the byte specified.
     * @param {byte} pointer moves the pointer to the byte location specified
@@ -37,7 +37,7 @@ FileWriter = function() {};
 	* @BB10X
     *
     */
-    FileWriter.prototype.seek = function(byteLocation) {};	
+    FileWriter.prototype.seek = function(byteLocation) {};
 
     /**
     * @description  Shortens the file to the length specified.
@@ -50,13 +50,13 @@ FileWriter = function() {};
 
     /**
     * @description  Writes data to the file with a UTF-8 encoding.
-    * @param {string} data written to the file in UTF-8 encoding
+    * @param Blob data written to the file in UTF-8 encoding
     * @RIPPLE
 	* @BB10X
     *
     */
-    FileWriter.prototype.write = function(stringtext) {};
-	
+    FileWriter.prototype.write = function(blob) {};
+
     /**
 	 * @field
      * @description One of the three states the reader can be in INIT, WRITING or DONE.
@@ -76,7 +76,7 @@ FileWriter = function() {};
 	 * @BB10X
      */
     FileWriter.prototype.fileName = undefined;
-	
+
     /**
      * @field
      * @description lengh of the file to be written
@@ -85,7 +85,7 @@ FileWriter = function() {};
      * @RIPPLE
 	 * @BB10X
      */
-    FileWriter.prototype.length = undefined;	
+    FileWriter.prototype.length = undefined;
 
     /**
      * @field
@@ -96,7 +96,7 @@ FileWriter = function() {};
 	 * @BB10X
      */
     FileWriter.prototype.position = undefined;
-	
+
     /**
      * @field
      * @description object containing error
@@ -105,7 +105,7 @@ FileWriter = function() {};
      * @RIPPLE
 	 * @BB10X
      */
-    FileWriter.prototype.error = undefined;	
+    FileWriter.prototype.error = undefined;
 
     /**
      * @field

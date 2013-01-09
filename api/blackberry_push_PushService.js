@@ -49,8 +49,8 @@ blackberry.push.PushService = {};
 * (in which case a unique one will be generated for you under the covers) or specifying a unique value of your choosing (this second option is useful if you plan
 * to subscribe with the Push Initiator in your application).  
 * @param {String} [options.ppgUrl] The PPG URL to register with.  If writing a consumer application, you will be provided with this URL after registering to 
-* use the public/BIS PPG push service.  The URL will point to either the eval or the production environment (for eval, https://cp{cpid}.pushapi.eval.blackberry.com; 
-* for production, https://cp{cpid}.pushapi.na.blackberry.com where {cpid} is replaced with your content provider ID).  If writing an enterprise application, 
+* use the public/BIS PPG push service.  The URL will point to either the eval or the production environment (for eval, http://cp{cpid}.pushapi.eval.blackberry.com; 
+* for production, http://cp{cpid}.pushapi.na.blackberry.com where {cpid} is replaced with your content provider ID).  If writing an enterprise application, 
 * no <code>ppgUrl</code> value should be specified.
 * @callback {function} successCallback The callback that is invoked when the <code>create</code> operation is successful.
 * @callback {PushService} successCallback.pushService The <code>PushService</code> object that can be used on a successful <code>create</code> operation.
@@ -73,7 +73,7 @@ blackberry.push.PushService = {};
 * // For a consumer application (using the public/BIS PPG)
 * var ops = { invokeTargetId : 'com.sample.pushtest.target', 
 *             appId : 'appId1', 
-*             ppgUrl : 'https://cp123.pushapi.na.blackberry.com' };
+*             ppgUrl : 'http://cp123.pushapi.na.blackberry.com' };
 *
 * // For an enterprise application (using the enterprise/BES PPG)
 * // var ops = { invokeTargetId : 'com.sample.pushtest.target' }; 

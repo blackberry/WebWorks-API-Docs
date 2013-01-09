@@ -31,7 +31,9 @@ blackberry.invoked = {
      *
      * function peekParent() {
      *     // Request the navigator to perform a peek to the content of the parent
-     *     blackberry.invoked.cardStartPeek("content");
+     *     document.body.addEventListener('touchstart', function(event) {
+     *         blackberry.invoked.cardStartPeek("content");
+     *     }, false);
      * }
      *
      * &lt;/script&gt;
