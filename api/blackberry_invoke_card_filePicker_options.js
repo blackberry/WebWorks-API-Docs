@@ -60,7 +60,7 @@ blackberry.invoke.card.FilePickerOptions.prototype.defaultSaveFileNames = [];
 
 /**
  * @type String[]
- * @description  An array of strings describes the folders that will presented to the FilePicker. Defaults to the last folder that the picker was opened in. Recommended to be specified with every call to control the user experience.
+ * @description  An array of strings where only the first value in array describes the folder that will presented to the FilePicker, all other items will be ignored. Defaults to the last folder that the picker was opened in. Recommended to be specified with every call to control the user experience.
  * @BB10X
  */
 blackberry.invoke.card.FilePickerOptions.prototype.directory = [];

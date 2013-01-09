@@ -162,29 +162,29 @@ blackberry.invoke.card = {
          *   invokeFilePicker(details);
          * }
          *
-         * //open file picker in multiple mode starting at two directories - APP HOME and SHARED FOLDER
+         * //open file picker in multiple mode at SHARED FOLDER
          * function invokeFileInPickerMode5() {
          *   var details = {
          *           mode: blackberry.invoke.card.FILEPICKER_MODE_PICKER,
-         *           directory: [blackberry.io.home, blackberry.io.sharedFolder]
+         *           directory: [blackberry.io.sharedFolder]
          *       };
          *   invokeFilePicker(details);
          * }
          *
-         * //open file picker in saver mode starting at two directories
+         * //open file picker in saver mode at SHARED FOLDER
          * function invokeFileInPickerMode6() {
          *   var details = {
          *           mode: blackberry.invoke.card.FILEPICKER_MODE_PICKER_MULTIPLE,
-         *           directory: [blackberry.io.home, blackberry.io.sharedFolder]
+         *           directory: [blackberry.io.sharedFolder]
          *       };
          *   invokeFilePicker(details);
          * }
          *
-         * //open file picker in saver mode with 1 directory. Should open parent of App Home
+         * //open file picker in saver mode at SHARED FOLDER.
          * function invokeFileInPickerMode7() {
          *   var details = {
          *           mode: blackberry.invoke.card.FILEPICKER_MODE_SAVER,
-         *           directory: [blackberry.io.home]
+         *           directory: [blackberry.io.sharedFolder]
          *       };
          *   invokeFilePicker(details);
          * }
@@ -400,7 +400,7 @@ blackberry.invoke.card = {
          * function shareCardFilePNG() {
          *     var request = {
          *         action : 'bb.action.SHARE',
-         *         uri : 'file://' + blackberry.io.home  + '/../app/native/manual/InvocationTest/test_image.png',
+         *         uri : 'file://' + blackberry.io.sharedFolder  + '/../app/native/manual/InvocationTest/test_image.png',
          *         target_type: ["CARD"]
          *     };
          *
