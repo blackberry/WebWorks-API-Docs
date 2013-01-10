@@ -16,7 +16,7 @@
 
 /**
  * @toc {IO} HTML5 LocalFileSystem
- * @class 
+ * @class
  * @description This object provides a way to obtain root file system
  * @constructedBy window.requestFileSystem
 */
@@ -36,10 +36,10 @@ LocalFileSystem = {
 		 * @description Localstorage that is temporary
 		 */
 		TEMPORARY: TEMPORARY,
-	};	
+	};
 
     /**
-    * @description  Requests the filesystem. 
+    * @description  Requests the filesystem.
     * @param {string} String to indicate the LocalFileSystem.type (ie. LocalFileSystem.PERSISTENT or LocalFileSystem.TEMPORARY)
     * @callback {successCallback} callback function that is invoked on successful request of a file system. Argument passed in is the FileSystem object
     * @callback {errorCallback} callback function for handling errors or when the request to obtain the file system is denied. Argument passed in is the FileError object
@@ -54,17 +54,17 @@ LocalFileSystem = {
 	*		console.log('Opened file system: ' + fs.name);
 	* }
 	*
-	* window.requestFileSystem(window.TEMPORARY, 5*1024*1024  onInitFs, errorHandler);    // 5*1024*1024 = 5MB
+	* window.webkitRequestFileSystem(window.TEMPORARY, 5*1024*1024  onInitFs, errorHandler);    // 5*1024*1024 = 5MB
 	*
     *
     * &lt;/script&gt;
     *
     */
-    LocalFileSystem.prototype.requestFileSystem  = function(filetype, successCallback, errorCallback) {};
+    LocalFileSystem.prototype.webkitRequestFileSystem  = function(filetype, successCallback, errorCallback) {};
 
-	
+
     /**
-    * @description  Requests the DirectoryEntry or FileEntry Object using local URI. 
+    * @description  Requests the DirectoryEntry or FileEntry Object using local URI.
     * @param {String} Full path and name of file
 	* @param {integer} size (in bytes) the app will require for storage
     * @callback {successCallback} callback function that is invoked on successful request of a file system. Argument passed in is the FileSystem object
@@ -81,7 +81,7 @@ LocalFileSystem = {
 	*		console.log(fileEntry.name);
 	* }
 	*
-	* window.resolveLocalFileSystemURI("file:///example.txt", onSuccess, onError);    * &lt;/script&gt;
+	* window.webkitResolveLocalFileSystemURI("file:///example.txt", onSuccess, onError);    * &lt;/script&gt;
     *
     */
-    LocalFileSystem.prototype.resolveLocalFileSystemURI  = function( String, successCallback, errorCallback) {};
+    LocalFileSystem.prototype.webkitResolveLocalFileSystemURI  = function( String, successCallback, errorCallback) {};
