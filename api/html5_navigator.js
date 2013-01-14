@@ -51,10 +51,12 @@ navigator = {
  * @description The <b>online</b> event is triggered whenever browser switches to online
  * @callback {function} CallbackFunction The callback function that will be invoked on the online event
  * @param {Boolean} useCapture A boolean that indicates whether the user wishes to initiate capture
+ * @apiNotice {Warning} Only listeners added to window will be triggered. The event will not be triggered on document.
+
  * @example
  *
  * function onOnline() {}
- *   document.body.addEventListener("online", function() { alert("online")}, false);
+ *   window.addEventListener("online", function() { alert("online")}, false);
  * }
  */
  navigator.prototype.online = function(){};
@@ -69,10 +71,11 @@ navigator = {
  * @description The <b>offline</b> event is triggered whenever browser switches to offline
  * @callback {function} CallbackFunction The callback function that will be invoked on the offline event
  * @param {Boolean} useCapture A boolean that indicates whether the user wishes to initiate capture
+ * @apiNotice {Warning} Only listeners added to window will be triggered. The event will not be triggered on document.
  * @example
  *
  * function onOffline() {}
- *   document.body.addEventListener("offline", function() { alert("offline")}, false);
+ *   window.addEventListener("offline", function() { alert("offline")}, false);
  * }
  */
 navigator.prototype.offline = function(){};
