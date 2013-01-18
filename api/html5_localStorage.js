@@ -15,18 +15,20 @@
 */
 
 /**
- * @notice {Support for BlackBerry 6.0:}
+ * @notice {BlackBerry 6.0 Support:}
  * This API supports BlackBerry 6.0; however, some BlackBerry 6.0 dot revisions may not be fully supported.
+ * @notice {BlackBerry 10 Storage Limit}
+ * On BB10 devices, local storage has 25MB of storage per domain instead of the standard 5MB.
  * @toc {Data Storage} HTML5 Local Storage
  * @PB10+
  * @BB10X
  * @BB60+
- * @namespace This object provides functions to access a list of key/value pairs. 
- * <p/>Each <code>Storage</code> object provides access to a list of key/value pairs, which are sometimes called items. 
- * Keys are strings. Any string (including the empty string) is a valid key. 
+ * @namespace This object provides functions to access a list of key/value pairs.
+ * <p/>Each <code>Storage</code> object provides access to a list of key/value pairs, which are sometimes called items.
+ * Keys are strings. Any string (including the empty string) is a valid key.
  * Values can be any data type supported by the structured clone algorithm.
- 
- * 
+
+ *
  */
 
 localStorage ={
@@ -40,7 +42,7 @@ localStorage ={
 		 * @type Number
 		 */
 		length :0,
-		
+
 		/**
 		 * @PB10+
          * @BB10X
@@ -51,20 +53,20 @@ localStorage ={
 		 * @returns {String} The name of the nth key in the list. Returns <code>null</code> if the index is greater than or equal to the number of key/value pairs in the object.
 		 */
 		key : function(index){},
-		
+
 		/**
 		 * @PB10+
          * @BB10X
          * @BB60+
 		 * @RIPPLE
 		 * @description Returns a structured clone of the current value associated with the given key.
-		 * @param {String} key The key for the key/value pair 
+		 * @param {String} key The key for the key/value pair
 		 * @returns {Object} The value associated with the given key. Returns <code>null</code> if the given key does not exist.
 		 * @example
 		 * var cityName=localStorage.getItem("cityName");
 		 */
 		getItem : function(key){},
-		
+
 		/**
 		 * @PB10+
          * @BB10X
@@ -73,13 +75,13 @@ localStorage ={
 		 * @description This method first creates a structured clone of the given value. The user agent checks if a key/value pair with the given key already exists in the list associated with the object.
 		 * If it does not, then a new key/value pair must be added to the list, with the given key and with its value set to the newly obtained clone of value.
 		 * If the given key does exist in the list, then it must have its value updated to the newly obtained clone of value.
-		 * @param {String} key The key for the key/value pair 
+		 * @param {String} key The key for the key/value pair
 		 * @param {Object} value The value for the key/value pair
-		 * @throws {Exception} If a structured clone of the given value cannot be created. The list associated with the object is left unchanged.     
+		 * @throws {Exception} If a structured clone of the given value cannot be created. The list associated with the object is left unchanged.
          * @throws {NOT_SUPPORTED_ERR} If the structured clone involving the construction of a new <code>ImageData</code> object cannot be created.
          * @throws {QUOTA_EXCEEDED_ERR} If the new value couldn't be set (for example, if the user disabled storage for the site, or if the quota has been exceeded).
 		 * @example
-		 * localStorage.setItem("cityName", "Toronto"); 
+		 * localStorage.setItem("cityName", "Toronto");
 		 */
 		setItem : function(key, value){},
 
