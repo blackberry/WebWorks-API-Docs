@@ -69,7 +69,7 @@ blackberry.ui.cover.prototype.setContent = function () {};
  * @example
  * &lt;script type="text/javascript"&gt;
  *
- * blackberry.ui.cover.setTransition(blackberry.ui.TRANSITION_FADE);
+ * blackberry.ui.cover.setTransition(blackberry.ui.cover.TRANSITION_FADE);
  *
  * &lt;/script&gt;
  */
