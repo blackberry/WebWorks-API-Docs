@@ -67,6 +67,7 @@ blackberry.app ={
     /**
      * @description This function will lock the application's screen to the given orientation.
      * @param {String} orientation The orientation to lock the device to. If the device is currently not in this orientation, the application will rotate then lock.Orientation can be landscape-primary, landscape-secondary, portrait-primary, portrait-secondary.
+     * @param {Boolean} [recieveRotateEvents=true]If set to true, rotation events will be sent and bezel gestures will be aligned with the physical rotation of the device.
      * @BB10X
      * @RIPPLE
      */

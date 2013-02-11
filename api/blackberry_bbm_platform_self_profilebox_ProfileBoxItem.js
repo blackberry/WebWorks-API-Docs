@@ -21,6 +21,16 @@
  */
 blackberry.bbm.platform.self.profilebox.ProfileBoxItem = function() {
     /**
+     * @name blackberry.bbm.platform.self.profilebox.ProfileBoxItem.id^2
+     * @field
+     * @description
+     * The item ID.
+     * @type String
+     * @readOnly
+     * @BB10X
+     */
+
+    /**
      * The item ID.
      * @type Number
      * @readOnly
@@ -35,12 +45,21 @@ blackberry.bbm.platform.self.profilebox.ProfileBoxItem = function() {
      * @BB50+
      */
     this.icon = 0;
+
+    /**
+     * The item icon as a base64 encoded image string. This is <code>undefined</code> if the item has no icon.
+     * @type Number
+     * @readOnly
+     * @BB10X
+     */
+    this.iconId = 0;
     
     /**
      * The item text.
      * @type String
      * @readOnly
      * @BB50+
+     * @BB10X     
      */
     this.text = "";
     
@@ -49,6 +68,7 @@ blackberry.bbm.platform.self.profilebox.ProfileBoxItem = function() {
      * @type String
      * @readOnly
      * @BB50+
+     * @BB10X     
      */
     this.cookie = "";
 };

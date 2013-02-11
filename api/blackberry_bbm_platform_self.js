@@ -29,7 +29,7 @@ blackberry.bbm.platform.self = {
         /**
          * @description Gets the user's display picture.
          * @callback {Function} onComplete Invoked when the image has been retrieved.
-         * @callback {String} onComplete.image contains a base64 string representation of the image
+         * @callback {String} onComplete.image Contains a base64 string representation of the image
          * @BB10X
          * @example
          * &lt;script type="text/javascript"&gt;
@@ -49,16 +49,23 @@ blackberry.bbm.platform.self = {
          * <p>The URI must be fully qualified. Non-local URIs must be whitelisted in the application's configuration file. Examples:
          * <ul>
          * <li>Locally from within the widget package (e.g. "local:///smiley.jpg")
-         * <li>From the filesystem of a BB10 device (e.g. "/accounts/1000/shared/photos/smiley.jpg")
+         * <li>From the filesystem of a BB10 device (e.g. "file:///accounts/1000/shared/photos/smiley.jpg")
          * </ul>
          * </p>
          * @param {String} displayPictureURI The fully qualified URI.
-         * <code>false</code> otherwise.
+         * @callback {Function} onSuccess Invoked when the request to change the display picture is shown to the user.
+         * @callback {Boolean} onSuccess.success <code>true</code> if the image was found.
+         * @callback {Function} onError Invoked when there was an error setting the picture.
+         * @callback {String} onError.error Contains error message.        
          * @BB10X
          * @example
          * &lt;script type="text/javascript"&gt;
          * // Set the user's display picture
-         * blackberry.bbm.platform.self.setDisplayPicture("local:///smiley.jpg");
+         * blackberry.bbm.platform.self.setDisplayPicture("local:///smiley.jpg", function (success) {
+         *     alert("Image found");
+         * }), function (error) {
+         *     alert(error);
+         * });
          * &lt;/script&gt;
          */
 

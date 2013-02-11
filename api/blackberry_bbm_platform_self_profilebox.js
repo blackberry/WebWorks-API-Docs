@@ -54,6 +54,7 @@ blackberry.bbm.platform.self.profilebox = {
      * @type Boolean
      * @readOnly
      * @BB50+
+     * @BB10X
      */
     accessible : false,
     
@@ -62,8 +63,36 @@ blackberry.bbm.platform.self.profilebox = {
      * @type blackberry.bbm.platform.self.profilebox.ProfileBoxItem[]
      * @readOnly
      * @BB50+
+     * @BB10X
      */
     items : null,
+
+    /**
+     * @name blackberry.bbm.platform.self.profilebox.addItem^2
+     * @function
+     * @description
+     * Adds an item to the top of the user's profile box.
+     * <p>Icons are optional and must be registered before an item is added.
+     * @param {Object} options The options.
+     * @param {String} options.text The text of the item.
+     * @param {String} options.cookie The customizable cookie string.
+     * @param {Number} [options.iconId] <i>Optional</i> The icon ID of a previously registered icon.
+     * @callback {Function} onSuccess Invoked when the item has been removed.
+     * @callback {blackberry.bbm.platform.self.profilebox.ProfileBoxItem} onSuccess.item The new item.
+     * @callback {Function} onError Invoked when when there was an error removing the item.
+     * @callback {String} onError.error Contains error message. 
+     * @example
+     * &lt;script type="text/javascript"&gt;
+     * // Add an item with icon, text, and a cookie
+     * var options = {text: "Planted an apple orchard on 10 acres!", icon: "local:///smiley.jpg", cookie: "10acres"};
+     * blackberry.bbm.platform.self.profilebox.addItem(options, function (item) {
+           // do something with the item
+       }), function (error) {
+           alert(error);
+       });
+     * &lt;/script&gt;
+     * @BB10X
+     */
     
     /**
      * Adds an item to the top of the user's profile box.
@@ -96,7 +125,20 @@ blackberry.bbm.platform.self.profilebox = {
      */
     addItem : function(options) {
     },
-    
+
+    /**
+     * @name blackberry.bbm.platform.self.profilebox.removeItem^2
+     * @function
+     * @description
+     * Removes an item.
+     * @param {blackberry.bbm.platform.self.profilebox.ProfileBoxItem} item The item to remove.
+     * @callback {Function} onSuccess Invoked when the item has been removed.
+     * @callback {blackberry.bbm.platform.self.profilebox.ProfileBoxItem} onSuccess.item The item that was removed.
+     * @callback {Function} onError Invoked when when there was an error removing the item.
+     * @callback {String} onError.error Contains error message. 
+     * @BB10X
+     */
+
     /**
      * Removes an item.
      * @param {blackberry.bbm.platform.self.profilebox.ProfileBoxItem} item The item to remove.
@@ -105,6 +147,14 @@ blackberry.bbm.platform.self.profilebox = {
      */
     removeItem: function(item) {  
     },
+
+    /**
+     * @name blackberry.bbm.platform.self.profilebox.clearItems^2
+     * @function
+     * @description
+     * Removes all items.
+     * @BB10X
+     */
     
     /**
      * Removes all items.
@@ -112,5 +162,35 @@ blackberry.bbm.platform.self.profilebox = {
      * @BB50+
      */
     clearItems: function() {
+    }
+
+    /** 
+     * Registers an icon for use with user's profile box.
+     * <p>Icons are provided via a fully-qualified URI. Non-local URIs must be whitelisted in the application's configuration file. Examples:
+     * <ul>
+     * <li>Locally from within the widget package (e.g. "local:///smiley.jpg")
+     * <li>From the file system of the device (e.g. "file:///SDCard/BlackBerry/pictures/smiley.jpg")
+     * </ul> 
+     * @param {Object} options The options.
+     * @param {String} options.icon The URI of the icon to register.
+     * @param {Number} options.iconId An icon ID for the icon, this number must be unique.     
+     * @callback {Function} onSuccess Invoked when the icon has been registered.
+     * @callback {Object} onSuccess.iconId The icon ID of the registered icon.
+     * @callback {Function} onError Invoked when when there was an error registering the icon.
+     * @callback {String} onError.error Contains error message. 
+     * @example
+     * &lt;script type="text/javascript"&gt;
+     * // Register an icon
+     * var options = {icon: "local:///smiley.jpg", iconId: 1337};
+     * blackberry.bbm.platform.self.profilebox.registerIcon(options, function (icon) {
+           // do something
+           alert("Registered " + icon.iconId)
+       }), function (error) {
+           alert(error);
+       });
+     * &lt;/script&gt;
+     * @BB10X
+     */     
+    registerIcon: function () {
     }
 };
