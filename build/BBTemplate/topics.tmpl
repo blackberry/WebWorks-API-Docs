@@ -22,12 +22,12 @@ var currentLetter = "@";
 <p>You can view the API reference in a few different layouts. The Topics layout was created to group APIs into meaningful topics, such as BBM, Data Storage, Media, and so on. 
                     If you want to see All classes, please use the navigation on the left to select the appropriate layout.</p>
 <for each="clazz" in="buildTopicsMenu(data)">
-    <div class="column grid_8 topics">
+    <div class="twelve column topics">
         <h2> {+ clazz.title +} </h2>
-        <for each="child" in="clazz.children">
-            <ul>
-                <li> {+(new Link()).toClass(child.alt).withText(child.title)+} </li>
-            </ul>
-        </for>
+		<ul>
+			<for each="child" in="clazz.children">
+				  <li>{+(new Link()).toClass(child.alt).withText(child.title) +} </li>
+			</for>
+		</ul>
     </div>
 </for>
