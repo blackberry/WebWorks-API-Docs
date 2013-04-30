@@ -129,7 +129,7 @@ blackberry.invoke.card = {
          *   var details = {
          *           mode: blackberry.invoke.card.FILEPICKER_MODE_PICKER,
          *           type: [blackberry.invoke.card.FILEPICKER_TYPE_PICTURE],
-         *           imageCropEnabled: true
+         *           imageCrop: true
          *       };
          *   invokeFilePicker(details);
          * }
